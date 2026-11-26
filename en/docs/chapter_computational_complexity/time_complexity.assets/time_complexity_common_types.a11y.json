@@ -1,51 +1,51 @@
 {
-  "schema_version": 2,
-  "title": "Growth trends of five common time complexity classes",
-  "summary": "Compare how five time complexity classes grow as input size increases.",
   "context": [
-    "The horizontal axis shows input size n with ticks from 1 to 14; the vertical axis shows the number of operations T(n) with no numeric ticks. The curves illustrate asymptotic growth trends rather than measured operation counts from a program or unscaled function values."
+    "The horizontal axis is input size n, marked from 1 to 14. The vertical axis is operation count T(n), with no numerical tick labels. The curves illustrate growth trends. They do not give measured counts for a particular program or unscaled function values."
   ],
   "description": [
-    "The table below orders the curves from lowest to highest at the right edge of the plot, matching the upward arrow on the right labeled \"Lower → higher; better → worse\"."
+    "The table orders the curves from lowest to highest at their right ends, following the upward arrow labeled “Lower to higher, better to worse.”"
   ],
   "frames": [
     {
-      "id": "source-27",
       "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_common_types.png",
-      "title": "Growth trends of five common time complexity classes",
-      "explanation": "In the left portion of the plot several curves cross—for instance, the red exponential curve starts out below both the blue linear line and the orange quadratic curve before overtaking them. Those intersections are purely schematic and cannot be used to read off exact operation counts or crossover thresholds for specific inputs. What the plot conveys is that for sufficiently large n, lower complexity classes grow more slowly in operation count."
+      "explanation": "Some curves cross early on. For example, the red exponential curve starts below the blue linear and orange quadratic curves, then overtakes them. The crossings are illustrative. They do not specify exact operation counts or the input size at which one algorithm becomes more efficient than another. For sufficiently large n, a lower order means slower growth in the operation count.",
+      "id": "source-27",
+      "title": "Growth rates of five common time complexities"
     }
   ],
+  "schema_version": 2,
+  "summary": "The chart compares how five time complexities grow with input size.",
   "tables": [
     {
-      "caption": "Five time complexity classes and curve shapes",
+      "caption": "Five time complexities and their curve shapes",
       "headers": [
-        "Complexity (low to high at right edge)",
-        "Shape in figure"
+        "Complexity (lowest to highest at the right edge)",
+        "Shape in the chart"
       ],
       "row_header": 0,
       "rows": [
         [
           "Constant O(1)",
-          "Green horizontal line whose operation count does not change with n"
+          "A green horizontal line. The operation count stays the same as n changes."
         ],
         [
           "Logarithmic O(log n)",
-          "Cyan curve rising slowly with gradually decreasing slope"
+          "A cyan curve rises slowly, with a gradually decreasing slope."
         ],
         [
           "Linear O(n)",
-          "Blue straight line rising at a constant slope"
+          "A straight blue line rises at a constant slope."
         ],
         [
           "Quadratic O(n²)",
-          "Orange curve bending upward with increasingly steep slope"
+          "An orange curve bends upward and gets steeper."
         ],
         [
           "Exponential O(2ⁿ)",
-          "Red curve staying near the bottom early on and rising steeply afterward"
+          "A red curve stays near the bottom at first, then rises steeply."
         ]
       ]
     }
-  ]
+  ],
+  "title": "Growth rates of five common time complexities"
 }

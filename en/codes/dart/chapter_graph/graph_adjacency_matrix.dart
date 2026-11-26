@@ -6,10 +6,10 @@
 
 import '../utils/print_util.dart';
 
-/* Undirected graph class implemented with an adjacency matrix */
+/* Undirected graph represented by an adjacency matrix */
 class GraphAdjMat {
-  List<int> vertices = []; // Vertex entries: each element is a vertex value, and its index is the vertex index
-  List<List<int>> adjMat = []; //Adjacency matrix: row and column indices correspond to vertex indices
+  List<int> vertices = []; // Vertex entries: each value is a vertex value, and its position is the vertex index
+  List<List<int>> adjMat = []; //Adjacency matrix: row and column indices are vertex indices
 
   /* Constructor */
   GraphAdjMat(List<int> vertices, List<List<int>> edges) {
@@ -20,13 +20,13 @@ class GraphAdjMat {
       addVertex(val);
     }
     // Add an edge
-    // Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+    // The entries in edges are vertex indices, that is, indices into vertices
     for (List<int> e in edges) {
       addEdge(e[0], e[1]);
     }
   }
 
-  /* Get the number of vertices */
+  /* Get the vertex count */
   int size() {
     return vertices.length;
   }
@@ -50,32 +50,32 @@ class GraphAdjMat {
     if (index >= size()) {
       throw IndexError;
     }
-    // Remove the vertex at index `index` from the vertex list
+    // Remove the vertex at the specified index from the vertex list
     vertices.removeAt(index);
-    // Remove row `index` from the adjacency matrix
+    // Remove the row at the specified index from the adjacency matrix
     adjMat.removeAt(index);
-    // Remove column `index` from the adjacency matrix
+    // Remove the column at the specified index from the adjacency matrix
     for (List<int> row in adjMat) {
       row.removeAt(index);
     }
   }
 
   /* Add an edge */
-  // Parameters i and j are element indices in vertices
+  // Parameters i and j are indices into vertices
   void addEdge(int i, int j) {
-    // Handle out-of-bounds or equal indices
+    // Check for out-of-bounds or equal indices
     if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) {
       throw IndexError;
     }
-    // For an undirected graph, the adjacency matrix is symmetric about its main diagonal: entries (i, j) and (j, i) are equal
+    // An undirected graph has a symmetric adjacency matrix: (i, j) == (j, i)
     adjMat[i][j] = 1;
     adjMat[j][i] = 1;
   }
 
   /* Remove an edge */
-  // Parameters i and j are element indices in vertices
+  // Parameters i and j are indices into vertices
   void removeEdge(int i, int j) {
-    // Handle out-of-bounds or equal indices
+    // Check for out-of-bounds or equal indices
     if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) {
       throw IndexError;
     }
@@ -93,8 +93,8 @@ class GraphAdjMat {
 
 /* Driver code */
 void main() {
-  /* Initialize the undirected graph */
-  // Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+  /* Initialize an undirected graph */
+  // The entries in edges are vertex indices, that is, indices into vertices
   List<int> vertices = [1, 3, 2, 5, 4];
   List<List<int>> edges = [
     [0, 1],

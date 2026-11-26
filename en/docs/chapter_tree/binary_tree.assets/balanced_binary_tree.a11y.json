@@ -1,21 +1,21 @@
 {
-  "schema_version": 2,
-  "title": "Balanced binary tree: subtree heights differ by at most 1 at every node",
-  "summary": "The tree is asymmetric but meets the balance condition at every node.",
   "context": [
-    "The box on the right defines d as left subtree height minus right subtree height. Every node must satisfy |d| ≤ 1. Here d measures height difference, not node degree. Heights count edges, with 0 for a leaf and −1 for an empty subtree."
+    "The box on the right defines d as the left subtree height minus the right subtree height and requires |d| ≤ 1 at every node. Here d is a height difference, distinct from node degree. With height measured in edges, a leaf has height 0 and an empty subtree has height −1."
   ],
   "description": [
-    "The tree on the left has four levels and 8 nodes with no value labels. The root’s left child has a left leaf and no right subtree. Its label is d = 1.",
-    "The root’s right child has two children. Its left child is internal and has two leaves, while its right child is itself a leaf. The root’s right child is labeled d = 1 and its left child d = 0. All four leaves have two empty subtrees and are labeled d = 0."
+    "The tree on the left has four levels and 8 nodes without value labels. The root's left child has just one left leaf and an empty right subtree. It is labeled d = 1.",
+    "The root's right child has two children. Its left child is an internal node with two leaves, and its right child is itself a leaf. Thus the root's right child is labeled d = 1, and its left child is labeled d = 0. All four leaves have empty left and right subtrees and are labeled d = 0."
   ],
-  "result": "To determine balance, check every node. Checking only the root’s height difference is insufficient.",
   "frames": [
     {
-      "id": "source-95",
       "book_path": "chapter_tree/binary_tree.assets/balanced_binary_tree.png",
-      "title": "Balanced binary tree: subtree heights differ by at most 1 at every node",
-      "explanation": "The root’s left subtree has height 1 and its right subtree height 2, so the root is labeled d = −1. Every other node’s height difference is also at most 1 in absolute value, so the tree is balanced."
+      "explanation": "The root's left subtree has height 1 and its right subtree has height 2, so the root is labeled d = −1. The subtree heights at every other node also differ by at most 1, so the entire tree is balanced.",
+      "id": "source-95",
+      "title": "Balanced binary tree: subtree heights differ by at most 1 at every node"
     }
-  ]
+  ],
+  "result": "Check every node for balance. The height difference at the root alone is insufficient.",
+  "schema_version": 2,
+  "summary": "Although this tree is asymmetric, every node satisfies the balance condition.",
+  "title": "Balanced binary tree: subtree heights differ by at most 1 at every node"
 }

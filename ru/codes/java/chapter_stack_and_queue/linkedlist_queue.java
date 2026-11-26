@@ -10,7 +10,7 @@ import java.util.*;
 
 /* Очередь на основе связного списка */
 class LinkedListQueue {
-    private ListNode front, rear; // Головной узел front, хвостовой узел rear
+    private ListNode front, rear; // front — первый узел, rear — последний
     private int queSize = 0;
 
     public LinkedListQueue() {
@@ -18,25 +18,25 @@ class LinkedListQueue {
         rear = null;
     }
 
-    /* Получение длины очереди */
+    /* Получить длину очереди */
     public int size() {
         return queSize;
     }
 
-    /* Проверка, пуста ли очередь */
+    /* Проверить, пуста ли очередь */
     public boolean isEmpty() {
         return size() == 0;
     }
 
-    /* Поместить в очередь */
+    /* Добавить элемент в очередь */
     public void push(int num) {
-        // Добавить num после хвостового узла
+        // Добавить узел со значением num после последнего узла
         ListNode node = new ListNode(num);
-        // Если очередь пуста, сделать так, чтобы и head, и tail указывали на этот узел
+        // Если очередь пуста, установить ссылки на первый и последний узлы так, чтобы обе указывали на новый узел
         if (front == null) {
             front = node;
             rear = node;
-        // Если очередь не пуста, добавить этот узел после хвостового узла
+        // Если очередь непуста, добавить новый узел после последнего
         } else {
             rear.next = node;
             rear = node;
@@ -44,23 +44,23 @@ class LinkedListQueue {
         queSize++;
     }
 
-    /* Извлечь из очереди */
+    /* Извлечь элемент из очереди */
     public int pop() {
         int num = peek();
-        // Удалить головной узел
+        // Удалить первый узел
         front = front.next;
         queSize--;
         return num;
     }
 
-    /* Доступ к элементу в начале очереди */
+    /* Посмотреть первый элемент очереди */
     public int peek() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return front.val;
     }
 
-    /* Преобразовать связный список в Array и вернуть */
+    /* Преобразовать связный список в массив и вернуть его */
     public int[] toArray() {
         ListNode node = front;
         int[] res = new int[size()];
@@ -74,10 +74,10 @@ class LinkedListQueue {
 
 public class linkedlist_queue {
     public static void main(String[] args) {
-        /* Инициализация очереди */
+        /* Инициализировать очередь */
         LinkedListQueue queue = new LinkedListQueue();
 
-        /* Добавление элемента в очередь */
+        /* Добавить элементы в очередь */
         queue.push(1);
         queue.push(3);
         queue.push(2);
@@ -85,20 +85,20 @@ public class linkedlist_queue {
         queue.push(4);
         System.out.println("Очередь queue = " + Arrays.toString(queue.toArray()));
 
-        /* Доступ к элементу в начале очереди */
+        /* Посмотреть первый элемент очереди */
         int peek = queue.peek();
-        System.out.println("Первый элемент peek = " + peek);
+        System.out.println("Первый элемент очереди peek = " + peek);
 
-        /* Извлечение элемента из очереди */
+        /* Извлечь элемент из очереди */
         int pop = queue.pop();
-        System.out.println("Извлеченный элемент pop = " + pop + ", queue после извлечения = " + Arrays.toString(queue.toArray()));
+        System.out.println("Извлечённый элемент pop = " + pop + ", после извлечения queue = " + Arrays.toString(queue.toArray()));
 
-        /* Получение длины очереди */
+        /* Получить длину очереди */
         int size = queue.size();
         System.out.println("Длина очереди size = " + size);
 
-        /* Проверка, пуста ли очередь */
+        /* Проверить, пуста ли очередь */
         boolean isEmpty = queue.isEmpty();
-        System.out.println("Пуста ли очередь = " + isEmpty);
+        System.out.println("Очередь пуста = " + isEmpty);
     }
 }

@@ -4,145 +4,145 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 基於環形陣列實現的雙向佇列 */
+/* 以環狀陣列實作雙端佇列 */
 class ArrayDeque {
-    private var nums: [Int] // 用於儲存雙向佇列元素的陣列
-    private var front: Int // 佇列首指標，指向佇列首元素
-    private var _size: Int // 雙向佇列長度
+    private var nums: [Int] // 存放雙端佇列元素的陣列
+    private var front: Int // 隊首索引，記錄隊首元素在陣列中的位置
+    private var _size: Int // 雙端佇列長度
 
-    /* 建構子 */
+    /* 初始化方法 */
     init(capacity: Int) {
         nums = Array(repeating: 0, count: capacity)
         front = 0
         _size = 0
     }
 
-    /* 獲取雙向佇列的容量 */
+    /* 取得雙端佇列容量 */
     func capacity() -> Int {
         nums.count
     }
 
-    /* 獲取雙向佇列的長度 */
+    /* 取得雙端佇列長度 */
     func size() -> Int {
         _size
     }
 
-    /* 判斷雙向佇列是否為空 */
+    /* 判斷雙端佇列是否為空 */
     func isEmpty() -> Bool {
         size() == 0
     }
 
-    /* 計算環形陣列索引 */
+    /* 計算環狀陣列的索引 */
     private func index(i: Int) -> Int {
-        // 透過取餘操作實現陣列首尾相連
-        // 當 i 越過陣列尾部後，回到頭部
-        // 當 i 越過陣列頭部後，回到尾部
+        // 取餘數，讓陣列的首尾相接
+        // 當 i 超過陣列末端時，繞回開頭
+        // 當 i 越過陣列開頭時，繞回末端
         (i + capacity()) % capacity()
     }
 
-    /* 佇列首入列 */
+    /* 從隊首加入元素 */
     func pushFirst(num: Int) {
         if size() == capacity() {
-            print("雙向佇列已滿")
+            print("雙端佇列已滿")
             return
         }
-        // 佇列首指標向左移動一位
-        // 透過取餘操作實現 front 越過陣列頭部後回到尾部
+        // 將隊首索引往左移一格
+        // 取餘數，讓 front 越過陣列開頭時繞回末端
         front = index(i: front - 1)
-        // 將 num 新增至佇列首
+        // 將 num 加到隊首
         nums[front] = num
         _size += 1
     }
 
-    /* 佇列尾入列 */
+    /* 從隊尾加入元素 */
     func pushLast(num: Int) {
         if size() == capacity() {
-            print("雙向佇列已滿")
+            print("雙端佇列已滿")
             return
         }
-        // 計算佇列尾指標，指向佇列尾索引 + 1
+        // 計算下一次從隊尾寫入的位置 rear（隊尾索引 + 1）
         let rear = index(i: front + size())
-        // 將 num 新增至佇列尾
+        // 將 num 加到隊尾
         nums[rear] = num
         _size += 1
     }
 
-    /* 佇列首出列 */
+    /* 從隊首取出元素 */
     func popFirst() -> Int {
         let num = peekFirst()
-        // 佇列首指標向後移動一位
+        // 將隊首索引往後移一格
         front = index(i: front + 1)
         _size -= 1
         return num
     }
 
-    /* 佇列尾出列 */
+    /* 從隊尾取出元素 */
     func popLast() -> Int {
         let num = peekLast()
         _size -= 1
         return num
     }
 
-    /* 訪問佇列首元素 */
+    /* 讀取隊首元素 */
     func peekFirst() -> Int {
         if isEmpty() {
-            fatalError("雙向佇列為空")
+            fatalError("雙端佇列為空")
         }
         return nums[front]
     }
 
-    /* 訪問佇列尾元素 */
+    /* 讀取隊尾元素 */
     func peekLast() -> Int {
         if isEmpty() {
-            fatalError("雙向佇列為空")
+            fatalError("雙端佇列為空")
         }
-        // 計算尾元素索引
+        // 計算隊尾元素的索引
         let last = index(i: front + size() - 1)
         return nums[last]
     }
 
-    /* 返回陣列用於列印 */
+    /* 回傳陣列以便輸出 */
     func toArray() -> [Int] {
-        // 僅轉換有效長度範圍內的串列元素
+        // 只轉換雙端佇列中實際存放的元素
         (front ..< front + size()).map { nums[index(i: $0)] }
     }
 }
 
 @main
 enum _ArrayDeque {
-    /* Driver Code */
+    /* 範例程式 */
     static func main() {
-        /* 初始化雙向佇列 */
+        /* 初始化雙端佇列 */
         let deque = ArrayDeque(capacity: 10)
         deque.pushLast(num: 3)
         deque.pushLast(num: 2)
         deque.pushLast(num: 5)
-        print("雙向佇列 deque = \(deque.toArray())")
+        print("雙端佇列 deque = \(deque.toArray())")
 
-        /* 訪問元素 */
+        /* 讀取隊首與隊尾元素 */
         let peekFirst = deque.peekFirst()
-        print("佇列首元素 peekFirst = \(peekFirst)")
+        print("隊首元素 peekFirst = \(peekFirst)")
         let peekLast = deque.peekLast()
-        print("佇列尾元素 peekLast = \(peekLast)")
+        print("隊尾元素 peekLast = \(peekLast)")
 
-        /* 元素入列 */
+        /* 將元素加入雙端佇列 */
         deque.pushLast(num: 4)
-        print("元素 4 佇列尾入列後 deque = \(deque.toArray())")
+        print("將元素 4 加到隊尾後 deque = \(deque.toArray())")
         deque.pushFirst(num: 1)
-        print("元素 1 佇列首入列後 deque = \(deque.toArray())")
+        print("將元素 1 加到隊首後 deque = \(deque.toArray())")
 
-        /* 元素出列 */
+        /* 從雙端佇列取出元素 */
         let popLast = deque.popLast()
-        print("佇列尾出列元素 = \(popLast)，佇列尾出列後 deque = \(deque.toArray())")
+        print("從隊尾取出的元素 = \(popLast)，取出後 deque = \(deque.toArray())")
         let popFirst = deque.popFirst()
-        print("佇列首出列元素 = \(popFirst)，佇列首出列後 deque = \(deque.toArray())")
+        print("從隊首取出的元素 = \(popFirst)，取出後 deque = \(deque.toArray())")
 
-        /* 獲取雙向佇列的長度 */
+        /* 取得雙端佇列長度 */
         let size = deque.size()
-        print("雙向佇列長度 size = \(size)")
+        print("雙端佇列長度 size = \(size)")
 
-        /* 判斷雙向佇列是否為空 */
+        /* 判斷雙端佇列是否為空 */
         let isEmpty = deque.isEmpty()
-        print("雙向佇列是否為空 = \(isEmpty)")
+        print("雙端佇列是否為空 = \(isEmpty)")
     }
 }

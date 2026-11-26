@@ -1,69 +1,69 @@
 # 편집 거리 문제
 
-편집 거리 또는 Levenshtein 거리는 두 문자열을 서로 바꾸는 데 필요한 최소 수정 횟수다. 정보 검색과 자연어 처리에서 두 시퀀스의 유사도를 측정할 때 자주 사용한다.
+편집 거리 또는 레벤슈타인(Levenshtein) 거리는 한 문자열을 다른 문자열로 바꾸는 데 필요한 최소 수정 횟수다. 정보 검색이나 자연어 처리에서 두 시퀀스의 유사도를 측정할 때 자주 쓰인다.
 
-!!! question "문제"
+!!! question
 
-    두 문자열 $s$와 $t$를 입력받아 $s$를 $t$로 바꾸는 데 필요한 최소 편집 횟수를 반환하라.
+    두 문자열 $s$와 $t$이 주어질 때 $s$를 $t$로 바꾸는 데 필요한 최소 편집 횟수를 반환하라.
     
-    문자열에 문자를 하나 삽입하거나, 하나 삭제하거나, 한 문자를 임의의 다른 문자로 바꾸는 세 연산을 할 수 있다.
+    문자열에 허용되는 편집은 세 가지다. 문자 하나를 삽입하거나 삭제하거나 임의의 다른 문자로 교체할 수 있다.
 
-아래 그림과 같이 `kitten`을 `sitting`으로 바꾸려면 교체 2회와 추가 1회로 총 3회 편집해야 한다. `hello`를 `algo`로 바꾸려면 교체 2회와 삭제 1회로 총 3회가 필요하다.
+아래 그림에서 `kitten`을 `sitting`으로 바꾸려면 두 번 교체하고 한 번 추가하는 총 3회의 편집이 필요하다. `hello`를 `algo`로 바꾸려면 두 번 교체하고 한 번 삭제하는 총 3회가 필요하다.
 
-![편집 거리 예시 데이터](edit_distance_problem.assets/edit_distance_example.svg)
+![편집 거리의 예시 데이터](edit_distance_problem.assets/edit_distance_example.svg)
 
-**편집 거리 문제는 의사 결정 트리 모형으로 자연스럽게 설명할 수 있다**. 문자열은 트리 노드에, 한 번의 결정(편집 연산)은 간선 하나에 대응한다.
+**편집 거리 문제는 의사 결정 트리로 자연스럽게 설명할 수 있다**. 문자열은 트리의 노드에, 한 번의 결정(편집 연산 한 번)은 간선 하나에 대응한다.
 
-아래 그림과 같이 연산을 제한하지 않으면 각 노드에서 다양한 연산에 대응하는 많은 간선이 뻗어 나온다. 즉, `hello`에서 `algo`로 가는 경로는 매우 많다.
+아래 그림처럼 연산을 제한하지 않으면 각 노드에서 많은 간선이 뻗어 나온다. 간선마다 한 가지 연산을 나타내므로 `hello`에서 `algo`로 가는 경로도 여러 가지다.
 
-의사 결정 트리의 관점에서 이 문제의 목표는 노드 `hello`와 노드 `algo` 사이의 최단 경로를 구하는 것이다.
+의사 결정 트리로 보면 이 문제의 목표는 노드 `hello`와 노드 `algo` 사이의 최단 경로를 찾는 것이다.
 
-![의사 결정 트리로 표현한 편집 거리 문제](edit_distance_problem.assets/edit_distance_decision_tree.svg)
+![의사 결정 트리로 나타낸 편집 거리 문제](edit_distance_problem.assets/edit_distance_decision_tree.svg)
 
-### 동적 계획법 접근
+### 동적 계획법으로 접근하기
 
-**1단계: 매 차례의 결정을 생각하고 상태를 정의하여 $dp$ 테이블을 얻는다**
+**첫 번째 단계: 매번 내릴 결정을 생각하고 상태를 정의해 $dp$ 테이블 구성하기**
 
-매 차례의 결정은 문자열 $s$에 편집 연산을 한 번 적용하는 것이다.
+매번 내릴 결정은 문자열 $s$에 어느 편집 연산을 한 번 적용할지다.
 
-부분 문제를 만들려면 편집하는 동안 문제의 크기가 점차 줄어들어야 한다. 문자열 $s$와 $t$의 길이를 각각 $n$과 $m$이라고 하고, 두 문자열의 마지막 문자 $s[n-1]$과 $t[m-1]$을 먼저 살펴보자.
+부분 문제를 구성하려면 편집할 때마다 문제의 크기가 줄어들어야 한다. 문자열 $s$와 $t$의 길이를 각각 $n$과 $m$이라 하고, 먼저 두 문자열의 마지막 문자 $s[n-1]$과 $t[m-1]$을 살펴보자.
 
-- $s[n-1]$과 $t[m-1]$이 같으면 두 문자를 건너뛰고 $s[n-2]$와 $t[m-2]$를 바로 살펴볼 수 있다.
-- $s[n-1]$과 $t[m-1]$이 다르면 $s$에 편집(삽입, 삭제, 교체)을 한 번 적용하여 끝 문자가 같아지게 하고, 이를 건너뛰어 더 작은 문제를 살펴본다.
+- $s[n-1]$과 $t[m-1]$이 같으면 두 문자를 건너뛰고 바로 $s[n-2]$와 $t[m-2]$를 살펴볼 수 있다.
+- $s[n-1]$과 $t[m-1]$이 다르면 $s$를 한 번 편집해(삽입, 삭제, 교체) 두 문자열의 끝을 맞춘다. 그러면 일치하는 문자를 건너뛰고 더 작은 문제를 다룰 수 있다.
 
-즉, 문자열 $s$에서 결정(편집 연산)을 할 때마다 $s$와 $t$에서 아직 맞추어야 하는 문자들이 달라진다. 따라서 현재 살펴보는 $s$의 $i$ 번째 문자와 $t$의 $j$ 번째 문자를 상태로 정의하고 $[i, j]$라고 한다.
+즉, 문자열 $s$에 대해 내리는 매번의 결정(편집 연산)에 따라 $s$와 $t$에서 아직 맞춰야 할 문자가 달라진다. 따라서 $s$의 $i$번째 문자와 $t$의 $j$번째 문자를 현재 고려하는 상태를 $[i, j]$로 나타낸다.
 
-상태 $[i, j]$의 부분 문제는 **$s$의 앞 $i$ 개 문자를 $t$의 앞 $j$ 개 문자로 바꾸는 최소 편집 횟수**다.
+상태 $[i, j]$에 해당하는 부분 문제는 **$s$의 앞 $i$개 문자를 $t$의 앞 $j$개 문자로 바꾸는 데 필요한 최소 편집 횟수**를 구하는 것이다.
 
-이로써 $(n+1) \times (m+1)$ 크기의 2차원 $dp$ 테이블을 얻는다.
+이렇게 하면 크기가 $(n+1) \times (m+1)$인 2차원 $dp$ 테이블을 얻는다.
 
-**2단계: 최적 부분 구조를 찾아 상태 전이 식을 도출한다**
+**두 번째 단계: 최적 부분 구조를 찾고 상태 전이식 유도하기**
 
-부분 문제 $dp[i, j]$에 해당하는 두 문자열의 끝 문자는 $s[i-1]$과 $t[j-1]$이다. 편집 연산에 따라 아래 그림의 세 경우로 나뉜다.
+부분 문제 $dp[i, j]$에서 두 문자열의 마지막 문자는 각각 $s[i-1]$과 $t[j-1]$다. 아래 그림처럼 편집 연산에 따라 세 경우로 나눌 수 있다.
 
-1. $s[i-1]$ 뒤에 $t[j-1]$을 추가하면 부분 문제 $dp[i, j-1]$이 남는다.
-2. $s[i-1]$을 삭제하면 부분 문제 $dp[i-1, j]$가 남는다.
-3. $s[i-1]$을 $t[j-1]$로 바꾸면 부분 문제 $dp[i-1, j-1]$이 남는다.
+1. $s[i-1]$ 뒤에 $t[j-1]$을 추가하면 남는 부분 문제는 $dp[i, j-1]$다.
+2. $s[i-1]$을 삭제하면 남는 부분 문제는 $dp[i-1, j]$이다.
+3. $s[i-1]$을 $t[j-1]$로 교체하면 남는 부분 문제는 $dp[i-1, j-1]$다.
 
 ![편집 거리의 상태 전이](edit_distance_problem.assets/edit_distance_state_transfer.svg)
 
-위 분석으로 최적 부분 구조를 얻는다. $dp[i, j]$의 최소 편집 횟수는 $dp[i, j-1]$, $dp[i-1, j]$, $dp[i-1, j-1]$ 중 가장 작은 편집 횟수에 이번 편집 횟수 $1$을 더한 값이다. 상태 전이 식은 다음과 같다.
+이제 최적 부분 구조가 드러난다. $dp[i, j]$의 최소 편집 횟수는 $dp[i, j-1]$, $dp[i-1, j]$, $dp[i-1, j-1]$의 최소 편집 횟수 중 가장 작은 값에 이번 편집 횟수 $1$을 더한 값이다. 이에 해당하는 상태 전이식은 다음과 같다.
 
 $$
 dp[i, j] = \min(dp[i, j-1], dp[i-1, j], dp[i-1, j-1]) + 1
 $$
 
-**$s[i-1]$과 $t[j-1]$이 같으면 현재 문자를 편집할 필요가 없으며**, 이때 상태 전이 식은 다음과 같다.
+**$s[i-1]$과 $t[j-1]$이 같으면 현재 문자를 편집할 필요가 없다**. 이때 상태 전이식은 다음과 같다.
 
 $$
 dp[i, j] = dp[i-1, j-1]
 $$
 
-**3단계: 경계 조건과 상태 전이 순서를 정한다**
+**세 번째 단계: 경계 조건과 상태 전이 순서 정하기**
 
-두 문자열이 모두 비어 있으면 편집 횟수는 $0$이므로 $dp[0, 0] = 0$이다. $s$만 비어 있고 $t$는 비어 있지 않으면 최소 편집 횟수는 $t$의 길이이므로 첫 행은 $dp[0, j] = j$다. 반대로 $s$는 비어 있지 않고 $t$가 비어 있으면 최소 편집 횟수는 $s$의 길이이므로 첫 열은 $dp[i, 0] = i$다.
+두 문자열이 모두 비어 있으면 편집 횟수는 $0$이므로 $dp[0, 0] = 0$이다. $s$가 비어 있고 $t$가 비어 있지 않으면 최소 편집 횟수는 $t$의 길이이므로 첫 행은 $dp[0, j] = j$이다. $s$가 비어 있지 않고 $t$가 비어 있으면 최소 편집 횟수는 $s$의 길이이므로 첫 열은 $dp[i, 0] = i$이다.
 
-상태 전이 식에서 $dp[i, j]$는 왼쪽, 위쪽, 왼쪽 위의 해에 의존하므로 이중 반복문으로 전체 $dp$ 테이블을 정방향으로 순회하면 된다.
+상태 전이식에서 $dp[i, j]$는 왼쪽, 위쪽, 왼쪽 위 칸의 해에 의존한다. 따라서 이중 반복문으로 $dp$ 테이블 전체를 정순으로 순회하면 된다.
 
 ### 코드 구현
 
@@ -71,58 +71,58 @@ $$
 [file]{edit_distance}-[class]{}-[func]{edit_distance_dp}
 ```
 
-아래 그림과 같이 편집 거리의 상태 전이는 배낭 문제와 매우 비슷하며, 모두 2차원 격자를 채우는 과정으로 볼 수 있다.
+아래 그림처럼 편집 거리의 상태 전이 과정은 배낭 문제와 매우 비슷하다. 둘 다 2차원 격자를 채우는 과정으로 볼 수 있다.
 
 === "<1>"
-    ![편집 거리의 동적 계획법 과정](edit_distance_problem.assets/edit_distance_dp_step1.svg)
+    ![동적 계획법으로 편집 거리를 구하는 과정](edit_distance_problem.assets/edit_distance_dp_step1.svg)
 
 === "<2>"
-    ![편집 거리 동적 계획법 2단계](edit_distance_problem.assets/edit_distance_dp_step2.svg)
+    ![edit_distance_dp_step2](edit_distance_problem.assets/edit_distance_dp_step2.svg)
 
 === "<3>"
-    ![편집 거리 동적 계획법 3단계](edit_distance_problem.assets/edit_distance_dp_step3.svg)
+    ![edit_distance_dp_step3](edit_distance_problem.assets/edit_distance_dp_step3.svg)
 
 === "<4>"
-    ![편집 거리 동적 계획법 4단계](edit_distance_problem.assets/edit_distance_dp_step4.svg)
+    ![edit_distance_dp_step4](edit_distance_problem.assets/edit_distance_dp_step4.svg)
 
 === "<5>"
-    ![편집 거리 동적 계획법 5단계](edit_distance_problem.assets/edit_distance_dp_step5.svg)
+    ![edit_distance_dp_step5](edit_distance_problem.assets/edit_distance_dp_step5.svg)
 
 === "<6>"
-    ![편집 거리 동적 계획법 6단계](edit_distance_problem.assets/edit_distance_dp_step6.svg)
+    ![edit_distance_dp_step6](edit_distance_problem.assets/edit_distance_dp_step6.svg)
 
 === "<7>"
-    ![편집 거리 동적 계획법 7단계](edit_distance_problem.assets/edit_distance_dp_step7.svg)
+    ![edit_distance_dp_step7](edit_distance_problem.assets/edit_distance_dp_step7.svg)
 
 === "<8>"
-    ![편집 거리 동적 계획법 8단계](edit_distance_problem.assets/edit_distance_dp_step8.svg)
+    ![edit_distance_dp_step8](edit_distance_problem.assets/edit_distance_dp_step8.svg)
 
 === "<9>"
-    ![편집 거리 동적 계획법 9단계](edit_distance_problem.assets/edit_distance_dp_step9.svg)
+    ![edit_distance_dp_step9](edit_distance_problem.assets/edit_distance_dp_step9.svg)
 
 === "<10>"
-    ![편집 거리 동적 계획법 10단계](edit_distance_problem.assets/edit_distance_dp_step10.svg)
+    ![edit_distance_dp_step10](edit_distance_problem.assets/edit_distance_dp_step10.svg)
 
 === "<11>"
-    ![편집 거리 동적 계획법 11단계](edit_distance_problem.assets/edit_distance_dp_step11.svg)
+    ![edit_distance_dp_step11](edit_distance_problem.assets/edit_distance_dp_step11.svg)
 
 === "<12>"
-    ![편집 거리 동적 계획법 12단계](edit_distance_problem.assets/edit_distance_dp_step12.svg)
+    ![edit_distance_dp_step12](edit_distance_problem.assets/edit_distance_dp_step12.svg)
 
 === "<13>"
-    ![편집 거리 동적 계획법 13단계](edit_distance_problem.assets/edit_distance_dp_step13.svg)
+    ![edit_distance_dp_step13](edit_distance_problem.assets/edit_distance_dp_step13.svg)
 
 === "<14>"
-    ![편집 거리 동적 계획법 14단계](edit_distance_problem.assets/edit_distance_dp_step14.svg)
+    ![edit_distance_dp_step14](edit_distance_problem.assets/edit_distance_dp_step14.svg)
 
 === "<15>"
-    ![편집 거리 동적 계획법 15단계](edit_distance_problem.assets/edit_distance_dp_step15.svg)
+    ![edit_distance_dp_step15](edit_distance_problem.assets/edit_distance_dp_step15.svg)
 
 ### 공간 최적화
 
-$dp[i,j]$는 위쪽 $dp[i-1, j]$, 왼쪽 $dp[i, j-1]$, 왼쪽 위 $dp[i-1, j-1]$에서 전이된다. 그런데 정방향 순회는 왼쪽 위 값 $dp[i-1, j-1]$을 잃고, 역방향 순회는 $dp[i, j-1]$을 미리 계산하지 못하므로 두 순서 모두 그대로는 사용할 수 없다.
+$dp[i,j]$는 위쪽 $dp[i-1, j]$, 왼쪽 $dp[i, j-1]$, 왼쪽 위 $dp[i-1, j-1]$에서 전이한다. 정순으로 순회하면 왼쪽 위 값 $dp[i-1, j-1]$을 잃고, 역순으로 순회하면 $dp[i, j-1]$을 미리 계산할 수 없다. 따라서 어느 순서도 그대로는 쓸 수 없다.
 
-이를 위해 변수 `leftup`에 왼쪽 위의 해 $dp[i-1, j-1]$을 잠시 저장하면 왼쪽과 위쪽의 해만 고려하면 된다. 이때는 무한 배낭 문제와 같은 상황이므로 정방향 순회를 사용할 수 있다. 코드는 다음과 같다.
+변수 `leftup`에 왼쪽 위의 해 $dp[i-1, j-1]$을 잠시 보관하면 왼쪽과 위쪽의 해만 고려하면 된다. 그러면 무한 배낭 문제와 같은 상황이 되어 정순으로 순회할 수 있다. 코드는 다음과 같다.
 
 ```src
 [file]{edit_distance}-[class]{}-[func]{edit_distance_dp_comp}

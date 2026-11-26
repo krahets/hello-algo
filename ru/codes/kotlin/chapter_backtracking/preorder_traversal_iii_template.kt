@@ -9,67 +9,67 @@ package chapter_backtracking.preorder_traversal_iii_template
 import utils.TreeNode
 import utils.printTree
 
-/* Проверить, является ли текущее состояние решением */
+/* Проверяем, является ли текущее состояние решением */
 fun isSolution(state: MutableList<TreeNode?>): Boolean {
     return state.isNotEmpty() && state[state.size - 1]?._val == 7
 }
 
-/* Записать решение */
+/* Сохраняем решение */
 fun recordSolution(state: MutableList<TreeNode?>?, res: MutableList<MutableList<TreeNode?>?>) {
     res.add(state!!.toMutableList())
 }
 
-/* Проверить, допустим ли этот выбор в текущем состоянии */
+/* Проверяем, допустим ли выбор в текущем состоянии */
 fun isValid(state: MutableList<TreeNode?>?, choice: TreeNode?): Boolean {
     return choice != null && choice._val != 3
 }
 
-/* Обновить состояние */
+/* Обновляем состояние */
 fun makeChoice(state: MutableList<TreeNode?>, choice: TreeNode?) {
     state.add(choice)
 }
 
-/* Восстановить состояние */
+/* Восстанавливаем состояние */
 fun undoChoice(state: MutableList<TreeNode?>, choice: TreeNode?) {
     state.removeLast()
 }
 
-/* Алгоритм бэктрекинга: пример 3 */
+/* Поиск с возвратом: пример 3 */
 fun backtrack(
     state: MutableList<TreeNode?>,
     choices: MutableList<TreeNode?>,
     res: MutableList<MutableList<TreeNode?>?>
 ) {
-    // Проверить, является ли текущее состояние решением
+    // Проверяем, найдено ли решение
     if (isSolution(state)) {
-        // Записать решение
+        // Сохраняем решение
         recordSolution(state, res)
     }
-    // Перебор всех вариантов выбора
+    // Перебираем все варианты
     for (choice in choices) {
-        // Отсечение: проверить допустимость выбора
+        // Отсечение: проверяем допустимость выбора
         if (isValid(state, choice)) {
-            // Попытка: сделать выбор и обновить состояние
+            // Пробуем вариант и обновляем состояние
             makeChoice(state, choice)
-            // Перейти к следующему выбору
+            // Переходим к следующему выбору
             backtrack(state, mutableListOf(choice!!.left, choice.right), res)
-            // Откат: отменить выбор и восстановить предыдущее состояние
+            // Возврат: отменяем выбор и восстанавливаем прежнее состояние
             undoChoice(state, choice)
         }
     }
 }
 
-/* Driver Code */
+/* Основная программа */
 fun main() {
     val root = TreeNode.listToTree(mutableListOf(1, 7, 3, 4, 5, 6, 7))
-    println("\nИнициализация двоичного дерева")
+    println("\nСоздаём двоичное дерево")
     printTree(root)
 
-    // Алгоритм бэктрекинга
+    // Поиск с возвратом
     val res = mutableListOf<MutableList<TreeNode?>?>()
     backtrack(mutableListOf(), mutableListOf(root), res)
 
-    println("\nВсе пути от корня к узлу 7, в которых путь не содержит узлов со значением 3")
+    println("\nВыводим все пути от корня до узлов со значением 7 без узлов со значением 3")
     for (path in res) {
         val vals = mutableListOf<Int>()
         for (node in path!!) {

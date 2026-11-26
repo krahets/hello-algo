@@ -13,7 +13,7 @@ import (
 )
 
 func TestHanota(t *testing.T) {
-	// 리스트의 맨 뒤가 기둥의 맨 위이다
+	// 리스트의 끝이 기둥의 맨 위에 해당한다
 	A := list.New()
 	for i := 5; i > 0; i-- {
 		A.PushBack(i)
@@ -30,7 +30,7 @@ func TestHanota(t *testing.T) {
 
 	solveHanota(A, B, C)
 
-	fmt.Println("원판 이동을 마친 후:")
+	fmt.Println("원판 이동 완료 후:")
 	fmt.Print("A = ")
 	PrintList(A)
 	fmt.Print("B = ")

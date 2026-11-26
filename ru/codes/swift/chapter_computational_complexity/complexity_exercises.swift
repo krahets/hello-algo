@@ -4,7 +4,7 @@
  Author: Hello Algo Team
  */
 
-/* Итеративное суммирование */
+/* Суммирование в цикле */
 func sumIter(n: Int) -> Int {
     var res = 0
     for i in 1 ... n {

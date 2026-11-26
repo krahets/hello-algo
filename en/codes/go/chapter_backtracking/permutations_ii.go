@@ -6,25 +6,25 @@ package chapter_backtracking
 
 /* Backtracking: permutations II */
 func backtrackII(state *[]int, choices *[]int, selected *[]bool, res *[][]int) {
-	// Record a solution when the state length equals the number of elements
+	// Record a solution when the state contains all the elements
 	if len(*state) == len(*choices) {
 		newState := append([]int{}, *state...)
 		*res = append(*res, newState)
 	}
-	// Iterate over all choices
+	// Try each choice
 	duplicated := make(map[int]struct{}, 0)
 	for i := 0; i < len(*choices); i++ {
 		choice := (*choices)[i]
-		// Prune: do not reuse an element or choose the same value again at this depth
+		// Skip elements already in use and values already tried at this level
 		if _, ok := duplicated[choice]; !ok && !(*selected)[i] {
-			// Try: make a choice and update the state
-			// Record the chosen value
+			// Make a choice and update the state
+			// Track values already tried
 			duplicated[choice] = struct{}{}
 			(*selected)[i] = true
 			*state = append(*state, choice)
-			// Proceed to the next choice
+			// Make the next choice
 			backtrackII(state, choices, selected, res)
-			// Backtrack: undo the choice and restore the previous state
+			// Backtrack: undo the choice to restore the previous state
 			(*selected)[i] = false
 			*state = (*state)[:len(*state)-1]
 		}

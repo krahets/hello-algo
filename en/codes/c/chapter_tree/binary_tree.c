@@ -15,7 +15,7 @@ int main() {
     TreeNode *n3 = newTreeNode(3);
     TreeNode *n4 = newTreeNode(4);
     TreeNode *n5 = newTreeNode(5);
-    // Set up references (pointers) between the nodes
+    // Link the nodes with references (pointers)
     n1->left = n2;
     n1->right = n3;
     n2->left = n4;
@@ -23,19 +23,19 @@ int main() {
     printf("Initialize the binary tree\n");
     printTree(n1);
 
-    /* Insert and remove nodes */
+    /* Insert and delete nodes */
     TreeNode *P = newTreeNode(0);
-    // Insert node P between n1 and n2 in n1 -> n2
+    // Insert node P between n1 and n2
     n1->left = P;
     P->left = n2;
     printf("After inserting node P:\n");
     printTree(n1);
 
-    // Remove node P
+    // Delete node P
     n1->left = n2;
     // Free memory
     free(P);
-    printf("After removing node P:\n");
+    printf("After deleting node P:\n");
     printTree(n1);
 
     freeMemoryTree(n1);

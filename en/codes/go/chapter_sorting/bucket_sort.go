@@ -8,7 +8,7 @@ import "sort"
 
 /* Bucket sort */
 func bucketSort(nums []float64) {
-	// Initialize k = floor(n/2) buckets, expecting about 2 elements per bucket for uniformly distributed input
+	// Initialize k = n/2 buckets, expecting 2 elements per bucket
 	k := len(nums) / 2
 	buckets := make([][]float64, k)
 	for i := 0; i < k; i++ {
@@ -16,14 +16,14 @@ func bucketSort(nums []float64) {
 	}
 	// 1. Distribute the array elements among the buckets
 	for _, num := range nums {
-		// The input range is [0, 1); use num * k to map each value to an index in [0, k-1]
+		// For inputs in [0, 1), use num * k to map each value to an index in [0, k-1]
 		i := int(num * float64(k))
 		// Add num to bucket i
 		buckets[i] = append(buckets[i], num)
 	}
 	// 2. Sort each bucket
 	for i := 0; i < k; i++ {
-		// Use the standard slice-sorting function, or replace it with another sorting algorithm
+		// Use the built-in slice sort or another sorting algorithm
 		sort.Float64s(buckets[i])
 	}
 	// 3. Traverse the buckets to combine the results

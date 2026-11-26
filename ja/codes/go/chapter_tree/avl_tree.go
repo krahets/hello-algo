@@ -18,7 +18,7 @@ func newAVLTree() *aVLTree {
 
 /* ノードの高さを取得する */
 func (t *aVLTree) height(node *TreeNode) int {
-	// 空ノードの高さは -1 、葉ノードの高さは 0
+	// 空のノードの高さは -1、葉の高さは 0
 	if node != nil {
 		return node.Height
 	}
@@ -29,7 +29,7 @@ func (t *aVLTree) height(node *TreeNode) int {
 func (t *aVLTree) updateHeight(node *TreeNode) {
 	lh := t.height(node.Left)
 	rh := t.height(node.Right)
-	// ノードの高さは、最も高い部分木の高さ + 1
+	// ノードの高さは、左右の部分木の高さの最大値 + 1
 	if lh > rh {
 		node.Height = lh + 1
 	} else {
@@ -39,7 +39,7 @@ func (t *aVLTree) updateHeight(node *TreeNode) {
 
 /* 平衡係数を取得する */
 func (t *aVLTree) balanceFactor(node *TreeNode) int {
-	// 空ノードの平衡係数は 0
+	// 空のノードの平衡係数は 0
 	if node == nil {
 		return 0
 	}
@@ -47,38 +47,38 @@ func (t *aVLTree) balanceFactor(node *TreeNode) int {
 	return t.height(node.Left) - t.height(node.Right)
 }
 
-/* 右回転操作 */
+/* 右回転 */
 func (t *aVLTree) rightRotate(node *TreeNode) *TreeNode {
 	child := node.Left
 	grandChild := child.Right
-	// child を中心に node を右回転する
+	// child を軸に node を右回転する
 	child.Right = node
 	node.Left = grandChild
 	// ノードの高さを更新する
 	t.updateHeight(node)
 	t.updateHeight(child)
-	// 回転後の部分木の根ノードを返す
+	// 回転後の部分木の根を返す
 	return child
 }
 
-/* 左回転操作 */
+/* 左回転 */
 func (t *aVLTree) leftRotate(node *TreeNode) *TreeNode {
 	child := node.Right
 	grandChild := child.Left
-	// child を中心に node を左回転する
+	// child を軸に node を左回転する
 	child.Left = node
 	node.Right = grandChild
 	// ノードの高さを更新する
 	t.updateHeight(node)
 	t.updateHeight(child)
-	// 回転後の部分木の根ノードを返す
+	// 回転後の部分木の根を返す
 	return child
 }
 
-/* 回転操作によって、この部分木の平衡を回復する */
+/* 回転して部分木の平衡を回復する */
 func (t *aVLTree) rotate(node *TreeNode) *TreeNode {
 	// ノード node の平衡係数を取得する
-	// Go では短い変数名が推奨されるため、ここでは bf で t.balanceFactor を表す
+	// Go では短い変数名が推奨される。ここで bf は t.balanceFactor を指す
 	bf := t.balanceFactor(node)
 	// 左に偏った木
 	if bf > 1 {
@@ -86,7 +86,7 @@ func (t *aVLTree) rotate(node *TreeNode) *TreeNode {
 			// 右回転
 			return t.rightRotate(node)
 		} else {
-			// 左回転してから右回転する
+			// 左回転してから右回転
 			node.Left = t.leftRotate(node.Left)
 			return t.rightRotate(node)
 		}
@@ -97,12 +97,12 @@ func (t *aVLTree) rotate(node *TreeNode) *TreeNode {
 			// 左回転
 			return t.leftRotate(node)
 		} else {
-			// 右回転してから左回転する
+			// 右回転してから左回転
 			node.Right = t.rightRotate(node.Right)
 			return t.leftRotate(node)
 		}
 	}
-	// 平衡な木なので、回転せずにそのまま返す
+	// 平衡なので回転せずに戻る
 	return node
 }
 
@@ -111,7 +111,7 @@ func (t *aVLTree) insert(val int) {
 	t.root = t.insertHelper(t.root, val)
 }
 
-/* ノードを再帰的に挿入する（補助関数） */
+/* 再帰によるノードの挿入（補助関数） */
 func (t *aVLTree) insertHelper(node *TreeNode, val int) *TreeNode {
 	if node == nil {
 		return NewTreeNode(val)
@@ -122,14 +122,14 @@ func (t *aVLTree) insertHelper(node *TreeNode, val int) *TreeNode {
 	} else if val > node.Val.(int) {
 		node.Right = t.insertHelper(node.Right, val)
 	} else {
-		// 重複したノードは挿入せず、そのまま戻る
+		// 値が重複する場合は挿入せずに戻る
 		return node
 	}
 	// ノードの高さを更新する
 	t.updateHeight(node)
-	/* 2. 回転操作によって、この部分木の平衡を回復する */
+	/* 2. 回転して部分木の平衡を回復する */
 	node = t.rotate(node)
-	// 部分木の根ノードを返す
+	// 部分木の根を返す
 	return node
 }
 
@@ -138,7 +138,7 @@ func (t *aVLTree) remove(val int) {
 	t.root = t.removeHelper(t.root, val)
 }
 
-/* ノードを再帰的に削除する（補助関数） */
+/* 再帰によるノードの削除（補助関数） */
 func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 	if node == nil {
 		return nil
@@ -155,14 +155,14 @@ func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 				child = node.Right
 			}
 			if child == nil {
-				// 子ノード数 = 0 の場合、node を削除して戻る
+				// 子が 0 個なら node を削除して戻る
 				return nil
 			} else {
-				// 子ノード数 = 1 の場合、node を削除する
+				// 子が 1 個なら node を削除する
 				node = child
 			}
 		} else {
-			// 子ノード数 = 2 の場合、通りがけ順で次のノードを削除し、そのノードで現在のノードを置き換える
+			// 子が 2 個なら通りがけ順で次のノードを削除し、その値で現在のノードの値を置き換える
 			temp := node.Right
 			for temp.Left != nil {
 				temp = temp.Left
@@ -173,16 +173,16 @@ func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 	}
 	// ノードの高さを更新する
 	t.updateHeight(node)
-	/* 2. 回転操作によって、この部分木の平衡を回復する */
+	/* 2. 回転して部分木の平衡を回復する */
 	node = t.rotate(node)
-	// 部分木の根ノードを返す
+	// 部分木の根を返す
 	return node
 }
 
 /* ノードを探索する */
 func (t *aVLTree) search(val int) *TreeNode {
 	cur := t.root
-	// 繰り返し探索し、葉ノードを越えたら終了する
+	// ループで探索し、葉を越えたら終了する
 	for cur != nil {
 		if cur.Val.(int) < val {
 			// 目的のノードは cur の右部分木にある
@@ -191,7 +191,7 @@ func (t *aVLTree) search(val int) *TreeNode {
 			// 目的のノードは cur の左部分木にある
 			cur = cur.Left
 		} else {
-			// 目的のノードが見つかったので、ループを終了する
+			// 目的のノードが見つかったのでループを抜ける
 			break
 		}
 	}

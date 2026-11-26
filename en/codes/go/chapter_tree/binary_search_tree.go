@@ -19,42 +19,42 @@ func newBinarySearchTree() *binarySearchTree {
 	return bst
 }
 
-/* Get the root node */
+/* Get the root */
 func (bst *binarySearchTree) getRoot() *TreeNode {
 	return bst.root
 }
 
-/* Find a node */
+/* Search for a node */
 func (bst *binarySearchTree) search(num int) *TreeNode {
 	node := bst.root
-	// Continue searching while the current node is not nil
+	// Stop the search after passing a leaf
 	for node != nil {
 		if node.Val.(int) < num {
-			// If the target node exists, it lies in the right subtree of node
+			// The target is in the right subtree of cur
 			node = node.Right
 		} else if node.Val.(int) > num {
-			// If the target node exists, it lies in the left subtree of node
+			// The target is in the left subtree of cur
 			node = node.Left
 		} else {
-			// The target node was found; exit the loop
+			// The target was found, so exit the loop
 			break
 		}
 	}
-	// Return the target node, or nil if it was not found
+	// Return the target node
 	return node
 }
 
 /* Insert a node */
 func (bst *binarySearchTree) insert(num int) {
 	cur := bst.root
-	// If the tree is empty, initialize the root node
+	// If the tree is empty, initialize the root
 	if cur == nil {
 		bst.root = NewTreeNode(num)
 		return
 	}
 	// Track the parent of the node to insert
 	var pre *TreeNode = nil
-	// Continue searching while the current node is not nil
+	// Stop the search after passing a leaf
 	for cur != nil {
 		if cur.Val == num {
 			return
@@ -75,43 +75,43 @@ func (bst *binarySearchTree) insert(num int) {
 	}
 }
 
-/* Remove a node */
+/* Delete a node */
 func (bst *binarySearchTree) remove(num int) {
 	cur := bst.root
 	// Return immediately if the tree is empty
 	if cur == nil {
 		return
 	}
-	// Track the parent of the node to remove
+	// Track the parent of the node to delete
 	var pre *TreeNode = nil
-	// Continue searching while the current node is not nil
+	// Stop the search after passing a leaf
 	for cur != nil {
 		if cur.Val == num {
 			break
 		}
 		pre = cur
 		if cur.Val.(int) < num {
-			// The node to remove is in the right subtree
+			// The node to delete is in the right subtree
 			cur = cur.Right
 		} else {
-			// The node to remove is in the left subtree
+			// The node to delete is in the left subtree
 			cur = cur.Left
 		}
 	}
-	// Return immediately if the node to remove does not exist
+	// Return if the node to delete does not exist
 	if cur == nil {
 		return
 	}
-	// The node has 0 or 1 child
+	// Zero or one child
 	if cur.Left == nil || cur.Right == nil {
 		var child *TreeNode = nil
-		// Get the child of the node to remove
+		// Get the child of the node to delete
 		if cur.Left != nil {
 			child = cur.Left
 		} else {
 			child = cur.Right
 		}
-		// Remove node cur
+		// Delete node cur
 		if cur != bst.root {
 			if pre.Left == cur {
 				pre.Left = child
@@ -119,19 +119,19 @@ func (bst *binarySearchTree) remove(num int) {
 				pre.Right = child
 			}
 		} else {
-			// If the removed node is the root, assign the new root
+			// If deleting the root, assign a new root
 			bst.root = child
 		}
-		// The node has 2 children
+		// Two children
 	} else {
-		// Get the inorder successor of cur, the node to remove
+		// Get the inorder successor of the node cur to be deleted
 		tmp := cur.Right
 		for tmp.Left != nil {
 			tmp = tmp.Left
 		}
-		// Recursively remove node tmp
+		// Recursively delete node tmp
 		bst.remove(tmp.Val.(int))
-		// Replace the value of cur with the value of tmp
+		// Replace the value of cur with that of tmp
 		cur.Val = tmp.Val
 	}
 }

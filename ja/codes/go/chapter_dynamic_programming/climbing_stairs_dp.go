@@ -4,7 +4,7 @@
 
 package chapter_dynamic_programming
 
-/* 階段の上り方：動的計画法 */
+/* 階段の登り方：動的計画法 */
 func climbingStairsDP(n int) int {
 	if n == 1 || n == 2 {
 		return n
@@ -21,7 +21,7 @@ func climbingStairsDP(n int) int {
 	return dp[n]
 }
 
-/* 階段の上り方：空間を最適化した動的計画法 */
+/* 階段の登り方：使用メモリを削減した動的計画法 */
 func climbingStairsDPComp(n int) int {
 	if n == 1 || n == 2 {
 		return n

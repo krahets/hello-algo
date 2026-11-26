@@ -1,31 +1,31 @@
 {
-  "schema_version": 2,
-  "title": "Tracking queen constraints with three Boolean arrays",
-  "summary": "Use the column array cols and diagonal arrays diags1 and diags2, mapped from zero-based row and column coordinates, to record and check queen occupancy.",
   "context": [
-    "This figure matches the code implementation: on a 4×4 board (n = 4), row index row increases top to bottom and column index col increases left to right, both starting at 0 (zero-based indexing). The queen shown sits at zero-based coordinates (1, 1) (the second row and second column); in the Boolean arrays, T denotes occupied and F denotes free."
+    "The figure matches the code: on a 4×4 board (n = 4), row increases from top to bottom and col from left to right, both starting at 0. The queen is at zero-based coordinates (1, 1), the second row and second column. In the Boolean arrays, T means occupied and F means free."
   ],
   "description": [
-    "Squares on the same main diagonal share the same row − col, and squares on the same antidiagonal share the same row + col. A candidate square (row, col) looks up the three arrays at col, row − col + n − 1, and row + col; a queen can be placed there only if all three entries are F. When n = 4, row − col ranges from −3 to 3, and adding 3 maps it to nonnegative indices 0 through 6.",
-    "Placing a queen sets the three corresponding entries to T, and backtracking restores them to F. The two tables below list the indexing rules and the complete values of the three arrays shown in the figure."
+    "Squares on the same main diagonal share row − col, and squares on the same secondary diagonal share row + col. For a candidate (row, col), index the three arrays by col, row − col + n − 1, and row + col, respectively. Place a queen only if all three entries are F. With n = 4, row − col ranges from −3 to 3. Adding 3 gives nonnegative indices from 0 to 6.",
+    "Set the three entries to T on placement and restore them to F when backtracking. The two tables give the indexing rules and the full contents of all three arrays."
   ],
   "frames": [
     {
-      "id": "source-366",
       "book_path": "chapter_backtracking/n_queens_problem.assets/n_queens_cols_diagonals.png",
-      "title": "Tracking queen constraints with three Boolean arrays",
-      "explanation": "With the three Boolean arrays cols, diags1, and diags2, column and diagonal conflicts can be checked in constant time; in general, an n×n board has n columns, with 2n − 1 main diagonals and antidiagonals each."
+      "explanation": "The Boolean arrays cols, diags1, and diags2 let us check the column and both diagonals for conflicts in constant time. In general, an n×n board has n columns and 2n − 1 diagonals in each direction.",
+      "id": "source-366",
+      "title": "Tracking queen constraints with three Boolean arrays"
     }
   ],
+  "schema_version": 2,
+  "summary": "Use zero-based row and column coordinates to track and check occupied lines in the column array cols and the diagonal arrays diags1 and diags2.",
   "tables": [
     {
-      "caption": "Indexing rules for the constraint arrays",
+      "caption": "Indexing the constraint arrays",
       "headers": [
         "Array",
         "Length",
-        "Index for candidate square",
-        "Index set to T in this example"
+        "Index for the candidate square",
+        "Index marked T in this example"
       ],
+      "row_header": 0,
       "rows": [
         [
           "cols",
@@ -45,17 +45,17 @@
           "row+col",
           "2"
         ]
-      ],
-      "row_header": 0
+      ]
     },
     {
-      "caption": "Current values across the three arrays",
+      "caption": "Full contents of the three arrays",
       "headers": [
         "Array index",
         "cols",
         "diags1",
         "diags2"
       ],
+      "row_header": 0,
       "rows": [
         [
           "0",
@@ -99,8 +99,8 @@
           "F",
           "F"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Tracking queen constraints with three Boolean arrays"
 }

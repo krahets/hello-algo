@@ -8,14 +8,14 @@ class Node:
 
 def function() -> int:
     """関数"""
-    # 何らかの処理を実行...
+    # 何らかの処理を行う...
     return 0
 
 def algorithm(n) -> int:  # 入力データ
-    A = 0                 # 一時データ（定数、通常は大文字で表す）
+    A = 0                 # 一時データ（定数。通常は大文字で表す）
     b = 0                 # 一時データ（変数）
     node = Node(0)        # 一時データ（オブジェクト）
-    c = function()        # スタックフレーム（関数呼び出し）
+    c = function()        # スタックフレームの領域（関数呼び出し）
     return A + b + c      # 出力データ
 ```
 
@@ -29,7 +29,7 @@ struct Node {
 
 /* 関数 */
 int func() {
-    // 何らかの処理を実行...
+    // 何らかの処理を行う...
     return 0;
 }
 
@@ -37,7 +37,7 @@ int algorithm(int n) {        // 入力データ
     const int a = 0;          // 一時データ（定数）
     int b = 0;                // 一時データ（変数）
     Node* node = new Node(0); // 一時データ（オブジェクト）
-    int c = func();           // スタックフレーム（関数呼び出し）
+    int c = func();           // スタックフレームの領域（関数呼び出し）
     return a + b + c;         // 出力データ
 }
 ```
@@ -52,7 +52,7 @@ class Node {
 
 /* 関数 */
 int function() {
-    // 何らかの処理を実行...
+    // 何らかの処理を行う...
     return 0;
 }
 
@@ -60,7 +60,7 @@ int algorithm(int n) {        // 入力データ
     final int a = 0;          // 一時データ（定数）
     int b = 0;                // 一時データ（変数）
     Node node = new Node(0);  // 一時データ（オブジェクト）
-    int c = function();       // スタックフレーム（関数呼び出し）
+    int c = function();       // スタックフレームの領域（関数呼び出し）
     return a + b + c;         // 出力データ
 }
 ```
@@ -74,7 +74,7 @@ class Node(int x) {
 
 /* 関数 */
 int Function() {
-    // 何らかの処理を実行...
+    // 何らかの処理を行う...
     return 0;
 }
 
@@ -82,7 +82,7 @@ int Algorithm(int n) {        // 入力データ
     const int a = 0;          // 一時データ（定数）
     int b = 0;                // 一時データ（変数）
     Node node = new(0);       // 一時データ（オブジェクト）
-    int c = Function();       // スタックフレーム（関数呼び出し）
+    int c = Function();       // スタックフレームの領域（関数呼び出し）
     return a + b + c;         // 出力データ
 }
 ```
@@ -101,7 +101,7 @@ func newNode(val int) *node {
 
 /* 関数 */
 func function() int {
-    // 何らかの処理を実行...
+    // 何らかの処理を行う...
     return 0
 }
 
@@ -109,7 +109,7 @@ func algorithm(n int) int { // 入力データ
     const a = 0             // 一時データ（定数）
     b := 0                  // 一時データ（変数）
     newNode(0)              // 一時データ（オブジェクト）
-    c := function()         // スタックフレーム（関数呼び出し）
+    c := function()         // スタックフレームの領域（関数呼び出し）
     return a + b + c        // 出力データ
 }
 ```
@@ -127,7 +127,7 @@ class Node {
 
 /* 関数 */
 func function() -> Int {
-    // 何らかの処理を実行...
+    // 何らかの処理を行う...
     return 0
 }
 
@@ -135,7 +135,7 @@ func algorithm(n: Int) -> Int { // 入力データ
     let a = 0             // 一時データ（定数）
     var b = 0             // 一時データ（変数）
     let node = Node(x: 0) // 一時データ（オブジェクト）
-    let c = function()    // スタックフレーム（関数呼び出し）
+    let c = function()    // スタックフレームの領域（関数呼び出し）
     return a + b + c      // 出力データ
 }
 ```
@@ -153,7 +153,7 @@ class Node {
 
 /* 関数 */
 function constFunc() {
-    // 何らかの処理を実行
+    // 何らかの処理を行う
     return 0;
 }
 
@@ -161,7 +161,7 @@ function algorithm(n) {       // 入力データ
     const a = 0;              // 一時データ（定数）
     let b = 0;                // 一時データ（変数）
     const node = new Node(0); // 一時データ（オブジェクト）
-    const c = constFunc();    // スタックフレーム（関数呼び出し）
+    const c = constFunc();    // スタックフレームの領域（関数呼び出し）
     return a + b + c;         // 出力データ
 }
 ```
@@ -179,7 +179,7 @@ class Node {
 
 /* 関数 */
 function constFunc(): number {
-    // 何らかの処理を実行
+    // 何らかの処理を行う
     return 0;
 }
 
@@ -187,7 +187,7 @@ function algorithm(n: number): number { // 入力データ
     const a = 0;                        // 一時データ（定数）
     let b = 0;                          // 一時データ（変数）
     const node = new Node(0);           // 一時データ（オブジェクト）
-    const c = constFunc();              // スタックフレーム（関数呼び出し）
+    const c = constFunc();              // スタックフレームの領域（関数呼び出し）
     return a + b + c;                   // 出力データ
 }
 ```
@@ -202,7 +202,7 @@ class Node {
 
 /* 関数 */
 int function() {
-  // 何らかの処理を実行...
+  // 何らかの処理を行う...
   return 0;
 }
 
@@ -210,7 +210,7 @@ int algorithm(int n) {  // 入力データ
   const int a = 0;      // 一時データ（定数）
   int b = 0;            // 一時データ（変数）
   Node node = Node(0);  // 一時データ（オブジェクト）
-  int c = function();   // スタックフレーム（関数呼び出し）
+  int c = function();   // スタックフレームの領域（関数呼び出し）
   return a + b + c;     // 出力データ
 }
 ```
@@ -234,7 +234,7 @@ impl Node {
 
 /* 関数 */
 fn function() -> i32 {      
-    // 何らかの処理を実行...
+    // 何らかの処理を行う...
     return 0;
 }
 
@@ -242,7 +242,7 @@ fn algorithm(n: i32) -> i32 {       // 入力データ
     const a: i32 = 0;               // 一時データ（定数）
     let mut b = 0;                  // 一時データ（変数）
     let node = Node::new(0);        // 一時データ（オブジェクト）
-    let c = function();             // スタックフレーム（関数呼び出し）
+    let c = function();             // スタックフレームの領域（関数呼び出し）
     return a + b + c;               // 出力データ
 }
 ```
@@ -250,14 +250,14 @@ fn algorithm(n: i32) -> i32 {       // 入力データ
 ```c title=""
 /* 関数 */
 int func() {
-    // 何らかの処理を実行...
+    // 何らかの処理を行う...
     return 0;
 }
 
 int algorithm(int n) { // 入力データ
     const int a = 0;   // 一時データ（定数）
     int b = 0;         // 一時データ（変数）
-    int c = func();    // スタックフレーム（関数呼び出し）
+    int c = func();    // スタックフレームの領域（関数呼び出し）
     return a + b + c;  // 出力データ
 }
 ```
@@ -270,7 +270,7 @@ class Node(var _val: Int) {
 
 /* 関数 */
 fun function(): Int {
-    // 何らかの処理を実行...
+    // 何らかの処理を行う...
     return 0
 }
 
@@ -278,7 +278,7 @@ fun algorithm(n: Int): Int { // 入力データ
     val a = 0                // 一時データ（定数）
     var b = 0                // 一時データ（変数）
     val node = Node(0)       // 一時データ（オブジェクト）
-    val c = function()       // スタックフレーム（関数呼び出し）
+    val c = function()       // スタックフレームの領域（関数呼び出し）
     return a + b + c         // 出力データ
 }
 ```
@@ -296,7 +296,7 @@ end
 
 ### 関数 ###
 def function
-    # 何らかの処理を実行...
+    # 何らかの処理を行う...
     0
 end
 
@@ -305,7 +305,7 @@ def algorithm(n)        # 入力データ
     a = 0               # 一時データ（定数）
     b = 0               # 一時データ（変数）
     node = Node.new(0)  # 一時データ（オブジェクト）
-    c = function        # スタックフレーム（関数呼び出し）
+    c = function        # スタックフレームの領域（関数呼び出し）
     a + b + c           # 出力データ
 end
 ```
@@ -441,7 +441,7 @@ end
 <!-- [snippet]{loop_vs_recursion_space} -->
 ```python title=""
 def function() -> int:
-    # 何らかの処理を実行
+    # 何らかの処理を行う
     return 0
 
 def loop(n: int):
@@ -458,7 +458,7 @@ def recur(n: int):
 
 ```cpp title=""
 int func() {
-    // 何らかの処理を実行
+    // 何らかの処理を行う
     return 0;
 }
 /* ループの空間計算量は O(1) */
@@ -476,7 +476,7 @@ void recur(int n) {
 
 ```java title=""
 int function() {
-    // 何らかの処理を実行
+    // 何らかの処理を行う
     return 0;
 }
 /* ループの空間計算量は O(1) */
@@ -494,7 +494,7 @@ void recur(int n) {
 
 ```csharp title=""
 int Function() {
-    // 何らかの処理を実行
+    // 何らかの処理を行う
     return 0;
 }
 /* ループの空間計算量は O(1) */
@@ -512,7 +512,7 @@ int Recur(int n) {
 
 ```go title=""
 func function() int {
-    // 何らかの処理を実行
+    // 何らかの処理を行う
     return 0
 }
 
@@ -535,7 +535,7 @@ func recur(n int) {
 ```swift title=""
 @discardableResult
 func function() -> Int {
-    // 何らかの処理を実行
+    // 何らかの処理を行う
     return 0
 }
 
@@ -557,7 +557,7 @@ func recur(n: Int) {
 
 ```javascript title=""
 function constFunc() {
-    // 何らかの処理を実行
+    // 何らかの処理を行う
     return 0;
 }
 /* ループの空間計算量は O(1) */
@@ -575,7 +575,7 @@ function recur(n) {
 
 ```typescript title=""
 function constFunc(): number {
-    // 何らかの処理を実行
+    // 何らかの処理を行う
     return 0;
 }
 /* ループの空間計算量は O(1) */
@@ -593,7 +593,7 @@ function recur(n: number): void {
 
 ```dart title=""
 int function() {
-  // 何らかの処理を実行
+  // 何らかの処理を行う
   return 0;
 }
 /* ループの空間計算量は O(1) */
@@ -611,7 +611,7 @@ void recur(int n) {
 
 ```rust title=""
 fn function() -> i32 {
-    // 何らかの処理を実行
+    // 何らかの処理を行う
     return 0;
 }
 /* ループの空間計算量は O(1) */
@@ -631,7 +631,7 @@ fn recur(n: i32) {
 
 ```c title=""
 int func() {
-    // 何らかの処理を実行
+    // 何らかの処理を行う
     return 0;
 }
 /* ループの空間計算量は O(1) */
@@ -649,7 +649,7 @@ void recur(int n) {
 
 ```kotlin title=""
 fun function(): Int {
-    // 何らかの処理を実行
+    // 何らかの処理を行う
     return 0
 }
 /* ループの空間計算量は O(1) */
@@ -667,7 +667,7 @@ fun recur(n: Int) {
 
 ```ruby title=""
 def function
-    # 何らかの処理を実行
+    # 何らかの処理を行う
     0
 end
 

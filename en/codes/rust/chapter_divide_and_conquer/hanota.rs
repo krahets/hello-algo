@@ -14,22 +14,22 @@ fn move_pan(src: &mut Vec<i32>, tar: &mut Vec<i32>) {
     tar.push(pan);
 }
 
-/* Solve the Tower of Hanoi problem f(i) */
+/* Solve Tower of Hanoi subproblem f(i) */
 fn dfs(i: i32, src: &mut Vec<i32>, buf: &mut Vec<i32>, tar: &mut Vec<i32>) {
-    // If only one disk remains to be moved from src, move it directly to tar
+    // If only one disk remains on src, move it directly to tar
     if i == 1 {
         move_pan(src, tar);
         return;
     }
     // Subproblem f(i-1): move the top i-1 disks from src to buf using tar
     dfs(i - 1, src, tar, buf);
-    // Subproblem f(1): move the remaining disk of this subproblem from src to tar
+    // Subproblem f(1): move the remaining disk from src to tar
     move_pan(src, tar);
     // Subproblem f(i-1): move the top i-1 disks from buf to tar using src
     dfs(i - 1, buf, src, tar);
 }
 
-/* Solve the Tower of Hanoi problem */
+/* Solve the Tower of Hanoi */
 fn solve_hanota(A: &mut Vec<i32>, B: &mut Vec<i32>, C: &mut Vec<i32>) {
     let n = A.len() as i32;
     // Move the top n disks from A to C using B

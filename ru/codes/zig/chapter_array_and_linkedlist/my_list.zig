@@ -9,13 +9,13 @@ const utils = @import("utils");
 const MyList = struct {
     const Self = @This();
 
-    items: []i32, // Массив (для хранения элементов списка)
-    capacity: usize, // Вместимость списка
-    allocator: std.mem.Allocator, // Аллокатор памяти
+    items: []i32, // Массив для хранения элементов списка
+    capacity: usize, // Ёмкость списка
+    allocator: std.mem.Allocator, // Распределитель памяти
 
-    extend_ratio: usize = 2, // Коэффициент увеличения списка при каждом расширении
+    extend_ratio: usize = 2, // Коэффициент увеличения ёмкости списка
 
-    // Конструктор (выделение памяти + инициализация списка)
+    // Конструктор (выделение памяти и инициализация списка)
     pub fn init(allocator: std.mem.Allocator) Self {
         return Self{
             .items = &[_]i32{},
@@ -31,7 +31,7 @@ const MyList = struct {
 
     // Добавление элемента в конец
     pub fn add(self: *Self, item: i32) !void {
-        // При превышении вместимости по числу элементов запускается расширение
+        // Если для элементов не хватает места, увеличить ёмкость
         const newlen = self.items.len + 1;
         try self.ensureTotalCapacity(newlen);
 
@@ -41,30 +41,30 @@ const MyList = struct {
         new_item_ptr.* = item;
     }
 
-    // Получить длину списка (текущее число элементов)
+    // Получить длину списка (текущее количество элементов)
     pub fn getSize(self: *Self) usize {
         return self.items.len;
     }
 
-    // Получить вместимость списка
+    // Получить ёмкость списка
     pub fn getCapacity(self: *Self) usize {
         return self.capacity;
     }
 
     // Доступ к элементу
     pub fn get(self: *Self, index: usize) i32 {
-        // Если индекс выходит за границы, выбрасывается исключение; далее аналогично
+        // При выходе индекса за границы выбросить исключение. То же правило действует ниже
         if (index < 0 or index >= self.items.len) {
-            @panic("индекс выходит за границы");
+            @panic("Индекс за пределами списка");
         }
         return self.items[index];
     }
 
     // Изменение элемента
     pub fn set(self: *Self, index: usize, num: i32) void {
-        // Если индекс выходит за границы, выбрасывается исключение; далее аналогично
+        // При выходе индекса за границы выбросить исключение. То же правило действует ниже
         if (index < 0 or index >= self.items.len) {
-            @panic("индекс выходит за границы");
+            @panic("Индекс за пределами списка");
         }
         self.items[index] = num;
     }
@@ -72,14 +72,14 @@ const MyList = struct {
     // Вставка элемента в середину
     pub fn insert(self: *Self, index: usize, item: i32) !void {
         if (index < 0 or index >= self.items.len) {
-            @panic("индекс выходит за границы");
+            @panic("Индекс за пределами списка");
         }
 
-        // При превышении вместимости по числу элементов запускается расширение
+        // Если для элементов не хватает места, увеличить ёмкость
         const newlen = self.items.len + 1;
         try self.ensureTotalCapacity(newlen);
 
-        // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию вправо
+        // Сдвинуть все элементы начиная с index на одну позицию вправо
         self.items.len += 1;
         var i = self.items.len - 1;
         while (i >= index) : (i -= 1) {
@@ -91,16 +91,16 @@ const MyList = struct {
     // Удаление элемента
     pub fn remove(self: *Self, index: usize) i32 {
         if (index < 0 or index >= self.getSize()) {
-            @panic("индекс выходит за границы");
+            @panic("Индекс за пределами списка");
         }
-        // Сдвинуть все элементы после индекса index на одну позицию влево
+        // Сдвинуть все элементы после index на одну позицию влево
         const item = self.items[index];
         var i = index;
         while (i < self.items.len - 1) : (i += 1) {
             self.items[i] = self.items[i + 1];
         }
         self.items.len -= 1;
-        // Вернуть удаленный элемент
+        // Вернуть удалённый элемент
         return item;
     }
 
@@ -109,7 +109,7 @@ const MyList = struct {
         return self.toOwnedSlice(false);
     }
 
-    // Вернуть новый срез и указать, нужно ли сбросить или очистить контейнер списка
+    // Вернуть новый срез и указать, следует ли сбросить или очистить контейнер списка
     pub fn toOwnedSlice(self: *Self, clear: bool) ![]i32 {
         const allocator = self.allocator;
         const old_memory = self.allocatedSlice();
@@ -128,7 +128,7 @@ const MyList = struct {
         return new_memory;
     }
 
-    // Расширение списка
+    // Увеличение ёмкости списка
     fn ensureTotalCapacity(self: *Self, new_capacity: usize) !void {
         if (self.capacity >= new_capacity) return;
         const capcacity = if (self.capacity == 0) 10 else self.capacity;
@@ -158,7 +158,7 @@ const MyList = struct {
     }
 };
 
-// Driver Code
+// Демонстрационный код
 pub fn run() !void {
     var gpa = std.heap.DebugAllocator(.{}){};
     defer _ = gpa.deinit();
@@ -166,7 +166,7 @@ pub fn run() !void {
 
     // Инициализация списка
     var nums = MyList.init(allocator);
-    // Отложенное освобождение памяти
+    // Отложить освобождение памяти
     defer nums.deinit();
 
     // Добавление элемента в конец
@@ -175,7 +175,7 @@ pub fn run() !void {
     try nums.add(2);
     try nums.add(5);
     try nums.add(4);
-    std.debug.print("Список nums = {}, вместимость = {}, длина = {}\n", .{
+    std.debug.print("Список nums = {}, ёмкость = {}, длина = {}\n", .{
         utils.fmt.slice(nums.items),
         nums.getCapacity(),
         nums.getSize(),
@@ -184,14 +184,14 @@ pub fn run() !void {
     // Вставка элемента в середину
     try nums.insert(3, 6);
     std.debug.print(
-        "После вставки числа 6 по индексу 3 получаем nums = {}\n",
+        "После вставки числа 6 по индексу 3 nums = {}\n",
         .{utils.fmt.slice(nums.items)},
     );
 
     // Удаление элемента
     _ = nums.remove(3);
     std.debug.print(
-        "После удаления элемента по индексу 3 получаем nums = {}\n",
+        "После удаления элемента по индексу 3 nums = {}\n",
         .{utils.fmt.slice(nums.items)},
     );
 
@@ -202,18 +202,18 @@ pub fn run() !void {
     // Изменение элемента
     nums.set(1, 0);
     std.debug.print(
-        "После изменения элемента по индексу 1 значением 0 получаем nums = {}\n",
+        "После записи 0 по индексу 1 nums = {}\n",
         .{utils.fmt.slice(nums.items)},
     );
 
-    // Проверка механизма расширения
+    // Проверка увеличения ёмкости
     var i: i32 = 0;
     while (i < 10) : (i += 1) {
-        // При i = 5 длина списка превысит его вместимость, и в этот момент сработает механизм расширения
+        // При i = 5 длина списка превысит его ёмкость, поэтому потребуется увеличить ёмкость
         try nums.add(i);
     }
     std.debug.print(
-        "Список nums после увеличения вместимости = {}, вместимость = {}, длина = {}\n",
+        "После увеличения ёмкости список nums = {}, ёмкость = {}, длина = {}\n",
         .{
             utils.fmt.slice(nums.items),
             nums.getCapacity(),

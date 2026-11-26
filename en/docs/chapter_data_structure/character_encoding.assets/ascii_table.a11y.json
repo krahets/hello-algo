@@ -1,32 +1,33 @@
 {
-  "schema_version": 2,
-  "title": "ASCII characters and code table",
-  "summary": "Look up the binary representation by decimal code or character, and distinguish control characters from printable characters.",
   "context": [
-    "ASCII uses 7 bits to represent 128 characters, with codes ranging from 0 to 127. The figure displays binary values as 8-bit single bytes grouped into nibbles of 4 bits, with the highest bit fixed at 0; the table below merges the figure's four column panels into a single complete table ordered by increasing decimal code."
+    "ASCII uses 7 bits to represent 128 characters, with codes from 0 through 127. The figure shows each code as an 8-bit byte in groups of four bits. The highest bit is always 0. The table below combines the figure's four panels into one complete table in ascending decimal order."
   ],
   "description": [
-    "By code range: 0 to 31 and 127 are control characters, where 127 is DEL for delete (left blank in the figure's meaning column); 32 is the space character SP; 48 to 57 are the digits 0 to 9; 65 to 90 are uppercase letters A to Z; and 97 to 122 are lowercase letters a to z. Printable punctuation and symbols occupy 33 to 47, 58 to 64, 91 to 96, and 123 to 126.",
-    "The table’s meaning column uses the labels in the English figure. Code 14, SO (Shift out), selects an alternate character set; code 15, SI (Shift in), switches back to the original set. Code 27, ESC (Escape), can introduce an escape sequence. Codes 10 (LF, Line feed), 12 (FF, Form feed), and 13 (CR, Carriage return) control line breaks, page breaks, and returning to the start of a line, respectively.",
-    "A character glyph differs from its numeric code: the digit character 0 has code 48 (binary 0011 0000), whereas code 0 is the null character NUL (binary 0000 0000); both also differ from the space character SP (32) and the delete character DEL (127)."
+    "To look up a range: codes 0 through 31 and 127 are control characters. DEL at 127 means delete (unlabeled in the original figure). Code 32 is space (SP); 48 through 57 are the digits 0 through 9; 65 through 90 are uppercase A through Z; and 97 through 122 are lowercase a through z. Printable punctuation and symbols occupy 33–47, 58–64, 91–96, and 123–126.",
+    "The English figure labels LF (10) “Line feed,” FF (12) “Form feed,” and CR (13) “Carriage return.” The original Simplified Chinese figure uses the word “key” for these functions, which do not require a physical keypress. SO (14), labeled “Shift out,” selects an alternate character set. SI (15), labeled “Shift in,” switches back. ESC (27), labeled “Escape,” introduces an escape sequence. The word “overflow” in the original Chinese label for ESC does not indicate arithmetic overflow.",
+    "A character literal differs from its numeric code. The digit character 0 has code 48 (binary 0011 0000), whereas code 0 is the null character NUL (binary 0000 0000). Both differ from space, SP (32), and delete, DEL (127)."
   ],
   "frames": [
     {
-      "id": "source-43",
       "book_path": "chapter_data_structure/character_encoding.assets/ascii_table.png",
-      "title": "ASCII characters and code table",
-      "explanation": "For the digit characters 0 to 9, the upper four bits are always 0011 and the lower four bits run from 0000 to 1001. Uppercase and lowercase forms of the same letter differ by 32, changing only the 6th bit from the right (weight 32): A is 65 (binary 0100 0001) and a is 97 (binary 0110 0001). For instance, to look up a newline, locate LF at decimal row 10 in the table below."
+      "explanation": "The digit characters 0 through 9 all have 0011 as their high four bits, with the low four bits running from 0000 through 1001. The uppercase and lowercase forms of a letter differ by 32, in only the sixth bit from the right (weight 32). For example, A is 65 (0100 0001) and a is 97 (0110 0001). To look up line feed, find LF in the row for decimal 10 below.",
+      "id": "source-43",
+      "title": "ASCII characters and codes"
     }
   ],
+  "input_tables": [],
+  "schema_version": 2,
+  "summary": "Look up a character or decimal code to find its binary representation and distinguish control characters from printable ones.",
   "tables": [
     {
-      "caption": "Complete ASCII code table (matching every row in the figure)",
+      "caption": "Complete ASCII code table, corresponding to the rows in the figure",
       "headers": [
         "Decimal",
         "Binary",
         "Character",
-        "Meaning (shown in figure)"
+        "Meaning (as labeled)"
       ],
+      "row_header": 0,
       "rows": [
         [
           "0",
@@ -158,7 +159,7 @@
           "21",
           "0001 0101",
           "NAK",
-          "Negative acknowledge"
+          "Negative acknowledgment"
         ],
         [
           "22",
@@ -796,9 +797,8 @@
           "DEL",
           ""
         ]
-      ],
-      "row_header": 0
+      ]
     }
   ],
-  "input_tables": []
+  "title": "ASCII characters and codes"
 }

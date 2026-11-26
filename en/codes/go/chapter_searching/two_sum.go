@@ -4,10 +4,10 @@
 
 package chapter_searching
 
-/* Method 1: brute-force enumeration */
+/* Method 1: Brute-force enumeration */
 func twoSumBruteForce(nums []int, target int) []int {
 	size := len(nums)
-	// Two nested loops give a time complexity of O(n^2)
+	// Two nested loops take O(n^2) time
 	for i := 0; i < size-1; i++ {
 		for j := i + 1; j < size; j++ {
 			if nums[i]+nums[j] == target {
@@ -18,11 +18,11 @@ func twoSumBruteForce(nums []int, target int) []int {
 	return nil
 }
 
-/* Method 2: auxiliary hash table */
+/* Method 2: Auxiliary hash table */
 func twoSumHashTable(nums []int, target int) []int {
 	// The auxiliary hash table uses O(n) space
 	hashTable := map[int]int{}
-	// A single loop gives a time complexity of O(n)
+	// A single loop takes O(n) time
 	for idx, val := range nums {
 		if preIdx, ok := hashTable[target-val]; ok {
 			return []int{preIdx, idx}

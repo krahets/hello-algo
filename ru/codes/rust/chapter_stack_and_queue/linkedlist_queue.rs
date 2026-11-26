@@ -12,8 +12,8 @@ use std::rc::Rc;
 /* Очередь на основе связного списка */
 #[allow(dead_code)]
 pub struct LinkedListQueue<T> {
-    front: Option<Rc<RefCell<ListNode<T>>>>, // Головной узел front
-    rear: Option<Rc<RefCell<ListNode<T>>>>,  // Хвостовой узел rear
+    front: Option<Rc<RefCell<ListNode<T>>>>, // Первый узел front
+    rear: Option<Rc<RefCell<ListNode<T>>>>,  // Последний узел rear
     que_size: usize,                         // Длина очереди
 }
 
@@ -26,27 +26,27 @@ impl<T: Copy> LinkedListQueue<T> {
         }
     }
 
-    /* Получение длины очереди */
+    /* Получить длину очереди */
     pub fn size(&self) -> usize {
         return self.que_size;
     }
 
-    /* Проверка, пуста ли очередь */
+    /* Проверить, пуста ли очередь */
     pub fn is_empty(&self) -> bool {
         return self.que_size == 0;
     }
 
-    /* Поместить в очередь */
+    /* Добавить элемент в очередь */
     pub fn push(&mut self, num: T) {
-        // Добавить num после хвостового узла
+        // Добавить узел со значением num после последнего узла
         let new_rear = ListNode::new(num);
         match self.rear.take() {
-            // Если очередь не пуста, добавить этот узел после хвостового узла
+            // Если очередь непуста, добавить новый узел после последнего
             Some(old_rear) => {
                 old_rear.borrow_mut().next = Some(new_rear.clone());
                 self.rear = Some(new_rear);
             }
-            // Если очередь пуста, сделать так, чтобы и head, и tail указывали на этот узел
+            // Если очередь пуста, установить ссылки на первый и последний узлы так, чтобы обе указывали на новый узел
             None => {
                 self.front = Some(new_rear.clone());
                 self.rear = Some(new_rear);
@@ -55,7 +55,7 @@ impl<T: Copy> LinkedListQueue<T> {
         self.que_size += 1;
     }
 
-    /* Извлечь из очереди */
+    /* Извлечь элемент из очереди */
     pub fn pop(&mut self) -> Option<T> {
         self.front.take().map(|old_front| {
             match old_front.borrow_mut().next.take() {
@@ -71,12 +71,12 @@ impl<T: Copy> LinkedListQueue<T> {
         })
     }
 
-    /* Доступ к элементу в начале очереди */
+    /* Посмотреть первый элемент очереди */
     pub fn peek(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
         self.front.as_ref()
     }
 
-    /* Преобразовать связный список в Array и вернуть */
+    /* Преобразовать связный список в динамический массив и вернуть его */
     pub fn to_array(&self, head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
         let mut res: Vec<T> = Vec::new();
 
@@ -93,12 +93,12 @@ impl<T: Copy> LinkedListQueue<T> {
     }
 }
 
-/* Driver Code */
+/* Пример использования */
 fn main() {
-    /* Инициализация очереди */
+    /* Инициализировать очередь */
     let mut queue = LinkedListQueue::new();
 
-    /* Добавление элемента в очередь */
+    /* Добавить элементы в очередь */
     queue.push(1);
     queue.push(3);
     queue.push(2);
@@ -107,20 +107,20 @@ fn main() {
     print!("Очередь queue = ");
     print_util::print_array(&queue.to_array(queue.peek()));
 
-    /* Доступ к элементу в начале очереди */
+    /* Посмотреть первый элемент очереди */
     let peek = queue.peek().unwrap().borrow().val;
-    print!("\nПервый элемент peek = {}", peek);
+    print!("\nПервый элемент очереди peek = {}", peek);
 
-    /* Извлечение элемента из очереди */
+    /* Извлечь элемент из очереди */
     let pop = queue.pop().unwrap();
-    print!("\nИзвлеченный элемент pop = {}, queue после извлечения = ", pop);
+    print!("\nИзвлечённый элемент pop = {}, после извлечения queue = ", pop);
     print_util::print_array(&queue.to_array(queue.peek()));
 
-    /* Получение длины очереди */
+    /* Получить длину очереди */
     let size = queue.size();
     print!("\nДлина очереди size = {}", size);
 
-    /* Проверка, пуста ли очередь */
+    /* Проверить, пуста ли очередь */
     let is_empty = queue.is_empty();
-    print!("\nПуста ли очередь = {}", is_empty);
+    print!("\nОчередь пуста = {}", is_empty);
 }

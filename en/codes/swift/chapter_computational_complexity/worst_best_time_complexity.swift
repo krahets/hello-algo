@@ -4,20 +4,20 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Generate an array containing { 1, 2, ..., n } in shuffled order */
+/* Generate a shuffled array containing { 1, 2, ..., n } */
 func randomNumbers(n: Int) -> [Int] {
     // Generate the array nums = { 1, 2, 3, ..., n }
     var nums = Array(1 ... n)
-    // Randomly shuffle the array elements
+    // Shuffle the array elements at random
     nums.shuffle()
     return nums
 }
 
-/* Find the index of the number 1 in array nums */
+/* Find the index of 1 in the array nums */
 func findOne(nums: [Int]) -> Int {
     for i in nums.indices {
-        // When 1 is at the start of the array, the best-case time complexity is O(1)
-        // When 1 is at the end of the array, the worst-case time complexity is O(n)
+        // Best case: 1 is the first element, so the search takes O(1) time
+        // Worst case: 1 is the last element, so the search takes O(n) time
         if nums[i] == 1 {
             return i
         }
@@ -27,14 +27,14 @@ func findOne(nums: [Int]) -> Int {
 
 @main
 enum WorstBestTimeComplexity {
-    /* Driver code */
+    /* Driver Code */
     static func main() {
         for _ in 0 ..< 10 {
             let n = 100
             let nums = randomNumbers(n: n)
             let index = findOne(nums: nums)
-            print("Array [1, 2, ..., n] after shuffling = \(nums)")
-            print("The index of 1 is \(index)")
+            print("Shuffled array [ 1, 2, ..., n ] = \(nums)")
+            print("Index of 1 = \(index)")
         }
     }
 }

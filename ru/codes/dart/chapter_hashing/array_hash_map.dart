@@ -4,7 +4,7 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* Пара ключ-значение */
+/* Пара «ключ — значение» */
 class Pair {
   int key;
   String val;
@@ -16,7 +16,7 @@ class ArrayHashMap {
   late List<Pair?> _buckets;
 
   ArrayHashMap() {
-    // Инициализировать массив, содержащий 100 корзин
+    // Создать массив из 100 корзин
     _buckets = List.filled(100, null);
   }
 
@@ -26,7 +26,7 @@ class ArrayHashMap {
     return index;
   }
 
-  /* Операция поиска */
+  /* Поиск */
   String? get(int key) {
     final int index = _hashFunc(key);
     final Pair? pair = _buckets[index];
@@ -36,20 +36,20 @@ class ArrayHashMap {
     return pair.val;
   }
 
-  /* Операция добавления */
+  /* Вставка */
   void put(int key, String val) {
     final Pair pair = Pair(key, val);
     final int index = _hashFunc(key);
     _buckets[index] = pair;
   }
 
-  /* Операция удаления */
+  /* Удаление */
   void remove(int key) {
     final int index = _hashFunc(key);
     _buckets[index] = null;
   }
 
-  /* Получить все пары ключ-значение */
+  /* Получить все пары «ключ — значение» */
   List<Pair> pairSet() {
     List<Pair> pairSet = [];
     for (final Pair? pair in _buckets) {
@@ -90,37 +90,37 @@ class ArrayHashMap {
   }
 }
 
-/* Driver Code */
+/* Демонстрационный код */
 void main() {
-  /* Инициализация хеш-таблицы */
+  /* Создать хеш-таблицу */
   final ArrayHashMap map = ArrayHashMap();
 
-  /* Операция добавления */
-  // Добавить пару (key, value) в хеш-таблицу
+  /* Вставка */
+  // Добавить в таблицу пару (key, value)
   map.put(12836, "Сяо Ха");
   map.put(15937, "Сяо Ло");
   map.put(16750, "Сяо Суань");
   map.put(13276, "Сяо Фа");
   map.put(10583, "Сяо Я");
-  print("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение");
+  print("\nХеш-таблица после вставки:\nКлюч -> Значение");
   map.printHashMap();
 
-  /* Операция поиска */
-  // Ввести в хеш-таблицу ключ key и получить значение value
+  /* Поиск */
+  // Получить из таблицы значение value по ключу key
   String? name = map.get(15937);
-  print("\nДля номера 15937 найдено имя $name");
+  print("\nИмя студента с номером 15937: $name");
 
-  /* Операция удаления */
-  // Удалить пару (key, value) из хеш-таблицы
+  /* Удаление */
+  // Удалить из таблицы пару (key, value)
   map.remove(10583);
-  print("\nПосле удаления 10583 хеш-таблица имеет вид\nКлюч -> Значение");
+  print("\nХеш-таблица после удаления 10583:\nКлюч -> Значение");
   map.printHashMap();
 
   /* Обход хеш-таблицы */
-  print("\nОтдельный обход пар ключ-значение");
+  print("\nОбход пар «ключ -> значение»");
   map.pairSet().forEach((kv) => print("${kv.key} -> ${kv.val}"));
-  print("\nОтдельный обход ключей");
+  print("\nОбход только ключей");
   map.keySet().forEach((key) => print("$key"));
-  print("\nОтдельный обход значений");
+  print("\nОбход только значений");
   map.values().forEach((val) => print("$val"));
 }

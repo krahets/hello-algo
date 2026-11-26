@@ -5,8 +5,8 @@ class TreeNode:
     def __init__(self, val: int):
         self.val: int = val                 # 節點值
         self.height: int = 0                # 節點高度
-        self.left: TreeNode | None = None   # 左子節點引用
-        self.right: TreeNode | None = None  # 右子節點引用
+        self.left: TreeNode | None = None   # 左子節點的參照
+        self.right: TreeNode | None = None  # 右子節點的參照
 ```
 
 ```cpp title=""
@@ -37,8 +37,8 @@ class TreeNode {
 class TreeNode(int? x) {
     public int? val = x;    // 節點值
     public int height;      // 節點高度
-    public TreeNode? left;  // 左子節點引用
-    public TreeNode? right; // 右子節點引用
+    public TreeNode? left;  // 左子節點的參照
+    public TreeNode? right; // 右子節點的參照
 }
 ```
 
@@ -47,8 +47,8 @@ class TreeNode(int? x) {
 type TreeNode struct {
     Val    int       // 節點值
     Height int       // 節點高度
-    Left   *TreeNode // 左子節點引用
-    Right  *TreeNode // 右子節點引用
+    Left   *TreeNode // 左子節點的參照
+    Right  *TreeNode // 右子節點的參照
 }
 ```
 
@@ -123,7 +123,7 @@ struct TreeNode {
 }
 
 impl TreeNode {
-    /* 建構子 */
+    /* 建構方法 */
     fn new(val: i32) -> Rc<RefCell<Self>> {
         Rc::new(RefCell::new(Self {
             val,
@@ -144,7 +144,7 @@ typedef struct TreeNode {
     struct TreeNode *right;
 } TreeNode;
 
-/* 建構子 */
+/* 建構函式 */
 TreeNode *newTreeNode(int val) {
     TreeNode *node;
 
@@ -171,8 +171,8 @@ class TreeNode(val _val: Int) {  // 節點值
 class TreeNode
   attr_accessor :val    # 節點值
   attr_accessor :height # 節點高度
-  attr_accessor :left   # 左子節點引用
-  attr_accessor :right  # 右子節點引用
+  attr_accessor :left   # 左子節點的參照
+  attr_accessor :right  # 右子節點的參照
 
   def initialize(val)
     @val = val

@@ -1,19 +1,19 @@
 {
-  "schema_version": 2,
-  "title": "Ways to reach step 3 when two consecutive 1-step moves are forbidden",
-  "summary": "Adding the constraint against two consecutive 1-step moves discards 0→1→2→3, leaving 2 valid ways to reach step 3.",
   "context": [
-    "Starting from ground level 0, each move may still climb 1 or 2 steps toward target step 3, under the added constraint that two consecutive moves may not both climb 1 step."
+    "Start at ground level, 0. Each move still climbs 1 or 2 stairs, and the goal is stair 3. The new constraint is that two consecutive moves cannot both climb 1 stair."
   ],
   "description": [
-    "The staircase labels steps 0 through 6 with target step 3 shaded green. Route 0→1→2→3 is drawn as a gray dotted curve with the callout above \"Because two consecutive one-step moves are forbidden, the route 0 → 1 → 2 → 3 is discarded\"; the solid blue curve 0→2→3 and solid orange curve 0→1→3 remain highlighted, and the bottom caption reads \"There are 2 ways to reach step 3: 0 → 2 → 3, 0 → 1 → 3\"."
+    "The stairs are numbered 0 through 6. The tread of the target stair, 3, is green. A gray dotted line traces 0→1→2→3. The label above it reads, “Two consecutive moves cannot both climb 1 stair, so discard 0→1→2→3.” A solid blue line highlights 0→2→3, and a solid orange line highlights 0→1→3. The note below reads, “There are two ways to reach stair 3: 0→2→3 and 0→1→3.”"
   ],
   "frames": [
     {
-      "id": "source-374",
       "book_path": "chapter_dynamic_programming/dp_problem_features.assets/climbing_stairs_constraint_example.png",
-      "title": "Ways to reach step 3 when two consecutive 1-step moves are forbidden",
-      "explanation": "Route 0→1→2→3 takes three consecutive 1-step moves, violating the ban on two consecutive 1-step moves in its very first two moves, so it is grayed out and discarded. Blue route 0→2→3 climbs 2 steps then 1 step, and orange route 0→1→3 climbs 1 step then 2 steps; neither contains adjacent 1-step moves, so both remain valid."
+      "explanation": "The route 0→1→2→3 takes three one-stair moves in succession. The first two already violate the rule, so the route is grayed out. The blue route, 0→2→3, climbs 2 stairs then 1. The orange route, 0→1→3, climbs 1 then 2. Both are valid because neither has consecutive one-stair moves.",
+      "id": "source-374",
+      "title": "Ways to reach stair 3 without climbing one stair twice in a row"
     }
-  ]
+  ],
+  "schema_version": 2,
+  "summary": "The rule against consecutive one-stair moves rules out 0→1→2→3, leaving just two ways to reach stair 3.",
+  "title": "Ways to reach stair 3 without climbing one stair twice in a row"
 }

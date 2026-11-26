@@ -9,12 +9,12 @@
 // Assume all elements are less than 1000
 #define MAX_SIZE 1000
 
-/* Build a binary tree: divide and conquer */
+/* Build a binary tree using divide and conquer */
 TreeNode *dfs(int *preorder, int *inorderMap, int i, int l, int r, int size) {
     // Stop when the subtree interval is empty
     if (r - l < 0)
         return NULL;
-    // Initialize the root node
+    // Initialize the root
     TreeNode *root = (TreeNode *)malloc(sizeof(TreeNode));
     root->val = preorder[i];
     root->left = NULL;
@@ -25,13 +25,13 @@ TreeNode *dfs(int *preorder, int *inorderMap, int i, int l, int r, int size) {
     root->left = dfs(preorder, inorderMap, i + 1, l, m - 1, size);
     // Subproblem: build the right subtree
     root->right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r, size);
-    // Return the root node
+    // Return the root
     return root;
 }
 
 /* Build a binary tree */
 TreeNode *buildTree(int *preorder, int preorderSize, int *inorder, int inorderSize) {
-    // Initialize a lookup array mapping inorder values to their indices
+    // Map each inorder value to its index in a hash table
     int *inorderMap = (int *)malloc(sizeof(int) * MAX_SIZE);
     for (int i = 0; i < inorderSize; i++) {
         inorderMap[inorder[i]] = i;
@@ -53,7 +53,7 @@ int main() {
     printArray(inorder, inorderSize);
 
     TreeNode *root = buildTree(preorder, preorderSize, inorder, inorderSize);
-    printf("Constructed binary tree:\n");
+    printf("Reconstructed binary tree:\n");
     printTree(root);
 
     freeMemoryTree(root);

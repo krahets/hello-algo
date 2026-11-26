@@ -10,36 +10,36 @@ use hello_algo_rust::op_vec;
 use std::collections::VecDeque;
 use std::{cell::RefCell, rc::Rc};
 
-/* Обход в ширину */
+/* Обход по уровням */
 fn level_order(root: &Rc<RefCell<TreeNode>>) -> Vec<i32> {
-    // Инициализировать очередь и добавить корневой узел
+    // Создать очередь и добавить корень
     let mut que = VecDeque::new();
     que.push_back(root.clone());
-    // Инициализировать список для хранения последовательности обхода
+    // Создать список для последовательности обхода
     let mut vec = Vec::new();
 
     while let Some(node) = que.pop_front() {
-        // Извлечение из очереди
+        // Извлечь узел из очереди
         vec.push(node.borrow().val); // Сохранить значение узла
         if let Some(left) = node.borrow().left.as_ref() {
-            que.push_back(left.clone()); // Поместить левый дочерний узел в очередь
+            que.push_back(left.clone()); // Добавить левого потомка в очередь
         }
         if let Some(right) = node.borrow().right.as_ref() {
-            que.push_back(right.clone()); // Поместить правый дочерний узел в очередь
+            que.push_back(right.clone()); // Добавить правого потомка в очередь
         };
     }
     vec
 }
 
-/* Driver Code */
+/* Основная программа */
 fn main() {
     /* Инициализация двоичного дерева */
-    // Здесь используется функция, напрямую строящая двоичное дерево из массива
+    // Используем функцию, которая строит двоичное дерево непосредственно из массива
     let root = vec_to_tree(op_vec![1, 2, 3, 4, 5, 6, 7]).unwrap();
     println!("Инициализация двоичного дерева\n");
     print_util::print_tree(&root);
 
-    /* Обход в ширину */
+    /* Обход по уровням */
     let vec = level_order(&root);
-    print!("\nПоследовательность печати узлов при обходе в ширину = {:?}", vec);
+    print!("\nУзлы в порядке обхода по уровням = {:?}", vec);
 }

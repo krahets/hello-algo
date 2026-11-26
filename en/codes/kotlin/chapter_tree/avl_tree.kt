@@ -16,21 +16,21 @@ class AVLTree {
 
     /* Get the node height */
     fun height(node: TreeNode?): Int {
-        // A null node has height -1; a leaf has height 0
+        // A null node has height -1, and a leaf has height 0
         return node?.height ?: -1
     }
 
     /* Update the node height */
     private fun updateHeight(node: TreeNode?) {
-        // The node height equals the height of its taller subtree + 1
+        // Node height is the height of the taller subtree plus 1
         node?.height = max(height(node?.left), height(node?.right)) + 1
     }
 
     /* Get the balance factor */
     fun balanceFactor(node: TreeNode?): Int {
-        // A null node has balance factor 0
+        // A null node has a balance factor of 0
         if (node == null) return 0
-        // Node balance factor = left subtree height - right subtree height
+        // Balance factor = left subtree height - right subtree height
         return height(node.left) - height(node.right)
     }
 
@@ -62,7 +62,7 @@ class AVLTree {
         return child
     }
 
-    /* Perform rotations to restore balance in this subtree */
+    /* Rebalance the subtree by rotating it */
     private fun rotate(node: TreeNode): TreeNode {
         // Get the balance factor of node
         val balanceFactor = balanceFactor(node)
@@ -88,7 +88,7 @@ class AVLTree {
                 return leftRotate(node)
             }
         }
-        // The tree is balanced; return without rotating
+        // The tree is balanced, so return without rotating
         return node
     }
 
@@ -108,23 +108,23 @@ class AVLTree {
         else if (_val > node._val)
             node.right = insertHelper(node.right, _val)
         else
-            return node // Return without inserting a duplicate node
+            return node // Return without inserting a duplicate
         updateHeight(node) // Update the node height
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = rotate(node)
-        // Return the subtree root
+        // Return the root of the subtree
         return node
     }
 
-    /* Remove a node */
+    /* Delete a node */
     fun remove(_val: Int) {
         root = removeHelper(root, _val)
     }
 
-    /* Remove a node recursively (helper method) */
+    /* Delete a node recursively (helper method) */
     private fun removeHelper(n: TreeNode?, _val: Int): TreeNode? {
         var node = n ?: return null
-        /* 1. Find and remove the node */
+        /* 1. Find the node and delete it */
         if (_val < node._val)
             node.left = removeHelper(node.left, _val)
         else if (_val > node._val)
@@ -135,14 +135,14 @@ class AVLTree {
                     node.left
                 else
                     node.right
-                // Number of children = 0: remove node and return
+                // No children: delete node and return
                 if (child == null)
                     return null
-                // Number of children = 1: remove node directly
+                // One child: delete node
                 else
                     node = child
             } else {
-                // Number of children = 2: remove the inorder successor and use its value to replace the current node value
+                // Two children: delete the inorder successor and use it to replace the current node
                 var temp = node.right
                 while (temp!!.left != null) {
                     temp = temp.left
@@ -152,24 +152,24 @@ class AVLTree {
             }
         }
         updateHeight(node) // Update the node height
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = rotate(node)
-        // Return the subtree root
+        // Return the root of the subtree
         return node
     }
 
-    /* Find a node */
+    /* Search for a node */
     fun search(_val: Int): TreeNode? {
         var cur = root
-        // Search while cur is not null; stop when the target is found
+        // Stop the search after passing a leaf
         while (cur != null) {
-            // The target node lies in the right subtree of cur
+            // The target is in the right subtree of cur
             cur = if (cur._val < _val)
                 cur.right!!
-            // The target node lies in the left subtree of cur
+            // The target is in the left subtree of cur
             else if (cur._val > _val)
                 cur.left
-            // The target node was found; exit the loop
+            // The target was found, so exit the loop
             else
                 break
         }
@@ -180,13 +180,13 @@ class AVLTree {
 
 fun testInsert(tree: AVLTree, _val: Int) {
     tree.insert(_val)
-    println("\nAVL tree after inserting node $_val:")
+    println("\nAVL tree after inserting $_val:")
     printTree(tree.root)
 }
 
 fun testRemove(tree: AVLTree, _val: Int) {
     tree.remove(_val)
-    println("\nAVL tree after removing node $_val:")
+    println("\nAVL tree after deleting $_val:")
     printTree(tree.root)
 }
 
@@ -196,7 +196,7 @@ fun main() {
     val avlTree = AVLTree()
 
     /* Insert a node */
-    // Observe how the AVL tree maintains balance after a node is inserted
+    // Watch how the AVL tree stays balanced after an insertion
     testInsert(avlTree, 1)
     testInsert(avlTree, 2)
     testInsert(avlTree, 3)
@@ -211,13 +211,13 @@ fun main() {
     /* Insert a duplicate node */
     testInsert(avlTree, 7)
 
-    /* Remove a node */
-    // Observe how the AVL tree maintains balance after a node is removed
-    testRemove(avlTree, 8) // Remove a node with 0 children
-    testRemove(avlTree, 5) // Remove a node with 1 child
-    testRemove(avlTree, 4) // Remove a node with 2 children
+    /* Delete a node */
+    // Watch how the AVL tree stays balanced after a deletion
+    testRemove(avlTree, 8) // Delete a node with no children
+    testRemove(avlTree, 5) // Delete a node with one child
+    testRemove(avlTree, 4) // Delete a node with two children
 
     /* Look up a node */
     val node = avlTree.search(7)
-    println("\nFound node object: $node; node value = ${node?._val}")
+    println("\nNode found: $node, node value = ${node?._val}")
 }

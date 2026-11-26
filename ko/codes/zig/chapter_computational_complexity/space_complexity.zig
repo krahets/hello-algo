@@ -9,24 +9,24 @@ const TreeNode = utils.TreeNode;
 
 // 함수
 fn function() i32 {
-    // 몇 가지 연산을 수행한다
+    // 어떤 연산을 수행한다
     return 0;
 }
 
 // 상수 차수
 fn constant(n: i32) void {
-    // 상수, 변수, 객체는 O(1) 공간을 차지한다
+    // 상수, 변수, 객체가 O(1)의 공간을 차지한다
     const a: i32 = 0;
     const b: i32 = 0;
     const nums = [_]i32{0} ** 10000;
     const node = ListNode(i32){ .val = 0 };
     var i: i32 = 0;
-    // 반복문 안의 변수는 O(1) 공간을 차지한다
+    // 반복문 안의 변수가 O(1)의 공간을 차지한다
     while (i < n) : (i += 1) {
         const c: i32 = 0;
         _ = c;
     }
-    // 반복문 안의 함수는 O(1) 공간을 차지한다
+    // 반복문 안의 함수가 O(1)의 공간을 차지한다
     i = 0;
     while (i < n) : (i += 1) {
         _ = function();
@@ -39,16 +39,16 @@ fn constant(n: i32) void {
 
 // 선형 차수
 fn linear(comptime n: i32) !void {
-    // 길이가 n인 배열은 O(n) 공간을 차지한다
+    // 길이 n인 배열이 O(n)의 공간을 차지한다
     const nums = [_]i32{0} ** n;
-    // 길이가 n인 리스트는 O(n) 공간을 차지한다
+    // 길이 n인 리스트가 O(n)의 공간을 차지한다
     var nodes = std.ArrayList(i32).init(std.heap.page_allocator);
     defer nodes.deinit();
     var i: i32 = 0;
     while (i < n) : (i += 1) {
         try nodes.append(i);
     }
-    // 길이가 n인 해시 테이블은 O(n) 공간을 차지한다
+    // 길이 n인 해시 테이블이 O(n)의 공간을 차지한다
     var map = std.AutoArrayHashMap(i32, []const u8).init(std.heap.page_allocator);
     defer map.deinit();
     var j: i32 = 0;
@@ -67,9 +67,9 @@ fn linearRecur(comptime n: i32) void {
     linearRecur(n - 1);
 }
 
-// 제곱 차수
+// 이차 차수
 fn quadratic(n: i32) !void {
-    // 이차원 리스트는 O(n^2) 공간을 차지한다
+    // 2차원 리스트가 O(n^2)의 공간을 차지한다
     var nodes = std.ArrayList(std.ArrayList(i32)).init(std.heap.page_allocator);
     defer nodes.deinit();
     var i: i32 = 0;
@@ -84,7 +84,7 @@ fn quadratic(n: i32) !void {
     }
 }
 
-// 제곱 차수(재귀 구현)
+// 이차 차수(재귀 구현)
 fn quadraticRecur(comptime n: i32) i32 {
     if (n <= 0) return 0;
     const nums = [_]i32{0} ** n;
@@ -92,7 +92,7 @@ fn quadraticRecur(comptime n: i32) i32 {
     return quadraticRecur(n - 1);
 }
 
-// 지수 차수(포화 이진 트리 구성)
+// 지수 차수(포화 이진 트리 생성)
 fn buildTree(allocator: std.mem.Allocator, n: i32) !?*TreeNode(i32) {
     if (n == 0) return null;
     const root = try allocator.create(TreeNode(i32));
@@ -102,7 +102,7 @@ fn buildTree(allocator: std.mem.Allocator, n: i32) !?*TreeNode(i32) {
     return root;
 }
 
-// 트리의 메모리를 해제한다
+// 트리 메모리 해제
 fn freeTree(allocator: std.mem.Allocator, root: ?*const TreeNode(i32)) void {
     if (root == null) return;
     freeTree(allocator, root.?.left);
@@ -110,7 +110,7 @@ fn freeTree(allocator: std.mem.Allocator, root: ?*const TreeNode(i32)) void {
     allocator.destroy(root.?);
 }
 
-// 실행 코드
+// 실행 예제
 pub fn run() !void {
     var gpa = std.heap.DebugAllocator(.{}){};
     defer _ = gpa.deinit();
@@ -122,7 +122,7 @@ pub fn run() !void {
     // 선형 차수
     try linear(n);
     linearRecur(n);
-    // 제곱 차수
+    // 이차 차수
     try quadratic(n);
     _ = quadraticRecur(n);
     // 지수 차수

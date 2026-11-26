@@ -17,7 +17,7 @@ public class binary_tree {
         TreeNode n3 = new TreeNode(3);
         TreeNode n4 = new TreeNode(4);
         TreeNode n5 = new TreeNode(5);
-        // 構建節點之間的引用（指標）
+        // 建立節點之間的參照（指標）
         n1.left = n2;
         n1.right = n3;
         n2.left = n4;
@@ -27,7 +27,7 @@ public class binary_tree {
 
         /* 插入與刪除節點 */
         TreeNode P = new TreeNode(0);
-        // 在 n1 -> n2 中間插入節點 P
+        // 在 n1 -> n2 之間插入節點 P
         n1.left = P;
         P.left = n2;
         System.out.println("\n插入節點 P 後\n");

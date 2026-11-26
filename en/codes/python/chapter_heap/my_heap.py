@@ -12,13 +12,13 @@ from modules import print_heap
 
 
 class MaxHeap:
-    """Max heap"""
+    """Max-heap"""
 
     def __init__(self, nums: list[int]):
         """Constructor: build a heap from the input list"""
-        # Place the list elements in the heap without changing their order
+        # Copy the list elements into the heap in their original order
         self.max_heap = nums
-        # Sift down from every non-leaf node
+        # Heapify all non-leaf nodes
         for i in range(self.parent(self.size() - 1), -1, -1):
             self.sift_down(i)
 
@@ -47,7 +47,7 @@ class MaxHeap:
         return self.size() == 0
 
     def peek(self) -> int:
-        """Access the top element of the heap"""
+        """Peek at the root"""
         return self.max_heap[0]
 
     def push(self, val: int):
@@ -58,11 +58,11 @@ class MaxHeap:
         self.sift_up(self.size() - 1)
 
     def sift_up(self, i: int):
-        """Sift up starting from node i"""
+        """Sift up from node i"""
         while True:
             # Get the parent of node i
             p = self.parent(i)
-            # Stop sifting when the root has been passed or the node needs no repair
+            # Stop sifting at the root or when the node already satisfies the heap property
             if p < 0 or self.max_heap[i] <= self.max_heap[p]:
                 break
             # Swap the two nodes
@@ -75,25 +75,25 @@ class MaxHeap:
         # Handle an empty heap
         if self.is_empty():
             raise IndexError("Heap is empty")
-        # Swap the root with the rightmost leaf on the last level (swap the first and last elements)
+        # Swap the root and the rightmost leaf (the first and last elements)
         self.swap(0, self.size() - 1)
-        # Remove a node
+        # Remove the node
         val = self.max_heap.pop()
         # Sift down
         self.sift_down(0)
-        # Return the top element of the heap
+        # Return the root element
         return val
 
     def sift_down(self, i: int):
-        """Sift down starting from node i"""
+        """Sift down from node i"""
         while True:
-            # Find the node with the largest value among i, l, and r, and store its index in ma
+            # Store the index of the largest of nodes i, l, and r in ma
             l, r, ma = self.left(i), self.right(i), i
             if l < self.size() and self.max_heap[l] > self.max_heap[ma]:
                 ma = l
             if r < self.size() and self.max_heap[r] > self.max_heap[ma]:
                 ma = r
-            # Stop if node i is largest or both child indices l and r are out of bounds
+            # Stop if i is already largest or both child indices l and r are out of bounds
             if ma == i:
                 break
             # Swap the two nodes
@@ -102,30 +102,30 @@ class MaxHeap:
             i = ma
 
     def print(self):
-        """Print the heap (binary tree)"""
+        """Print the heap as a binary tree"""
         print_heap(self.max_heap)
 
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
-    # Initialize a max heap
+    # Initialize a max-heap
     max_heap = MaxHeap([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2])
-    print("\nAfter building a heap from the input list:")
+    print("\nHeap built from the input list:")
     max_heap.print()
 
-    # Get the top element of the heap
+    # Get the root element
     peek = max_heap.peek()
-    print(f"\nTop element of the heap: {peek}")
+    print(f"\nRoot element: {peek}")
 
     # Push an element onto the heap
     val = 7
     max_heap.push(val)
-    print(f"\nAfter pushing element {val} onto the heap:")
+    print(f"\nHeap after pushing {val}:")
     max_heap.print()
 
-    # Pop the top element from the heap
+    # Pop the root
     peek = max_heap.pop()
-    print(f"\nAfter popping top element {peek} from the heap:")
+    print(f"\nHeap after popping the root ({peek}):")
     max_heap.print()
 
     # Get the heap size
@@ -134,4 +134,4 @@ if __name__ == "__main__":
 
     # Check whether the heap is empty
     is_empty = max_heap.is_empty()
-    print(f"\nIs the heap empty: {is_empty}")
+    print(f"\nIs the heap empty? {is_empty}")

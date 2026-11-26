@@ -1,19 +1,19 @@
-# Created by https://www.toptal.com/developers/gitignore/api/objective-c,swift,swiftpackagemanager
-# Edit at https://www.toptal.com/developers/gitignore?templates=objective-c,swift,swiftpackagemanager
+# 由 https://www.toptal.com/developers/gitignore/api/objective-c,swift,swiftpackagemanager 產生
+# 可在 https://www.toptal.com/developers/gitignore?templates=objective-c,swift,swiftpackagemanager 編輯
 
 ### Objective-C ###
 # Xcode
 #
-# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+# 參與維護 gitignore 的貢獻者請記得同步更新 Global/Xcode.gitignore、Objective-C.gitignore 和 Swift.gitignore
 
-## User settings
+## 使用者設定
 xcuserdata/
 
-## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
+## 相容於 Xcode 8 及更早版本（從 Xcode 9 起無須忽略下列檔案）
 *.xcscmblueprint
 *.xccheckout
 
-## compatibility with Xcode 3 and earlier (ignoring not required starting Xcode 4)
+## 相容於 Xcode 3 及更早版本（從 Xcode 4 起無須忽略下列項目）
 build/
 DerivedData/
 *.moved-aside
@@ -26,32 +26,32 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 
-## Obj-C/Swift specific
+## Obj-C 與 Swift 專用項目
 *.hmap
 
-## App packaging
+## 應用程式封裝
 *.ipa
 *.dSYM.zip
 *.dSYM
 
 # CocoaPods
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
+# 建議不要把 Pods 目錄加入 .gitignore。不過，
+# 請自行權衡利弊，相關說明請參閱：
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 # Pods/
-# Add this line if you want to avoid checking in source code from the Xcode workspace
+# 若要避免將 Xcode 工作區的原始碼提交至版本庫，請加入這一行
 # *.xcworkspace
 
 # Carthage
-# Add this line if you want to avoid checking in source code from Carthage dependencies.
+# 若要避免將 Carthage 相依套件的原始碼提交至版本庫，請加入這一行。
 # Carthage/Checkouts
 
 Carthage/Build/
 
 # fastlane
-# It is recommended to not store the screenshots in the git repo.
-# Instead, use fastlane to re-generate the screenshots whenever they are needed.
-# For more information about the recommended setup visit:
+# 建議不要將螢幕截圖存入 Git 版本庫。
+# 需要截圖時，再用 fastlane 重新產生即可。
+# 有關建議設定的詳細資訊，請參閱：
 # https://docs.fastlane.tools/best-practices/source-control/#source-control
 
 fastlane/report.xml
@@ -59,65 +59,65 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 
-# Code Injection
-# After new code Injection tools there's a generated folder /iOSInjectionProject
+# 程式碼注入
+# 新版程式碼注入工具會產生 /iOSInjectionProject 資料夾
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
 
-### Objective-C Patch ###
+### Objective-C 修補程式 ###
 
 ### Swift ###
 # Xcode
-# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+# 參與維護 gitignore 的貢獻者請記得同步更新 Global/Xcode.gitignore、Objective-C.gitignore 和 Swift.gitignore
 
 
 
 
 
 
-## Playgrounds
+## Playground 專案
 timeline.xctimeline
 playground.xcworkspace
 
 # Swift Package Manager
-# Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
+# 若要避免將 Swift Package Manager 相依套件的原始碼提交至版本庫，請加入這一行。
 # Packages/
 # Package.pins
 # Package.resolved
 # *.xcodeproj
-# Xcode automatically generates this directory with a .xcworkspacedata file and xcuserdata
-# hence it is not needed unless you have added a package configuration file to your project
+# Xcode 會自動產生這個目錄，其中包含 .xcworkspacedata 檔案和 xcuserdata。
+# 只有在專案中加入了套件設定檔時，才需要保留這個目錄
 # .swiftpm
 
 .build/
 
 # CocoaPods
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
+# 建議不要把 Pods 目錄加入 .gitignore。不過，
+# 請自行權衡利弊，相關說明請參閱：
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 # Pods/
-# Add this line if you want to avoid checking in source code from the Xcode workspace
+# 若要避免將 Xcode 工作區的原始碼提交至版本庫，請加入這一行
 # *.xcworkspace
 
 # Carthage
-# Add this line if you want to avoid checking in source code from Carthage dependencies.
+# 若要避免將 Carthage 相依套件的原始碼提交至版本庫，請加入這一行。
 # Carthage/Checkouts
 
 
-# Accio dependency management
+# Accio 相依套件管理
 Dependencies/
 .accio/
 
 # fastlane
-# It is recommended to not store the screenshots in the git repo.
-# Instead, use fastlane to re-generate the screenshots whenever they are needed.
-# For more information about the recommended setup visit:
+# 建議不要將螢幕截圖存入 Git 版本庫。
+# 需要截圖時，再用 fastlane 重新產生即可。
+# 有關建議設定的詳細資訊，請參閱：
 # https://docs.fastlane.tools/best-practices/source-control/#source-control
 
 
-# Code Injection
-# After new code Injection tools there's a generated folder /iOSInjectionProject
+# 程式碼注入
+# 新版程式碼注入工具會產生 /iOSInjectionProject 資料夾
 # https://github.com/johnno1962/injectionforxcode
 
 
@@ -127,4 +127,4 @@ xcuserdata
 *.xcodeproj
 
 
-# End of https://www.toptal.com/developers/gitignore/api/objective-c,swift,swiftpackagemanager
+# https://www.toptal.com/developers/gitignore/api/objective-c,swift,swiftpackagemanager 結束

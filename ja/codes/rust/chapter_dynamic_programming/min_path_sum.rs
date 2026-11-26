@@ -6,15 +6,15 @@
 
 /* 最小経路和：全探索 */
 fn min_path_sum_dfs(grid: &Vec<Vec<i32>>, i: i32, j: i32) -> i32 {
-    // 左上のセルなら探索を終了する
+    // 左上のマスに着いたら探索を終了する
     if i == 0 && j == 0 {
         return grid[0][0];
     }
-    // 行または列のインデックスが範囲外の場合、コスト +∞ を返す
+    // 行または列の添字が範囲外ならコスト +∞ を返す
     if i < 0 || j < 0 {
         return i32::MAX;
     }
-    // 左上から (i-1, j) および (i, j-1) までの最小経路コストを計算する
+    // 左上から (i-1, j) と (i, j-1) までの最小経路コストを求める
     let up = min_path_sum_dfs(grid, i - 1, j);
     let left = min_path_sum_dfs(grid, i, j - 1);
     // 左上から (i, j) までの最小経路コストを返す
@@ -23,19 +23,19 @@ fn min_path_sum_dfs(grid: &Vec<Vec<i32>>, i: i32, j: i32) -> i32 {
 
 /* 最小経路和：メモ化探索 */
 fn min_path_sum_dfs_mem(grid: &Vec<Vec<i32>>, mem: &mut Vec<Vec<i32>>, i: i32, j: i32) -> i32 {
-    // 左上のセルなら探索を終了する
+    // 左上のマスに着いたら探索を終了する
     if i == 0 && j == 0 {
         return grid[0][0];
     }
-    // 行または列のインデックスが範囲外の場合、コスト +∞ を返す
+    // 行または列の添字が範囲外ならコスト +∞ を返す
     if i < 0 || j < 0 {
         return i32::MAX;
     }
-    // 記録済みなら、その値をそのまま返す
+    // 記録済みなら、その値を返す
     if mem[i as usize][j as usize] != -1 {
         return mem[i as usize][j as usize];
     }
-    // 左隣と上隣のセルまでの最小経路コスト
+    // 左と上のマスまでの最小経路コスト
     let up = min_path_sum_dfs_mem(grid, mem, i - 1, j);
     let left = min_path_sum_dfs_mem(grid, mem, i, j - 1);
     // 左上から (i, j) までの最小経路コストを記録して返す
@@ -66,7 +66,7 @@ fn min_path_sum_dp(grid: &Vec<Vec<i32>>) -> i32 {
     dp[n - 1][m - 1]
 }
 
-/* 最小経路和：空間を最適化した動的計画法 */
+/* 最小経路和：使用メモリを削減した動的計画法 */
 fn min_path_sum_dp_comp(grid: &Vec<Vec<i32>>) -> i32 {
     let (n, m) = (grid.len(), grid[0].len());
     // dp テーブルを初期化する
@@ -88,7 +88,7 @@ fn min_path_sum_dp_comp(grid: &Vec<Vec<i32>>) -> i32 {
     dp[m - 1]
 }
 
-/* 実行用コード */
+/* 実行例 */
 pub fn main() {
     let grid = vec![
         vec![1, 3, 1, 5],
@@ -114,7 +114,7 @@ pub fn main() {
     let res = min_path_sum_dp(&grid);
     println!("左上から右下までの最小経路和は {res}");
 
-    // 空間を最適化した動的計画法
+    // 使用メモリを削減した動的計画法
     let res = min_path_sum_dp_comp(&grid);
     println!("左上から右下までの最小経路和は {res}");
 }

@@ -20,13 +20,13 @@ function preOrder(root, path, res) {
     }
     preOrder(root.left, path, res);
     preOrder(root.right, path, res);
-    // 復元
+    // 後戻り
     path.pop();
 }
 
-// 実行用コード
+// 実行例
 const root = arrToTree([1, 7, 3, 4, 5, 6, 7]);
-console.log('\n二分木を初期化する');
+console.log('\n二分木を初期化');
 printTree(root);
 
 // 行きがけ順走査
@@ -34,7 +34,7 @@ const path = [];
 const res = [];
 preOrder(root, path, res);
 
-console.log('\n根ノードからノード 7 までのすべての経路を出力する');
+console.log('\n根から値が 7 のノードまでの経路をすべて出力');
 res.forEach((path) => {
     console.log(path.map((node) => node.val));
 });

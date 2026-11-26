@@ -6,38 +6,38 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 ### 編集距離：全探索 ###
 def edit_distance_dfs(s, t, i, j)
-  # s と t がともに空の場合、0 を返す
+  # s と t がともに空なら 0 を返す
   return 0 if i == 0 && j == 0
-  # s が空の場合、t の長さを返す
+  # s が空なら t の長さを返す
   return j if i == 0
-  # t が空の場合、s の長さを返す
+  # t が空なら s の長さを返す
   return i if j == 0
-  # 2 つの文字が等しい場合、その 2 文字をスキップする
+  # 2 文字が等しければ、両方とも読み飛ばす
   return edit_distance_dfs(s, t, i - 1, j - 1) if s[i - 1] == t[j - 1]
-  # 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+  # 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
   insert = edit_distance_dfs(s, t, i, j - 1)
   delete = edit_distance_dfs(s, t, i - 1, j)
   replace = edit_distance_dfs(s, t, i - 1, j - 1)
-  # 最小編集回数を返す
+  # 最少編集回数を返す
   [insert, delete, replace].min + 1
 end
 
 def edit_distance_dfs_mem(s, t, mem, i, j)
-  # s と t がともに空の場合、0 を返す
+  # s と t がともに空なら 0 を返す
   return 0 if i == 0 && j == 0
-  # s が空の場合、t の長さを返す
+  # s が空なら t の長さを返す
   return j if i == 0
-  # t が空の場合、s の長さを返す
+  # t が空なら s の長さを返す
   return i if j == 0
-  # 記録済みなら、その値をそのまま返す
+  # 記録済みなら、その値を返す
   return mem[i][j] if mem[i][j] != -1
-  # 2 つの文字が等しい場合、その 2 文字をスキップする
+  # 2 文字が等しければ、両方とも読み飛ばす
   return edit_distance_dfs_mem(s, t, mem, i - 1, j - 1) if s[i - 1] == t[j - 1]
-  # 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+  # 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
   insert = edit_distance_dfs_mem(s, t, mem, i, j - 1)
   delete = edit_distance_dfs_mem(s, t, mem, i - 1, j)
   replace = edit_distance_dfs_mem(s, t, mem, i - 1, j - 1)
-  # 最小編集回数を記録して返す
+  # 最少編集回数を記録して返す
   mem[i][j] = [insert, delete, replace].min + 1
 end
 
@@ -52,10 +52,10 @@ def edit_distance_dp(s, t)
   for i in 1...(n + 1)
     for j in 1...(m +1)
       if s[i - 1] == t[j - 1]
-        # 2 つの文字が等しい場合、その 2 文字をスキップする
+        # 2 文字が等しければ、両方とも読み飛ばす
         dp[i][j] = dp[i - 1][j - 1]
       else
-        # 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+        # 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
         dp[i][j] = [dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]].min + 1
       end
     end
@@ -63,7 +63,7 @@ def edit_distance_dp(s, t)
   dp[n][m]
 end
 
-### 編集距離：空間を最適化した動的計画法 ###
+### 編集距離：使用メモリを削減した動的計画法 ###
 def edit_distance_dp_comp(s, t)
   n, m = s.length, t.length
   dp = Array.new(m + 1, 0)
@@ -78,19 +78,19 @@ def edit_distance_dp_comp(s, t)
     for j in 1...(m + 1)
       temp = dp[j]
       if s[i - 1] == t[j - 1]
-        # 2 つの文字が等しい場合、その 2 文字をスキップする
+        # 2 文字が等しければ、両方とも読み飛ばす
         dp[j] = leftup
       else
-        # 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+        # 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
         dp[j] = [dp[j - 1], dp[j], leftup].min + 1
       end
-      leftup = temp # 次の反復の dp[i-1, j-1] に更新する
+      leftup = temp # 次の反復で使う dp[i-1, j-1] に更新する
     end
   end
   dp[m]
 end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   s = 'bag'
   t = 'pack'
@@ -98,18 +98,18 @@ if __FILE__ == $0
 
   # 全探索
   res = edit_distance_dfs(s, t, n, m)
-  puts "#{s} を #{t} に変更するには最低 #{res} 回の編集が必要"
+  puts "文字列 #{s} を #{t} に変えるには最低 #{res} 回の編集が必要"
 
   # メモ化探索
   mem = Array.new(n + 1) { Array.new(m + 1, -1) }
   res = edit_distance_dfs_mem(s, t, mem, n, m)
-  puts "#{s} を #{t} に変更するには最低 #{res} 回の編集が必要"
+  puts "文字列 #{s} を #{t} に変えるには最低 #{res} 回の編集が必要"
 
   # 動的計画法
   res = edit_distance_dp(s, t)
-  puts "#{s} を #{t} に変更するには最低 #{res} 回の編集が必要"
+  puts "文字列 #{s} を #{t} に変えるには最低 #{res} 回の編集が必要"
 
-  # 空間を最適化した動的計画法
+  # 使用メモリを削減した動的計画法
   res = edit_distance_dp_comp(s, t)
-  puts "#{s} を #{t} に変更するには最低 #{res} 回の編集が必要"
+  puts "文字列 #{s} を #{t} に変えるには最低 #{res} 回の編集が必要"
 end

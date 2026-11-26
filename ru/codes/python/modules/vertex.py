@@ -11,10 +11,10 @@ class Vertex:
 
 
 def vals_to_vets(vals: list[int]) -> list["Vertex"]:
-    """На вход подается список значений vals, на выходе возвращается список вершин vets"""
+    """Принять список значений vals и вернуть список вершин vets"""
     return [Vertex(val) for val in vals]
 
 
 def vets_to_vals(vets: list["Vertex"]) -> list[int]:
-    """На вход подается список вершин vets, на выходе возвращается список значений vals"""
+    """Принять список вершин vets и вернуть список значений vals"""
     return [vet.val for vet in vets]

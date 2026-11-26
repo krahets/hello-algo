@@ -10,41 +10,41 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
 from modules import print_dict
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
     # Initialize the hash table
     hmap = dict[int, str]()
 
-    # Insert operation
-    # Insert the key-value pair (key, value) into the hash table
-    hmap[12836] = "小哈"
-    hmap[15937] = "小啰"
-    hmap[16750] = "小算"
-    hmap[13276] = "小法"
-    hmap[10583] = "小鸭"
+    # Insert a key-value pair
+    # Insert the pair (key, value) into the hash table
+    hmap[12836] = "Xiao Ha"
+    hmap[15937] = "Xiao Luo"
+    hmap[16750] = "Xiao Suan"
+    hmap[13276] = "Xiao Fa"
+    hmap[10583] = "Xiao Ya"
     print("\nHash table after insertion:\nKey -> Value")
     print_dict(hmap)
 
-    # Lookup operation
-    # Look up key in the hash table to obtain value
+    # Look up a value
+    # Look up key in the hash table to get value
     name: str = hmap[15937]
-    print("\nLook up student ID 15937 to obtain the name " + name)
+    print("\nName for student ID 15937: " + name)
 
-    # Remove operation
-    # Remove the key-value pair (key, value) from the hash table
+    # Remove a key-value pair
+    # Remove the pair (key, value) from the hash table
     hmap.pop(10583)
     print("\nHash table after removing 10583:\nKey -> Value")
     print_dict(hmap)
 
-    # Traverse the hash table
-    print("\nTraverse key-value pairs: Key->Value")
+    # Iterate over the hash table
+    print("\nIterate over key-value pairs (Key->Value)")
     for key, value in hmap.items():
         print(key, "->", value)
 
-    print("\nTraverse keys only: Key")
+    print("\nIterate over keys only")
     for key in hmap.keys():
         print(key)
 
-    print("\nTraverse values only: Value")
+    print("\nIterate over values only")
     for val in hmap.values():
         print(val)

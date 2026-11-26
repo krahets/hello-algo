@@ -25,7 +25,7 @@ def linear(n: int) -> int:
 def array_traversal(nums: list[int]) -> int:
     """線形オーダー（配列の走査）"""
     count = 0
-    # ループの回数は配列の長さに比例する
+    # 反復回数は配列の長さに比例
     for num in nums:
         count += 1
     return count
@@ -34,7 +34,7 @@ def array_traversal(nums: list[int]) -> int:
 def quadratic(n: int) -> int:
     """二次オーダー"""
     count = 0
-    # ループの回数はデータの大きさ n の二乗に比例する
+    # 反復回数はデータサイズ n の二乗に比例
     for i in range(n):
         for j in range(n):
             count += 1
@@ -44,16 +44,16 @@ def quadratic(n: int) -> int:
 def bubble_sort(nums: list[int]) -> int:
     """二次オーダー（バブルソート）"""
     count = 0  # カウンタ
-    # 外側のループ：未ソート区間は [0, i]
+    # 外側のループ：未整列区間は [0, i]
     for i in range(len(nums) - 1, 0, -1):
-        # 内側のループ：未ソート区間 [0, i] の最大要素を区間の右端に移す
+        # 内側のループ：未整列区間 [0, i] の最大要素を、交換しながら区間の右端へ移す
         for j in range(i):
             if nums[j] > nums[j + 1]:
-                # nums[j] と nums[j + 1] を交換する
+                # nums[j] と nums[j + 1] を交換
                 tmp: int = nums[j]
                 nums[j] = nums[j + 1]
                 nums[j + 1] = tmp
-                count += 3  # 要素の交換は 3 回の単位操作からなる
+                count += 3  # 要素の交換は 3 回の基本操作からなる
     return count
 
 
@@ -61,7 +61,7 @@ def exponential(n: int) -> int:
     """指数オーダー（ループによる実装）"""
     count = 0
     base = 1
-    # 各回で細胞が 2 つに分裂し、数列 1, 2, 4, 8, ..., 2^(n-1) を形成する
+    # 各回で細胞が二分し、分裂する細胞の数は 1, 2, 4, 8, ..., 2^(n-1) となる
     for _ in range(n):
         for _ in range(base):
             count += 1
@@ -97,9 +97,9 @@ def linear_log_recur(n: int) -> int:
     """線形対数オーダー"""
     if n <= 1:
         return 1
-    # 2 つに分割し、部分問題の大きさを半分にする
+    # 二分すると部分問題のサイズは半分になる
     count = linear_log_recur(n // 2) + linear_log_recur(n // 2)
-    # 現在の部分問題には n 回の操作が含まれる
+    # 現在の部分問題には n 回の操作がある
     for _ in range(n):
         count += 1
     return count
@@ -110,17 +110,17 @@ def factorial_recur(n: int) -> int:
     if n == 0:
         return 1
     count = 0
-    # 1 個から n 個に分裂する
+    # 1 個から n 個に分かれる
     for _ in range(n):
         count += factorial_recur(n - 1)
     return count
 
 
-"""実行用コード"""
+"""Driver Code"""
 if __name__ == "__main__":
-    # n を変更して実行し、各計算量で操作回数がどのように変化するか確かめられる
+    # n を変えて実行し、計算量ごとに操作回数の増え方を確かめる
     n = 8
-    print("入力データの大きさ n =", n)
+    print("入力データのサイズ n =", n)
 
     count = constant(n)
     print("定数オーダーの操作回数 =", count)

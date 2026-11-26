@@ -10,10 +10,10 @@ import 'array_hash_map.dart';
 class HashMapOpenAddressing {
   late int _size; // Number of key-value pairs
   int _capacity = 4; // Hash table capacity
-  double _loadThres = 2.0 / 3.0; // Load factor threshold that triggers capacity growth
-  int _extendRatio = 2; // Capacity growth factor
+  double _loadThres = 2.0 / 3.0; // Load factor threshold for resizing
+  int _extendRatio = 2; // Growth factor
   late List<Pair?> _buckets; // Bucket array
-  Pair _TOMBSTONE = Pair(-1, "-1"); // Tombstone marker
+  Pair _TOMBSTONE = Pair(-1, "-1"); // Deletion marker
 
   /* Constructor */
   HashMapOpenAddressing() {
@@ -38,75 +38,75 @@ class HashMapOpenAddressing {
     for (int i = 0; i < _capacity; i++) {
       final bucket = _buckets[index];
       if (bucket == null) break;
-      // Record the first tombstone encountered
+      // Record the first deletion marker encountered
       if (identical(bucket, _TOMBSTONE)) {
         if (firstTombstone == -1) firstTombstone = index;
       } else if (bucket.key == key) {
-        // If a tombstone was encountered earlier, move the key-value pair to that index
+        // If a deletion marker was found earlier, move the pair to that index
         if (firstTombstone != -1) {
           _buckets[firstTombstone] = bucket;
           _buckets[index] = _TOMBSTONE;
-          return firstTombstone; // Return the bucket index after the move
+          return firstTombstone; // Return the new bucket index
         }
         return index; // Return the bucket index
       }
-      // Calculate the bucket index, wrapping to the beginning after the end
+      // Compute the next bucket index, wrapping to the start at the end
       index = (index + 1) % _capacity;
     }
     // If key is absent, return the index for insertion
     return firstTombstone == -1 ? index : firstTombstone;
   }
 
-  /* Lookup operation */
+  /* Look up a value */
   String? get(int key) {
     // Find the bucket index for key
     int index = findBucket(key);
-    // If the key-value pair is found, return its val
+    // If the pair is found, return its val
     if (_buckets[index] != null && _buckets[index] != _TOMBSTONE) {
       return _buckets[index]!.val;
     }
-    // Return null if the key-value pair does not exist
+    // Return null if the pair is absent
     return null;
   }
 
-  /* Insert operation */
+  /* Insert a key-value pair */
   void put(int key, String val) {
-    // Grow the capacity when the load factor exceeds the threshold
+    // Expand the table when the load factor exceeds the threshold
     if (loadFactor() > _loadThres) {
       extend();
     }
     // Find the bucket index for key
     int index = findBucket(key);
-    // If the key-value pair is found, overwrite val and return
+    // If the pair is found, overwrite val and return
     if (_buckets[index] != null && _buckets[index] != _TOMBSTONE) {
       _buckets[index]!.val = val;
       return;
     }
-    // If the key-value pair is absent, insert it
+    // If the pair is absent, insert it
     _buckets[index] = new Pair(key, val);
     _size++;
   }
 
-  /* Remove operation */
+  /* Remove a key-value pair */
   void remove(int key) {
     // Find the bucket index for key
     int index = findBucket(key);
-    // If the key-value pair is found, replace it with a tombstone
+    // If the pair is found, replace it with a deletion marker
     if (_buckets[index] != null && _buckets[index] != _TOMBSTONE) {
       _buckets[index] = _TOMBSTONE;
       _size--;
     }
   }
 
-  /* Grow the hash table capacity */
+  /* Expand the hash table */
   void extend() {
-    // Keep a reference to the original hash table
+    // Save the original hash table
     List<Pair?> bucketsTmp = _buckets;
-    // Initialize a new hash table with the expanded capacity
+    // Initialize the larger hash table
     _capacity *= _extendRatio;
     _buckets = List.generate(_capacity, (index) => null);
     _size = 0;
-    // Move the key-value pairs from the original hash table to the new one
+    // Move the key-value pairs from the old table into the new one
     for (Pair? pair in bucketsTmp) {
       if (pair != null && pair != _TOMBSTONE) {
         put(pair.key, pair.val);
@@ -133,23 +133,23 @@ void main() {
   /* Initialize the hash table */
   HashMapOpenAddressing map = HashMapOpenAddressing();
 
-  /* Insert operation */
-  // Insert the key-value pair (key, value) into the hash table
-  map.put(12836, "小哈");
-  map.put(15937, "小啰");
-  map.put(16750, "小算");
-  map.put(13276, "小法");
-  map.put(10583, "小鸭");
+  /* Insert a key-value pair */
+  // Insert the pair (key, value) into the hash table
+  map.put(12836, "Xiao Ha");
+  map.put(15937, "Xiao Luo");
+  map.put(16750, "Xiao Suan");
+  map.put(13276, "Xiao Fa");
+  map.put(10583, "Xiao Ya");
   print("\nHash table after insertion:\nKey -> Value");
   map.printHashMap();
 
-  /* Lookup operation */
-  // Look up key in the hash table to obtain value
+  /* Look up a value */
+  // Look up key in the hash table to get value
   String? name = map.get(13276);
-  print("\nLook up student ID 13276: name = $name");
+  print("\nName for student ID 13276: $name");
 
-  /* Remove operation */
-  // Remove the key-value pair (key, value) from the hash table
+  /* Remove a key-value pair */
+  // Remove the pair (key, value) from the hash table
   map.remove(16750);
   print("\nHash table after removing 16750:\nKey -> Value");
   map.printHashMap();

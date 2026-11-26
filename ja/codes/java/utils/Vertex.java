@@ -8,7 +8,7 @@ package utils;
 
 import java.util.*;
 
-/* 頂点クラス */
+/* 頂点を表すクラス */
 public class Vertex {
     public int val;
 
@@ -16,7 +16,7 @@ public class Vertex {
         this.val = val;
     }
 
-    /* 値のリスト vals を入力し、頂点のリスト vets を返す */
+    /* 値のリスト vals を受け取り、頂点のリスト vets を返す */
     public static Vertex[] valsToVets(int[] vals) {
         Vertex[] vets = new Vertex[vals.length];
         for (int i = 0; i < vals.length; i++) {
@@ -25,7 +25,7 @@ public class Vertex {
         return vets;
     }
 
-    /* 頂点のリスト vets を入力し、値のリスト vals を返す */
+    /* 頂点のリスト vets を受け取り、値のリスト vals を返す */
     public static List<Integer> vetsToVals(List<Vertex> vets) {
         List<Integer> vals = new ArrayList<>();
         for (Vertex vet : vets) {

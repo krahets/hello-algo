@@ -6,15 +6,15 @@
 
 #include "../utils/common.h"
 
-/* Вставка узла P в связный список после узла n0 */
+/* Вставить узел P после узла n0 */
 void insert(ListNode *n0, ListNode *P) {
     ListNode *n1 = n0->next;
     P->next = n1;
     n0->next = P;
 }
 
-/* Удаление первого узла после узла n0 из связного списка */
-// Внимание: stdio.h уже использует ключевое слово remove
+/* Удалить первый узел, следующий за n0 */
+// Имя remove уже используется в stdio.h
 void removeItem(ListNode *n0) {
     if (!n0->next)
         return;
@@ -26,7 +26,7 @@ void removeItem(ListNode *n0) {
     free(P);
 }
 
-/* Доступ к узлу с индексом index в связном списке */
+/* Получить узел списка по индексу index */
 ListNode *access(ListNode *head, int index) {
     for (int i = 0; i < index; i++) {
         if (head == NULL)
@@ -36,7 +36,7 @@ ListNode *access(ListNode *head, int index) {
     return head;
 }
 
-/* Поиск первого узла со значением target в связном списке */
+/* Найти первый узел списка со значением target */
 int find(ListNode *head, int target) {
     int index = 0;
     while (head) {
@@ -48,40 +48,40 @@ int find(ListNode *head, int target) {
     return -1;
 }
 
-/* Driver Code */
+/* Демонстрационный код */
 int main() {
     /* Инициализация связного списка */
-    // Инициализация всех узлов
+    // Инициализировать узлы
     ListNode *n0 = newListNode(1);
     ListNode *n1 = newListNode(3);
     ListNode *n2 = newListNode(2);
     ListNode *n3 = newListNode(5);
     ListNode *n4 = newListNode(4);
-    // Построить ссылки между узлами
+    // Связать узлы ссылками
     n0->next = n1;
     n1->next = n2;
     n2->next = n3;
     n3->next = n4;
-    printf("Инициализированный связный список\r\n");
+    printf("Исходный связный список:\r\n");
     printLinkedList(n0);
 
     /* Вставка узла */
     insert(n0, newListNode(0));
-    printf("Связный список после вставки узла\r\n");
+    printf("Связный список после вставки:\r\n");
     printLinkedList(n0);
 
     /* Удаление узла */
     removeItem(n0);
-    printf("Связный список после удаления узла\r\n");
+    printf("Связный список после удаления:\r\n");
     printLinkedList(n0);
 
     /* Доступ к узлу */
     ListNode *node = access(n0, 3);
-    printf("Значение узла по индексу 3 в связном списке = %d\r\n", node->val);
+    printf("Значение узла по индексу 3 = %d\r\n", node->val);
 
     /* Поиск узла */
     int index = find(n0, 2);
-    printf("Индекс узла со значением 2 в связном списке = %d\r\n", index);
+    printf("Индекс узла со значением 2 = %d\r\n", index);
 
     // Освободить память
     freeMemoryLinkedList(n0);

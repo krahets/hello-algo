@@ -8,10 +8,10 @@ import 'dart:collection';
 
 void main() {
   /* 初始化佇列 */
-  // 在 Dart 中，一般將雙向佇列類別 Queue 看作佇列使用
+  // 在 Dart 中，通常用雙端佇列類別 Queue 當作一般佇列
   final Queue<int> queue = Queue();
 
-  /* 元素入列 */
+  /* 將元素加入佇列 */
   queue.add(1);
   queue.add(3);
   queue.add(2);
@@ -19,15 +19,15 @@ void main() {
   queue.add(4);
   print("佇列 queue = $queue");
 
-  /* 訪問佇列首元素 */
+  /* 讀取隊首元素 */
   final int peek = queue.first;
-  print("佇列首元素 peek = $peek");
+  print("隊首元素 peek = $peek");
 
-  /* 元素出列 */
+  /* 從佇列取出元素 */
   final int pop = queue.removeFirst();
-  print("出列元素 pop = $pop ，出列後 queue = $queue");
+  print("出隊元素 pop = $pop ，出隊後 queue = $queue");
 
-  /* 獲取佇列長度 */
+  /* 取得佇列長度 */
   final int size = queue.length;
   print("佇列長度 size = $size");
 

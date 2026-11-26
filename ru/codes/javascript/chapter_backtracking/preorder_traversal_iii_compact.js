@@ -7,35 +7,35 @@
 const { arrToTree } = require('../modules/TreeNode');
 const { printTree } = require('../modules/PrintUtil');
 
-/* Предварительный обход: пример 3 */
+/* Прямой обход: пример 3 */
 function preOrder(root, path, res) {
     // Отсечение
     if (root === null || root.val === 3) {
         return;
     }
-    // Попытка
+    // Пробуем вариант
     path.push(root);
     if (root.val === 7) {
-        // Записать решение
+        // Сохраняем решение
         res.push([...path]);
     }
     preOrder(root.left, path, res);
     preOrder(root.right, path, res);
-    // Откат
+    // Возврат
     path.pop();
 }
 
-// Driver Code
+// Основная программа
 const root = arrToTree([1, 7, 3, 4, 5, 6, 7]);
-console.log('\nИнициализация двоичного дерева');
+console.log('\nСоздаём двоичное дерево');
 printTree(root);
 
-// Предварительный обход
+// Прямой обход
 const path = [];
 const res = [];
 preOrder(root, path, res);
 
-console.log('\nВсе пути от корня к узлу 7, не содержащие узлов со значением 3');
+console.log('\nВыводим все пути от корня до узлов со значением 7 без узлов со значением 3');
 res.forEach((path) => {
     console.log(path.map((node) => node.val));
 });

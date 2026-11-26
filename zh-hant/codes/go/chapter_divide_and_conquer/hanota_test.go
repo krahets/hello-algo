@@ -13,14 +13,14 @@ import (
 )
 
 func TestHanota(t *testing.T) {
-	// 串列尾部是柱子頂部
+	// 串列尾端對應柱子頂端
 	A := list.New()
 	for i := 5; i > 0; i-- {
 		A.PushBack(i)
 	}
 	B := list.New()
 	C := list.New()
-	fmt.Println("初始狀態下：")
+	fmt.Println("初始狀態：")
 	fmt.Print("A = ")
 	PrintList(A)
 	fmt.Print("B = ")

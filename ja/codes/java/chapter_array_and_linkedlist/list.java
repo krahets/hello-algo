@@ -11,22 +11,22 @@ import java.util.*;
 public class list {
     public static void main(String[] args) {
         /* リストを初期化する */
-        // リストの要素には int のラッパークラス Integer しか使えないため、配列の型は int[] ではなく Integer[] にする必要があることに注意
+        // 配列の型は Integer[] を使う。int[] は使えない。リストの要素にできるのは int のラッパークラス Integer だからである
         Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
         List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
         System.out.println("リスト nums = " + nums);
 
         /* 要素にアクセスする */
         int num = nums.get(1);
-        System.out.println("インデックス 1 の要素にアクセスした結果 num = " + num);
+        System.out.println("インデックス 1 の要素を読み出した結果 num = " + num);
 
         /* 要素を更新する */
         nums.set(1, 0);
-        System.out.println("インデックス 1 の要素を 0 に更新した結果 nums = " + nums);
+        System.out.println("インデックス 1 の要素を 0 に更新した後の nums = " + nums);
 
         /* リストを空にする */
         nums.clear();
-        System.out.println("リストを空にした後 nums = " + nums);
+        System.out.println("リストを空にした後の nums = " + nums);
 
         /* 末尾に要素を追加する */
         nums.add(1);
@@ -34,15 +34,15 @@ public class list {
         nums.add(2);
         nums.add(5);
         nums.add(4);
-        System.out.println("要素を追加した後 nums = " + nums);
+        System.out.println("要素追加後の nums = " + nums);
 
         /* 途中に要素を挿入する */
         nums.add(3, 6);
-        System.out.println("インデックス 3 に数値 6 を挿入した結果 nums = " + nums);
+        System.out.println("インデックス 3 に 6 を挿入した後の nums = " + nums);
 
         /* 要素を削除する */
         nums.remove(3);
-        System.out.println("インデックス 3 の要素を削除した結果 nums = " + nums);
+        System.out.println("インデックス 3 の要素を削除した後の nums = " + nums);
 
         /* インデックスを使ってリストを走査する */
         int count = 0;
@@ -57,10 +57,10 @@ public class list {
         /* 2 つのリストを連結する */
         List<Integer> nums1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
         nums.addAll(nums1);
-        System.out.println("リスト nums の後ろに nums1 を連結した結果 nums = " + nums);
+        System.out.println("リスト nums1 を nums の末尾に連結した後の nums = " + nums);
 
         /* リストをソートする */
         Collections.sort(nums);
-        System.out.println("リストをソートした後 nums = " + nums);
+        System.out.println("ソート後のリスト nums = " + nums);
     }
 }

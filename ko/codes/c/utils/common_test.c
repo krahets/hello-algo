@@ -18,10 +18,10 @@ void testTreeNode() {
     int size = sizeof(nums) / sizeof(int);
     TreeNode *root = arrayToTree(nums, size);
 
-    // 트리를 출력한다
+    // 트리 출력
     printTree(root);
 
-    // 트리를 배열로 변환한다
+    // 트리를 배열로 변환
     int *arr = treeToArray(root, &size);
     printArray(arr, size);
 }

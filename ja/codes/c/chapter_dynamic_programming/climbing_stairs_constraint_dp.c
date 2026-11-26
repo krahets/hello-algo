@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* 制約付きの階段の上り方：動的計画法 */
+/* 制約付きの階段の登り方：動的計画法 */
 int climbingStairsConstraintDP(int n) {
     if (n == 1 || n == 2) {
         return 1;
@@ -35,12 +35,12 @@ int climbingStairsConstraintDP(int n) {
     return res;
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     int n = 9;
 
     int res = climbingStairsConstraintDP(n);
-    printf("%d 段の階段を上る方法は全部で %d 通り\n", n, res);
+    printf("全 %d 段の階段の登り方は %d 通り\n", n, res);
 
     return 0;
 }

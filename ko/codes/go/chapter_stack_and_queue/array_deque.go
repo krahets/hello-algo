@@ -9,12 +9,12 @@ import "fmt"
 /* 원형 배열로 구현한 덱 */
 type arrayDeque struct {
 	nums        []int // 덱의 원소를 저장하는 배열
-	front       int   // 맨 앞 원소를 가리키는 맨 앞 포인터
-	queSize     int   // 덱 길이
-	queCapacity int   // 큐 용량(저장할 수 있는 최대 원소 개수)
+	front       int   // 맨 앞 원소를 가리키는 앞쪽 포인터
+	queSize     int   // 덱의 길이
+	queCapacity int   // 덱의 용량(저장할 수 있는 최대 원소 수)
 }
 
-/* 큐 초기화 */
+/* 덱 초기화 */
 func newArrayDeque(queCapacity int) *arrayDeque {
 	return &arrayDeque{
 		nums:        make([]int, queCapacity),
@@ -24,21 +24,21 @@ func newArrayDeque(queCapacity int) *arrayDeque {
 	}
 }
 
-/* 덱의 길이 반환 */
+/* 덱의 길이 조회 */
 func (q *arrayDeque) size() int {
 	return q.queSize
 }
 
-/* 덱이 비어 있는지 판단 */
+/* 덱이 비어 있는지 확인 */
 func (q *arrayDeque) isEmpty() bool {
 	return q.queSize == 0
 }
 
-/* 원형 배열 인덱스 계산 */
+/* 원형 배열의 인덱스 계산 */
 func (q *arrayDeque) index(i int) int {
-	// 나머지 연산을 통해 배열의 처음과 끝을 연결한다
-	// i가 배열의 끝을 넘어가면 처음으로 돌아온다
-	// i가 배열의 처음을 넘어가면 끝으로 돌아온다
+	// 나머지 연산을 이용해 배열의 처음과 끝을 연결한다
+	// i가 배열의 끝을 넘으면 처음으로 돌아간다
+	// i가 배열의 시작 위치보다 작아지면 끝으로 돌아간다
 	return (i + q.queCapacity) % q.queCapacity
 }
 
@@ -48,10 +48,10 @@ func (q *arrayDeque) pushFirst(num int) {
 		fmt.Println("덱이 가득 찼다")
 		return
 	}
-	// 맨 앞 포인터를 왼쪽으로 한 칸 이동한다
-	// 나머지 연산을 통해 front가 배열의 처음을 넘어가면 끝으로 돌아오게 한다
+	// 앞쪽 포인터를 왼쪽으로 한 칸 옮긴다
+	// 나머지 연산을 이용해 front가 배열의 시작 위치보다 작아지면 끝으로 돌아가게 한다
 	q.front = q.index(q.front - 1)
-	// num을 맨 앞에 추가한다
+	// 맨 앞에 num을 추가한다
 	q.nums[q.front] = num
 	q.queSize++
 }
@@ -62,9 +62,9 @@ func (q *arrayDeque) pushLast(num int) {
 		fmt.Println("덱이 가득 찼다")
 		return
 	}
-	// 맨 뒤 인덱스 + 1을 가리키는 맨 뒤 포인터를 계산한다
+	// 맨 뒤 원소의 다음 칸(맨 뒤 인덱스 + 1)을 가리키는 뒤쪽 포인터를 구한다
 	rear := q.index(q.front + q.queSize)
-	// num을 맨 뒤에 추가한다
+	// 맨 뒤에 num을 추가한다
 	q.nums[rear] = num
 	q.queSize++
 }
@@ -75,7 +75,7 @@ func (q *arrayDeque) popFirst() any {
 	if num == nil {
 		return nil
 	}
-	// 맨 앞 포인터를 뒤로 한 칸 이동한다
+	// 앞쪽 포인터를 한 칸 전진시킨다
 	q.front = q.index(q.front + 1)
 	q.queSize--
 	return num
@@ -91,7 +91,7 @@ func (q *arrayDeque) popLast() any {
 	return num
 }
 
-/* 맨 앞 원소 접근 */
+/* 맨 앞 원소 조회 */
 func (q *arrayDeque) peekFirst() any {
 	if q.isEmpty() {
 		return nil
@@ -99,19 +99,19 @@ func (q *arrayDeque) peekFirst() any {
 	return q.nums[q.front]
 }
 
-/* 맨 뒤 원소 접근 */
+/* 맨 뒤 원소 조회 */
 func (q *arrayDeque) peekLast() any {
 	if q.isEmpty() {
 		return nil
 	}
-	// 마지막 원소의 인덱스를 계산한다
+	// 맨 뒤 원소의 인덱스 계산
 	last := q.index(q.front + q.queSize - 1)
 	return q.nums[last]
 }
 
-/* 출력에 사용할 Slice 반환 */
+/* 출력에 사용할 슬라이스 반환 */
 func (q *arrayDeque) toSlice() []int {
-	// 유효한 길이 범위 안의 리스트 원소만 변환한다
+	// 실제 원소가 차지하는 범위의 리스트 원소만 변환한다
 	res := make([]int, q.queSize)
 	for i, j := 0, q.front; i < q.queSize; i++ {
 		res[i] = q.nums[q.index(j)]

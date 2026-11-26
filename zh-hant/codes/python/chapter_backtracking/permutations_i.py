@@ -9,20 +9,20 @@ def backtrack(
     state: list[int], choices: list[int], selected: list[bool], res: list[list[int]]
 ):
     """回溯演算法：全排列 I"""
-    # 當狀態長度等於元素數量時，記錄解
+    # 當狀態長度等於元素個數時，記錄此解
     if len(state) == len(choices):
         res.append(list(state))
         return
-    # 走訪所有選擇
+    # 逐一檢查所有選項
     for i, choice in enumerate(choices):
-        # 剪枝：不允許重複選擇元素
+        # 剪枝：不可重複選取同一個元素
         if not selected[i]:
-            # 嘗試：做出選擇，更新狀態
+            # 嘗試：做出選擇並更新狀態
             selected[i] = True
             state.append(choice)
-            # 進行下一輪選擇
+            # 進入下一輪選擇
             backtrack(state, choices, selected, res)
-            # 回退：撤銷選擇，恢復到之前的狀態
+            # 回溯：撤銷選擇，還原先前的狀態
             selected[i] = False
             state.pop()
 

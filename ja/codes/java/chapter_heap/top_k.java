@@ -10,17 +10,17 @@ import utils.*;
 import java.util.*;
 
 public class top_k {
-    /* ヒープを使って配列内の大きいほうから k 個の要素を求める */
+    /* ヒープを使って配列の上位 k 個の要素を求める */
     static Queue<Integer> topKHeap(int[] nums, int k) {
         // 最小ヒープを初期化する
         Queue<Integer> heap = new PriorityQueue<Integer>();
-        // 配列の先頭 k 個の要素をヒープに挿入する
+        // 配列の先頭 k 個の要素をヒープに入れる
         for (int i = 0; i < k; i++) {
             heap.offer(nums[i]);
         }
-        // k+1 番目の要素から始め、ヒープの長さを k に保つ
+        // k+1 番目の要素からはヒープのサイズを k に保つ
         for (int i = k; i < nums.length; i++) {
-            // 現在の要素がヒープの先頭要素より大きい場合、先頭要素を取り出し、現在の要素を挿入する
+            // 現在の要素が根の要素より大きければ、根の要素を取り出して現在の要素を挿入する
             if (nums[i] > heap.peek()) {
                 heap.poll();
                 heap.offer(nums[i]);
@@ -34,7 +34,7 @@ public class top_k {
         int k = 3;
 
         Queue<Integer> res = topKHeap(nums, k);
-        System.out.println("大きいほうから " + k + " 個の要素は");
+        System.out.println("上位 " + k + " 個の要素：");
         PrintUtil.printHeap(res);
     }
 }

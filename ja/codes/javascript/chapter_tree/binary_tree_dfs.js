@@ -7,13 +7,13 @@
 const { arrToTree } = require('../modules/TreeNode');
 const { printTree } = require('../modules/PrintUtil');
 
-// 走査順序を格納するリストを初期化する
+// 走査順を記録するリストを初期化する
 const list = [];
 
 /* 行きがけ順走査 */
 function preOrder(root) {
     if (root === null) return;
-    // 訪問順序：根ノード -> 左部分木 -> 右部分木
+    // 訪問順：根 -> 左部分木 -> 右部分木
     list.push(root.val);
     preOrder(root.left);
     preOrder(root.right);
@@ -22,7 +22,7 @@ function preOrder(root) {
 /* 通りがけ順走査 */
 function inOrder(root) {
     if (root === null) return;
-    // 訪問順序：左部分木 -> 根ノード -> 右部分木
+    // 訪問順：左部分木 -> 根 -> 右部分木
     inOrder(root.left);
     list.push(root.val);
     inOrder(root.right);
@@ -31,30 +31,30 @@ function inOrder(root) {
 /* 帰りがけ順走査 */
 function postOrder(root) {
     if (root === null) return;
-    // 訪問順序：左部分木 -> 右部分木 -> 根ノード
+    // 訪問順：左部分木 -> 右部分木 -> 根
     postOrder(root.left);
     postOrder(root.right);
     list.push(root.val);
 }
 
-/* 実行用コード */
+/* 実行例 */
 /* 二分木を初期化する */
-// ここでは配列から二分木を直接生成する関数を使う
+// ここでは配列から直接二分木を作る関数を使う
 const root = arrToTree([1, 2, 3, 4, 5, 6, 7]);
-console.log('\n二分木を初期化する\n');
+console.log('\n二分木を初期化\n');
 printTree(root);
 
 /* 行きがけ順走査 */
 list.length = 0;
 preOrder(root);
-console.log('\n行きがけ順走査で表示するノードの順序 = ' + list);
+console.log('\n行きがけ順に出力したノードの列 = ' + list);
 
 /* 通りがけ順走査 */
 list.length = 0;
 inOrder(root);
-console.log('\n通りがけ順走査で表示するノードの順序 = ' + list);
+console.log('\n通りがけ順に出力したノードの列 = ' + list);
 
 /* 帰りがけ順走査 */
 list.length = 0;
 postOrder(root);
-console.log('\n帰りがけ順走査で表示するノードの順序 = ' + list);
+console.log('\n帰りがけ順に出力したノードの列 = ' + list);

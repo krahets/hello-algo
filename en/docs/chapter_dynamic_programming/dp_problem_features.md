@@ -1,79 +1,79 @@
 # Properties of dynamic programming problems
 
-The previous section showed how dynamic programming solves a problem by decomposing it into subproblems. Decomposition is a general algorithmic idea, but divide and conquer, dynamic programming, and backtracking use it differently.
+In the previous section, we saw how dynamic programming solves a problem by breaking it into subproblems. This is a general algorithmic technique. Divide and conquer, dynamic programming, and backtracking each use it differently.
 
-- Divide and conquer recursively splits a problem into independent subproblems until the smallest ones are reached, then combines their solutions as the recursion returns to solve the original problem.
-- Dynamic programming also decomposes problems recursively. Its main difference from divide and conquer is that its subproblems depend on one another, and many overlapping subproblems appear during decomposition.
-- Backtracking enumerates possible solutions by trying choices and undoing them, using pruning to avoid unnecessary branches. A solution consists of a sequence of decisions, and the prefix before each decision can be viewed as a subproblem.
+- Divide and conquer recursively splits a problem into independent subproblems until it reaches the smallest ones. As the recursion unwinds, it combines their solutions to solve the original problem.
+- Dynamic programming also breaks problems down recursively. The main difference from divide and conquer is that its subproblems depend on one another, so many of them overlap.
+- Backtracking enumerates all possible solutions by trying choices and undoing them. Pruning avoids unnecessary search branches. A solution consists of a series of decisions, and we can treat the sequence leading up to each decision as a subproblem.
 
-Dynamic programming is often used for optimization problems. Besides overlapping subproblems, these problems have two key properties: optimal substructure and the no-aftereffect property.
+Dynamic programming is often used for optimization problems. Along with overlapping subproblems, these problems have two other important properties: optimal substructure and the no-aftereffect property.
 
 ## Optimal substructure
 
-Let's modify the climbing stairs problem slightly to illustrate optimal substructure more clearly.
+Let's modify the stair-climbing problem slightly to illustrate optimal substructure.
 
 !!! question "Minimum cost to climb stairs"
 
-    Given a staircase, you can climb $1$ or $2$ steps at a time. Each step has a nonnegative integer indicating the cost paid on that step. A nonnegative integer array $cost$ gives the costs: $cost[i]$ is the cost of step $i$, and $cost[0]$ refers to the ground (the starting point). What is the minimum cost of reaching the top?
+    On a staircase, each move takes you up $1$ or $2$ stairs. Each stair is labeled with a nonnegative integer, the cost of landing on it. Given a nonnegative integer array $cost$, where $cost[i]$ is the cost of stair $i$ and $cost[0]$ corresponds to the ground (the starting point), find the minimum total cost to reach the top.
 
-As shown in the figure below, if steps $1$, $2$, and $3$ cost $1$, $10$, and $1$, respectively, the minimum cost of reaching step $3$ from the ground is $2$.
+In the figure below, stairs $1$, $2$, and $3$ cost $1$, $10$, and $1$, respectively. The minimum cost to climb from the ground to stair $3$ is $2$.
 
-![Minimum cost of reaching step 3](dp_problem_features.assets/min_cost_cs_example.svg)
+![Minimum cost to reach stair 3](dp_problem_features.assets/min_cost_cs_example.svg)
 
-Let $dp[i]$ be the total cost of reaching step $i$. Since step $i$ can only be reached from step $i - 1$ or $i - 2$, $dp[i]$ must be either $dp[i - 1] + cost[i]$ or $dp[i - 2] + cost[i]$. To minimize the cost, choose the smaller of the two:
+Let $dp[i]$ be the cumulative cost to reach stair $i$. We can reach stair $i$ only from stair $i - 1$ or $i - 2$, so $dp[i]$ must be either $dp[i - 1] + cost[i]$ or $dp[i - 2] + cost[i]$. To minimize the cost, we take the smaller value:
 
 $$
 dp[i] = \min(dp[i-1], dp[i-2]) + cost[i]
 $$
 
-This introduces the meaning of optimal substructure: **an optimal solution to the original problem is constructed from optimal solutions to its subproblems**.
+This illustrates optimal substructure: **an optimal solution to the original problem is built from optimal solutions to its subproblems**.
 
-This problem clearly has optimal substructure: choose the better of $dp[i-1]$ and $dp[i-2]$ and use it to construct the optimal solution $dp[i]$.
+Our problem has optimal substructure: we choose the better of the two optimal subproblem solutions, $dp[i-1]$ and $dp[i-2]$, and use it to construct the optimal solution to $dp[i]$.
 
-Does the climbing stairs problem from the previous section also have optimal substructure? Its goal is to count solutions, so it seems to be a counting problem. But rephrase the goal as finding the maximum number of solutions, and **although the problem remains equivalent, optimal substructure becomes apparent**: the maximum number of ways to reach step $n$ is the sum of the maximum numbers for steps $n-1$ and $n-2$. The interpretation of optimal substructure is therefore flexible and can vary by problem.
+Does the stair-climbing problem in the previous section also have optimal substructure? Finding the number of ways seems like a counting problem. But try asking for the “maximum number of ways.” Now **the question is equivalent, yet the optimal substructure becomes apparent**: the maximum number of ways to reach stair $n$ equals the sum of the maximum numbers of ways to reach stairs $n-1$ and $n-2$. The interpretation of optimal substructure can vary with the problem.
 
-The state transition equation, together with the initial states $dp[1] = cost[1]$ and $dp[2] = cost[2]$, gives the following dynamic programming code:
+With the recurrence and the initial states $dp[1] = cost[1]$ and $dp[2] = cost[2]$, we can write the dynamic programming solution:
 
 ```src
 [file]{min_cost_climbing_stairs_dp}-[class]{}-[func]{min_cost_climbing_stairs_dp}
 ```
 
-The figure below illustrates this dynamic programming process.
+The figure below shows how the code fills the states.
 
-![Dynamic programming for the minimum climbing cost](dp_problem_features.assets/min_cost_cs_dp.svg)
+![Finding the minimum cost to climb stairs with dynamic programming](dp_problem_features.assets/min_cost_cs_dp.svg)
 
-We can also reduce the state storage from a one-dimensional array to scalar variables, lowering the space complexity from $O(n)$ to $O(1)$:
+We can also save space by replacing the one-dimensional array with scalar variables, reducing space complexity from $O(n)$ to $O(1)$:
 
 ```src
 [file]{min_cost_climbing_stairs_dp}-[class]{}-[func]{min_cost_climbing_stairs_dp_comp}
 ```
 
-## No-aftereffect property
+## The no-aftereffect property
 
-The no-aftereffect property is central to effective dynamic programming: **given a fully specified state, its future depends only on that state, not on the sequence of states that led to it**.
+An important reason dynamic programming works is the no-aftereffect property: **given a state, what happens next depends only on that state, regardless of the states visited on the way there**.
 
-In the climbing stairs problem, state $i$ can lead to $i+1$ or $i+2$, corresponding to moves of $1$ or $2$ steps. Neither choice requires us to consider states before $i$: they do not affect the future of state $i$.
+In stair climbing, state $i$ can lead to $i+1$ or $i+2$ by climbing $1$ or $2$ stairs, respectively. Neither choice requires us to consider any state before $i$. Those states have no effect on what we can do from $i$.
 
-Adding a constraint changes the situation.
+Adding a constraint to the stair-climbing problem changes the picture.
 
 !!! question "Climbing stairs with a constraint"
 
-    Given a staircase with $n$ steps, you may climb $1$ or $2$ steps at a time, **but may not make two consecutive moves of $1$ step**. How many ways are there to reach the top?
+    A staircase has $n$ stairs. Each move climbs $1$ or $2$ stairs, **but you cannot climb $1$ stair twice in a row**. How many ways can you reach the top?
 
-As shown in the figure below, only $2$ ways remain to reach step $3$: taking $1$ step three times in a row violates the constraint and is discarded.
+As the figure shows, only $2$ ways to reach stair $3$ remain. Climbing $1$ stair three times in a row violates the constraint and is ruled out.
 
-![Number of ways to reach step 3 with the constraint](dp_problem_features.assets/climbing_stairs_constraint_example.svg)
+![Number of ways to reach stair 3 with the constraint](dp_problem_features.assets/climbing_stairs_constraint_example.svg)
 
-If the previous move climbed $1$ step, the next must climb $2$ steps. Thus, **the next choice cannot be determined by the current state (the current step number) alone; it also depends on the preceding state (the previous step number)**.
+If the previous move climbed $1$ stair, the next move must climb $2$ stairs. Thus **the current state (the stair we are on) no longer determines the next choice by itself. The choice also depends on the previous state (the stair we came from)**.
 
-The no-aftereffect property no longer holds with this state definition, and $dp[i] = dp[i-1] + dp[i-2]$ is no longer valid. Using $dp[i-1]$ means taking $1$ step now, but it includes many ways in which the preceding move also took $1$ step. We cannot simply add all of $dp[i-1]$ to $dp[i]$ without violating the constraint.
+With the state defined this way, the no-aftereffect property no longer holds and the recurrence $dp[i] = dp[i-1] + dp[i-2]$ breaks down. The term $dp[i-1]$ counts ways to make a final move of $1$ stair, including many where the preceding move also climbed $1$ stair. To respect the constraint, we cannot add all of $dp[i-1]$ to $dp[i]$.
 
-We therefore expand the state definition: **state $[i, j]$ means we are on step $i$ and the previous move climbed $j$ steps**, where $j \in \{1, 2\}$. This distinguishes whether the preceding move climbed $1$ or $2$ steps, allowing us to determine how the current state could have been reached.
+We therefore extend the state definition: **state $[i, j]$ means we are on stair $i$ and the last move climbed $j$ stairs**, where $j \in \{1, 2\}$. Distinguishing a final move of $1$ stair from one of $2$ stairs lets us identify the possible predecessors.
 
-- If the previous move climbed $1$ step, the move before it must have climbed $2$ steps. Thus, $dp[i, 1]$ can only come from $dp[i-1, 2]$.
-- If the previous move climbed $2$ steps, the move before it could have climbed $1$ or $2$ steps. Thus, $dp[i, 2]$ can come from $dp[i-2, 1]$ or $dp[i-2, 2]$.
+- If the last move climbed $1$ stair, the preceding move must have climbed $2$ stairs. Thus $dp[i, 1]$ can come only from $dp[i-1, 2]$.
+- If the last move climbed $2$ stairs, the preceding move could have climbed $1$ or $2$ stairs. Thus $dp[i, 2]$ can come from $dp[i-2, 1]$ or $dp[i-2, 2]$.
 
-As shown in the figure below, $dp[i, j]$ now counts the ways to reach state $[i, j]$. The state transition equations are:
+With this definition, $dp[i, j]$ counts the ways to reach state $[i, j]$, as shown below. The recurrence becomes:
 
 $$
 \begin{cases}
@@ -82,20 +82,20 @@ dp[i, 2] = dp[i-2, 1] + dp[i-2, 2]
 \end{cases}
 $$
 
-![Recurrence with the constraint](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.svg)
+![Recurrence with the stair-climbing constraint](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.svg)
 
-Finally, return $dp[n, 1] + dp[n, 2]$, the total number of ways to reach step $n$:
+Finally, return $dp[n, 1] + dp[n, 2]$. The sum counts all ways to reach stair $n$:
 
 ```src
 [file]{climbing_stairs_constraint_dp}-[class]{}-[func]{climbing_stairs_constraint_dp}
 ```
 
-In this example, only one preceding state mattered, so expanding the state definition restored the no-aftereffect property. Some problems, however, depend much more strongly on their history.
+Here we needed information from just one earlier state. Extending the state definition restored the no-aftereffect property. In some problems, however, the influence of earlier states is much harder to capture.
 
-!!! question "Climbing stairs that generate obstacles"
+!!! question "Climbing stairs with obstacles that appear along the way"
 
-    Given a staircase with $n$ steps, you may climb $1$ or $2$ steps at a time. **Whenever you reach step $i$, the system places an obstacle on step $2i$, and you may never land on step $2i$ afterward**. For example, if your first two moves land on steps $2$ and $3$, then steps $4$ and $6$ are blocked for all later moves. How many ways are there to reach the top?
+    A staircase has $n$ stairs, and each move climbs $1$ or $2$ stairs. **Whenever you land on stair $i$, the system places an obstacle on stair $2i$. You cannot land on stair $2i$ on any later move**. For example, if your first two moves land on stairs $2$ and $3$, then stairs $4$ and $6$ are off-limits thereafter. How many ways can you reach the top?
 
-Here, each next move depends on all previous states, because every move places an obstacle higher up and affects future moves. Such problems are often difficult to solve with dynamic programming.
+The next move depends on all previous states. Each move places an obstacle farther up the staircase and affects future moves. Dynamic programming often struggles with such problems.
 
-Many complex combinatorial optimization problems, such as the traveling salesperson problem, do not satisfy the no-aftereffect property. For such problems, we often choose other methods, such as heuristic search, genetic algorithms, or reinforcement learning, to obtain useful locally optimal solutions within a limited time.
+Many complex combinatorial optimization problems, such as the traveling salesperson problem, exhibit this dependence on the past. For such problems, we often turn to methods such as heuristic search, genetic algorithms, or reinforcement learning to find a usable local optimum within a limited time.

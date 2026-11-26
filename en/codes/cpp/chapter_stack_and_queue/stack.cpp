@@ -17,25 +17,25 @@ int main() {
     stack.push(2);
     stack.push(5);
     stack.push(4);
-    cout << "Stack stack = ";
+    cout << "stack = ";
     printStack(stack);
 
-    /* Access the top element */
+    /* Peek at the top element */
     int top = stack.top();
-    cout << "Top element top = " << top << endl;
+    cout << "Top element (top) = " << top << endl;
 
-    /* Pop an element from the stack */
-    stack.pop(); // No return value
-    cout << "Popped element pop = " << top << "; after popping, stack = ";
+    /* Pop the top element */
+    stack.pop(); // Returns no value
+    cout << "Popped element (pop) = " << top << ", stack after the pop = ";
     printStack(stack);
 
     /* Get the stack size */
     int size = stack.size();
     cout << "Stack size = " << size << endl;
 
-    /* Check whether it is empty */
+    /* Check whether the stack is empty */
     bool empty = stack.empty();
-    cout << "Is the stack empty = " << empty << endl;
+    cout << "Stack is empty = " << empty << endl;
 
     return 0;
 }

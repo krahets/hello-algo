@@ -8,24 +8,24 @@ use std::collections::HashSet;
 
 /* Backtracking: permutations II */
 fn backtrack(mut state: Vec<i32>, choices: &[i32], selected: &mut [bool], res: &mut Vec<Vec<i32>>) {
-    // Record a solution when the state length equals the number of elements
+    // Record a solution when the state contains all the elements
     if state.len() == choices.len() {
         res.push(state);
         return;
     }
-    // Iterate over all choices
+    // Try each choice
     let mut duplicated = HashSet::<i32>::new();
     for i in 0..choices.len() {
         let choice = choices[i];
-        // Prune: do not reuse an element or choose the same value again at this depth
+        // Skip elements already in use and values already tried at this level
         if !selected[i] && !duplicated.contains(&choice) {
-            // Try: make a choice and update the state
-            duplicated.insert(choice); // Record the chosen value
+            // Make a choice and update the state
+            duplicated.insert(choice); // Track values already tried
             selected[i] = true;
             state.push(choice);
-            // Proceed to the next choice
+            // Make the next choice
             backtrack(state.clone(), choices, selected, res);
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             selected[i] = false;
             state.pop();
         }

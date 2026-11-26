@@ -4,42 +4,42 @@
 
 package chapter_heap
 
-// В Go можно построить максимальную кучу для целых чисел, реализовав heap.Interface
-// Для реализации heap.Interface одновременно требуется реализовать sort.Interface
+// В Go макс-кучу целых чисел можно построить, реализовав heap.Interface
+// Для реализации heap.Interface требуется также реализовать sort.Interface
 type intHeap []any
 
-// Функция Push интерфейса heap.Interface, реализующая добавление элемента в кучу
+// Метод Push интерфейса heap.Interface добавляет элемент в кучу
 func (h *intHeap) Push(x any) {
-	// Push и Pop используют pointer receiver в качестве параметра
-	// Потому что они не только изменяют содержимое среза, но и меняют его длину.
+	// Методы Push и Pop используют указатель в качестве получателя,
+	// поскольку изменяют как содержимое среза, так и его длину.
 	*h = append(*h, x.(int))
 }
 
-// Функция Pop интерфейса heap.Interface: извлекает последний элемент среза (heap.Pop заранее перемещает вершину кучи в конец)
+// Метод Pop интерфейса heap.Interface извлекает последний элемент среза (heap.Pop уже переместил туда корень)
 func (h *intHeap) Pop() any {
-	// Элемент, который нужно удалить из кучи, хранится в конце
+	// Извлекаемый элемент находится в конце
 	last := (*h)[len(*h)-1]
 	*h = (*h)[:len(*h)-1]
 	return last
 }
 
-// Функция Len интерфейса sort.Interface
+// Метод Len интерфейса sort.Interface
 func (h *intHeap) Len() int {
 	return len(*h)
 }
 
-// Функция Less интерфейса sort.Interface
+// Метод Less интерфейса sort.Interface
 func (h *intHeap) Less(i, j int) bool {
-	// При реализации минимальной кучи нужно изменить знак сравнения на «меньше»
+	// Для мин-кучи нужно использовать знак «меньше»
 	return (*h)[i].(int) > (*h)[j].(int)
 }
 
-// Функция Swap интерфейса sort.Interface
+// Метод Swap интерфейса sort.Interface
 func (h *intHeap) Swap(i, j int) {
 	(*h)[i], (*h)[j] = (*h)[j], (*h)[i]
 }
 
-// Top: получить элемент на вершине кучи
+// Метод Top возвращает элемент в корне
 func (h *intHeap) Top() any {
 	return (*h)[0]
 }

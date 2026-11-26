@@ -1,85 +1,85 @@
 {
-  "schema_version": 2,
-  "title": "Push and pop operations on a stack",
-  "summary": "Pushing and popping at the same top end demonstrates first-in, last-out (that is, last-in, first-out) order.",
-  "context": [
-    "All sequences run from bottom to top. The push operation adds an element at the top, and pop removes and returns the top element."
-  ],
-  "description": [
-    "Five vertical panels linked from left to right by arrows correspond in order to the five rows of the table below. In each panel, the open upper end is the top and the closed lower end is the bottom; push arrows enter from above, and pop arrows exit from above.",
-    "Dashed boxes only indicate elements' previous positions before an operation and are not counted again in the current stack; a solid box moved outside the container represents the return value of the current pop."
-  ],
-  "frames": [
-    {
-      "id": "source-56",
-      "book_path": "chapter_stack_and_queue/stack.assets/stack_operations.png",
-      "title": "Push and pop operations on a stack",
-      "explanation": "5 is pushed first, and 4 is then pushed on top of 5. Because only the top element can be popped each time, 4 is returned first and 5 is returned next, demonstrating first-in, last-out—that is, last-in, first-out—order."
-    }
-  ],
   "animations": {
     "stack-operations": {
       "kind": "prose",
       "prose": {
-        "title": "Push and pop operations on a stack",
-        "summary": "Pushing and popping at the same top end demonstrates first-in, last-out (that is, last-in, first-out) order.",
         "context": [
-          "All sequences run from bottom to top. The push operation adds an element at the top, and pop removes and returns the top element."
+          "All sequences run from bottom to top. A push adds an element at the top, and a pop removes and returns the top element."
         ],
         "description": [
-          "Dashed boxes only indicate elements' previous positions before an operation and are not counted again in the current stack; a solid box moved outside the container represents the return value of the current pop."
+          "Dashed squares show where elements were before an operation. They do not count as additional elements in the stack. A solid square moved outside the container shows the value returned by that pop."
         ],
         "steps": [
           {
+            "announcement": "The initial stack is [1, 3, 2], with 2 at the top.",
+            "explanation": "The stack starts with three elements, [1, 3, 2] from bottom to top. The bottom is 1 and the top is 2. There is no return value.",
             "id": "step-1",
-            "title": "Initial",
-            "explanation": "Initial stack. From bottom to top, the current stack is [1, 3, 2] with 3 elements, bottom 1, and top 2; there is no return value.",
-            "key_state": "Initial: stack (bottom to top) [1, 3, 2], bottom 1, top 2, no return value.",
-            "announcement": "Initial stack [1, 3, 2], with top 2."
+            "key_state": "Initially, the stack is [1, 3, 2] from bottom to top, with 1 at the bottom and 2 at the top. There is no return value.",
+            "title": "Initial state"
           },
           {
+            "announcement": "Push 5. The new top is 5.",
+            "explanation": "The call push(5) adds 5 at the top. The existing elements keep their order. The stack now has four elements, [1, 3, 2, 5] from bottom to top, with 1 at the bottom and 5 at the top. The call returns no value.",
             "id": "step-2",
-            "title": "push(5)",
-            "explanation": "Call push(5) to push 5 onto the top while keeping the existing elements in order. From bottom to top, the current stack is [1, 3, 2, 5] with 4 elements, bottom 1, and top 5; there is no return value.",
-            "key_state": "After push(5): stack (bottom to top) [1, 3, 2, 5], bottom 1, top 5, no return value.",
-            "announcement": "Push 5; the new stack top is 5."
+            "key_state": "After push(5), the stack is [1, 3, 2, 5] from bottom to top, with 1 at the bottom and 5 at the top. There is no return value.",
+            "title": "push(5)"
           },
           {
+            "announcement": "Push 4. The new top is 4.",
+            "explanation": "The call push(4) places 4 on top of 5, making 4 the new top. The stack now has five elements, [1, 3, 2, 5, 4] from bottom to top, with 1 at the bottom and 4 at the top. The call returns no value.",
             "id": "step-3",
-            "title": "push(4)",
-            "explanation": "Call push(4) to push 4 on top of 5 as the new stack top. From bottom to top, the current stack is [1, 3, 2, 5, 4] with 5 elements, bottom 1, and top 4; there is no return value.",
-            "key_state": "After push(4): stack (bottom to top) [1, 3, 2, 5, 4], bottom 1, top 4, no return value.",
-            "announcement": "Push 4; the new stack top is 4."
+            "key_state": "After push(4), the stack is [1, 3, 2, 5, 4] from bottom to top, with 1 at the bottom and 4 at the top. There is no return value.",
+            "title": "push(4)"
           },
           {
+            "announcement": "Pop and return the top element, 4. The new top is 5.",
+            "explanation": "The first call to pop() removes and returns the top element, 4. The element below it, 5, is on top again. The stack now has four elements, [1, 3, 2, 5] from bottom to top, with 1 at the bottom and 5 at the top. The returned 4 is outside the stack.",
             "id": "step-4",
-            "title": "First pop()",
-            "explanation": "First call to pop(): remove and return top element 4, making 5 beneath it the stack top again. From bottom to top, the current stack is [1, 3, 2, 5] with 4 elements, bottom 1, and top 5; this operation returns 4, shown outside the stack.",
-            "key_state": "After first pop(): stack (bottom to top) [1, 3, 2, 5], bottom 1, top 5, returned 4.",
-            "announcement": "Pop and return top element 4; the new stack top is 5."
+            "key_state": "After the first pop(), the stack is [1, 3, 2, 5] from bottom to top, with 1 at the bottom and 5 at the top. The call returns 4.",
+            "title": "First pop()"
           },
           {
+            "announcement": "Pop and return the top element, 5. The stack is back to [1, 3, 2].",
+            "explanation": "The second call to pop() removes and returns the top element, 5, leaving 2 on top again. The stack now has three elements, [1, 3, 2] from bottom to top, with 1 at the bottom and 2 at the top. The returned 5 is outside the stack.",
             "id": "step-5",
-            "title": "Second pop()",
-            "explanation": "Second call to pop(): remove and return top element 5, restoring the stack top to 2. From bottom to top, the current stack is [1, 3, 2] with 3 elements, bottom 1, and top 2; this operation returns 5, shown outside the stack.",
-            "key_state": "After second pop(): stack (bottom to top) [1, 3, 2], bottom 1, top 2, returned 5.",
-            "announcement": "Pop and return top element 5; the stack returns to [1, 3, 2]."
+            "key_state": "After the second pop(), the stack is [1, 3, 2] from bottom to top, with 1 at the bottom and 2 at the top. The call returns 5.",
+            "title": "Second pop()"
           }
-        ]
+        ],
+        "summary": "Both pushes and pops happen at the top. The first element in is the last one out, or equivalently, the last one in is the first one out.",
+        "title": "Pushing and popping on a stack"
       }
     }
   },
+  "context": [
+    "All sequences run from bottom to top. A push adds an element at the top, and a pop removes and returns the top element."
+  ],
+  "description": [
+    "Arrows connect five vertical panels from left to right, one for each row of the table below. The open upper end of each panel is the top of the stack, and the closed lower end is the bottom. Push arrows enter from above, and pop arrows leave through the top.",
+    "Dashed squares show where elements were before an operation. They do not count as additional elements in the stack. A solid square moved outside the container shows the value returned by that pop."
+  ],
+  "frames": [
+    {
+      "book_path": "chapter_stack_and_queue/stack.assets/stack_operations.png",
+      "explanation": "First 5 is pushed, then 4 is pushed on top of 5. Only the top element can be popped, so 4 comes out first, then 5. The first one in is the last one out, or equivalently, the last one in is the first one out.",
+      "id": "source-56",
+      "title": "Pushing and popping on a stack"
+    }
+  ],
+  "schema_version": 2,
+  "summary": "Both pushes and pops happen at the top. The first element in is the last one out, or equivalently, the last one in is the first one out.",
   "tables": [
     {
       "caption": "Stack contents after each operation",
       "headers": [
         "Operation",
-        "Active sequence (bottom to top)",
-        "Returned value"
+        "Active elements (bottom to top)",
+        "Return value"
       ],
+      "row_header": 0,
       "rows": [
         [
-          "Initial",
+          "Initial state",
           "[1, 3, 2]",
           "None"
         ],
@@ -103,8 +103,8 @@
           "[1, 3, 2]",
           "5"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Pushing and popping on a stack"
 }

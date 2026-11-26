@@ -8,31 +8,31 @@ require_relative '../utils/list_node'
 
 ### Очередь на основе связного списка ###
 class LinkedListQueue
-  ### Получение длины очереди ###
+  ### Получить длину очереди ###
   attr_reader :size
 
   ### Конструктор ###
   def initialize
-    @front = nil  # Головной узел front
-    @rear = nil   # Хвостовой узел rear
+    @front = nil  # Первый узел front
+    @rear = nil   # Последний узел rear
     @size = 0
   end
 
-  ### Проверка, пуста ли очередь ###
+  ### Проверить, пуста ли очередь ###
   def is_empty?
     @front.nil?
   end
 
-  ### Добавление в очередь ###
+  ### Добавить элемент в очередь ###
   def push(num)
-    # Добавить num после хвостового узла
+    # Добавить узел со значением num после последнего узла
     node = ListNode.new(num)
 
-    # Если очередь пуста, сделать так, чтобы и head, и tail указывали на этот узел
+    # Если очередь пуста, установить ссылки на первый и последний узлы так, чтобы обе указывали на новый узел
     if @front.nil?
       @front = node
       @rear = node
-    # Если очередь не пуста, добавить этот узел после хвостового узла
+    # Если очередь непуста, добавить новый узел после последнего
     else
       @rear.next = node
       @rear = node
@@ -41,23 +41,23 @@ class LinkedListQueue
     @size += 1
   end
 
-  ### Извлечение из очереди ###
+  ### Извлечь элемент из очереди ###
   def pop
     num = peek
-    # Удалить головной узел
+    # Удалить первый узел
     @front = @front.next
     @size -= 1
     num
   end
 
-  ### Доступ к элементу в начале очереди ###
+  ### Посмотреть первый элемент очереди ###
   def peek
-    raise IndexError, 'очередь пуста' if is_empty?
+    raise IndexError, 'Очередь пуста' if is_empty?
 
     @front.val
   end
 
-  ### Преобразовать связный список в Array и вернуть ###
+  ### Преобразовать связный список в массив и вернуть его ###
   def to_array
     queue = []
     temp = @front
@@ -69,12 +69,12 @@ class LinkedListQueue
   end
 end
 
-### Driver Code ###
+### Пример использования ###
 if __FILE__ == $0
-  # Инициализация очереди
+  # Инициализировать очередь
   queue = LinkedListQueue.new
 
-  # Элемент помещается в очередь
+  # Добавить элементы в очередь
   queue.push(1)
   queue.push(3)
   queue.push(2)
@@ -82,20 +82,20 @@ if __FILE__ == $0
   queue.push(4)
   puts "Очередь queue = #{queue.to_array}"
 
-  # Доступ к элементу в начале очереди
+  # Посмотреть первый элемент очереди
   peek = queue.peek
-  puts "Первый элемент front = #{peek}"
+  puts "Первый элемент очереди front = #{peek}"
 
-  # Извлечение элемента из очереди
+  # Извлечь элемент из очереди
   pop_front = queue.pop
-  puts "Извлеченный элемент pop = #{pop_front}"
-  puts "queue после извлечения = #{queue.to_array}"
+  puts "Извлечённый элемент pop = #{pop_front}"
+  puts "После извлечения queue = #{queue.to_array}"
 
-  # Получение длины очереди
+  # Получить длину очереди
   size = queue.size
   puts "Длина очереди size = #{size}"
 
-  # Проверка, пуста ли очередь
+  # Проверить, пуста ли очередь
   is_empty = queue.is_empty?
-  puts "Пуста ли очередь = #{is_empty}"
+  puts "Очередь пуста = #{is_empty}"
 end

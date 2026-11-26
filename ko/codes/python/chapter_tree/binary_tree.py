@@ -11,7 +11,7 @@ sys.path.append(str(Path(__file__).parent.parent))
 from modules import TreeNode, print_tree
 
 
-"""실행 코드"""
+"""Driver Code"""
 if __name__ == "__main__":
     # 이진 트리 초기화
     # 노드 초기화
@@ -20,7 +20,7 @@ if __name__ == "__main__":
     n3 = TreeNode(val=3)
     n4 = TreeNode(val=4)
     n5 = TreeNode(val=5)
-    # 노드 사이의 참조(포인터)를 설정한다
+    # 노드 사이의 참조(포인터)를 연결한다
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -33,9 +33,9 @@ if __name__ == "__main__":
     # n1 -> n2 사이에 노드 P를 삽입한다
     n1.left = P
     P.left = n2
-    print("\n노드 P를 삽입한 후\n")
+    print("\n노드 P 삽입 후\n")
     print_tree(n1)
     # 노드 삭제
     n1.left = n2
-    print("\n노드 P를 삭제한 후\n")
+    print("\n노드 P 삭제 후\n")
     print_tree(n1)

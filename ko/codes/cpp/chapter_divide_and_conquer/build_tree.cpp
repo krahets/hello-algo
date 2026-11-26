@@ -8,12 +8,12 @@
 
 /* 이진 트리 구성: 분할 정복 */
 TreeNode *dfs(vector<int> &preorder, unordered_map<int, int> &inorderMap, int i, int l, int r) {
-    // 서브트리 구간이 비어 있으면 종료한다
+    // 서브트리 구간이 비면 종료한다
     if (r - l < 0)
         return NULL;
     // 루트 노드를 초기화한다
     TreeNode *root = new TreeNode(preorder[i]);
-    // m을 조회하여 왼쪽과 오른쪽 서브트리를 나눈다
+    // m을 찾아 왼쪽과 오른쪽 서브트리를 나눈다
     int m = inorderMap[preorder[i]];
     // 부분 문제: 왼쪽 서브트리 구성
     root->left = dfs(preorder, inorderMap, i + 1, l, m - 1);
@@ -25,7 +25,7 @@ TreeNode *dfs(vector<int> &preorder, unordered_map<int, int> &inorderMap, int i,
 
 /* 이진 트리 구성 */
 TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
-    // inorder 원소와 인덱스의 대응 관계를 저장할 해시 테이블을 초기화한다
+    // 해시 테이블을 초기화하고 inorder의 각 원소에 해당 인덱스를 대응시킨다
     unordered_map<int, int> inorderMap;
     for (int i = 0; i < inorder.size(); i++) {
         inorderMap[inorder[i]] = i;

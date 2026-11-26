@@ -12,22 +12,22 @@ function move(src: number[], tar: number[]): void {
     tar.push(pan);
 }
 
-/* Solve the Tower of Hanoi problem f(i) */
+/* Solve Tower of Hanoi subproblem f(i) */
 function dfs(i: number, src: number[], buf: number[], tar: number[]): void {
-    // If only one disk remains to be moved from src, move it directly to tar
+    // If only one disk remains on src, move it directly to tar
     if (i === 1) {
         move(src, tar);
         return;
     }
     // Subproblem f(i-1): move the top i-1 disks from src to buf using tar
     dfs(i - 1, src, tar, buf);
-    // Subproblem f(1): move the remaining disk of this subproblem from src to tar
+    // Subproblem f(1): move the remaining disk from src to tar
     move(src, tar);
     // Subproblem f(i-1): move the top i-1 disks from buf to tar using src
     dfs(i - 1, buf, src, tar);
 }
 
-/* Solve the Tower of Hanoi problem */
+/* Solve the Tower of Hanoi */
 function solveHanota(A: number[], B: number[], C: number[]): void {
     const n = A.length;
     // Move the top n disks from A to C using B
@@ -35,7 +35,7 @@ function solveHanota(A: number[], B: number[], C: number[]): void {
 }
 
 /* Driver code */
-// The end of each list represents the top of the peg
+// The end of the list is the top of the peg
 const A = [5, 4, 3, 2, 1];
 const B = [];
 const C = [];

@@ -9,33 +9,33 @@ package chapter_backtracking;
 import java.util.*;
 
 public class permutations_ii {
-    /* Алгоритм бэктрекинга: все перестановки II */
+    /* Поиск с возвратом: перестановки II */
     static void backtrack(List<Integer> state, int[] choices, boolean[] selected, List<List<Integer>> res) {
-        // Когда длина состояния равна числу элементов, записать решение
+        // Когда длина текущей перестановки равна числу элементов, сохраняем решение
         if (state.size() == choices.length) {
             res.add(new ArrayList<Integer>(state));
             return;
         }
-        // Перебор всех вариантов выбора
+        // Перебираем все варианты
         Set<Integer> duplicated = new HashSet<Integer>();
         for (int i = 0; i < choices.length; i++) {
             int choice = choices[i];
-            // Отсечение: нельзя выбирать один и тот же элемент повторно и нельзя повторно выбирать равные элементы
+            // Отсечение: нельзя повторно брать тот же элемент или пробовать на этом уровне то же значение
             if (!selected[i] && !duplicated.contains(choice)) {
-                // Попытка: сделать выбор и обновить состояние
-                duplicated.add(choice); // Записать значения уже выбранных элементов
+                // Пробуем вариант и обновляем состояние
+                duplicated.add(choice); // Отмечаем уже выбранные значения
                 selected[i] = true;
                 state.add(choice);
-                // Перейти к следующему выбору
+                // Переходим к следующему выбору
                 backtrack(state, choices, selected, res);
-                // Откат: отменить выбор и восстановить предыдущее состояние
+                // Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 selected[i] = false;
                 state.remove(state.size() - 1);
             }
         }
     }
 
-    /* Все перестановки II */
+    /* Перестановки II */
     static List<List<Integer>> permutationsII(int[] nums) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
         backtrack(new ArrayList<Integer>(), nums, new boolean[nums.length], res);
@@ -47,7 +47,7 @@ public class permutations_ii {
 
         List<List<Integer>> res = permutationsII(nums);
 
-        System.out.println("Входной массив nums = " + Arrays.toString(nums));
+        System.out.println("Исходный массив nums = " + Arrays.toString(nums));
         System.out.println("Все перестановки res = " + res);
     }
 }

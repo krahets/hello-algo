@@ -21,7 +21,7 @@ function sumRecur(n: number): number {
     return n + sumRecur(n - 1);
 }
 
-/* 線形オーダーのループ */
+/* 線形時間のループ */
 function linearLoop(n: number): number {
     let res = 0;
     for (let i = 0; i < n; i++) {
@@ -30,7 +30,7 @@ function linearLoop(n: number): number {
     return res;
 }
 
-/* 二次オーダーのループ */
+/* 二次時間のループ */
 function quadraticLoop(n: number): number {
     let res = 0;
     for (let i = 0; i < n; i++) {
@@ -41,7 +41,7 @@ function quadraticLoop(n: number): number {
     return res;
 }
 
-/* 対数オーダーのループ */
+/* 対数時間のループ */
 function logarithmicLoop(n: number): number {
     while (n > 1) {
         n = Math.floor(n / 2);

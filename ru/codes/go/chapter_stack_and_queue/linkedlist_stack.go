@@ -10,23 +10,23 @@ import (
 
 /* Стек на основе связного списка */
 type linkedListStack struct {
-	// Использовать встроенный пакет list для реализации стека
+	// Реализовать стек с помощью стандартного пакета list
 	data *list.List
 }
 
-/* Инициализация стека */
+/* Инициализировать стек */
 func newLinkedListStack() *linkedListStack {
 	return &linkedListStack{
 		data: list.New(),
 	}
 }
 
-/* Поместить в стек */
+/* Поместить элемент в стек */
 func (s *linkedListStack) push(value int) {
 	s.data.PushBack(value)
 }
 
-/* Извлечь из стека */
+/* Снять элемент со стека */
 func (s *linkedListStack) pop() any {
 	if s.isEmpty() {
 		return nil
@@ -36,7 +36,7 @@ func (s *linkedListStack) pop() any {
 	return e.Value
 }
 
-/* Доступ к верхнему элементу стека */
+/* Посмотреть элемент на вершине стека */
 func (s *linkedListStack) peek() any {
 	if s.isEmpty() {
 		return nil
@@ -45,17 +45,17 @@ func (s *linkedListStack) peek() any {
 	return e.Value
 }
 
-/* Получение длины стека */
+/* Получить размер стека */
 func (s *linkedListStack) size() int {
 	return s.data.Len()
 }
 
-/* Проверка, пуст ли стек */
+/* Проверить, пуст ли стек */
 func (s *linkedListStack) isEmpty() bool {
 	return s.data.Len() == 0
 }
 
-/* Получить List для вывода */
+/* Получить список для вывода */
 func (s *linkedListStack) toList() *list.List {
 	return s.data
 }

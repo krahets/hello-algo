@@ -40,7 +40,7 @@ def print_tree(
 ):
     """
     二分木を表示する
-    この木の表示処理は TECHIE DELIGHT から借用した
+    木の表示には TECHIE DELIGHT のコードを使用
     https://www.techiedelight.com/c-program-print-binary-tree/
     """
     if root is None:
@@ -76,6 +76,6 @@ def print_dict(hmap: dict):
 def print_heap(heap: list[int]):
     """ヒープを表示する"""
     print("ヒープの配列表現：", heap)
-    print("ヒープの木構造表現：")
+    print("ヒープの木構造：")
     root: TreeNode | None = list_to_tree(heap)
     print_tree(root)

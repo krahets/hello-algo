@@ -18,9 +18,9 @@ int res[MAX_RES_SIZE][MAX_SIZE];
 int resColSizes[MAX_RES_SIZE];
 int resSize = 0;
 
-/* Алгоритм бэктрекинга: сумма подмножеств I */
+/* Поиск с возвратом: сумма подмножества I */
 void backtrack(int target, int total, int *choices, int choicesSize) {
-    // Если сумма подмножества равна target, записать решение
+    // Если сумма подмножества равна target, сохраняем решение
     if (total == target) {
         for (int i = 0; i < stateSize; i++) {
             res[resSize][i] = state[i];
@@ -28,28 +28,28 @@ void backtrack(int target, int total, int *choices, int choicesSize) {
         resColSizes[resSize++] = stateSize;
         return;
     }
-    // Перебор всех вариантов выбора
+    // Перебираем все варианты
     for (int i = 0; i < choicesSize; i++) {
-        // Отсечение: если сумма подмножества превышает target, пропустить этот выбор
+        // Отсечение: если сумма подмножества превысит target, пропускаем этот вариант
         if (total + choices[i] > target) {
             continue;
         }
-        // Попытка: сделать выбор и обновить элемент и total
+        // Пробуем вариант и обновляем сумму элементов total
         state[stateSize++] = choices[i];
-        // Перейти к следующему выбору
+        // Переходим к следующему выбору
         backtrack(target, total + choices[i], choices, choicesSize);
-        // Откат: отменить выбор и восстановить предыдущее состояние
+        // Возврат: отменяем выбор и восстанавливаем прежнее состояние
         stateSize--;
     }
 }
 
-/* Решить задачу суммы подмножеств I (с повторяющимися подмножествами) */
+/* Задача о сумме подмножества I (с повторяющимися подмножествами) */
 void subsetSumINaive(int *nums, int numsSize, int target) {
-    resSize = 0; // Инициализировать число решений нулем
+    resSize = 0; // Начальное число решений равно 0
     backtrack(target, 0, nums, numsSize);
 }
 
-/* Driver Code */
+/* Основная программа */
 int main() {
     int nums[] = {3, 4, 5};
     int numsSize = sizeof(nums) / sizeof(nums[0]);
@@ -57,10 +57,10 @@ int main() {
 
     subsetSumINaive(nums, numsSize, target);
 
-    printf("Входной массив nums = ");
+    printf("Исходный массив nums = ");
     printArray(nums, numsSize);
     printf("target = %d\n", target);
-    printf("Все подмножества с суммой %d: \n", target);
+    printf("Все подмножества с суммой %d: res = \n", target);
     for (int i = 0; i < resSize; i++) {
         printArray(res[i], resColSizes[i]);
     }

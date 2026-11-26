@@ -15,18 +15,18 @@ func coinChangeDP(coins []int, amt int) int {
 	for i := 0; i <= n; i++ {
 		dp[i] = make([]int, amt+1)
 	}
-	// 狀態轉移：首行首列
+	// 狀態轉移：第一列和第一欄
 	for a := 1; a <= amt; a++ {
 		dp[0][a] = max
 	}
-	// 狀態轉移：其餘行和列
+	// 狀態轉移：其餘各列與各欄
 	for i := 1; i <= n; i++ {
 		for a := 1; a <= amt; a++ {
 			if coins[i-1] > a {
-				// 若超過目標金額，則不選硬幣 i
+				// 若面額超過目標金額，就不選硬幣 i
 				dp[i][a] = dp[i-1][a]
 			} else {
-				// 不選和選硬幣 i 這兩種方案的較小值
+				// 取不選與選取硬幣 i 兩種情況中的較小值
 				dp[i][a] = int(math.Min(float64(dp[i-1][a]), float64(dp[i][a-coins[i-1]]+1)))
 			}
 		}
@@ -48,13 +48,13 @@ func coinChangeDPComp(coins []int, amt int) int {
 	}
 	// 狀態轉移
 	for i := 1; i <= n; i++ {
-		// 正序走訪
+		// 正向走訪
 		for a := 1; a <= amt; a++ {
 			if coins[i-1] > a {
-				// 若超過目標金額，則不選硬幣 i
+				// 若面額超過目標金額，就不選硬幣 i
 				dp[a] = dp[a]
 			} else {
-				// 不選和選硬幣 i 這兩種方案的較小值
+				// 取不選與選取硬幣 i 兩種情況中的較小值
 				dp[a] = int(math.Min(float64(dp[a]), float64(dp[a-coins[i-1]]+1)))
 			}
 		}

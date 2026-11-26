@@ -11,7 +11,7 @@ class ListNode(var _val: Int) {
     var next: ListNode? = null
 
     companion object {
-        /* リストをデシリアライズして連結リストにする */
+        /* リストをデシリアライズして連結リストを復元する */
         fun arrToLinkedList(arr: IntArray): ListNode? {
             val dum = ListNode(0)
             var head = dum

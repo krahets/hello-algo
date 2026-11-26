@@ -6,7 +6,7 @@
 
 package chapter_dynamic_programming
 
-/* Coin change II: dynamic programming */
+/* Coin change II with dynamic programming */
 fun coinChangeIIDP(coins: IntArray, amt: Int): Int {
     val n = coins.size
     // Initialize the dp table
@@ -15,14 +15,14 @@ fun coinChangeIIDP(coins: IntArray, amt: Int): Int {
     for (i in 0..n) {
         dp[i][0] = 1
     }
-    // State transitions
+    // State transition
     for (i in 1..n) {
         for (a in 1..amt) {
             if (coins[i - 1] > a) {
-                // If the coin value exceeds the current amount a, do not choose coin i
+                // Skip coin i if its value exceeds the target amount
                 dp[i][a] = dp[i - 1][a]
             } else {
-                // Add the numbers of ways without and with coin i
+                // Add the counts for skipping and taking coin i
                 dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]]
             }
         }
@@ -30,20 +30,20 @@ fun coinChangeIIDP(coins: IntArray, amt: Int): Int {
     return dp[n][amt]
 }
 
-/* Coin change II: space-optimized dynamic programming */
+/* Coin change II with space-optimized dynamic programming */
 fun coinChangeIIDPComp(coins: IntArray, amt: Int): Int {
     val n = coins.size
     // Initialize the dp table
     val dp = IntArray(amt + 1)
     dp[0] = 1
-    // State transitions
+    // State transition
     for (i in 1..n) {
         for (a in 1..amt) {
             if (coins[i - 1] > a) {
-                // If the coin value exceeds the current amount a, do not choose coin i
+                // Skip coin i if its value exceeds the target amount
                 dp[a] = dp[a]
             } else {
-                // Add the numbers of ways without and with coin i
+                // Add the counts for skipping and taking coin i
                 dp[a] = dp[a] + dp[a - coins[i - 1]]
             }
         }

@@ -5,7 +5,7 @@
  */
 use hello_algo_rust::include::print_util;
 
-/* Driver code */
+/* Driver Code */
 fn main() {
     // Initialize the list
     let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
@@ -14,11 +14,11 @@ fn main() {
 
     // Access an element
     let num = nums[1];
-    println!("\nAccessing the element at index 1 gives num = {num}");
+    println!("\nReading index 1 gives num = {num}");
 
     // Update an element
     nums[1] = 0;
-    print!("Update the element at index 1 to 0, giving nums = ");
+    print!("After setting the element at index 1 to 0, nums = ");
     print_util::print_array(&nums);
 
     // Clear the list
@@ -26,23 +26,23 @@ fn main() {
     print!("\nAfter clearing the list, nums = ");
     print_util::print_array(&nums);
 
-    // Append an element at the end
+    // Append an element
     nums.push(1);
     nums.push(3);
     nums.push(2);
     nums.push(5);
     nums.push(4);
-    print!("\nAfter adding elements, nums = ");
+    print!("\nAfter appending elements, nums = ");
     print_util::print_array(&nums);
 
     // Insert an element in the middle
     nums.insert(3, 6);
-    print!("\nInsert the number 6 at index 3, giving nums = ");
+    print!("\nAfter inserting 6 at index 3, nums = ");
     print_util::print_array(&nums);
 
     // Remove an element
     nums.remove(3);
-    print!("\nRemove the element at index 3, giving nums = ");
+    print!("\nAfter removing the element at index 3, nums = ");
     print_util::print_array(&nums);
 
     // Traverse the list by index
@@ -58,14 +58,14 @@ fn main() {
 
     // Concatenate two lists
     let mut nums1 = vec![6, 8, 7, 10, 9];
-    nums.append(&mut nums1); // append moves the elements, leaving nums1 empty!
+    nums.append(&mut nums1); // After append moves the elements, nums1 is empty!
 
-    // nums.extend(&nums1);   // extend borrows nums1, leaving its elements available
-    print!("\nAppend list nums1 to nums, giving nums = ");
+    // nums.extend(&nums1);   // extend borrows nums1, so it can still be used
+    print!("\nAfter appending nums1 to nums, nums = ");
     print_util::print_array(&nums);
 
     // Sort the list
     nums.sort();
-    print!("\nAfter sorting the list, nums = ");
+    print!("\nAfter sorting, nums = ");
     print_util::print_array(&nums);
 }

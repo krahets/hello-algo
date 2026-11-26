@@ -15,7 +15,7 @@ func preOrder(node *TreeNode) {
 	if node == nil {
 		return
 	}
-	// 訪問順序：根ノード -> 左部分木 -> 右部分木
+	// 訪問順：根 -> 左部分木 -> 右部分木
 	nums = append(nums, node.Val)
 	preOrder(node.Left)
 	preOrder(node.Right)
@@ -26,7 +26,7 @@ func inOrder(node *TreeNode) {
 	if node == nil {
 		return
 	}
-	// 訪問順序：左部分木 -> 根ノード -> 右部分木
+	// 訪問順：左部分木 -> 根 -> 右部分木
 	inOrder(node.Left)
 	nums = append(nums, node.Val)
 	inOrder(node.Right)
@@ -37,7 +37,7 @@ func postOrder(node *TreeNode) {
 	if node == nil {
 		return
 	}
-	// 訪問順序：左部分木 -> 右部分木 -> 根ノード
+	// 訪問順：左部分木 -> 右部分木 -> 根
 	postOrder(node.Left)
 	postOrder(node.Right)
 	nums = append(nums, node.Val)

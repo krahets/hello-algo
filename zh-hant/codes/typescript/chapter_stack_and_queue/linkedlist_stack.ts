@@ -6,16 +6,16 @@
 
 import { ListNode } from '../modules/ListNode';
 
-/* 基於鏈結串列實現的堆疊 */
+/* 以鏈結串列實作堆疊 */
 class LinkedListStack {
-    private stackPeek: ListNode | null; // 將頭節點作為堆疊頂
-    private stkSize: number = 0; // 堆疊的長度
+    private stackPeek: ListNode | null; // 以首節點作為堆疊頂端
+    private stkSize: number = 0; // 堆疊長度
 
     constructor() {
         this.stackPeek = null;
     }
 
-    /* 獲取堆疊的長度 */
+    /* 取得堆疊長度 */
     get size(): number {
         return this.stkSize;
     }
@@ -25,7 +25,7 @@ class LinkedListStack {
         return this.size === 0;
     }
 
-    /* 入堆疊 */
+    /* 推入堆疊 */
     push(num: number): void {
         const node = new ListNode(num);
         node.next = this.stackPeek;
@@ -33,7 +33,7 @@ class LinkedListStack {
         this.stkSize++;
     }
 
-    /* 出堆疊 */
+    /* 彈出堆疊頂端的元素 */
     pop(): number {
         const num = this.peek();
         if (!this.stackPeek) throw new Error('堆疊為空');
@@ -42,13 +42,13 @@ class LinkedListStack {
         return num;
     }
 
-    /* 訪問堆疊頂元素 */
+    /* 讀取堆疊頂端的元素 */
     peek(): number {
         if (!this.stackPeek) throw new Error('堆疊為空');
         return this.stackPeek.val;
     }
 
-    /* 將鏈結串列轉化為 Array 並返回 */
+    /* 將鏈結串列轉成陣列並回傳 */
     toArray(): number[] {
         let node = this.stackPeek;
         const res = new Array<number>(this.size);
@@ -60,11 +60,11 @@ class LinkedListStack {
     }
 }
 
-/* Driver Code */
+/* 範例程式 */
 /* 初始化堆疊 */
 const stack = new LinkedListStack();
 
-/* 元素入堆疊 */
+/* 將元素推入堆疊 */
 stack.push(1);
 stack.push(3);
 stack.push(2);
@@ -72,19 +72,19 @@ stack.push(5);
 stack.push(4);
 console.log('堆疊 stack = ' + stack.toArray());
 
-/* 訪問堆疊頂元素 */
+/* 讀取堆疊頂端的元素 */
 const peek = stack.peek();
-console.log('堆疊頂元素 peek = ' + peek);
+console.log('堆疊頂端元素 peek = ' + peek);
 
-/* 元素出堆疊 */
+/* 從堆疊彈出元素 */
 const pop = stack.pop();
-console.log('出堆疊元素 pop = ' + pop + '，出堆疊後 stack = ' + stack.toArray());
+console.log('彈出的元素 pop = ' + pop + '，彈出後 stack = ' + stack.toArray());
 
-/* 獲取堆疊的長度 */
+/* 取得堆疊長度 */
 const size = stack.size;
-console.log('堆疊的長度 size = ' + size);
+console.log('堆疊長度 size = ' + size);
 
-/* 判斷是否為空 */
+/* 判斷堆疊是否為空 */
 const isEmpty = stack.isEmpty();
 console.log('堆疊是否為空 = ' + isEmpty);
 

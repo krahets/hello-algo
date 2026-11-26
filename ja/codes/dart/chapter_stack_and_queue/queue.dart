@@ -11,7 +11,7 @@ void main() {
   // Dart では一般に、両端キューのクラス Queue をキューとして使う
   final Queue<int> queue = Queue();
 
-  /* 要素をエンキューする */
+  /* 要素をキューに追加する */
   queue.add(1);
   queue.add(3);
   queue.add(2);
@@ -19,19 +19,19 @@ void main() {
   queue.add(4);
   print("キュー queue = $queue");
 
-  /* キューの先頭要素にアクセス */
+  /* キューの先頭要素を参照する */
   final int peek = queue.first;
-  print("キューの先頭要素 peek = $peek");
+  print("先頭要素 peek = $peek");
 
-  /* 要素をデキューする */
+  /* キューから要素を取り出す */
   final int pop = queue.removeFirst();
-  print("デキューした要素 pop = $pop 、デキュー後 queue = $queue");
+  print("デキューした要素 pop = $pop 、デキュー後の queue = $queue");
 
-  /* キューの長さを取得する */
+  /* キューの要素数を取得する */
   final int size = queue.length;
-  print("キューの長さ size = $size");
+  print("キューの要素数 size = $size");
 
-  /* キューが空か判定 */
+  /* キューが空かどうかを判定する */
   final bool isEmpty = queue.isEmpty;
   print("キューは空か = $isEmpty");
 }

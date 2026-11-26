@@ -6,14 +6,14 @@
 
 /* Search */
 int dfs(int i) {
-  // The values of dp[1] and dp[2] are known; return them
+  // Return the known value for dp[1] or dp[2]
   if (i == 1 || i == 2) return i;
   // dp[i] = dp[i-1] + dp[i-2]
   int count = dfs(i - 1) + dfs(i - 2);
   return count;
 }
 
-/* Climbing stairs: search */
+/* Climbing stairs with search */
 int climbingStairsDFS(int n) {
   return dfs(n);
 }
@@ -23,5 +23,5 @@ void main() {
   int n = 9;
 
   int res = climbingStairsDFS(n);
-  print("Number of ways to climb $n stairs: $res");
+  print("Climbing $n stairs: $res ways");
 }

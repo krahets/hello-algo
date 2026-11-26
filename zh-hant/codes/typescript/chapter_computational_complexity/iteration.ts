@@ -7,7 +7,7 @@
 /* for 迴圈 */
 function forLoop(n: number): number {
     let res = 0;
-    // 迴圈求和 1, 2, ..., n-1, n
+    // 迴圈加總 1, 2, ..., n-1, n
     for (let i = 1; i <= n; i++) {
         res += i;
     }
@@ -18,7 +18,7 @@ function forLoop(n: number): number {
 function whileLoop(n: number): number {
     let res = 0;
     let i = 1; // 初始化條件變數
-    // 迴圈求和 1, 2, ..., n-1, n
+    // 迴圈加總 1, 2, ..., n-1, n
     while (i <= n) {
         res += i;
         i++; // 更新條件變數
@@ -26,11 +26,11 @@ function whileLoop(n: number): number {
     return res;
 }
 
-/* while 迴圈（兩次更新） */
+/* while 迴圈（更新兩次） */
 function whileLoopII(n: number): number {
     let res = 0;
     let i = 1; // 初始化條件變數
-    // 迴圈求和 1, 4, 10, ...
+    // 迴圈加總 1, 4, 10, ...
     while (i <= n) {
         res += i;
         // 更新條件變數
@@ -53,20 +53,20 @@ function nestedForLoop(n: number): string {
     return res;
 }
 
-/* Driver Code */
+/* 主程式 */
 const n = 5;
 let res: number;
 
 res = forLoop(n);
-console.log(`for 迴圈的求和結果 res = ${res}`);
+console.log(`for 迴圈的總和 res = ${res}`);
 
 res = whileLoop(n);
-console.log(`while 迴圈的求和結果 res = ${res}`);
+console.log(`while 迴圈的總和 res = ${res}`);
 
 res = whileLoopII(n);
-console.log(`while 迴圈（兩次更新）求和結果 res = ${res}`);
+console.log(`while 迴圈（更新兩次）的總和 res = ${res}`);
 
 const resStr = nestedForLoop(n);
-console.log(`雙層 for 迴圈的走訪結果 ${resStr}`);
+console.log(`雙層 for 迴圈走訪的結果 ${resStr}`);
 
 export {};

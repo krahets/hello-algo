@@ -9,17 +9,17 @@ use hello_algo_rust::include::print_util;
 use std::cmp::Reverse;
 use std::collections::BinaryHeap;
 
-/* ヒープを使って配列内の大きいほうから k 個の要素を求める */
+/* ヒープを使って配列の上位 k 個の要素を求める */
 fn top_k_heap(nums: Vec<i32>, k: usize) -> BinaryHeap<Reverse<i32>> {
-    // BinaryHeap は最大ヒープなので、Reverse で要素の順序を反転して最小ヒープを実装する
+    // BinaryHeap は最大ヒープなので、Reverse で要素の大小関係を反転して最小ヒープを実現する
     let mut heap = BinaryHeap::<Reverse<i32>>::new();
-    // 配列の先頭 k 個の要素をヒープに挿入する
+    // 配列の先頭 k 個の要素をヒープに入れる
     for &num in nums.iter().take(k) {
         heap.push(Reverse(num));
     }
-    // k+1 番目の要素から始め、ヒープの長さを k に保つ
+    // k+1 番目の要素からはヒープのサイズを k に保つ
     for &num in nums.iter().skip(k) {
-        // 現在の要素がヒープの先頭要素より大きい場合、先頭要素を取り出し、現在の要素を挿入する
+        // 現在の要素が根の要素より大きければ、根の要素を取り出して現在の要素を挿入する
         if num > heap.peek().unwrap().0 {
             heap.pop();
             heap.push(Reverse(num));
@@ -28,12 +28,12 @@ fn top_k_heap(nums: Vec<i32>, k: usize) -> BinaryHeap<Reverse<i32>> {
     heap
 }
 
-/* 実行用コード */
+/* 実行例 */
 fn main() {
     let nums = vec![1, 7, 6, 3, 2];
     let k = 3;
 
     let res = top_k_heap(nums, k);
-    println!("大きいほうから {} 個の要素は", k);
+    println!("上位 {} 個の要素：", k);
     print_util::print_heap(res.into_iter().map(|item| item.0).collect());
 }

@@ -1,8 +1,8 @@
-# PEP 585「標準コレクションにおける型ヒント用のジェネリクス」に従う
+# PEP 585（標準コレクションを使ったジェネリック型の型ヒント）に従う
 # https://peps.python.org/pep-0585/
 from __future__ import annotations
 
-# 共通ライブラリをここで読み込み、`from module import *` によりコードを簡潔にする
+# `from module import *` でコードを簡潔に書けるよう、共通ライブラリをここでインポートする
 from .list_node import (
     ListNode,
     list_to_linked_list,

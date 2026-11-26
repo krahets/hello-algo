@@ -8,7 +8,7 @@ package chapter_stack_and_queue
 
 import java.util.*
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
     /* スタックを初期化する */
     val stack = Stack<Int>()
@@ -21,17 +21,17 @@ fun main() {
     stack.push(4)
     println("スタック stack = $stack")
 
-    /* スタックの先頭要素にアクセスする */
+    /* スタックのトップを参照する */
     val peek = stack.peek()
-    println("スタックの先頭要素 peek = $peek")
+    println("スタックのトップの要素 peek = $peek")
 
     /* 要素をポップする */
     val pop = stack.pop()
-    println("ポップした要素 pop = $pop、ポップ後 stack = $stack")
+    println("ポップした要素 pop = $pop、ポップ後の stack = $stack")
 
-    /* スタックの長さを取得する */
+    /* スタックの要素数を取得する */
     val size = stack.size
-    println("スタックの長さ size = $size")
+    println("スタックの要素数 size = $size")
 
     /* 空かどうかを判定する */
     val isEmpty = stack.isEmpty()

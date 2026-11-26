@@ -1,0 +1,130 @@
+{
+  "animations": {
+    "pivot-division": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "frame_id": "source-263",
+          "id": "step-1"
+        },
+        {
+          "frame_id": "source-264",
+          "id": "step-2"
+        },
+        {
+          "frame_id": "source-265",
+          "id": "step-3"
+        },
+        {
+          "frame_id": "source-266",
+          "id": "step-4"
+        },
+        {
+          "frame_id": "source-267",
+          "id": "step-5"
+        },
+        {
+          "frame_id": "source-268",
+          "id": "step-6"
+        },
+        {
+          "frame_id": "source-269",
+          "id": "step-7"
+        },
+        {
+          "frame_id": "source-270",
+          "id": "step-8"
+        },
+        {
+          "frame_id": "source-271",
+          "id": "step-9"
+        }
+      ]
+    }
+  },
+  "context": [
+    "初始陣列為 nums = [2, 4, 1, 0, 3, 5]，索引從 0 到 5。目前處理區間的邊界為 left = 0、right = 5，選取最左端元素 nums[left] = 2 作為基準值。",
+    "左指標 i 從左向右找第一個大於基準值的元素，右指標 j 從右向左找第一個小於基準值的元素。這個實作在每輪迴圈中先移動 j，再移動 i，兩者的移動條件都要求 i < j。若兩側都找到放錯分區的元素，就交換兩者，重複直到兩個指標相遇，最後將基準值換到相遇位置。"
+  ],
+  "description": [
+    "畫面上方顯示陣列 nums、基準值標記、區間邊界指標 left、right，以及掃描指標 i、j。下方顯示 partition 函式的程式碼，以灰色標出目前執行的敘述。在最後將基準值換到分界位置之前，基準值 2 始終位於索引 0，不會跟著指標 i 向右移動。本次分割的邊界 left = 0、right = 5 全程不變，只有在最後一個狀態才隱藏這些指標的文字。"
+  ],
+  "frames": [
+    {
+      "announcement": "將兩個指標初始化為 i = 0、j = 5，選取最左端的元素 2 作為基準值。",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step1.png",
+      "explanation": "初始 nums = [2, 4, 1, 0, 3, 5]。選擇索引 0 的 2 作為基準值。灰色標示的程式碼 i, j = left, right 將 i 設為 0、j 設為 5，分別指向 2、5。此時尚未掃描或交換。",
+      "id": "source-263",
+      "key_state": "目前 nums = [2, 4, 1, 0, 3, 5]，i = 0，j = 5，基準值 2 位於索引 0。",
+      "title": "設定邊界、基準值與兩個指標"
+    },
+    {
+      "announcement": "j 向左略過 5 和 3，停在索引 3 的元素 0。",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step2.png",
+      "explanation": "先移動 j。索引 5 的 5 和索引 4 的 3 都不小於基準值 2，依序略過。到索引 3 時遇到 0 < 2，停止移動。目前 nums = [2, 4, 1, 0, 3, 5]，i = 0，j = 3，基準值 2 仍位於索引 0。",
+      "id": "source-264",
+      "key_state": "目前 nums = [2, 4, 1, 0, 3, 5]，i = 0，j = 3，基準值 2 位於索引 0。j 找到比基準值 2 小的元素 0，停止移動。",
+      "title": "指標 j 從右向左找到小於基準值的 0"
+    },
+    {
+      "announcement": "i 向右移動，停在索引 1 的元素 4，準備與 j 指向的元素 0 交換。",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step3.png",
+      "explanation": "接著移動 i。索引 0 的 2 不大於基準值 2，向右略過。到索引 1 時遇到 4 > 2，停止移動。目前 nums = [2, 4, 1, 0, 3, 5]，i = 1 指向 4，j = 3 指向 0，準備交換兩個元素。基準值 2 仍位於索引 0。",
+      "id": "source-265",
+      "key_state": "目前 nums = [2, 4, 1, 0, 3, 5]，i = 1，j = 3，基準值 2 位於索引 0。i 找到比基準值 2 大的元素 4，停止移動，準備交換。",
+      "title": "指標 i 從左向右找到大於基準值的 4"
+    },
+    {
+      "announcement": "交換索引 1 的元素 4 與索引 3 的元素 0。",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step4.png",
+      "explanation": "交換索引 1 的 4 與索引 3 的 0，將小於基準值的 0 移到左側，大於基準值的 4 移到右側。目前 nums = [2, 0, 1, 4, 3, 5]，i = 1，j = 3，基準值 2 仍位於索引 0。",
+      "id": "source-266",
+      "key_state": "目前 nums = [2, 0, 1, 4, 3, 5]，i = 1，j = 3，基準值 2 位於索引 0。索引 1、3 的元素已互換。",
+      "title": "交換元素 4 與 0"
+    },
+    {
+      "announcement": "j 從元素 4 向左移到索引 2 的元素 1。",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step5.png",
+      "explanation": "下一輪先移動 j。索引 3 的 4 ≥ 2，因此左移到索引 2，遇到 1 < 2 時停下。目前 nums = [2, 0, 1, 4, 3, 5]，i = 1 指向 0，j = 2 指向 1，基準值 2 仍位於索引 0。",
+      "id": "source-267",
+      "key_state": "目前 nums = [2, 0, 1, 4, 3, 5]，i = 1，j = 2，基準值 2 位於索引 0。j 找到比基準值 2 小的元素 1，停止移動。",
+      "title": "指標 j 繼續向左找到小於基準值的 1"
+    },
+    {
+      "announcement": "i 右移到索引 2，與 j 相遇，停止掃描。",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step6.png",
+      "explanation": "索引 1 的 0 ≤ 2，i 向右移到索引 2，與 j 相遇。目前 nums = [2, 0, 1, 4, 3, 5]，i = j = 2。相遇位置的值為 1，基準值 2 仍位於索引 0。此時 i 的內層掃描停止，是因為 i < j 已不成立，而非找到了大於基準值的元素。",
+      "id": "source-268",
+      "key_state": "目前 nums = [2, 0, 1, 4, 3, 5]，i = 2，j = 2，基準值 2 位於索引 0。兩個指標已相遇，尚未執行與自身交換的動作。",
+      "title": "指標 i 右移，與指標 j 相遇"
+    },
+    {
+      "announcement": "兩個指標指向同一位置，元素與自身交換不會改變資料，外層分割迴圈結束。",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step7.png",
+      "explanation": "繼續執行這一輪結尾的 nums[i], nums[j] 交換敘述。由於 i = j = 2，索引 2 的 1 與自身交換，目前 nums 仍為 [2, 0, 1, 4, 3, 5]，基準值 2 仍位於索引 0。接著因 i < j 不成立，離開外層分割迴圈。",
+      "id": "source-269",
+      "key_state": "目前 nums = [2, 0, 1, 4, 3, 5]，i = 2，j = 2，基準值 2 位於索引 0。元素已與自身交換，陣列不變，外層分割迴圈結束。",
+      "title": "相遇位置的元素與自身交換，陣列不變"
+    },
+    {
+      "announcement": "交換索引 0 的基準值 2 與相遇位置索引 2 的元素 1，基準值就位。",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step8.png",
+      "explanation": "執行迴圈後讓基準值就位的敘述，交換索引 0 的基準值 2 與索引 2 的 1。目前 nums = [1, 0, 2, 4, 3, 5]，i = j = 2，基準值 2 已在最終位置索引 2。",
+      "id": "source-270",
+      "key_state": "目前 nums = [1, 0, 2, 4, 3, 5]，i = 2，j = 2，基準值 2 位於索引 2。",
+      "title": "將基準值 2 換到分界位置索引 2"
+    },
+    {
+      "announcement": "完成一次哨兵分割並回傳索引 2，兩側的子陣列仍須遞迴排序。",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step9.png",
+      "explanation": "執行 return i，回傳索引 2。目前 nums = [1, 0, 2, 4, 3, 5]。畫面隱藏 left、right、i、j，並用大括號標出左子陣列 [1, 0]（索引 0 至 1）與右子陣列 [4, 3, 5]（索引 3 至 5）。左側的元素都 ≤ 2，右側的元素都 ≥ 2，但兩側內部仍未排好。",
+      "id": "source-271",
+      "key_state": "回傳索引 2。目前 nums = [1, 0, 2, 4, 3, 5]，左子陣列 [1, 0] 與右子陣列 [4, 3, 5] 都還要遞迴排序，畫面已隱藏指標。",
+      "title": "完成一次分割，留下左、右子陣列的排序問題"
+    }
+  ],
+  "result": "一次分割只能確定基準值的最終位置，兩側仍須分別遞迴排序。",
+  "schema_version": 2,
+  "summary": "先移動右指標 j，再移動左指標 i。交換落在錯誤分區的元素，最後將基準值 2 放到分界位置。",
+  "title": "以 2 為基準值的一次哨兵分割"
+}

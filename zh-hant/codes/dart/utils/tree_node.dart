@@ -8,14 +8,14 @@
 class TreeNode {
   int val; // 節點值
   int height; // 節點高度
-  TreeNode? left; // 左子節點引用
-  TreeNode? right; // 右子節點引用
+  TreeNode? left; // 指向左子節點的參照
+  TreeNode? right; // 指向右子節點的參照
 
-  /* 建構子 */
+  /* 建構方法 */
   TreeNode(this.val, [this.height = 0, this.left, this.right]);
 }
 
-/* 將串列反序列化為二元樹：遞迴 */
+/* 以遞迴方式將串列反序列化為二元樹 */
 TreeNode? listToTreeDFS(List<int?> arr, int i) {
   if (i < 0 || i >= arr.length || arr[i] == null) {
     return null;
@@ -31,7 +31,7 @@ TreeNode? listToTree(List<int?> arr) {
   return listToTreeDFS(arr, 0);
 }
 
-/* 將二元樹序列化為串列：遞迴 */
+/* 以遞迴方式將二元樹序列化為串列 */
 void treeToListDFS(TreeNode? root, int i, List<int?> res) {
   if (root == null) return;
   while (i >= res.length) {

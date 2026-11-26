@@ -23,7 +23,7 @@ class TreeNode {
     }
 }
 
-/* 配列をデシリアライズして二分木にする */
+/* 配列をデシリアライズして二分木を復元する */
 function arrToTree(arr: (number | null)[], i: number = 0): TreeNode | null {
     if (i < 0 || i >= arr.length || arr[i] === null) {
         return null;

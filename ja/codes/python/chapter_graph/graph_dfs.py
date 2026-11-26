@@ -13,21 +13,21 @@ from graph_adjacency_list import GraphAdjList
 
 
 def dfs(graph: GraphAdjList, visited: set[Vertex], res: list[Vertex], vet: Vertex):
-    """深さ優先走査の補助関数"""
+    """深さ優先探索の補助関数"""
     res.append(vet)  # 訪問した頂点を記録する
     visited.add(vet)  # この頂点を訪問済みにする
-    # この頂点に隣接する全頂点を走査する
+    # この頂点の隣接頂点をすべて調べる
     for adjVet in graph.adj_list[vet]:
         if adjVet in visited:
-            continue  # 訪問済みの頂点をスキップする
-        # 隣接する頂点を再帰的に訪問する
+            continue  # 訪問済みの頂点を飛ばす
+        # 隣接頂点を再帰的に訪問する
         dfs(graph, visited, res, adjVet)
 
 
 def graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
-    """深さ優先走査"""
-    # 指定した頂点に隣接する全頂点を取得しやすいように、グラフを隣接リストで表す
-    # 頂点の走査順序
+    """深さ優先探索"""
+    # 指定した頂点の隣接頂点をすべて取得できるよう、グラフを隣接リストで表す
+    # 頂点の訪問順
     res = []
     # 訪問済みの頂点を記録するハッシュ集合
     visited = set[Vertex]()
@@ -35,7 +35,7 @@ def graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
     return res
 
 
-"""実行用コード"""
+"""Driver Code"""
 if __name__ == "__main__":
     # 無向グラフを初期化する
     v = vals_to_vets([0, 1, 2, 3, 4, 5, 6])
@@ -48,10 +48,10 @@ if __name__ == "__main__":
         [v[5], v[6]],
     ]
     graph = GraphAdjList(edges)
-    print("\n初期化後のグラフ")
+    print("\n初期化後のグラフ：")
     graph.print()
 
-    # 深さ優先走査
+    # 深さ優先探索
     res = graph_dfs(graph, v[0])
-    print("\n深さ優先走査（DFS）の頂点の順序")
+    print("\n深さ優先探索（DFS）での頂点の訪問順：")
     print(vets_to_vals(res))

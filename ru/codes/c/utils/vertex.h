@@ -16,7 +16,7 @@ typedef struct {
     int val;
 } Vertex;
 
-/* Конструктор, инициализирующий новый узел */
+/* Конструктор создаёт и инициализирует узел */
 Vertex *newVertex(int val) {
     Vertex *vet;
     vet = (Vertex *)malloc(sizeof(Vertex));

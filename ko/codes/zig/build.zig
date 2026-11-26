@@ -4,8 +4,8 @@
 
 //! Zig 버전: 0.14.1
 //! 빌드 명령:          zig build
-//! 실행 명령:            zig build run | zig build run_*
-//! 테스트 명령:           zig build test | zig build test -Dtest-filter=*
+//! 실행 명령:          zig build run | zig build run_*
+//! 테스트 명령:        zig build test | zig build test -Dtest-filter=*
 
 const std = @import("std");
 
@@ -18,8 +18,8 @@ pub fn build(b: *std.Build) void {
         "chapter_array_and_linkedlist",
     };
 
-    const test_step = b.step("test", "단위 테스트 실행");
-    const test_filters = b.option([]const []const u8, "test-filter", "어느 필터에도 일치하지 않는 테스트 건너뛰기") orelse &[0][]const u8{};
+    const test_step = b.step("test", "Run unit tests");
+    const test_filters = b.option([]const []const u8, "test-filter", "Skip tests that do not match any filter") orelse &[0][]const u8{};
 
     buildChapterExeModules(b, target, optimize, &chapters, test_step, test_filters);
     buildMainExeModule(b, target, optimize);
@@ -54,7 +54,7 @@ fn buildExeModuleFromChapterDirEntry(
     chapter_dir_entry: std.fs.Dir.Entry,
 ) !*std.Build.Module {
     const zig_file_path = try std.fs.path.join(b.allocator, &[_][]const u8{ chapter_dir_name, chapter_dir_entry.name });
-    const zig_file_name = chapter_dir_entry.name[0 .. chapter_dir_entry.name.len - 4]; // xxx.zig에서 확장자를 제외한 Zig 파일 이름을 추출한다
+    const zig_file_name = chapter_dir_entry.name[0 .. chapter_dir_entry.name.len - 4]; // xxx.zig에서 확장자를 뺀 파일 이름을 추출한다.
 
     const exe_mod = b.createModule(.{
         .root_source_file = b.path(zig_file_path),
@@ -79,7 +79,7 @@ fn buildExeModuleFromChapterDirEntry(
     }
 
     const step_name = try std.fmt.allocPrint(b.allocator, "run_{s}", .{zig_file_name});
-    const step_desc = try std.fmt.allocPrint(b.allocator, "{s}/{s}.zig 실행", .{ chapter_dir_name, zig_file_name });
+    const step_desc = try std.fmt.allocPrint(b.allocator, "Run {s}/{s}.zig", .{ chapter_dir_name, zig_file_name });
     const run_step = b.step(step_name, step_desc);
     run_step.dependOn(&run_cmd.step);
 
@@ -113,7 +113,7 @@ fn buildMainExeModule(
         run_cmd.addArgs(args);
     }
 
-    const run_step = b.step("run", "Hello Algo의 모든 Zig 코드 실행");
+    const run_step = b.step("run", "Run all hello algo zig");
     run_step.dependOn(&run_cmd.step);
 }
 

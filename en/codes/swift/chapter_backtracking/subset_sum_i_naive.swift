@@ -6,31 +6,31 @@
 
 /* Backtracking: subset sum I */
 func backtrack(state: inout [Int], target: Int, total: Int, choices: [Int], res: inout [[Int]]) {
-    // Record a solution when the subset sum equals target
+    // Record a solution when the subset sums to target
     if total == target {
         res.append(state)
         return
     }
-    // Iterate over all choices
+    // Try each choice
     for i in choices.indices {
-        // Prune: skip this choice if the subset sum would exceed target
+        // Prune: skip choices that would take the subset sum over target
         if total + choices[i] > target {
             continue
         }
-        // Try: make a choice and update the sum total
+        // Make a choice and update the running sum total
         state.append(choices[i])
-        // Proceed to the next choice
+        // Make the next choice
         backtrack(state: &state, target: target, total: total + choices[i], choices: choices, res: &res)
-        // Backtrack: undo the choice and restore the previous state
+        // Backtrack: undo the choice to restore the previous state
         state.removeLast()
     }
 }
 
-/* Solve subset sum I (with duplicate subsets) */
+/* Solve subset sum I (including duplicate subsets) */
 func subsetSumINaive(nums: [Int], target: Int) -> [[Int]] {
-    var state: [Int] = [] // State (subset)
+    var state: [Int] = [] // State (current subset)
     let total = 0 // Subset sum
-    var res: [[Int]] = [] // Result list (list of subsets)
+    var res: [[Int]] = [] // Results (list of subsets)
     backtrack(state: &state, target: target, total: total, choices: nums, res: &res)
     return res
 }
@@ -45,7 +45,7 @@ enum SubsetSumINaive {
         let res = subsetSumINaive(nums: nums, target: target)
 
         print("Input array nums = \(nums), target = \(target)")
-        print("All subsets with sum \(target): res = \(res)")
-        print("Note that this method produces duplicate subsets")
+        print("Subsets that sum to \(target): res = \(res)")
+        print("This method returns duplicate subsets")
     }
 }

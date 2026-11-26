@@ -14,7 +14,7 @@ import (
 func TestBuildTree(t *testing.T) {
 	preorder := []int{3, 9, 2, 1, 7}
 	inorder := []int{9, 3, 1, 2, 7}
-	fmt.Print("Предварительный обход = ")
+	fmt.Print("Прямой обход = ")
 	PrintSlice(preorder)
 	fmt.Print("Симметричный обход = ")
 	PrintSlice(inorder)

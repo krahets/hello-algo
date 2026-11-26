@@ -28,6 +28,6 @@ if __FILE__ == $0
   $res = []
   pre_order(root)
 
-  puts "\nOutput all nodes with value 7"
+  puts "\nPrint all nodes with value 7"
   p $res.map { |node| node.val }
 end

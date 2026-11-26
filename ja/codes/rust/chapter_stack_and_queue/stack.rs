@@ -6,10 +6,10 @@
 
 use hello_algo_rust::include::print_util;
 
-/* 実行用コード */
+/* 実行例 */
 pub fn main() {
     // スタックを初期化する
-    // Rust では Vec をスタックとして使うことを推奨する
+    // Rust では Vec をスタックとして使うのが推奨される
     let mut stack: Vec<i32> = Vec::new();
 
     // 要素をプッシュする
@@ -21,18 +21,18 @@ pub fn main() {
     print!("スタック stack = ");
     print_util::print_array(&stack);
 
-    // スタックの先頭要素にアクセスする
+    // スタックのトップを参照する
     let peek = stack.last().unwrap();
-    print!("\nスタックの先頭要素 peek = {peek}");
+    print!("\nスタックのトップの要素 peek = {peek}");
 
     // 要素をポップする
     let pop = stack.pop().unwrap();
-    print!("\nポップした要素 pop = {pop}、ポップ後 stack = ");
+    print!("\nポップした要素 pop = {pop}、ポップ後の stack = ");
     print_util::print_array(&stack);
 
-    // スタックの長さを取得する
+    // スタックの要素数を取得する
     let size = stack.len();
-    print!("\nスタックの長さ size = {size}");
+    print!("\nスタックの要素数 size = {size}");
 
     // スタックが空かどうかを判定する
     let is_empty = stack.is_empty();

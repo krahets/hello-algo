@@ -6,25 +6,25 @@
 
 use hello_algo_rust::include::{print_util, tree_node};
 
-/* 陣列表示下的二元樹類別 */
+/* 以陣列表示二元樹的類別 */
 struct ArrayBinaryTree {
     tree: Vec<Option<i32>>,
 }
 
 impl ArrayBinaryTree {
-    /* 建構子 */
+    /* 建構方法 */
     fn new(arr: Vec<Option<i32>>) -> Self {
         Self { tree: arr }
     }
 
-    /* 串列容量 */
+    /* 串列長度 */
     fn size(&self) -> i32 {
         self.tree.len() as i32
     }
 
-    /* 獲取索引為 i 節點的值 */
+    /* 取得索引 i 處的節點值 */
     fn val(&self, i: i32) -> Option<i32> {
-        // 若索引越界，則返回 None ，代表空位
+        // 若索引超出範圍，回傳 None 表示空位
         if i < 0 || i >= self.size() {
             None
         } else {
@@ -32,17 +32,17 @@ impl ArrayBinaryTree {
         }
     }
 
-    /* 獲取索引為 i 節點的左子節點的索引 */
+    /* 取得索引 i 處節點的左子節點索引 */
     fn left(&self, i: i32) -> i32 {
         2 * i + 1
     }
 
-    /* 獲取索引為 i 節點的右子節點的索引 */
+    /* 取得索引 i 處節點的右子節點索引 */
     fn right(&self, i: i32) -> i32 {
         2 * i + 2
     }
 
-    /* 獲取索引為 i 節點的父節點的索引 */
+    /* 取得索引 i 處節點的父節點索引 */
     fn parent(&self, i: i32) -> i32 {
         (i - 1) / 2
     }
@@ -96,10 +96,10 @@ impl ArrayBinaryTree {
     }
 }
 
-/* Driver Code */
+/* 主程式 */
 fn main() {
     // 初始化二元樹
-    // 這裡藉助了一個從陣列直接生成二元樹的函式
+    // 這裡使用能從陣列直接建立二元樹的函式
     let arr = vec![
         Some(1),
         Some(2),
@@ -120,7 +120,7 @@ fn main() {
 
     let root = tree_node::vec_to_tree(arr.clone()).unwrap();
     println!("\n初始化二元樹\n");
-    println!("二元樹的陣列表示：");
+    println!("二元樹的陣列表示法：");
     println!(
         "[{}]",
         arr.iter()
@@ -132,19 +132,19 @@ fn main() {
             .collect::<Vec<String>>()
             .join(", ")
     );
-    println!("二元樹的鏈結串列表示：");
+    println!("二元樹的鏈結串列表示法：");
     print_util::print_tree(&root);
 
-    // 陣列表示下的二元樹類別
+    // 以陣列表示二元樹的類別
     let abt = ArrayBinaryTree::new(arr);
 
-    // 訪問節點
+    // 存取節點
     let i = 1;
     let l = abt.left(i);
     let r = abt.right(i);
     let p = abt.parent(i);
     println!(
-        "\n當前節點的索引為 {} ，值為 {}",
+        "\n目前節點的索引為 {}，值為 {}",
         i,
         if let Some(val) = abt.val(i) {
             format!("{val}")
@@ -153,7 +153,7 @@ fn main() {
         }
     );
     println!(
-        "其左子節點的索引為 {} ，值為 {}",
+        "其左子節點的索引為 {}，值為 {}",
         l,
         if let Some(val) = abt.val(l) {
             format!("{val}")
@@ -162,7 +162,7 @@ fn main() {
         }
     );
     println!(
-        "其右子節點的索引為 {} ，值為 {}",
+        "其右子節點的索引為 {}，值為 {}",
         r,
         if let Some(val) = abt.val(r) {
             format!("{val}")
@@ -171,7 +171,7 @@ fn main() {
         }
     );
     println!(
-        "其父節點的索引為 {} ，值為 {}",
+        "其父節點的索引為 {}，值為 {}",
         p,
         if let Some(val) = abt.val(p) {
             format!("{val}")
@@ -182,11 +182,11 @@ fn main() {
 
     // 走訪樹
     let mut res = abt.level_order();
-    println!("\n層序走訪為：{:?}", res);
+    println!("\n層序走訪的結果：{:?}", res);
     res = abt.pre_order();
-    println!("前序走訪為：{:?}", res);
+    println!("前序走訪的結果：{:?}", res);
     res = abt.in_order();
-    println!("中序走訪為：{:?}", res);
+    println!("中序走訪的結果：{:?}", res);
     res = abt.post_order();
-    println!("後序走訪為：{:?}", res);
+    println!("後序走訪的結果：{:?}", res);
 }

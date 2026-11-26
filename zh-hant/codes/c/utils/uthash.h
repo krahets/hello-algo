@@ -31,7 +31,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <stdlib.h>   /* exit */
 
 #if defined(HASH_DEFINE_OWN_STDINT) && HASH_DEFINE_OWN_STDINT
-/* This codepath is provided for backward compatibility, but I plan to remove it. */
+/* 這段程式碼是為了與舊版相容而保留的，我打算在日後移除。 */
 #warning "HASH_DEFINE_OWN_STDINT is deprecated; please use HASH_NO_STDINT instead"
 typedef unsigned int uint32_t;
 typedef unsigned char uint8_t;
@@ -40,22 +40,22 @@ typedef unsigned char uint8_t;
 #include <stdint.h>   /* uint8_t, uint32_t */
 #endif
 
-/* These macros use decltype or the earlier __typeof GNU extension.
-   As decltype is only available in newer compilers (VS2010 or gcc 4.3+
-   when compiling c++ source) this code uses whatever method is needed
-   or, for VS2008 where neither is available, uses casting workarounds. */
+/* 這些巨集使用 decltype，或使用 GNU 較早提供的 __typeof 擴充功能。
+   由於只有較新的編譯器才支援 decltype（例如 VS2010，或 gcc 4.3 以上版本
+   在編譯 C++ 原始碼時），這段程式碼會選用編譯器支援的方式。
+   若使用 VS2008，兩種方式都無法使用，就以型別轉換來處理。 */
 #if !defined(DECLTYPE) && !defined(NO_DECLTYPE)
-#if defined(_MSC_VER)   /* MS compiler */
-#if _MSC_VER >= 1600 && defined(__cplusplus)  /* VS2010 or newer in C++ mode */
+#if defined(_MSC_VER)   /* 微軟編譯器 */
+#if _MSC_VER >= 1600 && defined(__cplusplus)  /* VS2010 或更新版本的 C++ 模式 */
 #define DECLTYPE(x) (decltype(x))
-#else                   /* VS2008 or older (or VS2010 in C mode) */
+#else                   /* VS2008 或更早版本（或是 VS2010 的 C 模式） */
 #define NO_DECLTYPE
 #endif
-#elif defined(__MCST__)  /* Elbrus C Compiler */
+#elif defined(__MCST__)  /* Elbrus C 編譯器 */
 #define DECLTYPE(x) (__typeof(x))
 #elif defined(__BORLANDC__) || defined(__ICCARM__) || defined(__LCC__) || defined(__WATCOMC__)
 #define NO_DECLTYPE
-#else                   /* GNU, Sun and other compilers */
+#else                   /* GNU、Sun 及其他編譯器 */
 #define DECLTYPE(x) (__typeof(x))
 #endif
 #endif
@@ -75,10 +75,10 @@ do {                                                                            
 #endif
 
 #ifndef uthash_malloc
-#define uthash_malloc(sz) malloc(sz)      /* malloc fcn                      */
+#define uthash_malloc(sz) malloc(sz)      /* 配置記憶體的函式                      */
 #endif
 #ifndef uthash_free
-#define uthash_free(ptr,sz) free(ptr)     /* free fcn                        */
+#define uthash_free(ptr,sz) free(ptr)     /* 釋放記憶體的函式                        */
 #endif
 #ifndef uthash_bzero
 #define uthash_bzero(a,n) memset(a,'\0',n)
@@ -96,10 +96,10 @@ do {                                                                            
 #endif
 
 #ifndef uthash_noexpand_fyi
-#define uthash_noexpand_fyi(tbl)          /* can be defined to log noexpand  */
+#define uthash_noexpand_fyi(tbl)          /* 可定義此巨集來記錄停用擴充的事件  */
 #endif
 #ifndef uthash_expand_fyi
-#define uthash_expand_fyi(tbl)            /* can be defined to log expands   */
+#define uthash_expand_fyi(tbl)            /* 可定義此巨集來記錄擴充事件   */
 #endif
 
 #ifndef HASH_NONFATAL_OOM
@@ -107,20 +107,20 @@ do {                                                                            
 #endif
 
 #if HASH_NONFATAL_OOM
-/* malloc failures can be recovered from */
+/* malloc 失敗後仍可復原 */
 
 #ifndef uthash_nonfatal_oom
-#define uthash_nonfatal_oom(obj) do {} while (0)    /* non-fatal OOM error */
+#define uthash_nonfatal_oom(obj) do {} while (0)    /* 可復原的記憶體不足錯誤 */
 #endif
 
 #define HASH_RECORD_OOM(oomed) do { (oomed) = 1; } while (0)
 #define IF_HASH_NONFATAL_OOM(x) x
 
 #else
-/* malloc failures result in lost memory, hash tables are unusable */
+/* malloc 失敗會造成記憶體流失，雜湊表將無法使用 */
 
 #ifndef uthash_fatal
-#define uthash_fatal(msg) exit(-1)        /* fatal OOM error */
+#define uthash_fatal(msg) exit(-1)        /* 無法復原的記憶體不足錯誤 */
 #endif
 
 #define HASH_RECORD_OOM(oomed) uthash_fatal("out of memory")
@@ -128,14 +128,14 @@ do {                                                                            
 
 #endif
 
-/* initial number of buckets */
-#define HASH_INITIAL_NUM_BUCKETS 32U     /* initial number of buckets        */
-#define HASH_INITIAL_NUM_BUCKETS_LOG2 5U /* lg2 of initial number of buckets */
-#define HASH_BKT_CAPACITY_THRESH 10U     /* expand when bucket count reaches */
+/* 初始桶數 */
+#define HASH_INITIAL_NUM_BUCKETS 32U     /* 初始桶數        */
+#define HASH_INITIAL_NUM_BUCKETS_LOG2 5U /* 初始桶數以 2 為底的對數 */
+#define HASH_BKT_CAPACITY_THRESH 10U     /* 桶內的元素數量達到此門檻時就擴充 */
 
-/* calculate the element whose hash handle address is hhp */
+/* 從雜湊控制代碼的位址 hhp 算出所屬元素的位址 */
 #define ELMT_FROM_HH(tbl,hhp) ((void*)(((char*)(hhp)) - ((tbl)->hho)))
-/* calculate the hash handle from element address elp */
+/* 從元素的位址 elp 算出雜湊控制代碼的位址 */
 #define HH_FROM_ELMT(tbl,elp) ((UT_hash_handle*)(void*)(((char*)(elp)) + ((tbl)->hho)))
 
 #define HASH_ROLLBACK_BKT(hh, head, itemptrhh)                                   \
@@ -435,17 +435,17 @@ do {                                                                            
   bkt = ((hashv) & ((num_bkts) - 1U));                                           \
 } while (0)
 
-/* delete "delptr" from the hash table.
- * "the usual" patch-up process for the app-order doubly-linked-list.
- * The use of _hd_hh_del below deserves special explanation.
- * These used to be expressed using (delptr) but that led to a bug
- * if someone used the same symbol for the head and deletee, like
+/* 從雜湊表中刪除 delptr 指向的元素。
+ * 依照一般做法，重新接好依應用程式順序排列的雙向鏈結串列。
+ * 以下說明為什麼這裡要用 _hd_hh_del。
+ * 這幾處原本都使用 (delptr)，但這樣做有個問題：
+ * 如果串列開頭與待刪除的元素使用同一個變數，例如
  *  HASH_DELETE(hh,users,users);
- * We want that to work, but by changing the head (users) below
- * we were forfeiting our ability to further refer to the deletee (users)
- * in the patch-up process. Solution: use scratch space to
- * copy the deletee pointer, then the latter references are via that
- * scratch pointer rather than through the repointed (users) symbol.
+ * 我們希望這種寫法也能正常運作。但舊寫法一旦在下方更新串列開頭 (users)，
+ * 就無法再透過 (users) 找到待刪除的元素，
+ * 也就無法完成串列的重新連接。解決方式是先用暫存空間
+ * 複製待刪除元素的指標，之後就透過這個
+ * 暫存指標存取該元素，避開已經指向別處的 (users)。
  */
 #define HASH_DELETE(hh,head,delptr)                                              \
     HASH_DELETE_HH(hh, head, &(delptr)->hh)
@@ -479,7 +479,7 @@ do {                                                                            
   HASH_FSCK(hh, head, "HASH_DELETE_HH");                                         \
 } while (0)
 
-/* convenience forms of HASH_FIND/HASH_ADD/HASH_DEL */
+/* HASH_FIND、HASH_ADD 和 HASH_DEL 的簡便寫法 */
 #define HASH_FIND_STR(head,findstr,out)                                          \
 do {                                                                             \
     unsigned _uthash_hfstr_keylen = (unsigned)uthash_strlen(findstr);            \
@@ -510,8 +510,8 @@ do {                                                                            
 #define HASH_DEL(head,delptr)                                                    \
     HASH_DELETE(hh,head,delptr)
 
-/* HASH_FSCK checks hash integrity on every add/delete when HASH_DEBUG is defined.
- * This is for uthash developer only; it compiles away if HASH_DEBUG isn't defined.
+/* 定義 HASH_DEBUG 後，每次新增或刪除元素時，HASH_FSCK 都會檢查雜湊表的完整性。
+ * 這項功能供 uthash 開發者使用。若未定義 HASH_DEBUG，編譯時就會略去這段檢查。
  */
 #ifdef HASH_DEBUG
 #include <stdio.h>   /* fprintf, stderr */
@@ -568,9 +568,9 @@ do {                                                                            
 #define HASH_FSCK(hh,head,where)
 #endif
 
-/* When compiled with -DHASH_EMIT_KEYS, length-prefixed keys are emitted to
- * the descriptor to which this macro is defined for tuning the hash function.
- * The app can #include <unistd.h> to get the prototype for write(2). */
+/* 以 -DHASH_EMIT_KEYS 編譯時，會在每個鍵前加上長度，再將資料寫入
+ * 這個巨集指定的檔案描述元，供調整雜湊函式時使用。
+ * 應用程式可透過 #include <unistd.h> 取得 write(2) 的函式原型。 */
 #ifdef HASH_EMIT_KEYS
 #define HASH_EMIT_KEY(hh,head,keyptr,fieldlen)                                   \
 do {                                                                             \
@@ -582,7 +582,7 @@ do {                                                                            
 #define HASH_EMIT_KEY(hh,head,keyptr,fieldlen)
 #endif
 
-/* The Bernstein hash function, used in Perl prior to v5.6. Note (x<<5+x)=x*33. */
+/* Perl 在 v5.6 之前使用 Bernstein 雜湊函式。注意，(x<<5+x)=x*33。 */
 #define HASH_BER(key,keylen,hashv)                                               \
 do {                                                                             \
   unsigned _hb_keylen = (unsigned)keylen;                                        \
@@ -594,9 +594,9 @@ do {                                                                            
 } while (0)
 
 
-/* SAX/FNV/OAT/JEN hash functions are macro variants of those listed at
+/* SAX、FNV、OAT 和 JEN 雜湊函式都是下列網頁所列函式的巨集版本：
  * http://eternallyconfuzzled.com/tuts/algorithms/jsw_tut_hashing.aspx
- * (archive link: https://archive.is/Ivcan )
+ * （網頁存檔：https://archive.is/Ivcan）
  */
 #define HASH_SAX(key,keylen,hashv)                                               \
 do {                                                                             \
@@ -607,7 +607,7 @@ do {                                                                            
     hashv ^= (hashv << 5) + (hashv >> 2) + _hs_key[_sx_i];                       \
   }                                                                              \
 } while (0)
-/* FNV-1a variation */
+/* FNV-1a 變體 */
 #define HASH_FNV(key,keylen,hashv)                                               \
 do {                                                                             \
   unsigned _fn_i;                                                                \
@@ -688,7 +688,7 @@ do {                                                                            
   HASH_JEN_MIX(_hj_i, _hj_j, hashv);                                             \
 } while (0)
 
-/* The Paul Hsieh hash function */
+/* Paul Hsieh 的雜湊函式 */
 #undef get16bits
 #if (defined(__GNUC__) && defined(__i386__)) || defined(__WATCOMC__)             \
   || defined(_MSC_VER) || defined (__BORLANDC__) || defined (__TURBOC__)
@@ -708,7 +708,7 @@ do {                                                                            
   _sfh_len >>= 2;                                                                \
   hashv = 0xcafebabeu;                                                           \
                                                                                  \
-  /* Main loop */                                                                \
+  /* 主迴圈 */                                                                \
   for (;_sfh_len > 0U; _sfh_len--) {                                             \
     hashv    += get16bits (_sfh_key);                                            \
     _sfh_tmp  = ((uint32_t)(get16bits (_sfh_key+2)) << 11) ^ hashv;              \
@@ -717,7 +717,7 @@ do {                                                                            
     hashv    += hashv >> 11;                                                     \
   }                                                                              \
                                                                                  \
-  /* Handle end cases */                                                         \
+  /* 處理末尾剩餘的資料 */                                                         \
   switch (_sfh_rem) {                                                            \
     case 3: hashv += get16bits (_sfh_key);                                       \
             hashv ^= hashv << 16;                                                \
@@ -735,7 +735,7 @@ do {                                                                            
     default: ;                                                                   \
   }                                                                              \
                                                                                  \
-  /* Force "avalanching" of final 127 bits */                                    \
+  /* 讓最後 127 個位元產生雪崩效應 */                                    \
   hashv ^= hashv << 3;                                                           \
   hashv += hashv >> 5;                                                           \
   hashv ^= hashv << 4;                                                           \
@@ -744,7 +744,7 @@ do {                                                                            
   hashv += hashv >> 6;                                                           \
 } while (0)
 
-/* iterate over items in a known bucket to find desired item */
+/* 逐一檢查指定桶中的元素，找出目標元素 */
 #define HASH_FIND_IN_BKT(tbl,hh,head,keyptr,keylen_in,hashval,out)               \
 do {                                                                             \
   if ((head).hh_head != NULL) {                                                  \
@@ -766,7 +766,7 @@ do {                                                                            
   }                                                                              \
 } while (0)
 
-/* add an item to a bucket  */
+/* 在桶中加入一個元素  */
 #define HASH_ADD_TO_BKT(head,hh,addhh,oomed)                                     \
 do {                                                                             \
   UT_hash_bucket *_ha_head = &(head);                                            \
@@ -788,7 +788,7 @@ do {                                                                            
   }                                                                              \
 } while (0)
 
-/* remove an item from a given bucket */
+/* 從指定的桶中移除一個元素 */
 #define HASH_DEL_IN_BKT(head,delhh)                                              \
 do {                                                                             \
   UT_hash_bucket *_hd_head = &(head);                                            \
@@ -804,31 +804,31 @@ do {                                                                            
   }                                                                              \
 } while (0)
 
-/* Bucket expansion has the effect of doubling the number of buckets
- * and redistributing the items into the new buckets. Ideally the
- * items will distribute more or less evenly into the new buckets
- * (the extent to which this is true is a measure of the quality of
- * the hash function as it applies to the key domain).
+/* 擴充時，桶數會加倍，
+ * 元素也會重新分配到新的桶中。理想情況下，
+ * 這些元素會大致均勻地分布在新桶之間
+ * （分布有多均勻，可用來衡量
+ * 雜湊函式對這個鍵值範圍的適用程度）。
  *
- * With the items distributed into more buckets, the chain length
- * (item count) in each bucket is reduced. Thus by expanding buckets
- * the hash keeps a bound on the chain length. This bounded chain
- * length is the essence of how a hash provides constant time lookup.
+ * 把元素分散到更多桶中後，每個桶的鏈長
+ * （即元素個數）就會縮短。因此，透過擴充桶數，
+ * 雜湊表能讓鏈長維持在一定上限內。鏈長有上限，
+ * 正是雜湊表能在常數時間內完成查詢的關鍵。
  *
- * The calculation of tbl->ideal_chain_maxlen below deserves some
- * explanation. First, keep in mind that we're calculating the ideal
- * maximum chain length based on the *new* (doubled) bucket count.
- * In fractions this is just n/b (n=number of items,b=new num buckets).
- * Since the ideal chain length is an integer, we want to calculate
- * ceil(n/b). We don't depend on floating point arithmetic in this
- * hash, so to calculate ceil(n/b) with integers we could write
+ * 下面說明 tbl->ideal_chain_maxlen 的計算方式。
+ * 首先要留意，這裡要計算的是理想的
+ * 最大鏈長，依據的是加倍後的「新」桶數。
+ * 以分數表示就是 n/b（n 是元素個數，b 是新的桶數）。
+ * 由於理想鏈長是整數，我們需要計算
+ * ceil(n/b)。這個雜湊表的實作不依賴浮點數運算，
+ * 因此可以用下式以整數運算求出 ceil(n/b)：
  *
  *      ceil(n/b) = (n/b) + ((n%b)?1:0)
  *
- * and in fact a previous version of this hash did just that.
- * But now we have improved things a bit by recognizing that b is
- * always a power of two. We keep its base 2 log handy (call it lb),
- * so now we can write this with a bit shift and logical AND:
+ * 這個雜湊表的舊版確實採用了上述寫法。
+ * 現在的寫法利用了 b 的一個特性來改進計算：
+ * b 一定是 2 的冪次。我們把 b 以 2 為底的對數存起來（記為 lb），
+ * 就能用位移和位元 AND 運算改寫上式：
  *
  *      ceil(n/b) = (n>>lb) + ( (n & (b-1)) ? 1:0)
  *
@@ -886,9 +886,9 @@ do {                                                                            
 } while (0)
 
 
-/* This is an adaptation of Simon Tatham's O(n log(n)) mergesort */
-/* Note that HASH_SORT assumes the hash handle name to be hh.
- * HASH_SRT was added to allow the hash handle name to be passed in. */
+/* 本實作改寫自 Simon Tatham 的 O(n log(n)) 合併排序法 */
+/* HASH_SORT 假設雜湊控制代碼的名稱是 hh。
+ * 新增的 HASH_SRT 可讓呼叫端傳入雜湊控制代碼的名稱。 */
 #define HASH_SORT(head,cmpfcn) HASH_SRT(hh,head,cmpfcn)
 #define HASH_SRT(hh,head,cmpfcn)                                                 \
 do {                                                                             \
@@ -974,11 +974,11 @@ do {                                                                            
   }                                                                              \
 } while (0)
 
-/* This function selects items from one hash into another hash.
- * The end result is that the selected items have dual presence
- * in both hashes. There is no copy of the items made; rather
- * they are added into the new hash through a secondary hash
- * hash handle that must be present in the structure. */
+/* 這個函式會從一個雜湊表中選出元素，加入另一個雜湊表。
+ * 如此一來，選出的元素就會同時存在於
+ * 兩個雜湊表中。這個過程不會複製元素，
+ * 而是透過另一個雜湊控制代碼，將它們加入新表。
+ * 元素的結構體必須包含這第二個雜湊控制代碼。 */
 #define HASH_SELECT(hh_dst, dst, hh_src, src, cond)                              \
 do {                                                                             \
   unsigned _src_bkt, _dst_bkt;                                                   \
@@ -1065,7 +1065,7 @@ for(((el)=(head)), ((tmp)=DECLTYPE(el)((head!=NULL)?(head)->hh.next:NULL));     
   (el) != NULL; ((el)=(tmp)), ((tmp)=DECLTYPE(el)((tmp!=NULL)?(tmp)->hh.next:NULL)))
 #endif
 
-/* obtain a count of items in the hash */
+/* 取得雜湊表的元素個數 */
 #define HASH_COUNT(head) HASH_CNT(hh,head)
 #define HASH_CNT(hh,head) ((head != NULL)?((head)->hh.tbl->num_items):0U)
 
@@ -1073,23 +1073,23 @@ typedef struct UT_hash_bucket {
    struct UT_hash_handle *hh_head;
    unsigned count;
 
-   /* expand_mult is normally set to 0. In this situation, the max chain length
-    * threshold is enforced at its default value, HASH_BKT_CAPACITY_THRESH. (If
-    * the bucket's chain exceeds this length, bucket expansion is triggered).
-    * However, setting expand_mult to a non-zero value delays bucket expansion
-    * (that would be triggered by additions to this particular bucket)
-    * until its chain length reaches a *multiple* of HASH_BKT_CAPACITY_THRESH.
-    * (The multiplier is simply expand_mult+1). The whole idea of this
-    * multiplier is to reduce bucket expansions, since they are expensive, in
-    * situations where we know that a particular bucket tends to be overused.
-    * It is better to let its chain length grow to a longer yet-still-bounded
-    * value, than to do an O(n) bucket expansion too often.
+   /* expand_mult 通常設為 0。此時，最大鏈長
+    * 門檻會採用預設值 HASH_BKT_CAPACITY_THRESH（如果
+    * 桶內的鏈長超過這個門檻，就會觸發擴充）。
+    * 若將 expand_mult 設為非零值，就能延後擴充
+    * （這裡指的是在這個桶內新增元素而觸發的擴充），
+    * 直到鏈長達到 HASH_BKT_CAPACITY_THRESH 的指定倍數。
+    * 這個倍數就是 expand_mult+1。設定倍數的目的，
+    * 是減少成本高昂的擴充操作，尤其是
+    * 已知元素經常集中在某個桶中的情況。
+    * 此時，讓桶內的鏈長增加，但仍維持在一定上限內，
+    * 會比頻繁執行 O(n) 的擴充操作更好。
     */
    unsigned expand_mult;
 
 } UT_hash_bucket;
 
-/* random signature used only to find hash tables in external analysis */
+/* 隨機產生的識別標記，僅供外部分析工具定位雜湊表 */
 #define HASH_SIGNATURE 0xa0111fe1u
 #define HASH_BLOOM_SIGNATURE 0xb12220f2u
 
@@ -1097,29 +1097,29 @@ typedef struct UT_hash_table {
    UT_hash_bucket *buckets;
    unsigned num_buckets, log2_num_buckets;
    unsigned num_items;
-   struct UT_hash_handle *tail; /* tail hh in app order, for fast append    */
-   ptrdiff_t hho; /* hash handle offset (byte pos of hash handle in element */
+   struct UT_hash_handle *tail; /* 依應用程式順序排列的最後一個 hh，可用來快速附加元素    */
+   ptrdiff_t hho; /* 雜湊控制代碼的位移量（控制代碼在元素內的位元組位置） */
 
-   /* in an ideal situation (all buckets used equally), no bucket would have
-    * more than ceil(#items/#buckets) items. that's the ideal chain length. */
+   /* 在理想情況下，各桶的使用程度相同，因此每個桶的元素個數
+    * 都不會超過 ceil(#items/#buckets)，這就是理想鏈長。 */
    unsigned ideal_chain_maxlen;
 
-   /* nonideal_items is the number of items in the hash whose chain position
-    * exceeds the ideal chain maxlen. these items pay the penalty for an uneven
-    * hash distribution; reaching them in a chain traversal takes >ideal steps */
+   /* nonideal_items 記錄雜湊表中有多少元素在鏈中的位置
+    * 超過理想最大鏈長。這些元素會受到雜湊分布不均的影響：
+    * 沿著鏈走訪時，需要超過理想步數才能找到它們。 */
    unsigned nonideal_items;
 
-   /* ineffective expands occur when a bucket doubling was performed, but
-    * afterward, more than half the items in the hash had nonideal chain
-    * positions. If this happens on two consecutive expansions we inhibit any
-    * further expansion, as it's not helping; this happens when the hash
-    * function isn't a good fit for the key domain. When expansion is inhibited
-    * the hash will still work, albeit no longer in constant time. */
+   /* 如果桶數加倍之後，
+    * 雜湊表中仍有超過一半的元素在鏈中的位置
+    * 超過理想上限，這次擴充就沒有效果。若連續兩次擴充都如此，就會停用
+    * 後續的擴充，因為繼續擴充也無濟於事。當雜湊
+    * 函式不適合目前的鍵值範圍時，就會出現這種情況。停用擴充後，
+    * 雜湊表仍可使用，但查詢時間不再是常數。 */
    unsigned ineff_expands, noexpand;
 
-   uint32_t signature; /* used only to find hash tables in external analysis */
+   uint32_t signature; /* 僅供外部分析工具定位雜湊表 */
 #ifdef HASH_BLOOM
-   uint32_t bloom_sig; /* used only to test bloom exists in external analysis */
+   uint32_t bloom_sig; /* 僅供外部分析工具檢查是否有布隆過濾器 */
    uint8_t *bloom_bv;
    uint8_t bloom_nbits;
 #endif
@@ -1128,13 +1128,13 @@ typedef struct UT_hash_table {
 
 typedef struct UT_hash_handle {
    struct UT_hash_table *tbl;
-   void *prev;                       /* prev element in app order      */
-   void *next;                       /* next element in app order      */
-   struct UT_hash_handle *hh_prev;   /* previous hh in bucket order    */
-   struct UT_hash_handle *hh_next;   /* next hh in bucket order        */
-   const void *key;                  /* ptr to enclosing struct's key  */
-   unsigned keylen;                  /* enclosing struct's key len     */
-   unsigned hashv;                   /* result of hash-fcn(key)        */
+   void *prev;                       /* 依應用程式順序排列的前一個元素      */
+   void *next;                       /* 依應用程式順序排列的下一個元素      */
+   struct UT_hash_handle *hh_prev;   /* 桶內順序中的前一個 hh    */
+   struct UT_hash_handle *hh_next;   /* 桶內順序中的下一個 hh        */
+   const void *key;                  /* 指向所屬結構體之鍵的指標  */
+   unsigned keylen;                  /* 所屬結構體的鍵長度     */
+   unsigned hashv;                   /* hash-fcn(key) 的運算結果        */
 } UT_hash_handle;
 
 #endif /* UTHASH_H */

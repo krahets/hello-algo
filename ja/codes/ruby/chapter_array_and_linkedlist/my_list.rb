@@ -19,7 +19,7 @@ class MyList
 
   ### 要素にアクセスする ###
   def get(index)
-    # インデックスが範囲外の場合、例外を送出する。以下も同様
+    # インデックスが範囲外なら例外を送出する。以下も同様
     raise IndexError, "インデックスが範囲外です" if index < 0 || index >= size
     @arr[index]
   end
@@ -32,7 +32,7 @@ class MyList
 
   ### 末尾に要素を追加する ###
   def add(num)
-    # 要素数が容量を超える場合、容量を拡張する
+    # 要素数が容量を超えるときは容量を拡張する
     extend_capacity if size == capacity
     @arr[size] = num
 
@@ -44,10 +44,10 @@ class MyList
   def insert(index, num)
     raise IndexError, "インデックスが範囲外です" if index < 0 || index >= size
 
-    # 要素数が容量を超える場合、容量を拡張する
+    # 要素数が容量を超えるときは容量を拡張する
     extend_capacity if size == capacity
 
-    # インデックス index 以降の全要素を後ろに 1 つずらす
+    # インデックス index 以降の要素をすべて後ろに 1 つずらす
     for j in (size - 1).downto(index)
       @arr[j + 1] = @arr[j]
     end
@@ -62,7 +62,7 @@ class MyList
     raise IndexError, "インデックスが範囲外です" if index < 0 || index >= size
     num = @arr[index]
 
-    # インデックス index より後の全要素を前に 1 つずらす
+    # インデックス index より後ろの要素をすべて前に 1 つずらす
     for j in index...size
       @arr[j] = @arr[j + 1]
     end
@@ -76,7 +76,7 @@ class MyList
 
   ### リストの容量を拡張する ###
   def extend_capacity
-    # 元の配列の extend_ratio 倍の長さの配列を新たに作成し、元の配列をコピーする
+    # 元の配列の extend_ratio 倍の長さの配列を作り、元の配列の内容をコピーする
     arr = @arr.dup + Array.new(capacity * (@extend_ratio - 1))
     # リストの容量を更新する
     @capacity = arr.length
@@ -85,7 +85,7 @@ class MyList
   ### リストを配列に変換する ###
   def to_array
     sz = size
-    # 有効な長さの範囲内にあるリストの要素だけを変換する
+    # 有効な範囲内のリスト要素だけを変換する
     arr = Array.new(sz)
     for i in 0...sz
       arr[i] = get(i)
@@ -94,7 +94,7 @@ class MyList
   end
 end
 
-### 実行用コード ###
+### ドライバコード ###
 if __FILE__ == $0
   # リストを初期化する
   nums = MyList.new
@@ -105,28 +105,28 @@ if __FILE__ == $0
   nums.add(2)
   nums.add(5)
   nums.add(4)
-  puts "リスト nums = #{nums.to_array} 、容量 = #{nums.capacity} 、長さ = #{nums.size}"
+  puts "リスト nums = #{nums.to_array}、容量 = #{nums.capacity}、長さ = #{nums.size}"
 
   # 途中に要素を挿入する
   nums.insert(3, 6)
-  puts "インデックス 3 に数値 6 を挿入した結果 nums = #{nums.to_array}"
+  puts "インデックス 3 に 6 を挿入した後の nums = #{nums.to_array}"
 
   # 要素を削除する
   nums.remove(3)
-  puts "インデックス 3 の要素を削除した結果 nums = #{nums.to_array}"
+  puts "インデックス 3 の要素を削除した後の nums = #{nums.to_array}"
 
   # 要素にアクセスする
   num = nums.get(1)
-  puts "インデックス 1 の要素にアクセスした結果 num = #{num}"
+  puts "インデックス 1 の要素を読み出した結果 num = #{num}"
 
   # 要素を更新する
   nums.set(1, 0)
-  puts "インデックス 1 の要素を 0 に更新した結果 nums = #{nums.to_array}"
+  puts "インデックス 1 の要素を 0 に更新した後の nums = #{nums.to_array}"
 
-  # 容量の拡張をテストする
+  # 容量拡張の動作を確認する
   for i in 0...10
-    # i = 5 のときにリストの長さが容量を超えるため、容量が拡張される
+    # i = 5 でリストの長さが容量を超えるため、容量を拡張する
     nums.add(i)
   end
-  puts "容量を拡張した後のリスト nums = #{nums.to_array} 、容量 = #{nums.capacity} 、長さ = #{nums.size}"
+  puts "容量拡張後のリスト nums = #{nums.to_array}、容量 = #{nums.capacity}、長さ = #{nums.size}"
 end

@@ -4,7 +4,7 @@ Created Time: 2022-11-25
 Author: krahets (krahets@163.com)
 """
 
-"""실행 코드"""
+"""Driver Code"""
 if __name__ == "__main__":
     # 리스트 초기화
     nums: list[int] = [1, 3, 2, 5, 4]
@@ -12,11 +12,11 @@ if __name__ == "__main__":
 
     # 원소 접근
     x: int = nums[1]
-    print("\n인덱스 1의 원소에 접근하여 얻은 x =", x)
+    print("\n인덱스 1의 원소를 읽은 결과 x =", x)
 
     # 원소 갱신
     nums[1] = 0
-    print("\n인덱스 1의 원소를 0으로 갱신한 후 nums =", nums)
+    print("\n인덱스 1의 원소를 0으로 바꾼 후 nums =", nums)
 
     # 리스트 비우기
     nums.clear()
@@ -28,7 +28,7 @@ if __name__ == "__main__":
     nums.append(2)
     nums.append(5)
     nums.append(4)
-    print("\n원소를 추가한 후 nums =", nums)
+    print("\n원소 추가 후 nums =", nums)
 
     # 중간에 원소 삽입
     nums.insert(3, 6)
@@ -38,19 +38,19 @@ if __name__ == "__main__":
     nums.pop(3)
     print("\n인덱스 3의 원소를 삭제한 후 nums =", nums)
 
-    # 인덱스를 통해 리스트를 순회한다
+    # 인덱스로 리스트 순회
     count = 0
     for i in range(len(nums)):
         count += nums[i]
-    # 리스트의 원소를 직접 순회한다
+    # 리스트 원소를 직접 순회
     for num in nums:
         count += num
 
-    # 두 리스트 연결
+    # 두 리스트 이어 붙이기
     nums1 = [6, 8, 7, 10, 9]
     nums += nums1
-    print("\n리스트 nums1을 nums 뒤에 연결한 후 nums =", nums)
+    print("\nnums 뒤에 리스트 nums1을 이어 붙인 후 nums =", nums)
 
     # 리스트 정렬
     nums.sort()
-    print("\n리스트를 정렬한 후 nums =", nums)
+    print("\n리스트 정렬 후 nums =", nums)

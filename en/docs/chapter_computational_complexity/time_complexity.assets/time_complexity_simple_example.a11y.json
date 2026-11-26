@@ -1,47 +1,47 @@
 {
-  "schema_version": 2,
-  "title": "Algorithms A, B, and C: actual runtime versus growth trend",
-  "summary": "Compare the runtime curves of algorithms A, B, and C to distinguish actual elapsed time from asymptotic growth trend.",
   "context": [
-    "The horizontal axis shows input size n with ticks from 0 to 9; the vertical axis shows algorithm running time with visible ticks at 0, 5, 10, an ellipsis, and 1000000. Because the vertical axis compresses the span between 10 and 1000000, vertical distances between curves are not drawn to a uniform scale."
+    "The horizontal axis is input size n, marked from 0 to 9. The vertical axis is running time, with labels 0, 5, 10, an ellipsis, and 1000000. The gap between 10 and 1000000 is compressed, so vertical distances do not use a uniform scale."
   ],
   "description": [
-    "All three algorithms execute the same print operation. In the table below, print counts come from the chapter code, while curve colors and positions come from the figure."
+    "All three algorithms perform the same print operation. The table takes the print counts from the code in the text and the line colors and positions from the figure."
   ],
   "frames": [
     {
-      "id": "source-25",
       "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_simple_example.png",
-      "title": "Algorithms A, B, and C: actual runtime versus growth trend",
-      "explanation": "Neither A nor C changes its operation count as n grows, so both belong to O(1) despite their large difference in runtime; B grows linearly with n and belongs to O(n). Extrapolating by print count, B and C intersect at n = 1000000, beyond the horizontal range plotted."
+      "explanation": "The counts for A and C are independent of n. Both are O(1), although their running times differ greatly. B grows linearly with n and is O(n). Extrapolating the print counts, B meets C at n = 1000000, beyond the horizontal range shown.",
+      "id": "source-25",
+      "title": "Algorithms A, B, and C: running time and growth"
     }
   ],
+  "schema_version": 2,
+  "summary": "The figure compares running time trends for algorithms A, B, and C, distinguishing elapsed time from its rate of growth.",
   "tables": [
     {
-      "caption": "Print counts and plotted curves by algorithm",
+      "caption": "Print counts and lines in the figure",
       "headers": [
         "Algorithm",
-        "Print count",
-        "Plotted runtime curve"
+        "Number of prints",
+        "Running time shown in the figure"
       ],
       "row_header": 0,
       "rows": [
         [
           "A",
           "1",
-          "Green horizontal line between 0 and 5 on the vertical axis"
+          "A green horizontal line between 0 and 5 on the vertical axis"
         ],
         [
           "B",
           "n",
-          "Blue slanted line starting at the origin, intersecting A at n = 1 and approaching tick 10 at n = 9"
+          "A rising blue line from the origin crosses A at n = 1 and approaches the vertical tick at 10 when n = 9"
         ],
         [
           "C",
           "1000000",
-          "Orange horizontal line at tick 1000000 on the vertical axis"
+          "An orange horizontal line at 1000000 on the vertical axis"
         ]
       ]
     }
-  ]
+  ],
+  "title": "Algorithms A, B, and C: running time and growth"
 }

@@ -8,9 +8,9 @@ import (
 	"container/list"
 )
 
-/* 連結リストで実装したスタック */
+/* 連結リストを使ったスタック */
 type linkedListStack struct {
-	// 組み込みパッケージ list でスタックを実装する
+	// 標準ライブラリの list パッケージを使ってスタックを実装する
 	data *list.List
 }
 
@@ -21,12 +21,12 @@ func newLinkedListStack() *linkedListStack {
 	}
 }
 
-/* プッシュ */
+/* プッシュする */
 func (s *linkedListStack) push(value int) {
 	s.data.PushBack(value)
 }
 
-/* ポップ */
+/* ポップする */
 func (s *linkedListStack) pop() any {
 	if s.isEmpty() {
 		return nil
@@ -36,7 +36,7 @@ func (s *linkedListStack) pop() any {
 	return e.Value
 }
 
-/* スタックの先頭要素にアクセスする */
+/* スタックのトップを参照する */
 func (s *linkedListStack) peek() any {
 	if s.isEmpty() {
 		return nil
@@ -45,7 +45,7 @@ func (s *linkedListStack) peek() any {
 	return e.Value
 }
 
-/* スタックの長さを取得する */
+/* スタックの要素数を取得する */
 func (s *linkedListStack) size() int {
 	return s.data.Len()
 }
@@ -55,7 +55,7 @@ func (s *linkedListStack) isEmpty() bool {
 	return s.data.Len() == 0
 }
 
-/* 表示用の List を取得する */
+/* 表示用にリストを取得する */
 func (s *linkedListStack) toList() *list.List {
 	return s.data
 }

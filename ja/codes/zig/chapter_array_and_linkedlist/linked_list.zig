@@ -13,7 +13,7 @@ pub fn insert(comptime T: type, n0: *ListNode(T), P: *ListNode(T)) void {
     n0.next = P;
 }
 
-// 連結リストのノード n0 の直後のノードを削除する
+// 連結リストのノード n0 の直後にあるノードを削除する
 pub fn remove(comptime T: type, n0: *ListNode(T)) void {
     // n0 -> P -> n1 => n0 -> n1
     const P = n0.next;
@@ -35,7 +35,7 @@ pub fn access(comptime T: type, node: *ListNode(T), index: i32) ?*ListNode(T) {
     return head;
 }
 
-// 連結リストから値が target である最初のノードを探索する
+// 連結リストから値が target の最初のノードを探す
 pub fn find(comptime T: type, node: *ListNode(T), target: T) i32 {
     var head: ?*ListNode(T) = node;
     var index: i32 = 0;
@@ -47,7 +47,7 @@ pub fn find(comptime T: type, node: *ListNode(T), target: T) i32 {
     return -1;
 }
 
-// 実行用コード
+// ドライバコード
 pub fn run() void {
     // 各ノードを初期化する
     var n0 = ListNode(i32){ .val = 1 };
@@ -61,7 +61,7 @@ pub fn run() void {
     n2.next = &n3;
     n3.next = &n4;
     std.debug.print(
-        "初期化した連結リスト {}\n",
+        "初期化した連結リスト：{}\n",
         .{utils.fmt.linkedList(i32, &n0)},
     );
 
@@ -69,14 +69,14 @@ pub fn run() void {
     var tmp = ListNode(i32){ .val = 0 };
     insert(i32, &n0, &tmp);
     std.debug.print(
-        "ノードを挿入した後の連結リスト {}\n",
+        "ノード挿入後の連結リスト：{}\n",
         .{utils.fmt.linkedList(i32, &n0)},
     );
 
     // ノードを削除する
     remove(i32, &n0);
     std.debug.print(
-        "ノードを削除した後の連結リスト{}\n",
+        "ノード削除後の連結リスト：{}\n",
         .{utils.fmt.linkedList(i32, &n0)},
     );
 
@@ -87,10 +87,10 @@ pub fn run() void {
         .{node.?.val},
     );
 
-    // ノードを探索する
+    // ノードを探す
     const index = find(i32, &n0, 2);
     std.debug.print(
-        "連結リスト内で値が 2 であるノードのインデックス = {}\n",
+        "連結リストで値が 2 のノードのインデックス = {}\n",
         .{index},
     );
 

@@ -8,12 +8,12 @@ use hello_algo_rust::include::print_util;
 
 use std::collections::VecDeque;
 
-/* 실행 코드 */
+/* 실행 예제 */
 pub fn main() {
     // 큐 초기화
     let mut queue: VecDeque<i32> = VecDeque::new();
 
-    // 원소 삽입
+    // 큐에 원소 삽입
     queue.push_back(1);
     queue.push_back(3);
     queue.push_back(2);
@@ -22,20 +22,20 @@ pub fn main() {
     print!("큐 queue = ");
     print_util::print_queue(&queue);
 
-    // 맨 앞 원소 접근
+    // 맨 앞 원소 조회
     let peek = queue.front().unwrap();
     println!("\n맨 앞 원소 peek = {peek}");
 
-    // 원소 꺼내기
+    // 큐에서 원소 꺼내기
     let pop = queue.pop_front().unwrap();
-    print!("꺼낸 원소 pop = {pop}, 꺼낸 뒤 queue = ");
+    print!("꺼낸 원소 pop = {pop}, 꺼낸 후 queue = ");
     print_util::print_queue(&queue);
 
-    // 큐의 길이 반환
+    // 큐의 길이 조회
     let size = queue.len();
-    print!("\n큐 길이 size = {size}");
+    print!("\n큐의 길이 size = {size}");
 
-    // 큐가 비어 있는지 판단
+    // 큐가 비어 있는지 확인
     let is_empty = queue.is_empty();
     print!("\n큐가 비어 있는가 = {is_empty}");
 }

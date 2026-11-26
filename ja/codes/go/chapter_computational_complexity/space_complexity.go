@@ -17,30 +17,30 @@ type node struct {
 	next *node
 }
 
-/* node 構造体を作成する  */
+/* node 構造体を作成  */
 func newNode(val int) *node {
 	return &node{val: val}
 }
 
 /* 関数 */
 func function() int {
-	// 何らかの処理を実行する...
+	// 何らかの処理を行う...
 	return 0
 }
 
 /* 定数オーダー */
 func spaceConstant(n int) {
-	// 定数、変数、オブジェクトは O(1) の領域を使用する
+	// 定数・変数・オブジェクトが使う領域は O(1)
 	const a = 0
 	b := 0
 	nums := make([]int, 10000)
 	node := newNode(0)
-	// ループ内の変数は O(1) の領域を使用する
+	// ループ内の変数が使う領域は O(1)
 	var c int
 	for i := 0; i < n; i++ {
 		c = 0
 	}
-	// ループ内の関数は O(1) の領域を使用する
+	// ループ内の関数が使う領域は O(1)
 	for i := 0; i < n; i++ {
 		function()
 	}
@@ -52,14 +52,14 @@ func spaceConstant(n int) {
 
 /* 線形オーダー */
 func spaceLinear(n int) {
-	// 長さ n の配列は O(n) の領域を使用する
+	// 長さ n の配列が使う領域は O(n)
 	_ = make([]int, n)
-	// 長さ n のリストは O(n) の領域を使用する
+	// 長さ n のリストが使う領域は O(n)
 	var nodes []*node
 	for i := 0; i < n; i++ {
 		nodes = append(nodes, newNode(i))
 	}
-	// 長さ n のハッシュテーブルは O(n) の領域を使用する
+	// 長さ n のハッシュテーブルが使う領域は O(n)
 	m := make(map[int]string, n)
 	for i := 0; i < n; i++ {
 		m[i] = strconv.Itoa(i)
@@ -77,7 +77,7 @@ func spaceLinearRecur(n int) {
 
 /* 二次オーダー */
 func spaceQuadratic(n int) {
-	// 行列は O(n^2) の領域を使用する
+	// 行列が使う領域は O(n^2)
 	numMatrix := make([][]int, n)
 	for i := 0; i < n; i++ {
 		numMatrix[i] = make([]int, n)
@@ -90,11 +90,11 @@ func spaceQuadraticRecur(n int) int {
 		return 0
 	}
 	nums := make([]int, n)
-	fmt.Printf("再帰 n = %d における nums の長さ = %d \n", n, len(nums))
+	fmt.Printf("再帰 n = %d での nums の長さ = %d \n", n, len(nums))
 	return spaceQuadraticRecur(n - 1)
 }
 
-/* 指数オーダー（パーフェクト二分木の構築） */
+/* 指数オーダー（すべての葉が同じ深さの完全二分木を構築） */
 func buildTree(n int) *TreeNode {
 	if n == 0 {
 		return nil

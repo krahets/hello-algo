@@ -1,8 +1,8 @@
-# Follow the PEP 585 - Type Hinting Generics In Standard Collections
+# 遵循 PEP 585，在標準集合的型別提示中使用泛型
 # https://peps.python.org/pep-0585/
 from __future__ import annotations
 
-# Import common libs here to simplify the code by `from module import *`
+# 在這裡匯入常用程式庫，讓其他程式碼可透過 `from module import *` 簡化匯入方式
 from .list_node import (
     ListNode,
     list_to_linked_list,

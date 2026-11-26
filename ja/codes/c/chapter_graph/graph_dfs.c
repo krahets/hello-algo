@@ -6,12 +6,12 @@
 
 #include "graph_adjacency_list.c"
 
-// ノード数は最大 100 と仮定する
+// ノード数の上限を 100 とする
 #define MAX_SIZE 100
 
-/* 頂点が訪問済みかどうかを確認する */
+/* 頂点が訪問済みか調べる */
 int isVisited(Vertex **res, int size, Vertex *vet) {
-    // 走査してノードを探すため、O(n) の時間を要する
+    // ノードを順に探すため、O(n) 時間かかる
     for (int i = 0; i < size; i++) {
         if (res[i] == vet) {
             return 1;
@@ -20,29 +20,29 @@ int isVisited(Vertex **res, int size, Vertex *vet) {
     return 0;
 }
 
-/* 深さ優先走査の補助関数 */
+/* 深さ優先探索の補助関数 */
 void dfs(GraphAdjList *graph, Vertex **res, int *resSize, Vertex *vet) {
     // 訪問した頂点を記録する
     res[(*resSize)++] = vet;
-    // この頂点に隣接する全頂点を走査する
+    // この頂点の隣接頂点をすべて調べる
     AdjListNode *node = findNode(graph, vet);
     while (node != NULL) {
-        // 訪問済みの頂点をスキップする
+        // 訪問済みの頂点を飛ばす
         if (!isVisited(res, *resSize, node->vertex)) {
-            // 隣接する頂点を再帰的に訪問する
+            // 隣接頂点を再帰的に訪問する
             dfs(graph, res, resSize, node->vertex);
         }
         node = node->next;
     }
 }
 
-/* 深さ優先走査 */
-// 指定した頂点に隣接する全頂点を取得しやすいように、グラフを隣接リストで表す
+/* 深さ優先探索 */
+// 指定した頂点の隣接頂点をすべて取得できるよう、グラフを隣接リストで表す
 void graphDFS(GraphAdjList *graph, Vertex *startVet, Vertex **res, int *resSize) {
     dfs(graph, res, resSize, startVet);
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     // 無向グラフを初期化する
     int vals[] = {0, 1, 2, 3, 4, 5, 6};
@@ -58,14 +58,14 @@ int main() {
     for (int i = 0; i < egdeSize; i++) {
         addEdge(graph, edges[i][0], edges[i][1]);
     }
-    printf("\n初期化後のグラフ\n");
+    printf("\n初期化後のグラフ：\n");
     printGraph(graph);
 
-    // 深さ優先走査
+    // 深さ優先探索
     Vertex *res[MAX_SIZE];
     int resSize = 0;
     graphDFS(graph, v[0], res, &resSize);
-    printf("\n深さ優先走査（DFS）の頂点の順序\n");
+    printf("\n深さ優先探索（DFS）での頂点の訪問順：\n");
     printArray(vetsToVals(res, resSize), resSize);
 
     // メモリを解放する

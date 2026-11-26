@@ -1,28 +1,27 @@
 {
-  "schema_version": 2,
-  "title": "Level-by-level choices in permutations and factorial growth",
-  "summary": "Fixing one more position in a permutation leaves one fewer available element, so multiplying branching counts across levels yields the total number of permutations.",
   "context": [
-    "All n elements are distinct. The gray root node at the top precedes any choice, and each dashed-box level below fixes the next position. The right brace labeled \"A total of n levels\" spans only the n choice levels beneath the root, excluding the root itself."
+    "The n elements are distinct. The gray root at the top represents the state before any choice. Each level in a dashed box below it fills the next position. The right-hand brace labeled “n levels” spans only the choice levels below the root, excluding the root itself."
   ],
   "description": [
-    "The left column, \"Number of branches at each level\", shows how many child branches leave each node of the preceding level, while the right column, \"Number of nodes at each level\", gives the total nodes on that level. Intermediate levels are represented by ellipses; small values of n pass only through the choice levels actually needed, so the final row in the table may coincide with an earlier row."
+    "The left column gives the number of branches from each node at the preceding level. The right column gives the total nodes on the current level. Ellipses represent intermediate levels. Small n requires only the choice levels that actually occur, so the last row may coincide with an earlier row."
   ],
   "frames": [
     {
-      "id": "source-32",
       "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_factorial.png",
-      "title": "Level-by-level choices in permutations and factorial growth",
-      "explanation": "At the bottom, n × (n - 1) × … × 1 = n! counts the green leaf nodes on the lowest level: each leaf corresponds to one complete permutation and contributes one base-case count to factorial_recur, so n! is not the total node count of the entire tree. Even including the root and all internal levels, the total node count stays strictly less than 3 times n!. Although each call in the code runs a loop, every loop iteration traverses exactly one edge to a child call, and the number of edges in the tree equals total nodes minus 1, keeping the overall work O(n!). This bound assumes constant work per edge and excludes copying full permutations."
+      "explanation": "The formula at the bottom, n × (n−1) × … × 1 = n!, counts the green leaves on the bottom level. Each leaf represents a complete permutation and contributes one base-case count to the value returned by factorial_recur. The value n! counts leaves only. Even including the root and all intermediate levels, the tree has fewer than 3 times n! nodes. Each call contains a loop, but each loop iteration creates exactly one edge to a child call. The tree has one fewer edge than nodes, so including the loop work still gives O(n!). This counts constant work per edge and excludes the extra cost of copying complete permutations.",
+      "id": "source-32",
+      "title": "Choosing a permutation one position at a time gives factorial growth"
     }
   ],
+  "schema_version": 2,
+  "summary": "Each time we fill another position in a permutation, one fewer element remains available. Multiplying the numbers of choices gives the total number of permutations.",
   "tables": [
     {
-      "caption": "Branching factors and node counts across permutation choice levels",
+      "caption": "Branches and nodes at each choice level",
       "headers": [
         "Choice level",
-        "Branches per node from previous level",
-        "Total nodes on level"
+        "Branches per node at the preceding level",
+        "Total nodes on this level"
       ],
       "row_header": 0,
       "rows": [
@@ -43,15 +42,16 @@
         ],
         [
           "Intermediate levels (if any)",
-          "Decreases by 1 each level",
-          "Continues multiplying"
+          "Decreases by 1 per level",
+          "Continue multiplying"
         ],
         [
-          "n, final level",
+          "n, the final level",
           "1",
           "n!"
         ]
       ]
     }
-  ]
+  ],
+  "title": "Choosing a permutation one position at a time gives factorial growth"
 }

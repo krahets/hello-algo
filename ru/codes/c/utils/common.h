@@ -20,7 +20,7 @@
 #include "tree_node.h"
 #include "vertex.h"
 
-// hash table lib
+// Библиотека хеш-таблиц
 #include "uthash.h"
 
 #include "vector.h"

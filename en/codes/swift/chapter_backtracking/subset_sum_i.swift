@@ -6,34 +6,34 @@
 
 /* Backtracking: subset sum I */
 func backtrack(state: inout [Int], target: Int, choices: [Int], start: Int, res: inout [[Int]]) {
-    // Record a solution when the remaining target reaches zero
+    // Record a solution when the subset sums to target
     if target == 0 {
         res.append(state)
         return
     }
-    // Iterate over all choices
-    // Pruning 2: iterate from start to avoid generating duplicate subsets
+    // Try each choice
+    // Pruning rule 2: start at start to avoid duplicate subsets
     for i in choices.indices.dropFirst(start) {
-        // Pruning 1: exit the loop if this choice exceeds the remaining target
-        // The array is sorted, so later elements are at least as large and also exceed the remaining target
+        // Pruning rule 1: break if the subset sum would exceed target
+        // The array is sorted, so later elements are at least as large and would also take the sum over target
         if target - choices[i] < 0 {
             break
         }
-        // Try: make a choice and update target and start
+        // Make a choice and update target and start
         state.append(choices[i])
-        // Proceed to the next choice
+        // Make the next choice
         backtrack(state: &state, target: target - choices[i], choices: choices, start: i, res: &res)
-        // Backtrack: undo the choice and restore the previous state
+        // Backtrack: undo the choice to restore the previous state
         state.removeLast()
     }
 }
 
 /* Solve subset sum I */
 func subsetSumI(nums: [Int], target: Int) -> [[Int]] {
-    var state: [Int] = [] // State (subset)
+    var state: [Int] = [] // State (current subset)
     let nums = nums.sorted() // Sort nums
-    let start = 0 // Starting index for iteration
-    var res: [[Int]] = [] // Result list (list of subsets)
+    let start = 0 // Starting index
+    var res: [[Int]] = [] // Results (list of subsets)
     backtrack(state: &state, target: target, choices: nums, start: start, res: &res)
     return res
 }
@@ -48,6 +48,6 @@ enum SubsetSumI {
         let res = subsetSumI(nums: nums, target: target)
 
         print("Input array nums = \(nums), target = \(target)")
-        print("All subsets with sum \(target): res = \(res)")
+        print("Subsets that sum to \(target): res = \(res)")
     }
 }

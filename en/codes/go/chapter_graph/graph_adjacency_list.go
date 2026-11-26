@@ -12,9 +12,9 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-/* Undirected graph type implemented with an adjacency list */
+/* Undirected graph represented by an adjacency list */
 type graphAdjList struct {
-	// Adjacency list: key is a vertex, value is the list of all its neighbors
+	// Adjacency list: each vertex maps to its neighbors
 	adjList map[Vertex][]Vertex
 }
 
@@ -32,7 +32,7 @@ func newGraphAdjList(edges [][]Vertex) *graphAdjList {
 	return g
 }
 
-/* Get the number of vertices */
+/* Get the vertex count */
 func (g *graphAdjList) size() int {
 	return len(g.adjList)
 }
@@ -44,7 +44,7 @@ func (g *graphAdjList) addEdge(vet1 Vertex, vet2 Vertex) {
 	if !ok1 || !ok2 || vet1 == vet2 {
 		panic("error")
 	}
-	// Add edge vet1 - vet2 by appending each vertex to the other vertex's neighbor list
+	// Add the edge vet1 - vet2 using an anonymous struct{}
 	g.adjList[vet1] = append(g.adjList[vet1], vet2)
 	g.adjList[vet2] = append(g.adjList[vet2], vet1)
 }
@@ -56,7 +56,7 @@ func (g *graphAdjList) removeEdge(vet1 Vertex, vet2 Vertex) {
 	if !ok1 || !ok2 || vet1 == vet2 {
 		panic("error")
 	}
-	// Remove edge vet1 - vet2
+	// Remove the edge vet1 - vet2
 	g.adjList[vet1] = DeleteSliceElms(g.adjList[vet1], vet2)
 	g.adjList[vet2] = DeleteSliceElms(g.adjList[vet2], vet1)
 }
@@ -67,7 +67,7 @@ func (g *graphAdjList) addVertex(vet Vertex) {
 	if ok {
 		return
 	}
-	// Add a new list to the adjacency list
+	// Add a new linked list to the adjacency list
 	g.adjList[vet] = make([]Vertex, 0)
 }
 
@@ -77,9 +77,9 @@ func (g *graphAdjList) removeVertex(vet Vertex) {
 	if !ok {
 		panic("error")
 	}
-	// Remove the list corresponding to vertex vet from the adjacency list
+	// Remove the linked list for vertex vet from the adjacency list
 	delete(g.adjList, vet)
-	// Traverse the lists of the other vertices and remove all edges incident to vet
+	// Traverse the other vertices' lists and remove every edge incident to vet
 	for v, list := range g.adjList {
 		g.adjList[v] = DeleteSliceElms(list, vet)
 	}

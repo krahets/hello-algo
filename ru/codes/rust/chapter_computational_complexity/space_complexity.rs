@@ -15,7 +15,7 @@ fn function() -> i32 {
     return 0;
 }
 
-/* Постоянная сложность */
+/* Константная сложность */
 #[allow(unused)]
 fn constant(n: i32) {
     // Константы, переменные и объекты занимают O(1) памяти
@@ -23,11 +23,11 @@ fn constant(n: i32) {
     let b = 0;
     let nums = vec![0; 10000];
     let node = ListNode::new(0);
-    // Переменные в цикле занимают O(1) памяти
+    // Переменные цикла занимают O(1) памяти
     for i in 0..n {
         let c = 0;
     }
-    // Функции в цикле занимают O(1) памяти
+    // Вызовы функции в цикле требуют O(1) памяти
     for i in 0..n {
         function();
     }
@@ -43,16 +43,16 @@ fn linear(n: i32) {
     for i in 0..n {
         nodes.push(ListNode::new(i))
     }
-    // Хеш-таблица длины n занимает O(n) памяти
+    // Хеш-таблица из n элементов занимает O(n) памяти
     let mut map = HashMap::new();
     for i in 0..n {
         map.insert(i, i.to_string());
     }
 }
 
-/* Линейная сложность (рекурсивная реализация) */
+/* Линейная сложность (рекурсия) */
 fn linear_recur(n: i32) {
-    println!("Рекурсия n = {}", n);
+    println!("Рекурсивный вызов: n = {}", n);
     if n == 1 {
         return;
     };
@@ -75,18 +75,18 @@ fn quadratic(n: i32) {
     }
 }
 
-/* Квадратичная сложность (рекурсивная реализация) */
+/* Квадратичная сложность (рекурсия) */
 fn quadratic_recur(n: i32) -> i32 {
     if n <= 0 {
         return 0;
     };
-    // Длина массива nums равна n, n-1, ..., 2, 1
+    // Длина массива nums принимает значения n, n-1, ..., 2, 1
     let nums = vec![0; n as usize];
-    println!("В рекурсии n = {} , длина nums = {}", n, nums.len());
+    println!("При n = {} длина nums = {}", n, nums.len());
     return quadratic_recur(n - 1);
 }
 
-/* Экспоненциальная сложность (построение полного двоичного дерева) */
+/* Экспоненциальная сложность (построение совершенного двоичного дерева) */
 fn build_tree(n: i32) -> Option<Rc<RefCell<TreeNode>>> {
     if n == 0 {
         return None;
@@ -97,10 +97,10 @@ fn build_tree(n: i32) -> Option<Rc<RefCell<TreeNode>>> {
     return Some(root);
 }
 
-/* Driver Code */
+/* Основная программа */
 fn main() {
     let n = 5;
-    // Постоянная сложность
+    // Константная сложность
     constant(n);
     // Линейная сложность
     linear(n);

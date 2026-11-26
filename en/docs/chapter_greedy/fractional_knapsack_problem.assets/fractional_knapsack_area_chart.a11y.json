@@ -1,33 +1,33 @@
 {
-  "schema_version": 2,
-  "title": "Geometric representation of the fractional knapsack problem",
-  "summary": "Represent item weight by rectangle width, value per unit weight by height, and item value by area to show which items to take first when capacity is limited.",
   "context": [
-    "Fractional knapsack allows splitting an item and taking only part of it, earning value proportional to the weight taken. Knapsack capacity is 50; because value = weight × value per unit weight, plotting item weight as rectangle width and value per unit weight as height makes rectangle area equal item value."
+    "In fractional knapsack, you can take part of an item and receive the corresponding fraction of its value. The knapsack has capacity 50. Since value equals weight times value per unit of weight, a rectangle whose width is the item's weight and whose height is its unit value has an area equal to the item's value."
   ],
   "description": [
-    "Five adjacent rectangles are ordered from left to right by decreasing height; the fruit icons' names, original IDs, widths, and heights appear in the table below. Beneath the horizontal axis, a double-headed arrow marks knapsack capacity 50, spanning the full width of the leftmost banana rectangle and extending partway into the second rectangle (pineapple).",
-    "The diagram directly labels rectangle widths, heights, and capacity 50. Full-item values, weights taken, and values taken in the table below are computed from those labels. The item IDs come from the earlier item table; the total value 277.5 is not printed separately in this figure."
+    "Five rectangles sit side by side, their heights arranged in nonincreasing order from left to right. The table lists each fruit icon's name, original item number, width, and height. A double-headed arrow below the horizontal axis marks the capacity of 50. It spans the full width of the leftmost rectangle (banana) and extends partway across the second (pineapple).",
+    "The diagram labels the widths, heights, and capacity of 50. The table uses those labels to calculate each whole item's value and the weight and value taken. Item numbers match the earlier table. The diagram does not label the total value of 277.5 separately."
   ],
   "frames": [
     {
-      "id": "source-464",
       "book_path": "chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png",
-      "title": "Capacity 50 captures the area of the two highest-unit-value segments",
-      "explanation": "Banana first uses 20 of the capacity 50, leaving 30 to take three-quarters of the pineapple's width 40 while leaving weight 10 behind; the remaining three rectangles lie outside the capacity span. The captured area totals 20 × 6 + 30 × 5.25 = 277.5, giving the maximum total value."
+      "explanation": "The banana uses 20 of the available 50 units. The remaining 30 cover three quarters of the pineapple's width of 40, leaving 10 units of weight behind. The last three rectangles lie outside the capacity interval. The selected area is 20 × 6 + 30 × 5.25 = 277.5, the maximum total value.",
+      "id": "source-464",
+      "title": "A capacity of 50 covers portions of the two rectangles with the highest unit values"
     }
   ],
+  "schema_version": 2,
+  "summary": "Each rectangle's width represents weight, its height represents value per unit of weight, and its area represents value. The rectangles show which items to take first when capacity is limited.",
   "tables": [
     {
-      "caption": "Five items ordered left to right as in the figure; value equals weight times value per unit weight",
+      "caption": "The five items from left to right in the diagram, with value calculated as weight times unit value",
       "headers": [
-        "Item (original ID)",
-        "Weight / width",
-        "Value per unit weight / height",
-        "Full-item value",
+        "Item (original number)",
+        "Weight (rectangle width)",
+        "Unit value (rectangle height)",
+        "Whole item value",
         "Weight taken",
         "Value taken"
       ],
+      "row_header": 0,
       "rows": [
         [
           "Banana (2)",
@@ -69,8 +69,8 @@
           "0",
           "0"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "A geometric view of fractional knapsack"
 }

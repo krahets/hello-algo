@@ -1,19 +1,19 @@
 {
-  "schema_version": 2,
-  "title": "Asymptotic upper bound: inequality beyond a threshold",
-  "summary": "The two curves show how to read an asymptotic upper bound. Once the input size n exceeds the threshold, T(n) stays at or below c times f(n).",
   "context": [
-    "The horizontal axis shows input size n with ticks from 0 to 14; the vertical axis shows function value with no numeric ticks. The blue curve is the operation count T(n), and the orange curve is a candidate function f(n) scaled by a positive constant c, written c·f(n); no explicit formulas are given."
+    "The horizontal axis is input size n, marked from 0 to 14. The vertical axis is function value and has no numerical tick labels. The blue curve is the operation count T(n). The orange curve is c·f(n), the candidate function f(n) scaled by a positive constant c. The figure gives no specific formulas for the functions."
   ],
   "description": [
-    "A vertical green dashed line at n₀ marks the intersection of the two curves between ticks 7 and 8. Across ticks 1 to 7, the blue curve fluctuates above the orange curve; past n₀, the orange curve stays strictly above the blue curve as both continue rising."
+    "A dashed green vertical line marks n₀ where the curves meet between 7 and 8. From 1 to 7, the blue curve fluctuates above the orange curve. Beyond n₀, both curves continue upward, with the orange curve always above the blue one."
   ],
   "frames": [
     {
-      "id": "source-26",
       "book_path": "chapter_computational_complexity/time_complexity.assets/asymptotic_upper_bound.png",
-      "title": "Asymptotic upper bound: inequality beyond a threshold",
-      "explanation": "The condition stated at the bottom is that there exist a positive constant c and a threshold n₀ such that T(n) ≤ c·f(n) for all n > n₀, written T(n) = O(f(n)), making f(n) an asymptotic upper bound on T(n). Having T(n) exceed c·f(n) before n₀ does not affect this conclusion, and the curves do not have to coincide at every input."
+      "explanation": "The condition at the bottom states that there is a positive constant c and a threshold n₀ such that T(n) ≤ c·f(n) for every n > n₀. We then write T(n) = O(f(n)) and call f(n) an asymptotic upper bound. It does not matter that T(n) exceeded c·f(n) before the threshold. The curves need not be equal everywhere.",
+      "id": "source-26",
+      "title": "Asymptotic upper bounds beyond a threshold"
     }
-  ]
+  ],
+  "schema_version": 2,
+  "summary": "Two curves illustrate the relationship that matters for an asymptotic upper bound: which curve stays above the other after a threshold.",
+  "title": "Asymptotic upper bounds beyond a threshold"
 }

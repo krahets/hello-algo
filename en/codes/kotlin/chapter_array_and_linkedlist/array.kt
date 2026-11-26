@@ -8,40 +8,40 @@ package chapter_array_and_linkedlist
 
 import java.util.concurrent.ThreadLocalRandom
 
-/* Access an element at a random index */
+/* Access a random element */
 fun randomAccess(nums: IntArray): Int {
-    // Randomly select a number in [0, nums.size)
+    // Pick a random index in [0, nums.size)
     val randomIndex = ThreadLocalRandom.current().nextInt(0, nums.size)
-    // Get and return the randomly selected element
+    // Get and return the element at that index
     val randomNum = nums[randomIndex]
     return randomNum
 }
 
-/* Extend the array length */
+/* Extend the array */
 fun extend(nums: IntArray, enlarge: Int): IntArray {
-    // Initialize an array with the extended length
+    // Initialize an array with the new length
     val res = IntArray(nums.size + enlarge)
-    // Copy all elements from the original array to the new array
+    // Copy all elements from the original array into the new array
     for (i in nums.indices) {
         res[i] = nums[i]
     }
-    // Return the new, extended array
+    // Return the new, longer array
     return res
 }
 
-/* Insert element num at index `index` in the array */
+/* Insert num at the specified array index */
 fun insert(nums: IntArray, num: Int, index: Int) {
-    // Shift all elements at and after index `index` one position to the right
+    // Shift the elements from index onward one position to the right
     for (i in nums.size - 1 downTo index + 1) {
         nums[i] = nums[i - 1]
     }
-    // Assign num to the element at index `index`
+    // Store num at the specified index
     nums[index] = num
 }
 
-/* Remove the element at index `index` */
+/* Remove the element at the specified index */
 fun remove(nums: IntArray, index: Int) {
-    // Shift all elements after index `index` one position to the left
+    // Shift all elements after index one position to the left
     for (i in index..<nums.size - 1) {
         nums[i] = nums[i + 1]
     }
@@ -60,7 +60,7 @@ fun traverse(nums: IntArray) {
     }
 }
 
-/* Find a specified element in the array */
+/* Find a given element in the array */
 fun find(nums: IntArray, target: Int): Int {
     for (i in nums.indices) {
         if (nums[i] == target)
@@ -69,7 +69,7 @@ fun find(nums: IntArray, target: Int): Int {
     return -1
 }
 
-/* Driver code */
+/* Driver Code */
 fun main() {
     /* Initialize the array */
     val arr = IntArray(5)
@@ -79,11 +79,11 @@ fun main() {
 
     /* Random access */
     val randomNum: Int = randomAccess(nums)
-    println("Random element selected from nums: $randomNum")
+    println("Random element from nums: $randomNum")
 
-    /* Extend the length */
+    /* Extend the array */
     nums = extend(nums, 3)
-    println("After extending the array length to 8, nums = ${nums.contentToString()}")
+    println("After extending the array to length 8, nums = ${nums.contentToString()}")
 
     /* Insert an element */
     insert(nums, 6, 3)
@@ -98,5 +98,5 @@ fun main() {
 
     /* Find an element */
     val index: Int = find(nums, 3)
-    println("Searching nums for element 3 gives index = $index")
+    println("Index of 3 in nums = $index")
 }

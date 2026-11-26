@@ -6,10 +6,10 @@
 
 #include "../utils/common.hpp"
 
-/* Method 1: brute-force enumeration */
+/* Method 1: Brute-force enumeration */
 vector<int> twoSumBruteForce(vector<int> &nums, int target) {
     int size = nums.size();
-    // Two nested loops give a time complexity of O(n^2)
+    // Two nested loops take O(n^2) time
     for (int i = 0; i < size - 1; i++) {
         for (int j = i + 1; j < size; j++) {
             if (nums[i] + nums[j] == target)
@@ -19,12 +19,12 @@ vector<int> twoSumBruteForce(vector<int> &nums, int target) {
     return {};
 }
 
-/* Method 2: auxiliary hash table */
+/* Method 2: Auxiliary hash table */
 vector<int> twoSumHashTable(vector<int> &nums, int target) {
     int size = nums.size();
     // The auxiliary hash table uses O(n) space
     unordered_map<int, int> dic;
-    // A single loop gives a time complexity of O(n)
+    // A single loop takes O(n) time
     for (int i = 0; i < size; i++) {
         if (dic.find(target - nums[i]) != dic.end()) {
             return {dic[target - nums[i]], i};
@@ -36,11 +36,11 @@ vector<int> twoSumHashTable(vector<int> &nums, int target) {
 
 /* Driver code */
 int main() {
-    // ======= Test case =======
+    // ======= Test Case =======
     vector<int> nums = {2, 7, 11, 15};
     int target = 13;
 
-    // ====== Driver code ======
+    // ====== Driver Code ======
     // Method 1
     vector<int> res = twoSumBruteForce(nums, target);
     cout << "Method 1: res = ";

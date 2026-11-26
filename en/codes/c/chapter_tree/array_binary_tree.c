@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* Binary tree structure represented by an array */
+/* Array-based binary tree structure */
 typedef struct {
     int *tree;
     int size;
@@ -27,30 +27,30 @@ void delArrayBinaryTree(ArrayBinaryTree *abt) {
     free(abt);
 }
 
-/* Array length */
+/* List capacity */
 int size(ArrayBinaryTree *abt) {
     return abt->size;
 }
 
 /* Get the value of the node at index i */
 int val(ArrayBinaryTree *abt, int i) {
-    // If the index is out of bounds, return INT_MAX to represent an empty position
+    // If the index is out of bounds, return INT_MAX to indicate an empty slot
     if (i < 0 || i >= size(abt))
         return INT_MAX;
     return abt->tree[i];
 }
 
-/* Get the left child index of the node at index i */
+/* Get the index of the left child of the node at index i */
 int left(int i) {
     return 2 * i + 1;
 }
 
-/* Get the right child index of the node at index i */
+/* Get the index of the right child of the node at index i */
 int right(int i) {
     return 2 * i + 2;
 }
 
-/* Get the parent index of the node at index i */
+/* Get the index of the parent of the node at index i */
 int parent(int i) {
     return (i - 1) / 2;
 }
@@ -59,7 +59,7 @@ int parent(int i) {
 int *levelOrder(ArrayBinaryTree *abt, int *returnSize) {
     int *res = (int *)malloc(sizeof(int) * size(abt));
     int index = 0;
-    // Traverse the array directly
+    // Iterate directly over the array
     for (int i = 0; i < size(abt); i++) {
         if (val(abt, i) != INT_MAX)
             res[index++] = val(abt, i);
@@ -70,7 +70,7 @@ int *levelOrder(ArrayBinaryTree *abt, int *returnSize) {
 
 /* Depth-first traversal */
 void dfs(ArrayBinaryTree *abt, int i, char *order, int *res, int *index) {
-    // Return if this position is empty
+    // Return if the slot is empty
     if (val(abt, i) == INT_MAX)
         return;
     // Preorder traversal
@@ -116,7 +116,7 @@ int *postOrder(ArrayBinaryTree *abt, int *returnSize) {
 /* Driver code */
 int main() {
     // Initialize the binary tree
-    // Use INT_MAX to represent an empty position (NULL)
+    // Use INT_MAX to represent an empty slot (NULL)
     int arr[] = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
     int arrSize = sizeof(arr) / sizeof(arr[0]);
     TreeNode *root = arrayToTree(arr, arrSize);
@@ -132,9 +132,9 @@ int main() {
     int i = 1;
     int l = left(i), r = right(i), p = parent(i);
     printf("\nCurrent node: index %d, value %d\n", i, val(abt, i));
-    printf("Its left child: index %d, value %d\n", l, l < arrSize ? val(abt, l) : INT_MAX);
-    printf("Its right child: index %d, value %d\n", r, r < arrSize ? val(abt, r) : INT_MAX);
-    printf("Its parent: index %d, value %d\n", p, p < arrSize ? val(abt, p) : INT_MAX);
+    printf("Left child: index %d, value %d\n", l, l < arrSize ? val(abt, l) : INT_MAX);
+    printf("Right child: index %d, value %d\n", r, r < arrSize ? val(abt, r) : INT_MAX);
+    printf("Parent: index %d, value %d\n", p, p < arrSize ? val(abt, p) : INT_MAX);
 
     // Traverse the tree
     int returnSize;

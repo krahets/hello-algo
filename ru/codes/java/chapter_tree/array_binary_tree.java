@@ -9,7 +9,7 @@ package chapter_tree;
 import utils.*;
 import java.util.*;
 
-/* Класс двоичного дерева в массивном представлении */
+/* Класс двоичного дерева на основе массива */
 class ArrayBinaryTree {
     private List<Integer> tree;
 
@@ -18,38 +18,38 @@ class ArrayBinaryTree {
         tree = new ArrayList<>(arr);
     }
 
-    /* Вместимость списка */
+    /* Ёмкость списка */
     public int size() {
         return tree.size();
     }
 
     /* Получить значение узла с индексом i */
     public Integer val(int i) {
-        // Если индекс выходит за границы, вернуть null, обозначающий пустую позицию
+        // Если индекс выходит за границы массива, вернуть null — признак пустой позиции
         if (i < 0 || i >= size())
             return null;
         return tree.get(i);
     }
 
-    /* Получить индекс левого дочернего узла узла с индексом i */
+    /* Получить индекс левого потомка узла с индексом i */
     public Integer left(int i) {
         return 2 * i + 1;
     }
 
-    /* Получить индекс правого дочернего узла узла с индексом i */
+    /* Получить индекс правого потомка узла с индексом i */
     public Integer right(int i) {
         return 2 * i + 2;
     }
 
-    /* Получить индекс родительского узла узла с индексом i */
+    /* Получить индекс родителя узла с индексом i */
     public Integer parent(int i) {
         return (i - 1) / 2;
     }
 
-    /* Обход в ширину */
+    /* Обход по уровням */
     public List<Integer> levelOrder() {
         List<Integer> res = new ArrayList<>();
-        // Непосредственно обходить массив
+        // Пройти непосредственно по массиву
         for (int i = 0; i < size(); i++) {
             if (val(i) != null)
                 res.add(val(i));
@@ -59,10 +59,10 @@ class ArrayBinaryTree {
 
     /* Обход в глубину */
     private void dfs(Integer i, String order, List<Integer> res) {
-        // Если это пустая позиция, вернуть
+        // Если позиция пуста, завершить вызов
         if (val(i) == null)
             return;
-        // Предварительный обход
+        // Прямой обход
         if ("pre".equals(order))
             res.add(val(i));
         dfs(left(i), order, res);
@@ -75,7 +75,7 @@ class ArrayBinaryTree {
             res.add(val(i));
     }
 
-    /* Предварительный обход */
+    /* Прямой обход */
     public List<Integer> preOrder() {
         List<Integer> res = new ArrayList<>();
         dfs(0, "pre", res);
@@ -99,18 +99,18 @@ class ArrayBinaryTree {
 
 public class array_binary_tree {
     public static void main(String[] args) {
-        // Инициализировать двоичное дерево
-        // Здесь используется функция, напрямую строящая двоичное дерево из массива
+        // Инициализация двоичного дерева
+        // Используем функцию, которая строит двоичное дерево непосредственно из массива
         List<Integer> arr = Arrays.asList(1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15);
 
         TreeNode root = TreeNode.listToTree(arr);
         System.out.println("\nИнициализация двоичного дерева\n");
-        System.out.println("Массивное представление двоичного дерева:");
+        System.out.println("Двоичное дерево в виде массива:");
         System.out.println(arr);
         System.out.println("Связное представление двоичного дерева:");
         PrintUtil.printTree(root);
 
-        // Класс двоичного дерева в массивном представлении
+        // Класс двоичного дерева на основе массива
         ArrayBinaryTree abt = new ArrayBinaryTree(arr);
 
         // Доступ к узлу
@@ -118,19 +118,19 @@ public class array_binary_tree {
         Integer l = abt.left(i);
         Integer r = abt.right(i);
         Integer p = abt.parent(i);
-        System.out.println("\nТекущий узел: индекс = " + i + " , значение = " + abt.val(i));
-        System.out.println("Индекс левого дочернего узла = " + l + " , значение = " + (l == null ? "null" : abt.val(l)));
-        System.out.println("Индекс правого дочернего узла = " + r + " , значение = " + (r == null ? "null" : abt.val(r)));
-        System.out.println("Индекс родительского узла = " + p + " , значение = " + (p == null ? "null" : abt.val(p)));
+        System.out.println("\nИндекс текущего узла: " + i + " · значение:  " + abt.val(i));
+        System.out.println("Индекс левого потомка: " + l + " · значение:  " + (l == null ? "null" : abt.val(l)));
+        System.out.println("Индекс правого потомка: " + r + " · значение:  " + (r == null ? "null" : abt.val(r)));
+        System.out.println("Индекс родителя: " + p + " · значение:  " + (p == null ? "null" : abt.val(p)));
 
-        // Обходить дерево
+        // Обход дерева
         List<Integer> res = abt.levelOrder();
-        System.out.println("\nОбход в ширину =" + res);
+        System.out.println("\nОбход по уровням: " + res);
         res = abt.preOrder();
-        System.out.println("Предварительный обход =" + res);
+        System.out.println("Прямой обход: " + res);
         res = abt.inOrder();
-        System.out.println("Симметричный обход =" + res);
+        System.out.println("Симметричный обход: " + res);
         res = abt.postOrder();
-        System.out.println("Обратный обход =" + res);
+        System.out.println("Обратный обход: " + res);
     }
 }

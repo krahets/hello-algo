@@ -10,28 +10,28 @@ public class deque {
     [Test]
     public void Test() {
         /* Initialize the deque */
-        // In C#, use LinkedList as a deque
+        // Use a LinkedList as a deque in C#
         LinkedList<int> deque = new();
 
-        /* Enqueue elements */
-        deque.AddLast(2);   // Add to the rear
+        /* Add elements to the deque */
+        deque.AddLast(2);   // Add at the rear
         deque.AddLast(5);
         deque.AddLast(4);
-        deque.AddFirst(3);  // Add to the front
+        deque.AddFirst(3);  // Add at the front
         deque.AddFirst(1);
-        Console.WriteLine("Deque deque = " + string.Join(",", deque));
+        Console.WriteLine("deque = " + string.Join(",", deque));
 
-        /* Access an element */
+        /* Peek at the front and rear elements */
         int? peekFirst = deque.First?.Value;  // Front element
-        Console.WriteLine("Front element peekFirst = " + peekFirst);
+        Console.WriteLine("Front element (peekFirst) = " + peekFirst);
         int? peekLast = deque.Last?.Value;    // Rear element
-        Console.WriteLine("Rear element peekLast = " + peekLast);
+        Console.WriteLine("Rear element (peekLast) = " + peekLast);
 
-        /* Dequeue an element */
-        deque.RemoveFirst();  // Dequeue the front element
-        Console.WriteLine("After dequeuing the front element, deque = " + string.Join(",", deque));
-        deque.RemoveLast();   // Dequeue the rear element
-        Console.WriteLine("After dequeuing the rear element, deque = " + string.Join(",", deque));
+        /* Remove elements from both ends */
+        deque.RemoveFirst();  // Remove the front element
+        Console.WriteLine("After removing the front element, deque = " + string.Join(",", deque));
+        deque.RemoveLast();   // Remove the rear element
+        Console.WriteLine("After removing the rear element, deque = " + string.Join(",", deque));
 
         /* Get the deque size */
         int size = deque.Count;
@@ -39,6 +39,6 @@ public class deque {
 
         /* Check whether the deque is empty */
         bool isEmpty = deque.Count == 0;
-        Console.WriteLine("Is the deque empty = " + isEmpty);
+        Console.WriteLine("Deque is empty = " + isEmpty);
     }
 }

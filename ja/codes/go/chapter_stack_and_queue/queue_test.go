@@ -17,7 +17,7 @@ func TestQueue(t *testing.T) {
 	// Go では list をキューとして使う
 	queue := list.New()
 
-	/* 要素をエンキューする */
+	/* 要素をキューに追加する */
 	queue.PushBack(1)
 	queue.PushBack(3)
 	queue.PushBack(2)
@@ -26,35 +26,35 @@ func TestQueue(t *testing.T) {
 	fmt.Print("キュー queue = ")
 	PrintList(queue)
 
-	/* キューの先頭要素にアクセス */
+	/* キューの先頭要素を参照する */
 	peek := queue.Front()
-	fmt.Println("キューの先頭要素 peek =", peek.Value)
+	fmt.Println("先頭要素 peek =", peek.Value)
 
-	/* 要素をデキューする */
+	/* キューから要素を取り出す */
 	pop := queue.Front()
 	queue.Remove(pop)
-	fmt.Print("デキューした要素 pop = ", pop.Value, "、デキュー後 queue = ")
+	fmt.Print("デキューした要素 pop = ", pop.Value, "、デキュー後の queue = ")
 	PrintList(queue)
 
-	/* キューの長さを取得 */
+	/* キューの要素数を取得する */
 	size := queue.Len()
-	fmt.Println("キューの長さ size =", size)
+	fmt.Println("キューの要素数 size =", size)
 
-	/* キューが空か判定 */
+	/* キューが空かどうかを判定する */
 	isEmpty := queue.Len() == 0
 	fmt.Println("キューは空か =", isEmpty)
 }
 
 func TestArrayQueue(t *testing.T) {
 
-	// キュー共通のインターフェースを使ってキューを初期化する
+	// キューを初期化し、共通のインターフェースを使って操作する
 	capacity := 10
 	queue := newArrayQueue(capacity)
 	if queue.pop() != nil {
-		t.Errorf("期待値:%v,実際の値:%v", nil, queue.pop())
+		t.Errorf("want:%v,got:%v", nil, queue.pop())
 	}
 
-	// 要素をエンキューする
+	// 要素をキューに追加する
 	queue.push(1)
 	queue.push(3)
 	queue.push(2)
@@ -63,28 +63,28 @@ func TestArrayQueue(t *testing.T) {
 	fmt.Print("キュー queue = ")
 	PrintSlice(queue.toSlice())
 
-	// キューの先頭要素にアクセス
+	// キューの先頭要素を参照する
 	peek := queue.peek()
-	fmt.Println("キューの先頭要素 peek =", peek)
+	fmt.Println("先頭要素 peek =", peek)
 
-	// 要素をデキューする
+	// キューから要素を取り出す
 	pop := queue.pop()
-	fmt.Print("デキューした要素 pop = ", pop, ", デキュー後 queue = ")
+	fmt.Print("デキューした要素 pop = ", pop, "、 デキュー後の queue = ")
 	PrintSlice(queue.toSlice())
 
-	// キューの長さを取得する
+	// キューの要素数を取得する
 	size := queue.size()
-	fmt.Println("キューの長さ size =", size)
+	fmt.Println("キューの要素数 size =", size)
 
 	// 空かどうかを判定する
 	isEmpty := queue.isEmpty()
 	fmt.Println("キューは空か =", isEmpty)
 
-	/* 循環配列をテストする */
+	/* 循環配列の動作を確認する */
 	for i := 0; i < 10; i++ {
 		queue.push(i)
 		queue.pop()
-		fmt.Print("第 ", i, " 回のエンキューとデキューの後 queue =")
+		fmt.Print("第 ", i, " 回のエンキューとデキューを終えた後の queue =")
 		PrintSlice(queue.toSlice())
 	}
 }
@@ -93,7 +93,7 @@ func TestLinkedListQueue(t *testing.T) {
 	// キューを初期化する
 	queue := newLinkedListQueue()
 
-	// 要素をエンキューする
+	// 要素をキューに追加する
 	queue.push(1)
 	queue.push(3)
 	queue.push(2)
@@ -102,29 +102,29 @@ func TestLinkedListQueue(t *testing.T) {
 	fmt.Print("キュー queue = ")
 	PrintList(queue.toList())
 
-	// キューの先頭要素にアクセス
+	// キューの先頭要素を参照する
 	peek := queue.peek()
-	fmt.Println("キューの先頭要素 peek =", peek)
+	fmt.Println("先頭要素 peek =", peek)
 
-	// 要素をデキューする
+	// キューから要素を取り出す
 	pop := queue.pop()
-	fmt.Print("デキューした要素 pop = ", pop, ", デキュー後 queue = ")
+	fmt.Print("デキューした要素 pop = ", pop, "、 デキュー後の queue = ")
 	PrintList(queue.toList())
 
-	// キューの長さを取得する
+	// キューの要素数を取得する
 	size := queue.size()
-	fmt.Println("キューの長さ size =", size)
+	fmt.Println("キューの要素数 size =", size)
 
 	// 空かどうかを判定する
 	isEmpty := queue.isEmpty()
 	fmt.Println("キューは空か =", isEmpty)
 }
 
-// Mac M1 Pro での BenchmarkArrayQueue は 8 ns/op
+// M1 Pro 搭載の Mac での BenchmarkArrayQueue の測定値は 8 ns/op
 func BenchmarkArrayQueue(b *testing.B) {
 	capacity := 1000
 	queue := newArrayQueue(capacity)
-	// ループには b.N を使う
+	// b.N 回繰り返す
 	for i := 0; i < b.N; i++ {
 		queue.push(777)
 	}
@@ -133,10 +133,10 @@ func BenchmarkArrayQueue(b *testing.B) {
 	}
 }
 
-// Mac M1 Pro での BenchmarkLinkedQueue は 62.66 ns/op
+// M1 Pro 搭載の Mac での BenchmarkLinkedQueue の測定値は 62.66 ns/op
 func BenchmarkLinkedQueue(b *testing.B) {
 	queue := newLinkedListQueue()
-	// ループには b.N を使う
+	// b.N 回繰り返す
 	for i := 0; i < b.N; i++ {
 		queue.push(777)
 	}

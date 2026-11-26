@@ -8,13 +8,13 @@ namespace hello_algo.chapter_computational_complexity;
 
 public class time_complexity {
     void Algorithm(int n) {
-        int a = 1;  // +0（コツ 1）
-        a += n;  // +0（コツ 1）
-        // +n（コツ 2）
+        int a = 1;  // +0（方法 1）
+        a += n;  // +0（方法 1）
+        // +n（方法 2）
         for (int i = 0; i < 5 * n + 1; i++) {
             Console.WriteLine(0);
         }
-        // +n*n（コツ 3）
+        // +n*n（方法 3）
         for (int i = 0; i < 2 * n; i++) {
             for (int j = 0; j < n + 1; j++) {
                 Console.WriteLine(0);
@@ -61,7 +61,7 @@ public class time_complexity {
     /* 線形オーダー（配列の走査） */
     int ArrayTraversal(int[] nums) {
         int count = 0;
-        // ループの回数は配列の長さに比例する
+        // 反復回数は配列の長さに比例
         foreach (int num in nums) {
             count++;
         }
@@ -71,7 +71,7 @@ public class time_complexity {
     /* 二次オーダー */
     int Quadratic(int n) {
         int count = 0;
-        // ループの回数はデータの大きさ n の二乗に比例する
+        // 反復回数はデータサイズ n の二乗に比例
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 count++;
@@ -83,14 +83,14 @@ public class time_complexity {
     /* 二次オーダー（バブルソート） */
     int BubbleSort(int[] nums) {
         int count = 0;  // カウンタ
-        // 外側のループ：未ソート区間は [0, i]
+        // 外側のループ：未整列区間は [0, i]
         for (int i = nums.Length - 1; i > 0; i--) {
-            // 内側のループ：未ソート区間 [0, i] の最大要素を区間の右端に移す
+            // 内側のループ：未整列区間 [0, i] の最大要素を、交換しながら区間の右端へ移す
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
-                    // nums[j] と nums[j + 1] を交換する
+                    // nums[j] と nums[j + 1] を交換
                     (nums[j + 1], nums[j]) = (nums[j], nums[j + 1]);
-                    count += 3;  // 要素の交換は 3 回の単位操作からなる
+                    count += 3;  // 要素の交換は 3 回の基本操作からなる
                 }
             }
         }
@@ -100,7 +100,7 @@ public class time_complexity {
     /* 指数オーダー（ループによる実装） */
     int Exponential(int n) {
         int count = 0, bas = 1;
-        // 各回で細胞が 2 つに分裂し、数列 1, 2, 4, 8, ..., 2^(n-1) を形成する
+        // 各回で細胞が二分し、分裂する細胞の数は 1, 2, 4, 8, ..., 2^(n-1) となる
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < bas; j++) {
                 count++;
@@ -147,7 +147,7 @@ public class time_complexity {
     int FactorialRecur(int n) {
         if (n == 0) return 1;
         int count = 0;
-        // 1 個から n 個に分裂する
+        // 1 個から n 個に分かれる
         for (int i = 0; i < n; i++) {
             count += FactorialRecur(n - 1);
         }
@@ -156,9 +156,9 @@ public class time_complexity {
 
     [Test]
     public void Test() {
-        // n を変更して実行し、各計算量で操作回数がどのように変化するか確かめられる
+        // n を変えて実行し、計算量ごとに操作回数の増え方を確かめる
         int n = 8;
-        Console.WriteLine("入力データの大きさ n = " + n);
+        Console.WriteLine("入力データのサイズ n = " + n);
 
         int count = Constant(n);
         Console.WriteLine("定数オーダーの操作回数 = " + count);

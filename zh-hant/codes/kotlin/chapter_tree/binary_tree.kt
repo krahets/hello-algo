@@ -9,7 +9,7 @@ package chapter_tree
 import utils.TreeNode
 import utils.printTree
 
-/* Driver Code */
+/* 主程式 */
 fun main() {
     /* 初始化二元樹 */
     // 初始化節點
@@ -18,7 +18,7 @@ fun main() {
     val n3 = TreeNode(3)
     val n4 = TreeNode(4)
     val n5 = TreeNode(5)
-    // 構建節點之間的引用（指標）
+    // 建立節點之間的參照（指標）
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -28,7 +28,7 @@ fun main() {
 
     /* 插入與刪除節點 */
     val P = TreeNode(0)
-    // 在 n1 -> n2 中間插入節點 P
+    // 在 n1 -> n2 之間插入節點 P
     n1.left = P
     P.left = n2
     println("\n插入節點 P 後\n")

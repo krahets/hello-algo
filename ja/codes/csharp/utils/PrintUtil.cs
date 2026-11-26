@@ -51,7 +51,7 @@ public static class PrintUtil {
 
     /**
      * 二分木を表示する
-     * この木の表示処理は TECHIE DELIGHT から借用した
+     * 木の表示には TECHIE DELIGHT のコードを使用
      * https://www.techiedelight.com/c-program-print-binary-tree/
      */
     public static void PrintTree(TreeNode? root) {
@@ -111,7 +111,7 @@ public static class PrintUtil {
         Console.Write("ヒープの配列表現：");
         List<int> list = [.. queue];
         Console.WriteLine(string.Join(',', list));
-        Console.WriteLine("ヒープの木構造表現：");
+        Console.WriteLine("ヒープの木構造：");
         TreeNode? tree = TreeNode.ListToTree(list.Cast<int?>().ToList());
         PrintTree(tree);
     }
@@ -125,7 +125,7 @@ public static class PrintUtil {
             list.Add(element);
         }
         Console.WriteLine(string.Join(',', list.ToList()));
-        Console.WriteLine("ヒープの木構造表現：");
+        Console.WriteLine("ヒープの木構造：");
         TreeNode? tree = TreeNode.ListToTree(list.Cast<int?>().ToList());
         PrintTree(tree);
     }

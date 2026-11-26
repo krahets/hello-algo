@@ -6,7 +6,7 @@
 
 /* 최소 경로 합: 완전 탐색 */
 func minPathSumDFS(grid: [[Int]], i: Int, j: Int) -> Int {
-    // 왼쪽 위 모서리의 칸이면 탐색을 종료한다
+    // 왼쪽 위 칸이면 탐색을 종료한다
     if i == 0, j == 0 {
         return grid[0][0]
     }
@@ -14,16 +14,16 @@ func minPathSumDFS(grid: [[Int]], i: Int, j: Int) -> Int {
     if i < 0 || j < 0 {
         return .max
     }
-    // 왼쪽 위 모서리에서 (i-1, j)와 (i, j-1)까지의 최소 경로 비용을 계산한다
+    // 왼쪽 위에서 (i-1, j)와 (i, j-1)까지의 최소 경로 비용을 구한다
     let up = minPathSumDFS(grid: grid, i: i - 1, j: j)
     let left = minPathSumDFS(grid: grid, i: i, j: j - 1)
-    // 왼쪽 위 모서리에서 (i, j)까지의 최소 경로 비용을 반환한다
+    // 왼쪽 위에서 (i, j)까지의 최소 경로 비용을 반환한다
     return min(left, up) + grid[i][j]
 }
 
-/* 최소 경로 합: 메모이제이션을 이용한 탐색 */
+/* 최소 경로 합: 메모이제이션 탐색 */
 func minPathSumDFSMem(grid: [[Int]], mem: inout [[Int]], i: Int, j: Int) -> Int {
-    // 왼쪽 위 모서리의 칸이면 탐색을 종료한다
+    // 왼쪽 위 칸이면 탐색을 종료한다
     if i == 0, j == 0 {
         return grid[0][0]
     }
@@ -31,14 +31,14 @@ func minPathSumDFSMem(grid: [[Int]], mem: inout [[Int]], i: Int, j: Int) -> Int 
     if i < 0 || j < 0 {
         return .max
     }
-    // 기록이 이미 있으면 바로 반환한다
+    // 기록이 있으면 바로 반환한다
     if mem[i][j] != -1 {
         return mem[i][j]
     }
     // 왼쪽 칸과 위쪽 칸까지의 최소 경로 비용
     let up = minPathSumDFSMem(grid: grid, mem: &mem, i: i - 1, j: j)
     let left = minPathSumDFSMem(grid: grid, mem: &mem, i: i, j: j - 1)
-    // 왼쪽 위 모서리에서 (i, j)까지의 최소 경로 비용을 기록하고 반환한다
+    // 왼쪽 위에서 (i, j)까지의 최소 경로 비용을 기록하고 반환한다
     mem[i][j] = min(left, up) + grid[i][j]
     return mem[i][j]
 }
@@ -47,14 +47,14 @@ func minPathSumDFSMem(grid: [[Int]], mem: inout [[Int]], i: Int, j: Int) -> Int 
 func minPathSumDP(grid: [[Int]]) -> Int {
     let n = grid.count
     let m = grid[0].count
-    // dp 테이블을 초기화한다
+    // dp 테이블 초기화
     var dp = Array(repeating: Array(repeating: 0, count: m), count: n)
     dp[0][0] = grid[0][0]
-    // 상태 전이: 첫 번째 행
+    // 상태 전이: 첫 행
     for j in 1 ..< m {
         dp[0][j] = dp[0][j - 1] + grid[0][j]
     }
-    // 상태 전이: 첫 번째 열
+    // 상태 전이: 첫 열
     for i in 1 ..< n {
         dp[i][0] = dp[i - 1][0] + grid[i][0]
     }
@@ -67,20 +67,20 @@ func minPathSumDP(grid: [[Int]]) -> Int {
     return dp[n - 1][m - 1]
 }
 
-/* 최소 경로 합: 공간을 최적화한 동적 계획법 */
+/* 최소 경로 합: 공간 최적화 동적 계획법 */
 func minPathSumDPComp(grid: [[Int]]) -> Int {
     let n = grid.count
     let m = grid[0].count
-    // dp 테이블을 초기화한다
+    // dp 테이블 초기화
     var dp = Array(repeating: 0, count: m)
-    // 상태 전이: 첫 번째 행
+    // 상태 전이: 첫 행
     dp[0] = grid[0][0]
     for j in 1 ..< m {
         dp[j] = dp[j - 1] + grid[0][j]
     }
     // 상태 전이: 나머지 행
     for i in 1 ..< n {
-        // 상태 전이: 첫 번째 열
+        // 상태 전이: 첫 열
         dp[0] = dp[0] + grid[i][0]
         // 상태 전이: 나머지 열
         for j in 1 ..< m {
@@ -92,7 +92,7 @@ func minPathSumDPComp(grid: [[Int]]) -> Int {
 
 @main
 enum MinPathSum {
-    /* 실행 코드 */
+    /* 실행 예제 */
     static func main() {
         let grid = [
             [1, 3, 1, 5],
@@ -105,19 +105,19 @@ enum MinPathSum {
 
         // 완전 탐색
         var res = minPathSumDFS(grid: grid, i: n - 1, j: m - 1)
-        print("왼쪽 위 모서리에서 오른쪽 아래 모서리까지의 최소 경로 합 = \(res)")
+        print("왼쪽 위에서 오른쪽 아래까지의 최소 경로 합: \(res)")
 
-        // 메모이제이션을 이용한 탐색
+        // 메모이제이션 탐색
         var mem = Array(repeating: Array(repeating: -1, count: m), count: n)
         res = minPathSumDFSMem(grid: grid, mem: &mem, i: n - 1, j: m - 1)
-        print("왼쪽 위 모서리에서 오른쪽 아래 모서리까지의 최소 경로 합 = \(res)")
+        print("왼쪽 위에서 오른쪽 아래까지의 최소 경로 합: \(res)")
 
         // 동적 계획법
         res = minPathSumDP(grid: grid)
-        print("왼쪽 위 모서리에서 오른쪽 아래 모서리까지의 최소 경로 합 = \(res)")
+        print("왼쪽 위에서 오른쪽 아래까지의 최소 경로 합: \(res)")
 
-        // 공간을 최적화한 동적 계획법
+        // 공간 최적화 동적 계획법
         res = minPathSumDPComp(grid: grid)
-        print("왼쪽 위 모서리에서 오른쪽 아래 모서리까지의 최소 경로 합 = \(res)")
+        print("왼쪽 위에서 오른쪽 아래까지의 최소 경로 합: \(res)")
     }
 }

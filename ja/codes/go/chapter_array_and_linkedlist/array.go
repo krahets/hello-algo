@@ -8,30 +8,30 @@ import (
 	"math/rand"
 )
 
-/* 要素にランダムアクセスする */
+/* 要素にランダムにアクセスする */
 func randomAccess(nums []int) (randomNum int) {
-	// 区間 [0, nums.length) から数値をランダムに 1 つ選ぶ
+	// 区間 [0, nums.length) から数をランダムに選ぶ
 	randomIndex := rand.Intn(len(nums))
 	// ランダムに選んだ要素を取得して返す
 	randomNum = nums[randomIndex]
 	return
 }
 
-/* 配列の長さを拡張する */
+/* 配列の長さを増やす */
 func extend(nums []int, enlarge int) []int {
-	// 拡張後の長さの配列を初期化する
+	// 長さを増やした配列を初期化する
 	res := make([]int, len(nums)+enlarge)
 	// 元の配列の全要素を新しい配列にコピーする
 	for i, num := range nums {
 		res[i] = num
 	}
-	// 拡張後の新しい配列を返す
+	// 長さを増やした新しい配列を返す
 	return res
 }
 
 /* 配列のインデックス index に要素 num を挿入する */
 func insert(nums []int, num int, index int) {
-	// インデックス index 以降の全要素を 1 つ後ろにずらす
+	// インデックス index 以降の全要素を後ろに 1 つずらす
 	for i := len(nums) - 1; i > index; i-- {
 		nums[i] = nums[i-1]
 	}
@@ -41,7 +41,7 @@ func insert(nums []int, num int, index int) {
 
 /* インデックス index の要素を削除する */
 func remove(nums []int, index int) {
-	// インデックス index より後の全要素を 1 つ前にずらす
+	// インデックス index より後ろの全要素を前に 1 つずらす
 	for i := index; i < len(nums)-1; i++ {
 		nums[i] = nums[i+1]
 	}
@@ -59,14 +59,14 @@ func traverse(nums []int) {
 	for _, num := range nums {
 		count += num
 	}
-	// データのインデックスと要素を同時に走査する
+	// インデックスと要素を同時にたどる
 	for i, num := range nums {
 		count += nums[i]
 		count += num
 	}
 }
 
-/* 配列から指定した要素を探索する */
+/* 配列から指定した要素を探す */
 func find(nums []int, target int) (index int) {
 	index = -1
 	for i := 0; i < len(nums); i++ {

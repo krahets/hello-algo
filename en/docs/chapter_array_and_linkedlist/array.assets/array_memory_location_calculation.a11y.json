@@ -1,28 +1,28 @@
 {
-  "schema_version": 2,
-  "title": "Calculating an array element's memory address",
-  "summary": "Compute an element's location directly from the starting address, fixed element size, and index.",
   "context": [],
   "description": [
-    "The upper part arranges the array, indices, and memory addresses with the column at index 3 highlighted; the lower part gives the address formula and a worked substitution. Each element occupies 4 bytes; the upper address row uses two-digit notation (such as 00 and 12), while the formula below uses three-digit notation (000 and 012). Leading zeros are purely for alignment, and all numbers are decimal."
+    "The top of the figure shows the array, indices, and memory addresses, with the column for index 3 highlighted. Below are the address formula and a worked example. Each element occupies 4 bytes. The address row uses two digits (such as 00 and 12), while the calculation uses three (000 and 012). All addresses are decimal. Leading zeros only align the digits."
   ],
-  "result": "With contiguous storage and equal-sized elements, a single multiplication and addition gives the address, supporting O(1) random access.",
   "frames": [
     {
-      "id": "source-47",
       "book_path": "chapter_array_and_linkedlist/array.assets/array_memory_location_calculation.png",
-      "title": "Calculating an array element's memory address",
-      "explanation": "Element address = address of the first element + element size × index. Indexing starts at 0, so index 3 is the 4th element, with value 5; it is 3 elements past the first element, giving a byte offset of 4 × 3 = 12 and an address of 000 + 4 × 3 = 012. This locates the element by index rather than searching for an element whose value is 3."
+      "explanation": "Element address = address of first element + element size × index. Indices start at 0, so index 3 identifies the fourth element, whose value is 5. It is three element widths from the start, giving a byte offset of 4 × 3 = 12 and an address of 000 + 4 × 3 = 012. This locates an element by index rather than searching for the value 3.",
+      "id": "source-47",
+      "title": "Calculating an array element's address"
     }
   ],
+  "result": "When elements occupy contiguous memory and have equal size, one multiplication and one addition give the address, enabling O(1) random access.",
+  "schema_version": 2,
+  "summary": "Calculate an element's location directly from the base address, fixed element size, and index.",
   "tables": [
     {
-      "caption": "Indices, values, and addresses shown in the figure",
+      "caption": "Indices, values, and addresses in the diagram",
       "headers": [
         "Index",
         "Element value",
         "Memory address"
       ],
+      "row_header": 0,
       "rows": [
         [
           "0",
@@ -49,8 +49,8 @@
           "4",
           "16"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Calculating an array element's address"
 }

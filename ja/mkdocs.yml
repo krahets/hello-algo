@@ -1,8 +1,8 @@
 # Project information
-site_name: Hello Algo
+site_name: Hello アルゴリズム
 site_url: https://www.hello-algo.com/ja/
 site_author: krahets
-site_description: アニメーションによる図解とワンクリックで実行できるコードで学ぶ、データ構造とアルゴリズムの入門書
+site_description: アニメーションによる図解とワンクリックで実行できるコードで学ぶ、データ構造とアルゴリズムの入門書。
 # Repository
 repo_name: krahets/hello-algo
 repo_url: https://github.com/krahets/hello-algo
@@ -122,10 +122,10 @@ nav:
     - 0.1 &nbsp; 本書について: chapter_preface/about_the_book.md
     - 0.2 &nbsp; 本書の使い方: chapter_preface/suggestions.md
     - 0.3 &nbsp; まとめ: chapter_preface/summary.md
-  - 第 1 章 &nbsp; アルゴリズムとの出会い:
+  - 第 1 章 &nbsp; アルゴリズム入門:
     # [icon: material/calculator-variant-outline]
     - chapter_introduction/index.md
-    - 1.1 &nbsp; アルゴリズムはどこにでもある: chapter_introduction/algorithms_are_everywhere.md
+    - 1.1 &nbsp; 身の回りのアルゴリズム: chapter_introduction/algorithms_are_everywhere.md
     - 1.2 &nbsp; アルゴリズムとは: chapter_introduction/what_is_dsa.md
     - 1.3 &nbsp; まとめ: chapter_introduction/summary.md
   - 第 2 章 &nbsp; 計算量の解析:
@@ -166,7 +166,7 @@ nav:
   - 第 6 章 &nbsp; ハッシュテーブル:
     # [icon: material/table-search]
     - chapter_hashing/index.md
-    - 6.1 &nbsp; ハッシュテーブル: chapter_hashing/hash_map.md
+    - 6.1 &nbsp; ハッシュ表: chapter_hashing/hash_map.md
     - 6.2 &nbsp; ハッシュ衝突: chapter_hashing/hash_collision.md
     - 6.3 &nbsp; ハッシュアルゴリズム: chapter_hashing/hash_algorithm.md
     - 6.4 &nbsp; まとめ: chapter_hashing/summary.md
@@ -194,17 +194,17 @@ nav:
     - chapter_graph/index.md
     - 9.1 &nbsp; グラフ: chapter_graph/graph.md
     - 9.2 &nbsp; グラフの基本操作: chapter_graph/graph_operations.md
-    - 9.3 &nbsp; グラフの走査: chapter_graph/graph_traversal.md
+    - 9.3 &nbsp; グラフの探索: chapter_graph/graph_traversal.md
     - 9.4 &nbsp; まとめ: chapter_graph/summary.md
     - 9.5 &nbsp; 練習問題: chapter_graph/exercises.md
   - 第 10 章 &nbsp; 探索:
     # [icon: material/text-search]
     - chapter_searching/index.md
     - 10.1 &nbsp; 二分探索: chapter_searching/binary_search.md
-    - 10.2 &nbsp; 二分探索で挿入位置を探す: chapter_searching/binary_search_insertion.md
-    - 10.3 &nbsp; 二分探索で境界を探す: chapter_searching/binary_search_edge.md
-    - 10.4 &nbsp; ハッシュを使った最適化: chapter_searching/replace_linear_by_hashing.md
-    - 10.5 &nbsp; 探索アルゴリズムを改めて考える: chapter_searching/searching_algorithm_revisited.md
+    - 10.2 &nbsp; 二分探索で挿入位置を求める: chapter_searching/binary_search_insertion.md
+    - 10.3 &nbsp; 二分探索で境界を求める: chapter_searching/binary_search_edge.md
+    - 10.4 &nbsp; ハッシュを用いた最適化: chapter_searching/replace_linear_by_hashing.md
+    - 10.5 &nbsp; 探索アルゴリズムを振り返る: chapter_searching/searching_algorithm_revisited.md
     - 10.6 &nbsp; まとめ: chapter_searching/summary.md
     - 10.7 &nbsp; 練習問題: chapter_searching/exercises.md
   - 第 11 章 &nbsp; ソート:
@@ -222,30 +222,30 @@ nav:
     - 11.10 &nbsp; 基数ソート: chapter_sorting/radix_sort.md
     - 11.11 &nbsp; まとめ: chapter_sorting/summary.md
     - 11.12 &nbsp; 練習問題: chapter_sorting/exercises.md
-  - 第 12 章 &nbsp; 分割統治:
+  - 第 12 章 &nbsp; 分割統治法:
     # [icon: material/set-split]
     - chapter_divide_and_conquer/index.md
-    - 12.1 &nbsp; 分割統治アルゴリズム: chapter_divide_and_conquer/divide_and_conquer.md
-    - 12.2 &nbsp; 分割統治による探索戦略: chapter_divide_and_conquer/binary_search_recur.md
-    - 12.3 &nbsp; 二分木の構築問題: chapter_divide_and_conquer/build_binary_tree_problem.md
-    - 12.4 &nbsp; ハノイの塔の問題: chapter_divide_and_conquer/hanota_problem.md
+    - 12.1 &nbsp; 分割統治法のアルゴリズム: chapter_divide_and_conquer/divide_and_conquer.md
+    - 12.2 &nbsp; 分割統治法による探索: chapter_divide_and_conquer/binary_search_recur.md
+    - 12.3 &nbsp; 二分木を構築する問題: chapter_divide_and_conquer/build_binary_tree_problem.md
+    - 12.4 &nbsp; ハノイの塔: chapter_divide_and_conquer/hanota_problem.md
     - 12.5 &nbsp; まとめ: chapter_divide_and_conquer/summary.md
     - 12.6 &nbsp; 練習問題: chapter_divide_and_conquer/exercises.md
   - 第 13 章 &nbsp; バックトラッキング:
     # [icon: material/map-marker-path]
     - chapter_backtracking/index.md
-    - 13.1 &nbsp; バックトラッキングアルゴリズム: chapter_backtracking/backtracking_algorithm.md
-    - 13.2 &nbsp; 順列列挙問題: chapter_backtracking/permutations_problem.md
-    - 13.3 &nbsp; 部分集合和問題: chapter_backtracking/subset_sum_problem.md
-    - 13.4 &nbsp; n クイーン問題: chapter_backtracking/n_queens_problem.md
+    - 13.1 &nbsp; バックトラッキング: chapter_backtracking/backtracking_algorithm.md
+    - 13.2 &nbsp; 全順列問題: chapter_backtracking/permutations_problem.md
+    - 13.3 &nbsp; 部分和問題: chapter_backtracking/subset_sum_problem.md
+    - 13.4 &nbsp; N クイーン問題: chapter_backtracking/n_queens_problem.md
     - 13.5 &nbsp; まとめ: chapter_backtracking/summary.md
     - 13.6 &nbsp; 練習問題: chapter_backtracking/exercises.md
   - 第 14 章 &nbsp; 動的計画法:
     # [icon: material/table-pivot]
     - chapter_dynamic_programming/index.md
-    - 14.1 &nbsp; 動的計画法への第一歩: chapter_dynamic_programming/intro_to_dynamic_programming.md
-    - 14.2 &nbsp; 動的計画法の問題の特徴: chapter_dynamic_programming/dp_problem_features.md
-    - 14.3 &nbsp; 動的計画法の解き方: chapter_dynamic_programming/dp_solution_pipeline.md
+    - 14.1 &nbsp; 動的計画法入門: chapter_dynamic_programming/intro_to_dynamic_programming.md
+    - 14.2 &nbsp; 動的計画法で解ける問題の特徴: chapter_dynamic_programming/dp_problem_features.md
+    - 14.3 &nbsp; 動的計画法で解くための考え方: chapter_dynamic_programming/dp_solution_pipeline.md
     - 14.4 &nbsp; 0-1 ナップサック問題: chapter_dynamic_programming/knapsack_problem.md
     - 14.5 &nbsp; 個数制限なしナップサック問題: chapter_dynamic_programming/unbounded_knapsack_problem.md
     - 14.6 &nbsp; 編集距離問題: chapter_dynamic_programming/edit_distance_problem.md
@@ -254,17 +254,17 @@ nav:
   - 第 15 章 &nbsp; 貪欲法:
     # [icon: material/head-heart-outline]
     - chapter_greedy/index.md
-    - 15.1 &nbsp; 貪欲アルゴリズム: chapter_greedy/greedy_algorithm.md
+    - 15.1 &nbsp; 貪欲法: chapter_greedy/greedy_algorithm.md
     - 15.2 &nbsp; 分割可能ナップサック問題: chapter_greedy/fractional_knapsack_problem.md
     - 15.3 &nbsp; 最大容量問題: chapter_greedy/max_capacity_problem.md
-    - 15.4 &nbsp; 整数を分割して積を最大にする問題: chapter_greedy/max_product_cutting_problem.md
+    - 15.4 &nbsp; 整数分割の最大積問題: chapter_greedy/max_product_cutting_problem.md
     - 15.5 &nbsp; まとめ: chapter_greedy/summary.md
     - 15.6 &nbsp; 練習問題: chapter_greedy/exercises.md
   - 第 16 章 &nbsp; 付録:
     # [icon: material/help-circle-outline]
     - chapter_appendix/index.md
-    - 16.1 &nbsp; プログラミング環境のインストール: chapter_appendix/installation.md
-    - 16.2 &nbsp; 一緒に本書を作りましょう: chapter_appendix/contribution.md
+    - 16.1 &nbsp; 開発環境のセットアップ: chapter_appendix/installation.md
+    - 16.2 &nbsp; 本書の執筆に参加する: chapter_appendix/contribution.md
     - 16.3 &nbsp; 用語集: chapter_appendix/terminology.md
   - 参考文献:
     - chapter_reference/index.md

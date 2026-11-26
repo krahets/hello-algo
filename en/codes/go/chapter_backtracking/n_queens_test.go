@@ -13,8 +13,8 @@ func TestNQueens(t *testing.T) {
 	n := 4
 	res := nQueens(n)
 
-	fmt.Println("Input board side length: ", n)
-	fmt.Println("There are ", len(res), " queen placements")
+	fmt.Println("Board side length:", n)
+	fmt.Println("Found", len(res), "queen arrangements")
 	for _, state := range res {
 		fmt.Println("--------------------")
 		for _, row := range state {

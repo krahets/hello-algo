@@ -19,7 +19,7 @@ struct ListNode {
     }
 };
 
-/* 將串列反序列化為鏈結串列 */
+/* 將向量反序列化為鏈結串列 */
 ListNode *vecToLinkedList(vector<int> list) {
     ListNode *dum = new ListNode(0);
     ListNode *head = dum;
@@ -30,7 +30,7 @@ ListNode *vecToLinkedList(vector<int> list) {
     return dum->next;
 }
 
-/* 釋放分配給鏈結串列的記憶體空間 */
+/* 釋放配置給鏈結串列的記憶體 */
 void freeMemoryLinkedList(ListNode *cur) {
     // 釋放記憶體
     ListNode *pre;

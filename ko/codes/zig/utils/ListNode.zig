@@ -12,7 +12,7 @@ pub fn ListNode(comptime T: type) type {
         val: T = 0,
         next: ?*Self = null,
 
-        // 지정한 값으로 연결 리스트 노드를 초기화한다
+        // 지정한 값으로 연결 리스트 노드를 초기화한다.
         pub fn init(self: *Self, x: i32) void {
             self.val = x;
             self.next = null;
@@ -34,7 +34,7 @@ pub fn listToLinkedList(comptime T: type, allocator: std.mem.Allocator, list: st
     return dum.next;
 }
 
-// 배열을 역직렬화하여 연결 리스트로 변환한다
+// 배열을 연결 리스트로 역직렬화
 pub fn arrToLinkedList(comptime T: type, mem_allocator: std.mem.Allocator, arr: []T) !?*ListNode(T) {
     var dum = try mem_allocator.create(ListNode(T));
     dum.init(0);

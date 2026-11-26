@@ -13,7 +13,7 @@ public class queue {
         /* キューを初期化する */
         Queue<Integer> queue = new LinkedList<>();
 
-        /* 要素をエンキューする */
+        /* 要素をキューに追加する */
         queue.offer(1);
         queue.offer(3);
         queue.offer(2);
@@ -21,19 +21,19 @@ public class queue {
         queue.offer(4);
         System.out.println("キュー queue = " + queue);
 
-        /* キューの先頭要素にアクセス */
+        /* キューの先頭要素を参照する */
         int peek = queue.peek();
-        System.out.println("キューの先頭要素 peek = " + peek);
+        System.out.println("先頭要素 peek = " + peek);
 
-        /* 要素をデキューする */
+        /* キューから要素を取り出す */
         int pop = queue.poll();
-        System.out.println("デキューした要素 pop = " + pop + "、デキュー後 queue = " + queue);
+        System.out.println("デキューした要素 pop = " + pop + "、デキュー後の queue = " + queue);
 
-        /* キューの長さを取得 */
+        /* キューの要素数を取得する */
         int size = queue.size();
-        System.out.println("キューの長さ size = " + size);
+        System.out.println("キューの要素数 size = " + size);
 
-        /* キューが空か判定 */
+        /* キューが空かどうかを判定する */
         boolean isEmpty = queue.isEmpty();
         System.out.println("キューは空か = " + isEmpty);
     }

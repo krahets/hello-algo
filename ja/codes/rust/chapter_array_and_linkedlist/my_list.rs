@@ -9,7 +9,7 @@ use hello_algo_rust::include::print_util;
 /* リストクラス */
 #[allow(dead_code)]
 struct MyList {
-    arr: Vec<i32>,       // 配列（リストの要素を格納する）
+    arr: Vec<i32>,       // 配列（リストの要素を格納）
     capacity: usize,     // リストの容量
     size: usize,         // リストの長さ（現在の要素数）
     extend_ratio: usize, // リストの容量を拡張する際の倍率
@@ -40,7 +40,7 @@ impl MyList {
 
     /* 要素にアクセスする */
     pub fn get(&self, index: usize) -> i32 {
-        // インデックスが範囲外の場合、例外を送出する。以下も同様
+        // インデックスが範囲外なら例外を送出する。以下も同様
         if index >= self.size {
             panic!("インデックスが範囲外です")
         };
@@ -57,7 +57,7 @@ impl MyList {
 
     /* 末尾に要素を追加する */
     pub fn add(&mut self, num: i32) {
-        // 要素数が容量を超える場合、容量を拡張する
+        // 要素数が容量を超えるときは容量を拡張する
         if self.size == self.capacity() {
             self.extend_capacity();
         }
@@ -71,11 +71,11 @@ impl MyList {
         if index >= self.size() {
             panic!("インデックスが範囲外です")
         };
-        // 要素数が容量を超える場合、容量を拡張する
+        // 要素数が容量を超えるときは容量を拡張する
         if self.size == self.capacity() {
             self.extend_capacity();
         }
-        // インデックス index 以降の全要素を後ろに 1 つずらす
+        // インデックス index 以降の要素をすべて後ろに 1 つずらす
         for j in (index..self.size).rev() {
             self.arr[j + 1] = self.arr[j];
         }
@@ -90,7 +90,7 @@ impl MyList {
             panic!("インデックスが範囲外です")
         };
         let num = self.arr[index];
-        // インデックス index より後の全要素を前に 1 つずらす
+        // インデックス index より後ろの要素をすべて前に 1 つずらす
         for j in index..self.size - 1 {
             self.arr[j] = self.arr[j + 1];
         }
@@ -102,7 +102,7 @@ impl MyList {
 
     /* リストの容量を拡張する */
     pub fn extend_capacity(&mut self) {
-        // 元の配列の extend_ratio 倍の長さの配列を新たに作成し、元の配列をコピーする
+        // 元の配列の extend_ratio 倍の長さの配列を作り、元の配列の内容をコピーする
         let new_capacity = self.capacity * self.extend_ratio;
         self.arr.resize(new_capacity, 0);
         // リストの容量を更新する
@@ -111,7 +111,7 @@ impl MyList {
 
     /* リストを配列に変換する */
     pub fn to_array(&self) -> Vec<i32> {
-        // 有効な長さの範囲内にあるリストの要素だけを変換する
+        // 有効な範囲内のリスト要素だけを変換する
         let mut arr = Vec::new();
         for i in 0..self.size {
             arr.push(self.get(i));
@@ -120,7 +120,7 @@ impl MyList {
     }
 }
 
-/* 実行用コード */
+/* ドライバコード */
 fn main() {
     /* リストを初期化する */
     let mut nums = MyList::new(10);
@@ -132,33 +132,33 @@ fn main() {
     nums.add(4);
     print!("リスト nums = ");
     print_util::print_array(&nums.to_array());
-    print!(" 、容量 = {} 、長さ = {}", nums.capacity(), nums.size());
+    print!(" 、容量 = {}、長さ = {}", nums.capacity(), nums.size());
 
     /* 途中に要素を挿入する */
     nums.insert(3, 6);
-    print!("\nインデックス 3 に数値 6 を挿入した結果 nums = ");
+    print!("\nインデックス 3 に 6 を挿入した後の nums = ");
     print_util::print_array(&nums.to_array());
 
     /* 要素を削除する */
     nums.remove(3);
-    print!("\nインデックス 3 の要素を削除した結果 nums = ");
+    print!("\nインデックス 3 の要素を削除した後の nums = ");
     print_util::print_array(&nums.to_array());
 
     /* 要素にアクセスする */
     let num = nums.get(1);
-    println!("\nインデックス 1 の要素にアクセスした結果 num = {num}");
+    println!("\nインデックス 1 の要素を読み出した結果 num = {num}");
 
     /* 要素を更新する */
     nums.set(1, 0);
-    print!("インデックス 1 の要素を 0 に更新した結果 nums = ");
+    print!("インデックス 1 の要素を 0 に更新した後の nums = ");
     print_util::print_array(&nums.to_array());
 
-    /* 容量の拡張をテストする */
+    /* 容量拡張の動作を確認する */
     for i in 0..10 {
-        // i = 5 のときにリストの長さが容量を超えるため、容量が拡張される
+        // i = 5 でリストの長さが容量を超えるため、容量を拡張する
         nums.add(i);
     }
-    print!("\n容量を拡張した後のリスト nums = ");
+    print!("\n容量拡張後のリスト nums = ");
     print_util::print_array(&nums.to_array());
-    print!(" 、容量 = {} 、長さ = {}", nums.capacity(), nums.size());
+    print!(" 、容量 = {}、長さ = {}", nums.capacity(), nums.size());
 }

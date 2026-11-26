@@ -7,21 +7,21 @@
 /* 선택 정렬 */
 void selectionSort(List<int> nums) {
   int n = nums.length;
-  // 바깥쪽 반복문: 정렬되지 않은 구간은 [i, n-1]이다
+  // 바깥 루프: 미정렬 구간은 [i, n-1]
   for (int i = 0; i < n - 1; i++) {
-    // 안쪽 반복문: 정렬되지 않은 구간의 최솟값을 찾는다
+    // 안쪽 루프: 미정렬 구간에서 최솟값 찾기
     int k = i;
     for (int j = i + 1; j < n; j++) {
-      if (nums[j] < nums[k]) k = j; // 최솟값의 인덱스를 기록한다
+      if (nums[j] < nums[k]) k = j; // 최솟값의 인덱스 기록
     }
-    // 이 최솟값과 정렬되지 않은 구간의 첫 원소를 교환한다
+    // 최솟값과 미정렬 구간의 첫 원소 교환
     int temp = nums[i];
     nums[i] = nums[k];
     nums[k] = temp;
   }
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 void main() {
   List<int> nums = [4, 1, 3, 1, 5, 2];
   selectionSort(nums);

@@ -17,19 +17,19 @@ struct Pair {
     }
 };
 
-/* Hash table implemented with an array */
+/* Array-based hash table */
 class ArrayHashMap {
   private:
     vector<Pair *> buckets;
 
   public:
     ArrayHashMap() {
-        // Initialize an array containing 100 buckets
+        // Initialize an array with 100 buckets
         buckets = vector<Pair *>(100);
     }
 
     ~ArrayHashMap() {
-        // Free memory
+        // Free the memory
         for (const auto &bucket : buckets) {
             delete bucket;
         }
@@ -42,7 +42,7 @@ class ArrayHashMap {
         return index;
     }
 
-    /* Lookup operation */
+    /* Look up a value */
     string get(int key) {
         int index = hashFunc(key);
         Pair *pair = buckets[index];
@@ -51,14 +51,14 @@ class ArrayHashMap {
         return pair->val;
     }
 
-    /* Insert operation */
+    /* Insert a key-value pair */
     void put(int key, string val) {
         Pair *pair = new Pair(key, val);
         int index = hashFunc(key);
         buckets[index] = pair;
     }
 
-    /* Remove operation */
+    /* Remove a key-value pair */
     void remove(int key) {
         int index = hashFunc(key);
         // Free the memory and set the pointer to nullptr
@@ -107,4 +107,4 @@ class ArrayHashMap {
     }
 };
 
-// See array_hash_map_test.cpp for the test example
+// See array_hash_map_test.cpp for test cases

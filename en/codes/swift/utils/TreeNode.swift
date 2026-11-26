@@ -17,7 +17,7 @@ public class TreeNode {
         height = 0
     }
 
-    // For the serialization rules, see:
+    // For the serialization format, see:
     // https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/
     // Array representation of the binary tree:
     // [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
@@ -33,7 +33,7 @@ public class TreeNode {
     //         \——— 4
     //             \——— 8
 
-    /* Deserialize a list into a binary tree: recursion */
+    /* Recursively deserialize an array into a binary tree */
     private static func listToTreeDFS(arr: [Int?], i: Int) -> TreeNode? {
         if i < 0 || i >= arr.count || arr[i] == nil {
             return nil
@@ -44,12 +44,12 @@ public class TreeNode {
         return root
     }
 
-    /* Deserialize a list into a binary tree */
+    /* Deserialize an array into a binary tree */
     public static func listToTree(arr: [Int?]) -> TreeNode? {
         listToTreeDFS(arr: arr, i: 0)
     }
 
-    /* Serialize a binary tree into a list: recursion */
+    /* Recursively serialize a binary tree into an array */
     private static func treeToListDFS(root: TreeNode?, i: Int, res: inout [Int?]) {
         if root == nil {
             return
@@ -62,7 +62,7 @@ public class TreeNode {
         treeToListDFS(root: root?.right, i: 2 * i + 2, res: &res)
     }
 
-    /* Serialize a binary tree into a list */
+    /* Serialize a binary tree into an array */
     public static func treeToList(root: TreeNode?) -> [Int?] {
         var res: [Int?] = []
         treeToListDFS(root: root, i: 0, res: &res)

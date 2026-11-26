@@ -24,7 +24,7 @@ func PrintList(list *list.List) {
 		return
 	}
 	e := list.Front()
-	// string への強制変換は効率に影響する
+	// string 型への明示的な変換にはコストがかかる
 	fmt.Print("[")
 	for e.Next() != nil {
 		fmt.Print(e.Value, " ")
@@ -44,7 +44,7 @@ func PrintMap[K comparable, V any](m map[K]V) {
 func PrintHeap(h []any) {
 	fmt.Printf("ヒープの配列表現：")
 	fmt.Printf("%v", h)
-	fmt.Printf("\nヒープの木構造表現：\n")
+	fmt.Printf("\nヒープの木構造：\n")
 	root := SliceToTree(h)
 	PrintTree(root)
 }
@@ -69,7 +69,7 @@ func PrintTree(root *TreeNode) {
 }
 
 // printTreeHelper は二分木を表示する
-// この木の表示処理は TECHIE DELIGHT から借用した
+// 木の表示には TECHIE DELIGHT のコードを使用
 // https://www.techiedelight.com/c-program-print-binary-tree/
 func printTreeHelper(root *TreeNode, prev *trunk, isRight bool) {
 	if root == nil {

@@ -1,74 +1,74 @@
 {
-  "schema_version": 2,
-  "title": "Making change greedily",
-  "summary": "At each step, pick the largest denomination not exceeding the remaining amount until the change still owed reaches zero.",
-  "context": [
-    "Buying goods worth 69 yuan and paying 100 yuan requires 31 yuan in change, using available banknote denominations of 20, 10, 5, and 1 yuan."
-  ],
-  "description": [],
-  "result": "This figure illustrates the greedy choices on this specific input; it does not imply that greedy selection yields the fewest banknotes for arbitrary denomination systems.",
-  "frames": [
-    {
-      "id": "source-16",
-      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/greedy_change.png",
-      "title": "Making change greedily",
-      "explanation": "Every step picks the largest denomination that fits the remaining amount: when 11 yuan remains, 20 yuan is ruled out; when 1 yuan remains, 20, 10, and 5 yuan are ruled out. In the end, 1 banknote each of 20, 10, and 1 yuan is used—3 banknotes in total—while 5 yuan is unused."
-    }
-  ],
   "animations": {
     "greedy-banknotes": {
       "kind": "prose",
       "prose": {
-        "title": "Making change greedily",
-        "summary": "At each step, pick the largest denomination not exceeding the remaining amount until the change still owed reaches zero.",
         "context": [
-          "Buying goods worth 69 yuan and paying 100 yuan requires 31 yuan in change, using available banknote denominations of 20, 10, 5, and 1 yuan."
+          "An item costs 69 yuan. Paying with 100 yuan leaves 31 yuan in change. The available bills are 20, 10, 5, and 1 yuan."
         ],
         "description": [
-          "The first three steps display the remaining target amount before subtracting the newly chosen banknote: the highlighted banknote is selected in the current step and deducted in the next, while Step 4 completes the final deduction."
+          "The first three steps show the balance before subtraction. The highlighted bill has been selected, but its value is only deducted in the next step. The fourth step makes the final deduction."
         ],
-        "result": "This figure illustrates the greedy choices on this specific input; it does not imply that greedy selection yields the fewest banknotes for arbitrary denomination systems.",
+        "result": "This figure shows the greedy choices for these inputs. The method does not guarantee the fewest bills for every possible set of denominations.",
         "steps": [
           {
+            "announcement": "31 yuan is due before subtraction. Select the largest bill that fits, 20 yuan. Its value has yet to be deducted.",
+            "explanation": "This is the first choice. Of the 20-, 10-, 5-, and 1-yuan bills, 20 yuan is the largest that fits the 31 yuan due. The 20-yuan bill is selected but has yet to be deducted. Deducting it will leave 11 yuan.",
             "id": "step-1",
-            "title": "Remaining change 31 yuan before deduction; select 20 yuan",
-            "explanation": "On the first selection, the remaining change owed is 31 yuan. Among 20, 10, 5, and 1 yuan, the largest denomination that fits is 20 yuan. This step selects 20 yuan without deducting it yet; deducting it leaves 11 yuan.",
-            "key_state": "Remaining change before deduction: 31 yuan (0 yuan deducted so far); 20 yuan is selected in this step and not yet deducted.",
-            "announcement": "With 31 yuan remaining before deduction, select the largest fitting denomination, 20 yuan, not yet deducted."
+            "key_state": "31 yuan is due before subtraction. No amount has been deducted. Select 20 yuan in this step. Its value has yet to be deducted.",
+            "title": "31 yuan left before subtraction. Select 20 yuan."
           },
           {
+            "announcement": "After deducting 20 yuan, 11 yuan remains. Select 10 yuan. Its value has yet to be deducted.",
+            "explanation": "The 20-yuan bill has been deducted, leaving 11 yuan due. Another 20-yuan bill would exceed the balance, so 10 yuan is the largest bill that fits. Select it now. It has yet to be deducted. Deducting it will leave 1 yuan.",
             "id": "step-2",
-            "title": "Remaining change 11 yuan before deduction; select 10 yuan",
-            "explanation": "After deducting 20 yuan, the remaining change owed is 11 yuan. Because 20 yuan exceeds the remaining balance, the largest fitting denomination is 10 yuan. This step selects 10 yuan without deducting it yet; deducting it leaves 1 yuan.",
-            "key_state": "Remaining change before deduction: 11 yuan (20 yuan already deducted); 10 yuan is selected in this step and not yet deducted.",
-            "announcement": "After deducting 20 yuan, 11 yuan remains; select 10 yuan in this step, not yet deducted."
+            "key_state": "11 yuan is due before subtraction, with 20 yuan already deducted. Select 10 yuan in this step. Its value has yet to be deducted.",
+            "title": "11 yuan left before subtraction. Select 10 yuan."
           },
           {
+            "announcement": "After deducting 20 and 10 yuan, 1 yuan remains. Select 1 yuan. Its value has yet to be deducted.",
+            "explanation": "The 20- and 10-yuan bills have been deducted, 30 yuan in total, leaving 1 yuan due. The 20-, 10-, and 5-yuan bills all exceed that balance, so only 1 yuan fits. Select the 1-yuan bill. It has yet to be deducted. Deducting it will bring the balance to zero.",
             "id": "step-3",
-            "title": "Remaining change 1 yuan before deduction; select 1 yuan",
-            "explanation": "After deducting 20 yuan and 10 yuan—30 yuan in total—the remaining change owed is 1 yuan. Since 20, 10, and 5 yuan all exceed 1 yuan, only 1 yuan fits. This step selects 1 yuan without deducting it yet; deducting it brings the balance to zero.",
-            "key_state": "Remaining change before deduction: 1 yuan (20 yuan and 10 yuan already deducted); 1 yuan is selected in this step and not yet deducted.",
-            "announcement": "After deducting 20 yuan and 10 yuan, 1 yuan remains; select 1 yuan in this step, not yet deducted."
+            "key_state": "1 yuan is due before subtraction, with 20 and 10 yuan already deducted. Select 1 yuan in this step. Its value has yet to be deducted.",
+            "title": "1 yuan left before subtraction. Select 1 yuan."
           },
           {
+            "announcement": "Deducting the last 1 yuan brings the balance to zero. The three bills of 20, 10, and 1 yuan complete the change.",
+            "explanation": "Deduct the final 1 yuan. No change remains due. The column of bills on the right disappears, and selection stops. One bill each of 20, 10, and 1 yuan makes three bills totaling 31 yuan. No 5-yuan bill was used.",
             "id": "step-4",
-            "title": "Deduct the final 1 yuan; remaining balance reaches zero",
-            "explanation": "After deducting the final 1 yuan, the remaining change reaches zero and the banknote column on the right disappears because no further selection is needed. Altogether, 1 banknote each of 20, 10, and 1 yuan—3 banknotes totaling 31 yuan—has been used, while 5 yuan was never used.",
-            "key_state": "Remaining balance 0 yuan, change complete; 3 banknotes in total (20, 10, and 1 yuan) were used, and 5 yuan was unused.",
-            "announcement": "Deducting the final 1 yuan brings the balance to zero, completing the change with 3 banknotes in total: 20, 10, and 1 yuan."
+            "key_state": "The balance is 0 yuan. Change is complete with three bills: 20, 10, and 1 yuan. No 5-yuan bill was used.",
+            "title": "Deduct the final 1 yuan to bring the balance to zero"
           }
-        ]
+        ],
+        "summary": "At each step, choose the largest bill that does not exceed the remaining amount. Continue until no change is due.",
+        "title": "Making change with a greedy algorithm"
       }
     }
   },
+  "context": [
+    "An item costs 69 yuan. Paying with 100 yuan leaves 31 yuan in change. The available bills are 20, 10, 5, and 1 yuan."
+  ],
+  "description": [],
+  "frames": [
+    {
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/greedy_change.png",
+      "explanation": "Always choose the largest bill no greater than the balance. With 11 yuan left, exclude the 20-yuan bill. With 1 yuan left, exclude the 20-, 10-, and 5-yuan bills. The result is three bills, one each of 20, 10, and 1 yuan. No 5-yuan bill is used.",
+      "id": "source-16",
+      "title": "Making change with a greedy algorithm"
+    }
+  ],
+  "result": "This figure shows the greedy choices for these inputs. The method does not guarantee the fewest bills for every possible set of denominations.",
+  "schema_version": 2,
+  "summary": "At each step, choose the largest bill that does not exceed the remaining amount. Continue until no change is due.",
   "tables": [
     {
-      "caption": "Remaining amount before and after each selection",
+      "caption": "Remaining amount before and after each choice",
       "headers": [
         "Balance before selection (yuan)",
-        "Selected denomination (yuan)",
-        "Balance after deduction (yuan)"
+        "Bill selected (yuan)",
+        "Balance after subtraction (yuan)"
       ],
+      "row_header": 0,
       "rows": [
         [
           "31",
@@ -85,8 +85,8 @@
           "1",
           "0"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Making change with a greedy algorithm"
 }

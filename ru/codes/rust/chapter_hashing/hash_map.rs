@@ -8,40 +8,40 @@ use hello_algo_rust::include::print_util;
 
 use std::collections::HashMap;
 
-/* Driver Code */
+/* Демонстрационный код */
 pub fn main() {
-    // Инициализация хеш-таблицы
+    // Создать хеш-таблицу
     let mut map = HashMap::new();
 
-    // Операция добавления
-    // Добавить пару (key, value) в хеш-таблицу
+    // Вставка
+    // Добавить в таблицу пару (key, value)
     map.insert(12836, "Сяо Ха");
     map.insert(15937, "Сяо Ло");
     map.insert(16750, "Сяо Суань");
     map.insert(13276, "Сяо Фа");
     map.insert(10583, "Сяо Я");
-    println!("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение");
+    println!("\nХеш-таблица после вставки:\nКлюч -> Значение");
     print_util::print_hash_map(&map);
 
-    // Операция поиска
-    // Передать ключ key в хеш-таблицу и получить значение value
+    // Поиск
+    // Получить из таблицы значение value по ключу key
     let name = map.get(&15937).copied().unwrap();
-    println!("\nДля номера 15937 найдено имя {name}");
+    println!("\nИмя студента с номером 15937: {name}");
 
-    // Операция удаления
-    // Удалить пару (key, value) из хеш-таблицы
+    // Удаление
+    // Удалить из таблицы пару (key, value)
     _ = map.remove(&10583);
-    println!("\nПосле удаления 10583 хеш-таблица имеет вид\nКлюч -> Значение");
+    println!("\nХеш-таблица после удаления 10583:\nКлюч -> Значение");
     print_util::print_hash_map(&map);
 
     // Обход хеш-таблицы
-    println!("\nОтдельный обход пар ключ-значение");
+    println!("\nОбход пар «ключ -> значение»");
     print_util::print_hash_map(&map);
-    println!("\nОтдельный обход ключей");
+    println!("\nОбход только ключей");
     for key in map.keys() {
         println!("{key}");
     }
-    println!("\nОтдельный обход значений");
+    println!("\nОбход только значений");
     for value in map.values() {
         println!("{value}");
     }

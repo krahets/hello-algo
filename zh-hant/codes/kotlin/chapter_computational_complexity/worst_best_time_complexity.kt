@@ -6,10 +6,10 @@
 
 package chapter_computational_complexity.worst_best_time_complexity
 
-/* 生成一個陣列，元素為 { 1, 2, ..., n }，順序被打亂 */
+/* 建立含有 { 1, 2, ..., n } 的陣列，並打亂順序 */
 fun randomNumbers(n: Int): Array<Int?> {
     val nums = IntArray(n)
-    // 生成陣列 nums = { 1, 2, 3, ..., n }
+    // 建立陣列 nums = { 1, 2, 3, ..., n }
     for (i in 0..<n) {
         nums[i] = i + 1
     }
@@ -22,24 +22,24 @@ fun randomNumbers(n: Int): Array<Int?> {
     return res
 }
 
-/* 查詢陣列 nums 中數字 1 所在索引 */
+/* 在陣列 nums 中尋找數字 1 的索引 */
 fun findOne(nums: Array<Int?>): Int {
     for (i in nums.indices) {
-        // 當元素 1 在陣列頭部時，達到最佳時間複雜度 O(1)
-        // 當元素 1 在陣列尾部時，達到最差時間複雜度 O(n)
+        // 若 1 在陣列開頭，最佳時間複雜度為 O(1)
+        // 若 1 在陣列末端，最差時間複雜度為 O(n)
         if (nums[i] == 1)
             return i
     }
     return -1
 }
 
-/* Driver Code */
+/* 主程式 */
 fun main() {
     for (i in 0..9) {
         val n = 100
         val nums = randomNumbers(n)
         val index = findOne(nums)
-        println("\n陣列 [ 1, 2, ..., n ] 被打亂後 = ${nums.contentToString()}")
+        println("\n陣列 [ 1, 2, ..., n ] 打亂順序後 = ${nums.contentToString()}")
         println("數字 1 的索引為 $index")
     }
 }

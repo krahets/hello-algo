@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// val의 최대 길이가 100이라고 가정한다
+// val의 최대 길이를 100으로 가정
 #define MAX_SIZE 100
 
 /* 키-값 쌍 */
@@ -25,10 +25,10 @@ typedef struct Node {
 
 /* 체이닝 해시 테이블 */
 typedef struct {
-    int size;         // 키-값 쌍 개수
-    int capacity;     // 해시 테이블 용량
-    double loadThres; // 용량 확장을 수행하는 적재율 임계값
-    int extendRatio;  // 용량 확장 배수
+    int size;         // 키-값 쌍의 개수
+    int capacity;     // 해시 테이블의 용량
+    double loadThres; // 용량을 늘리는 기준이 되는 적재율
+    int extendRatio;  // 용량 증가 배수
     Node **buckets;   // 버킷 배열
 } HashMapChaining;
 
@@ -71,10 +71,10 @@ double loadFactor(HashMapChaining *hashMap) {
     return (double)hashMap->size / (double)hashMap->capacity;
 }
 
-/* 조회 연산 */
+/* 조회 */
 char *get(HashMapChaining *hashMap, int key) {
     int index = hashFunc(hashMap, key);
-    // 버킷을 순회하다 key를 찾으면 해당 val을 반환한다
+    // 버킷을 순회하다가 key를 찾으면 해당 val 반환
     Node *cur = hashMap->buckets[index];
     while (cur) {
         if (cur->pair->key == key) {
@@ -82,25 +82,25 @@ char *get(HashMapChaining *hashMap, int key) {
         }
         cur = cur->next;
     }
-    return ""; // key를 찾지 못하면 빈 문자열을 반환한다
+    return ""; // key를 찾지 못하면 빈 문자열 반환
 }
 
-/* 추가 연산 */
+/* 추가 */
 void put(HashMapChaining *hashMap, int key, const char *val);
 
-/* 해시 테이블 용량 확장 */
+/* 해시 테이블 용량 늘리기 */
 void extend(HashMapChaining *hashMap) {
-    // 원래 해시 테이블을 임시로 저장한다
+    // 기존 해시 테이블 임시 보관
     int oldCapacity = hashMap->capacity;
     Node **oldBuckets = hashMap->buckets;
-    // 용량을 확장한 새 해시 테이블을 초기화한다
+    // 용량을 늘린 새 해시 테이블 초기화
     hashMap->capacity *= hashMap->extendRatio;
     hashMap->buckets = (Node **)malloc(hashMap->capacity * sizeof(Node *));
     for (int i = 0; i < hashMap->capacity; i++) {
         hashMap->buckets[i] = NULL;
     }
     hashMap->size = 0;
-    // 원래 해시 테이블의 키-값 쌍을 새 해시 테이블로 옮긴다
+    // 기존 해시 테이블의 키-값 쌍을 새 해시 테이블로 이동
     for (int i = 0; i < oldCapacity; i++) {
         Node *cur = oldBuckets[i];
         while (cur) {
@@ -116,23 +116,23 @@ void extend(HashMapChaining *hashMap) {
     free(oldBuckets);
 }
 
-/* 추가 연산 */
+/* 추가 */
 void put(HashMapChaining *hashMap, int key, const char *val) {
-    // 적재율이 임계값을 초과하면 용량을 확장한다
+    // 적재율이 임계값을 넘으면 용량 늘리기
     if (loadFactor(hashMap) > hashMap->loadThres) {
         extend(hashMap);
     }
     int index = hashFunc(hashMap, key);
-    // 버킷을 순회하다 지정한 key를 만나면 해당 val을 갱신하고 반환한다
+    // 버킷을 순회하다가 지정한 key를 만나면 해당 val을 갱신하고 반환
     Node *cur = hashMap->buckets[index];
     while (cur) {
         if (cur->pair->key == key) {
-            strcpy(cur->pair->val, val); // 지정한 key를 만나면 해당 val을 갱신하고 반환한다
+            strcpy(cur->pair->val, val); // 지정한 key를 만나면 해당 val을 갱신하고 반환
             return;
         }
         cur = cur->next;
     }
-    // 해당 key가 없으면 키-값 쌍을 연결 리스트의 맨 앞에 추가한다
+    // 해당 key가 없으면 연결 리스트의 맨 앞에 키-값 쌍 추가
     Pair *newPair = (Pair *)malloc(sizeof(Pair));
     newPair->key = key;
     strcpy(newPair->val, val);
@@ -143,14 +143,14 @@ void put(HashMapChaining *hashMap, int key, const char *val) {
     hashMap->size++;
 }
 
-/* 삭제 연산 */
+/* 삭제 */
 void removeItem(HashMapChaining *hashMap, int key) {
     int index = hashFunc(hashMap, key);
     Node *cur = hashMap->buckets[index];
     Node *pre = NULL;
     while (cur) {
         if (cur->pair->key == key) {
-            // 해당 키-값 쌍을 삭제한다
+            // 여기서 키-값 쌍 삭제
             if (pre) {
                 pre->next = cur->next;
             } else {
@@ -180,33 +180,33 @@ void print(HashMapChaining *hashMap) {
     }
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 int main() {
     /* 해시 테이블 초기화 */
     HashMapChaining *hashMap = newHashMapChaining();
 
-    /* 추가 연산 */
-    // 해시 테이블에 (key, value) 키-값 쌍을 추가한다
-    put(hashMap, 12836, "小哈");
-    put(hashMap, 15937, "小啰");
-    put(hashMap, 16750, "小算");
-    put(hashMap, 13276, "小法");
-    put(hashMap, 10583, "小鸭");
-    printf("\n추가한 후의 해시 테이블:\n키 -> 값\n");
+    /* 추가 */
+    // 해시 테이블에 키-값 쌍 (key, value) 추가
+    put(hashMap, 12836, "샤오하");
+    put(hashMap, 15937, "샤오뤄");
+    put(hashMap, 16750, "샤오쑤안");
+    put(hashMap, 13276, "샤오파");
+    put(hashMap, 10583, "샤오야");
+    printf("\n추가 후 해시 테이블\nKey -> Value\n");
     print(hashMap);
 
-    /* 조회 연산 */
-    // 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+    /* 조회 */
+    // 해시 테이블에 키 key를 입력하여 값 value 조회
     char *name = get(hashMap, 13276);
-    printf("\n학번 13276을 입력하여 조회한 이름: %s\n", name);
+    printf("\n학번 13276으로 조회한 이름: %s\n", name);
 
-    /* 삭제 연산 */
-    // 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+    /* 삭제 */
+    // 해시 테이블에서 키-값 쌍 (key, value) 삭제
     removeItem(hashMap, 12836);
-    printf("\n학번 12836을 삭제한 후의 해시 테이블\n키 -> 값\n");
+    printf("\n학번 12836 삭제 후 해시 테이블\nKey -> Value\n");
     print(hashMap);
 
-    /* 해시 테이블의 메모리 해제 */
+    /* 해시 테이블 메모리 해제 */
     delHashMapChaining(hashMap);
 
     return 0;

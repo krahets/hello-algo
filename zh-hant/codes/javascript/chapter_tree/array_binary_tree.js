@@ -7,40 +7,40 @@
 const { arrToTree } = require('../modules/TreeNode');
 const { printTree } = require('../modules/PrintUtil');
 
-/* 陣列表示下的二元樹類別 */
+/* 以陣列表示二元樹的類別 */
 class ArrayBinaryTree {
     #tree;
 
-    /* 建構子 */
+    /* 建構方法 */
     constructor(arr) {
         this.#tree = arr;
     }
 
-    /* 串列容量 */
+    /* 串列長度 */
     size() {
         return this.#tree.length;
     }
 
-    /* 獲取索引為 i 節點的值 */
+    /* 取得索引 i 處的節點值 */
     val(i) {
-        // 若索引越界，則返回 null ，代表空位
+        // 若索引超出範圍，回傳 null 表示空位
         if (i < 0 || i >= this.size()) return null;
         return this.#tree[i];
     }
 
-    /* 獲取索引為 i 節點的左子節點的索引 */
+    /* 取得索引 i 處節點的左子節點索引 */
     left(i) {
         return 2 * i + 1;
     }
 
-    /* 獲取索引為 i 節點的右子節點的索引 */
+    /* 取得索引 i 處節點的右子節點索引 */
     right(i) {
         return 2 * i + 2;
     }
 
-    /* 獲取索引為 i 節點的父節點的索引 */
+    /* 取得索引 i 處節點的父節點索引 */
     parent(i) {
-        return Math.floor((i - 1) / 2); // 向下整除
+        return Math.floor((i - 1) / 2); // 整數除法，向下取整
     }
 
     /* 層序走訪 */
@@ -55,7 +55,7 @@ class ArrayBinaryTree {
 
     /* 深度優先走訪 */
     #dfs(i, order, res) {
-        // 若為空位，則返回
+        // 若為空位，直接返回
         if (this.val(i) === null) return;
         // 前序走訪
         if (order === 'pre') res.push(this.val(i));
@@ -89,9 +89,9 @@ class ArrayBinaryTree {
     }
 }
 
-/* Driver Code */
+/* 主程式 */
 // 初始化二元樹
-// 這裡藉助了一個從陣列直接生成二元樹的函式
+// 這裡使用能從陣列直接建立二元樹的函式
 const arr = Array.of(
     1,
     2,
@@ -112,20 +112,20 @@ const arr = Array.of(
 
 const root = arrToTree(arr);
 console.log('\n初始化二元樹\n');
-console.log('二元樹的陣列表示：');
+console.log('二元樹的陣列表示法：');
 console.log(arr);
-console.log('二元樹的鏈結串列表示：');
+console.log('二元樹的鏈結串列表示法：');
 printTree(root);
 
-// 陣列表示下的二元樹類別
+// 以陣列表示二元樹的類別
 const abt = new ArrayBinaryTree(arr);
 
-// 訪問節點
+// 存取節點
 const i = 1;
 const l = abt.left(i);
 const r = abt.right(i);
 const p = abt.parent(i);
-console.log('\n當前節點的索引為 ' + i + ' ，值為 ' + abt.val(i));
+console.log('\n目前節點的索引為 ' + i + ' ，值為 ' + abt.val(i));
 console.log(
     '其左子節點的索引為 ' + l + ' ，值為 ' + (l === null ? 'null' : abt.val(l))
 );
@@ -138,10 +138,10 @@ console.log(
 
 // 走訪樹
 let res = abt.levelOrder();
-console.log('\n層序走訪為：' + res);
+console.log('\n層序走訪的結果：' + res);
 res = abt.preOrder();
-console.log('前序走訪為：' + res);
+console.log('前序走訪的結果：' + res);
 res = abt.inOrder();
-console.log('中序走訪為：' + res);
+console.log('中序走訪的結果：' + res);
 res = abt.postOrder();
-console.log('後序走訪為：' + res);
+console.log('後序走訪的結果：' + res);

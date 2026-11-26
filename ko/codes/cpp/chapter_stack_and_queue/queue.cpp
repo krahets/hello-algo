@@ -6,12 +6,12 @@
 
 #include "../utils/common.hpp"
 
-/* 실행 코드 */
+/* 실행 예제 */
 int main() {
     /* 큐 초기화 */
     queue<int> queue;
 
-    /* 원소 삽입 */
+    /* 큐에 원소 삽입 */
     queue.push(1);
     queue.push(3);
     queue.push(2);
@@ -20,20 +20,20 @@ int main() {
     cout << "큐 queue = ";
     printQueue(queue);
 
-    /* 맨 앞 원소 접근 */
+    /* 맨 앞 원소 조회 */
     int front = queue.front();
     cout << "맨 앞 원소 front = " << front << endl;
 
-    /* 원소 꺼내기 */
+    /* 큐에서 원소 꺼내기 */
     queue.pop();
-    cout << "큐에서 꺼낸 원소 front = " << front << ", 큐에서 꺼낸 후 queue = ";
+    cout << "꺼낸 원소 front = " << front << ", 꺼낸 후 queue = ";
     printQueue(queue);
 
-    /* 큐의 길이 반환 */
+    /* 큐의 길이 조회 */
     int size = queue.size();
-    cout << "큐 길이 size = " << size << endl;
+    cout << "큐의 길이 size = " << size << endl;
 
-    /* 큐가 비어 있는지 판단 */
+    /* 큐가 비어 있는지 확인 */
     bool empty = queue.empty();
     cout << "큐가 비어 있는가 = " << empty << endl;
 

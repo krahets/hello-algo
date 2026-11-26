@@ -7,13 +7,13 @@
 const { arrToTree } = require('../modules/TreeNode');
 const { printTree } = require('../modules/PrintUtil');
 
-// Инициализировать список для хранения последовательности обхода
+// Создать список для последовательности обхода
 const list = [];
 
-/* Предварительный обход */
+/* Прямой обход */
 function preOrder(root) {
     if (root === null) return;
-    // Порядок обхода: корень -> левое поддерево -> правое поддерево
+    // Порядок посещения: корень -> левое поддерево -> правое поддерево
     list.push(root.val);
     preOrder(root.left);
     preOrder(root.right);
@@ -22,7 +22,7 @@ function preOrder(root) {
 /* Симметричный обход */
 function inOrder(root) {
     if (root === null) return;
-    // Порядок обхода: левое поддерево -> корень -> правое поддерево
+    // Порядок посещения: левое поддерево -> корень -> правое поддерево
     inOrder(root.left);
     list.push(root.val);
     inOrder(root.right);
@@ -31,30 +31,30 @@ function inOrder(root) {
 /* Обратный обход */
 function postOrder(root) {
     if (root === null) return;
-    // Порядок обхода: левое поддерево -> правое поддерево -> корень
+    // Порядок посещения: левое поддерево -> правое поддерево -> корень
     postOrder(root.left);
     postOrder(root.right);
     list.push(root.val);
 }
 
-/* Driver Code */
+/* Основная программа */
 /* Инициализация двоичного дерева */
-// Здесь используется функция, напрямую строящая двоичное дерево из массива
+// Используем функцию, которая строит двоичное дерево непосредственно из массива
 const root = arrToTree([1, 2, 3, 4, 5, 6, 7]);
 console.log('\nИнициализация двоичного дерева\n');
 printTree(root);
 
-/* Предварительный обход */
+/* Прямой обход */
 list.length = 0;
 preOrder(root);
-console.log('\nПоследовательность печати узлов при предварительном обходе = ' + list);
+console.log('\nУзлы в порядке прямого обхода = ' + list);
 
 /* Симметричный обход */
 list.length = 0;
 inOrder(root);
-console.log('\nПоследовательность печати узлов при симметричном обходе = ' + list);
+console.log('\nУзлы в порядке симметричного обхода = ' + list);
 
 /* Обратный обход */
 list.length = 0;
 postOrder(root);
-console.log('\nПоследовательность печати узлов при обратном обходе = ' + list);
+console.log('\nУзлы в порядке обратного обхода = ' + list);

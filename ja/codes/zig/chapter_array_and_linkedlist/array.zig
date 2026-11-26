@@ -5,31 +5,31 @@
 const std = @import("std");
 const utils = @import("utils");
 
-// 要素にランダムアクセスする
+// 要素にランダムにアクセスする
 pub fn randomAccess(nums: []const i32) i32 {
-    // 区間 [0, nums.len) から整数をランダムに 1 つ選ぶ
+    // 区間 [0, nums.len) から整数をランダムに選ぶ
     const random_index = std.crypto.random.intRangeLessThan(usize, 0, nums.len);
     // ランダムに選んだ要素を取得して返す
     const randomNum = nums[random_index];
     return randomNum;
 }
 
-// 配列の長さを拡張する
+// 配列の長さを増やす
 pub fn extend(allocator: std.mem.Allocator, nums: []const i32, enlarge: usize) ![]i32 {
-    // 拡張後の長さの配列を初期化する
+    // 長さを増やした配列を初期化する
     const res = try allocator.alloc(i32, nums.len + enlarge);
     @memset(res, 0);
 
     // 元の配列の全要素を新しい配列にコピーする
     std.mem.copyForwards(i32, res, nums);
 
-    // 拡張後の新しい配列を返す
+    // 長さを増やした新しい配列を返す
     return res;
 }
 
 // 配列のインデックス index に要素 num を挿入する
 pub fn insert(nums: []i32, num: i32, index: usize) void {
-    // インデックス index 以降の全要素を 1 つ後ろにずらす
+    // インデックス index 以降の全要素を後ろに 1 つずらす
     var i = nums.len - 1;
     while (i > index) : (i -= 1) {
         nums[i] = nums[i - 1];
@@ -40,7 +40,7 @@ pub fn insert(nums: []i32, num: i32, index: usize) void {
 
 // インデックス index の要素を削除する
 pub fn remove(nums: []i32, index: usize) void {
-    // インデックス index より後の全要素を 1 つ前にずらす
+    // インデックス index より後ろの全要素を前に 1 つずらす
     var i = index;
     while (i < nums.len - 1) : (i += 1) {
         nums[i] = nums[i + 1];
@@ -63,14 +63,14 @@ pub fn traverse(nums: []const i32) void {
         count += num;
     }
 
-    // データのインデックスと要素を同時に走査する
+    // インデックスと要素を同時にたどる
     for (nums, 0..) |num, index| {
         count += nums[index];
         count += num;
     }
 }
 
-// 配列から指定した要素を探索する
+// 配列から指定した要素を探す
 pub fn find(nums: []i32, target: i32) i32 {
     for (nums, 0..) |num, i| {
         if (num == target) return @intCast(i);
@@ -78,7 +78,7 @@ pub fn find(nums: []i32, target: i32) i32 {
     return -1;
 }
 
-// 実行用コード
+// ドライバコード
 pub fn run() !void {
     // 配列を初期化する
     const arr = [_]i32{0} ** 5;
@@ -88,36 +88,36 @@ pub fn run() !void {
     var array = [_]i32{ 1, 3, 2, 5, 4 };
     var known_at_runtime_zero: usize = 0;
     _ = &known_at_runtime_zero;
-    var nums = array[known_at_runtime_zero..array.len]; // 実行時変数 known_at_runtime_zero を使ってポインタをスライスに変換する
+    var nums = array[known_at_runtime_zero..array.len]; // 実行時変数 known_at_runtime_zero を使ってポインタからスライスを得る
     std.debug.print("配列 nums = {}\n", .{utils.fmt.slice(nums)});
 
     // ランダムアクセス
     const randomNum = randomAccess(nums);
-    std.debug.print("nums からランダムに取得した要素 {}\n", .{randomNum});
+    std.debug.print("nums からランダムに選んだ要素：{}\n", .{randomNum});
 
     // メモリアロケータを初期化する
     var arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
     defer arena.deinit();
     const allocator = arena.allocator();
 
-    // 長さの拡張
+    // 配列の長さを増やす
     nums = try extend(allocator, nums, 3);
-    std.debug.print("配列の長さを 8 に拡張した結果 nums = {}\n", .{utils.fmt.slice(nums)});
+    std.debug.print("配列の長さを 8 に増やした後の nums = {}\n", .{utils.fmt.slice(nums)});
 
     // 要素を挿入する
     insert(nums, 6, 3);
-    std.debug.print("インデックス 3 に数値 6 を挿入した結果 nums = {}\n", .{utils.fmt.slice(nums)});
+    std.debug.print("インデックス 3 に 6 を挿入した後の nums = {}\n", .{utils.fmt.slice(nums)});
 
     // 要素を削除する
     remove(nums, 2);
-    std.debug.print("インデックス 2 の要素を削除した結果 nums = {}\n", .{utils.fmt.slice(nums)});
+    std.debug.print("インデックス 2 の要素を削除した後の nums = {}\n", .{utils.fmt.slice(nums)});
 
     // 配列を走査する
     traverse(nums);
 
-    // 要素を探索する
+    // 要素を探す
     const index = find(nums, 3);
-    std.debug.print("nums から要素 3 を探索した結果のインデックス = {}\n", .{index});
+    std.debug.print("nums で要素 3 が見つかったインデックス = {}\n", .{index});
 
     std.debug.print("\n", .{});
 }

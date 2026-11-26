@@ -7,29 +7,29 @@
 import '../utils/print_util.dart';
 import '../utils/tree_node.dart';
 
-/* Предварительный обход: пример 1 */
+/* Прямой обход: пример 1 */
 void preOrder(TreeNode? root, List<TreeNode> res) {
   if (root == null) {
     return;
   }
   if (root.val == 7) {
-    // Записать решение
+    // Сохраняем решение
     res.add(root);
   }
   preOrder(root.left, res);
   preOrder(root.right, res);
 }
 
-/* Driver Code */
+/* Основная программа */
 void main() {
   TreeNode? root = listToTree([1, 7, 3, 4, 5, 6, 7]);
-  print("\nИнициализация двоичного дерева");
+  print("\nСоздаём двоичное дерево");
   printTree(root);
 
-  // Предварительный обход
+  // Прямой обход
   List<TreeNode> res = [];
   preOrder(root, res);
 
-  print("\nВсе узлы со значением 7");
+  print("\nВыводим все узлы со значением 7");
   print(List.generate(res.length, (i) => res[i].val));
 }

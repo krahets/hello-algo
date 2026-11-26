@@ -4,7 +4,7 @@ Created Time: 2024-04-14
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Additive hash ###
+### Additive hashing ###
 def add_hash(key)
   hash = 0
   modulus = 1_000_000_007
@@ -14,7 +14,7 @@ def add_hash(key)
   hash % modulus
 end
 
-### Multiplicative hash ###
+### Multiplicative hashing ###
 def mul_hash(key)
   hash = 0
   modulus = 1_000_000_007
@@ -24,7 +24,7 @@ def mul_hash(key)
   hash % modulus
 end
 
-### XOR hash ###
+### XOR hashing ###
 def xor_hash(key)
   hash = 0
   modulus = 1_000_000_007
@@ -34,7 +34,7 @@ def xor_hash(key)
   hash % modulus
 end
 
-### Rotating hash ###
+### Rotation hashing ###
 def rot_hash(key)
   hash = 0
   modulus = 1_000_000_007
@@ -58,5 +58,5 @@ if __FILE__ == $0
   puts "XOR hash value: #{hash}"
 
   hash = rot_hash(key)
-  puts "Rotating hash value: #{hash}"
+  puts "Rotation hash value: #{hash}"
 end

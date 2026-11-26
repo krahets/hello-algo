@@ -1,9 +1,9 @@
-# Getting to know algorithms
+# Introduction to algorithms
 
 ![Getting to know algorithms](../assets/covers/chapter_introduction.jpg)
 
 !!! abstract
 
-    A young woman dances gracefully among the data, the melody of algorithms rippling through her skirt.
+    A young woman dances among strands of data, her skirt swirling to the rhythm of algorithms.
     
-    She invites you to join her. Follow her steps into a world of algorithms filled with logic and beauty.
+    She invites you to dance. Follow her steps into a world of logic and beauty.

@@ -12,34 +12,34 @@ use std::{cell::RefCell, rc::Rc};
 
 /* レベル順走査 */
 fn level_order(root: &Rc<RefCell<TreeNode>>) -> Vec<i32> {
-    // キューを初期化し、根ノードを追加する
+    // キューを初期化して根を入れる
     let mut que = VecDeque::new();
     que.push_back(root.clone());
-    // 走査順序を保存するリストを初期化する
+    // 走査順を記録するリストを初期化する
     let mut vec = Vec::new();
 
     while let Some(node) = que.pop_front() {
-        // キューからデキューする
-        vec.push(node.borrow().val); // ノードの値を保存する
+        // キューの先頭から取り出す
+        vec.push(node.borrow().val); // ノードの値を記録する
         if let Some(left) = node.borrow().left.as_ref() {
-            que.push_back(left.clone()); // 左の子ノードをエンキューする
+            que.push_back(left.clone()); // 左の子をキューに入れる
         }
         if let Some(right) = node.borrow().right.as_ref() {
-            que.push_back(right.clone()); // 右の子ノードをエンキューする
+            que.push_back(right.clone()); // 右の子をキューに入れる
         };
     }
     vec
 }
 
-/* 実行用コード */
+/* 実行例 */
 fn main() {
     /* 二分木を初期化する */
-    // ここでは配列から二分木を直接生成する関数を使う
+    // ここでは配列から直接二分木を作る関数を使う
     let root = vec_to_tree(op_vec![1, 2, 3, 4, 5, 6, 7]).unwrap();
-    println!("二分木を初期化する\n");
+    println!("二分木を初期化\n");
     print_util::print_tree(&root);
 
     /* レベル順走査 */
     let vec = level_order(&root);
-    print!("\nレベル順走査で表示するノードの順序 = {:?}", vec);
+    print!("\nレベル順に出力したノードの列 = {:?}", vec);
 }

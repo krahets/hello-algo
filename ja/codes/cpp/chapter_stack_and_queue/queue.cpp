@@ -6,12 +6,12 @@
 
 #include "../utils/common.hpp"
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     /* キューを初期化する */
     queue<int> queue;
 
-    /* 要素をエンキューする */
+    /* 要素をキューに追加する */
     queue.push(1);
     queue.push(3);
     queue.push(2);
@@ -20,20 +20,20 @@ int main() {
     cout << "キュー queue = ";
     printQueue(queue);
 
-    /* キューの先頭要素にアクセス */
+    /* キューの先頭要素を参照する */
     int front = queue.front();
-    cout << "キューの先頭要素 front = " << front << endl;
+    cout << "先頭要素 front = " << front << endl;
 
-    /* 要素をデキューする */
+    /* キューから要素を取り出す */
     queue.pop();
-    cout << "デキューした要素 front = " << front << "、デキュー後 queue = ";
+    cout << "デキューした要素 front = " << front << "、デキュー後の queue = ";
     printQueue(queue);
 
-    /* キューの長さを取得 */
+    /* キューの要素数を取得する */
     int size = queue.size();
-    cout << "キューの長さ size = " << size << endl;
+    cout << "キューの要素数 size = " << size << endl;
 
-    /* キューが空か判定 */
+    /* キューが空かどうかを判定する */
     bool empty = queue.empty();
     cout << "キューは空か = " << empty << endl;
 

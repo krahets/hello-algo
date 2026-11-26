@@ -7,10 +7,10 @@
 namespace hello_algo.chapter_backtracking;
 
 public class n_queens {
-    /* バックトラッキング：n クイーン */
+    /* バックトラッキングによる n クイーン問題 */
     void Backtrack(int row, int n, List<List<string>> state, List<List<List<string>>> res,
             bool[] cols, bool[] diags1, bool[] diags2) {
-        // すべての行への配置が終わったら、解を記録する
+        // すべての行に置いたら解を記録する
         if (row == n) {
             List<List<string>> copyState = [];
             foreach (List<string> sRow in state) {
@@ -19,19 +19,19 @@ public class n_queens {
             res.Add(copyState);
             return;
         }
-        // すべての列を走査する
+        // すべての列を調べる
         for (int col = 0; col < n; col++) {
-            // このマスに対応する主対角線と副対角線を求める
+            // このマスを通る主対角線と副対角線を求める
             int diag1 = row - col + n - 1;
             int diag2 = row + col;
             // 枝刈り：このマスと同じ列、主対角線、副対角線にクイーンがあってはならない
             if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-                // 試行：このマスにクイーンを配置する
+                // 試行：このマスにクイーンを置く
                 state[row][col] = "Q";
                 cols[col] = diags1[diag1] = diags2[diag2] = true;
-                // 次の行に配置する
+                // 次の行に置く
                 Backtrack(row + 1, n, state, res, cols, diags1, diags2);
-                // 復元：このマスを空きマスに戻す
+                // 後戻り：このマスを空きに戻す
                 state[row][col] = "#";
                 cols[col] = diags1[diag1] = diags2[diag2] = false;
             }
@@ -49,9 +49,9 @@ public class n_queens {
             }
             state.Add(row);
         }
-        bool[] cols = new bool[n]; // 列にクイーンがあるかどうかを記録する
-        bool[] diags1 = new bool[2 * n - 1]; // 主対角線にクイーンがあるかどうかを記録する
-        bool[] diags2 = new bool[2 * n - 1]; // 副対角線にクイーンがあるかどうかを記録する
+        bool[] cols = new bool[n]; // 各列にクイーンがあるか記録する
+        bool[] diags1 = new bool[2 * n - 1]; // 各主対角線にクイーンがあるか記録する
+        bool[] diags2 = new bool[2 * n - 1]; // 各副対角線にクイーンがあるか記録する
         List<List<List<string>>> res = [];
 
         Backtrack(0, n, state, res, cols, diags1, diags2);
@@ -64,8 +64,8 @@ public class n_queens {
         int n = 4;
         List<List<List<string>>> res = NQueens(n);
 
-        Console.WriteLine("入力した盤面の縦横の長さは " + n);
-        Console.WriteLine("クイーンの配置方法は全部で " + res.Count + " 通り");
+        Console.WriteLine("盤面の一辺の長さ： " + n);
+        Console.WriteLine("クイーンの配置は全部で " + res.Count + " 通り");
         foreach (List<List<string>> state in res) {
             Console.WriteLine("--------------------");
             foreach (List<string> row in state) {

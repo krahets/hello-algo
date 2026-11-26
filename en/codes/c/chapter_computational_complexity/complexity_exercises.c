@@ -6,7 +6,7 @@
 
 #include <assert.h>
 
-/* Sum using iteration */
+/* Iterative sum */
 int sumIter(int n) {
     int res = 0;
     for (int i = 1; i <= n; i++) {
@@ -15,7 +15,7 @@ int sumIter(int n) {
     return res;
 }
 
-/* Sum using recursion */
+/* Recursive sum */
 int sumRecur(int n) {
     if (n == 1) {
         return 1;

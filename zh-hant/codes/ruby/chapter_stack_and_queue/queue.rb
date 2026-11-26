@@ -4,13 +4,13 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Driver Code ###
+### 範例程式 ###
 if __FILE__ == $0
   # 初始化佇列
-  # Ruby 內建的佇列（Thread::Queue）沒有 peek 和走訪方法，可以把 Array 當作佇列來使用
+  # Ruby 內建的佇列（Thread::Queue）沒有 peek 方法，也沒有走訪元素的方法，可以用 Array 當作佇列
   queue = []
 
-  # 元素入列
+  # 將元素加入佇列
   queue.push(1)
   queue.push(3)
   queue.push(2)
@@ -18,17 +18,17 @@ if __FILE__ == $0
   queue.push(4)
   puts "佇列 queue = #{queue}"
 
-  # 訪問佇列元素
+  # 讀取隊首元素
   peek = queue.first
-  puts "佇列首元素 peek = #{peek}"
+  puts "隊首元素 peek = #{peek}"
 
-  # 元素出列
-  # 請注意，由於是陣列，Array#shift 方法的時間複雜度為 O(n)
+  # 從佇列取出元素
+  # 請注意，Array 是陣列，因此 Array#shift 的時間複雜度為 O(n)
   pop = queue.shift
-  puts "出列元素 pop = #{pop}"
-  puts "出列後 queue = #{queue}"
+  puts "出隊元素 pop = #{pop}"
+  puts "出隊後 queue = #{queue}"
 
-  # 獲取佇列的長度
+  # 取得佇列長度
   size = queue.length
   puts "佇列長度 size = #{size}"
 

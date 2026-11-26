@@ -8,8 +8,8 @@
 class TreeNode {
     val: number; // Node value
     height: number; // Node height
-    left: TreeNode | null; // Pointer to the left child
-    right: TreeNode | null; // Pointer to the right child
+    left: TreeNode | null; // Reference to the left child
+    right: TreeNode | null; // Reference to the right child
     constructor(
         val?: number,
         height?: number,

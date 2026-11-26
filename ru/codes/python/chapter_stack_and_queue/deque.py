@@ -8,35 +8,35 @@ from collections import deque
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Инициализация двусторонней очереди
+    # Инициализировать дек
     deq: deque[int] = deque()
 
-    # Добавление элемента в очередь
-    deq.append(2)  # Добавить в хвост очереди
+    # Добавить элементы в дек
+    deq.append(2)  # Добавить в конец дека
     deq.append(5)
     deq.append(4)
-    deq.appendleft(3)  # Добавить в голову очереди
+    deq.appendleft(3)  # Добавить в начало дека
     deq.appendleft(1)
-    print("Двусторонняя очередь deque =", deq)
+    print("Дек deque =", deq)
 
-    # Доступ к элементу
-    front: int = deq[0]  # Элемент в голове очереди
-    print("Первый элемент front =", front)
-    rear: int = deq[-1]  # Элемент в хвосте очереди
-    print("Последний элемент rear =", rear)
+    # Посмотреть первый и последний элементы
+    front: int = deq[0]  # Первый элемент дека
+    print("Первый элемент дека front =", front)
+    rear: int = deq[-1]  # Последний элемент дека
+    print("Последний элемент дека rear =", rear)
 
-    # Извлечение элемента из очереди
-    pop_front: int = deq.popleft()  # Извлечь элемент из головы очереди
-    print("Извлеченный из головы элемент pop_front =", pop_front)
-    print("deque после извлечения из головы =", deq)
-    pop_rear: int = deq.pop()  # Извлечь элемент из хвоста очереди
-    print("Извлеченный из хвоста элемент pop_rear =", pop_rear)
-    print("deque после извлечения из хвоста =", deq)
+    # Извлечь элементы из дека
+    pop_front: int = deq.popleft()  # Извлечь элемент из начала дека
+    print("Извлечённый первый элемент  pop_front =", pop_front)
+    print("После извлечения из начала deque =", deq)
+    pop_rear: int = deq.pop()  # Извлечь элемент из конца дека
+    print("Извлечённый последний элемент  pop_rear =", pop_rear)
+    print("После извлечения из конца deque =", deq)
 
-    # Получение длины двусторонней очереди
+    # Получить длину дека
     size: int = len(deq)
-    print("Длина двусторонней очереди size =", size)
+    print("Длина дека size =", size)
 
-    # Проверка, пуста ли двусторонняя очередь
+    # Проверить, пуст ли дек
     is_empty: bool = len(deq) == 0
-    print("Пуста ли двусторонняя очередь =", is_empty)
+    print("Дек пуст =", is_empty)

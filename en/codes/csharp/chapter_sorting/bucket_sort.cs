@@ -17,14 +17,14 @@ public class bucket_sort {
         }
         // 1. Distribute the array elements among the buckets
         foreach (float num in nums) {
-            // The input range is [0, 1); use num * k to map each value to an index in [0, k-1]
+            // For inputs in [0, 1), use num * k to map each value to an index in [0, k-1]
             int i = (int)(num * k);
             // Add num to bucket i
             buckets[i].Add(num);
         }
         // 2. Sort each bucket
         foreach (List<float> bucket in buckets) {
-            // Use the built-in sorting function, or replace it with another sorting algorithm
+            // Use the built-in sort or another sorting algorithm
             bucket.Sort();
         }
         // 3. Traverse the buckets to combine the results
@@ -38,7 +38,7 @@ public class bucket_sort {
 
     [Test]
     public void Test() {
-        // Assume the input consists of floating-point numbers in [0, 1)
+        // Assume floating-point inputs in [0, 1)
         float[] nums = [0.49f, 0.96f, 0.82f, 0.09f, 0.57f, 0.43f, 0.91f, 0.75f, 0.15f, 0.37f];
         BucketSort(nums);
         Console.WriteLine("After bucket sort, nums = " + string.Join(" ", nums));

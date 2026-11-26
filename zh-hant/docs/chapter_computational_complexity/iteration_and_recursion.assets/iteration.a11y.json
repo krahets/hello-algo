@@ -1,0 +1,18 @@
+{
+  "context": [
+    "依照圖中的流程，計算從 1 到正整數 n 的總和。將累加值設為 0，每一輪的「任務」就是把當前的 i 加進去。"
+  ],
+  "description": [],
+  "frames": [
+    {
+      "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/iteration.png",
+      "explanation": "先設定 i = 1，再判斷 i ≤ n 是否成立。若成立，就執行任務，將 i 加 1，再直接回到條件判斷；若不成立，就離開迴圈。初值只在進入迴圈前設定一次，每一輪都沿用更新後的 i，不會重新設為 1。",
+      "id": "source-19",
+      "title": "單層迴圈"
+    }
+  ],
+  "result": "執行任務時，i 依序取 1 到 n，任務共執行 n 次。當 i 更新為 n + 1 時，條件不成立，迴圈結束。",
+  "schema_version": 2,
+  "summary": "透過設定初值、判斷條件與更新變數，控制任務的重複執行。",
+  "title": "單層迴圈"
+}

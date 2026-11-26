@@ -21,7 +21,7 @@ func insertionSort(nums: inout [Int]) {
 
 @main
 enum InsertionSort {
-    /* Driver code */
+    /* Driver Code */
     static func main() {
         var nums = [4, 1, 3, 1, 5, 2]
         insertionSort(nums: &nums)

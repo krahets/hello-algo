@@ -10,7 +10,7 @@ import (
 
 /* 연결 리스트로 구현한 스택 */
 type linkedListStack struct {
-	// 내장 패키지 list로 스택을 구현한다
+	// 표준 라이브러리의 list 패키지로 스택을 구현한다
 	data *list.List
 }
 
@@ -36,7 +36,7 @@ func (s *linkedListStack) pop() any {
 	return e.Value
 }
 
-/* 스택 맨 위 원소 접근 */
+/* 스택 맨 위의 원소 조회 */
 func (s *linkedListStack) peek() any {
 	if s.isEmpty() {
 		return nil
@@ -45,17 +45,17 @@ func (s *linkedListStack) peek() any {
 	return e.Value
 }
 
-/* 스택의 길이 반환 */
+/* 스택의 길이 조회 */
 func (s *linkedListStack) size() int {
 	return s.data.Len()
 }
 
-/* 스택이 비어 있는지 판단 */
+/* 스택이 비어 있는지 확인 */
 func (s *linkedListStack) isEmpty() bool {
 	return s.data.Len() == 0
 }
 
-/* 출력에 사용할 List 반환 */
+/* 출력에 사용할 list.List 반환 */
 func (s *linkedListStack) toList() *list.List {
 	return s.data
 }

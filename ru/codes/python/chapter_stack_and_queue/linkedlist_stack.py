@@ -20,31 +20,31 @@ class LinkedListStack:
         self._size: int = 0
 
     def size(self) -> int:
-        """Получение длины стека"""
+        """Получить размер стека"""
         return self._size
 
     def is_empty(self) -> bool:
-        """Проверка, пуст ли стек"""
+        """Проверить, пуст ли стек"""
         return self._size == 0
 
     def push(self, val: int):
-        """Поместить в стек"""
+        """Поместить элемент в стек"""
         node = ListNode(val)
         node.next = self._peek
         self._peek = node
         self._size += 1
 
     def pop(self) -> int:
-        """Извлечь из стека"""
+        """Снять элемент со стека"""
         num = self.peek()
         self._peek = self._peek.next
         self._size -= 1
         return num
 
     def peek(self) -> int:
-        """Доступ к верхнему элементу стека"""
+        """Посмотреть элемент на вершине стека"""
         if self.is_empty():
-            raise IndexError("стек пуст")
+            raise IndexError("Стек пуст")
         return self._peek.val
 
     def to_list(self) -> list[int]:
@@ -60,10 +60,10 @@ class LinkedListStack:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Инициализация стека
+    # Инициализировать стек
     stack = LinkedListStack()
 
-    # Помещение элемента в стек
+    # Поместить элементы в стек
     stack.push(1)
     stack.push(3)
     stack.push(2)
@@ -71,19 +71,19 @@ if __name__ == "__main__":
     stack.push(4)
     print("Стек stack =", stack.to_list())
 
-    # Доступ к верхнему элементу стека
+    # Посмотреть элемент на вершине стека
     peek: int = stack.peek()
-    print("Верхний элемент peek =", peek)
+    print("Элемент на вершине стека peek =", peek)
 
-    # Извлечение элемента из стека
+    # Снять элемент со стека
     pop: int = stack.pop()
-    print("Извлеченный элемент pop =", pop)
-    print("stack после извлечения =", stack.to_list())
+    print("Снятый элемент pop =", pop)
+    print("После снятия элемента stack =", stack.to_list())
 
-    # Получение длины стека
+    # Получить размер стека
     size: int = stack.size()
-    print("Длина стека size =", size)
+    print("Размер стека size =", size)
 
-    # Проверка на пустоту
+    # Проверить, пуст ли стек
     is_empty: bool = stack.is_empty()
-    print("Пуст ли стек =", is_empty)
+    print("Стек пуст =", is_empty)

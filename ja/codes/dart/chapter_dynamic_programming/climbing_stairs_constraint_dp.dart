@@ -4,7 +4,7 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* 制約付きの階段の上り方：動的計画法 */
+/* 制約付きの階段の登り方：動的計画法 */
 int climbingStairsConstraintDP(int n) {
   if (n == 1 || n == 2) {
     return 1;
@@ -24,10 +24,10 @@ int climbingStairsConstraintDP(int n) {
   return dp[n][1] + dp[n][2];
 }
 
-/* 実行用コード */
+/* 実行例 */
 void main() {
   int n = 9;
 
   int res = climbingStairsConstraintDP(n);
-  print("$n 段の階段を上る方法は全部で $res 通り");
+  print("全 $n 段の階段の登り方は $res 通り");
 }

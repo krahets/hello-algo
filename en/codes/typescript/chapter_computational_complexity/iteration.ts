@@ -53,20 +53,20 @@ function nestedForLoop(n: number): string {
     return res;
 }
 
-/* Driver code */
+/* Driver Code */
 const n = 5;
 let res: number;
 
 res = forLoop(n);
-console.log(`Sum from the for loop: res = ${res}`);
+console.log(`for loop sum: res = ${res}`);
 
 res = whileLoop(n);
-console.log(`Sum from the while loop: res = ${res}`);
+console.log(`while loop sum: res = ${res}`);
 
 res = whileLoopII(n);
-console.log(`Sum from the while loop with two updates: res = ${res}`);
+console.log(`while loop sum (two updates): res = ${res}`);
 
 const resStr = nestedForLoop(n);
-console.log(`Traversal result from the nested for loops: ${resStr}`);
+console.log(`Nested for loop traversal: ${resStr}`);
 
 export {};

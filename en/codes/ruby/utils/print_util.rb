@@ -39,8 +39,8 @@ def show_trunk(p)
   print p.str
 end
 
-### Print the binary tree ###
-# This tree printer is borrowed from TECHIE DELIGHT
+### Print a binary tree ###
+# This tree printer comes from Techie Delight
 # https://www.techiedelight.com/c-program-print-binary-tree/
 def print_tree(root, prev=nil, is_right=false)
   return if root.nil?
@@ -66,7 +66,7 @@ def print_tree(root, prev=nil, is_right=false)
   print_tree(root.left, trunk, false)
 end
 
-### Print the hash table ###
+### Print a hash table ###
 def print_hash_map(hmap)
   hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
 end

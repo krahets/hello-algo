@@ -9,24 +9,24 @@ import utils
 
 /* Вспомогательная функция обхода в глубину */
 func dfs(graph: GraphAdjList, visited: inout Set<Vertex>, res: inout [Vertex], vet: Vertex) {
-    res.append(vet) // Отметить посещенную вершину
-    visited.insert(vet) // Отметить эту вершину как посещенную
-    // Обойти все смежные вершины данной вершины
+    res.append(vet) // Записать посещённую вершину
+    visited.insert(vet) // Отметить вершину как посещённую
+    // Перебрать всех соседей этой вершины
     for adjVet in graph.adjList[vet] ?? [] {
         if visited.contains(adjVet) {
-            continue // Пропустить уже посещенную вершину
+            continue // Пропустить посещённые вершины
         }
-        // Рекурсивно обходить смежные вершины
+        // Рекурсивно посетить соседнюю вершину
         dfs(graph: graph, visited: &visited, res: &res, vet: adjVet)
     }
 }
 
 /* Обход в глубину */
-// Использовать список смежности для представления графа, чтобы получить все смежные вершины заданной вершины
+// Список смежности позволяет получить всех соседей заданной вершины
 func graphDFS(graph: GraphAdjList, startVet: Vertex) -> [Vertex] {
-    // Последовательность обхода вершин
+    // Порядок обхода вершин
     var res: [Vertex] = []
-    // Хеш-множество для хранения уже посещенных вершин
+    // Хеш-множество посещённых вершин
     var visited: Set<Vertex> = []
     dfs(graph: graph, visited: &visited, res: &res, vet: startVet)
     return res
@@ -34,21 +34,21 @@ func graphDFS(graph: GraphAdjList, startVet: Vertex) -> [Vertex] {
 
 @main
 enum GraphDFS {
-    /* Driver Code */
+    /* Пример использования */
     static func main() {
-        /* Инициализация неориентированного графа */
+        /* Инициализировать неориентированный граф */
         let v = Vertex.valsToVets(vals: [0, 1, 2, 3, 4, 5, 6])
         let edges = [
             [v[0], v[1]], [v[0], v[3]], [v[1], v[2]],
             [v[2], v[5]], [v[4], v[5]], [v[5], v[6]],
         ]
         let graph = GraphAdjList(edges: edges)
-        print("\nГраф после инициализации")
+        print("\nГраф после инициализации:")
         graph.print()
 
         /* Обход в глубину */
         let res = graphDFS(graph: graph, startVet: v[0])
-        print("\nПоследовательность вершин при обходе в глубину (DFS)")
+        print("\nПорядок обхода вершин в глубину (DFS):")
         print(Vertex.vetsToVals(vets: res))
     }
 }

@@ -14,7 +14,7 @@ void preOrder(TreeNode *root) {
     if (root == nullptr) {
         return;
     }
-    // Try
+    // Try a choice
     path.push_back(root);
     if (root->val == 7) {
         // Record the solution
@@ -35,7 +35,7 @@ int main() {
     // Preorder traversal
     preOrder(root);
 
-    cout << "\nOutput all paths from the root to nodes with value 7" << endl;
+    cout << "\nPrint all paths from the root to a node with value 7" << endl;
     for (vector<TreeNode *> &path : res) {
         vector<int> vals;
         for (TreeNode *node : path) {

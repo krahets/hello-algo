@@ -19,12 +19,12 @@ impl<T> ArrayStack<T> {
         }
     }
 
-    /* 스택의 길이 반환 */
+    /* 스택의 길이 조회 */
     fn size(&self) -> usize {
         self.stack.len()
     }
 
-    /* 스택이 비어 있는지 판단 */
+    /* 스택이 비어 있는지 확인 */
     fn is_empty(&self) -> bool {
         self.size() == 0
     }
@@ -39,7 +39,7 @@ impl<T> ArrayStack<T> {
         self.stack.pop()
     }
 
-    /* 스택 맨 위 원소 접근 */
+    /* 스택 맨 위의 원소 조회 */
     fn peek(&self) -> Option<&T> {
         if self.is_empty() {
             panic!("스택이 비어 있다")
@@ -47,13 +47,13 @@ impl<T> ArrayStack<T> {
         self.stack.last()
     }
 
-    /* &Vec를 반환한다 */
+    /* &Vec 반환 */
     fn to_array(&self) -> &Vec<T> {
         &self.stack
     }
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 fn main() {
     // 스택 초기화
     let mut stack = ArrayStack::<i32>::new();
@@ -67,20 +67,20 @@ fn main() {
     print!("스택 stack = ");
     print_util::print_array(stack.to_array());
 
-    //스택 맨 위 원소 접근
+    //스택 맨 위의 원소 조회
     let peek = stack.peek().unwrap();
-    print!("\n스택 맨 위 원소 peek = {}", peek);
+    print!("\n맨 위 원소 peek = {}", peek);
 
     // 스택에서 원소 꺼내기
     let pop = stack.pop().unwrap();
-    print!("\n꺼낸 원소 pop = {pop}, 꺼낸 뒤 stack = ");
+    print!("\n꺼낸 원소 pop = {pop}, 꺼낸 후 stack = ");
     print_util::print_array(stack.to_array());
 
-    // 스택의 길이 반환
+    // 스택의 길이 조회
     let size = stack.size();
-    print!("\n스택 길이 size = {size}");
+    print!("\n스택의 길이 size = {size}");
 
-    // 비어 있는지 판단
+    // 비어 있는지 확인
     let is_empty = stack.is_empty();
     print!("\n스택이 비어 있는가 = {is_empty}");
 }

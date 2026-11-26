@@ -6,10 +6,10 @@
 
 const { ListNode } = require('../modules/ListNode');
 
-/* 基於鏈結串列實現的佇列 */
+/* 以鏈結串列實作佇列 */
 class LinkedListQueue {
-    #front; // 頭節點 #front
-    #rear; // 尾節點 #rear
+    #front; // #front 指向首節點
+    #rear; // #rear 指向尾節點
     #queSize = 0;
 
     constructor() {
@@ -17,7 +17,7 @@ class LinkedListQueue {
         this.#rear = null;
     }
 
-    /* 獲取佇列的長度 */
+    /* 取得佇列長度 */
     get size() {
         return this.#queSize;
     }
@@ -27,15 +27,15 @@ class LinkedListQueue {
         return this.size === 0;
     }
 
-    /* 入列 */
+    /* 入隊 */
     push(num) {
-        // 在尾節點後新增 num
+        // 建立存有 num 的新節點，準備接到隊尾
         const node = new ListNode(num);
-        // 如果佇列為空，則令頭、尾節點都指向該節點
+        // 若佇列為空，讓隊首與隊尾都指向新節點
         if (!this.#front) {
             this.#front = node;
             this.#rear = node;
-            // 如果佇列不為空，則將該節點新增到尾節點後
+            // 若佇列非空，將新節點接在尾節點之後
         } else {
             this.#rear.next = node;
             this.#rear = node;
@@ -43,22 +43,22 @@ class LinkedListQueue {
         this.#queSize++;
     }
 
-    /* 出列 */
+    /* 出隊 */
     pop() {
         const num = this.peek();
-        // 刪除頭節點
+        // 移除首節點
         this.#front = this.#front.next;
         this.#queSize--;
         return num;
     }
 
-    /* 訪問佇列首元素 */
+    /* 讀取隊首元素 */
     peek() {
         if (this.size === 0) throw new Error('佇列為空');
         return this.#front.val;
     }
 
-    /* 將鏈結串列轉化為 Array 並返回 */
+    /* 將鏈結串列轉成陣列並回傳 */
     toArray() {
         let node = this.#front;
         const res = new Array(this.size);
@@ -70,11 +70,11 @@ class LinkedListQueue {
     }
 }
 
-/* Driver Code */
+/* 範例程式 */
 /* 初始化佇列 */
 const queue = new LinkedListQueue();
 
-/* 元素入列 */
+/* 將元素加入佇列 */
 queue.push(1);
 queue.push(3);
 queue.push(2);
@@ -82,15 +82,15 @@ queue.push(5);
 queue.push(4);
 console.log('佇列 queue = ' + queue.toArray());
 
-/* 訪問佇列首元素 */
+/* 讀取隊首元素 */
 const peek = queue.peek();
-console.log('佇列首元素 peek = ' + peek);
+console.log('隊首元素 peek = ' + peek);
 
-/* 元素出列 */
+/* 從佇列取出元素 */
 const pop = queue.pop();
-console.log('出列元素 pop = ' + pop + '，出列後 queue = ' + queue.toArray());
+console.log('出隊元素 pop = ' + pop + '，出隊後 queue = ' + queue.toArray());
 
-/* 獲取佇列的長度 */
+/* 取得佇列長度 */
 const size = queue.size;
 console.log('佇列長度 size = ' + size);
 

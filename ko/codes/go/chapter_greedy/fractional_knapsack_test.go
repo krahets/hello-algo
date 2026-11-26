@@ -16,5 +16,5 @@ func TestFractionalKnapsack(t *testing.T) {
 
 	// 탐욕 알고리즘
 	res := fractionalKnapsack(wgt, val, capacity)
-	fmt.Println("배낭 용량을 초과하지 않는 물건의 최대 가치:", res)
+	fmt.Println("배낭 용량 안에서 얻는 최대 가치:", res)
 }

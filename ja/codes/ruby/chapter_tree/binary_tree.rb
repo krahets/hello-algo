@@ -7,7 +7,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   # 二分木を初期化する
   # ノードを初期化する
@@ -21,7 +21,7 @@ if __FILE__ == $0
   n1.right = n3
   n2.left = n4
   n2.right = n5
-  puts "\n二分木を初期化する\n\n"
+  puts "\n二分木を初期化\n\n"
   print_tree(n1)
 
   # ノードの挿入と削除

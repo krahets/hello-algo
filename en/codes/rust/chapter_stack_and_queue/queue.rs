@@ -19,16 +19,16 @@ pub fn main() {
     queue.push_back(2);
     queue.push_back(5);
     queue.push_back(4);
-    print!("Queue queue = ");
+    print!("queue = ");
     print_util::print_queue(&queue);
 
-    // Access the front element
+    // Peek at the front element
     let peek = queue.front().unwrap();
-    println!("\nFront element peek = {peek}");
+    println!("\nFront element (peek) = {peek}");
 
     // Dequeue an element
     let pop = queue.pop_front().unwrap();
-    print!("Dequeued element pop = {pop}; after dequeueing, queue = ");
+    print!("Dequeued element (pop) = {pop}, queue after removal = ");
     print_util::print_queue(&queue);
 
     // Get the queue size
@@ -37,5 +37,5 @@ pub fn main() {
 
     // Check whether the queue is empty
     let is_empty = queue.is_empty();
-    print!("\nIs the queue empty? {is_empty}");
+    print!("\nQueue is empty = {is_empty}");
 }

@@ -8,9 +8,9 @@ package chapter_array_and_linkedlist
 
 import java.util.concurrent.ThreadLocalRandom
 
-/* Случайный доступ к элементу */
+/* Чтение случайного элемента */
 fun randomAccess(nums: IntArray): Int {
-    // Случайный выбор числа из диапазона [0, nums.size)
+    // Выбрать случайное число из интервала [0, nums.size)
     val randomIndex = ThreadLocalRandom.current().nextInt(0, nums.size)
     // Получить и вернуть случайный элемент
     val randomNum = nums[randomIndex]
@@ -19,29 +19,29 @@ fun randomAccess(nums: IntArray): Int {
 
 /* Увеличение длины массива */
 fun extend(nums: IntArray, enlarge: Int): IntArray {
-    // Инициализировать массив увеличенной длины
+    // Создать массив увеличенной длины
     val res = IntArray(nums.size + enlarge)
-    // Скопировать все элементы исходного массива в новый массив
+    // Скопировать все элементы исходного массива в новый
     for (i in nums.indices) {
         res[i] = nums[i]
     }
-    // Вернуть новый массив после расширения
+    // Вернуть новый массив увеличенной длины
     return res
 }
 
-/* Вставка элемента num в массив по индексу index */
+/* Вставить num в массив по индексу index */
 fun insert(nums: IntArray, num: Int, index: Int) {
-    // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию вправо
+    // Сдвинуть на одну позицию вправо все элементы начиная с index
     for (i in nums.size - 1 downTo index + 1) {
         nums[i] = nums[i - 1]
     }
-    // Присвоить num элементу по индексу index
+    // Записать num по индексу index
     nums[index] = num
 }
 
-/* Удаление элемента по индексу index */
+/* Удалить элемент по индексу index */
 fun remove(nums: IntArray, index: Int) {
-    // Сдвинуть все элементы после индекса index на одну позицию влево
+    // Сдвинуть все элементы после index на одну позицию влево
     for (i in index..<nums.size - 1) {
         nums[i] = nums[i + 1]
     }
@@ -50,11 +50,11 @@ fun remove(nums: IntArray, index: Int) {
 /* Обход массива */
 fun traverse(nums: IntArray) {
     var count = 0
-    // Обход массива по индексам
+    // Обойти массив по индексам
     for (i in nums.indices) {
         count += nums[i]
     }
-    // Непосредственно обходить элементы массива
+    // Перебрать элементы массива напрямую
     for (j in nums) {
         count += j
     }
@@ -69,7 +69,7 @@ fun find(nums: IntArray, target: Int): Int {
     return -1
 }
 
-/* Driver Code */
+/* Демонстрационный код */
 fun main() {
     /* Инициализация массива */
     val arr = IntArray(5)
@@ -77,11 +77,11 @@ fun main() {
     var nums = intArrayOf(1, 3, 2, 5, 4)
     println("Массив nums = ${nums.contentToString()}")
 
-    /* Случайный доступ */
+    /* Чтение случайного элемента */
     val randomNum: Int = randomAccess(nums)
-    println("Случайный элемент из nums = $randomNum")
+    println("Случайный элемент nums: $randomNum")
 
-    /* Расширение длины */
+    /* Увеличение длины */
     nums = extend(nums, 3)
     println("После увеличения длины массива до 8 nums = ${nums.contentToString()}")
 
@@ -98,5 +98,5 @@ fun main() {
 
     /* Поиск элемента */
     val index: Int = find(nums, 3)
-    println("Поиск элемента 3 в nums: индекс = $index")
+    println("Индекс элемента 3 в nums = $index")
 }

@@ -11,12 +11,12 @@
 extern "C" {
 #endif
 
-/* 頂點結構體 */
+/* 頂點的結構體 */
 typedef struct {
     int val;
 } Vertex;
 
-/* 建構子，初始化一個新節點 */
+/* 建構函式，用來初始化新頂點 */
 Vertex *newVertex(int val) {
     Vertex *vet;
     vet = (Vertex *)malloc(sizeof(Vertex));
@@ -24,7 +24,7 @@ Vertex *newVertex(int val) {
     return vet;
 }
 
-/* 將值陣列轉換為頂點陣列 */
+/* 將存放數值的陣列轉為頂點陣列 */
 Vertex **valsToVets(int *vals, int size) {
     Vertex **vertices = (Vertex **)malloc(size * sizeof(Vertex *));
     for (int i = 0; i < size; ++i) {
@@ -33,7 +33,7 @@ Vertex **valsToVets(int *vals, int size) {
     return vertices;
 }
 
-/* 將頂點陣列轉換為值陣列 */
+/* 將頂點陣列轉為存放數值的陣列 */
 int *vetsToVals(Vertex **vertices, int size) {
     int *vals = (int *)malloc(size * sizeof(int));
     for (int i = 0; i < size; ++i) {

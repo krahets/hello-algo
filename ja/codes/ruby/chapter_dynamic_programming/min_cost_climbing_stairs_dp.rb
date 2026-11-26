@@ -4,7 +4,7 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### 階段を上る最小コスト：動的計画法 ###
+### 階段を登る最小コスト：動的計画法 ###
 def min_cost_climbing_stairs_dp(cost)
   n = cost.length - 1
   return cost[n] if n == 1 || n == 2
@@ -17,7 +17,7 @@ def min_cost_climbing_stairs_dp(cost)
   dp[n]
 end
 
-### 階段を上る最小コスト：空間を最適化した動的計画法 ###
+### 階段を登る最小コスト：使用メモリを削減した動的計画法 ###
 def min_cost_climbing_stairs_dp_comp(cost)
   n = cost.length - 1
   return cost[n] if n == 1 || n == 2
@@ -26,14 +26,14 @@ def min_cost_climbing_stairs_dp_comp(cost)
   b
 end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   cost = [0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1]
-  puts "入力した階段のコストのリストは #{cost}"
+  puts "各段のコストの入力リストは #{cost}"
 
   res = min_cost_climbing_stairs_dp(cost)
-  puts "階段を上り終える最小コストは #{res}"
+  puts "階段を登りきる最小コストは #{res}"
 
   res = min_cost_climbing_stairs_dp_comp(cost)
-  puts "階段を上り終える最小コストは #{res}"
+  puts "階段を登りきる最小コストは #{res}"
 end

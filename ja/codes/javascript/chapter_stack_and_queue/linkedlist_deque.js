@@ -7,7 +7,7 @@
 /* 双方向連結リストのノード */
 class ListNode {
     prev; // 前のノードへの参照（ポインタ）
-    next; // 後続ノードへの参照（ポインタ）
+    next; // 次のノードへの参照（ポインタ）
     val; // ノードの値
 
     constructor(val) {
@@ -17,11 +17,11 @@ class ListNode {
     }
 }
 
-/* 双方向連結リストで実装した両端キュー */
+/* 双方向連結リストを使った両端キュー */
 class LinkedListDeque {
     #front; // 先頭ノード front
     #rear; // 末尾ノード rear
-    #queSize; // 両端キューの長さ
+    #queSize; // 両端キューの要素数
 
     constructor() {
         this.#front = null;
@@ -29,15 +29,15 @@ class LinkedListDeque {
         this.#queSize = 0;
     }
 
-    /* 末尾へのエンキュー操作 */
+    /* 末尾に追加する */
     pushLast(val) {
         const node = new ListNode(val);
-        // 連結リストが空の場合、front と rear の両方が node を指すようにする
+        // リストが空なら、front と rear の両方が node を指すようにする
         if (this.#queSize === 0) {
             this.#front = node;
             this.#rear = node;
         } else {
-            // node を連結リストの末尾に追加する
+            // node をリストの末尾に追加する
             this.#rear.next = node;
             node.prev = this.#rear;
             this.#rear = node; // 末尾ノードを更新する
@@ -45,15 +45,15 @@ class LinkedListDeque {
         this.#queSize++;
     }
 
-    /* 先頭へのエンキュー操作 */
+    /* 先頭に追加する */
     pushFirst(val) {
         const node = new ListNode(val);
-        // 連結リストが空の場合、front と rear の両方が node を指すようにする
+        // リストが空なら、front と rear の両方が node を指すようにする
         if (this.#queSize === 0) {
             this.#front = node;
             this.#rear = node;
         } else {
-            // node を連結リストの先頭に追加する
+            // node をリストの先頭に追加する
             this.#front.prev = node;
             node.next = this.#front;
             this.#front = node; // 先頭ノードを更新する
@@ -61,13 +61,13 @@ class LinkedListDeque {
         this.#queSize++;
     }
 
-    /* 末尾からのデキュー操作 */
+    /* 末尾から取り出す */
     popLast() {
         if (this.#queSize === 0) {
             return null;
         }
         const value = this.#rear.val; // 末尾ノードの値を保存する
-        // キューの長さが 1 のとき、先頭と末尾は同じノードを指す
+        // 両端キューの要素数が 1 のとき、先頭と末尾は同じノードを指す
         if (this.#queSize === 1) {
             this.#front = null;
             this.#rear = null;
@@ -83,13 +83,13 @@ class LinkedListDeque {
         return value;
     }
 
-    /* 先頭からのデキュー操作 */
+    /* 先頭から取り出す */
     popFirst() {
         if (this.#queSize === 0) {
             return null;
         }
         const value = this.#front.val; // 先頭ノードの値を保存する
-        // キューの長さが 1 のとき、先頭と末尾は同じノードを指す
+        // 両端キューの要素数が 1 のとき、先頭と末尾は同じノードを指す
         if (this.#queSize === 1) {
             this.#front = null;
             this.#rear = null;
@@ -105,17 +105,17 @@ class LinkedListDeque {
         return value;
     }
 
-    /* キューの末尾要素にアクセスする */
+    /* 両端キューの末尾要素を参照する */
     peekLast() {
         return this.#queSize === 0 ? null : this.#rear.val;
     }
 
-    /* キューの先頭要素にアクセス */
+    /* 両端キューの先頭要素を参照する */
     peekFirst() {
         return this.#queSize === 0 ? null : this.#front.val;
     }
 
-    /* 両端キューの長さを取得する */
+    /* 両端キューの要素数を取得する */
     size() {
         return this.#queSize;
     }
@@ -137,7 +137,7 @@ class LinkedListDeque {
     }
 }
 
-/* 実行用コード */
+/* 実行例 */
 /* 両端キューを初期化する */
 const linkedListDeque = new LinkedListDeque();
 linkedListDeque.pushLast(3);
@@ -146,31 +146,31 @@ linkedListDeque.pushLast(5);
 console.log('両端キュー linkedListDeque = ');
 linkedListDeque.print();
 
-/* 要素にアクセスする */
+/* 要素を参照する */
 const peekFirst = linkedListDeque.peekFirst();
-console.log('キューの先頭要素 peekFirst = ' + peekFirst);
+console.log('先頭要素 peekFirst = ' + peekFirst);
 const peekLast = linkedListDeque.peekLast();
-console.log('キューの末尾要素 peekLast = ' + peekLast);
+console.log('末尾要素 peekLast = ' + peekLast);
 
-/* 要素をエンキューする */
+/* 要素を両端キューに追加する */
 linkedListDeque.pushLast(4);
-console.log('要素 4 を末尾にエンキューした後 linkedListDeque = ');
+console.log('末尾に 4 を追加した後の linkedListDeque = ');
 linkedListDeque.print();
 linkedListDeque.pushFirst(1);
-console.log('要素 1 を先頭にエンキューした後 linkedListDeque = ');
+console.log('先頭に 1 を追加した後の linkedListDeque = ');
 linkedListDeque.print();
 
-/* 要素をデキューする */
+/* 両端キューから要素を取り出す */
 const popLast = linkedListDeque.popLast();
-console.log('末尾からデキューした要素 = ' + popLast + '、末尾からデキューした後 linkedListDeque = ');
+console.log('末尾から取り出した要素 = ' + popLast + '、末尾から取り出した後の linkedListDeque = ');
 linkedListDeque.print();
 const popFirst = linkedListDeque.popFirst();
-console.log('先頭からデキューした要素 = ' + popFirst + '、先頭からデキューした後 linkedListDeque = ');
+console.log('先頭から取り出した要素 = ' + popFirst + '、先頭から取り出した後の linkedListDeque = ');
 linkedListDeque.print();
 
-/* 両端キューの長さを取得する */
+/* 両端キューの要素数を取得する */
 const size = linkedListDeque.size();
-console.log('両端キューの長さ size = ' + size);
+console.log('両端キューの要素数 size = ' + size);
 
 /* 両端キューが空かどうかを判定する */
 const isEmpty = linkedListDeque.isEmpty();

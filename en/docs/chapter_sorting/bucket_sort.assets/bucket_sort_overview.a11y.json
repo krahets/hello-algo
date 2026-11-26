@@ -1,22 +1,191 @@
 {
-  "schema_version": 2,
-  "title": "Distribute into five buckets, sort each bucket, and concatenate",
-  "summary": "Ten decimals are distributed by value among five buckets. Sorting each bucket in ascending order and concatenating them in bucket order gives a sorted array.",
+  "animations": {
+    "bucket-sort-overview": {
+      "kind": "prose",
+      "prose": {
+        "context": [],
+        "description": [],
+        "steps": [
+          {
+            "announcement": "Ten decimal values are ready to go into five buckets.",
+            "explanation": "The input contains 10 floating-point numbers in [0, 1), ready to be distributed among five intervals of width 0.2, each including its left endpoint and excluding its right.",
+            "id": "step-1",
+            "key_state": "The 10 decimal values in [0, 1) are ready for distribution among 5 buckets of width 0.2. Each bucket includes its left endpoint and excludes its right.",
+            "state_tables": [
+              {
+                "caption": "Bucket sort, step 1: input array",
+                "headers": [
+                  "Index",
+                  "Value"
+                ],
+                "row_header": 0,
+                "rows": [
+                  [
+                    "0",
+                    "0.49"
+                  ],
+                  [
+                    "1",
+                    "0.96"
+                  ],
+                  [
+                    "2",
+                    "0.82"
+                  ],
+                  [
+                    "3",
+                    "0.09"
+                  ],
+                  [
+                    "4",
+                    "0.57"
+                  ],
+                  [
+                    "5",
+                    "0.43"
+                  ],
+                  [
+                    "6",
+                    "0.91"
+                  ],
+                  [
+                    "7",
+                    "0.75"
+                  ],
+                  [
+                    "8",
+                    "0.15"
+                  ],
+                  [
+                    "9",
+                    "0.37"
+                  ]
+                ]
+              }
+            ],
+            "title": "Prepare to distribute the values"
+          },
+          {
+            "announcement": "Distribution and sorting within each bucket are complete.",
+            "explanation": "The 10 values have been distributed by range, and all five buckets are sorted in ascending order. For example, the [0.4, 0.6) bucket shows 0.43, 0.49, 0.57 in sorted order. Their order in the input array was 0.49, 0.57, 0.43. The result array has yet to be assembled.",
+            "id": "step-2",
+            "key_state": "The 10 decimal values are in 5 sorted buckets. The [0.4, 0.6) bucket contains 0.43, 0.49, 0.57 in ascending order rather than insertion order. The buckets have yet to be concatenated.",
+            "state_tables": [
+              {
+                "caption": "Bucket sort, step 2: sorted contents of the five buckets",
+                "headers": [
+                  "Bucket range",
+                  "Values in ascending order"
+                ],
+                "row_header": 0,
+                "rows": [
+                  [
+                    "[0,0.2)",
+                    "0.09, 0.15"
+                  ],
+                  [
+                    "[0.2,0.4)",
+                    "0.37"
+                  ],
+                  [
+                    "[0.4,0.6)",
+                    "0.43, 0.49, 0.57"
+                  ],
+                  [
+                    "[0.6,0.8)",
+                    "0.75"
+                  ],
+                  [
+                    "[0.8,1.0)",
+                    "0.82, 0.91, 0.96"
+                  ]
+                ]
+              }
+            ],
+            "title": "Distribute the values and sort each bucket"
+          },
+          {
+            "announcement": "The buckets have been concatenated in order. Sorting is complete.",
+            "explanation": "The 5 buckets have nonoverlapping ranges from low to high, and each is sorted in ascending order. Take their elements in order from bucket [0, 0.2) through bucket [0.8, 1.0) and concatenate them to produce the final ascending array.",
+            "id": "step-3",
+            "key_state": "Concatenating the buckets in order gives [0.09, 0.15, 0.37, 0.43, 0.49, 0.57, 0.75, 0.82, 0.91, 0.96]. Sorting is complete.",
+            "state_tables": [
+              {
+                "caption": "Bucket sort, step 3: concatenated result",
+                "headers": [
+                  "Index",
+                  "Value"
+                ],
+                "row_header": 0,
+                "rows": [
+                  [
+                    "0",
+                    "0.09"
+                  ],
+                  [
+                    "1",
+                    "0.15"
+                  ],
+                  [
+                    "2",
+                    "0.37"
+                  ],
+                  [
+                    "3",
+                    "0.43"
+                  ],
+                  [
+                    "4",
+                    "0.49"
+                  ],
+                  [
+                    "5",
+                    "0.57"
+                  ],
+                  [
+                    "6",
+                    "0.75"
+                  ],
+                  [
+                    "7",
+                    "0.82"
+                  ],
+                  [
+                    "8",
+                    "0.91"
+                  ],
+                  [
+                    "9",
+                    "0.96"
+                  ]
+                ]
+              }
+            ],
+            "title": "Concatenate the buckets in order"
+          }
+        ],
+        "summary": "The three animation frames show the input before distribution, the sorted buckets, and the result after concatenation.",
+        "title": "Distribute values among five buckets, sort each bucket, and concatenate them in order"
+      }
+    }
+  },
   "context": [
-    "The input is nums = [0.49, 0.96, 0.82, 0.09, 0.57, 0.43, 0.91, 0.75, 0.15, 0.37]. All values are floating-point numbers in [0, 1). There are five buckets of width 0.2."
+    "The input is nums = [0.49, 0.96, 0.82, 0.09, 0.57, 0.43, 0.91, 0.75, 0.15, 0.37]. All elements are floating-point numbers in [0, 1). The algorithm uses five buckets, each of width 0.2."
   ],
   "description": [
-    "Place each value in the interval that contains it, including the left endpoint and excluding the right. Then sort the elements within each bucket. The five buckets in the middle already show both operations complete: the values are in sorted order, not insertion order.",
-    "Finally concatenate the buckets in increasing interval order. Since their ranges do not overlap and each bucket is sorted, the entire resulting array is sorted."
+    "First place each number in the interval that contains it, including the left endpoint and excluding the right. Then sort the elements within each bucket. The five buckets in the middle of the figure show both operations complete. They do not show the original insertion order.",
+    "Finally, concatenate the buckets from the lowest range to the highest. Because their ranges do not overlap and each bucket is already sorted in ascending order, this produces the complete sorted array."
   ],
   "frames": [
     {
-      "id": "source-296",
       "book_path": "chapter_sorting/bucket_sort.assets/bucket_sort_overview.png",
-      "title": "Distribute into five buckets, sort each bucket, and concatenate",
-      "explanation": "The concatenated result is [0.09, 0.15, 0.37, 0.43, 0.49, 0.57, 0.75, 0.82, 0.91, 0.96]."
+      "explanation": "The concatenated result is [0.09, 0.15, 0.37, 0.43, 0.49, 0.57, 0.75, 0.82, 0.91, 0.96].",
+      "id": "source-296",
+      "title": "Distribute values among five buckets, sort each bucket, and concatenate them in order"
     }
   ],
+  "schema_version": 2,
+  "summary": "Ten decimal values go into five buckets by range. Sort each bucket in ascending order, then concatenate the buckets in order to obtain a sorted array.",
   "tables": [
     {
       "caption": "Input array",
@@ -24,6 +193,7 @@
         "Index",
         "Value"
       ],
+      "row_header": 0,
       "rows": [
         [
           "0",
@@ -65,15 +235,15 @@
           "9",
           "0.37"
         ]
-      ],
-      "row_header": 0
+      ]
     },
     {
-      "caption": "Five bucket ranges and sorted contents",
+      "caption": "Ranges and sorted contents of the five buckets",
       "headers": [
         "Bucket range",
-        "Sorted contents"
+        "Values in ascending order"
       ],
+      "row_header": 0,
       "rows": [
         [
           "[0,0.2)",
@@ -95,178 +265,8 @@
           "[0.8,1.0)",
           "0.82, 0.91, 0.96"
         ]
-      ],
-      "row_header": 0
+      ]
     }
   ],
-  "animations": {
-    "bucket-sort-overview": {
-      "kind": "prose",
-      "prose": {
-        "title": "Distribute into five buckets, sort each bucket, and concatenate",
-        "summary": "The three animation states show the input before distribution, the sorted buckets, and the concatenated result.",
-        "context": [],
-        "description": [],
-        "steps": [
-          {
-            "id": "step-1",
-            "title": "Prepare to distribute into buckets",
-            "explanation": "The 10 input floats in [0, 1) will be distributed into five intervals of width 0.2, each including its left endpoint and excluding its right.",
-            "key_state": "The 10 decimals in [0, 1) have not yet been distributed. The 5 half-open buckets each have width 0.2 and include their left endpoints.",
-            "announcement": "Ten decimals are ready to distribute into five buckets.",
-            "state_tables": [
-              {
-                "caption": "Bucket sort, step 1: input array",
-                "headers": [
-                  "Index",
-                  "Value"
-                ],
-                "rows": [
-                  [
-                    "0",
-                    "0.49"
-                  ],
-                  [
-                    "1",
-                    "0.96"
-                  ],
-                  [
-                    "2",
-                    "0.82"
-                  ],
-                  [
-                    "3",
-                    "0.09"
-                  ],
-                  [
-                    "4",
-                    "0.57"
-                  ],
-                  [
-                    "5",
-                    "0.43"
-                  ],
-                  [
-                    "6",
-                    "0.91"
-                  ],
-                  [
-                    "7",
-                    "0.75"
-                  ],
-                  [
-                    "8",
-                    "0.15"
-                  ],
-                  [
-                    "9",
-                    "0.37"
-                  ]
-                ],
-                "row_header": 0
-              }
-            ]
-          },
-          {
-            "id": "step-2",
-            "title": "Distribute the values and sort each bucket",
-            "explanation": "The 10 values have been distributed by interval, and all five buckets are sorted. For example, the [0.4, 0.6) bucket displays 0.43, 0.49, 0.57 in ascending order; their input order was 0.49, 0.57, 0.43. Concatenation has not yet started.",
-            "key_state": "The 10 decimals are in 5 sorted buckets. The [0.4, 0.6) bucket contains 0.43, 0.49, 0.57 in sorted order, not insertion order. Concatenation is pending.",
-            "announcement": "Distribution and sorting within each bucket are complete.",
-            "state_tables": [
-              {
-                "caption": "Bucket sort, step 2: the five sorted buckets",
-                "headers": [
-                  "Bucket range",
-                  "Sorted contents"
-                ],
-                "rows": [
-                  [
-                    "[0,0.2)",
-                    "0.09, 0.15"
-                  ],
-                  [
-                    "[0.2,0.4)",
-                    "0.37"
-                  ],
-                  [
-                    "[0.4,0.6)",
-                    "0.43, 0.49, 0.57"
-                  ],
-                  [
-                    "[0.6,0.8)",
-                    "0.75"
-                  ],
-                  [
-                    "[0.8,1.0)",
-                    "0.82, 0.91, 0.96"
-                  ]
-                ],
-                "row_header": 0
-              }
-            ]
-          },
-          {
-            "id": "step-3",
-            "title": "Concatenate the buckets in order",
-            "explanation": "The 5 intervals do not overlap and each bucket is sorted. Take their elements in bucket order from [0, 0.2) through [0.8, 1.0) to form the final ascending array.",
-            "key_state": "Buckets concatenated into [0.09, 0.15, 0.37, 0.43, 0.49, 0.57, 0.75, 0.82, 0.91, 0.96]. Sorting is complete.",
-            "announcement": "The buckets have been concatenated in order. Sorting is complete.",
-            "state_tables": [
-              {
-                "caption": "Bucket sort, step 3: concatenated result",
-                "headers": [
-                  "Index",
-                  "Value"
-                ],
-                "rows": [
-                  [
-                    "0",
-                    "0.09"
-                  ],
-                  [
-                    "1",
-                    "0.15"
-                  ],
-                  [
-                    "2",
-                    "0.37"
-                  ],
-                  [
-                    "3",
-                    "0.43"
-                  ],
-                  [
-                    "4",
-                    "0.49"
-                  ],
-                  [
-                    "5",
-                    "0.57"
-                  ],
-                  [
-                    "6",
-                    "0.75"
-                  ],
-                  [
-                    "7",
-                    "0.82"
-                  ],
-                  [
-                    "8",
-                    "0.91"
-                  ],
-                  [
-                    "9",
-                    "0.96"
-                  ]
-                ],
-                "row_header": 0
-              }
-            ]
-          }
-        ]
-      }
-    }
-  }
+  "title": "Distribute values among five buckets, sort each bucket, and concatenate them in order"
 }

@@ -6,11 +6,11 @@
 
 /* メモ化探索 */
 func dfs(i: Int, mem: inout [Int]) -> Int {
-    // dp[1] と dp[2] は既知なので、その値を返す
+    // 既知の値 dp[1] と dp[2] のうち、該当する方を返す
     if i == 1 || i == 2 {
         return i
     }
-    // dp[i] が記録済みなら、その値をそのまま返す
+    // dp[i] が記録済みなら、その値を返す
     if mem[i] != -1 {
         return mem[i]
     }
@@ -21,20 +21,20 @@ func dfs(i: Int, mem: inout [Int]) -> Int {
     return count
 }
 
-/* 階段の上り方：メモ化探索 */
+/* 階段の登り方：メモ化探索 */
 func climbingStairsDFSMem(n: Int) -> Int {
-    // mem[i] は i 段目まで上る方法の総数を記録し、-1 は未記録を表す
+    // mem[i] に i 段目までの登り方の総数を記録する。-1 は未記録を表す
     var mem = Array(repeating: -1, count: n + 1)
     return dfs(i: n, mem: &mem)
 }
 
 @main
 enum ClimbingStairsDFSMem {
-    /* 実行用コード */
+    /* 実行例 */
     static func main() {
         let n = 9
 
         let res = climbingStairsDFSMem(n: n)
-        print("\(n) 段の階段を上る方法は全部で \(res) 通り")
+        print("全 \(n) 段の階段の登り方は \(res) 通り")
     }
 }

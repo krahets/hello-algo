@@ -12,14 +12,14 @@ import java.util.*;
 public class binary_tree_bfs {
     /* Level-order traversal */
     static List<Integer> levelOrder(TreeNode root) {
-        // Initialize a queue and enqueue the root
+        // Initialize the queue with the root
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         // Initialize a list to store the traversal sequence
         List<Integer> list = new ArrayList<>();
         while (!queue.isEmpty()) {
-            TreeNode node = queue.poll(); // Dequeue from the queue
-            list.add(node.val);           // Store the node value
+            TreeNode node = queue.poll(); // Dequeue a node
+            list.add(node.val);           // Save the node value
             if (node.left != null)
                 queue.offer(node.left);   // Enqueue the left child
             if (node.right != null)
@@ -30,13 +30,13 @@ public class binary_tree_bfs {
 
     public static void main(String[] args) {
         /* Initialize the binary tree */
-        // Use a helper function that builds a binary tree directly from an array
+        // Use a function that builds a binary tree directly from an array
         TreeNode root = TreeNode.listToTree(Arrays.asList(1, 2, 3, 4, 5, 6, 7));
         System.out.println("\nInitialize the binary tree\n");
         PrintUtil.printTree(root);
 
         /* Level-order traversal */
         List<Integer> list = levelOrder(root);
-        System.out.println("\nNode sequence from level-order traversal = " + list);
+        System.out.println("\nNodes in level order = " + list);
     }
 }

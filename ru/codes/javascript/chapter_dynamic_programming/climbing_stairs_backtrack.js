@@ -4,31 +4,31 @@
  * Author: yuan0221 (yl1452491917@gmail.com)
  */
 
-/* Бэктрекинг */
+/* Поиск с возвратом */
 function backtrack(choices, state, n, res) {
-    // Когда подъем достигает n-й ступени, число вариантов увеличивается на 1
+    // На ступени n увеличить число способов на 1
     if (state === n) res.set(0, res.get(0) + 1);
-    // Перебор всех вариантов выбора
+    // Перебрать все варианты
     for (const choice of choices) {
-        // Отсечение: нельзя выходить за n-ю ступень
+        // Отсечь шаги за ступень n
         if (state + choice > n) continue;
-        // Попытка: сделать выбор и обновить состояние
+        // Сделать выбор и обновить состояние
         backtrack(choices, state + choice, n, res);
-        // Откат
+        // Отменить выбор
     }
 }
 
-/* Подъем по лестнице: бэктрекинг */
+/* Подъём по лестнице: поиск с возвратом */
 function climbingStairsBacktrack(n) {
     const choices = [1, 2]; // Можно подняться на 1 или 2 ступени
-    const state = 0; // Начать подъем с 0-й ступени
+    const state = 0; // Начать со ступени 0
     const res = new Map();
-    res.set(0, 0); // Использовать res[0] для хранения числа решений
+    res.set(0, 0); // Хранить число способов в res[0]
     backtrack(choices, state, n, res);
     return res.get(0);
 }
 
-/* Driver Code */
+/* Основная программа */
 const n = 9;
 const res = climbingStairsBacktrack(n);
-console.log(`Количество способов подняться по лестнице из ${n} ступеней = ${res}`);
+console.log(`Число способов подняться на лестницу из ${n} ступеней: ${res}.`);

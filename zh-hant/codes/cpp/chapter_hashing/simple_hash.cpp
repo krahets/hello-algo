@@ -46,9 +46,9 @@ int rotHash(string key) {
     return (int)hash;
 }
 
-/* Driver Code */
+/* 主程式 */
 int main() {
-    string key = "Hello 演算法";
+    string key = "Hello 算法";
 
     int hash = addHash(key);
     cout << "加法雜湊值為 " << hash << endl;

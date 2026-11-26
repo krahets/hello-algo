@@ -16,7 +16,7 @@ class ArrayHashMap {
   late List<Pair?> _buckets;
 
   ArrayHashMap() {
-    // 버킷 100개를 포함하는 배열을 초기화한다
+    // 버킷 100개로 배열 초기화
     _buckets = List.filled(100, null);
   }
 
@@ -26,7 +26,7 @@ class ArrayHashMap {
     return index;
   }
 
-  /* 조회 연산 */
+  /* 조회 */
   String? get(int key) {
     final int index = _hashFunc(key);
     final Pair? pair = _buckets[index];
@@ -36,20 +36,20 @@ class ArrayHashMap {
     return pair.val;
   }
 
-  /* 추가 연산 */
+  /* 추가 */
   void put(int key, String val) {
     final Pair pair = Pair(key, val);
     final int index = _hashFunc(key);
     _buckets[index] = pair;
   }
 
-  /* 삭제 연산 */
+  /* 삭제 */
   void remove(int key) {
     final int index = _hashFunc(key);
     _buckets[index] = null;
   }
 
-  /* 모든 키-값 쌍 반환 */
+  /* 모든 키-값 쌍 가져오기 */
   List<Pair> pairSet() {
     List<Pair> pairSet = [];
     for (final Pair? pair in _buckets) {
@@ -60,7 +60,7 @@ class ArrayHashMap {
     return pairSet;
   }
 
-  /* 모든 키 반환 */
+  /* 모든 키 가져오기 */
   List<int> keySet() {
     List<int> keySet = [];
     for (final Pair? pair in _buckets) {
@@ -71,7 +71,7 @@ class ArrayHashMap {
     return keySet;
   }
 
-  /* 모든 값 반환 */
+  /* 모든 값 가져오기 */
   List<String> values() {
     List<String> valueSet = [];
     for (final Pair? pair in _buckets) {
@@ -90,37 +90,37 @@ class ArrayHashMap {
   }
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 void main() {
   /* 해시 테이블 초기화 */
   final ArrayHashMap map = ArrayHashMap();
 
-  /* 추가 연산 */
-  // 해시 테이블에 (key, value) 키-값 쌍을 추가한다
-  map.put(12836, "小哈");
-  map.put(15937, "小啰");
-  map.put(16750, "小算");
-  map.put(13276, "小法");
-  map.put(10583, "小鸭");
-  print("\n추가를 마친 후의 해시 테이블\n키 -> 값");
+  /* 추가 */
+  // 해시 테이블에 키-값 쌍 (key, value) 추가
+  map.put(12836, "샤오하");
+  map.put(15937, "샤오뤄");
+  map.put(16750, "샤오쑤안");
+  map.put(13276, "샤오파");
+  map.put(10583, "샤오야");
+  print("\n추가 후 해시 테이블\nKey -> Value");
   map.printHashMap();
 
-  /* 조회 연산 */
-  // 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+  /* 조회 */
+  // 해시 테이블에 키 key를 입력하여 값 value 조회
   String? name = map.get(15937);
-  print("\n학번 15937을 입력하여 조회한 이름 = $name");
+  print("\n학번 15937로 조회한 이름: $name");
 
-  /* 삭제 연산 */
-  // 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+  /* 삭제 */
+  // 해시 테이블에서 키-값 쌍 (key, value) 삭제
   map.remove(10583);
-  print("\n10583을 삭제한 후의 해시 테이블\n키 -> 값");
+  print("\n키 10583 삭제 후 해시 테이블\nKey -> Value");
   map.printHashMap();
 
   /* 해시 테이블 순회 */
-  print("\n키-값 쌍(키->값) 순회");
+  print("\n키-값 쌍 순회 Key->Value");
   map.pairSet().forEach((kv) => print("${kv.key} -> ${kv.val}"));
-  print("\n키 Key만 순회");
+  print("\n키만 순회 Key");
   map.keySet().forEach((key) => print("$key"));
-  print("\n값 Value만 순회");
+  print("\n값만 순회 Value");
   map.values().forEach((val) => print("$val"));
 }

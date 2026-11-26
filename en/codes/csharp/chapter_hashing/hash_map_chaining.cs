@@ -6,12 +6,12 @@
 
 namespace hello_algo.chapter_hashing;
 
-/* Hash table with separate chaining */
+/* Hash table with chaining */
 class HashMapChaining {
     int size; // Number of key-value pairs
     int capacity; // Hash table capacity
-    double loadThres; // Load factor threshold that triggers capacity growth
-    int extendRatio; // Capacity growth factor
+    double loadThres; // Load factor threshold for resizing
+    int extendRatio; // Growth factor
     List<List<Pair>> buckets; // Bucket array
 
     /* Constructor */
@@ -36,42 +36,42 @@ class HashMapChaining {
         return (double)size / capacity;
     }
 
-    /* Lookup operation */
+    /* Look up a value */
     public string? Get(int key) {
         int index = HashFunc(key);
-        // Traverse the bucket; if key is found, return its corresponding val
+        // Scan the bucket and return the corresponding val if key is found
         foreach (Pair pair in buckets[index]) {
             if (pair.key == key) {
                 return pair.val;
             }
         }
-        // Return null if key is not found
+        // Return null if key is absent
         return null;
     }
 
-    /* Insert operation */
+    /* Insert a key-value pair */
     public void Put(int key, string val) {
-        // Grow the capacity when the load factor exceeds the threshold
+        // Expand the table when the load factor exceeds the threshold
         if (LoadFactor() > loadThres) {
             Extend();
         }
         int index = HashFunc(key);
-        // Traverse the bucket; if the specified key is found, update its val and return
+        // Scan the bucket. If the specified key is found, update its val and return
         foreach (Pair pair in buckets[index]) {
             if (pair.key == key) {
                 pair.val = val;
                 return;
             }
         }
-        // If key is absent, append the key-value pair at the end
+        // If key is absent, append the pair to the end of the list
         buckets[index].Add(new Pair(key, val));
         size++;
     }
 
-    /* Remove operation */
+    /* Remove a key-value pair */
     public void Remove(int key) {
         int index = HashFunc(key);
-        // Traverse the bucket and remove the key-value pair
+        // Scan the bucket and remove the pair
         foreach (Pair pair in buckets[index].ToList()) {
             if (pair.key == key) {
                 buckets[index].Remove(pair);
@@ -81,18 +81,18 @@ class HashMapChaining {
         }
     }
 
-    /* Grow the hash table capacity */
+    /* Expand the hash table */
     void Extend() {
-        // Keep a reference to the original hash table
+        // Save the original hash table
         List<List<Pair>> bucketsTmp = buckets;
-        // Initialize a new hash table with the expanded capacity
+        // Initialize the larger hash table
         capacity *= extendRatio;
         buckets = new List<List<Pair>>(capacity);
         for (int i = 0; i < capacity; i++) {
             buckets.Add([]);
         }
         size = 0;
-        // Move the key-value pairs from the original hash table to the new one
+        // Move the key-value pairs from the old table into the new one
         foreach (List<Pair> bucket in bucketsTmp) {
             foreach (Pair pair in bucket) {
                 Put(pair.key, pair.val);
@@ -120,23 +120,23 @@ public class hash_map_chaining {
         /* Initialize the hash table */
         HashMapChaining map = new();
 
-        /* Insert operation */
-        // Insert the key-value pair (key, value) into the hash table
-        map.Put(12836, "小哈");
-        map.Put(15937, "小啰");
-        map.Put(16750, "小算");
-        map.Put(13276, "小法");
-        map.Put(10583, "小鸭");
+        /* Insert a key-value pair */
+        // Insert the pair (key, value) into the hash table
+        map.Put(12836, "Xiao Ha");
+        map.Put(15937, "Xiao Luo");
+        map.Put(16750, "Xiao Suan");
+        map.Put(13276, "Xiao Fa");
+        map.Put(10583, "Xiao Ya");
         Console.WriteLine("\nHash table after insertion:\nKey -> Value");
         map.Print();
 
-        /* Lookup operation */
-        // Look up key in the hash table to obtain value
+        /* Look up a value */
+        // Look up key in the hash table to get value
         string? name = map.Get(13276);
-        Console.WriteLine("\nLook up student ID 13276 to obtain the name " + name);
+        Console.WriteLine("\nName for student ID 13276: " + name);
 
-        /* Remove operation */
-        // Remove the key-value pair (key, value) from the hash table
+        /* Remove a key-value pair */
+        // Remove the pair (key, value) from the hash table
         map.Remove(12836);
         Console.WriteLine("\nHash table after removing 12836:\nKey -> Value");
         map.Print();

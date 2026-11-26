@@ -6,7 +6,7 @@
 
 /* 搜尋 */
 func dfs(i: Int) -> Int {
-    // 已知 dp[1] 和 dp[2] ，返回之
+    // 已知 dp[1] 和 dp[2]，直接回傳對應的值
     if i == 1 || i == 2 {
         return i
     }
@@ -22,11 +22,11 @@ func climbingStairsDFS(n: Int) -> Int {
 
 @main
 enum ClimbingStairsDFS {
-    /* Driver Code */
+    /* 主程式 */
     static func main() {
         let n = 9
 
         let res = climbingStairsDFS(n: n)
-        print("爬 \(n) 階樓梯共有 \(res) 種方案")
+        print("爬 \(n) 階樓梯共有 \(res) 種走法")
     }
 }

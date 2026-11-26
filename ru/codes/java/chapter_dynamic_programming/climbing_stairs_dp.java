@@ -7,23 +7,23 @@
 package chapter_dynamic_programming;
 
 public class climbing_stairs_dp {
-    /* Подъем по лестнице: динамическое программирование */
+    /* Подъём по лестнице: динамическое программирование */
     public static int climbingStairsDP(int n) {
         if (n == 1 || n == 2)
             return n;
-        // Инициализация таблицы dp для хранения решений подзадач
+        // Создать таблицу dp для решений подзадач
         int[] dp = new int[n + 1];
-        // Начальное состояние: заранее задать решения наименьших подзадач
+        // Начальные состояния: задать решения простейших подзадач
         dp[1] = 1;
         dp[2] = 2;
-        // Переход состояний: постепенное решение больших подзадач через меньшие
+        // Переход: решать подзадачи от меньших к большим
         for (int i = 3; i <= n; i++) {
             dp[i] = dp[i - 1] + dp[i - 2];
         }
         return dp[n];
     }
 
-    /* Подъем по лестнице: динамическое программирование с оптимизацией памяти */
+    /* Подъём по лестнице: динамическое программирование с экономией памяти */
     public static int climbingStairsDPComp(int n) {
         if (n == 1 || n == 2)
             return n;
@@ -40,9 +40,9 @@ public class climbing_stairs_dp {
         int n = 9;
 
         int res = climbingStairsDP(n);
-        System.out.println(String.format("Количество способов подняться по лестнице из %d ступеней: %d", n, res));
+        System.out.println(String.format("Число способов подняться на лестницу из %d ступеней: %d.", n, res));
 
         res = climbingStairsDPComp(n);
-        System.out.println(String.format("Количество способов подняться по лестнице из %d ступеней: %d", n, res));
+        System.out.println(String.format("Число способов подняться на лестницу из %d ступеней: %d.", n, res));
     }
 }

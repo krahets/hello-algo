@@ -18,9 +18,9 @@ int res[MAX_RES_SIZE][MAX_SIZE];
 int resColSizes[MAX_RES_SIZE];
 int resSize = 0;
 
-/* Алгоритм бэктрекинга: сумма подмножеств II */
+/* Поиск с возвратом: сумма подмножества II */
 void backtrack(int target, int *choices, int choicesSize, int start) {
-    // Если сумма подмножества равна target, записать решение
+    // Если сумма подмножества равна target, сохраняем решение
     if (target == 0) {
         for (int i = 0; i < stateSize; i++) {
             res[resSize][i] = state[i];
@@ -28,24 +28,24 @@ void backtrack(int target, int *choices, int choicesSize, int start) {
         resColSizes[resSize++] = stateSize;
         return;
     }
-    // Обойти все варианты выбора
-    // Отсечение 2: начинать обход с start, чтобы избежать генерации повторяющихся подмножеств
-    // Отсечение 3: начинать обход с start, чтобы избежать повторного выбора одного и того же элемента
+    // Перебираем все варианты
+    // Отсечение 2: начинаем перебор с start, чтобы не получать одинаковые подмножества
+    // Отсечение 3: начинаем перебор с start, чтобы не брать один и тот же элемент дважды
     for (int i = start; i < choicesSize; i++) {
-        // Отсечение 1: если сумма подмножества превышает target, сразу пропустить
+        // Отсечение 1: если сумма подмножества превышает target, пропускаем вариант
         if (target - choices[i] < 0) {
             continue;
         }
-        // Отсечение 4: если этот элемент равен элементу слева, значит ветвь поиска повторяется, ее нужно сразу пропустить
+        // Отсечение 4: если значение совпало с уже проверенным на этом шаге соседом слева, пропускаем повторную ветвь
         if (i > start && choices[i] == choices[i - 1]) {
             continue;
         }
-        // Попытка: сделать выбор и обновить target и start
+        // Пробуем вариант и обновляем target и start
         state[stateSize] = choices[i];
         stateSize++;
-        // Перейти к следующему выбору
+        // Переходим к следующему выбору
         backtrack(target - choices[i], choices, choicesSize, i + 1);
-        // Откат: отменить выбор и восстановить предыдущее состояние
+        // Возврат: отменяем выбор и восстанавливаем прежнее состояние
         stateSize--;
     }
 }
@@ -55,15 +55,15 @@ int cmp(const void *a, const void *b) {
     return (*(int *)a - *(int *)b);
 }
 
-/* Решить задачу суммы подмножеств II */
+/* Задача о сумме подмножества II */
 void subsetSumII(int *nums, int numsSize, int target) {
-    // Отсортировать nums
+    // Сортируем nums
     qsort(nums, numsSize, sizeof(int), cmp);
-    // Начать бэктрекинг
+    // Начинаем поиск с возвратом
     backtrack(target, nums, numsSize, 0);
 }
 
-/* Driver Code */
+/* Основная программа */
 int main() {
     int nums[] = {4, 4, 5};
     int numsSize = sizeof(nums) / sizeof(nums[0]);
@@ -71,10 +71,10 @@ int main() {
 
     subsetSumII(nums, numsSize, target);
 
-    printf("Входной массив nums = ");
+    printf("Исходный массив nums = ");
     printArray(nums, numsSize);
     printf("target = %d\n", target);
-    printf("Все подмножества с суммой %d: \n", target);
+    printf("Все подмножества с суммой %d: res = \n", target);
     for (int i = 0; i < resSize; ++i) {
         printArray(res[i], resColSizes[i]);
     }

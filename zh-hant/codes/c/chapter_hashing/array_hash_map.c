@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* 雜湊表預設大小 */
+/* 雜湊表的預設大小 */
 #define MAX_SIZE 100
 
 /* 鍵值對 int->string */
@@ -21,12 +21,12 @@ typedef struct {
     int len;
 } MapSet;
 
-/* 基於陣列實現的雜湊表 */
+/* 以陣列實作的雜湊表 */
 typedef struct {
     Pair *buckets[MAX_SIZE];
 } ArrayHashMap;
 
-/* 建構子 */
+/* 建構函式 */
 ArrayHashMap *newArrayHashMap() {
     ArrayHashMap *hmap = malloc(sizeof(ArrayHashMap));
     for (int i=0; i < MAX_SIZE; i++) {
@@ -35,7 +35,7 @@ ArrayHashMap *newArrayHashMap() {
     return hmap;
 }
 
-/* 析構函式 */
+/* 解構函式 */
 void delArrayHashMap(ArrayHashMap *hmap) {
     for (int i = 0; i < MAX_SIZE; i++) {
         if (hmap->buckets[i] != NULL) {
@@ -80,12 +80,12 @@ void removeItem(ArrayHashMap *hmap, const int key) {
     hmap->buckets[index] = NULL;
 }
 
-/* 獲取所有鍵值對 */
+/* 取得所有鍵值對 */
 void pairSet(ArrayHashMap *hmap, MapSet *set) {
     Pair *entries;
     int i = 0, index = 0;
     int total = 0;
-    /* 統計有效鍵值對數量 */
+    /* 計算有效鍵值對的數量 */
     for (i = 0; i < MAX_SIZE; i++) {
         if (hmap->buckets[i] != NULL) {
             total++;
@@ -104,12 +104,12 @@ void pairSet(ArrayHashMap *hmap, MapSet *set) {
     set->len = total;
 }
 
-/* 獲取所有鍵 */
+/* 取得所有鍵 */
 void keySet(ArrayHashMap *hmap, MapSet *set) {
     int *keys;
     int i = 0, index = 0;
     int total = 0;
-    /* 統計有效鍵值對數量 */
+    /* 計算有效鍵值對的數量 */
     for (i = 0; i < MAX_SIZE; i++) {
         if (hmap->buckets[i] != NULL) {
             total++;
@@ -126,12 +126,12 @@ void keySet(ArrayHashMap *hmap, MapSet *set) {
     set->len = total;
 }
 
-/* 獲取所有值 */
+/* 取得所有值 */
 void valueSet(ArrayHashMap *hmap, MapSet *set) {
     char **vals;
     int i = 0, index = 0;
     int total = 0;
-    /* 統計有效鍵值對數量 */
+    /* 計算有效鍵值對的數量 */
     for (i = 0; i < MAX_SIZE; i++) {
         if (hmap->buckets[i] != NULL) {
             total++;
@@ -148,7 +148,7 @@ void valueSet(ArrayHashMap *hmap, MapSet *set) {
     set->len = total;
 }
 
-/* 列印雜湊表 */
+/* 印出雜湊表 */
 void print(ArrayHashMap *hmap) {
     int i;
     MapSet set;
@@ -160,7 +160,7 @@ void print(ArrayHashMap *hmap) {
     free(set.set);
 }
 
-/* Driver Code */
+/* 主程式 */
 int main() {
     /* 初始化雜湊表 */
     ArrayHashMap *hmap = newArrayHashMap();
@@ -172,18 +172,18 @@ int main() {
     put(hmap, 16750, "小算");
     put(hmap, 13276, "小法");
     put(hmap, 10583, "小鴨");
-    printf("\n新增完成後，雜湊表為\nKey -> Value\n");
+    printf("\n新增後的雜湊表\nKey -> Value\n");
     print(hmap);
 
     /* 查詢操作 */
-    // 向雜湊表中輸入鍵 key ，得到值 value
+    // 輸入鍵 key，從雜湊表取得對應的值 value
     const char *name = get(hmap, 15937);
-    printf("\n輸入學號 15937 ，查詢到姓名 %s\n", name);
+    printf("\n輸入學號 15937，查得姓名 %s\n", name);
 
     /* 刪除操作 */
-    // 在雜湊表中刪除鍵值對 (key, value)
+    // 從雜湊表刪除鍵值對 (key, value)
     removeItem(hmap, 10583);
-    printf("\n刪除 10583 後，雜湊表為\nKey -> Value\n");
+    printf("\n刪除 10583 後的雜湊表\nKey -> Value\n");
     print(hmap);
 
     /* 走訪雜湊表 */
@@ -196,7 +196,7 @@ int main() {
 
     keySet(hmap, &set);
     int *keys = (int *)set.set;
-    printf("\n單獨走訪鍵 Key\n");
+    printf("\n只走訪鍵 Key\n");
     for (i = 0; i < set.len; i++) {
         printf("%d\n", keys[i]);
     }
@@ -204,7 +204,7 @@ int main() {
 
     valueSet(hmap, &set);
     char **vals = (char **)set.set;
-    printf("\n單獨走訪鍵 Value\n");
+    printf("\n只走訪值 Value\n");
     for (i = 0; i < set.len; i++) {
         printf("%s\n", vals[i]);
     }

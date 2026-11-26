@@ -6,11 +6,11 @@
 
 #include "../utils/common.hpp"
 
-/* Deque implemented with a circular array */
+/* Deque backed by a circular array */
 class ArrayDeque {
   private:
-    vector<int> nums; // Array for storing deque elements
-    int front;        // Front index, identifying the first element
+    vector<int> nums; // Array that stores the deque elements
+    int front;        // Index of the front element
     int queSize;      // Deque size
 
   public:
@@ -35,76 +35,76 @@ class ArrayDeque {
         return queSize == 0;
     }
 
-    /* Calculate an index in the circular array */
+    /* Compute the circular array index */
     int index(int i) {
-        // Use modulo to connect the end of the array to its beginning
-        // When i passes the end of the array, wrap around to the beginning
-        // When i passes the beginning of the array, wrap around to the end
+        // Use the remainder to wrap indices around the array
+        // When i goes past the end, wrap it back to the start
+        // When i goes before the start, wrap it around to the end
         return (i + capacity()) % capacity();
     }
 
-    /* Enqueue at the front */
+    /* Add an element at the front */
     void pushFirst(int num) {
         if (queSize == capacity()) {
             cout << "Deque is full" << endl;
             return;
         }
-        // Move the front index one position to the left
-        // Use modulo to wrap front to the end when it passes the beginning of the array
+        // Move the front index one slot to the left
+        // Use the remainder to wrap front to the end if it goes before the start
         front = index(front - 1);
-        // Add num to the front
+        // Add num at the front
         nums[front] = num;
         queSize++;
     }
 
-    /* Enqueue at the rear */
+    /* Add an element at the rear */
     void pushLast(int num) {
         if (queSize == capacity()) {
             cout << "Deque is full" << endl;
             return;
         }
-        // Calculate the rear index, one position past the last element
+        // Compute the index one slot past the rear element
         int rear = index(front + queSize);
-        // Add num to the rear
+        // Add num at the rear
         nums[rear] = num;
         queSize++;
     }
 
-    /* Dequeue from the front */
+    /* Remove and return the front element */
     int popFirst() {
         int num = peekFirst();
-        // Advance the front index by one position
+        // Advance the front index by one
         front = index(front + 1);
         queSize--;
         return num;
     }
 
-    /* Dequeue from the rear */
+    /* Remove and return the rear element */
     int popLast() {
         int num = peekLast();
         queSize--;
         return num;
     }
 
-    /* Access the front element */
+    /* Peek at the front element */
     int peekFirst() {
         if (isEmpty())
             throw out_of_range("Deque is empty");
         return nums[front];
     }
 
-    /* Access the rear element */
+    /* Peek at the rear element */
     int peekLast() {
         if (isEmpty())
             throw out_of_range("Deque is empty");
-        // Calculate the index of the last element
+        // Compute the index of the rear element
         int last = index(front + queSize - 1);
         return nums[last];
     }
 
     /* Return a vector for printing */
     vector<int> toVector() {
-        // Copy only the elements in the occupied range
+        // Copy only the elements currently in the deque
         vector<int> res(queSize);
         for (int i = 0, j = front; i < queSize; i++, j++) {
             res[i] = nums[index(j)];
@@ -120,29 +120,29 @@ int main() {
     deque->pushLast(3);
     deque->pushLast(2);
     deque->pushLast(5);
-    cout << "Deque deque = ";
+    cout << "deque = ";
     printVector(deque->toVector());
 
-    /* Access an element */
+    /* Peek at the front and rear elements */
     int peekFirst = deque->peekFirst();
-    cout << "Front element peekFirst = " << peekFirst << endl;
+    cout << "Front element (peekFirst) = " << peekFirst << endl;
     int peekLast = deque->peekLast();
-    cout << "Rear element peekLast = " << peekLast << endl;
+    cout << "Rear element (peekLast) = " << peekLast << endl;
 
-    /* Enqueue elements */
+    /* Add elements to the deque */
     deque->pushLast(4);
-    cout << "After enqueuing element 4 at the rear, deque = ";
+    cout << "After adding 4 at the rear, deque = ";
     printVector(deque->toVector());
     deque->pushFirst(1);
-    cout << "After enqueuing element 1 at the front, deque = ";
+    cout << "After adding 1 at the front, deque = ";
     printVector(deque->toVector());
 
-    /* Dequeue an element */
+    /* Remove elements from both ends */
     int popLast = deque->popLast();
-    cout << "Element dequeued from the rear = " << popLast << ", after dequeuing from the rear, deque = ";
+    cout << "Removed from the rear = " << popLast << ", deque after removal = ";
     printVector(deque->toVector());
     int popFirst = deque->popFirst();
-    cout << "Element dequeued from the front = " << popFirst << ", after dequeuing from the front, deque = ";
+    cout << "Removed from the front = " << popFirst << ", deque after removal = ";
     printVector(deque->toVector());
 
     /* Get the deque size */
@@ -151,6 +151,6 @@ int main() {
 
     /* Check whether the deque is empty */
     bool isEmpty = deque->isEmpty();
-    cout << "Is the deque empty = " << boolalpha << isEmpty << endl;
+    cout << "Deque is empty = " << boolalpha << isEmpty << endl;
     return 0;
 }

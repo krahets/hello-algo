@@ -12,10 +12,10 @@ class TreeNode(
     var _val: Int // 노드 값
 ) {
     var height: Int = 0 // 노드 높이
-    var left: TreeNode? = null // 왼쪽 자식 노드 참조
-    var right: TreeNode? = null // 오른쪽 자식 노드 참조
+    var left: TreeNode? = null // 왼쪽 자식 노드에 대한 참조
+    var right: TreeNode? = null // 오른쪽 자식 노드에 대한 참조
 
-    // 직렬화 인코딩 규칙은 다음을 참고한다:
+    // 직렬화 인코딩 규칙은 다음을 참고한다.
     // https://www.hello-algo.com/ko/chapter_tree/array_representation_of_tree/
     // 이진 트리의 배열 표현:
     // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
@@ -31,7 +31,7 @@ class TreeNode(
     //         \——— 4
     //             \——— 8
 
-    /* 리스트를 이진 트리로 역직렬화: 재귀 */
+    /* 재귀로 리스트를 이진 트리로 역직렬화 */
     companion object {
         private fun listToTreeDFS(arr: MutableList<Int?>, i: Int): TreeNode? {
             if (i < 0 || i >= arr.size || arr[i] == null) {
@@ -48,7 +48,7 @@ class TreeNode(
             return listToTreeDFS(arr, 0)
         }
 
-        /* 이진 트리를 리스트로 직렬화: 재귀 */
+        /* 재귀로 이진 트리를 리스트로 직렬화 */
         private fun treeToListDFS(root: TreeNode?, i: Int, res: MutableList<Int?>) {
             if (root == null) return
             while (i >= res.size) {

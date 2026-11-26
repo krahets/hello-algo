@@ -23,10 +23,10 @@ func coinChangeDP(coins []int, amt int) int {
 	for i := 1; i <= n; i++ {
 		for a := 1; a <= amt; a++ {
 			if coins[i-1] > a {
-				// 目標金額を超える場合、硬貨 i を選ばない
+				// 目標金額を超える場合は硬貨 i を使わない
 				dp[i][a] = dp[i-1][a]
 			} else {
-				// 硬貨 i を選ばない場合と選ぶ場合の小さいほうの値
+				// 硬貨 i を使う場合と使わない場合の小さい方を取る
 				dp[i][a] = int(math.Min(float64(dp[i-1][a]), float64(dp[i][a-coins[i-1]]+1)))
 			}
 		}
@@ -48,13 +48,13 @@ func coinChangeDPComp(coins []int, amt int) int {
 	}
 	// 状態遷移
 	for i := 1; i <= n; i++ {
-		// 順方向に走査する
+		// 昇順に走査する
 		for a := 1; a <= amt; a++ {
 			if coins[i-1] > a {
-				// 目標金額を超える場合、硬貨 i を選ばない
+				// 目標金額を超える場合は硬貨 i を使わない
 				dp[a] = dp[a]
 			} else {
-				// 硬貨 i を選ばない場合と選ぶ場合の小さいほうの値
+				// 硬貨 i を使う場合と使わない場合の小さい方を取る
 				dp[a] = int(math.Min(float64(dp[a]), float64(dp[a-coins[i-1]]+1)))
 			}
 		}

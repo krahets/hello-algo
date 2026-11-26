@@ -10,7 +10,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
 from modules import ListNode
 
-"""実行用コード"""
+"""Driver Code"""
 if __name__ == "__main__":
     num = 3
     hash_num = hash(num)
@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
     dec = 3.14159
     hash_dec = hash(dec)
-    print(f"小数 {dec} のハッシュ値は {hash_dec}")
+    print(f"浮動小数点数 {dec} のハッシュ値は {hash_dec}")
 
     str = "Hello 算法"
     hash_str = hash(str)

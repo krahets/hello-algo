@@ -9,7 +9,7 @@ namespace hello_algo.chapter_dynamic_programming;
 public class climbing_stairs_dfs {
     /* 探索 */
     int DFS(int i) {
-        // dp[1] と dp[2] は既知なので、その値を返す
+        // 既知の値 dp[1] と dp[2] のうち、該当する方を返す
         if (i == 1 || i == 2)
             return i;
         // dp[i] = dp[i-1] + dp[i-2]
@@ -17,7 +17,7 @@ public class climbing_stairs_dfs {
         return count;
     }
 
-    /* 階段の上り方：探索 */
+    /* 階段の登り方：探索 */
     int ClimbingStairsDFS(int n) {
         return DFS(n);
     }
@@ -26,6 +26,6 @@ public class climbing_stairs_dfs {
     public void Test() {
         int n = 9;
         int res = ClimbingStairsDFS(n);
-        Console.WriteLine($"{n} 段の階段を上る方法は全部で {res} 通り");
+        Console.WriteLine($"全 {n} 段の階段の登り方は {res} 通り");
     }
 }

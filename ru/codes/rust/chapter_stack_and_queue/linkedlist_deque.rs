@@ -12,8 +12,8 @@ use std::rc::Rc;
 /* Узел двусвязного списка */
 pub struct ListNode<T> {
     pub val: T,                                 // Значение узла
-    pub next: Option<Rc<RefCell<ListNode<T>>>>, // Указатель на узел-преемник
-    pub prev: Option<Rc<RefCell<ListNode<T>>>>, // Указатель на узел-предшественник
+    pub next: Option<Rc<RefCell<ListNode<T>>>>, // Умный указатель на следующий узел
+    pub prev: Option<Rc<RefCell<ListNode<T>>>>, // Умный указатель на предыдущий узел
 }
 
 impl<T> ListNode<T> {
@@ -26,12 +26,12 @@ impl<T> ListNode<T> {
     }
 }
 
-/* Двусторонняя очередь на основе двусвязного списка */
+/* Двусторонняя очередь (дек) на основе двусвязного списка */
 #[allow(dead_code)]
 pub struct LinkedListDeque<T> {
-    front: Option<Rc<RefCell<ListNode<T>>>>, // Головной узел front
-    rear: Option<Rc<RefCell<ListNode<T>>>>,  // Хвостовой узел rear
-    que_size: usize,                         // Длина двусторонней очереди
+    front: Option<Rc<RefCell<ListNode<T>>>>, // Первый узел front
+    rear: Option<Rc<RefCell<ListNode<T>>>>,  // Последний узел rear
+    que_size: usize,                         // Длина дека
 }
 
 impl<T: Copy> LinkedListDeque<T> {
@@ -43,125 +43,125 @@ impl<T: Copy> LinkedListDeque<T> {
         }
     }
 
-    /* Получение длины двусторонней очереди */
+    /* Получить длину дека */
     pub fn size(&self) -> usize {
         return self.que_size;
     }
 
-    /* Проверка, пуста ли двусторонняя очередь */
+    /* Проверить, пуст ли дек */
     pub fn is_empty(&self) -> bool {
         return self.que_size == 0;
     }
 
-    /* Операция добавления в очередь */
+    /* Добавить элемент в дек */
     fn push(&mut self, num: T, is_front: bool) {
         let node = ListNode::new(num);
-        // Операция добавления в голову очереди
+        // Добавить элемент в начало дека
         if is_front {
             match self.front.take() {
-                // Если связный список пуст, сделать так, чтобы и front, и rear указывали на node
+                // Если связный список пуст, установить front и rear так, чтобы они указывали на node
                 None => {
                     self.rear = Some(node.clone());
                     self.front = Some(node);
                 }
-                // Добавить node в голову списка
+                // Добавить node в начало связного списка
                 Some(old_front) => {
                     old_front.borrow_mut().prev = Some(node.clone());
                     node.borrow_mut().next = Some(old_front);
-                    self.front = Some(node); // Обновить головной узел
+                    self.front = Some(node); // Обновить ссылку на первый узел
                 }
             }
         }
-        // Операция добавления в хвост очереди
+        // Добавить элемент в конец дека
         else {
             match self.rear.take() {
-                // Если связный список пуст, сделать так, чтобы и front, и rear указывали на node
+                // Если связный список пуст, установить front и rear так, чтобы они указывали на node
                 None => {
                     self.front = Some(node.clone());
                     self.rear = Some(node);
                 }
-                // Добавить node в хвост списка
+                // Добавить node в конец связного списка
                 Some(old_rear) => {
                     old_rear.borrow_mut().next = Some(node.clone());
                     node.borrow_mut().prev = Some(old_rear);
-                    self.rear = Some(node); // Обновить хвостовой узел
+                    self.rear = Some(node); // Обновить ссылку на последний узел
                 }
             }
         }
-        self.que_size += 1; // Обновить длину очереди
+        self.que_size += 1; // Обновить длину дека
     }
 
-    /* Добавление в голову очереди */
+    /* Добавить элемент в начало дека */
     pub fn push_first(&mut self, num: T) {
         self.push(num, true);
     }
 
-    /* Добавление в хвост очереди */
+    /* Добавить элемент в конец дека */
     pub fn push_last(&mut self, num: T) {
         self.push(num, false);
     }
 
-    /* Операция извлечения из очереди */
+    /* Извлечь элемент из дека */
     fn pop(&mut self, is_front: bool) -> Option<T> {
-        // Если очередь пуста, сразу вернуть None
+        // Если дек пуст, сразу вернуть None
         if self.is_empty() {
             return None;
         };
-        // Операция извлечения из головы очереди
+        // Извлечь элемент из начала дека
         if is_front {
             self.front.take().map(|old_front| {
                 match old_front.borrow_mut().next.take() {
                     Some(new_front) => {
                         new_front.borrow_mut().prev.take();
-                        self.front = Some(new_front); // Обновить головной узел
+                        self.front = Some(new_front); // Обновить ссылку на первый узел
                     }
                     None => {
                         self.rear.take();
                     }
                 }
-                self.que_size -= 1; // Обновить длину очереди
+                self.que_size -= 1; // Обновить длину дека
                 old_front.borrow().val
             })
         }
-        // Операция извлечения из хвоста очереди
+        // Извлечь элемент из конца дека
         else {
             self.rear.take().map(|old_rear| {
                 match old_rear.borrow_mut().prev.take() {
                     Some(new_rear) => {
                         new_rear.borrow_mut().next.take();
-                        self.rear = Some(new_rear); // Обновить хвостовой узел
+                        self.rear = Some(new_rear); // Обновить ссылку на последний узел
                     }
                     None => {
                         self.front.take();
                     }
                 }
-                self.que_size -= 1; // Обновить длину очереди
+                self.que_size -= 1; // Обновить длину дека
                 old_rear.borrow().val
             })
         }
     }
 
-    /* Извлечение из головы очереди */
+    /* Извлечь элемент из начала дека */
     pub fn pop_first(&mut self) -> Option<T> {
         return self.pop(true);
     }
 
-    /* Извлечение из хвоста очереди */
+    /* Извлечь элемент из конца дека */
     pub fn pop_last(&mut self) -> Option<T> {
         return self.pop(false);
     }
 
-    /* Доступ к элементу в начале очереди */
+    /* Посмотреть первый элемент дека */
     pub fn peek_first(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
         self.front.as_ref()
     }
 
-    /* Доступ к элементу в конце очереди */
+    /* Посмотреть последний элемент дека */
     pub fn peek_last(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
         self.rear.as_ref()
     }
 
-    /* Вернуть массив для вывода */
+    /* Вернуть динамический массив для вывода */
     pub fn to_array(&self, head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
         let mut res: Vec<T> = Vec::new();
         fn recur<T: Copy>(cur: Option<&Rc<RefCell<ListNode<T>>>>, res: &mut Vec<T>) {
@@ -176,43 +176,43 @@ impl<T: Copy> LinkedListDeque<T> {
     }
 }
 
-/* Driver Code */
+/* Пример использования */
 fn main() {
-    /* Инициализация двусторонней очереди */
+    /* Инициализировать дек */
     let mut deque = LinkedListDeque::new();
     deque.push_last(3);
     deque.push_last(2);
     deque.push_last(5);
-    print!("Двусторонняя очередь deque = ");
+    print!("Дек deque = ");
     print_util::print_array(&deque.to_array(deque.peek_first()));
 
-    /* Доступ к элементу */
+    /* Посмотреть первый и последний элементы */
     let peek_first = deque.peek_first().unwrap().borrow().val;
-    print!("\nПервый элемент peek_first = {}", peek_first);
+    print!("\nПервый элемент дека peek_first = {}", peek_first);
     let peek_last = deque.peek_last().unwrap().borrow().val;
-    print!("\nПоследний элемент peek_last = {}", peek_last);
+    print!("\nПоследний элемент дека peek_last = {}", peek_last);
 
-    /* Добавление элемента в очередь */
+    /* Добавить элементы в дек */
     deque.push_last(4);
-    print!("\nПосле добавления элемента 4 в хвост deque = ");
+    print!("\nПосле добавления 4 в конец дека deque = ");
     print_util::print_array(&deque.to_array(deque.peek_first()));
     deque.push_first(1);
-    print!("\nПосле добавления элемента 1 в голову deque = ");
+    print!("\nПосле добавления 1 в начало дека deque = ");
     print_util::print_array(&deque.to_array(deque.peek_first()));
 
-    /* Извлечение элемента из очереди */
+    /* Извлечь элементы из дека */
     let pop_last = deque.pop_last().unwrap();
-    print!("\nИзвлеченный из хвоста элемент = {}, deque после извлечения из хвоста = ", pop_last);
+    print!("\nИзвлечённый последний элемент = {}, после извлечения deque = ", pop_last);
     print_util::print_array(&deque.to_array(deque.peek_first()));
     let pop_first = deque.pop_first().unwrap();
-    print!("\nИзвлеченный из головы элемент = {}, deque после извлечения из головы = ", pop_first);
+    print!("\nИзвлечённый первый элемент = {}, после извлечения deque = ", pop_first);
     print_util::print_array(&deque.to_array(deque.peek_first()));
 
-    /* Получение длины двусторонней очереди */
+    /* Получить длину дека */
     let size = deque.size();
-    print!("\nДлина двусторонней очереди size = {}", size);
+    print!("\nДлина дека size = {}", size);
 
-    /* Проверка, пуста ли двусторонняя очередь */
+    /* Проверить, пуст ли дек */
     let is_empty = deque.is_empty();
-    print!("\nПуста ли двусторонняя очередь = {}", is_empty);
+    print!("\nДек пуст = {}", is_empty);
 }

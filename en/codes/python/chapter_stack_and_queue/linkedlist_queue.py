@@ -12,38 +12,38 @@ from modules import ListNode
 
 
 class LinkedListQueue:
-    """Queue implemented with a linked list"""
+    """Queue backed by a linked list."""
 
     def __init__(self):
-        """Constructor"""
-        self._front: ListNode | None = None  # Head node front
-        self._rear: ListNode | None = None  # Tail node rear
+        """Initialize the queue."""
+        self._front: ListNode | None = None  # Head node (_front)
+        self._rear: ListNode | None = None  # Tail node (_rear)
         self._size: int = 0
 
     def size(self) -> int:
-        """Get the queue size"""
+        """Get the queue size."""
         return self._size
 
     def is_empty(self) -> bool:
-        """Check whether the queue is empty"""
+        """Check whether the queue is empty."""
         return self._size == 0
 
     def push(self, num: int):
-        """Enqueue"""
-        # Add num after the tail node
+        """Enqueue an element."""
+        # Add a node containing num after the tail
         node = ListNode(num)
-        # If the queue is empty, make both the head and tail point to this node
+        # If the queue is empty, point both the head and tail at the new node
         if self._front is None:
             self._front = node
             self._rear = node
-        # If the queue is not empty, add this node after the tail node
+        # If the queue has elements, link the new node after the tail
         else:
             self._rear.next = node
             self._rear = node
         self._size += 1
 
     def pop(self) -> int:
-        """Dequeue"""
+        """Remove and return the front element."""
         num = self.peek()
         # Remove the head node
         self._front = self._front.next
@@ -51,13 +51,13 @@ class LinkedListQueue:
         return num
 
     def peek(self) -> int:
-        """Access the front element"""
+        """Peek at the front element."""
         if self.is_empty():
             raise IndexError("Queue is empty")
         return self._front.val
 
     def to_list(self) -> list[int]:
-        """Convert to a list for printing"""
+        """Convert to a list for printing."""
         queue = []
         temp = self._front
         while temp:
@@ -66,7 +66,7 @@ class LinkedListQueue:
         return queue
 
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
     # Initialize the queue
     queue = LinkedListQueue()
@@ -77,16 +77,16 @@ if __name__ == "__main__":
     queue.push(2)
     queue.push(5)
     queue.push(4)
-    print("Queue queue =", queue.to_list())
+    print("queue =", queue.to_list())
 
-    # Access the front element
+    # Peek at the front element
     peek: int = queue.peek()
-    print("Front element peek =", peek)
+    print("Front element (front) =", peek)
 
     # Dequeue an element
     pop_front: int = queue.pop()
-    print("Dequeued element pop_front =", pop_front)
-    print("After dequeuing, queue =", queue.to_list())
+    print("Dequeued element (pop) =", pop_front)
+    print("After removal, queue =", queue.to_list())
 
     # Get the queue size
     size: int = queue.size()
@@ -94,4 +94,4 @@ if __name__ == "__main__":
 
     # Check whether the queue is empty
     is_empty: bool = queue.is_empty()
-    print("Is the queue empty =", is_empty)
+    print("Queue is empty =", is_empty)

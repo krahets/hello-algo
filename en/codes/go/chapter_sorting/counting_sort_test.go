@@ -12,7 +12,7 @@ import (
 func TestCountingSort(t *testing.T) {
 	nums := []int{1, 0, 1, 2, 0, 4, 0, 2, 2, 4}
 	countingSortNaive(nums)
-	fmt.Println("After counting sort (does not support objects), nums = ", nums)
+	fmt.Println("After counting sort (values only), nums = ", nums)
 
 	nums1 := []int{1, 0, 1, 2, 0, 4, 0, 2, 2, 4}
 	countingSort(nums1)

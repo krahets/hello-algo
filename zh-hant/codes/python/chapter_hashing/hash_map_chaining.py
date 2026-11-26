@@ -12,14 +12,14 @@ from chapter_hashing.array_hash_map import Pair
 
 
 class HashMapChaining:
-    """鏈式位址雜湊表"""
+    """鏈結法雜湊表"""
 
     def __init__(self):
-        """建構子"""
+        """建構方法"""
         self.size = 0  # 鍵值對數量
         self.capacity = 4  # 雜湊表容量
-        self.load_thres = 2.0 / 3.0  # 觸發擴容的負載因子閾值
-        self.extend_ratio = 2  # 擴容倍數
+        self.load_thres = 2.0 / 3.0  # 觸發容量擴充的負載因子門檻
+        self.extend_ratio = 2  # 容量擴充倍數
         self.buckets = [[] for _ in range(self.capacity)]  # 桶陣列
 
     def hash_func(self, key: int) -> int:
@@ -34,26 +34,26 @@ class HashMapChaining:
         """查詢操作"""
         index = self.hash_func(key)
         bucket = self.buckets[index]
-        # 走訪桶，若找到 key ，則返回對應 val
+        # 走訪桶中的元素，若找到 key，就回傳對應的 val
         for pair in bucket:
             if pair.key == key:
                 return pair.val
-        # 若未找到 key ，則返回 None
+        # 若找不到 key，回傳 None
         return None
 
     def put(self, key: int, val: str):
         """新增操作"""
-        # 當負載因子超過閾值時，執行擴容
+        # 當負載因子超過門檻時，擴充容量
         if self.load_factor() > self.load_thres:
             self.extend()
         index = self.hash_func(key)
         bucket = self.buckets[index]
-        # 走訪桶，若遇到指定 key ，則更新對應 val 並返回
+        # 走訪桶中的元素，若遇到指定的 key，就更新對應的 val 並結束操作
         for pair in bucket:
             if pair.key == key:
                 pair.val = val
                 return
-        # 若無該 key ，則將鍵值對新增至尾部
+        # 若沒有這個 key，就將鍵值對加到尾端
         pair = Pair(key, val)
         bucket.append(pair)
         self.size += 1
@@ -62,7 +62,7 @@ class HashMapChaining:
         """刪除操作"""
         index = self.hash_func(key)
         bucket = self.buckets[index]
-        # 走訪桶，從中刪除鍵值對
+        # 走訪桶中的元素，從中刪除鍵值對
         for pair in bucket:
             if pair.key == key:
                 bucket.remove(pair)
@@ -70,20 +70,20 @@ class HashMapChaining:
                 break
 
     def extend(self):
-        """擴容雜湊表"""
-        # 暫存原雜湊表
+        """擴充雜湊表容量"""
+        # 暫存原本的雜湊表
         buckets = self.buckets
-        # 初始化擴容後的新雜湊表
+        # 初始化擴充後的新雜湊表
         self.capacity *= self.extend_ratio
         self.buckets = [[] for _ in range(self.capacity)]
         self.size = 0
-        # 將鍵值對從原雜湊表搬運至新雜湊表
+        # 將鍵值對從原本的雜湊表移到新表
         for bucket in buckets:
             for pair in bucket:
                 self.put(pair.key, pair.val)
 
     def print(self):
-        """列印雜湊表"""
+        """印出雜湊表"""
         for bucket in self.buckets:
             res = []
             for pair in bucket:
@@ -103,16 +103,16 @@ if __name__ == "__main__":
     hashmap.put(16750, "小算")
     hashmap.put(13276, "小法")
     hashmap.put(10583, "小鴨")
-    print("\n新增完成後，雜湊表為\n[Key1 -> Value1, Key2 -> Value2, ...]")
+    print("\n新增後的雜湊表\n[Key1 -> Value1, Key2 -> Value2, ...]")
     hashmap.print()
 
     # 查詢操作
-    # 向雜湊表中輸入鍵 key ，得到值 value
+    # 輸入鍵 key，從雜湊表取得對應的值 value
     name = hashmap.get(13276)
-    print("\n輸入學號 13276 ，查詢到姓名 " + name)
+    print("\n輸入學號 13276，查得姓名 " + name)
 
     # 刪除操作
-    # 在雜湊表中刪除鍵值對 (key, value)
+    # 從雜湊表刪除鍵值對 (key, value)
     hashmap.remove(12836)
-    print("\n刪除 12836 後，雜湊表為\n[Key1 -> Value1, Key2 -> Value2, ...]")
+    print("\n刪除 12836 後的雜湊表\n[Key1 -> Value1, Key2 -> Value2, ...]")
     hashmap.print()

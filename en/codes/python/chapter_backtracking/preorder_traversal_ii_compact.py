@@ -15,7 +15,7 @@ def pre_order(root: TreeNode):
     """Preorder traversal: example 2"""
     if root is None:
         return
-    # Try
+    # Try a choice
     path.append(root)
     if root.val == 7:
         # Record the solution
@@ -26,7 +26,7 @@ def pre_order(root: TreeNode):
     path.pop()
 
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
     root = list_to_tree([1, 7, 3, 4, 5, 6, 7])
     print("\nInitialize the binary tree")
@@ -37,6 +37,6 @@ if __name__ == "__main__":
     res = list[list[TreeNode]]()
     pre_order(root)
 
-    print("\nOutput all paths from the root to nodes with value 7")
+    print("\nPrint all paths from the root to a node with value 7")
     for path in res:
         print([node.val for node in path])

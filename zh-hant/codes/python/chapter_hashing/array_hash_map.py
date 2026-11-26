@@ -14,11 +14,11 @@ class Pair:
 
 
 class ArrayHashMap:
-    """基於陣列實現的雜湊表"""
+    """以陣列實作的雜湊表"""
 
     def __init__(self):
-        """建構子"""
-        # 初始化陣列，包含 100 個桶
+        """建構方法"""
+        # 初始化包含 100 個桶的陣列
         self.buckets: list[Pair | None] = [None] * 100
 
     def hash_func(self, key: int) -> int:
@@ -35,7 +35,7 @@ class ArrayHashMap:
         return pair.val
 
     def put(self, key: int, val: str):
-        """新增和更新操作"""
+        """新增與更新操作"""
         pair = Pair(key, val)
         index: int = self.hash_func(key)
         self.buckets[index] = pair
@@ -43,11 +43,11 @@ class ArrayHashMap:
     def remove(self, key: int):
         """刪除操作"""
         index: int = self.hash_func(key)
-        # 置為 None ，代表刪除
+        # 設為 None，表示刪除
         self.buckets[index] = None
 
     def entry_set(self) -> list[Pair]:
-        """獲取所有鍵值對"""
+        """取得所有鍵值對"""
         result: list[Pair] = []
         for pair in self.buckets:
             if pair is not None:
@@ -55,7 +55,7 @@ class ArrayHashMap:
         return result
 
     def key_set(self) -> list[int]:
-        """獲取所有鍵"""
+        """取得所有鍵"""
         result = []
         for pair in self.buckets:
             if pair is not None:
@@ -63,7 +63,7 @@ class ArrayHashMap:
         return result
 
     def value_set(self) -> list[str]:
-        """獲取所有值"""
+        """取得所有值"""
         result = []
         for pair in self.buckets:
             if pair is not None:
@@ -71,7 +71,7 @@ class ArrayHashMap:
         return result
 
     def print(self):
-        """列印雜湊表"""
+        """印出雜湊表"""
         for pair in self.buckets:
             if pair is not None:
                 print(pair.key, "->", pair.val)
@@ -89,18 +89,18 @@ if __name__ == "__main__":
     hmap.put(16750, "小算")
     hmap.put(13276, "小法")
     hmap.put(10583, "小鴨")
-    print("\n新增完成後，雜湊表為\nKey -> Value")
+    print("\n新增後的雜湊表\nKey -> Value")
     hmap.print()
 
     # 查詢操作
-    # 向雜湊表中輸入鍵 key ，得到值 value
+    # 輸入鍵 key，從雜湊表取得對應的值 value
     name = hmap.get(15937)
-    print("\n輸入學號 15937 ，查詢到姓名 " + name)
+    print("\n輸入學號 15937，查得姓名 " + name)
 
     # 刪除操作
-    # 在雜湊表中刪除鍵值對 (key, value)
+    # 從雜湊表刪除鍵值對 (key, value)
     hmap.remove(10583)
-    print("\n刪除 10583 後，雜湊表為\nKey -> Value")
+    print("\n刪除 10583 後的雜湊表\nKey -> Value")
     hmap.print()
 
     # 走訪雜湊表
@@ -108,10 +108,10 @@ if __name__ == "__main__":
     for pair in hmap.entry_set():
         print(pair.key, "->", pair.val)
 
-    print("\n單獨走訪鍵 Key")
+    print("\n只走訪鍵 Key")
     for key in hmap.key_set():
         print(key)
 
-    print("\n單獨走訪值 Value")
+    print("\n只走訪值 Value")
     for val in hmap.value_set():
         print(val)

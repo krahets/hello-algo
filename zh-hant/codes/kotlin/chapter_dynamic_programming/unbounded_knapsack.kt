@@ -17,10 +17,10 @@ fun unboundedKnapsackDP(wgt: IntArray, _val: IntArray, cap: Int): Int {
     for (i in 1..n) {
         for (c in 1..cap) {
             if (wgt[i - 1] > c) {
-                // 若超過背包容量，則不選物品 i
+                // 若重量超過背包容量，就不選物品 i
                 dp[i][c] = dp[i - 1][c]
             } else {
-                // 不選和選物品 i 這兩種方案的較大值
+                // 取不選與選取物品 i 兩種情況中的較大值
                 dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + _val[i - 1])
             }
         }
@@ -41,10 +41,10 @@ fun unboundedKnapsackDPComp(
     for (i in 1..n) {
         for (c in 1..cap) {
             if (wgt[i - 1] > c) {
-                // 若超過背包容量，則不選物品 i
+                // 若重量超過背包容量，就不選物品 i
                 dp[c] = dp[c]
             } else {
-                // 不選和選物品 i 這兩種方案的較大值
+                // 取不選與選取物品 i 兩種情況中的較大值
                 dp[c] = max(dp[c], dp[c - wgt[i - 1]] + _val[i - 1])
             }
         }
@@ -52,7 +52,7 @@ fun unboundedKnapsackDPComp(
     return dp[cap]
 }
 
-/* Driver Code */
+/* 主程式 */
 fun main() {
     val wgt = intArrayOf(1, 2, 3)
     val _val = intArrayOf(5, 11, 15)
@@ -60,9 +60,9 @@ fun main() {
 
     // 動態規劃
     var res = unboundedKnapsackDP(wgt, _val, cap)
-    println("不超過背包容量的最大物品價值為 $res")
+    println("在背包容量限制內，物品的最大總價值為 $res")
 
     // 空間最佳化後的動態規劃
     res = unboundedKnapsackDPComp(wgt, _val, cap)
-    println("不超過背包容量的最大物品價值為 $res")
+    println("在背包容量限制內，物品的最大總價值為 $res")
 }

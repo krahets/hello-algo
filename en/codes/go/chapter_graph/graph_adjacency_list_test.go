@@ -12,7 +12,7 @@ import (
 )
 
 func TestGraphAdjList(t *testing.T) {
-	/* Initialize the undirected graph */
+	/* Initialize an undirected graph */
 	v := ValsToVets([]int{1, 3, 2, 5, 4})
 	edges := [][]Vertex{{v[0], v[1]}, {v[0], v[3]}, {v[1], v[2]}, {v[2], v[3]}, {v[2], v[4]}, {v[3], v[4]}}
 	graph := newGraphAdjList(edges)
@@ -20,13 +20,13 @@ func TestGraphAdjList(t *testing.T) {
 	graph.print()
 
 	/* Add an edge */
-	// Vertices 1 and 2 are v[0] and v[2]
+	// Vertices 1 and 2 are v[0] and v[2], respectively
 	graph.addEdge(v[0], v[2])
 	fmt.Println("\nGraph after adding edge 1-2:")
 	graph.print()
 
 	/* Remove an edge */
-	// Vertices 1 and 3 are v[0] and v[1]
+	// Vertices 1 and 3 are v[0] and v[1], respectively
 	graph.removeEdge(v[0], v[1])
 	fmt.Println("\nGraph after removing edge 1-3:")
 	graph.print()

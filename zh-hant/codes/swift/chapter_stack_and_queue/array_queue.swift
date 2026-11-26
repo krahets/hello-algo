@@ -4,10 +4,10 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 基於環形陣列實現的佇列 */
+/* 以環狀陣列實作佇列 */
 class ArrayQueue {
-    private var nums: [Int] // 用於儲存佇列元素的陣列
-    private var front: Int // 佇列首指標，指向佇列首元素
+    private var nums: [Int] // 存放佇列元素的陣列
+    private var front: Int // 隊首索引，記錄隊首元素在陣列中的位置
     private var _size: Int // 佇列長度
 
     init(capacity: Int) {
@@ -17,12 +17,12 @@ class ArrayQueue {
         _size = 0
     }
 
-    /* 獲取佇列的容量 */
+    /* 取得佇列容量 */
     func capacity() -> Int {
         nums.count
     }
 
-    /* 獲取佇列的長度 */
+    /* 取得佇列長度 */
     func size() -> Int {
         _size
     }
@@ -32,31 +32,31 @@ class ArrayQueue {
         size() == 0
     }
 
-    /* 入列 */
+    /* 入隊 */
     func push(num: Int) {
         if size() == capacity() {
             print("佇列已滿")
             return
         }
-        // 計算佇列尾指標，指向佇列尾索引 + 1
-        // 透過取餘操作實現 rear 越過陣列尾部後回到頭部
+        // 計算下一次從隊尾寫入的位置 rear（隊尾索引 + 1）
+        // 取餘數，讓 rear 超過陣列末端時繞回開頭
         let rear = (front + size()) % capacity()
-        // 將 num 新增至佇列尾
+        // 將 num 加到隊尾
         nums[rear] = num
         _size += 1
     }
 
-    /* 出列 */
+    /* 出隊 */
     @discardableResult
     func pop() -> Int {
         let num = peek()
-        // 佇列首指標向後移動一位，若越過尾部，則返回到陣列頭部
+        // 將隊首索引往後移一格，若超過陣列末端就繞回開頭
         front = (front + 1) % capacity()
         _size -= 1
         return num
     }
 
-    /* 訪問佇列首元素 */
+    /* 讀取隊首元素 */
     func peek() -> Int {
         if isEmpty() {
             fatalError("佇列為空")
@@ -64,22 +64,22 @@ class ArrayQueue {
         return nums[front]
     }
 
-    /* 返回陣列 */
+    /* 回傳陣列 */
     func toArray() -> [Int] {
-        // 僅轉換有效長度範圍內的串列元素
+        // 只轉換佇列中實際存放的元素
         (front ..< front + size()).map { nums[$0 % capacity()] }
     }
 }
 
 @main
 enum _ArrayQueue {
-    /* Driver Code */
+    /* 範例程式 */
     static func main() {
         /* 初始化佇列 */
         let capacity = 10
         let queue = ArrayQueue(capacity: capacity)
 
-        /* 元素入列 */
+        /* 將元素加入佇列 */
         queue.push(num: 1)
         queue.push(num: 3)
         queue.push(num: 2)
@@ -87,15 +87,15 @@ enum _ArrayQueue {
         queue.push(num: 4)
         print("佇列 queue = \(queue.toArray())")
 
-        /* 訪問佇列首元素 */
+        /* 讀取隊首元素 */
         let peek = queue.peek()
-        print("佇列首元素 peek = \(peek)")
+        print("隊首元素 peek = \(peek)")
 
-        /* 元素出列 */
+        /* 從佇列取出元素 */
         let pop = queue.pop()
-        print("出列元素 pop = \(pop)，出列後 queue = \(queue.toArray())")
+        print("出隊元素 pop = \(pop)，出隊後 queue = \(queue.toArray())")
 
-        /* 獲取佇列的長度 */
+        /* 取得佇列長度 */
         let size = queue.size()
         print("佇列長度 size = \(size)")
 
@@ -103,11 +103,11 @@ enum _ArrayQueue {
         let isEmpty = queue.isEmpty()
         print("佇列是否為空 = \(isEmpty)")
 
-        /* 測試環形陣列 */
+        /* 測試環狀陣列 */
         for i in 0 ..< 10 {
             queue.push(num: i)
             queue.pop()
-            print("第 \(i) 輪入列 + 出列後 queue = \(queue.toArray())")
+            print("第 \(i) 輪入隊 + 出隊後 queue = \(queue.toArray())")
         }
     }
 }

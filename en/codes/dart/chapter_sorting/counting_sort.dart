@@ -6,20 +6,20 @@
 import 'dart:math';
 
 /* Counting sort */
-// Simple implementation; cannot be used to sort objects
+// Simple implementation that cannot sort objects
 void countingSortNaive(List<int> nums) {
-  // 1. Find the maximum array element m
+  // 1. Find the largest array element m
   int m = 0;
   for (int _num in nums) {
     m = max(m, _num);
   }
   // 2. Count the occurrences of each number
-  // counter[_num] is the number of occurrences of _num
+  // counter[_num] holds the number of occurrences of _num
   List<int> counter = List.filled(m + 1, 0);
   for (int _num in nums) {
     counter[_num]++;
   }
-  // 3. Traverse counter and fill the original array nums with the elements
+  // 3. Traverse counter and write each value back into nums
   int i = 0;
   for (int _num = 0; _num < m + 1; _num++) {
     for (int j = 0; j < counter[_num]; j++, i++) {
@@ -29,42 +29,42 @@ void countingSortNaive(List<int> nums) {
 }
 
 /* Counting sort */
-// Full stable implementation; this approach can be adapted to sort objects
+// Full implementation that can sort objects and is stable
 void countingSort(List<int> nums) {
-  // 1. Find the maximum array element m
+  // 1. Find the largest array element m
   int m = 0;
   for (int _num in nums) {
     m = max(m, _num);
   }
   // 2. Count the occurrences of each number
-  // counter[_num] is the number of occurrences of _num
+  // counter[_num] holds the number of occurrences of _num
   List<int> counter = List.filled(m + 1, 0);
   for (int _num in nums) {
     counter[_num]++;
   }
-  // 3. Compute prefix sums of counter to convert occurrence counts into end positions
-  // That is, counter[_num]-1 is the index of the last occurrence of _num in res
+  // 3. Compute prefix sums in counter to locate the last position for each value
+  // That is, counter[_num]-1 is the last index of _num in res
   for (int i = 0; i < m; i++) {
     counter[i + 1] += counter[i];
   }
-  // 4. Traverse nums in reverse and place each element in the result array res
-  // Initialize array res to store the result
+  // 4. Traverse nums backward and place each element in the result array res
+  // Initialize the result array res
   int n = nums.length;
   List<int> res = List.filled(n, 0);
   for (int i = n - 1; i >= 0; i--) {
     int _num = nums[i];
-    res[counter[_num] - 1] = _num; // Place _num at the corresponding index
-    counter[_num]--; // Decrement the prefix sum by 1 to determine where to place the next occurrence of _num
+    res[counter[_num] - 1] = _num; // Place _num at its corresponding index
+    counter[_num]--; // Decrement the prefix sum by 1 to find the next index for _num
   }
-  // Overwrite the original array nums with the result array res
+  // Copy res back into the original array nums
   nums.setAll(0, res);
 }
 
-/* Driver code*/
+/* Driver Code*/
 void main() {
   final nums = [1, 0, 1, 2, 0, 4, 0, 2, 2, 4];
   countingSortNaive(nums);
-  print('After counting sort (cannot sort objects), nums = $nums');
+  print('After counting sort (values only), nums = $nums');
 
   final nums1 = [1, 0, 1, 2, 0, 4, 0, 2, 2, 4];
   countingSort(nums1);

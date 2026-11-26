@@ -12,22 +12,22 @@ import (
 
 /* レベル順走査 */
 func levelOrder(root *TreeNode) []any {
-	// キューを初期化し、根ノードを追加する
+	// キューを初期化して根を入れる
 	queue := list.New()
 	queue.PushBack(root)
-	// 走査順序を保存するスライスを初期化する
+	// 走査順を記録するスライスを初期化する
 	nums := make([]any, 0)
 	for queue.Len() > 0 {
-		// キューからデキューする
+		// キューの先頭から取り出す
 		node := queue.Remove(queue.Front()).(*TreeNode)
-		// ノードの値を保存する
+		// ノードの値を記録する
 		nums = append(nums, node.Val)
 		if node.Left != nil {
-			// 左の子ノードをエンキューする
+			// 左の子をキューに入れる
 			queue.PushBack(node.Left)
 		}
 		if node.Right != nil {
-			// 右の子ノードをエンキューする
+			// 右の子をキューに入れる
 			queue.PushBack(node.Right)
 		}
 	}

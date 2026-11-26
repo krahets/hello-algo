@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* Метод 1: полный перебор */
+/* Способ 1: полный перебор */
 int *twoSumBruteForce(int *nums, int numsSize, int target, int *returnSize) {
     for (int i = 0; i < numsSize; ++i) {
         for (int j = i + 1; j < numsSize; ++j) {
@@ -26,7 +26,7 @@ int *twoSumBruteForce(int *nums, int numsSize, int target, int *returnSize) {
 typedef struct {
     int key;
     int val;
-    UT_hash_handle hh; // Реализовано на основе uthash.h
+    UT_hash_handle hh; // Реализация на основе uthash.h
 } HashTable;
 
 /* Поиск в хеш-таблице */
@@ -48,7 +48,7 @@ void insert(HashTable **h, int key, int val) {
     }
 }
 
-/* Метод 2: вспомогательная хеш-таблица */
+/* Способ 2: вспомогательная хеш-таблица */
 int *twoSumHashTable(int *nums, int numsSize, int target, int *returnSize) {
     HashTable *hashtable = NULL;
     for (int i = 0; i < numsSize; i++) {
@@ -65,21 +65,21 @@ int *twoSumHashTable(int *nums, int numsSize, int target, int *returnSize) {
     return NULL;
 }
 
-/* Driver Code */
+/* Пример использования */
 int main() {
-    // ======= Test Case =======
+    // ======= Тестовый пример =======
     int nums[] = {2, 7, 11, 15};
     int target = 13;
-    // ====== Driver Code ======
+    // ====== Пример использования ======
     int returnSize;
     int *res = twoSumBruteForce(nums, sizeof(nums) / sizeof(int), target, &returnSize);
-    // Метод 1
-    printf("Способ 1: res = ");
+    // Способ 1
+    printf("Способ 1, res = ");
     printArray(res, returnSize);
 
-    // Метод 2
+    // Способ 2
     res = twoSumHashTable(nums, sizeof(nums) / sizeof(int), target, &returnSize);
-    printf("Способ 2: res = ");
+    printf("Способ 2, res = ");
     printArray(res, returnSize);
 
     return 0;

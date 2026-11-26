@@ -14,7 +14,7 @@ class ListNode {
     }
 }
 
-/* 配列をデシリアライズして連結リストにする */
+/* 配列をデシリアライズして連結リストを復元する */
 function arrToLinkedList(arr: number[]): ListNode | null {
     const dum: ListNode = new ListNode(0);
     let head = dum;

@@ -12,9 +12,9 @@ import (
 func TestBubbleSort(t *testing.T) {
 	nums := []int{4, 1, 3, 1, 5, 2}
 	bubbleSort(nums)
-	fmt.Println("泡沫排序完成後 nums = ", nums)
+	fmt.Println("氣泡排序完成後 nums = ", nums)
 
 	nums1 := []int{4, 1, 3, 1, 5, 2}
 	bubbleSortWithFlag(nums1)
-	fmt.Println("泡沫排序完成後 nums1 = ", nums1)
+	fmt.Println("氣泡排序完成後 nums1 = ", nums1)
 }

@@ -8,30 +8,30 @@ import utils
 
 @main
 enum BuiltInHash {
-    /* Driver Code */
+    /* Демонстрационный код */
     static func main() {
         let num = 3
         let hashNum = num.hashValue
-        print("Хеш-значение целого числа \(num) = \(hashNum)")
+        print("Целое число \(num) имеет хеш \(hashNum)")
 
         let bol = true
         let hashBol = bol.hashValue
-        print("Хеш-значение булева значения \(bol) = \(hashBol)")
+        print("Логическое значение \(bol) имеет хеш \(hashBol)")
 
         let dec = 3.14159
         let hashDec = dec.hashValue
-        print("Хеш-значение десятичного числа \(dec) = \(hashDec)")
+        print("Вещественное число \(dec) имеет хеш \(hashDec)")
 
-        let str = "Hello Algo"
+        let str = "Hello 算法"
         let hashStr = str.hashValue
-        print("Хеш-значение строки \(str) = \(hashStr)")
+        print("Строка \(str) имеет хеш \(hashStr)")
 
-        let arr = [AnyHashable(12836), AnyHashable("Сяо Ха")]
+        let arr = [AnyHashable(12836), AnyHashable("小哈")]
         let hashTup = arr.hashValue
-        print("Хеш-значение массива \(arr) = \(hashTup)")
+        print("Массив \(arr) имеет хеш \(hashTup)")
 
         let obj = ListNode(x: 0)
         let hashObj = obj.hashValue
-        print("Хеш-значение объекта узла \(obj) = \(hashObj)")
+        print("Объект узла \(obj) имеет хеш \(hashObj)")
     }
 }

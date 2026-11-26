@@ -10,42 +10,42 @@ import (
 )
 
 func TestArrayHashMap(t *testing.T) {
-	/* Инициализация хеш-таблицы */
+	/* Создать хеш-таблицу */
 	hmap := newArrayHashMap()
 
-	/* Операция добавления */
-	// Добавить пару (key, value) в хеш-таблицу
+	/* Вставка */
+	// Добавить в таблицу пару (key, value)
 	hmap.put(12836, "Сяо Ха")
 	hmap.put(15937, "Сяо Ло")
 	hmap.put(16750, "Сяо Суань")
 	hmap.put(13276, "Сяо Фа")
 	hmap.put(10583, "Сяо Я")
-	fmt.Println("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение")
+	fmt.Println("\nХеш-таблица после вставки:\nКлюч -> Значение")
 	hmap.print()
 
-	/* Операция поиска */
-	// Ввести в хеш-таблицу ключ key и получить значение value
+	/* Поиск */
+	// Получить из таблицы значение value по ключу key
 	name := hmap.get(15937)
-	fmt.Println("\nДля номера 15937 найдено имя " + name)
+	fmt.Println("\nИмя студента с номером 15937: " + name)
 
-	/* Операция удаления */
-	// Удалить пару (key, value) из хеш-таблицы
+	/* Удаление */
+	// Удалить из таблицы пару (key, value)
 	hmap.remove(10583)
-	fmt.Println("\nПосле удаления 10583 хеш-таблица имеет вид\nКлюч -> Значение")
+	fmt.Println("\nХеш-таблица после удаления 10583:\nКлюч -> Значение")
 	hmap.print()
 
 	/* Обход хеш-таблицы */
-	fmt.Println("\nОтдельный обход пар ключ-значение")
+	fmt.Println("\nОбход пар «ключ -> значение»")
 	for _, kv := range hmap.pairSet() {
 		fmt.Println(kv.key, " -> ", kv.val)
 	}
 
-	fmt.Println("\nОтдельный обход ключей")
+	fmt.Println("\nОбход только ключей")
 	for _, key := range hmap.keySet() {
 		fmt.Println(key)
 	}
 
-	fmt.Println("\nОтдельный обход значений")
+	fmt.Println("\nОбход только значений")
 	for _, val := range hmap.valueSet() {
 		fmt.Println(val)
 	}

@@ -13,14 +13,14 @@ fn bucket_sort(nums: &mut [f64]) {
     let mut buckets = vec![vec![]; k];
     // 1. Distribute the array elements among the buckets
     for &num in nums.iter() {
-        // The input range is [0, 1); use num * k to map each value to an index in [0, k-1]
+        // For inputs in [0, 1), use num * k to map each value to an index in [0, k-1]
         let i = (num * k as f64) as usize;
         // Add num to bucket i
         buckets[i].push(num);
     }
     // 2. Sort each bucket
     for bucket in &mut buckets {
-        // Use the built-in sorting function, or replace it with another sorting algorithm
+        // Use the built-in sort or another sorting algorithm
         bucket.sort_by(|a, b| a.partial_cmp(b).unwrap());
     }
     // 3. Traverse the buckets to combine the results
@@ -33,9 +33,9 @@ fn bucket_sort(nums: &mut [f64]) {
     }
 }
 
-/* Driver code */
+/* Driver Code */
 fn main() {
-    // Assume the input consists of floating-point numbers in [0, 1)
+    // Assume floating-point inputs in [0, 1)
     let mut nums = [0.49, 0.96, 0.82, 0.09, 0.57, 0.43, 0.91, 0.75, 0.15, 0.37];
     bucket_sort(&mut nums);
     print!("After bucket sort, nums = ");

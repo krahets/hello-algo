@@ -10,10 +10,10 @@ require_relative './array_hash_map'
 class HashMapChaining
   ### Конструктор ###
   def initialize
-    @size = 0 # Число пар ключ-значение
-    @capacity = 4 # Вместимость хеш-таблицы
-    @load_thres = 2.0 / 3.0 # Порог коэффициента загрузки для запуска расширения
-    @extend_ratio = 2 # Коэффициент расширения
+    @size = 0 # Число пар «ключ — значение»
+    @capacity = 4 # Ёмкость хеш-таблицы
+    @load_thres = 2.0 / 3.0 # Порог коэффициента заполнения для расширения
+    @extend_ratio = 2 # Во сколько раз увеличивается ёмкость
     @buckets = Array.new(@capacity) { [] } # Массив корзин
   end
 
@@ -22,47 +22,47 @@ class HashMapChaining
     key % @capacity
   end
 
-  ### Коэффициент загрузки ###
+  ### Коэффициент заполнения ###
   def load_factor
     @size / @capacity.to_f
   end
 
-  ### Операция поиска ###
+  ### Поиск ###
   def get(key)
     index = hash_func(key)
     bucket = @buckets[index]
-    # Обойти корзину; если найден key, вернуть соответствующее val
+    # Обойти корзину и при совпадении ключа key вернуть соответствующее значение val
     for pair in bucket
       return pair.val if pair.key == key
     end
-    # Если key не найден, вернуть nil
+    # Если ключ key не найден, вернуть nil
     nil
   end
 
-  ### Операция добавления ###
+  ### Вставка ###
   def put(key, val)
-    # Когда коэффициент загрузки превышает порог, выполнить расширение
+    # Расширить таблицу, если коэффициент заполнения превысил порог
     extend if load_factor > @load_thres
     index = hash_func(key)
     bucket = @buckets[index]
-    # Обойти корзину; если встретился указанный key, обновить соответствующее val и вернуть
+    # Обойти корзину. Если найден ключ key, обновить val и завершить операцию
     for pair in bucket
       if pair.key == key
         pair.val = val
         return
       end
     end
-    # Если такого key нет, добавить пару ключ-значение в конец
+    # Если ключа key нет, добавить пару в конец списка
     pair = Pair.new(key, val)
     bucket << pair
     @size += 1
   end
 
-  ### Операция удаления ###
+  ### Удаление ###
   def remove(key)
     index = hash_func(key)
     bucket = @buckets[index]
-    # Обойти корзину и удалить из нее пару ключ-значение
+    # Обойти корзину и удалить из неё нужную пару
     for pair in bucket
       if pair.key == key
         bucket.delete(pair)
@@ -72,15 +72,15 @@ class HashMapChaining
     end
   end
 
-  ### Расширение хеш-таблицы ###
+  ### Расширить хеш-таблицу ###
   def extend
     # Временно сохранить исходную хеш-таблицу
     buckets = @buckets
-    # Инициализация новой хеш-таблицы после расширения
+    # Создать новую таблицу увеличенной ёмкости
     @capacity *= @extend_ratio
     @buckets = Array.new(@capacity) { [] }
     @size = 0
-    # Перенести пары ключ-значение из исходной хеш-таблицы в новую
+    # Перенести пары из исходной таблицы в новую
     for bucket in buckets
       for pair in bucket
         put(pair.key, pair.val)
@@ -100,29 +100,29 @@ class HashMapChaining
   end
 end
 
-### Driver Code ###
+### Демонстрационный код ###
 if __FILE__ == $0
-  ### Инициализация хеш-таблицы
+  ### Создать хеш-таблицу
   hashmap = HashMapChaining.new
 
-  # Операция добавления
-  # Добавить пару (key, value) в хеш-таблицу
+  # Вставка
+  # Добавить в таблицу пару (key, value)
   hashmap.put(12836, "Сяо Ха")
   hashmap.put(15937, "Сяо Ло")
   hashmap.put(16750, "Сяо Суань")
   hashmap.put(13276, "Сяо Фа")
   hashmap.put(10583, "Сяо Я")
-  puts "\nПосле завершения добавления хеш-таблица имеет вид\n[Key1 -> Value1, Key2 -> Value2, ...]"
+  puts "\nХеш-таблица после вставки:\n[Ключ1 -> Значение1, Ключ2 -> Значение2, ...]"
   hashmap.print
 
-  # Операция поиска
-  # Передать ключ key в хеш-таблицу и получить значение value
+  # Поиск
+  # Получить из таблицы значение value по ключу key
   name = hashmap.get(13276)
-  puts "\nДля номера 13276 найдено имя #{name}"
+  puts "\nИмя студента с номером 13276: #{name}"
 
-  # Операция удаления
-  # Удалить пару (key, value) из хеш-таблицы
+  # Удаление
+  # Удалить из таблицы пару (key, value)
   hashmap.remove(12836)
-  puts "\nПосле удаления 12836 хеш-таблица имеет вид\n[Key1 -> Value1, Key2 -> Value2, ...]"
+  puts "\nХеш-таблица после удаления 12836:\n[Ключ1 -> Значение1, Ключ2 -> Значение2, ...]"
   hashmap.print
 end

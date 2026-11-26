@@ -20,18 +20,18 @@ public class hash_map {
             { 13276, "小法" },
             { 10583, "小鴨" }
         };
-        Console.WriteLine("\n新增完成後，雜湊表為\nKey -> Value");
+        Console.WriteLine("\n新增後的雜湊表\nKey -> Value");
         PrintUtil.PrintHashMap(map);
 
         /* 查詢操作 */
-        // 向雜湊表中輸入鍵 key ，得到值 value
+        // 輸入鍵 key，從雜湊表取得對應的值 value
         string name = map[15937];
-        Console.WriteLine("\n輸入學號 15937 ，查詢到姓名 " + name);
+        Console.WriteLine("\n輸入學號 15937，查得姓名 " + name);
 
         /* 刪除操作 */
-        // 在雜湊表中刪除鍵值對 (key, value)
+        // 從雜湊表刪除鍵值對 (key, value)
         map.Remove(10583);
-        Console.WriteLine("\n刪除 10583 後，雜湊表為\nKey -> Value");
+        Console.WriteLine("\n刪除 10583 後的雜湊表\nKey -> Value");
         PrintUtil.PrintHashMap(map);
 
         /* 走訪雜湊表 */
@@ -39,11 +39,11 @@ public class hash_map {
         foreach (var kv in map) {
             Console.WriteLine(kv.Key + " -> " + kv.Value);
         }
-        Console.WriteLine("\n單獨走訪鍵 Key");
+        Console.WriteLine("\n只走訪鍵 Key");
         foreach (int key in map.Keys) {
             Console.WriteLine(key);
         }
-        Console.WriteLine("\n單獨走訪值 Value");
+        Console.WriteLine("\n只走訪值 Value");
         foreach (string val in map.Values) {
             Console.WriteLine(val);
         }

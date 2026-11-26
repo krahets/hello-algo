@@ -1,114 +1,114 @@
 {
-  "schema_version": 2,
-  "title": "Knowledge map of the book",
-  "summary": "Review and look up the book's coverage of data structures, complexity analysis, and algorithms by topic.",
   "context": [
-    "In the mind map, the Data structures section is on the left, Complexity analysis is at the upper right, and Algorithms is at the lower right. The three sections have 7, 3, and 6 topic branches respectively, for 16 in total; connecting lines show topic grouping rather than a single fixed reading order. No chapter numbers are shown in the figure."
+    "The map shows data structures on the left, complexity analysis at the upper right, and algorithms at the lower right. The three sections have 7, 3, and 6 topic branches, respectively, for 16 in all. Lines show which section a topic belongs to. They do not prescribe a single reading order. The map gives no chapter numbers."
   ],
   "description": [],
   "frames": [
     {
-      "id": "document-chapter_preface/about_the_book.assets/hello_algo_mindmap.png",
       "book_path": "chapter_preface/about_the_book.assets/hello_algo_mindmap.png",
-      "title": "Knowledge map of the book",
-      "explanation": "The three tables below correspond to the three sections: first choose a section table, then use the topic row headers to look up each branch's concepts, implementations, and example problems. In the Data structures table, the first row (“Data structures”) is an overview branch with the same name as the section."
+      "explanation": "The three tables below correspond to the three sections. Choose a section, then look up a topic by its row heading to find concepts, implementations, and example problems. The first row of the data structures table, also titled “Data structures,” is an overview branch.",
+      "id": "document-chapter_preface/about_the_book.assets/hello_algo_mindmap.png",
+      "title": "A map of the book"
     }
   ],
+  "input_tables": [],
+  "schema_version": 2,
+  "summary": "Look up data structures, complexity analysis, and algorithms by topic.",
   "tables": [
     {
-      "caption": "Knowledge map: 7 topics in the Data structures section",
+      "caption": "Knowledge map: seven topics in data structures",
       "headers": [
         "Topic",
-        "Branch contents and example problems"
+        "Concepts and example problems"
       ],
+      "row_header": 0,
       "rows": [
         [
           "Data structures",
-          "Logical and physical structures; basic data types, number encodings, and character encodings."
+          "Logical and physical structure, basic data types, number encoding, and character encoding."
         ],
         [
           "Arrays and linked lists",
-          "Contiguous and noncontiguous storage, comparison of operations, strengths, and weaknesses, implementing lists with dynamic arrays, and computer memory and caches."
+          "Contiguous and noncontiguous storage, operations and their trade-offs, implementing a list with a dynamic array, and computer memory and caches."
         ],
         [
           "Stacks and queues",
-          "LIFO stacks, FIFO queues, and deques, plus array-based and linked-list-based implementations of stacks and queues."
+          "Last-in, first-out stacks, first-in, first-out queues, double-ended queues, and implementing stacks and queues with arrays and linked lists."
         ],
         [
-          "Hash table",
-          "How hash tables work and array-based implementation; hash collisions, separate chaining, and open addressing; uses and design goals of hash algorithms."
+          "Hash tables",
+          "How hash tables work and how to implement one with an array. Hash collisions, separate chaining, and open addressing. Uses and design goals of hash algorithms."
         ],
         [
-          "Tree",
-          "Perfect, complete, full, and balanced binary trees; comparison of linked and array representations; level-order, preorder, inorder, and postorder traversal; binary search trees and AVL trees."
+          "Trees",
+          "Perfect, complete, full, and balanced binary trees. Linked and array representations. Level-order, preorder, inorder, and postorder traversals. Binary search trees and AVL trees."
         ],
         [
-          "Heap",
-          "Min heaps, max heaps, and priority queues; array-based heap implementation and building a heap; the top-k problem."
+          "Heaps",
+          "Min-heaps, max-heaps, and priority queues. Implementing a heap with an array and building a heap. The top-k problem."
         ],
         [
-          "Graph",
-          "Directed, connected, and weighted graphs; comparison of adjacency lists and adjacency matrices; breadth-first and depth-first traversal."
+          "Graphs",
+          "Directed, connected, and weighted graphs. Adjacency lists versus adjacency matrices. Breadth-first and depth-first traversals."
         ]
-      ],
-      "row_header": 0
+      ]
     },
     {
-      "caption": "Knowledge map: 3 topics in the Complexity analysis section",
+      "caption": "Knowledge map: three topics in complexity analysis",
       "headers": [
         "Topic",
-        "Branch contents and example problems"
+        "Concepts and example problems"
       ],
+      "row_header": 0,
       "rows": [
         [
           "Iteration and recursion",
-          "for loops, while loops, and nested loops; recursive call stacks, tail recursion, and recursion trees; iteration versus recursion."
+          "For loops, while loops, and nested loops. The recursive call stack, tail recursion, and recursion trees. A comparison of iteration and recursion."
         ],
         [
           "Time complexity",
-          "Asymptotic upper bounds of functions; derivation methods and common complexity classes; worst-, best-, and average-case time complexity."
+          "Asymptotic upper bounds of functions. Estimation methods and common growth rates. Worst-case, best-case, and average-case time complexity."
         ],
         [
           "Space complexity",
-          "Derivation methods and common complexity classes; time-space trade-offs."
+          "Estimation methods and common growth rates. Time–space trade-offs."
         ]
-      ],
-      "row_header": 0
+      ]
     },
     {
-      "caption": "Knowledge map: 6 topics in the Algorithms section",
+      "caption": "Knowledge map: six topics in algorithms",
       "headers": [
         "Topic",
-        "Branch contents and example problems"
+        "Concepts and example problems"
       ],
+      "row_header": 0,
       "rows": [
         [
           "Searching",
-          "Brute-force search (linear search, breadth-first search, and depth-first search); efficient search (binary search, hash lookup, and tree search); choosing a search algorithm."
+          "Brute-force search (linear, breadth-first, and depth-first search), efficient search (binary search, hash lookup, and tree search), and choosing a search algorithm."
         ],
         [
           "Sorting",
-          "Evaluation dimensions include in-place operation, stability, adaptivity, and whether sorting is comparison-based; following the figure's branches, algorithms are grouped under “Traversal” (selection sort, bubble sort, insertion sort), “Divide and conquer” (quick sort, merge sort, heap sort), and “Non-comparison sorting” (bucket sort, counting sort, radix sort)."
+          "Criteria include whether a sort is in-place, stable, adaptive, or comparison-based. The map groups the algorithms, in order, under “Repeated passes” (selection, bubble, and insertion sort), “Divide and conquer” (quicksort, merge sort, and heapsort), and “Non-comparison” (bucket, counting, and radix sort)."
         ],
         [
           "Divide and conquer",
-          "Problem properties and how to identify them; example problems include binary search, tree construction, and Tower of Hanoi."
+          "Problem characteristics and how to recognize them. Examples include binary search, constructing a tree, and the Tower of Hanoi."
         ],
         [
           "Backtracking",
-          "Problem properties and code framework; example problems include permutations, subset sum, and n-queens."
+          "Problem characteristics and a general code template. Examples include permutations, subset sum, and the n-queens problem."
         ],
         [
           "Dynamic programming",
-          "Brute-force search, memoized recursion, and bottom-up tabulation; overlapping subproblems, optimal substructure, and the no-aftereffect property; how to identify dynamic programming problems and solution steps; example problems include 0-1 knapsack, unbounded knapsack, and edit distance."
+          "Brute-force search, memoized recursion, and iterative recurrences. Overlapping subproblems, optimal substructure, and independence from prior history once the state is known. Recognizing and solving dynamic programming problems. Examples include 0–1 knapsack, unbounded knapsack, and edit distance."
         ],
         [
           "Greedy algorithms",
-          "Problem properties and solution steps; example problems include fractional knapsack, maximum capacity, and maximum product cutting."
+          "Problem characteristics and steps toward a solution. Examples include fractional knapsack, maximum container capacity, and maximizing the product of an integer partition."
         ]
-      ],
-      "row_header": 0
+      ]
     }
   ],
-  "input_tables": []
+  "title": "A map of the book"
 }

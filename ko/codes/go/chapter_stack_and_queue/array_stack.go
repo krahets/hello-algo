@@ -12,7 +12,7 @@ type arrayStack struct {
 /* 스택 초기화 */
 func newArrayStack() *arrayStack {
 	return &arrayStack{
-		// 스택의 길이를 0, 용량을 16으로 설정한다
+		// 스택의 길이를 0으로, 용량을 16으로 설정한다
 		data: make([]int, 0, 16),
 	}
 }
@@ -22,14 +22,14 @@ func (s *arrayStack) size() int {
 	return len(s.data)
 }
 
-/* 스택이 비어 있는지 판단 */
+/* 스택이 비어 있는지 확인 */
 func (s *arrayStack) isEmpty() bool {
 	return s.size() == 0
 }
 
 /* 스택에 삽입 */
 func (s *arrayStack) push(v int) {
-	// 슬라이스는 용량이 자동으로 확장된다
+	// 슬라이스의 용량은 자동으로 늘어난다
 	s.data = append(s.data, v)
 }
 
@@ -40,7 +40,7 @@ func (s *arrayStack) pop() any {
 	return val
 }
 
-/* 스택 맨 위 원소 반환 */
+/* 스택 맨 위의 원소 조회 */
 func (s *arrayStack) peek() any {
 	if s.isEmpty() {
 		return nil
@@ -49,7 +49,7 @@ func (s *arrayStack) peek() any {
 	return val
 }
 
-/* 출력에 사용할 Slice 반환 */
+/* 출력에 사용할 슬라이스 반환 */
 func (s *arrayStack) toSlice() []int {
 	return s.data
 }

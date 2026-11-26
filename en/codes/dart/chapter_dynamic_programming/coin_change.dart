@@ -6,24 +6,24 @@
 
 import 'dart:math';
 
-/* Coin change: dynamic programming */
+/* Coin change with dynamic programming */
 int coinChangeDP(List<int> coins, int amt) {
   int n = coins.length;
   int MAX = amt + 1;
   // Initialize the dp table
   List<List<int>> dp = List.generate(n + 1, (index) => List.filled(amt + 1, 0));
-  // State transitions: first row and first column
+  // State transitions for the first row and column
   for (int a = 1; a <= amt; a++) {
     dp[0][a] = MAX;
   }
-  // State transitions: remaining rows and columns
+  // State transitions for the remaining rows and columns
   for (int i = 1; i <= n; i++) {
     for (int a = 1; a <= amt; a++) {
       if (coins[i - 1] > a) {
-        // If the coin exceeds the current amount a, do not choose coin i
+        // Skip coin i if its value exceeds the target amount
         dp[i][a] = dp[i - 1][a];
       } else {
-        // Take the smaller result of not choosing and choosing coin i
+        // Take the minimum of the counts for skipping and taking coin i
         dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
       }
     }
@@ -31,21 +31,21 @@ int coinChangeDP(List<int> coins, int amt) {
   return dp[n][amt] != MAX ? dp[n][amt] : -1;
 }
 
-/* Coin change: space-optimized dynamic programming */
+/* Coin change with space-optimized dynamic programming */
 int coinChangeDPComp(List<int> coins, int amt) {
   int n = coins.length;
   int MAX = amt + 1;
   // Initialize the dp table
   List<int> dp = List.filled(amt + 1, MAX);
   dp[0] = 0;
-  // State transitions
+  // State transition
   for (int i = 1; i <= n; i++) {
     for (int a = 1; a <= amt; a++) {
       if (coins[i - 1] > a) {
-        // If the coin exceeds the current amount a, do not choose coin i
+        // Skip coin i if its value exceeds the target amount
         dp[a] = dp[a];
       } else {
-        // Take the smaller result of not choosing and choosing coin i
+        // Take the minimum of the counts for skipping and taking coin i
         dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1);
       }
     }
@@ -60,9 +60,9 @@ void main() {
 
   // Dynamic programming
   int res = coinChangeDP(coins, amt);
-  print("Minimum number of coins needed to reach the target amount: $res");
+  print("Minimum number of coins needed to make the target amount: $res");
 
   // Space-optimized dynamic programming
   res = coinChangeDPComp(coins, amt);
-  print("Minimum number of coins needed to reach the target amount: $res");
+  print("Minimum number of coins needed to make the target amount: $res");
 }

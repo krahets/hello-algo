@@ -28,7 +28,7 @@ func mulHash(key: String) -> Int {
     return hash
 }
 
-/* XOR-хеширование */
+/* Хеширование с помощью XOR */
 func xorHash(key: String) -> Int {
     var hash = 0
     let MODULUS = 1_000_000_007
@@ -54,20 +54,20 @@ func rotHash(key: String) -> Int {
 
 @main
 enum SimpleHash {
-    /* Driver Code */
+    /* Демонстрационный код */
     static func main() {
-        let key = "Hello Algo"
+        let key = "Hello 算法"
 
         var hash = addHash(key: key)
-        print("Хеш-сумма сложением = \(hash)")
+        print("Аддитивный хеш: \(hash)")
 
         hash = mulHash(key: key)
-        print("Хеш-сумма умножением = \(hash)")
+        print("Мультипликативный хеш: \(hash)")
 
         hash = xorHash(key: key)
-        print("Хеш-сумма XOR = \(hash)")
+        print("Хеш на основе XOR: \(hash)")
 
         hash = rotHash(key: key)
-        print("Хеш-сумма с циклическим сдвигом = \(hash)")
+        print("Хеш с циклическим сдвигом: \(hash)")
     }
 }

@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* 方法 1：総当たり列挙 */
+/* 方法 1：総当たり */
 int *twoSumBruteForce(int *nums, int numsSize, int target, int *returnSize) {
     for (int i = 0; i < numsSize; ++i) {
         for (int j = i + 1; j < numsSize; ++j) {
@@ -26,17 +26,17 @@ int *twoSumBruteForce(int *nums, int numsSize, int target, int *returnSize) {
 typedef struct {
     int key;
     int val;
-    UT_hash_handle hh; // uthash.h を用いて実装する
+    UT_hash_handle hh; // uthash.h を使った実装
 } HashTable;
 
-/* ハッシュテーブルから取得する */
+/* ハッシュテーブルの検索 */
 HashTable *find(HashTable *h, int key) {
     HashTable *tmp;
     HASH_FIND_INT(h, &key, tmp);
     return tmp;
 }
 
-/* ハッシュテーブルに要素を挿入する */
+/* ハッシュテーブルへの要素の挿入 */
 void insert(HashTable **h, int key, int val) {
     HashTable *t = find(*h, key);
     if (t == NULL) {
@@ -48,7 +48,7 @@ void insert(HashTable **h, int key, int val) {
     }
 }
 
-/* 方法 2：補助ハッシュテーブル */
+/* 方法 2：補助のハッシュテーブルを使う */
 int *twoSumHashTable(int *nums, int numsSize, int target, int *returnSize) {
     HashTable *hashtable = NULL;
     for (int i = 0; i < numsSize; i++) {
@@ -65,21 +65,21 @@ int *twoSumHashTable(int *nums, int numsSize, int target, int *returnSize) {
     return NULL;
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     // ======= テストケース =======
     int nums[] = {2, 7, 11, 15};
     int target = 13;
-    // ====== 実行用コード ======
+    // ====== 実行例 ======
     int returnSize;
     int *res = twoSumBruteForce(nums, sizeof(nums) / sizeof(int), target, &returnSize);
     // 方法 1
-    printf("方法 1 res = ");
+    printf("方法 1 の res = ");
     printArray(res, returnSize);
 
     // 方法 2
     res = twoSumHashTable(nums, sizeof(nums) / sizeof(int), target, &returnSize);
-    printf("方法 2 res = ");
+    printf("方法 2 の res = ");
     printArray(res, returnSize);
 
     return 0;

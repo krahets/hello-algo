@@ -17,7 +17,7 @@ typedef struct ListNode {
     struct ListNode *next; // 다음 노드를 가리키는 포인터
 } ListNode;
 
-/* 생성자: 새 노드를 초기화한다 */
+/* 새 노드를 초기화하는 생성자 */
 ListNode *newListNode(int val) {
     ListNode *node;
     node = (ListNode *)malloc(sizeof(ListNode));
@@ -26,7 +26,7 @@ ListNode *newListNode(int val) {
     return node;
 }
 
-/* 배열을 역직렬화하여 연결 리스트로 변환한다 */
+/* 배열을 연결 리스트로 역직렬화 */
 ListNode *arrToLinkedList(const int *arr, size_t size) {
     if (size <= 0) {
         return NULL;
@@ -41,7 +41,7 @@ ListNode *arrToLinkedList(const int *arr, size_t size) {
     return dummy->next;
 }
 
-/* 연결 리스트에 할당한 메모리 공간을 해제한다 */
+/* 연결 리스트에 할당한 메모리 해제 */
 void freeMemoryLinkedList(ListNode *cur) {
     // 메모리 해제
     ListNode *pre;

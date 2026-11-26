@@ -4,19 +4,19 @@
 
 package pkg
 
-// Vertex: класс вершины
+// Тип Vertex представляет вершину графа
 type Vertex struct {
 	Val int
 }
 
-// NewVertex: конструктор вершины
+// NewVertex создаёт вершину
 func NewVertex(val int) Vertex {
 	return Vertex{
 		Val: val,
 	}
 }
 
-// ValsToVets десериализует список значений в список вершин
+// ValsToVets восстанавливает список вершин из списка значений
 func ValsToVets(vals []int) []Vertex {
 	vets := make([]Vertex, len(vals))
 	for i := 0; i < len(vals); i++ {
@@ -34,17 +34,17 @@ func VetsToVals(vets []Vertex) []int {
 	return vals
 }
 
-// DeleteSliceElms удаляет указанный элемент из среза
+// DeleteSliceElms удаляет из среза указанные элементы
 func DeleteSliceElms[T any](a []T, elms ...T) []T {
 	if len(a) == 0 || len(elms) == 0 {
 		return a
 	}
-	// Сначала преобразовать элементы в set
+	// Сначала преобразовать набор удаляемых элементов в множество
 	m := make(map[any]struct{})
 	for _, v := range elms {
 		m[v] = struct{}{}
 	}
-	// Отфильтровать указанный элемент
+	// Исключить из среза указанные элементы
 	res := make([]T, 0, len(a))
 	for _, v := range a {
 		if _, ok := m[v]; !ok {

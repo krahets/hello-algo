@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Метод 1: полный перебор */
+/* Способ 1: полный перебор */
 func twoSumBruteForce(nums: [Int], target: Int) -> [Int] {
     // Два вложенных цикла, временная сложность O(n^2)
     for i in nums.indices.dropLast() {
@@ -17,7 +17,7 @@ func twoSumBruteForce(nums: [Int], target: Int) -> [Int] {
     return [0]
 }
 
-/* Метод 2: вспомогательная хеш-таблица */
+/* Способ 2: вспомогательная хеш-таблица */
 func twoSumHashTable(nums: [Int], target: Int) -> [Int] {
     // Вспомогательная хеш-таблица, пространственная сложность O(n)
     var dic: [Int: Int] = [:]
@@ -33,17 +33,17 @@ func twoSumHashTable(nums: [Int], target: Int) -> [Int] {
 
 @main
 enum LeetcodeTwoSum {
-    /* Driver Code */
+    /* Пример использования */
     static func main() {
-        // ======= Test Case =======
+        // ======= Тестовый пример =======
         let nums = [2, 7, 11, 15]
         let target = 13
-        // ====== Основной код ======
-        // Метод 1
+        // ====== Пример использования ======
+        // Способ 1
         var res = twoSumBruteForce(nums: nums, target: target)
-        print("Результат метода 1 res = \(res)")
-        // Метод 2
+        print("Способ 1, res = \(res)")
+        // Способ 2
         res = twoSumHashTable(nums: nums, target: target)
-        print("Результат метода 2 res = \(res)")
+        print("Способ 2, res = \(res)")
     }
 }

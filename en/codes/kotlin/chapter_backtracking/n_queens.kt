@@ -16,7 +16,7 @@ fun backtrack(
     diags1: BooleanArray,
     diags2: BooleanArray
 ) {
-    // Record a solution when a queen has been placed in every row
+    // Record the solution once every row has a queen
     if (row == n) {
         val copyState = mutableListOf<MutableList<String>>()
         for (sRow in state) {
@@ -25,21 +25,21 @@ fun backtrack(
         res.add(copyState)
         return
     }
-    // Iterate over all columns
+    // Try each column
     for (col in 0..<n) {
-        // Calculate the main-diagonal and anti-diagonal indices for this square
+        // Find the two diagonals through this square
         val diag1 = row - col + n - 1
         val diag2 = row + col
-        // Prune: the square must have no queen in its column, main diagonal, or anti-diagonal
+        // Prune if the column or either diagonal already has a queen
         if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-            // Try: place a queen on this square
+            // Try placing a queen on this square
             state[row][col] = "Q"
             diags2[diag2] = true
             diags1[diag1] = diags2[diag2]
             cols[col] = diags1[diag1]
             // Place a queen in the next row
             backtrack(row + 1, n, state, res, cols, diags1, diags2)
-            // Backtrack: restore this square to empty
+            // Backtrack: clear this square
             state[row][col] = "#"
             diags2[diag2] = false
             diags1[diag1] = diags2[diag2]
@@ -50,7 +50,7 @@ fun backtrack(
 
 /* Solve the n-queens problem */
 fun nQueens(n: Int): MutableList<MutableList<MutableList<String>>?> {
-    // Initialize an n*n board, where 'Q' represents a queen and '#' represents an empty square
+    // Set up an n-by-n board with 'Q' for a queen and '#' for an empty square
     val state = mutableListOf<MutableList<String>>()
     for (i in 0..<n) {
         val row = mutableListOf<String>()
@@ -59,9 +59,9 @@ fun nQueens(n: Int): MutableList<MutableList<MutableList<String>>?> {
         }
         state.add(row)
     }
-    val cols = BooleanArray(n) // Track whether a column contains a queen
-    val diags1 = BooleanArray(2 * n - 1) // Track whether a main diagonal contains a queen
-    val diags2 = BooleanArray(2 * n - 1) // Track whether an anti-diagonal contains a queen
+    val cols = BooleanArray(n) // Track occupied columns
+    val diags1 = BooleanArray(2 * n - 1) // Track occupied main diagonals
+    val diags2 = BooleanArray(2 * n - 1) // Track occupied secondary diagonals
     val res = mutableListOf<MutableList<MutableList<String>>?>()
 
     backtrack(0, n, state, res, cols, diags1, diags2)
@@ -74,8 +74,8 @@ fun main() {
     val n = 4
     val res = nQueens(n)
 
-    println("Input board width and height: $n")
-    println("Number of queen placements: ${res.size}")
+    println("Board side length: $n")
+    println("Found ${res.size} queen arrangements")
     for (state in res) {
         println("--------------------")
         for (row in state!!) {

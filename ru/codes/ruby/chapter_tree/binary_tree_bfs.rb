@@ -7,30 +7,30 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-### Обход в ширину ###
+### Обход по уровням ###
 def level_order(root)
-  # Инициализировать очередь и добавить корневой узел
+  # Создать очередь и добавить корень
   queue = [root]
-  # Инициализировать список для хранения последовательности обхода
+  # Создать список для последовательности обхода
   res = []
   while !queue.empty?
-    node = queue.shift # Извлечение из очереди
+    node = queue.shift # Извлечь узел из очереди
     res << node.val # Сохранить значение узла
-    queue << node.left unless node.left.nil? # Поместить левый дочерний узел в очередь
-    queue << node.right unless node.right.nil? # Поместить правый дочерний узел в очередь
+    queue << node.left unless node.left.nil? # Добавить левого потомка в очередь
+    queue << node.right unless node.right.nil? # Добавить правого потомка в очередь
   end
   res
 end
 
-### Driver Code ###
+### Основная программа ###
 if __FILE__ == $0
-  # Инициализировать двоичное дерево
-  # Здесь используется функция, напрямую строящая двоичное дерево из массива
+  # Инициализация двоичного дерева
+  # Используем функцию, которая строит двоичное дерево непосредственно из массива
   root = arr_to_tree([1, 2, 3, 4, 5, 6, 7])
   puts "\nИнициализация двоичного дерева\n\n"
   print_tree(root)
 
-  # Обход в ширину
+  # Обход по уровням
   res = level_order(root)
-  puts "\nПоследовательность печати узлов при обходе в ширину = #{res}"
+  puts "\nУзлы в порядке обхода по уровням = #{res}"
 end

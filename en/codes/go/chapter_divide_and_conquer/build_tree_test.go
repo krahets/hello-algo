@@ -20,6 +20,6 @@ func TestBuildTree(t *testing.T) {
 	PrintSlice(inorder)
 
 	root := buildTree(preorder, inorder)
-	fmt.Println("The constructed binary tree is:")
+	fmt.Println("Reconstructed binary tree:")
 	PrintTree(root)
 }

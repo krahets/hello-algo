@@ -1,138 +1,204 @@
 {
-  "schema_version": 2,
-  "title": "Dynamic programming for 0-1 knapsack",
-  "summary": "With three items that may each be chosen at most once, this example steps cell by cell through the 0-1 knapsack recurrence and finds a maximum total value of 20 at capacity 4.",
+  "animations": {
+    "knapsack-dp": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "frame_id": "source-397",
+          "id": "step-1"
+        },
+        {
+          "frame_id": "source-398",
+          "id": "step-2"
+        },
+        {
+          "frame_id": "source-399",
+          "id": "step-3"
+        },
+        {
+          "frame_id": "source-400",
+          "id": "step-4"
+        },
+        {
+          "frame_id": "source-401",
+          "id": "step-5"
+        },
+        {
+          "frame_id": "source-402",
+          "id": "step-6"
+        },
+        {
+          "frame_id": "source-403",
+          "id": "step-7"
+        },
+        {
+          "frame_id": "source-404",
+          "id": "step-8"
+        },
+        {
+          "frame_id": "source-405",
+          "id": "step-9"
+        },
+        {
+          "frame_id": "source-406",
+          "id": "step-10"
+        },
+        {
+          "frame_id": "source-407",
+          "id": "step-11"
+        },
+        {
+          "frame_id": "source-408",
+          "id": "step-12"
+        },
+        {
+          "frame_id": "source-409",
+          "id": "step-13"
+        },
+        {
+          "frame_id": "source-410",
+          "id": "step-14"
+        }
+      ]
+    }
+  },
   "context": [
-    "There are 3 candidate items (n = 3), whose IDs, names, weights, and values are given in the input table. With knapsack capacity cap = 4, the goal is to maximize total value without exceeding capacity; the knapsack need not be filled completely.",
-    "State dp[i, c] denotes the maximum value obtainable from the first i items with total weight at most capacity c. Row index i runs from 0 to 3 and column index c runs from 0 to 4, forming a 4-row by 5-column state table; item IDs i start at 1 and correspond to array weight wgt[i-1] and value val[i-1]."
+    "There are 3 candidate items (n = 3). The input table lists their numbers, names, weights, and values. For cap = 4, maximize total value without exceeding the capacity. The knapsack need not be filled exactly.",
+    "State dp[i, c] is the maximum value obtained from the first i items with total weight at most c. Row indices i range from 0 to 3 and column indices c from 0 to 4, giving a 4×5 table. Item numbers i start at 1, with array entries wgt[i-1] for weight and val[i-1] for value."
   ],
   "description": [
-    "Step 1 initializes the table; steps 2 to 5, 6 to 9, and 10 to 13 compute rows 1, 2, and 3 across capacities c = 1 to 4; step 14 returns the answer. Each non-boundary cell is computed once and never modified afterward. Cells in the final table include the step number at which they are first computed: before that step, a cell holds the uncomputed initial value 0; from that step onward, it holds the final value shown in the table.",
-    "For item i, write w for its weight and v for its value. If w > c, the item does not fit and must be excluded, inheriting dp[i-1, c] directly above; otherwise compare dp[i-1, c] (excluding it) with dp[i-1, c-w] + v (including it), found in the previous row shifted w columns to the left. Both sources come from the previous row, which has not yet included item i, ensuring each item is chosen at most once."
+    "Initialize in step 1. Steps 2–5, 6–9, and 10–13 calculate rows 1, 2, and 3, respectively, moving from c = 1 to 4 in each row. Step 14 returns the answer. Each interior cell is computed once. The final table labels it with the step when it was first computed. Before that step it holds an initial placeholder 0. From that step onward it holds the final value shown.",
+    "Let item i have weight w and value v. If w > c, the item cannot fit, so skip it and copy dp[i-1, c] from directly above. Otherwise, compare dp[i-1, c] for skipping it with dp[i-1, c-w] + v for taking it. The latter looks up the previous row w columns to the left. Both lookups use the previous row, which excludes item i, so each item can be taken at most once."
   ],
   "frames": [
     {
-      "id": "source-397",
+      "announcement": "Initialize the 4×5 dp matrix. Set the first row (no items) and first column (zero capacity) to their boundary value of 0.",
       "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step1.png",
-      "title": "Initialize the 4×5 state matrix",
-      "explanation": "Create a 4-row by 5-column dp table filled initially with 0. Row 0 (no items) and column 0 (zero capacity) hold settled boundary values of 0, shown in dark text in the figure; the remaining 12 cells hold uncomputed initial values of 0, shown in faint text, and must not be read as computed optimal values.",
-      "key_state": "Initialize the 4×5 dp table to all 0: the first row and first column are valid boundaries of 0, while the other 12 cells hold uncomputed initial values of 0.",
-      "announcement": "Initialize the 4×5 dp matrix and set the no-item first row and zero-capacity first column boundaries to 0."
+      "explanation": "Create a dp table with 4 rows and 5 columns and fill it with zeros. Row 0 (no items) and column 0 (zero capacity) already hold valid boundary values of 0 in dark text. The other 12 zeros in light text are uncomputed placeholders, not optimal values.",
+      "id": "source-397",
+      "key_state": "Initialize the 4×5 dp table with zeros. The first row and column hold valid boundary values of 0. The other 12 zeros are uncomputed placeholders.",
+      "title": "Initialize a 4×5 state matrix"
     },
     {
-      "id": "source-398",
+      "announcement": "Calculate dp[1, 1] (the first item, capacity 1): take the apple (5 versus 0 for skipping it) and write the maximum value 5.",
       "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step2.png",
-      "title": "Compute dp[1, 1], getting 5",
-      "explanation": "Consider only the first item at capacity 1, where the current item is the apple (weight 1, value 5). Excluding it gives dp[0, 1] = 0 from the previous row; including it leaves capacity 1 - 1 = 0, looks up dp[0, 0] = 0 in the previous row (the first 0 items), and adds value 5 to get 5. Take the larger value 5 and write it to dp[1, 1]. Before this cell lie only the initialized boundary cells, and later non-boundary cells still hold uncomputed initial values of 0.",
-      "key_state": "Only the first item (apple), capacity 1: include the apple, setting dp[1, 1] to 5; later non-boundary cells still hold uncomputed initial values of 0.",
-      "announcement": "Compute dp[1, 1] (the first item only, capacity 1): including the apple beats excluding it, so write maximum value 5."
+      "explanation": "Consider the first item, capacity 1. The current item is the apple (weight 1, value 5). Skipping it gives dp[0, 1] = 0 from the previous row. Taking it leaves capacity 1 - 1 = 0. Read dp[0, 0] = 0 from the previous row (no items) and add 5 to get 5. Write the larger value, 5, to dp[1, 1]. Previously only the boundaries were initialized. The later interior cells still hold the initial placeholder 0.",
+      "id": "source-398",
+      "key_state": "The first item, capacity 1 (apple): Take the apple. dp[1, 1] = 5. Later interior cells still hold the initial placeholder 0.",
+      "title": "Calculate dp[1, 1] to get 5"
     },
     {
-      "id": "source-399",
+      "announcement": "Calculate dp[1, 2] (the first item, capacity 2): the apple can be taken at most once, so write 5.",
       "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step3.png",
-      "title": "Compute dp[1, 2], getting 5",
-      "explanation": "Consider only the first item at capacity 2, where the current item is the apple (weight 1, value 5). Excluding it gives dp[0, 2] = 0 from the previous row; including it leaves capacity 2 - 1 = 1, looks up dp[0, 1] = 0 in the previous row (the first 0 items), and adds value 5 to get 5. Take the larger value 5 and write it to dp[1, 2]. Earlier cells are already computed, and later non-boundary cells still hold uncomputed initial values of 0.",
-      "key_state": "Only the first item (apple), capacity 2: the apple may be chosen only once, so dp[1, 2] is 5; later non-boundary cells still hold uncomputed initial values of 0.",
-      "announcement": "Compute dp[1, 2] (the first item only, capacity 2): the apple may be chosen at most once, so write maximum value 5."
+      "explanation": "Consider the first item, capacity 2. The current item is the apple (weight 1, value 5). Skipping it gives dp[0, 2] = 0 from the previous row. Taking it leaves capacity 2 - 1 = 1. Read dp[0, 1] = 0 from the previous row (no items) and add 5 to get 5. Write the larger value, 5, to dp[1, 2]. The preceding cells are complete. The later interior cells still hold the initial placeholder 0.",
+      "id": "source-399",
+      "key_state": "The first item, capacity 2 (apple): The apple can be taken only once. dp[1, 2] = 5. Later interior cells still hold the initial placeholder 0.",
+      "title": "Calculate dp[1, 2] to get 5"
     },
     {
-      "id": "source-400",
+      "announcement": "Calculate dp[1, 3] (the first item, capacity 3): take the apple and write the maximum value 5.",
       "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step4.png",
-      "title": "Compute dp[1, 3], getting 5",
-      "explanation": "Consider only the first item at capacity 3, where the current item is the apple (weight 1, value 5). Excluding it gives dp[0, 3] = 0 from the previous row; including it leaves capacity 3 - 1 = 2, looks up dp[0, 2] = 0 in the previous row (the first 0 items), and adds value 5 to get 5. Take the larger value 5 and write it to dp[1, 3]. Earlier cells are already computed, and later non-boundary cells still hold uncomputed initial values of 0.",
-      "key_state": "Only the first item (apple), capacity 3: dp[1, 3] is computed as 5; later non-boundary cells still hold uncomputed initial values of 0.",
-      "announcement": "Compute dp[1, 3] (the first item only, capacity 3): include one apple and write maximum value 5."
+      "explanation": "Consider the first item, capacity 3. The current item is the apple (weight 1, value 5). Skipping it gives dp[0, 3] = 0 from the previous row. Taking it leaves capacity 3 - 1 = 2. Read dp[0, 2] = 0 from the previous row (no items) and add 5 to get 5. Write the larger value, 5, to dp[1, 3]. The preceding cells are complete. The later interior cells still hold the initial placeholder 0.",
+      "id": "source-400",
+      "key_state": "The first item, capacity 3 (apple): dp[1, 3] = 5. Later interior cells still hold the initial placeholder 0.",
+      "title": "Calculate dp[1, 3] to get 5"
     },
     {
-      "id": "source-401",
+      "announcement": "Calculate dp[1, 4] (the first item, capacity 4): write the maximum value 5 to complete row 1.",
       "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step5.png",
-      "title": "Compute dp[1, 4], getting 5",
-      "explanation": "Consider only the first item at capacity 4, where the current item is the apple (weight 1, value 5). Excluding it gives dp[0, 4] = 0 from the previous row; including it leaves capacity 4 - 1 = 3, looks up dp[0, 3] = 0 in the previous row (the first 0 items), and adds value 5 to get 5. Take the larger value 5 and write it to dp[1, 4]. Earlier cells are already computed, and later non-boundary cells still hold uncomputed initial values of 0.",
-      "key_state": "Only the first item (apple), capacity 4: dp[1, 4] is computed as 5, completing row 1; cells in rows 2 and 3 with capacity greater than 0 still hold uncomputed initial values of 0.",
-      "announcement": "Compute dp[1, 4] (the first item only, capacity 4): write maximum value 5, completing row 1."
+      "explanation": "Consider the first item, capacity 4. The current item is the apple (weight 1, value 5). Skipping it gives dp[0, 4] = 0 from the previous row. Taking it leaves capacity 4 - 1 = 3. Read dp[0, 3] = 0 from the previous row (no items) and add 5 to get 5. Write the larger value, 5, to dp[1, 4]. The preceding cells are complete. The later interior cells still hold the initial placeholder 0.",
+      "id": "source-401",
+      "key_state": "The first item, capacity 4 (apple): dp[1, 4] = 5. Row 1 is complete. Positive-capacity entries in rows 2 and 3 still hold the initial placeholder 0.",
+      "title": "Calculate dp[1, 4] to get 5"
     },
     {
-      "id": "source-402",
+      "announcement": "Calculate dp[2, 1] (the first 2 items, capacity 1): the pineapple does not fit, so copy 5 from the previous row.",
       "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step6.png",
-      "title": "Compute dp[2, 1], getting 5",
-      "explanation": "Consider the first 2 items at capacity 1, where the current item is the pineapple (weight 2, value 11). Since weight 2 exceeds capacity 1, it does not fit and must be excluded; inherit dp[1, 1] = 5 from the previous row and write dp[2, 1] = 5. Earlier cells are already computed, and later non-boundary cells still hold uncomputed initial values of 0.",
-      "key_state": "First 2 items (through pineapple), capacity 1: the weight-2 pineapple does not fit, so dp[2, 1] is 5; later non-boundary cells still hold uncomputed initial values of 0.",
-      "announcement": "Compute dp[2, 1] (first 2 items, capacity 1): the pineapple does not fit, so inherit value 5 from the previous row."
+      "explanation": "Consider the first 2 items, capacity 1. The current item is the pineapple (weight 2, value 11). It weighs more than the capacity (2 > 1), so skip it and copy dp[1, 1] = 5 from the previous row into dp[2, 1] = 5. The preceding cells are complete. The later interior cells still hold the initial placeholder 0.",
+      "id": "source-402",
+      "key_state": "The first 2 items, capacity 1 (through the pineapple): The pineapple of weight 2 does not fit. dp[2, 1] = 5. Later interior cells still hold the initial placeholder 0.",
+      "title": "Calculate dp[2, 1] to get 5"
     },
     {
-      "id": "source-403",
+      "announcement": "Calculate dp[2, 2] (the first 2 items, capacity 2): take the pineapple (11 versus 5 for skipping it) and write the maximum value 11.",
       "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step7.png",
-      "title": "Compute dp[2, 2], getting 11",
-      "explanation": "Consider the first 2 items at capacity 2, where the current item is the pineapple (weight 2, value 11). Excluding it gives dp[1, 2] = 5 from the previous row; including it leaves capacity 2 - 2 = 0, looks up dp[1, 0] = 0 in the previous row (the first item only), and adds value 11 to get 11. Take the larger value 11 and write it to dp[2, 2]. Earlier cells are already computed, and later non-boundary cells still hold uncomputed initial values of 0.",
-      "key_state": "First 2 items (through pineapple), capacity 2: include the pineapple, setting dp[2, 2] to 11; later non-boundary cells still hold uncomputed initial values of 0.",
-      "announcement": "Compute dp[2, 2] (first 2 items, capacity 2): including the pineapple (11) beats excluding it (5), so write maximum value 11."
+      "explanation": "Consider the first 2 items, capacity 2. The current item is the pineapple (weight 2, value 11). Skipping it gives dp[1, 2] = 5 from the previous row. Taking it leaves capacity 2 - 2 = 0. Read dp[1, 0] = 0 from the previous row (the first item) and add 11 to get 11. Write the larger value, 11, to dp[2, 2]. The preceding cells are complete. The later interior cells still hold the initial placeholder 0.",
+      "id": "source-403",
+      "key_state": "The first 2 items, capacity 2 (through the pineapple): Take the pineapple. dp[2, 2] = 11. Later interior cells still hold the initial placeholder 0.",
+      "title": "Calculate dp[2, 2] to get 11"
     },
     {
-      "id": "source-404",
+      "announcement": "Calculate dp[2, 3] (the first 2 items, capacity 3): take the pineapple (16 versus 5 for skipping it) and write the maximum value 16.",
       "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step8.png",
-      "title": "Compute dp[2, 3], getting 16",
-      "explanation": "Consider the first 2 items at capacity 3, where the current item is the pineapple (weight 2, value 11). Excluding it gives dp[1, 3] = 5 from the previous row; including it leaves capacity 3 - 2 = 1, looks up dp[1, 1] = 5 in the previous row (the first item only), and adds value 11 to get 16. Take the larger value 16 and write it to dp[2, 3]. Earlier cells are already computed, and later non-boundary cells still hold uncomputed initial values of 0.",
-      "key_state": "First 2 items, capacity 3: including the pineapple gives 16, beating 5 when excluded, so dp[2, 3] = 16. Later non-boundary cells still hold uncomputed initial values of 0.",
-      "announcement": "Compute dp[2, 3]: including the pineapple gives 16, beating 5 when excluded, so write 16."
+      "explanation": "Consider the first 2 items, capacity 3. The current item is the pineapple (weight 2, value 11). Skipping it gives dp[1, 3] = 5 from the previous row. Taking it leaves capacity 3 - 2 = 1. Read dp[1, 1] = 5 from the previous row (the first item) and add 11 to get 16. Write the larger value, 16, to dp[2, 3]. The preceding cells are complete. The later interior cells still hold the initial placeholder 0.",
+      "id": "source-404",
+      "key_state": "The first 2 items, capacity 3: Taking the pineapple gives 16, more than 5 for skipping it. dp[2, 3] = 16. Later interior cells still hold the initial placeholder 0.",
+      "title": "Calculate dp[2, 3] to get 16"
     },
     {
-      "id": "source-405",
+      "announcement": "Calculate dp[2, 4] for the first two items at capacity 4. Taking the pineapple gives 16, while skipping it gives 5. Write 16 in the cell.",
       "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step9.png",
-      "title": "Compute dp[2, 4], getting 16",
-      "explanation": "Consider the first 2 items at capacity 4, where the current item is the pineapple (weight 2, value 11). Excluding it gives dp[1, 4] = 5 from the previous row; including it leaves capacity 4 - 2 = 2, looks up dp[1, 2] = 5 in the previous row (the first item only), and adds value 11 to get 16. Take the larger value 16 and write it to dp[2, 4]. Earlier cells are already computed, and later non-boundary cells still hold uncomputed initial values of 0.",
-      "key_state": "First 2 items, capacity 4: including the pineapple gives 16, beating 5 when excluded, so dp[2, 4] = 16. Later non-boundary cells still hold uncomputed initial values of 0.",
-      "announcement": "Compute dp[2, 4]: including the pineapple gives 16, beating 5 when excluded, so write 16."
+      "explanation": "Consider the first 2 items, capacity 4. The current item is the pineapple (weight 2, value 11). Skipping it gives dp[1, 4] = 5 from the previous row. Taking it leaves capacity 4 - 2 = 2. Read dp[1, 2] = 5 from the previous row (the first item) and add 11 to get 16. Write the larger value, 16, to dp[2, 4]. The preceding cells are complete. The later interior cells still hold the initial placeholder 0.",
+      "id": "source-405",
+      "key_state": "The first 2 items, capacity 4: Taking the pineapple gives 16, more than 5 for skipping it. dp[2, 4] = 16. Later interior cells still hold the initial placeholder 0.",
+      "title": "Calculate dp[2, 4] to get 16"
     },
     {
-      "id": "source-406",
+      "announcement": "Calculate dp[3, 1] (the first 3 items, capacity 1): the watermelon does not fit, so copy 5 from the previous row.",
       "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step10.png",
-      "title": "Compute dp[3, 1], getting 5",
-      "explanation": "Consider the first 3 items at capacity 1, where the current item is the watermelon (weight 3, value 15). Since weight 3 exceeds capacity 1, it does not fit and must be excluded; inherit dp[2, 1] = 5 from the previous row and write dp[3, 1] = 5. Earlier cells are already computed, and later non-boundary cells still hold uncomputed initial values of 0.",
-      "key_state": "First 3 items (through watermelon), capacity 1: the weight-3 watermelon does not fit, so dp[3, 1] is 5; later non-boundary cells still hold uncomputed initial values of 0.",
-      "announcement": "Compute dp[3, 1] (first 3 items, capacity 1): the watermelon does not fit, so inherit value 5 from the previous row."
+      "explanation": "Consider the first 3 items, capacity 1. The current item is the watermelon (weight 3, value 15). It weighs more than the capacity (3 > 1), so skip it and copy dp[2, 1] = 5 from the previous row into dp[3, 1] = 5. The preceding cells are complete. The later interior cells still hold the initial placeholder 0.",
+      "id": "source-406",
+      "key_state": "The first 3 items, capacity 1 (through the watermelon): The watermelon of weight 3 does not fit. dp[3, 1] = 5. Later interior cells still hold the initial placeholder 0.",
+      "title": "Calculate dp[3, 1] to get 5"
     },
     {
-      "id": "source-407",
+      "announcement": "Calculate dp[3, 2] (the first 3 items, capacity 2): the watermelon does not fit, so copy 11 from the previous row.",
       "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step11.png",
-      "title": "Compute dp[3, 2], getting 11",
-      "explanation": "Consider the first 3 items at capacity 2, where the current item is the watermelon (weight 3, value 15). Since weight 3 exceeds capacity 2, it does not fit and must be excluded; inherit dp[2, 2] = 11 from the previous row and write dp[3, 2] = 11. Earlier cells are already computed, and later non-boundary cells still hold uncomputed initial values of 0.",
-      "key_state": "First 3 items (through watermelon), capacity 2: the weight-3 watermelon still does not fit, so dp[3, 2] is 11; later non-boundary cells still hold uncomputed initial values of 0.",
-      "announcement": "Compute dp[3, 2] (first 3 items, capacity 2): the watermelon still does not fit, so inherit value 11 from the previous row."
+      "explanation": "Consider the first 3 items, capacity 2. The current item is the watermelon (weight 3, value 15). It weighs more than the capacity (3 > 2), so skip it and copy dp[2, 2] = 11 from the previous row into dp[3, 2] = 11. The preceding cells are complete. The later interior cells still hold the initial placeholder 0.",
+      "id": "source-407",
+      "key_state": "The first 3 items, capacity 2 (through the watermelon): The watermelon of weight 3 does not fit. dp[3, 2] = 11. Later interior cells still hold the initial placeholder 0.",
+      "title": "Calculate dp[3, 2] to get 11"
     },
     {
-      "id": "source-408",
+      "announcement": "Calculate dp[3, 3] (the first 3 items, capacity 3): skipping the watermelon (16) beats taking it alone (15), so write 16.",
       "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step12.png",
-      "title": "Compute dp[3, 3], getting 16",
-      "explanation": "Consider the first 3 items at capacity 3, where the current item is the watermelon (weight 3, value 15). Excluding it gives dp[2, 3] = 16 from the previous row; including it leaves capacity 3 - 3 = 0, looks up dp[2, 0] = 0 in the previous row (the first 2 items), and adds value 15 to get 15. Take the larger value 16 and write it to dp[3, 3]. Earlier cells are already computed, and later non-boundary cells still hold uncomputed initial values of 0.",
-      "key_state": "First 3 items (through watermelon), capacity 3: excluding the watermelon (16) beats taking the watermelon alone (15), setting dp[3, 3] to 16; only dp[3, 4] remains at its uncomputed initial value 0.",
-      "announcement": "Compute dp[3, 3] (first 3 items, capacity 3): 16 from excluding the watermelon beats 15 from taking the watermelon alone, so write maximum value 16."
+      "explanation": "Consider the first 3 items, capacity 3. The current item is the watermelon (weight 3, value 15). Skipping it gives dp[2, 3] = 16 from the previous row. Taking it leaves capacity 3 - 3 = 0. Read dp[2, 0] = 0 from the previous row (the first two items) and add 15 to get 15. Write the larger value, 16, to dp[3, 3]. The preceding cells are complete. The later interior cells still hold the initial placeholder 0.",
+      "id": "source-408",
+      "key_state": "The first 3 items, capacity 3 (through the watermelon): Skipping the watermelon (16) beats taking it alone (15). dp[3, 3] = 16. Only dp[3, 4] still holds the initial placeholder 0.",
+      "title": "Calculate dp[3, 3] to get 16"
     },
     {
-      "id": "source-409",
+      "announcement": "Calculate dp[3, 4] (the first 3 items, capacity 4): take the watermelon (20 versus 16 for skipping it) and write the maximum value 20.",
       "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step13.png",
-      "title": "Compute dp[3, 4], getting 20",
-      "explanation": "Consider the first 3 items at capacity 4, where the current item is the watermelon (weight 3, value 15). Excluding it gives dp[2, 4] = 16 from the previous row; including it leaves capacity 4 - 3 = 1, looks up dp[2, 1] = 5 in the previous row (the first 2 items), and adds value 15 to get 20. Take the larger value 20 and write it to dp[3, 4]. All 12 non-boundary cells have now been computed.",
-      "key_state": "First 3 items, capacity 4: including the watermelon gives 20, beating 16 when excluded, so dp[3, 4] = 20. All non-boundary cells are now computed.",
-      "announcement": "Compute dp[3, 4]: including the watermelon gives 20, beating 16 when excluded, so write 20."
+      "explanation": "Consider the first 3 items, capacity 4. The current item is the watermelon (weight 3, value 15). Skipping it gives dp[2, 4] = 16 from the previous row. Taking it leaves capacity 4 - 3 = 1. Read dp[2, 1] = 5 from the previous row (the first two items) and add 15 to get 20. Write the larger value, 20, to dp[3, 4]. All 12 interior cells are now complete.",
+      "id": "source-409",
+      "key_state": "The first 3 items, capacity 4: Taking the watermelon gives 20, more than 16 for skipping it. dp[3, 4] = 20. All interior cells are complete.",
+      "title": "Calculate dp[3, 4] to get 20"
     },
     {
-      "id": "source-410",
+      "announcement": "All states are complete. Return the maximum value at capacity 4, dp[3, 4] = 20.",
       "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step14.png",
-      "title": "Return maximum value 20 for capacity 4",
-      "explanation": "Read bottom-right dp[3, 4] = 20, choosing the apple and the watermelon: total weight 1 + 3 = 4, total value 5 + 15 = 20. The final frame's note \"Return the maximum achievable knapsack value after considering all items: 20\" means the optimal subset chosen from all three candidate items; packing all three would weigh 6, exceeding capacity 4.",
-      "key_state": "Table complete; return bottom-right dp[3, 4] = 20 (choosing the apple and the watermelon).",
-      "announcement": "All states computed; return the maximum value at capacity 4, dp[3, 4] = 20."
+      "explanation": "Read dp[3, 4] = 20 at the bottom right. Taking the apple and watermelon gives weight 1 + 3 = 4 and value 5 + 15 = 20. After considering all three items, the algorithm returns the maximum value, 20. Taking all three would weigh 6, exceeding capacity 4.",
+      "id": "source-410",
+      "key_state": "The table is complete. Return dp[3, 4] = 20 from the bottom right (apple and watermelon).",
+      "title": "Return the maximum value of 20 at capacity 4"
     }
   ],
+  "input_tables": [
+    0
+  ],
+  "schema_version": 2,
+  "summary": "Three items can each be taken at most once. The 0-1 knapsack recurrence fills the table cell by cell, giving a maximum total value of 20 at capacity 4.",
   "tables": [
     {
-      "caption": "Item input data for this figure",
+      "caption": "Items in this example",
       "headers": [
-        "Item ID i",
+        "Item number i",
         "Item",
-        "Weight wgt[i - 1]",
-        "Value val[i - 1]"
+        "Weight wgt[i−1]",
+        "Value val[i−1]"
       ],
+      "row_header": 0,
       "rows": [
         [
           "1",
@@ -152,11 +218,10 @@
           "3",
           "15"
         ]
-      ],
-      "row_header": 0
+      ]
     },
     {
-      "caption": "Completed dp maximum values and first-computed steps",
+      "caption": "Final dp values and the steps when they were first computed",
       "headers": [
         "Available items (first i)",
         "Capacity c=0",
@@ -165,6 +230,7 @@
         "Capacity c=3",
         "Capacity c=4"
       ],
+      "row_header": 0,
       "rows": [
         [
           "No items (i=0)",
@@ -183,7 +249,7 @@
           "5 (step 5)"
         ],
         [
-          "Apple, pineapple (i=2)",
+          "Apple and pineapple (i=2)",
           "0 (valid boundary)",
           "5 (step 6)",
           "11 (step 7)",
@@ -191,81 +257,15 @@
           "16 (step 9)"
         ],
         [
-          "Apple, pineapple, watermelon (i=3)",
+          "Apple, pineapple, and watermelon (i=3)",
           "0 (valid boundary)",
           "5 (step 10)",
           "11 (step 11)",
           "16 (step 12)",
           "20 (step 13)"
         ]
-      ],
-      "row_header": 0
-    }
-  ],
-  "animations": {
-    "knapsack-dp": {
-      "kind": "source-frames",
-      "states": [
-        {
-          "id": "step-1",
-          "frame_id": "source-397"
-        },
-        {
-          "id": "step-2",
-          "frame_id": "source-398"
-        },
-        {
-          "id": "step-3",
-          "frame_id": "source-399"
-        },
-        {
-          "id": "step-4",
-          "frame_id": "source-400"
-        },
-        {
-          "id": "step-5",
-          "frame_id": "source-401"
-        },
-        {
-          "id": "step-6",
-          "frame_id": "source-402"
-        },
-        {
-          "id": "step-7",
-          "frame_id": "source-403"
-        },
-        {
-          "id": "step-8",
-          "frame_id": "source-404"
-        },
-        {
-          "id": "step-9",
-          "frame_id": "source-405"
-        },
-        {
-          "id": "step-10",
-          "frame_id": "source-406"
-        },
-        {
-          "id": "step-11",
-          "frame_id": "source-407"
-        },
-        {
-          "id": "step-12",
-          "frame_id": "source-408"
-        },
-        {
-          "id": "step-13",
-          "frame_id": "source-409"
-        },
-        {
-          "id": "step-14",
-          "frame_id": "source-410"
-        }
       ]
     }
-  },
-  "input_tables": [
-    0
-  ]
+  ],
+  "title": "Dynamic programming for 0-1 knapsack"
 }

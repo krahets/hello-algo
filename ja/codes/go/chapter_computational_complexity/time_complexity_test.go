@@ -11,7 +11,7 @@ import (
 
 func TestTimeComplexity(t *testing.T) {
 	n := 8
-	fmt.Println("入力データの大きさ n =", n)
+	fmt.Println("入力データのサイズ n =", n)
 
 	count := constant(n)
 	fmt.Println("定数オーダーの操作回数 =", count)

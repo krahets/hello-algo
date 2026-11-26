@@ -17,8 +17,8 @@ print(f"Floating-point number {dec} has hash value {hash_dec}")
 
 str = "Hello 算法"
 hash_str = hash(str)
-print(f"String '{str}' has hash value {hash_str}")
-# String 'Hello 算法' has hash value 4617003410720528961
+print(f"String “{str}” has hash value {hash_str}")
+# String “Hello 算法” has hash value 4617003410720528961
 
 tup = (12836, "小哈")
 hash_tup = hash(tup)
@@ -49,11 +49,11 @@ cout << "Floating-point number " << dec << " has hash value " << hashDec << "\n"
 
 string str = "Hello 算法";
 size_t hashStr = hash<string>()(str);
-cout << "String '" << str << "' has hash value " << hashStr << "\n";
-// String 'Hello 算法' has hash value 15466937326284535026
+cout << "String “" << str << "” has hash value " << hashStr << "\n";
+// String “Hello 算法” has hash value 15466937326284535026
 
-// In C++, the built-in std::hash() only computes hash values for basic data types and some standard library types (such as std::string)
-// Hashing arrays and objects requires a custom implementation
+// In C++, the built-in std::hash() only computes hashes for fundamental types and certain standard library types, such as std::string
+// For arrays and other objects, implement hashing yourself
 ```
 
 ```java title="built_in_hash.java"
@@ -74,8 +74,8 @@ System.out.println("Floating-point number " + dec + " has hash value " + hashDec
 
 String str = "Hello 算法";
 int hashStr = str.hashCode();
-System.out.println("String '" + str + "' has hash value " + hashStr);
-// String 'Hello 算法' has hash value -727081396
+System.out.println("String “" + str + "” has hash value " + hashStr);
+// String “Hello 算法” has hash value -727081396
 
 Object[] arr = { 12836, "小哈" };
 int hashArr = Arrays.hashCode(arr);
@@ -106,8 +106,8 @@ Console.WriteLine("Floating-point number " + dec + " has hash value " + hashDec)
 
 string str = "Hello 算法";
 int hashStr = str.GetHashCode();
-Console.WriteLine("String '" + str + "' has hash value " + hashStr);
-// String 'Hello 算法' has hash value -586107568
+Console.WriteLine("String “" + str + "” has hash value " + hashStr);
+// String “Hello 算法” has hash value -586107568
 
 object[] arr = [12836, "小哈"];
 int hashArr = arr.GetHashCode();
@@ -121,7 +121,7 @@ Console.WriteLine("Node object " + obj + " has hash value " + hashObj);
 ```
 
 ```go title="built_in_hash.go"
-// Go provides no built-in hash-code function
+// Go does not provide a built-in hash code function
 ```
 
 ```swift title="built_in_hash.swift"
@@ -142,8 +142,8 @@ print("Floating-point number \(dec) has hash value \(hashDec)")
 
 let str = "Hello 算法"
 let hashStr = str.hashValue
-print("String '\(str)' has hash value \(hashStr)")
-// String 'Hello 算法' has hash value -7850626797806988787
+print("String “\(str)” has hash value \(hashStr)")
+// String “Hello 算法” has hash value -7850626797806988787
 
 let arr = [AnyHashable(12836), AnyHashable("小哈")]
 let hashArr = arr.hashValue
@@ -157,11 +157,11 @@ print("Node object \(obj) has hash value \(hashObj)")
 ```
 
 ```javascript title="built_in_hash.js"
-// JavaScript provides no built-in hash-code function
+// JavaScript does not provide a built-in hash code function
 ```
 
 ```typescript title="built_in_hash.ts"
-// TypeScript provides no built-in hash-code function
+// TypeScript does not provide a built-in hash code function
 ```
 
 ```dart title="built_in_hash.dart"
@@ -182,8 +182,8 @@ print("Floating-point number $dec has hash value $hashDec");
 
 String str = "Hello 算法";
 int hashStr = str.hashCode;
-print("String '$str' has hash value $hashStr");
-// String 'Hello 算法' has hash value 468167534
+print("String “$str” has hash value $hashStr");
+// String “Hello 算法” has hash value 468167534
 
 List arr = [12836, "小哈"];
 int hashArr = arr.hashCode;
@@ -225,8 +225,8 @@ let str = "Hello 算法";
 let mut str_hasher = DefaultHasher::new();
 str.hash(&mut str_hasher);
 let hash_str = str_hasher.finish();
-println!("String '{}' has hash value {}", str, hash_str);
-// String 'Hello 算法' has hash value 16092673739211250988
+println!("String “{}” has hash value {}", str, hash_str);
+// String “Hello 算法” has hash value 16092673739211250988
 
 let tup = (&12836, &"小哈");
 let mut tup_hasher = DefaultHasher::new();
@@ -239,12 +239,12 @@ let node = ListNode::new(42);
 let mut node_hasher = DefaultHasher::new();
 node.borrow().val.hash(&mut node_hasher);
 let hash_node = node_hasher.finish();
-println!("The value in node {:?} has hash value {}", node, hash_node);
-// The value in node RefCell { value: ListNode { val: 42, next: None } } has hash value 15387811073369036852
+println!("The value stored in node {:?} has hash value {}", node, hash_node);
+// The value stored in node RefCell { value: ListNode { val: 42, next: None } } has hash value 15387811073369036852
 ```
 
 ```c title="built_in_hash.c"
-// C provides no built-in hash-code function
+// C does not provide a built-in hash code function
 ```
 
 ```kotlin title="built_in_hash.kt"
@@ -265,8 +265,8 @@ println("Floating-point number $dec has hash value $hashDec")
 
 val str = "Hello 算法"
 val hashStr = str.hashCode()
-println("String '$str' has hash value $hashStr")
-// String 'Hello 算法' has hash value -727081396
+println("String “$str” has hash value $hashStr")
+// String “Hello 算法” has hash value -727081396
 
 val arr = arrayOf<Any>(12836, "小哈")
 val hashArr = arr.contentHashCode()
@@ -297,8 +297,8 @@ puts "Floating-point number #{dec} has hash value #{hash_dec}"
 
 str = "Hello 算法"
 hash_str = str.hash
-puts "String '#{str}' has hash value #{hash_str}"
-# String 'Hello 算法' has hash value -4075943250025831763
+puts "String “#{str}” has hash value #{hash_str}"
+# String “Hello 算法” has hash value -4075943250025831763
 
 arr = [12836, '小哈']
 hash_arr = arr.hash
@@ -312,4 +312,4 @@ puts "Node object #{obj} has hash value #{hash_obj}"
 ```
 
 <!-- [tutor]{builtin_hash_tutor} -->
-https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked-list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20print%28f%22Integer%20%7Bnum%7D%20has%20hash%20value%20%7Bhash_num%7D%22%29%0A%20%20%20%20%23%20Integer%203%20has%20hash%20value%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20print%28f%22Boolean%20%7Bbol%7D%20has%20hash%20value%20%7Bhash_bol%7D%22%29%0A%20%20%20%20%23%20Boolean%20True%20has%20hash%20value%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20print%28f%22Floating-point%20number%20%7Bdec%7D%20has%20hash%20value%20%7Bhash_dec%7D%22%29%0A%20%20%20%20%23%20Floating-point%20number%203.14159%20has%20hash%20value%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20print%28f%22String%20%27%7Bstr%7D%27%20has%20hash%20value%20%7Bhash_str%7D%22%29%0A%20%20%20%20%23%20String%20%27Hello%20%E7%AE%97%E6%B3%95%27%20has%20hash%20value%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836%2C%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20print%28f%22Tuple%20%7Btup%7D%20has%20hash%20value%20%7Bhash_tup%7D%22%29%0A%20%20%20%20%23%20Tuple%20%2812836%2C%20%27%E5%B0%8F%E5%93%88%27%29%20has%20hash%20value%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20print%28f%22Node%20object%20%7Bobj%7D%20has%20hash%20value%20%7Bhash_obj%7D%22%29%0A%20%20%20%20%23%20Node%20object%20%3Cmodules.list_node.ListNode%20object%20at%200x1058fd810%3E%20has%20hash%20value%20274267521%0A&cumulative=false&curInstr=19&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20print%28f%22Integer%20%7Bnum%7D%20hashes%20to%20%7Bhash_num%7D%22%29%0A%20%20%20%20%23%20Integer%203%20hashes%20to%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20print%28f%22Boolean%20%7Bbol%7D%20hashes%20to%20%7Bhash_bol%7D%22%29%0A%20%20%20%20%23%20Boolean%20True%20hashes%20to%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20print%28f%22Float%20%7Bdec%7D%20hashes%20to%20%7Bhash_dec%7D%22%29%0A%20%20%20%20%23%20Float%203.14159%20hashes%20to%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20print%28f%22String%20%27%7Bstr%7D%27%20hashes%20to%20%7Bhash_str%7D%22%29%0A%20%20%20%20%23%20String%20%27Hello%20%E7%AE%97%E6%B3%95%27%20hashes%20to%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20print%28f%22Tuple%20%7Btup%7D%20hashes%20to%20%7Bhash_tup%7D%22%29%0A%20%20%20%20%23%20Tuple%20%2812836,%20%27%E5%B0%8F%E5%93%88%27%29%20hashes%20to%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20print%28f%22Node%20object%20%7Bobj%7D%20hashes%20to%20%7Bhash_obj%7D%22%29%0A%20%20%20%20%23%20Node%20object%20%3Cmodules.list_node.ListNode%20object%20at%200x1058fd810%3E%20hashes%20to%20274267521%0A&cumulative=false&curInstr=19&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false

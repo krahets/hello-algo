@@ -8,13 +8,13 @@ const { Vertex } = require('../modules/Vertex');
 
 /* 인접 리스트로 구현한 무방향 그래프 클래스 */
 class GraphAdjList {
-    // 인접 리스트의 key: 정점, value: 해당 정점의 모든 인접 정점
+    // 인접 리스트의 key는 정점, value는 해당 정점의 모든 인접 정점
     adjList;
 
     /* 생성자 */
     constructor(edges) {
         this.adjList = new Map();
-        // 모든 정점과 간선을 추가한다
+        // 모든 정점과 간선 추가
         for (const edge of edges) {
             this.addVertex(edge[0]);
             this.addVertex(edge[1]);
@@ -22,7 +22,7 @@ class GraphAdjList {
         }
     }
 
-    /* 정점 개수 반환 */
+    /* 정점 수 구하기 */
     size() {
         return this.adjList.size;
     }
@@ -36,7 +36,7 @@ class GraphAdjList {
         ) {
             throw new Error('잘못된 인수');
         }
-        // 간선 vet1 - vet2를 추가한다
+        // 간선 vet1 - vet2 추가
         this.adjList.get(vet1).push(vet2);
         this.adjList.get(vet2).push(vet1);
     }
@@ -51,7 +51,7 @@ class GraphAdjList {
         ) {
             throw new Error('잘못된 인수');
         }
-        // 간선 vet1 - vet2를 삭제한다
+        // 간선 vet1 - vet2 삭제
         this.adjList.get(vet1).splice(this.adjList.get(vet1).indexOf(vet2), 1);
         this.adjList.get(vet2).splice(this.adjList.get(vet2).indexOf(vet1), 1);
     }
@@ -59,7 +59,7 @@ class GraphAdjList {
     /* 정점 추가 */
     addVertex(vet) {
         if (this.adjList.has(vet)) return;
-        // 인접 리스트에 새 연결 리스트를 추가한다
+        // 인접 리스트에 새 연결 리스트 추가
         this.adjList.set(vet, []);
     }
 
@@ -68,9 +68,9 @@ class GraphAdjList {
         if (!this.adjList.has(vet)) {
             throw new Error('잘못된 인수');
         }
-        // 인접 리스트에서 정점 vet에 해당하는 연결 리스트를 삭제한다
+        // 인접 리스트에서 정점 vet에 해당하는 연결 리스트 삭제
         this.adjList.delete(vet);
-        // 다른 정점의 연결 리스트를 순회하여 vet를 포함하는 모든 간선을 삭제한다
+        // 다른 정점들의 연결 리스트를 순회하며 vet에 연결된 간선을 모두 삭제
         for (const set of this.adjList.values()) {
             const index = set.indexOf(vet);
             if (index > -1) {
@@ -93,7 +93,7 @@ class GraphAdjList {
 }
 
 if (require.main === module) {
-    /* 실행 코드 */
+    /* 실행 예제 */
     /* 무방향 그래프 초기화 */
     const v0 = new Vertex(1),
         v1 = new Vertex(3),
@@ -109,31 +109,31 @@ if (require.main === module) {
         [v3, v4],
     ];
     const graph = new GraphAdjList(edges);
-    console.log('\n초기화한 후의 그래프');
+    console.log('\n초기화한 그래프:');
     graph.print();
 
     /* 간선 추가 */
-    // 정점 1, 2는 각각 v0, v2이다
+    // 정점 1과 2는 각각 v0, v2
     graph.addEdge(v0, v2);
-    console.log('\n간선 1-2를 추가한 후의 그래프');
+    console.log('\n간선 1-2를 추가한 그래프:');
     graph.print();
 
     /* 간선 삭제 */
-    // 정점 1, 3은 각각 v0, v1이다
+    // 정점 1과 3은 각각 v0, v1
     graph.removeEdge(v0, v1);
-    console.log('\n간선 1-3을 삭제한 후의 그래프');
+    console.log('\n간선 1-3을 삭제한 그래프:');
     graph.print();
 
     /* 정점 추가 */
     const v5 = new Vertex(6);
     graph.addVertex(v5);
-    console.log('\n정점 6을 추가한 후의 그래프');
+    console.log('\n정점 6을 추가한 그래프:');
     graph.print();
 
     /* 정점 삭제 */
-    // 정점 3은 v1이다
+    // 정점 3은 v1
     graph.removeVertex(v1);
-    console.log('\n정점 3을 삭제한 후의 그래프');
+    console.log('\n정점 3을 삭제한 그래프:');
     graph.print();
 }
 

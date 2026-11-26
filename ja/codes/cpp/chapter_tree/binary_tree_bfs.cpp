@@ -8,34 +8,34 @@
 
 /* レベル順走査 */
 vector<int> levelOrder(TreeNode *root) {
-    // キューを初期化し、根ノードを追加する
+    // キューを初期化して根を入れる
     queue<TreeNode *> queue;
     queue.push(root);
-    // 走査順序を保存するリストを初期化する
+    // 走査順を記録するリストを初期化する
     vector<int> vec;
     while (!queue.empty()) {
         TreeNode *node = queue.front();
-        queue.pop();              // キューからデキューする
-        vec.push_back(node->val); // ノードの値を保存する
+        queue.pop();              // キューの先頭から取り出す
+        vec.push_back(node->val); // ノードの値を記録する
         if (node->left != nullptr)
-            queue.push(node->left); // 左の子ノードをエンキューする
+            queue.push(node->left); // 左の子をキューに入れる
         if (node->right != nullptr)
-            queue.push(node->right); // 右の子ノードをエンキューする
+            queue.push(node->right); // 右の子をキューに入れる
     }
     return vec;
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     /* 二分木を初期化する */
-    // ここでは配列から二分木を直接生成する関数を使う
+    // ここでは配列から直接二分木を作る関数を使う
     TreeNode *root = vectorToTree(vector<int>{1, 2, 3, 4, 5, 6, 7});
-    cout << endl << "二分木を初期化する\n" << endl;
+    cout << endl << "二分木を初期化\n" << endl;
     printTree(root);
 
     /* レベル順走査 */
     vector<int> vec = levelOrder(root);
-    cout << endl << "レベル順走査で表示するノードの順序 = ";
+    cout << endl << "レベル順に出力したノードの列 = ";
     printVector(vec);
 
     return 0;

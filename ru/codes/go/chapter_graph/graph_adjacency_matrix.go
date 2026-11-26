@@ -6,17 +6,17 @@ package chapter_graph
 
 import "fmt"
 
-/* Класс неориентированного графа на основе матрицы смежности */
+/* Неориентированный граф на матрице смежности */
 type graphAdjMat struct {
-	// Список вершин: элементы представляют «значения вершин», а индексы — «индексы вершин»
+	// Список вершин: элементы — значения вершин, позиции — их индексы
 	vertices []int
-	// Матрица смежности, где индексы строк и столбцов соответствуют «индексам вершин»
+	// Матрица смежности: индексы строк и столбцов соответствуют индексам вершин
 	adjMat [][]int
 }
 
 /* Конструктор */
 func newGraphAdjMat(vertices []int, edges [][]int) *graphAdjMat {
-	// Добавление вершины
+	// Добавить вершину
 	n := len(vertices)
 	adjMat := make([][]int, n)
 	for i := range adjMat {
@@ -27,8 +27,8 @@ func newGraphAdjMat(vertices []int, edges [][]int) *graphAdjMat {
 		vertices: vertices,
 		adjMat:   adjMat,
 	}
-	// Добавить ребра
-	// Обратите внимание: элементы edges представляют собой индексы вершин, то есть соответствуют индексам элементов vertices
+	// Добавить ребро
+	// Элементы edges содержат индексы вершин, то есть индексы элементов vertices
 	for i := range edges {
 		g.addEdge(edges[i][0], edges[i][1])
 	}
@@ -40,7 +40,7 @@ func (g *graphAdjMat) size() int {
 	return len(g.vertices)
 }
 
-/* Добавление вершины */
+/* Добавить вершину */
 func (g *graphAdjMat) addVertex(val int) {
 	n := g.size()
 	// Добавить значение новой вершины в список вершин
@@ -54,37 +54,37 @@ func (g *graphAdjMat) addVertex(val int) {
 	}
 }
 
-/* Удаление вершины */
+/* Удалить вершину */
 func (g *graphAdjMat) removeVertex(index int) {
 	if index >= g.size() {
 		return
 	}
-	// Удалить вершину с индексом index из списка вершин
+	// Удалить из списка вершин вершину с индексом index
 	g.vertices = append(g.vertices[:index], g.vertices[index+1:]...)
-	// Удалить строку с индексом index из матрицы смежности
+	// Удалить из матрицы смежности строку с индексом index
 	g.adjMat = append(g.adjMat[:index], g.adjMat[index+1:]...)
-	// Удалить столбец с индексом index из матрицы смежности
+	// Удалить из матрицы смежности столбец с индексом index
 	for i := range g.adjMat {
 		g.adjMat[i] = append(g.adjMat[i][:index], g.adjMat[i][index+1:]...)
 	}
 }
 
-/* Добавление ребра */
-// Параметры i и j соответствуют индексам элементов vertices
+/* Добавить ребро */
+// Параметры i и j — индексы элементов vertices
 func (g *graphAdjMat) addEdge(i, j int) {
-	// Обработка выхода индекса за границы и случая равенства
+	// Проверить выход индексов за границы и их совпадение
 	if i < 0 || j < 0 || i >= g.size() || j >= g.size() || i == j {
 		fmt.Errorf("%s", "Index Out Of Bounds Exception")
 	}
-	// В неориентированном графе матрица смежности симметрична относительно главной диагонали, то есть выполняется (i, j) == (j, i)
+	// Матрица смежности неориентированного графа симметрична относительно главной диагонали: (i, j) == (j, i)
 	g.adjMat[i][j] = 1
 	g.adjMat[j][i] = 1
 }
 
-/* Удаление ребра */
-// Параметры i и j соответствуют индексам элементов vertices
+/* Удалить ребро */
+// Параметры i и j — индексы элементов vertices
 func (g *graphAdjMat) removeEdge(i, j int) {
-	// Обработка выхода индекса за границы и случая равенства
+	// Проверить выход индексов за границы и их совпадение
 	if i < 0 || j < 0 || i >= g.size() || j >= g.size() || i == j {
 		fmt.Errorf("%s", "Index Out Of Bounds Exception")
 	}

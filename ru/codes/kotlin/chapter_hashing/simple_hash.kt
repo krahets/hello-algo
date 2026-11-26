@@ -26,7 +26,7 @@ fun mulHash(key: String): Int {
     return hash.toInt()
 }
 
-/* XOR-хеширование */
+/* Хеширование с помощью XOR */
 fun xorHash(key: String): Int {
     var hash = 0
     val MODULUS = 1000000007
@@ -46,19 +46,19 @@ fun rotHash(key: String): Int {
     return hash.toInt()
 }
 
-/* Driver Code */
+/* Демонстрационный код */
 fun main() {
-    val key = "Hello Algo"
+    val key = "Hello 算法"
 
     var hash = addHash(key)
-    println("Хеш-сумма сложением = $hash")
+    println("Аддитивный хеш: $hash")
 
     hash = mulHash(key)
-    println("Хеш-сумма умножением = $hash")
+    println("Мультипликативный хеш: $hash")
 
     hash = xorHash(key)
-    println("Хеш-сумма XOR = $hash")
+    println("Хеш на основе XOR: $hash")
 
     hash = rotHash(key)
-    println("Хеш-сумма с циклическим сдвигом = $hash")
+    println("Хеш с циклическим сдвигом: $hash")
 }

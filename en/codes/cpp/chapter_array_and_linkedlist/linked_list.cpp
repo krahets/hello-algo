@@ -13,7 +13,7 @@ void insert(ListNode *n0, ListNode *P) {
     n0->next = P;
 }
 
-/* Remove the first node after node n0 in the linked list */
+/* Remove the node immediately after n0 in the linked list */
 void remove(ListNode *n0) {
     if (n0->next == nullptr)
         return;
@@ -25,7 +25,7 @@ void remove(ListNode *n0) {
     delete P;
 }
 
-/* Access the node at index `index` in the linked list */
+/* Access the linked list node at the specified index */
 ListNode *access(ListNode *head, int index) {
     for (int i = 0; i < index; i++) {
         if (head == nullptr)
@@ -47,40 +47,40 @@ int find(ListNode *head, int target) {
     return -1;
 }
 
-/* Driver code */
+/* Driver Code */
 int main() {
     /* Initialize the linked list */
-    // Initialize the individual nodes
+    // Initialize the nodes
     ListNode *n0 = new ListNode(1);
     ListNode *n1 = new ListNode(3);
     ListNode *n2 = new ListNode(2);
     ListNode *n3 = new ListNode(5);
     ListNode *n4 = new ListNode(4);
-    // Set up references between the nodes
+    // Link the nodes together
     n0->next = n1;
     n1->next = n2;
     n2->next = n3;
     n3->next = n4;
-    cout << "The initialized linked list is" << endl;
+    cout << "Initial linked list:" << endl;
     printLinkedList(n0);
 
     /* Insert a node */
     insert(n0, new ListNode(0));
-    cout << "The linked list after inserting a node is" << endl;
+    cout << "Linked list after insertion:" << endl;
     printLinkedList(n0);
 
     /* Remove a node */
     remove(n0);
-    cout << "The linked list after removing a node is" << endl;
+    cout << "Linked list after removal:" << endl;
     printLinkedList(n0);
 
     /* Access a node */
     ListNode *node = access(n0, 3);
-    cout << "Value of the node at index 3 in the linked list = " << node->val << endl;
+    cout << "Value of the node at index 3 = " << node->val << endl;
 
     /* Find a node */
     int index = find(n0, 2);
-    cout << "Index of the linked list node with value 2 = " << index << endl;
+    cout << "Index of the node with value 2 = " << index << endl;
 
     // Free memory
     freeMemoryLinkedList(n0);

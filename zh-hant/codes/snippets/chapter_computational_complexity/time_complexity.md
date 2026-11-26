@@ -1,22 +1,22 @@
 <!-- [snippet]{run_time_estimate} -->
 ```python title=""
-# 在某執行平臺下
+# 在某個執行平台上
 def algorithm(n: int):
     a = 2      # 1 ns
     a = a + 1  # 1 ns
     a = a * 2  # 10 ns
-    # 迴圈 n 次
+    # 迴圈執行 n 次
     for _ in range(n):  # 1 ns
         print(0)        # 5 ns
 ```
 
 ```cpp title=""
-// 在某執行平臺下
+// 在某個執行平台上
 void algorithm(int n) {
     int a = 2;  // 1 ns
     a = a + 1;  // 1 ns
     a = a * 2;  // 10 ns
-    // 迴圈 n 次
+    // 迴圈執行 n 次
     for (int i = 0; i < n; i++) {  // 1 ns
         cout << 0 << endl;         // 5 ns
     }
@@ -24,12 +24,12 @@ void algorithm(int n) {
 ```
 
 ```java title=""
-// 在某執行平臺下
+// 在某個執行平台上
 void algorithm(int n) {
     int a = 2;  // 1 ns
     a = a + 1;  // 1 ns
     a = a * 2;  // 10 ns
-    // 迴圈 n 次
+    // 迴圈執行 n 次
     for (int i = 0; i < n; i++) {  // 1 ns
         System.out.println(0);     // 5 ns
     }
@@ -37,12 +37,12 @@ void algorithm(int n) {
 ```
 
 ```csharp title=""
-// 在某執行平臺下
+// 在某個執行平台上
 void Algorithm(int n) {
     int a = 2;  // 1 ns
     a = a + 1;  // 1 ns
     a = a * 2;  // 10 ns
-    // 迴圈 n 次
+    // 迴圈執行 n 次
     for (int i = 0; i < n; i++) {  // 1 ns
         Console.WriteLine(0);      // 5 ns
     }
@@ -50,12 +50,12 @@ void Algorithm(int n) {
 ```
 
 ```go title=""
-// 在某執行平臺下
+// 在某個執行平台上
 func algorithm(n int) {
     a := 2     // 1 ns
     a = a + 1  // 1 ns
     a = a * 2  // 10 ns
-    // 迴圈 n 次
+    // 迴圈執行 n 次
     for i := 0; i < n; i++ {  // 1 ns
         fmt.Println(a)        // 5 ns
     }
@@ -63,12 +63,12 @@ func algorithm(n int) {
 ```
 
 ```swift title=""
-// 在某執行平臺下
+// 在某個執行平台上
 func algorithm(n: Int) {
     var a = 2 // 1 ns
     a = a + 1 // 1 ns
     a = a * 2 // 10 ns
-    // 迴圈 n 次
+    // 迴圈執行 n 次
     for _ in 0 ..< n { // 1 ns
         print(0) // 5 ns
     }
@@ -76,12 +76,12 @@ func algorithm(n: Int) {
 ```
 
 ```javascript title=""
-// 在某執行平臺下
+// 在某個執行平台上
 function algorithm(n) {
     var a = 2; // 1 ns
     a = a + 1; // 1 ns
     a = a * 2; // 10 ns
-    // 迴圈 n 次
+    // 迴圈執行 n 次
     for(let i = 0; i < n; i++) { // 1 ns
         console.log(0); // 5 ns
     }
@@ -89,12 +89,12 @@ function algorithm(n) {
 ```
 
 ```typescript title=""
-// 在某執行平臺下
+// 在某個執行平台上
 function algorithm(n: number): void {
     var a: number = 2; // 1 ns
     a = a + 1; // 1 ns
     a = a * 2; // 10 ns
-    // 迴圈 n 次
+    // 迴圈執行 n 次
     for(let i = 0; i < n; i++) { // 1 ns
         console.log(0); // 5 ns
     }
@@ -102,12 +102,12 @@ function algorithm(n: number): void {
 ```
 
 ```dart title=""
-// 在某執行平臺下
+// 在某個執行平台上
 void algorithm(int n) {
   int a = 2; // 1 ns
   a = a + 1; // 1 ns
   a = a * 2; // 10 ns
-  // 迴圈 n 次
+  // 迴圈執行 n 次
   for (int i = 0; i < n; i++) { // 1 ns
     print(0); // 5 ns
   }
@@ -115,12 +115,12 @@ void algorithm(int n) {
 ```
 
 ```rust title=""
-// 在某執行平臺下
+// 在某個執行平台上
 fn algorithm(n: i32) {
     let mut a = 2;      // 1 ns
     a = a + 1;          // 1 ns
     a = a * 2;          // 10 ns
-    // 迴圈 n 次
+    // 迴圈執行 n 次
     for _ in 0..n {     // 1 ns
         println!("{}", 0);  // 5 ns
     }
@@ -128,12 +128,12 @@ fn algorithm(n: i32) {
 ```
 
 ```c title=""
-// 在某執行平臺下
+// 在某個執行平台上
 void algorithm(int n) {
     int a = 2;  // 1 ns
     a = a + 1;  // 1 ns
     a = a * 2;  // 10 ns
-    // 迴圈 n 次
+    // 迴圈執行 n 次
     for (int i = 0; i < n; i++) {   // 1 ns
         printf("%d", 0);            // 5 ns
     }
@@ -141,12 +141,12 @@ void algorithm(int n) {
 ```
 
 ```kotlin title=""
-// 在某執行平臺下
+// 在某個執行平台上
 fun algorithm(n: Int) {
     var a = 2 // 1 ns
     a = a + 1 // 1 ns
     a = a * 2 // 10 ns
-    // 迴圈 n 次
+    // 迴圈執行 n 次
     for (i in 0..<n) {  // 1 ns
         println(0)      // 5 ns
     }
@@ -154,12 +154,12 @@ fun algorithm(n: Int) {
 ```
 
 ```ruby title=""
-# 在某執行平臺下
+# 在某個執行平台上
 def algorithm(n)
     a = 2       # 1 ns
     a = a + 1   # 1 ns
     a = a * 2   # 10 ns
-    # 迴圈 n 次
+    # 迴圈執行 n 次
     (0...n).each do # 1 ns
         puts 0      # 5 ns
     end
@@ -416,7 +416,7 @@ def algorithm(n: int):
     a = 1      # +1
     a = a + 1  # +1
     a = a * 2  # +1
-    # 迴圈 n 次
+    # 迴圈執行 n 次
     for i in range(n):  # +1
         print(0)        # +1
 ```
@@ -426,8 +426,8 @@ void algorithm(int n) {
     int a = 1;  // +1
     a = a + 1;  // +1
     a = a * 2;  // +1
-    // 迴圈 n 次
-    for (int i = 0; i < n; i++) { // +1（每輪都執行 i ++）
+    // 迴圈執行 n 次
+    for (int i = 0; i < n; i++) { // +1（每次迴圈都會執行 i ++）
         cout << 0 << endl;    // +1
     }
 }
@@ -438,8 +438,8 @@ void algorithm(int n) {
     int a = 1;  // +1
     a = a + 1;  // +1
     a = a * 2;  // +1
-    // 迴圈 n 次
-    for (int i = 0; i < n; i++) { // +1（每輪都執行 i ++）
+    // 迴圈執行 n 次
+    for (int i = 0; i < n; i++) { // +1（每次迴圈都會執行 i ++）
         System.out.println(0);    // +1
     }
 }
@@ -450,8 +450,8 @@ void Algorithm(int n) {
     int a = 1;  // +1
     a = a + 1;  // +1
     a = a * 2;  // +1
-    // 迴圈 n 次
-    for (int i = 0; i < n; i++) {   // +1（每輪都執行 i ++）
+    // 迴圈執行 n 次
+    for (int i = 0; i < n; i++) {   // +1（每次迴圈都會執行 i ++）
         Console.WriteLine(0);   // +1
     }
 }
@@ -462,7 +462,7 @@ func algorithm(n int) {
     a := 1      // +1
     a = a + 1   // +1
     a = a * 2   // +1
-    // 迴圈 n 次
+    // 迴圈執行 n 次
     for i := 0; i < n; i++ {   // +1
         fmt.Println(a)         // +1
     }
@@ -474,7 +474,7 @@ func algorithm(n: Int) {
     var a = 1 // +1
     a = a + 1 // +1
     a = a * 2 // +1
-    // 迴圈 n 次
+    // 迴圈執行 n 次
     for _ in 0 ..< n { // +1
         print(0) // +1
     }
@@ -486,8 +486,8 @@ function algorithm(n) {
     var a = 1; // +1
     a += 1; // +1
     a *= 2; // +1
-    // 迴圈 n 次
-    for(let i = 0; i < n; i++){ // +1（每輪都執行 i ++）
+    // 迴圈執行 n 次
+    for(let i = 0; i < n; i++){ // +1（每次迴圈都會執行 i ++）
         console.log(0); // +1
     }
 }
@@ -498,8 +498,8 @@ function algorithm(n: number): void{
     var a: number = 1; // +1
     a += 1; // +1
     a *= 2; // +1
-    // 迴圈 n 次
-    for(let i = 0; i < n; i++){ // +1（每輪都執行 i ++）
+    // 迴圈執行 n 次
+    for(let i = 0; i < n; i++){ // +1（每次迴圈都會執行 i ++）
         console.log(0); // +1
     }
 }
@@ -510,8 +510,8 @@ void algorithm(int n) {
   int a = 1; // +1
   a = a + 1; // +1
   a = a * 2; // +1
-  // 迴圈 n 次
-  for (int i = 0; i < n; i++) { // +1（每輪都執行 i ++）
+  // 迴圈執行 n 次
+  for (int i = 0; i < n; i++) { // +1（每次迴圈都會執行 i ++）
     print(0); // +1
   }
 }
@@ -523,8 +523,8 @@ fn algorithm(n: i32) {
     a = a + 1;      // +1
     a = a * 2;      // +1
 
-    // 迴圈 n 次
-    for _ in 0..n { // +1（每輪都執行 i ++）
+    // 迴圈執行 n 次
+    for _ in 0..n { // +1（每次迴圈都會執行 i ++）
         println!("{}", 0); // +1
     }
 }
@@ -535,8 +535,8 @@ void algorithm(int n) {
     int a = 1;  // +1
     a = a + 1;  // +1
     a = a * 2;  // +1
-    // 迴圈 n 次
-    for (int i = 0; i < n; i++) {   // +1（每輪都執行 i ++）
+    // 迴圈執行 n 次
+    for (int i = 0; i < n; i++) {   // +1（每次迴圈都會執行 i ++）
         printf("%d", 0);            // +1
     }
 }
@@ -547,8 +547,8 @@ fun algorithm(n: Int) {
     var a = 1 // +1
     a = a + 1 // +1
     a = a * 2 // +1
-    // 迴圈 n 次
-    for (i in 0..<n) { // +1（每輪都執行 i ++）
+    // 迴圈執行 n 次
+    for (i in 0..<n) { // +1（每次迴圈都會執行 i ++）
         println(0) // +1
     }
 }
@@ -559,7 +559,7 @@ def algorithm(n)
     a = 1       # +1
     a = a + 1   # +1
     a = a * 2   # +1
-    # 迴圈 n 次
+    # 迴圈執行 n 次
     (0...n).each do # +1
         puts 0      # +1
     end

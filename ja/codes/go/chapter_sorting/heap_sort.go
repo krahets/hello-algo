@@ -4,10 +4,10 @@
 
 package chapter_sorting
 
-/* 長さ n のヒープを、ノード i から下向きにヒープ化する */
+/* 長さ n のヒープで、ノード i から下向きにヒープ化 */
 func siftDown(nums *[]int, n, i int) {
 	for true {
-		// ノード i, l, r のうち値が最大のノードを求め、ma とする
+		// ノード i, l, r のうち値が最大のものを ma とする
 		l := 2*i + 1
 		r := 2*i + 2
 		ma := i
@@ -17,11 +17,11 @@ func siftDown(nums *[]int, n, i int) {
 		if r < n && (*nums)[r] > (*nums)[ma] {
 			ma = r
 		}
-		// ノード i が最大か添字 l, r が範囲外なら、ヒープ化は不要なので終了
+		// i の値が最大か、左右の子のインデックス l, r がともに範囲外なら、ヒープ化を終了
 		if ma == i {
 			break
 		}
-		// 2 つのノードを交換する
+		// 2 つのノードを交換
 		(*nums)[i], (*nums)[ma] = (*nums)[ma], (*nums)[i]
 		// 下向きのヒープ化を繰り返す
 		i = ma
@@ -30,15 +30,15 @@ func siftDown(nums *[]int, n, i int) {
 
 /* ヒープソート */
 func heapSort(nums *[]int) {
-	// ヒープの構築：葉ノード以外の全ノードをヒープ化する
+	// ヒープの構築：葉以外のすべてのノードをヒープ化
 	for i := len(*nums)/2 - 1; i >= 0; i-- {
 		siftDown(nums, len(*nums), i)
 	}
-	// ヒープから最大要素を取り出す処理を n-1 回繰り返す
+	// ヒープから最大要素を取り出す操作を n-1 回繰り返す
 	for i := len(*nums) - 1; i > 0; i-- {
-		// 根と最右の葉を交換（先頭要素と末尾要素を交換）
+		// 根と右端の葉を交換（先頭要素と末尾要素の交換）
 		(*nums)[0], (*nums)[i] = (*nums)[i], (*nums)[0]
-		// 根ノードから下向きにヒープ化する
+		// 根から下向きにヒープ化
 		siftDown(nums, i, 0)
 	}
 }

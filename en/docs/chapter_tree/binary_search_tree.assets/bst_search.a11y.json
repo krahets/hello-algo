@@ -1,69 +1,69 @@
 {
-  "schema_version": 2,
-  "title": "Search a binary search tree for node 7",
-  "summary": "Search for 7 among values 1 through 15, comparing at each node and choosing the left or right branch.",
-  "context": [
-    "At any node in a binary search tree all values on the left are smaller and all on the right are larger than its value. Arrows lead from parent to child.",
-    "This perfect binary search tree has four levels with values 1 through 15. Root 8 has children 4 and 12, in left-to-right order. The children of 4 are 2 and 6, and of 12 are 10 and 14. The children of 2 are 1 and 3; of 6, 5 and 7; of 10, 9 and 11; and of 14, 13 and 15.",
-    "The pointer cur marks the node being checked, filled in blue. Blue arrows and blue rings around previously visited nodes show the search path."
-  ],
-  "description": [],
-  "result": "Pointer cur compares four nodes along 8 → 4 → 6 → 7. At step four the target value 7 matches, and the search returns that node. No tree links change.",
-  "frames": [
-    {
-      "id": "source-118",
-      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step1.png",
-      "title": "Start at root 8",
-      "explanation": "Initialize cur at root 8, filled in blue. Compare target 7 with current value 8. Since 7 < 8, the target lies in the left subtree. Next move down to left child 4. Path so far: 8.",
-      "key_state": "Pointer cur points to root 8. Since target 7 < 8, move next to left child 4.",
-      "announcement": "Begin the search for 7 with cur at root 8."
-    },
-    {
-      "id": "source-119",
-      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step2.png",
-      "title": "Go left to node 4",
-      "explanation": "Since 7 < 8, execute cur = cur.left, following the blue arrow from 8 to left child 4. Compare target 7 with current value 4: since 7 > 4, search next in the right subtree of 4. Path: 8→4.",
-      "key_state": "Pointer cur is at 4 (path 8→4). Since 7 > 4, the next node is right child 6.",
-      "announcement": "Since 7 is smaller than 8, cur moves from 8 to left child 4."
-    },
-    {
-      "id": "source-120",
-      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step3.png",
-      "title": "Go right to node 6",
-      "explanation": "Since 7 > 4, execute cur = cur.right, following the blue arrow from 4 to right child 6. Compare target 7 with current value 6: since 7 > 6, continue to the right child of 6. Path: 8→4→6.",
-      "key_state": "Pointer cur is at 6 (path 8→4→6). Since 7 > 6, the next node is right child 7.",
-      "announcement": "Since 7 is larger than 4, cur moves from 4 to right child 6."
-    },
-    {
-      "id": "source-121",
-      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step4.png",
-      "title": "Find node 7",
-      "explanation": "Since 7 > 6, execute cur = cur.right and follow the blue arrow from 6 to right child 7. The value at cur matches target 7, so the loop exits and returns node 7. Path: 8→4→6→7.",
-      "key_state": "Pointer cur points to target node 7 (path 8→4→6→7). Search successful.",
-      "announcement": "Since 7 is larger than 6, cur moves from 6 to right child 7 and finds the target."
-    }
-  ],
   "animations": {
     "bst-search": {
       "kind": "source-frames",
       "states": [
         {
-          "id": "step-1",
-          "frame_id": "source-118"
+          "frame_id": "source-118",
+          "id": "step-1"
         },
         {
-          "id": "step-2",
-          "frame_id": "source-119"
+          "frame_id": "source-119",
+          "id": "step-2"
         },
         {
-          "id": "step-3",
-          "frame_id": "source-120"
+          "frame_id": "source-120",
+          "id": "step-3"
         },
         {
-          "id": "step-4",
-          "frame_id": "source-121"
+          "frame_id": "source-121",
+          "id": "step-4"
         }
       ]
     }
-  }
+  },
+  "context": [
+    "At every node of a binary search tree, all values in its left subtree are smaller than its own and all values in its right subtree are larger. Edge arrows point from parent to child.",
+    "The four-level perfect binary search tree contains nodes 1 through 15. Root 8 has left child 4 and right child 12. The left and right children of 4 are 2 and 6, and those of 12 are 10 and 14. The children of 2 are 1 and 3, those of 6 are 5 and 7, those of 10 are 9 and 11, and those of 14 are 13 and 15, in left-to-right order.",
+    "The pointer cur points to the node currently being checked, highlighted in solid blue. Blue arrows and blue rings around nodes mark the search path taken so far."
+  ],
+  "description": [],
+  "frames": [
+    {
+      "announcement": "Start the search for 7 by pointing cur to root 8.",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step1.png",
+      "explanation": "Initialize cur to root 8, highlighted in solid blue. Compare target 7 with the current value 8. Since 7 < 8, the target must be in the left subtree, so the next move is down and left to child 4. The path so far is 8.",
+      "id": "source-118",
+      "key_state": "The pointer cur points to root 8. Since the target 7 < 8, prepare to move to left child 4.",
+      "title": "Start at root 8"
+    },
+    {
+      "announcement": "Since 7 is less than 8, cur moves from 8 to its left child, 4.",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step2.png",
+      "explanation": "Since 7 < 8, set cur = cur.left to follow the blue arrow from 8 to left child 4. Compare target 7 with the current value 4. Since 7 > 4, turn next to the right subtree of 4. The path so far is 8→4.",
+      "id": "source-119",
+      "key_state": "The pointer cur points to node 4 (path 8→4). Since the target 7 > 4, prepare to move to right child 6.",
+      "title": "Go left to node 4"
+    },
+    {
+      "announcement": "Since 7 is greater than 4, cur moves from 4 to its right child, 6.",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step3.png",
+      "explanation": "Since 7 > 4, set cur = cur.right to follow the blue arrow from 4 to right child 6. Compare target 7 with the current value 6. Since 7 > 6, continue to the right child of 6. The path so far is 8→4→6.",
+      "id": "source-120",
+      "key_state": "The pointer cur points to node 6 (path 8→4→6). Since the target 7 > 6, prepare to move to right child 7.",
+      "title": "Go right to node 6"
+    },
+    {
+      "announcement": "Since 7 is greater than 6, cur moves from 6 to its right child, 7. The target matches, completing the search.",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step4.png",
+      "explanation": "Since 7 > 6, set cur = cur.right to follow the blue arrow from 6 to right child 7. The value at cur now equals the target 7. Exit the loop and return node 7. The path taken is 8→4→6→7.",
+      "id": "source-121",
+      "key_state": "The pointer cur points to target node 7 (path 8→4→6→7). The search succeeds.",
+      "title": "Find node 7"
+    }
+  ],
+  "result": "The pointer cur compares four nodes along 8 → 4 → 6 → 7. At the fourth step it finds the target value 7 and returns that node. The search leaves all tree connections intact.",
+  "schema_version": 2,
+  "summary": "Search for 7 in a binary search tree containing values 1 through 15. At each step, compare values and choose the left or right branch.",
+  "title": "Searching for node 7 in a binary search tree"
 }

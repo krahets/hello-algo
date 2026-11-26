@@ -1,8 +1,8 @@
-# Ignore all
+# Ignore everything
 *
-# Unignore all files with extensions
+# Include files with extensions
 !*.*
-# Unignore all directories
+# Include all directories
 !*/
 
 *.dSYM/

@@ -8,22 +8,22 @@
 
 /* Backtracking: permutations I */
 void backtrack(vector<int> &state, const vector<int> &choices, vector<bool> &selected, vector<vector<int>> &res) {
-    // Record a solution when the state length equals the number of elements
+    // Record a solution when the state contains all the elements
     if (state.size() == choices.size()) {
         res.push_back(state);
         return;
     }
-    // Iterate over all choices
+    // Try each choice
     for (int i = 0; i < choices.size(); i++) {
         int choice = choices[i];
-        // Prune: do not choose an element more than once
+        // Prune: skip elements already in use
         if (!selected[i]) {
-            // Try: make a choice and update the state
+            // Make a choice and update the state
             selected[i] = true;
             state.push_back(choice);
-            // Proceed to the next choice
+            // Make the next choice
             backtrack(state, choices, selected, res);
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             selected[i] = false;
             state.pop_back();
         }

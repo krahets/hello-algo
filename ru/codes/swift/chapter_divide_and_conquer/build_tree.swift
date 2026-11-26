@@ -6,38 +6,38 @@
 
 import utils
 
-/* Построить двоичное дерево: разделяй и властвуй */
+/* Построение двоичного дерева методом «разделяй и властвуй» */
 func dfs(preorder: [Int], inorderMap: [Int: Int], i: Int, l: Int, r: Int) -> TreeNode? {
-    // Завершить при пустом диапазоне поддерева
+    // Если интервал поддерева пуст, завершаем рекурсию
     if r - l < 0 {
         return nil
     }
-    // Инициализировать корневой узел
+    // Создаём корень
     let root = TreeNode(x: preorder[i])
-    // Найти m, чтобы разделить левое и правое поддеревья
+    // Находим m и разделяем левое и правое поддеревья
     let m = inorderMap[preorder[i]]!
-    // Подзадача: построить левое поддерево
+    // Подзадача: строим левое поддерево
     root.left = dfs(preorder: preorder, inorderMap: inorderMap, i: i + 1, l: l, r: m - 1)
-    // Подзадача: построить правое поддерево
+    // Подзадача: строим правое поддерево
     root.right = dfs(preorder: preorder, inorderMap: inorderMap, i: i + 1 + m - l, l: m + 1, r: r)
-    // Вернуть корневой узел
+    // Возвращаем корень
     return root
 }
 
-/* Построить двоичное дерево */
+/* Построение двоичного дерева */
 func buildTree(preorder: [Int], inorder: [Int]) -> TreeNode? {
-    // Инициализировать хеш-таблицу для хранения соответствия элементов inorder их индексам
+    // Создаём хеш-таблицу индексов элементов inorder
     let inorderMap = inorder.enumerated().reduce(into: [:]) { $0[$1.element] = $1.offset }
     return dfs(preorder: preorder, inorderMap: inorderMap, i: inorder.startIndex, l: inorder.startIndex, r: inorder.endIndex - 1)
 }
 
 @main
 enum BuildTree {
-    /* Driver Code */
+    /* Основная программа */
     static func main() {
         let preorder = [3, 9, 2, 1, 7]
         let inorder = [9, 3, 1, 2, 7]
-        print("Предварительный обход = \(preorder)")
+        print("Прямой обход = \(preorder)")
         print("Симметричный обход = \(inorder)")
 
         let root = buildTree(preorder: preorder, inorder: inorder)

@@ -1,48 +1,47 @@
 {
-  "schema_version": 2,
-  "title": "Swapping across positions in selection sort",
-  "summary": "See how the first swap reverses two equal elements with value 4, and how their order after one pass differs from their order at the end of the sort.",
-  "context": [
-    "The array starts as [4A, 4B, 3, 1, 5, 2], with indices 0 through 5. The blue 4 at index 0 is called 4A and the purple 4 at index 1 is called 4B. A and B distinguish equal elements in this description. Both boxes in the figure are labeled 4.",
-    "On each pass, selection sort finds the minimum in the unsorted range and swaps it with the first element of that range. Stability depends on whether equal elements retain their original order in the final output, after all passes."
-  ],
-  "description": [],
-  "result": "The reversal shown on the first pass is temporary. Continuing with the strict less-than comparison in the code, the second pass swaps 4B at index 1 with 2 at index 5. The final array is [1, 2, 3, 4A, 4B, 5], with the two 4s back in their original order. The picture shows how a swap can cross another element, but does not establish a reversal in the final output for this input. A counterexample outside the figure starts with [4A, 4B, 1]. The first pass gives [1, 4B, 4A]. On the second pass the two 4s compare equal, so the strict less-than test fails and no distinct positions are swapped. The final array is still [1, 4B, 4A]. This one input suffices to show that selection sort is unstable.",
-  "frames": [
-    {
-      "id": "source-252",
-      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_instability.png",
-      "title": "Swapping across positions in selection sort",
-      "explanation": "The first pass finds the minimum, 1 at index 3, in the unsorted range [0, 5] and swaps it with 4A at index 0. Now 1 is in its final position at index 0 and the unsorted range is [1, 5]. Moving from index 0 to index 3, 4A crosses 4B at index 1, temporarily reversing the two 4s. The figure shows only this first pass."
-    }
-  ],
   "animations": {
     "selection-sort-instability": {
       "kind": "prose",
       "prose": {
-        "title": "Swapping across positions in selection sort",
-        "summary": "The two states show positions before and after the first swap. The sort is still in progress.",
         "context": [],
         "description": [],
         "steps": [
           {
+            "announcement": "Find the minimum, 1 at index 3, in the unsorted range [0, 5], ready to swap with 4A at index 0.",
+            "explanation": "The array is [4A, 4B, 3, 1, 5, 2], and all indices 0 through 5 are unsorted. The labels A and B distinguish the equal elements: blue 4A starts at index 0 and purple 4B at index 1. Scanning the unsorted range [0, 5] finds the minimum, 1 at index 3, ready to swap with 4A at index 0.",
             "id": "step-1",
-            "title": "Locate the minimum and the two equal elements with value 4",
-            "explanation": "The array is [4A, 4B, 3, 1, 5, 2]. Indices 0 through 5 are unsorted. A and B distinguish equal elements: blue 4A starts at index 0 and purple 4B at index 1. Scanning [0, 5] finds the minimum, 1 at index 3, ready to swap with 4A at index 0.",
-            "key_state": "Unsorted range [0, 5]: 4A is at index 0, 4B at index 1, and the minimum, 1, at index 3.",
-            "announcement": "The minimum in the unsorted range [0, 5] is 1 at index 3. It is about to swap with 4A at index 0."
+            "key_state": "In the unsorted range [0, 5], 4A is at index 0, 4B is at index 1, and the minimum, 1, is at index 3.",
+            "title": "Locate the minimum and the two equal 4s"
           },
           {
+            "announcement": "The first pass swaps 1 with 4A, moving 4A to index 3. For now, 4B precedes 4A.",
+            "explanation": "The first pass swaps 4A at index 0 with 1 at index 3, giving [1, 4B, 3, 4A, 5, 2]. Only the 1 at index 0 is fixed. The unsorted range is [1, 5]. As 4A moves to index 3, it crosses 4B, which stays at index 1. The two 4s are temporarily reversed. Later passes can still change their order, so this intermediate reversal does not establish their final order.",
             "id": "step-2",
-            "title": "After the first swap, 4B comes before 4A",
-            "explanation": "The first pass swaps 4A at index 0 with 1 at index 3, giving [1, 4B, 3, 4A, 5, 2]. Only 1 at index 0 is in its final position. The unsorted range is [1, 5]. Now 4A is at index 3, past 4B, which remains at index 1. The two 4s are temporarily reversed. Later passes may change their order again.",
-            "key_state": "After the first pass the array is [1, 4B, 3, 4A, 5, 2]. 4B is at index 1 and 4A at index 3. Only index 0 is settled.",
-            "announcement": "1 and 4A have swapped. 4A moves to index 3, temporarily placing 4B before 4A."
+            "key_state": "After the first pass, the array is [1, 4B, 3, 4A, 5, 2]. The 4B is at index 1 and 4A at index 3. Only index 0 is fixed.",
+            "title": "After the first swap, 4B precedes 4A"
           }
-        ]
+        ],
+        "summary": "The two states show positions before and after the first swap. The full sort is still in progress.",
+        "title": "Swapping across positions in selection sort"
       }
     }
   },
+  "context": [
+    "The initial array is [4A, 4B, 3, 1, 5, 2], with indices 0 through 5. The blue 4 initially at index 0 is labeled 4A, and the purple 4 initially at index 1 is labeled 4B. A and B distinguish the equal elements in the description only. Both cells in the figure show the number 4.",
+    "Each selection sort pass finds the minimum in the unsorted range and swaps it directly with the first element of that range. Stability is judged after all passes: do equal elements in the final output retain their original relative order?"
+  ],
+  "description": [],
+  "frames": [
+    {
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_instability.png",
+      "explanation": "The first pass finds the minimum, 1 at index 3, in the unsorted range [0, 5] and swaps it with 4A at index 0. The 1 is fixed at index 0, and the unsorted range shrinks to [1, 5]. Moving directly from index 0 to index 3, 4A crosses 4B at index 1. This reverses the order of the two 4s after the first pass. The figure shows only this pass and omits the later ones.",
+      "id": "source-252",
+      "title": "Swapping across positions in selection sort"
+    }
+  ],
+  "result": "The reversal shown after the first pass is only temporary. Continuing with the code's strict less-than comparison, the second pass swaps 4B at index 1 with 2 at index 5. The full sort produces [1, 2, 3, 4A, 4B, 5], restoring the original order of the two 4s. The figure shows how a swap can cross positions, but it does not establish a final reversal for this input. For a counterexample outside the figure, start with [4A, 4B, 1]. The first pass gives [1, 4B, 4A]. On the second pass, the 4s are equal, so the strict less-than test fails and no distinct positions are swapped. The final array remains [1, 4B, 4A]. This one input suffices to show that selection sort is unstable.",
+  "schema_version": 2,
+  "summary": "See how a swap in the first pass changes the relative order of two equal 4s, and distinguish this intermediate state from stability in the final sorted output.",
   "tables": [
     {
       "caption": "Positions before and after the first swap",
@@ -55,6 +54,7 @@
         "Index 4",
         "Index 5"
       ],
+      "row_header": 0,
       "rows": [
         [
           "Before the swap",
@@ -74,8 +74,8 @@
           "5",
           "2"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Swapping across positions in selection sort"
 }

@@ -4,7 +4,7 @@
  * Author: Hello Algo Team
  */
 
-/* 高速べき乗法 */
+/* 繰り返し二乗法 */
 function fastPow(x, n) {
     if (n === 0) {
         return 1;

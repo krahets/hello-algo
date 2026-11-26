@@ -32,7 +32,7 @@ def array_traversal(nums: list[int]) -> int:
 
 
 def quadratic(n: int) -> int:
-    """제곱 차수"""
+    """이차 차수"""
     count = 0
     # 반복 횟수는 데이터 크기 n의 제곱에 비례한다
     for i in range(n):
@@ -42,26 +42,26 @@ def quadratic(n: int) -> int:
 
 
 def bubble_sort(nums: list[int]) -> int:
-    """제곱 차수(버블 정렬)"""
+    """이차 차수(버블 정렬)"""
     count = 0  # 카운터
-    # 바깥쪽 반복문: 정렬되지 않은 구간은 [0, i]이다
+    # 바깥 반복문: 정렬되지 않은 구간은 [0, i]이다
     for i in range(len(nums) - 1, 0, -1):
-        # 안쪽 반복문: 정렬되지 않은 구간 [0, i]의 최댓값을 교환하여 이 구간의 맨 오른쪽으로 옮긴다
+        # 안쪽 반복문: 정렬되지 않은 구간 [0, i]에서 가장 큰 원소를 교환을 통해 맨 오른쪽으로 보낸다
         for j in range(i):
             if nums[j] > nums[j + 1]:
-                # nums[j]와 nums[j + 1]을 교환한다
+                # nums[j]와 nums[j + 1]의 값을 맞바꾼다
                 tmp: int = nums[j]
                 nums[j] = nums[j + 1]
                 nums[j + 1] = tmp
-                count += 3  # 원소 교환에는 단위 연산 3회가 포함된다
+                count += 3  # 두 원소를 교환하는 데는 기본 연산 3회가 필요하다
     return count
 
 
 def exponential(n: int) -> int:
-    """지수 차수(반복문 구현)"""
+    """지수 차수(반복 구현)"""
     count = 0
     base = 1
-    # 세포가 매번 둘로 나뉘어 수열 1, 2, 4, 8, ..., 2^(n-1)을 이룬다
+    # 세포가 매번 둘로 분열하여 그 수가 1, 2, 4, 8, ..., 2^(n-1)이 된다
     for _ in range(n):
         for _ in range(base):
             count += 1
@@ -78,7 +78,7 @@ def exp_recur(n: int) -> int:
 
 
 def logarithmic(n: int) -> int:
-    """로그 차수(반복문 구현)"""
+    """로그 차수(반복 구현)"""
     count = 0
     while n > 1:
         n = n / 2
@@ -97,9 +97,9 @@ def linear_log_recur(n: int) -> int:
     """선형 로그 차수"""
     if n <= 1:
         return 1
-    # 둘로 나누어 부분 문제의 크기를 절반으로 줄인다
+    # 둘로 나누면 부분 문제의 크기가 절반으로 줄어든다
     count = linear_log_recur(n // 2) + linear_log_recur(n // 2)
-    # 현재 부분 문제에는 n회의 연산이 포함된다
+    # 현재 부분 문제에는 연산 n회가 필요하다
     for _ in range(n):
         count += 1
     return count
@@ -110,44 +110,44 @@ def factorial_recur(n: int) -> int:
     if n == 0:
         return 1
     count = 0
-    # 하나에서 n개로 분열한다
+    # 하나가 n개로 나뉜다
     for _ in range(n):
         count += factorial_recur(n - 1)
     return count
 
 
-"""실행 코드"""
+"""Driver Code"""
 if __name__ == "__main__":
-    # n을 바꾸어 실행하면서 각 복잡도에서 연산 횟수가 어떻게 변하는지 살펴볼 수 있다
+    # n을 바꿔 실행하며 복잡도에 따라 연산 횟수가 어떻게 변하는지 살펴보자
     n = 8
-    print("입력 데이터 크기 n =", n)
+    print("입력 크기 n =", n)
 
     count = constant(n)
-    print("상수 차수의 연산 횟수 =", count)
+    print("상수 차수 연산 횟수 =", count)
 
     count = linear(n)
-    print("선형 차수의 연산 횟수 =", count)
+    print("선형 차수 연산 횟수 =", count)
     count = array_traversal([0] * n)
-    print("선형 차수(배열 순회)의 연산 횟수 =", count)
+    print("선형 차수(배열 순회) 연산 횟수 =", count)
 
     count = quadratic(n)
-    print("제곱 차수의 연산 횟수 =", count)
+    print("이차 차수 연산 횟수 =", count)
     nums = [i for i in range(n, 0, -1)]  # [n, n-1, ..., 2, 1]
     count = bubble_sort(nums)
-    print("제곱 차수(버블 정렬)의 연산 횟수 =", count)
+    print("이차 차수(버블 정렬) 연산 횟수 =", count)
 
     count = exponential(n)
-    print("지수 차수(반복문 구현)의 연산 횟수 =", count)
+    print("지수 차수(반복 구현) 연산 횟수 =", count)
     count = exp_recur(n)
-    print("지수 차수(재귀 구현)의 연산 횟수 =", count)
+    print("지수 차수(재귀 구현) 연산 횟수 =", count)
 
     count = logarithmic(n)
-    print("로그 차수(반복문 구현)의 연산 횟수 =", count)
+    print("로그 차수(반복 구현) 연산 횟수 =", count)
     count = log_recur(n)
-    print("로그 차수(재귀 구현)의 연산 횟수 =", count)
+    print("로그 차수(재귀 구현) 연산 횟수 =", count)
 
     count = linear_log_recur(n)
-    print("선형 로그 차수(재귀 구현)의 연산 횟수 =", count)
+    print("선형 로그 차수(재귀 구현) 연산 횟수 =", count)
 
     count = factorial_recur(n)
-    print("팩토리얼 차수(재귀 구현)의 연산 횟수 =", count)
+    print("팩토리얼 차수(재귀 구현) 연산 횟수 =", count)

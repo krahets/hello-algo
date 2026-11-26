@@ -21,7 +21,7 @@ fn sum_recur(n: i32) -> i32 {
     n + sum_recur(n - 1)
 }
 
-/* 선형 차수 반복문 */
+/* 선형 반복문 */
 fn linear_loop(n: i32) -> i32 {
     let mut res = 0;
     for i in 0..n {
@@ -30,7 +30,7 @@ fn linear_loop(n: i32) -> i32 {
     res
 }
 
-/* 제곱 차수 반복문 */
+/* 이차 반복문 */
 fn quadratic_loop(n: i32) -> i32 {
     let mut res = 0;
     for i in 0..n {
@@ -41,7 +41,7 @@ fn quadratic_loop(n: i32) -> i32 {
     res
 }
 
-/* 로그 차수 반복문 */
+/* 로그 반복문 */
 fn logarithmic_loop(mut n: i32) -> i32 {
     while n > 1 {
         n /= 2;

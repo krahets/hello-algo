@@ -7,7 +7,7 @@
 import '../utils/print_util.dart';
 import '../utils/tree_node.dart';
 
-/* 現在の状態が解かを判定 */
+/* 現在の状態が解かどうか判定する */
 bool isSolution(List<TreeNode> state) {
   return state.isNotEmpty && state.last.val == 7;
 }
@@ -17,7 +17,7 @@ void recordSolution(List<TreeNode> state, List<List<TreeNode>> res) {
   res.add(List.from(state));
 }
 
-/* 現在の状態でこの選択が有効か判定 */
+/* 現在の状態でその選択が可能か判定する */
 bool isValid(List<TreeNode> state, TreeNode? choice) {
   return choice != null && choice.val != 3;
 }
@@ -27,7 +27,7 @@ void makeChoice(List<TreeNode> state, TreeNode? choice) {
   state.add(choice!);
 }
 
-/* 状態を復元する */
+/* 状態を元に戻す */
 void undoChoice(List<TreeNode> state, TreeNode? choice) {
   state.removeLast();
 }
@@ -38,35 +38,35 @@ void backtrack(
   List<TreeNode?> choices,
   List<List<TreeNode>> res,
 ) {
-  // 解かを確認
+  // 解かどうか調べる
   if (isSolution(state)) {
     // 解を記録する
     recordSolution(state, res);
   }
-  // すべての選択肢を走査する
+  // すべての選択肢を調べる
   for (TreeNode? choice in choices) {
-    // 枝刈り：選択が有効か確認
+    // 枝刈り：その選択が可能か調べる
     if (isValid(state, choice)) {
-      // 試行：選択を行い、状態を更新する
+      // 試行：選択して状態を更新する
       makeChoice(state, choice);
       // 次の選択に進む
       backtrack(state, [choice!.left, choice.right], res);
-      // 復元：選択を取り消し、以前の状態に戻す
+      // 後戻り：選択を取り消し、元の状態に戻す
       undoChoice(state, choice);
     }
   }
 }
 
-/* 実行用コード */
+/* 実行例 */
 void main() {
   TreeNode? root = listToTree([1, 7, 3, 4, 5, 6, 7]);
-  print("\n二分木を初期化する");
+  print("\n二分木を初期化");
   printTree(root);
 
   // バックトラッキング
   List<List<TreeNode>> res = [];
   backtrack([], [root!], res);
-  print("\n値が 3 のノードを含まない、根ノードからノード 7 までのすべての経路を出力する");
+  print("\n根から値が 7 のノードまでの経路のうち、値が 3 のノードを含まないものをすべて出力");
   for (List<TreeNode> path in res) {
     print(List.from(path.map((e) => e.val)));
   }

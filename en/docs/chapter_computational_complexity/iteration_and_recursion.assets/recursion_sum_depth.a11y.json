@@ -1,19 +1,19 @@
 {
-  "schema_version": 2,
-  "title": "Recursion depth of recursive summation",
-  "summary": "Highlight the number of active call levels accumulated before recursive summation hits the base case.",
   "context": [
-    "Here n is a positive integer; recursion depth is the maximum number of simultaneously unreturned call levels."
+    "The integer n is positive. Recursion depth is the maximum number of calls that are active at the same time."
   ],
   "description": [
-    "Under the left heading \"Recurse downward\", the call chain runs recur(n) → recur(n - 1) → … → recur(4) → recur(3) → recur(2) → recur(1), spanned on the left by a brace labeled \"Recursion depth n\". At the bottom, the arrow \"Reach the base case\" leads to the right column \"Return upward\", where the returning additions are dimmed to highlight call accumulation on the left."
+    "The left column, “Descend,” shows the chain recur(n) → recur(n−1) → … → recur(4) → recur(3) → recur(2) → recur(1). A brace spanning the column is labeled “Recursion depth n.” At the bottom, an arrow labeled “Reach the base case” points to the right column, “Unwind.” The sums on the right are faded to draw attention to the calls accumulating on the left."
   ],
   "frames": [
     {
-      "id": "source-22",
       "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/recursion_sum_depth.png",
-      "title": "Recursion depth of recursive summation",
-      "explanation": "Upon reaching recur(1), every outer call is waiting for its child's result, so n stack frames—including the top-level call—coexist at once. Only afterward do calls return starting from 1, adding each level's parameter and releasing its stack frame one by one. That peak count of active calls sets the recursion depth to n and the stack space to O(n)."
+      "explanation": "When execution reaches recur(1), all the outer calls are waiting for a child to return. There are n stack frames at once, including the top-level call. Only then does recur(1) return 1. Each outer call adds its own argument and releases its frame as it returns. The number of active calls at the deepest point gives a recursion depth of n and a stack space complexity of O(n).",
+      "id": "source-22",
+      "title": "Recursion depth when summing"
     }
-  ]
+  ],
+  "schema_version": 2,
+  "summary": "The figure highlights how many calls accumulate before the recursive sum reaches its base case.",
+  "title": "Recursion depth when summing"
 }

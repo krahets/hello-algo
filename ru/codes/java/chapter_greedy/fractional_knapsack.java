@@ -23,24 +23,24 @@ class Item {
 public class fractional_knapsack {
     /* Дробный рюкзак: жадный алгоритм */
     static double fractionalKnapsack(int[] wgt, int[] val, int cap) {
-        // Создать список предметов с двумя свойствами: вес и стоимость
+        // Создаём список предметов с двумя свойствами: весом и стоимостью
         Item[] items = new Item[wgt.length];
         for (int i = 0; i < wgt.length; i++) {
             items[i] = new Item(wgt[i], val[i]);
         }
-        // Отсортировать по удельной стоимости item.v / item.w в порядке убывания
+        // Сортируем по убыванию удельной стоимости item.v / item.w
         Arrays.sort(items, Comparator.comparingDouble(item -> -((double) item.v / item.w)));
-        // Циклический жадный выбор
+        // На каждом шаге делаем жадный выбор
         double res = 0;
         for (Item item : items) {
             if (item.w <= cap) {
-                // Если оставшейся вместимости достаточно, положить в рюкзак текущий предмет целиком
+                // Если места достаточно, кладём предмет целиком
                 res += item.v;
                 cap -= item.w;
             } else {
-                // Если оставшейся вместимости недостаточно, положить в рюкзак часть текущего предмета
+                // Если места недостаточно, кладём часть предмета
                 res += (double) item.v / item.w * cap;
-                // Свободной вместимости больше не осталось, поэтому выйти из цикла
+                // Рюкзак заполнен, выходим из цикла
                 break;
             }
         }
@@ -54,6 +54,6 @@ public class fractional_knapsack {
 
         // Жадный алгоритм
         double res = fractionalKnapsack(wgt, val, cap);
-        System.out.println("Максимальная стоимость предметов без превышения вместимости рюкзака = " + res);
+        System.out.println("Максимальная стоимость при заданной вместимости рюкзака: " + res);
     }
 }

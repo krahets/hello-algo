@@ -14,7 +14,7 @@ function insert(n0: ListNode, P: ListNode): void {
     n0.next = P;
 }
 
-/* Remove the first node after node n0 in the linked list */
+/* Remove the node immediately after n0 in the linked list */
 function remove(n0: ListNode): void {
     if (!n0.next) {
         return;
@@ -25,7 +25,7 @@ function remove(n0: ListNode): void {
     n0.next = n1;
 }
 
-/* Access the node at index `index` in the linked list */
+/* Access the linked list node at the specified index */
 function access(head: ListNode | null, index: number): ListNode | null {
     for (let i = 0; i < index; i++) {
         if (!head) {
@@ -49,38 +49,38 @@ function find(head: ListNode | null, target: number): number {
     return -1;
 }
 
-/* Driver code */
+/* Driver Code */
 /* Initialize the linked list */
-// Initialize the individual nodes
+// Initialize the nodes
 const n0 = new ListNode(1);
 const n1 = new ListNode(3);
 const n2 = new ListNode(2);
 const n3 = new ListNode(5);
 const n4 = new ListNode(4);
-// Set up references between the nodes
+// Link the nodes together
 n0.next = n1;
 n1.next = n2;
 n2.next = n3;
 n3.next = n4;
-console.log('The initialized linked list is');
+console.log('Initial linked list:');
 printLinkedList(n0);
 
 /* Insert a node */
 insert(n0, new ListNode(0));
-console.log('The linked list after inserting a node is');
+console.log('Linked list after insertion:');
 printLinkedList(n0);
 
 /* Remove a node */
 remove(n0);
-console.log('The linked list after removing a node is');
+console.log('Linked list after removal:');
 printLinkedList(n0);
 
 /* Access a node */
 const node = access(n0, 3);
-console.log(`Value of the node at index 3 in the linked list = ${node?.val}`);
+console.log(`Value of the node at index 3 = ${node?.val}`);
 
 /* Find a node */
 const index = find(n0, 2);
-console.log(`Index of the node with value 2 in the linked list = ${index}`);
+console.log(`Index of the node with value 2 = ${index}`);
 
 export {};

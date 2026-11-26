@@ -10,24 +10,24 @@ fn recur(n: i32) i32 {
     if (n == 1) {
         return 1;
     }
-    // 往路：再帰呼び出し
+    // 行き：再帰呼び出し
     const res = recur(n - 1);
-    // 復路：結果を返す
+    // 帰り：結果を返す
     return n + res;
 }
 
-// 反復を使って再帰を再現する
+// 反復で再帰を模擬
 fn forLoopRecur(comptime n: i32) i32 {
-    // 明示的なスタックを使って、システムの呼び出しスタックを再現する
+    // 明示的なスタックでシステムの呼び出しスタックを模擬
     var stack: [n]i32 = undefined;
     var res: i32 = 0;
-    // 往路：再帰呼び出し
+    // 行き：再帰呼び出し
     var i: usize = n;
     while (i > 0) {
         stack[i - 1] = @intCast(i);
         i -= 1;
     }
-    // 復路：結果を返す
+    // 帰り：結果を返す
     var index: usize = n;
     while (index > 0) {
         index -= 1;
@@ -59,19 +59,19 @@ fn fib(n: i32) i32 {
     return res;
 }
 
-// 実行用コード
+// 実行例
 pub fn run() void {
     const n: i32 = 5;
     var res: i32 = 0;
 
     res = recur(n);
-    std.debug.print("再帰関数で求めた和 res = {}\n", .{recur(n)});
+    std.debug.print("再帰関数による総和 res = {}\n", .{recur(n)});
 
     res = forLoopRecur(n);
-    std.debug.print("反復で再帰を再現して求めた和 res = {}\n", .{forLoopRecur(n)});
+    std.debug.print("反復で再帰を模擬して求めた総和 res = {}\n", .{forLoopRecur(n)});
 
     res = tailRecur(n, 0);
-    std.debug.print("末尾再帰関数で求めた和 res = {}\n", .{tailRecur(n, 0)});
+    std.debug.print("末尾再帰関数による総和 res = {}\n", .{tailRecur(n, 0)});
 
     res = fib(n);
     std.debug.print("フィボナッチ数列の第 {} 項は {}\n", .{ n, fib(n) });

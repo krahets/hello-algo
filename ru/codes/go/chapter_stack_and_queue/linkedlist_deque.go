@@ -8,30 +8,30 @@ import (
 	"container/list"
 )
 
-/* Двусторонняя очередь на основе двусвязного списка */
+/* Двусторонняя очередь (дек) на основе двусвязного списка */
 type linkedListDeque struct {
-	// Использовать встроенный пакет list
+	// Использовать стандартный пакет list
 	data *list.List
 }
 
-/* Инициализировать двустороннюю очередь */
+/* Инициализировать дек */
 func newLinkedListDeque() *linkedListDeque {
 	return &linkedListDeque{
 		data: list.New(),
 	}
 }
 
-/* Поместить элемент в голову очереди */
+/* Добавить элемент в начало дека */
 func (s *linkedListDeque) pushFirst(value any) {
 	s.data.PushFront(value)
 }
 
-/* Поместить элемент в хвост очереди */
+/* Добавить элемент в конец дека */
 func (s *linkedListDeque) pushLast(value any) {
 	s.data.PushBack(value)
 }
 
-/* Извлечь элемент из головы очереди */
+/* Извлечь элемент из начала дека */
 func (s *linkedListDeque) popFirst() any {
 	if s.isEmpty() {
 		return nil
@@ -41,7 +41,7 @@ func (s *linkedListDeque) popFirst() any {
 	return e.Value
 }
 
-/* Извлечь элемент из хвоста очереди */
+/* Извлечь элемент из конца дека */
 func (s *linkedListDeque) popLast() any {
 	if s.isEmpty() {
 		return nil
@@ -51,7 +51,7 @@ func (s *linkedListDeque) popLast() any {
 	return e.Value
 }
 
-/* Доступ к элементу в начале очереди */
+/* Посмотреть первый элемент дека */
 func (s *linkedListDeque) peekFirst() any {
 	if s.isEmpty() {
 		return nil
@@ -60,7 +60,7 @@ func (s *linkedListDeque) peekFirst() any {
 	return e.Value
 }
 
-/* Доступ к элементу в конце очереди */
+/* Посмотреть последний элемент дека */
 func (s *linkedListDeque) peekLast() any {
 	if s.isEmpty() {
 		return nil
@@ -69,17 +69,17 @@ func (s *linkedListDeque) peekLast() any {
 	return e.Value
 }
 
-/* Получение длины очереди */
+/* Получить длину дека */
 func (s *linkedListDeque) size() int {
 	return s.data.Len()
 }
 
-/* Проверка, пуста ли очередь */
+/* Проверить, пуст ли дек */
 func (s *linkedListDeque) isEmpty() bool {
 	return s.data.Len() == 0
 }
 
-/* Получить List для вывода */
+/* Получить список для вывода */
 func (s *linkedListDeque) toList() *list.List {
 	return s.data
 }

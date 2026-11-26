@@ -23,23 +23,23 @@ struct TreeNode {
     }
 };
 
-// Правила кодирования сериализации см.:
-// https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-// Массивное представление двоичного дерева:
+// Правила кодирования при сериализации описаны здесь:
+// https://www.hello-algo.com/ru/chapter_tree/array_representation_of_tree/
+// Двоичное дерево в виде массива:
 // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
-// Связное представление двоичного дерева:
-// /——— 15
-// /——— 7
-// /——— 3
-// |    \——— 6
-// |        \——— 12
+// Двоичное дерево в виде связанных узлов:
+//             /——— 15
+//         /——— 7
+//     /——— 3
+//    |    \——— 6
+//    |        \——— 12
 // ——— 1
-// \——— 2
-// |    /——— 9
-// \——— 4
-// \——— 8
+//     \——— 2
+//        |    /——— 9
+//         \——— 4
+//             \——— 8
 
-/* Десериализовать список в двоичное дерево: рекурсия */
+/* Рекурсивно восстановить двоичное дерево из списка */
 TreeNode *vectorToTreeDFS(vector<int> &arr, int i) {
     if (i < 0 || i >= arr.size() || arr[i] == INT_MAX) {
         return nullptr;
@@ -50,12 +50,12 @@ TreeNode *vectorToTreeDFS(vector<int> &arr, int i) {
     return root;
 }
 
-/* Десериализовать список в двоичное дерево */
+/* Восстановить двоичное дерево из списка */
 TreeNode *vectorToTree(vector<int> arr) {
     return vectorToTreeDFS(arr, 0);
 }
 
-/* Сериализовать двоичное дерево в список: рекурсия */
+/* Рекурсивно сериализовать двоичное дерево в список */
 void treeToVecorDFS(TreeNode *root, int i, vector<int> &res) {
     if (root == nullptr)
         return;
@@ -74,7 +74,7 @@ vector<int> treeToVecor(TreeNode *root) {
     return res;
 }
 
-/* Освободить память двоичного дерева */
+/* Освободить память, выделенную под двоичное дерево */
 void freeMemoryTree(TreeNode *root) {
     if (root == nullptr)
         return;

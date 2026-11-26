@@ -1,53 +1,53 @@
 # What is an algorithm?
 
-## Definition of an algorithm
+## Defining an algorithm
 
-An <u>algorithm</u> is a set of instructions or steps that solves a specific problem within a finite time. It has the following properties.
+An <u>algorithm</u> is a set of instructions or steps that solves a specific problem in finite time. It has the following characteristics.
 
-- The problem is well defined, with clear definitions of its inputs and outputs.
-- The algorithm is feasible: it can finish within a finite number of steps, using finite time and memory.
-- Every step has a definite meaning. Given the same inputs and execution conditions, the output is always the same.
+- The problem is clearly specified, with well-defined inputs and outputs.
+- The steps are feasible and can be completed in a finite number of steps using finite time and memory.
+- Each step has a definite meaning. Given the same input and execution conditions, the output is always the same.
 
-## Definition of a data structure
+## Defining a data structure
 
-A <u>data structure</u> is a way of organizing and storing data. It encompasses the data itself, the relationships between data items, and the methods used to operate on them. Its design aims to achieve the following goals.
+A <u>data structure</u> is a way of organizing and storing data. It encompasses the data itself, relationships among the data, and the operations available on it. Its design has several goals.
 
-- Use as little space as possible to conserve computer memory.
-- Make data operations as fast as possible, including access, insertion, deletion, and updating.
-- Provide a concise representation of data and its logical relationships so that algorithms can run efficiently.
+- Use as little space as possible to conserve memory.
+- Make operations such as accessing, adding, deleting, and updating data as fast as possible.
+- Provide a concise representation of the data and its logical relationships so that algorithms can run efficiently.
 
-**Designing a data structure involves tradeoffs**. Improving one aspect often requires compromising another. Here are two examples.
+**Designing a data structure involves trade-offs**. Improving one aspect often requires a compromise elsewhere. Consider two examples.
 
-- Compared with arrays, linked lists make insertion and deletion easier, at the expense of data access speed.
-- Compared with linked lists, graphs provide richer information about logical relationships but require more memory.
+- Compared with an array, a linked list makes insertion and deletion more convenient at the cost of slower access.
+- Compared with a linked list, a graph captures richer relationships but requires more memory.
 
-## The relationship between data structures and algorithms
+## How data structures and algorithms work together
 
-As the figure below shows, data structures and algorithms are closely intertwined in three ways.
+The figure illustrates the close connection between data structures and algorithms. It shows up in three ways.
 
-- Data structures are the foundation of algorithms. They provide algorithms with data in a structured form and methods for operating on that data.
-- Algorithms bring data structures to life. A data structure by itself only stores information; it must be combined with an algorithm to solve a specific problem.
-- An algorithm can often be implemented using different data structures, but its efficiency may vary greatly. Choosing the right data structure is crucial.
+- Data structures provide the foundation for algorithms. They organize data in memory and provide ways to operate on it.
+- Algorithms put data structures to work. A data structure on its own stores information. Combined with an algorithm, it can solve a particular problem.
+- An algorithm can often be implemented with different data structures, but the resulting implementations can vary greatly in efficiency. Choosing a suitable structure is essential.
 
-![The relationship between data structures and algorithms](what_is_dsa.assets/relationship_between_data_structure_and_algorithm.svg)
+![How data structures and algorithms work together](what_is_dsa.assets/relationship_between_data_structure_and_algorithm.svg)
 
-Data structures and algorithms are like assembling the building blocks shown in the figure below. A set of building blocks includes not only many pieces but also detailed assembly instructions. By following those instructions step by step, we can build an intricate model.
+Think of assembling a model from building blocks, as in the figure. A kit comes with many pieces and a detailed instruction booklet. Follow the instructions one step at a time and the pieces become a finished model.
 
-![Assembling building blocks](what_is_dsa.assets/assembling_blocks.png)
+![Assembling a model from building blocks](what_is_dsa.assets/assembling_blocks.png)
 
-The table below describes this analogy in detail.
+The table spells out the analogy.
 
-<p align="center"> Table <id> &nbsp; Comparing data structures and algorithms to building blocks </p>
+<p align="center"> Table <id> &nbsp; Data structures and algorithms as a building-block set </p>
 
-| Data structures and algorithms | Building blocks                                 |
+| Data structures and algorithms | Building-block set                                 |
 | -------------- | ---------------------------------------- |
-| Input data       | Unassembled blocks                             |
+| Input data       | Loose blocks                             |
 | Data structure       | How the blocks are organized, including their shapes, sizes, and connections |
-| Algorithm           | A sequence of steps for assembling the blocks into the desired form       |
-| Output data       | The finished model                                 |
+| Algorithm           | Steps for assembling the blocks into the desired shape       |
+| Output data       | Assembled model                                 |
 
-Data structures and algorithms are independent of programming languages. This is why the book can provide implementations in multiple languages.
+Data structures and algorithms are independent of any particular programming language. This is what allows the book to give implementations in multiple languages.
 
 !!! tip "A common shorthand"
 
-    In everyday discussions, we often shorten “data structures and algorithms” to “algorithms.” For example, the familiar algorithm problems on LeetCode actually test knowledge of both data structures and algorithms.
+    In practice, people often shorten “data structures and algorithms” to “algorithms.” The familiar LeetCode algorithm problems, for example, test knowledge of both.

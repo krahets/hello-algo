@@ -4,25 +4,25 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-/* Edit distance: brute-force search */
+/* Edit distance with brute-force search */
 fn edit_distance_dfs(s: &str, t: &str, i: usize, j: usize) -> i32 {
-    // If both prefixes are empty, return 0
+    // Return 0 if both s and t are empty
     if i == 0 && j == 0 {
         return 0;
     }
-    // If the prefix of s is empty, return the length j of the prefix of t
+    // Return the length of t if s is empty
     if i == 0 {
         return j as i32;
     }
-    // If the prefix of t is empty, return the length i of the prefix of s
+    // Return the length of s if t is empty
     if j == 0 {
         return i as i32;
     }
-    // If the two characters are equal, skip both of them
+    // Skip both characters if they match
     if s.chars().nth(i - 1) == t.chars().nth(j - 1) {
         return edit_distance_dfs(s, t, i - 1, j - 1);
     }
-    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
+    // Minimum edits = 1 + the smallest remaining edit count after an insertion, deletion, or replacement
     let insert = edit_distance_dfs(s, t, i, j - 1);
     let delete = edit_distance_dfs(s, t, i - 1, j);
     let replace = edit_distance_dfs(s, t, i - 1, j - 1);
@@ -30,56 +30,56 @@ fn edit_distance_dfs(s: &str, t: &str, i: usize, j: usize) -> i32 {
     std::cmp::min(std::cmp::min(insert, delete), replace) + 1
 }
 
-/* Edit distance: memoized search */
+/* Edit distance with memoized search */
 fn edit_distance_dfs_mem(s: &str, t: &str, mem: &mut Vec<Vec<i32>>, i: usize, j: usize) -> i32 {
-    // If both prefixes are empty, return 0
+    // Return 0 if both s and t are empty
     if i == 0 && j == 0 {
         return 0;
     }
-    // If the prefix of s is empty, return the length j of the prefix of t
+    // Return the length of t if s is empty
     if i == 0 {
         return j as i32;
     }
-    // If the prefix of t is empty, return the length i of the prefix of s
+    // Return the length of s if t is empty
     if j == 0 {
         return i as i32;
     }
-    // If a result has already been recorded, return it directly
+    // Return the cached result if available
     if mem[i][j] != -1 {
         return mem[i][j];
     }
-    // If the two characters are equal, skip both of them
+    // Skip both characters if they match
     if s.chars().nth(i - 1) == t.chars().nth(j - 1) {
         return edit_distance_dfs_mem(s, t, mem, i - 1, j - 1);
     }
-    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
+    // Minimum edits = 1 + the smallest remaining edit count after an insertion, deletion, or replacement
     let insert = edit_distance_dfs_mem(s, t, mem, i, j - 1);
     let delete = edit_distance_dfs_mem(s, t, mem, i - 1, j);
     let replace = edit_distance_dfs_mem(s, t, mem, i - 1, j - 1);
-    // Record and return the minimum number of edits
+    // Cache and return the minimum number of edits
     mem[i][j] = std::cmp::min(std::cmp::min(insert, delete), replace) + 1;
     mem[i][j]
 }
 
-/* Edit distance: dynamic programming */
+/* Edit distance with dynamic programming */
 fn edit_distance_dp(s: &str, t: &str) -> i32 {
     let (n, m) = (s.len(), t.len());
     let mut dp = vec![vec![0; m + 1]; n + 1];
-    // State transitions: first row and first column
+    // State transitions for the first row and column
     for i in 1..=n {
         dp[i][0] = i as i32;
     }
     for j in 1..m {
         dp[0][j] = j as i32;
     }
-    // State transitions: remaining rows and columns
+    // State transitions for the remaining rows and columns
     for i in 1..=n {
         for j in 1..=m {
             if s.chars().nth(i - 1) == t.chars().nth(j - 1) {
-                // If the two characters are equal, skip both of them
+                // Skip both characters if they match
                 dp[i][j] = dp[i - 1][j - 1];
             } else {
-                // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
+                // Minimum edits = 1 + the smallest remaining edit count after an insertion, deletion, or replacement
                 dp[i][j] =
                     std::cmp::min(std::cmp::min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
             }
@@ -88,30 +88,30 @@ fn edit_distance_dp(s: &str, t: &str) -> i32 {
     dp[n][m]
 }
 
-/* Edit distance: space-optimized dynamic programming */
+/* Edit distance with space-optimized dynamic programming */
 fn edit_distance_dp_comp(s: &str, t: &str) -> i32 {
     let (n, m) = (s.len(), t.len());
     let mut dp = vec![0; m + 1];
-    // State transitions: first row
+    // State transitions for the first row
     for j in 1..m {
         dp[j] = j as i32;
     }
-    // State transitions: remaining rows
+    // State transitions for the remaining rows
     for i in 1..=n {
-        // State transitions: first column
-        let mut leftup = dp[0]; // Temporarily store dp[i-1, j-1]
+        // State transitions for the first column
+        let mut leftup = dp[0]; // Save dp[i-1, j-1] temporarily
         dp[0] = i as i32;
-        // State transitions: remaining columns
+        // State transitions for the remaining columns
         for j in 1..=m {
             let temp = dp[j];
             if s.chars().nth(i - 1) == t.chars().nth(j - 1) {
-                // If the two characters are equal, skip both of them
+                // Skip both characters if they match
                 dp[j] = leftup;
             } else {
-                // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
+                // Minimum edits = 1 + the smallest remaining edit count after an insertion, deletion, or replacement
                 dp[j] = std::cmp::min(std::cmp::min(dp[j - 1], dp[j]), leftup) + 1;
             }
-            leftup = temp; // Update to dp[i-1, j-1] for the next iteration
+            leftup = temp; // Update the saved value to hold dp[i-1, j-1] for the next iteration
         }
     }
     dp[m]

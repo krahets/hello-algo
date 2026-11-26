@@ -12,7 +12,7 @@ class ListNode {
   ListNode(this.val, [this.next]);
 }
 
-/* リストをデシリアライズして連結リストにする */
+/* リストをデシリアライズして連結リストを復元する */
 ListNode? listToLinkedList(List<int> list) {
   ListNode dum = ListNode(0);
   ListNode? head = dum;

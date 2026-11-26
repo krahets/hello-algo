@@ -8,32 +8,32 @@ import { MaxHeap } from './my_heap';
 
 /* Push an element onto the heap */
 function pushMinHeap(maxHeap: MaxHeap, val: number): void {
-    // Negate the value
+    // Negate the elements
     maxHeap.push(-val);
 }
 
 /* Pop an element from the heap */
 function popMinHeap(maxHeap: MaxHeap): number {
-    // Negate the value
+    // Negate the elements
     return -maxHeap.pop();
 }
 
-/* Access the top element of the heap */
+/* Peek at the root */
 function peekMinHeap(maxHeap: MaxHeap): number {
-    // Negate the value
+    // Negate the elements
     return -maxHeap.peek();
 }
 
-/* Get the elements in the heap */
+/* Retrieve the elements in the heap */
 function getMinHeap(maxHeap: MaxHeap): number[] {
-    // Negate the value
+    // Negate the elements
     return maxHeap.getMaxHeap().map((num: number) => -num);
 }
 
-/* Use a heap to find the k largest elements in an array */
+/* Find the k largest elements in the array using a heap */
 function topKHeap(nums: number[], k: number): number[] {
-    // Initialize a min heap
-    // Note: negate all values in the heap to simulate a min heap with a max heap
+    // Initialize a min-heap
+    // Negate all values so the max-heap acts as a min-heap
     const maxHeap = new MaxHeap([]);
     // Push the first k array elements onto the heap
     for (let i = 0; i < k; i++) {
@@ -41,7 +41,7 @@ function topKHeap(nums: number[], k: number): number[] {
     }
     // Starting with element k+1, keep the heap size at k
     for (let i = k; i < nums.length; i++) {
-        // If the current element is larger than the heap top, pop the top element and push the current element
+        // If the current element exceeds the root, pop the root and push the current element
         if (nums[i] > peekMinHeap(maxHeap)) {
             popMinHeap(maxHeap);
             pushMinHeap(maxHeap, nums[i]);
@@ -55,4 +55,4 @@ function topKHeap(nums: number[], k: number): number[] {
 const nums = [1, 7, 6, 3, 2];
 const k = 3;
 const res = topKHeap(nums, k);
-console.log(`The largest ${k} elements are`, res);
+console.log(`The ${k} largest elements are:`, res);

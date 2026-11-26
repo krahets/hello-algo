@@ -4,40 +4,40 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
-/* 実行用コード */
+/* 実行例 */
 /* 両端キューを初期化する */
-// JavaScript には組み込みの両端キューがないため、Array を両端キューとして使うしかない
+// JavaScript には組み込みの両端キューがなく、Array で代用するしかない
 const deque = [];
 
-/* 要素をエンキューする */
+/* 要素を両端キューに追加する */
 deque.push(2);
 deque.push(5);
 deque.push(4);
-// 配列なので unshift() メソッドの時間計算量は O(n) であることに注意
+// 配列を使うため、unshift() の時間計算量は O(n) になる点に注意
 deque.unshift(3);
 deque.unshift(1);
 console.log('両端キュー deque = ', deque);
 
-/* 要素にアクセスする */
+/* 要素を参照する */
 const peekFirst = deque[0];
-console.log('キューの先頭要素 peekFirst = ' + peekFirst);
+console.log('先頭要素 peekFirst = ' + peekFirst);
 const peekLast = deque[deque.length - 1];
-console.log('キューの末尾要素 peekLast = ' + peekLast);
+console.log('末尾要素 peekLast = ' + peekLast);
 
-/* 要素をデキューする */
-// 配列なので shift() メソッドの時間計算量は O(n) であることに注意
+/* 両端キューから要素を取り出す */
+// 配列を使うため、shift() の時間計算量は O(n) になる点に注意
 const popFront = deque.shift();
 console.log(
-    '先頭からデキューした要素 popFront = ' + popFront + '、先頭からデキューした後 deque = ' + deque
+    '先頭から取り出した要素 popFront = ' + popFront + '、先頭から取り出した後の deque = ' + deque
 );
 const popBack = deque.pop();
 console.log(
-    '末尾からデキューした要素 popBack = ' + popBack + '、末尾からデキューした後 deque = ' + deque
+    '末尾から取り出した要素 popBack = ' + popBack + '、末尾から取り出した後の deque = ' + deque
 );
 
-/* 両端キューの長さを取得する */
+/* 両端キューの要素数を取得する */
 const size = deque.length;
-console.log('両端キューの長さ size = ' + size);
+console.log('両端キューの要素数 size = ' + size);
 
 /* 両端キューが空かどうかを判定する */
 const isEmpty = size === 0;

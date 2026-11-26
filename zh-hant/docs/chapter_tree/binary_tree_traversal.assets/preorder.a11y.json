@@ -1,0 +1,155 @@
+{
+  "animations": {
+    "preorder-traversal": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "frame_id": "source-99",
+          "id": "step-1"
+        },
+        {
+          "frame_id": "source-100",
+          "id": "step-2"
+        },
+        {
+          "frame_id": "source-101",
+          "id": "step-3"
+        },
+        {
+          "frame_id": "source-102",
+          "id": "step-4"
+        },
+        {
+          "frame_id": "source-103",
+          "id": "step-5"
+        },
+        {
+          "frame_id": "source-104",
+          "id": "step-6"
+        },
+        {
+          "frame_id": "source-105",
+          "id": "step-7"
+        },
+        {
+          "frame_id": "source-106",
+          "id": "step-8"
+        },
+        {
+          "frame_id": "source-107",
+          "id": "step-9"
+        },
+        {
+          "frame_id": "source-108",
+          "id": "step-10"
+        },
+        {
+          "frame_id": "source-109",
+          "id": "step-11"
+        }
+      ]
+    }
+  },
+  "context": [
+    "輸入是一棵有 7 個節點的一般二元樹。根節點為 1，1 的左右子節點為 2、3，2 的左右子節點為 4、5，3 的左右子節點為 6、7。4、5、6、7 都是葉節點。",
+    "前序走訪依「根 → 左子樹 → 右子樹」的順序進行。第一次進入非空節點時，立即記錄它的值，再依序遞迴處理左右子樹；遇到空節點則直接返回。"
+  ],
+  "description": [
+    "呼叫路徑表示從根節點到目前節點之間尚未結束的遞迴呼叫。以下 11 步省略了對空節點的呼叫，其中 7 步是第一次進入節點，4 步是向上返回。第 4、9 步從左葉節點返回父節點，準備前往右子樹；第 6、11 步則連續返回兩層。"
+  ],
+  "frames": [
+    {
+      "announcement": "走訪根節點 1，輸出更新為 [1]。",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step1.png",
+      "explanation": "從根節點 1 開始，記錄 1。呼叫路徑為 1，輸出為 [1]。左子樹（2、4、5）與右子樹（3、6、7）都還未走訪，下一步進入左子節點 2。",
+      "id": "source-99",
+      "key_state": "呼叫路徑為 1，輸出為 [1]。",
+      "title": "走訪根節點 1"
+    },
+    {
+      "announcement": "走訪左子節點 2，輸出更新為 [1, 2]。",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step2.png",
+      "explanation": "從 1 進入左子節點 2，記錄 2。呼叫路徑為 1 → 2，輸出為 [1, 2]。2 的左右葉節點 4、5，以及根的右子樹（3、6、7）都還未走訪。下一步進入 4。",
+      "id": "source-100",
+      "key_state": "呼叫路徑為 1 → 2，輸出為 [1, 2]。",
+      "title": "走訪左子節點 2"
+    },
+    {
+      "announcement": "走訪葉節點 4，輸出更新為 [1, 2, 4]。",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step3.png",
+      "explanation": "從 2 進入左葉節點 4，記錄 4。呼叫路徑為 1 → 2 → 4，輸出為 [1, 2, 4]。對 4 的左右空子樹發出的呼叫會直接返回，接下來回到 2。節點 5 和根的右子樹（3、6、7）都還未走訪。",
+      "id": "source-101",
+      "key_state": "呼叫路徑為 1 → 2 → 4，輸出為 [1, 2, 4]。",
+      "title": "走訪葉節點 4"
+    },
+    {
+      "announcement": "從葉節點 4 返回父節點 2，輸出仍為 [1, 2, 4]。下一步走訪 2 的右子節點 5。",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step4.png",
+      "explanation": "處理完葉節點 4 後，返回父節點 2，呼叫路徑回到 1 → 2。返回時不會重複記錄節點，輸出仍為 [1, 2, 4]。2 的左子樹已走訪完畢，下一步進入右子節點 5。根的右子樹（3、6、7）仍未走訪。",
+      "id": "source-102",
+      "key_state": "呼叫路徑為 1 → 2，輸出為 [1, 2, 4]。下一步走訪 2 的右子節點 5。",
+      "title": "從 4 返回 2"
+    },
+    {
+      "announcement": "走訪葉節點 5，輸出更新為 [1, 2, 4, 5]。",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step5.png",
+      "explanation": "從 2 進入右葉節點 5，記錄 5。呼叫路徑為 1 → 2 → 5，輸出為 [1, 2, 4, 5]。根的左子樹已全部走訪，但呼叫尚待返回。對 5 的左右空子樹發出的呼叫會直接返回，根的右子樹（3、6、7）仍未走訪。",
+      "id": "source-103",
+      "key_state": "呼叫路徑為 1 → 2 → 5，輸出為 [1, 2, 4, 5]。",
+      "title": "走訪葉節點 5"
+    },
+    {
+      "announcement": "從葉節點 5 經 2 返回根節點 1，輸出仍為 [1, 2, 4, 5]。下一步走訪根節點 1 的右子節點 3。",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step6.png",
+      "explanation": "處理完 5 後返回 2；2 的左右子樹均已走訪完畢，繼續返回根節點 1。呼叫路徑回到 1，輸出仍為 [1, 2, 4, 5]。根的左子樹已處理完畢，下一步進入尚未走訪的右子樹（3、6、7），從節點 3 開始。",
+      "id": "source-104",
+      "key_state": "呼叫路徑為 1，輸出為 [1, 2, 4, 5]。下一步走訪根節點 1 的右子節點 3。",
+      "title": "從 5 經 2 返回 1"
+    },
+    {
+      "announcement": "走訪右子節點 3，輸出更新為 [1, 2, 4, 5, 3]。",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step7.png",
+      "explanation": "從根節點 1 進入右子節點 3，記錄 3。呼叫路徑為 1 → 3，輸出為 [1, 2, 4, 5, 3]。3 的左右葉節點 6、7 都還未走訪，下一步進入 6。",
+      "id": "source-105",
+      "key_state": "呼叫路徑為 1 → 3，輸出為 [1, 2, 4, 5, 3]。",
+      "title": "走訪右子節點 3"
+    },
+    {
+      "announcement": "走訪葉節點 6，輸出更新為 [1, 2, 4, 5, 3, 6]。",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step8.png",
+      "explanation": "從 3 進入左葉節點 6，記錄 6。呼叫路徑為 1 → 3 → 6，輸出為 [1, 2, 4, 5, 3, 6]。對 6 的左右空子樹發出的呼叫會直接返回，接下來回到 3，只剩右葉節點 7 還未走訪。",
+      "id": "source-106",
+      "key_state": "呼叫路徑為 1 → 3 → 6，輸出為 [1, 2, 4, 5, 3, 6]。",
+      "title": "走訪葉節點 6"
+    },
+    {
+      "announcement": "從葉節點 6 返回父節點 3，輸出仍為 [1, 2, 4, 5, 3, 6]。下一步走訪 3 的右子節點 7。",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step9.png",
+      "explanation": "處理完葉節點 6 後，返回父節點 3，呼叫路徑回到 1 → 3。輸出仍為 [1, 2, 4, 5, 3, 6]。3 的左子樹已走訪完畢，下一步進入尚未走訪的右葉節點 7。",
+      "id": "source-107",
+      "key_state": "呼叫路徑為 1 → 3，輸出為 [1, 2, 4, 5, 3, 6]。下一步走訪 3 的右子節點 7。",
+      "title": "從 6 返回 3"
+    },
+    {
+      "announcement": "走訪最後一個葉節點 7，完整輸出為 [1, 2, 4, 5, 3, 6, 7]，呼叫尚待返回。",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step10.png",
+      "explanation": "從 3 進入右葉節點 7，記錄 7。呼叫路徑為 1 → 3 → 7，所有輸出值都已記錄，序列為 [1, 2, 4, 5, 3, 6, 7]。7、3、1 的呼叫還未結束，仍須依序向上返回。",
+      "id": "source-108",
+      "key_state": "呼叫路徑為 1 → 3 → 7，輸出為 [1, 2, 4, 5, 3, 6, 7]。所有值都已輸出，呼叫尚待返回。",
+      "title": "走訪葉節點 7"
+    },
+    {
+      "announcement": "沿 7、3、1 依序返回，結束遞迴呼叫，輸出仍為 [1, 2, 4, 5, 3, 6, 7]。",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step11.png",
+      "explanation": "對 7 的左右空子樹發出的呼叫結束後，沿 7 → 3 → 1 連續返回，最後結束根節點的呼叫。所有子樹都已處理完畢，呼叫路徑清空，最終輸出仍為 [1, 2, 4, 5, 3, 6, 7]。",
+      "id": "source-109",
+      "key_state": "呼叫路徑為空，輸出為 [1, 2, 4, 5, 3, 6, 7]。所有呼叫都已結束。",
+      "title": "從 7 經 3 返回 1，結束呼叫"
+    }
+  ],
+  "input_tables": [],
+  "schema_version": 2,
+  "summary": "以一棵有 7 個節點的二元樹示範前序走訪，區分走訪節點與向上返回的步驟。",
+  "tables": [],
+  "title": "前序走訪的遞迴過程"
+}

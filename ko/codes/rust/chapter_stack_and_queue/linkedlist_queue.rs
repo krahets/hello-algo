@@ -12,8 +12,8 @@ use std::rc::Rc;
 /* 연결 리스트로 구현한 큐 */
 #[allow(dead_code)]
 pub struct LinkedListQueue<T> {
-    front: Option<Rc<RefCell<ListNode<T>>>>, // 머리 노드 front
-    rear: Option<Rc<RefCell<ListNode<T>>>>,  // 꼬리 노드 rear
+    front: Option<Rc<RefCell<ListNode<T>>>>, // 첫 노드 front
+    rear: Option<Rc<RefCell<ListNode<T>>>>,  // 마지막 노드 rear
     que_size: usize,                         // 큐의 길이
 }
 
@@ -26,27 +26,27 @@ impl<T: Copy> LinkedListQueue<T> {
         }
     }
 
-    /* 큐의 길이 반환 */
+    /* 큐의 길이 조회 */
     pub fn size(&self) -> usize {
         return self.que_size;
     }
 
-    /* 큐가 비어 있는지 판단 */
+    /* 큐가 비어 있는지 확인 */
     pub fn is_empty(&self) -> bool {
         return self.que_size == 0;
     }
 
-    /* 원소 삽입 */
+    /* 큐에 삽입 */
     pub fn push(&mut self, num: T) {
-        // 꼬리 노드 뒤에 num을 추가한다
+        // 마지막 노드 뒤에 num을 추가한다
         let new_rear = ListNode::new(num);
         match self.rear.take() {
-            // 큐가 비어 있지 않으면 해당 노드를 꼬리 노드 뒤에 추가한다
+            // 큐가 비어 있지 않으면 마지막 노드 뒤에 이 노드를 추가한다
             Some(old_rear) => {
                 old_rear.borrow_mut().next = Some(new_rear.clone());
                 self.rear = Some(new_rear);
             }
-            // 큐가 비어 있으면 머리와 꼬리 노드가 모두 해당 노드를 가리키게 한다
+            // 큐가 비어 있으면 앞쪽과 뒤쪽 포인터가 모두 이 노드를 가리키게 한다
             None => {
                 self.front = Some(new_rear.clone());
                 self.rear = Some(new_rear);
@@ -55,7 +55,7 @@ impl<T: Copy> LinkedListQueue<T> {
         self.que_size += 1;
     }
 
-    /* 원소 꺼내기 */
+    /* 큐에서 꺼내기 */
     pub fn pop(&mut self) -> Option<T> {
         self.front.take().map(|old_front| {
             match old_front.borrow_mut().next.take() {
@@ -71,12 +71,12 @@ impl<T: Copy> LinkedListQueue<T> {
         })
     }
 
-    /* 맨 앞 원소 접근 */
+    /* 맨 앞 원소 조회 */
     pub fn peek(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
         self.front.as_ref()
     }
 
-    /* 연결 리스트를 Array로 변환하여 반환 */
+    /* 연결 리스트를 동적 배열(Vec)로 변환해 반환한다 */
     pub fn to_array(&self, head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
         let mut res: Vec<T> = Vec::new();
 
@@ -93,12 +93,12 @@ impl<T: Copy> LinkedListQueue<T> {
     }
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 fn main() {
     /* 큐 초기화 */
     let mut queue = LinkedListQueue::new();
 
-    /* 원소 삽입 */
+    /* 큐에 원소 삽입 */
     queue.push(1);
     queue.push(3);
     queue.push(2);
@@ -107,20 +107,20 @@ fn main() {
     print!("큐 queue = ");
     print_util::print_array(&queue.to_array(queue.peek()));
 
-    /* 맨 앞 원소 접근 */
+    /* 맨 앞 원소 조회 */
     let peek = queue.peek().unwrap().borrow().val;
     print!("\n맨 앞 원소 peek = {}", peek);
 
-    /* 원소 꺼내기 */
+    /* 큐에서 원소 꺼내기 */
     let pop = queue.pop().unwrap();
-    print!("\n꺼낸 원소 pop = {}, 꺼낸 뒤 queue = ", pop);
+    print!("\n꺼낸 원소 pop = {}, 꺼낸 후 queue = ", pop);
     print_util::print_array(&queue.to_array(queue.peek()));
 
-    /* 큐의 길이 반환 */
+    /* 큐의 길이 조회 */
     let size = queue.size();
-    print!("\n큐 길이 size = {}", size);
+    print!("\n큐의 길이 size = {}", size);
 
-    /* 큐가 비어 있는지 판단 */
+    /* 큐가 비어 있는지 확인 */
     let is_empty = queue.is_empty();
     print!("\n큐가 비어 있는가 = {}", is_empty);
 }

@@ -20,7 +20,7 @@ func TestMinPathSum(t *testing.T) {
 
 	// Brute-force search
 	res := minPathSumDFS(grid, n-1, m-1)
-	fmt.Printf("Minimum path sum from the top-left to the bottom-right corner: %d\n", res)
+	fmt.Printf("Minimum path sum from the top left to the bottom right: %d\n", res)
 
 	// Memoized search
 	mem := make([][]int, n)
@@ -31,13 +31,13 @@ func TestMinPathSum(t *testing.T) {
 		}
 	}
 	res = minPathSumDFSMem(grid, mem, n-1, m-1)
-	fmt.Printf("Minimum path sum from the top-left to the bottom-right corner: %d\n", res)
+	fmt.Printf("Minimum path sum from the top left to the bottom right: %d\n", res)
 
 	// Dynamic programming
 	res = minPathSumDP(grid)
-	fmt.Printf("Minimum path sum from the top-left to the bottom-right corner: %d\n", res)
+	fmt.Printf("Minimum path sum from the top left to the bottom right: %d\n", res)
 
 	// Space-optimized dynamic programming
 	res = minPathSumDPComp(grid)
-	fmt.Printf("Minimum path sum from the top-left to the bottom-right corner: %d\n", res)
+	fmt.Printf("Minimum path sum from the top left to the bottom right: %d\n", res)
 }

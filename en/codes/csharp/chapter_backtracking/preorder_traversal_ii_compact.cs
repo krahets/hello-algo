@@ -15,7 +15,7 @@ public class preorder_traversal_ii_compact {
         if (root == null) {
             return;
         }
-        // Try
+        // Try a choice
         path.Add(root);
         if (root.val == 7) {
             // Record the solution
@@ -36,7 +36,7 @@ public class preorder_traversal_ii_compact {
         // Preorder traversal
         PreOrder(root);
 
-        Console.WriteLine("\nOutput all paths from the root to nodes with value 7");
+        Console.WriteLine("\nPrint all paths from the root to a node with value 7");
         foreach (List<TreeNode> path in res) {
             PrintUtil.PrintList(path.Select(p => p.val).ToList());
         }

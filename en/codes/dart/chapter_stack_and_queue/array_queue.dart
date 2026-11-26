@@ -4,10 +4,10 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* Queue implemented with a circular array */
+/* Queue backed by a circular array */
 class ArrayQueue {
   late List<int> _nums; // Array that stores the queue elements
-  late int _front; // Front pointer, pointing to the first element
+  late int _front; // Index of the front element
   late int _queSize; // Queue size
 
   ArrayQueue(int capacity) {
@@ -30,29 +30,29 @@ class ArrayQueue {
     return _queSize == 0;
   }
 
-  /* Enqueue */
+  /* Enqueue an element */
   void push(int _num) {
     if (_queSize == capaCity()) {
       throw Exception("Queue is full");
     }
-    // Calculate the rear pointer, which points one position past the last element
-    // Use modulo to wrap rear to the beginning when it passes the end of the array
+    // Compute the index one slot past the rear element
+    // Use the remainder to wrap rear back to the start of the array
     int rear = (_front + _queSize) % capaCity();
-    // Add _num to the rear
+    // Add _num at the rear
     _nums[rear] = _num;
     _queSize++;
   }
 
-  /* Dequeue */
+  /* Remove and return the front element */
   int pop() {
     int _num = peek();
-    // Advance the front pointer by one position, wrapping to the beginning if it passes the end
+    // Advance the front index by one, wrapping to the start if it passes the end
     _front = (_front + 1) % capaCity();
     _queSize--;
     return _num;
   }
 
-  /* Access the front element */
+  /* Peek at the front element */
   int peek() {
     if (isEmpty()) {
       throw Exception("Queue is empty");
@@ -60,9 +60,9 @@ class ArrayQueue {
     return _nums[_front];
   }
 
-  /* Return an array */
+  /* Return the queue elements as a List */
   List<int> toArray() {
-    // Convert only the list elements within the occupied range
+    // Copy only the elements currently in the queue
     final List<int> res = List.filled(_queSize, 0);
     for (int i = 0, j = _front; i < _queSize; i++, j++) {
       res[i] = _nums[j % capaCity()];
@@ -83,15 +83,15 @@ void main() {
   queue.push(2);
   queue.push(5);
   queue.push(4);
-  print("Queue queue = ${queue.toArray()}");
+  print("queue = ${queue.toArray()}");
 
-  /* Access the front element */
+  /* Peek at the front element */
   final int peek = queue.peek();
-  print("Front element peek = $peek");
+  print("Front element (peek) = $peek");
 
   /* Dequeue an element */
   final int pop = queue.pop();
-  print("Dequeued element pop = $pop; after dequeuing, queue = ${queue.toArray()}");
+  print("Dequeued element (pop) = $pop, queue after removal = ${queue.toArray()}");
 
   /* Get the queue size */
   final int size = queue.size();
@@ -99,12 +99,12 @@ void main() {
 
   /* Check whether the queue is empty */
   final bool isEmpty = queue.isEmpty();
-  print("Is the queue empty = $isEmpty");
+  print("Queue is empty = $isEmpty");
 
   /* Test the circular array */
   for (int i = 0; i < 10; i++) {
     queue.push(i);
     queue.pop();
-    print("After round $i of enqueue + dequeue, queue = ${queue.toArray()}");
+    print("After enqueue/dequeue round $i, queue = ${queue.toArray()}");
   }
 }

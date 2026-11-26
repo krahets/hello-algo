@@ -14,7 +14,7 @@ pub fn TreeNode(comptime T: type) type {
         left: ?*Self = null, // Указатель на левый дочерний узел
         right: ?*Self = null, // Указатель на правый дочерний узел
 
-        // Initialize a tree node with specific value
+        // Инициализировать узел дерева заданным значением
         pub fn init(self: *Self, x: i32) void {
             self.val = x;
             self.height = 0;
@@ -24,7 +24,7 @@ pub fn TreeNode(comptime T: type) type {
     };
 }
 
-// Десериализовать массив в двоичное дерево
+// Восстановить двоичное дерево из массива
 pub fn arrToTree(comptime T: type, allocator: std.mem.Allocator, arr: []T) !?*TreeNode(T) {
     if (arr.len == 0) return null;
     var root = try allocator.create(TreeNode(T));

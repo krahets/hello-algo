@@ -1,27 +1,27 @@
 {
-  "schema_version": 2,
-  "title": "Loop structures and operation counts",
-  "summary": "Compare how workload grows across a single operation, a single loop, and a nested two-level loop.",
   "context": [],
   "description": [
-    "Each small square represents 1 elementary operation, and each surrounding loop box indicates the scope repeated."
+    "Each small square represents one basic operation. A surrounding loop box marks the part that repeats."
   ],
   "frames": [
     {
-      "id": "source-28",
       "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_constant_linear_quadratic.png",
-      "title": "Loop structures and operation counts",
-      "explanation": "A double enclosure represents nesting: for every 1 iteration of the outer loop, the inner loop runs all n iterations in full, so the counts multiply to n × n rather than adding as they would for two sequential loops."
+      "explanation": "A box inside another box indicates nesting. For every outer iteration, the inner loop runs a full n times. Multiply the counts to get n × n. Two loops run one after the other would have their counts added instead.",
+      "id": "source-28",
+      "title": "Loops and operation counts"
     }
   ],
+  "schema_version": 2,
+  "summary": "The figure compares how the work grows for a single operation, one loop, and two nested loops.",
   "tables": [
     {
-      "caption": "Workloads across loop structures",
+      "caption": "Work done by each loop structure",
       "headers": [
         "Structure",
-        "Elementary operation count",
+        "Number of basic operations",
         "Time complexity"
       ],
+      "row_header": 0,
       "rows": [
         [
           "No loop",
@@ -29,17 +29,17 @@
           "Constant O(1)"
         ],
         [
-          "Single loop of n iterations",
+          "One loop with n iterations",
           "n",
           "Linear O(n)"
         ],
         [
-          "Two nested loops of n iterations each",
+          "Two nested loops, n iterations each",
           "n×n=n²",
           "Quadratic O(n²)"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Loops and operation counts"
 }

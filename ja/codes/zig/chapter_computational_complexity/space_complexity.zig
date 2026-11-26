@@ -9,24 +9,24 @@ const TreeNode = utils.TreeNode;
 
 // 関数
 fn function() i32 {
-    // 何らかの処理を実行する
+    // 何らかの処理を行う
     return 0;
 }
 
 // 定数オーダー
 fn constant(n: i32) void {
-    // 定数、変数、オブジェクトは O(1) の領域を使用する
+    // 定数・変数・オブジェクトが使う領域は O(1)
     const a: i32 = 0;
     const b: i32 = 0;
     const nums = [_]i32{0} ** 10000;
     const node = ListNode(i32){ .val = 0 };
     var i: i32 = 0;
-    // ループ内の変数は O(1) の領域を使用する
+    // ループ内の変数が使う領域は O(1)
     while (i < n) : (i += 1) {
         const c: i32 = 0;
         _ = c;
     }
-    // ループ内の関数は O(1) の領域を使用する
+    // ループ内の関数が使う領域は O(1)
     i = 0;
     while (i < n) : (i += 1) {
         _ = function();
@@ -39,16 +39,16 @@ fn constant(n: i32) void {
 
 // 線形オーダー
 fn linear(comptime n: i32) !void {
-    // 長さ n の配列は O(n) の領域を使用する
+    // 長さ n の配列が使う領域は O(n)
     const nums = [_]i32{0} ** n;
-    // 長さ n のリストは O(n) の領域を使用する
+    // 長さ n のリストが使う領域は O(n)
     var nodes = std.ArrayList(i32).init(std.heap.page_allocator);
     defer nodes.deinit();
     var i: i32 = 0;
     while (i < n) : (i += 1) {
         try nodes.append(i);
     }
-    // 長さ n のハッシュテーブルは O(n) の領域を使用する
+    // 長さ n のハッシュテーブルが使う領域は O(n)
     var map = std.AutoArrayHashMap(i32, []const u8).init(std.heap.page_allocator);
     defer map.deinit();
     var j: i32 = 0;
@@ -69,7 +69,7 @@ fn linearRecur(comptime n: i32) void {
 
 // 二次オーダー
 fn quadratic(n: i32) !void {
-    // 二次元リストは O(n^2) の領域を使用する
+    // 二次元リストが使う領域は O(n^2)
     var nodes = std.ArrayList(std.ArrayList(i32)).init(std.heap.page_allocator);
     defer nodes.deinit();
     var i: i32 = 0;
@@ -88,11 +88,11 @@ fn quadratic(n: i32) !void {
 fn quadraticRecur(comptime n: i32) i32 {
     if (n <= 0) return 0;
     const nums = [_]i32{0} ** n;
-    std.debug.print("再帰 n = {} における nums の長さ = {}\n", .{ n, nums.len });
+    std.debug.print("再帰 n = {} での nums の長さ = {}\n", .{ n, nums.len });
     return quadraticRecur(n - 1);
 }
 
-// 指数オーダー（パーフェクト二分木の構築）
+// 指数オーダー（すべての葉が同じ深さの完全二分木を構築）
 fn buildTree(allocator: std.mem.Allocator, n: i32) !?*TreeNode(i32) {
     if (n == 0) return null;
     const root = try allocator.create(TreeNode(i32));
@@ -102,7 +102,7 @@ fn buildTree(allocator: std.mem.Allocator, n: i32) !?*TreeNode(i32) {
     return root;
 }
 
-// 木のメモリを解放する
+// 木のメモリを解放
 fn freeTree(allocator: std.mem.Allocator, root: ?*const TreeNode(i32)) void {
     if (root == null) return;
     freeTree(allocator, root.?.left);
@@ -110,7 +110,7 @@ fn freeTree(allocator: std.mem.Allocator, root: ?*const TreeNode(i32)) void {
     allocator.destroy(root.?);
 }
 
-// 実行用コード
+// 実行例
 pub fn run() !void {
     var gpa = std.heap.DebugAllocator(.{}){};
     defer _ = gpa.deinit();

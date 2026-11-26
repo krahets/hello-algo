@@ -8,19 +8,19 @@ require_relative '../utils/list_node'
 
 ### ハッシュ探索（配列） ###
 def hashing_search_array(hmap, target)
-  # ハッシュテーブルの key：目的の要素、value：インデックス
-  # ハッシュテーブルにこの key が存在しない場合、-1 を返す
+  # ハッシュテーブルのキーは目標の要素、値はインデックス
+  # このキーがハッシュテーブルになければ -1 を返す
   hmap[target] || -1
 end
 
 ### ハッシュ探索（連結リスト） ###
 def hashing_search_linkedlist(hmap, target)
-  # ハッシュテーブルの key：目的の要素、value：ノードオブジェクト
-  # ハッシュテーブルにこの key が存在しない場合、None を返す
+  # ハッシュテーブルのキーは目標の要素の値、値はノードオブジェクト
+  # このキーがハッシュテーブルになければ None を返す
   hmap[target] || nil
 end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   target = 3
 
@@ -29,10 +29,10 @@ if __FILE__ == $0
   # ハッシュテーブルを初期化する
   map0 = {}
   for i in 0...nums.length
-    map0[nums[i]] = i # key：要素、value：インデックス
+    map0[nums[i]] = i # キーは要素、値はインデックス
   end
   index = hashing_search_array(map0, target)
-  puts "目的の要素 3 のインデックス = #{index}"
+  puts "目標値 3 のインデックス = #{index}"
 
   # ハッシュ探索（連結リスト）
   head = arr_to_linked_list(nums)
@@ -43,5 +43,5 @@ if __FILE__ == $0
     head = head.next
   end
   node = hashing_search_linkedlist(map1, target)
-  puts "目的のノードの値 3 に対応するノードオブジェクトは #{node}"
+  puts "目標値 3 に対応するノードオブジェクトは #{node}"
 end

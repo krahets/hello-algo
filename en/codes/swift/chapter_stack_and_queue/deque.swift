@@ -9,29 +9,29 @@ enum Deque {
     /* Driver code */
     static func main() {
         /* Initialize the deque */
-        // The Swift standard library has no built-in deque class; Array can be used as a deque
+        // Swift has no built-in deque class, so use an Array as a deque
         var deque: [Int] = []
 
-        /* Enqueue elements */
+        /* Add elements to the deque */
         deque.append(2)
         deque.append(5)
         deque.append(4)
         deque.insert(3, at: 0)
         deque.insert(1, at: 0)
-        print("Deque deque = \(deque)")
+        print("deque = \(deque)")
 
-        /* Access an element */
+        /* Peek at the front and rear elements */
         let peekFirst = deque.first!
-        print("Front element peekFirst = \(peekFirst)")
+        print("Front element (peekFirst) = \(peekFirst)")
         let peekLast = deque.last!
-        print("Rear element peekLast = \(peekLast)")
+        print("Rear element (peekLast) = \(peekLast)")
 
-        /* Dequeue an element */
-        // When using Array to simulate a deque, removeFirst has O(n) complexity
+        /* Remove elements from both ends */
+        // With an Array, removeFirst takes O(n) time
         let popFirst = deque.removeFirst()
-        print("Element dequeued from the front, popFirst = \(popFirst); after dequeueing, deque = \(deque)")
+        print("Removed from the front (popFirst) = \(popFirst), deque after removal = \(deque)")
         let popLast = deque.removeLast()
-        print("Element dequeued from the rear, popLast = \(popLast); after dequeueing, deque = \(deque)")
+        print("Removed from the rear (popLast) = \(popLast), deque after removal = \(deque)")
 
         /* Get the deque size */
         let size = deque.count
@@ -39,6 +39,6 @@ enum Deque {
 
         /* Check whether the deque is empty */
         let isEmpty = deque.isEmpty
-        print("Is the deque empty? \(isEmpty)")
+        print("Deque is empty = \(isEmpty)")
     }
 }

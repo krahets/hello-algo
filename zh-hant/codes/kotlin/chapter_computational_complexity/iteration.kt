@@ -9,7 +9,7 @@ package chapter_computational_complexity.iteration
 /* for 迴圈 */
 fun forLoop(n: Int): Int {
     var res = 0
-    // 迴圈求和 1, 2, ..., n-1, n
+    // 迴圈加總 1, 2, ..., n-1, n
     for (i in 1..n) {
         res += i
     }
@@ -20,7 +20,7 @@ fun forLoop(n: Int): Int {
 fun whileLoop(n: Int): Int {
     var res = 0
     var i = 1 // 初始化條件變數
-    // 迴圈求和 1, 2, ..., n-1, n
+    // 迴圈加總 1, 2, ..., n-1, n
     while (i <= n) {
         res += i
         i++ // 更新條件變數
@@ -28,11 +28,11 @@ fun whileLoop(n: Int): Int {
     return res
 }
 
-/* while 迴圈（兩次更新） */
+/* while 迴圈（更新兩次） */
 fun whileLoopII(n: Int): Int {
     var res = 0
     var i = 1 // 初始化條件變數
-    // 迴圈求和 1, 4, 10, ...
+    // 迴圈加總 1, 4, 10, ...
     while (i <= n) {
         res += i
         // 更新條件變數
@@ -55,20 +55,20 @@ fun nestedForLoop(n: Int): String {
     return res.toString()
 }
 
-/* Driver Code */
+/* 主程式 */
 fun main() {
     val n = 5
     var res: Int
 
     res = forLoop(n)
-    println("\nfor 迴圈的求和結果 res = $res")
+    println("\nfor 迴圈的總和 res = $res")
 
     res = whileLoop(n)
-    println("\nwhile 迴圈的求和結果 res = $res")
+    println("\nwhile 迴圈的總和 res = $res")
 
     res = whileLoopII(n)
-    println("\nwhile 迴圈 (兩次更新) 求和結果 res = $res")
+    println("\nwhile 迴圈（更新兩次）的總和 res = $res")
 
     val resStr = nestedForLoop(n)
-    println("\n雙層 for 迴圈的走訪結果 $resStr")
+    println("\n雙層 for 迴圈走訪的結果 $resStr")
 }

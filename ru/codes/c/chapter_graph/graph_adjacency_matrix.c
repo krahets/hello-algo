@@ -6,10 +6,10 @@
 
 #include "../utils/common.h"
 
-// Предположить, что максимальное число вершин равно 100
+// Допустим, вершин не больше 100
 #define MAX_SIZE 100
 
-/* Структура неориентированного графа на основе матрицы смежности */
+/* Структура неориентированного графа с матрицей смежности */
 typedef struct {
     int vertices[MAX_SIZE];
     int adjMat[MAX_SIZE][MAX_SIZE];
@@ -33,13 +33,13 @@ void delGraphAdjMat(GraphAdjMat *graph) {
     free(graph);
 }
 
-/* Добавление вершины */
+/* Добавить вершину */
 void addVertex(GraphAdjMat *graph, int val) {
     if (graph->size == MAX_SIZE) {
-        fprintf(stderr, "Количество вершин графа уже достигло максимума\n");
+        fprintf(stderr, "Достигнуто максимальное число вершин графа\n");
         return;
     }
-    // Добавить n-ю вершину и обнулить n-ю строку и столбец
+    // Добавить n-ю вершину и заполнить нулями n-ю строку и n-й столбец
     int n = graph->size;
     graph->vertices[n] = val;
     for (int i = 0; i <= n; i++) {
@@ -48,23 +48,23 @@ void addVertex(GraphAdjMat *graph, int val) {
     graph->size++;
 }
 
-/* Удаление вершины */
+/* Удалить вершину */
 void removeVertex(GraphAdjMat *graph, int index) {
     if (index < 0 || index >= graph->size) {
-        fprintf(stderr, "индекс вершины выходит за границы\n");
+        fprintf(stderr, "Индекс вершины вне диапазона\n");
         return;
     }
-    // Удалить вершину с индексом index из списка вершин
+    // Удалить из списка вершин вершину с индексом index
     for (int i = index; i < graph->size - 1; i++) {
         graph->vertices[i] = graph->vertices[i + 1];
     }
-    // Удалить строку с индексом index из матрицы смежности
+    // Удалить из матрицы смежности строку с индексом index
     for (int i = index; i < graph->size - 1; i++) {
         for (int j = 0; j < graph->size; j++) {
             graph->adjMat[i][j] = graph->adjMat[i + 1][j];
         }
     }
-    // Удалить столбец с индексом index из матрицы смежности
+    // Удалить из матрицы смежности столбец с индексом index
     for (int i = 0; i < graph->size; i++) {
         for (int j = index; j < graph->size - 1; j++) {
             graph->adjMat[i][j] = graph->adjMat[i][j + 1];
@@ -73,22 +73,22 @@ void removeVertex(GraphAdjMat *graph, int index) {
     graph->size--;
 }
 
-/* Добавление ребра */
-// Параметры i и j соответствуют индексам элементов vertices
+/* Добавить ребро */
+// Параметры i и j — индексы элементов vertices
 void addEdge(GraphAdjMat *graph, int i, int j) {
     if (i < 0 || j < 0 || i >= graph->size || j >= graph->size || i == j) {
-        fprintf(stderr, "индексы ребра выходят за границы или совпадают\n");
+        fprintf(stderr, "Индексы концов ребра вне диапазона или совпадают\n");
         return;
     }
     graph->adjMat[i][j] = 1;
     graph->adjMat[j][i] = 1;
 }
 
-/* Удаление ребра */
-// Параметры i и j соответствуют индексам элементов vertices
+/* Удалить ребро */
+// Параметры i и j — индексы элементов vertices
 void removeEdge(GraphAdjMat *graph, int i, int j) {
     if (i < 0 || j < 0 || i >= graph->size || j >= graph->size || i == j) {
-        fprintf(stderr, "индексы ребра выходят за границы или совпадают\n");
+        fprintf(stderr, "Индексы концов ребра вне диапазона или совпадают\n");
         return;
     }
     graph->adjMat[i][j] = 0;
@@ -105,9 +105,9 @@ void printGraphAdjMat(GraphAdjMat *graph) {
     }
 }
 
-/* Driver Code */
+/* Пример использования */
 int main() {
-    // Инициализация неориентированного графа
+    // Инициализировать неориентированный граф
     GraphAdjMat *graph = newGraphAdjMat();
     int vertices[] = {1, 3, 2, 5, 4};
     for (int i = 0; i < 5; i++) {
@@ -117,30 +117,30 @@ int main() {
     for (int i = 0; i < 6; i++) {
         addEdge(graph, edges[i][0], edges[i][1]);
     }
-    printf("\nПосле инициализации граф имеет вид\n");
+    printf("\nГраф после инициализации:\n");
     printGraphAdjMat(graph);
 
-    /* Добавление ребра */
+    /* Добавить ребро */
     // Индексы вершин 1 и 2 равны 0 и 2 соответственно
     addEdge(graph, 0, 2);
-    printf("\nПосле добавления ребра 1-2 граф имеет вид\n");
+    printf("\nГраф после добавления ребра 1–2:\n");
     printGraphAdjMat(graph);
 
-    /* Удаление ребра */
+    /* Удалить ребро */
     // Индексы вершин 1 и 3 равны 0 и 1 соответственно
     removeEdge(graph, 0, 1);
-    printf("\nПосле удаления ребра 1-3 граф имеет вид\n");
+    printf("\nГраф после удаления ребра 1–3:\n");
     printGraphAdjMat(graph);
 
-    /* Добавление вершины */
+    /* Добавить вершину */
     addVertex(graph, 6);
-    printf("\nПосле добавления вершины 6 граф имеет вид\n");
+    printf("\nГраф после добавления вершины 6:\n");
     printGraphAdjMat(graph);
 
-    /* Удаление вершины */
+    /* Удалить вершину */
     // Индекс вершины 3 равен 1
     removeVertex(graph, 1);
-    printf("\nПосле удаления вершины 3 граф имеет вид\n");
+    printf("\nГраф после удаления вершины 3:\n");
     printGraphAdjMat(graph);
 
     // Освободить память

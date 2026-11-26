@@ -13,7 +13,7 @@ typedef struct {
 
 /* 생성자 */
 BinarySearchTree *newBinarySearchTree() {
-    // 빈 트리를 초기화한다
+    // 빈 트리 초기화
     BinarySearchTree *bst = (BinarySearchTree *)malloc(sizeof(BinarySearchTree));
     bst->root = NULL;
     return bst;
@@ -25,7 +25,7 @@ void delBinarySearchTree(BinarySearchTree *bst) {
     free(bst);
 }
 
-/* 이진 트리의 루트 노드 반환 */
+/* 이진 트리의 루트 노드 구하기 */
 TreeNode *getRoot(BinarySearchTree *bst) {
     return bst->root;
 }
@@ -33,20 +33,20 @@ TreeNode *getRoot(BinarySearchTree *bst) {
 /* 노드 탐색 */
 TreeNode *search(BinarySearchTree *bst, int num) {
     TreeNode *cur = bst->root;
-    // 반복하여 탐색하다 리프 노드를 지나면 종료한다
+    // 반복해서 찾다가 리프 노드를 지나면 종료한다
     while (cur != NULL) {
         if (cur->val < num) {
-            // 목표 노드는 cur의 오른쪽 서브트리에 있다
+            // 찾는 노드는 cur의 오른쪽 서브트리에 있다
             cur = cur->right;
         } else if (cur->val > num) {
-            // 목표 노드는 cur의 왼쪽 서브트리에 있다
+            // 찾는 노드는 cur의 왼쪽 서브트리에 있다
             cur = cur->left;
         } else {
-            // 목표 노드를 찾았으므로 반복문을 종료한다
+            // 찾는 노드를 발견했으므로 반복문을 종료한다
             break;
         }
     }
-    // 목표 노드를 반환한다
+    // 찾은 노드를 반환한다
     return cur;
 }
 
@@ -58,9 +58,9 @@ void insert(BinarySearchTree *bst, int num) {
         return;
     }
     TreeNode *cur = bst->root, *pre = NULL;
-    // 반복하여 탐색하다 리프 노드를 지나면 종료한다
+    // 반복해서 찾다가 리프 노드를 지나면 종료한다
     while (cur != NULL) {
-        // 중복 노드를 찾으면 바로 반환한다
+        // 같은 값의 노드를 찾으면 바로 반환한다
         if (cur->val == num) {
             return;
         }
@@ -83,35 +83,35 @@ void insert(BinarySearchTree *bst, int num) {
 }
 
 /* 노드 삭제 */
-// stdio.h를 포함했으므로 여기서는 remove라는 이름을 사용할 수 없다
+// stdio.h를 포함했으므로 여기서는 remove라는 이름을 쓸 수 없다
 void removeItem(BinarySearchTree *bst, int num) {
-    // 트리가 비어 있으면 바로 반환하여 종료한다
+    // 트리가 비어 있으면 바로 반환한다
     if (bst->root == NULL)
         return;
     TreeNode *cur = bst->root, *pre = NULL;
-    // 반복하여 탐색하다 리프 노드를 지나면 종료한다
+    // 반복해서 찾다가 리프 노드를 지나면 종료한다
     while (cur != NULL) {
         // 삭제할 노드를 찾았으므로 반복문을 종료한다
         if (cur->val == num)
             break;
         pre = cur;
         if (cur->val < num) {
-            // 삭제할 노드가 root의 오른쪽 서브트리에 있다
+            // 삭제할 노드는 root의 오른쪽 서브트리에 있다
             cur = cur->right;
         } else {
-            // 삭제할 노드가 root의 왼쪽 서브트리에 있다
+            // 삭제할 노드는 root의 왼쪽 서브트리에 있다
             cur = cur->left;
         }
     }
     // 삭제할 노드가 없으면 바로 반환한다
     if (cur == NULL)
         return;
-    // 삭제할 노드에 자식 노드가 있는지 확인한다
+    // 삭제할 노드에 자식이 있는지 확인한다
     if (cur->left == NULL || cur->right == NULL) {
-        /* 자식 노드 수 = 0 또는 1 */
-        // 자식 노드 수가 0 / 1이면 child = nullptr / 해당 자식 노드다
+        /* 자식 수 = 0 또는 1 */
+        // 자식 수가 0이면 child는 nullptr, 1이면 child는 그 자식 노드다
         TreeNode *child = cur->left != NULL ? cur->left : cur->right;
-        // 노드 cur를 삭제한다
+        // 노드 cur 삭제
         if (pre == NULL) {
             bst->root = child;
         } else if (pre->left == cur) {
@@ -122,8 +122,8 @@ void removeItem(BinarySearchTree *bst, int num) {
         // 메모리 해제
         free(cur);
     } else {
-        /* 자식 노드 수 = 2 */
-        // 중위 순회에서 cur의 다음 노드를 구한다
+        /* 자식 수 = 2 */
+        // 중위 순회에서 cur 다음에 오는 노드를 구한다
         TreeNode *tmp = cur->right;
         while (tmp->left != NULL) {
             tmp = tmp->left;
@@ -131,7 +131,7 @@ void removeItem(BinarySearchTree *bst, int num) {
         int tmpVal = tmp->val;
         // 노드 tmp를 재귀적으로 삭제한다
         removeItem(bst, tmp->val);
-        // tmp로 cur를 덮어쓴다
+        // cur의 값을 tmp의 값으로 덮어쓴다
         cur->val = tmpVal;
     }
 }

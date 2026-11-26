@@ -13,10 +13,10 @@ import (
 
 func TestStack(t *testing.T) {
 	/* 初始化堆疊 */
-	// 在 Go 中，推薦將 Slice 當作堆疊來使用
+	// 在 Go 中，建議用切片（slice）當作堆疊
 	var stack []int
 
-	/* 元素入堆疊 */
+	/* 將元素推入堆疊 */
 	stack = append(stack, 1)
 	stack = append(stack, 3)
 	stack = append(stack, 2)
@@ -25,21 +25,21 @@ func TestStack(t *testing.T) {
 	fmt.Print("堆疊 stack = ")
 	PrintSlice(stack)
 
-	/* 訪問堆疊頂元素 */
+	/* 讀取堆疊頂端的元素 */
 	peek := stack[len(stack)-1]
-	fmt.Println("堆疊頂元素 peek =", peek)
+	fmt.Println("堆疊頂端元素 peek =", peek)
 
-	/* 元素出堆疊 */
+	/* 從堆疊彈出元素 */
 	pop := stack[len(stack)-1]
 	stack = stack[:len(stack)-1]
-	fmt.Print("出堆疊元素 pop = ", pop, "，出堆疊後 stack = ")
+	fmt.Print("彈出的元素 pop = ", pop, "，彈出後 stack = ")
 	PrintSlice(stack)
 
-	/* 獲取堆疊的長度 */
+	/* 取得堆疊長度 */
 	size := len(stack)
-	fmt.Println("堆疊的長度 size =", size)
+	fmt.Println("堆疊長度 size =", size)
 
-	/* 判斷是否為空 */
+	/* 判斷堆疊是否為空 */
 	isEmpty := len(stack) == 0
 	fmt.Println("堆疊是否為空 =", isEmpty)
 }
@@ -48,7 +48,7 @@ func TestArrayStack(t *testing.T) {
 	// 初始化堆疊
 	stack := newArrayStack()
 
-	// 元素入堆疊
+	// 將元素推入堆疊
 	stack.push(1)
 	stack.push(3)
 	stack.push(2)
@@ -57,20 +57,20 @@ func TestArrayStack(t *testing.T) {
 	fmt.Print("堆疊 stack = ")
 	PrintSlice(stack.toSlice())
 
-	// 訪問堆疊頂元素
+	// 讀取堆疊頂端的元素
 	peek := stack.peek()
-	fmt.Println("堆疊頂元素 peek =", peek)
+	fmt.Println("堆疊頂端元素 peek =", peek)
 
-	// 元素出堆疊
+	// 從堆疊彈出元素
 	pop := stack.pop()
-	fmt.Print("出堆疊元素 pop = ", pop, ", 出堆疊後 stack = ")
+	fmt.Print("彈出的元素 pop = ", pop, "， 彈出後 stack = ")
 	PrintSlice(stack.toSlice())
 
-	// 獲取堆疊的長度
+	// 取得堆疊長度
 	size := stack.size()
-	fmt.Println("堆疊的長度 size =", size)
+	fmt.Println("堆疊長度 size =", size)
 
-	// 判斷是否為空
+	// 判斷堆疊是否為空
 	isEmpty := stack.isEmpty()
 	fmt.Println("堆疊是否為空 =", isEmpty)
 }
@@ -78,7 +78,7 @@ func TestArrayStack(t *testing.T) {
 func TestLinkedListStack(t *testing.T) {
 	// 初始化堆疊
 	stack := newLinkedListStack()
-	// 元素入堆疊
+	// 將元素推入堆疊
 	stack.push(1)
 	stack.push(3)
 	stack.push(2)
@@ -87,28 +87,28 @@ func TestLinkedListStack(t *testing.T) {
 	fmt.Print("堆疊 stack = ")
 	PrintList(stack.toList())
 
-	// 訪問堆疊頂元素
+	// 讀取堆疊頂端的元素
 	peek := stack.peek()
-	fmt.Println("堆疊頂元素 peek =", peek)
+	fmt.Println("堆疊頂端元素 peek =", peek)
 
-	// 元素出堆疊
+	// 從堆疊彈出元素
 	pop := stack.pop()
-	fmt.Print("出堆疊元素 pop = ", pop, ", 出堆疊後 stack = ")
+	fmt.Print("彈出的元素 pop = ", pop, "， 彈出後 stack = ")
 	PrintList(stack.toList())
 
-	// 獲取堆疊的長度
+	// 取得堆疊長度
 	size := stack.size()
-	fmt.Println("堆疊的長度 size =", size)
+	fmt.Println("堆疊長度 size =", size)
 
-	// 判斷是否為空
+	// 判斷堆疊是否為空
 	isEmpty := stack.isEmpty()
 	fmt.Println("堆疊是否為空 =", isEmpty)
 }
 
-// BenchmarkArrayStack 8 ns/op in Mac M1 Pro
+// BenchmarkArrayStack 在配備 M1 Pro 的 Mac 上測得 8 ns/op
 func BenchmarkArrayStack(b *testing.B) {
 	stack := newArrayStack()
-	// use b.N for looping
+	// 以 b.N 作為迴圈次數
 	for i := 0; i < b.N; i++ {
 		stack.push(777)
 	}
@@ -117,10 +117,10 @@ func BenchmarkArrayStack(b *testing.B) {
 	}
 }
 
-// BenchmarkLinkedListStack 65.02 ns/op in Mac M1 Pro
+// BenchmarkLinkedListStack 在配備 M1 Pro 的 Mac 上測得 65.02 ns/op
 func BenchmarkLinkedListStack(b *testing.B) {
 	stack := newLinkedListStack()
-	// use b.N for looping
+	// 以 b.N 作為迴圈次數
 	for i := 0; i < b.N; i++ {
 		stack.push(777)
 	}

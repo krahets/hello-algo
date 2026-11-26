@@ -20,7 +20,7 @@ def sum_recur(n)
   n + sum_recur(n - 1)
 end
 
-### 선형 차수 반복문 ###
+### 선형 반복문 ###
 def linear_loop(n)
   res = 0
   for i in 0...n
@@ -29,7 +29,7 @@ def linear_loop(n)
   res
 end
 
-### 제곱 차수 반복문 ###
+### 이차 반복문 ###
 def quadratic_loop(n)
   res = 0
   for i in 0...n
@@ -40,7 +40,7 @@ def quadratic_loop(n)
   res
 end
 
-### 로그 차수 반복문 ###
+### 로그 반복문 ###
 def logarithmic_loop(n)
   n /= 2 while n > 1
   n

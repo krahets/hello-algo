@@ -18,10 +18,10 @@ func coinChangeDP(coins: [Int], amt: Int) -> Int {
     for i in 1 ... n {
         for a in 1 ... amt {
             if coins[i - 1] > a {
-                // 目標金額を超える場合、硬貨 i を選ばない
+                // 目標金額を超える場合は硬貨 i を使わない
                 dp[i][a] = dp[i - 1][a]
             } else {
-                // 硬貨 i を選ばない場合と選ぶ場合の小さいほうの値
+                // 硬貨 i を使う場合と使わない場合の小さい方を取る
                 dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1)
             }
         }
@@ -29,7 +29,7 @@ func coinChangeDP(coins: [Int], amt: Int) -> Int {
     return dp[n][amt] != MAX ? dp[n][amt] : -1
 }
 
-/* 硬貨の両替：空間を最適化した動的計画法 */
+/* 硬貨の両替：使用メモリを削減した動的計画法 */
 func coinChangeDPComp(coins: [Int], amt: Int) -> Int {
     let n = coins.count
     let MAX = amt + 1
@@ -40,10 +40,10 @@ func coinChangeDPComp(coins: [Int], amt: Int) -> Int {
     for i in 1 ... n {
         for a in 1 ... amt {
             if coins[i - 1] > a {
-                // 目標金額を超える場合、硬貨 i を選ばない
+                // 目標金額を超える場合は硬貨 i を使わない
                 dp[a] = dp[a]
             } else {
-                // 硬貨 i を選ばない場合と選ぶ場合の小さいほうの値
+                // 硬貨 i を使う場合と使わない場合の小さい方を取る
                 dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1)
             }
         }
@@ -53,17 +53,17 @@ func coinChangeDPComp(coins: [Int], amt: Int) -> Int {
 
 @main
 enum CoinChange {
-    /* 実行用コード */
+    /* 実行例 */
     static func main() {
         let coins = [1, 2, 5]
         let amt = 4
 
         // 動的計画法
         var res = coinChangeDP(coins: coins, amt: amt)
-        print("目標金額にするために必要な硬貨の最小枚数は \(res)")
+        print("目標金額を作るのに必要な硬貨の最少枚数は \(res)")
 
-        // 空間を最適化した動的計画法
+        // 使用メモリを削減した動的計画法
         res = coinChangeDPComp(coins: coins, amt: amt)
-        print("目標金額にするために必要な硬貨の最小枚数は \(res)")
+        print("目標金額を作るのに必要な硬貨の最少枚数は \(res)")
     }
 }

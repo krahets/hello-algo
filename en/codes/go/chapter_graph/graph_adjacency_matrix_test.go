@@ -10,8 +10,8 @@ import (
 )
 
 func TestGraphAdjMat(t *testing.T) {
-	/* Initialize the undirected graph */
-	// Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+	/* Initialize an undirected graph */
+	// The entries in edges are vertex indices, that is, indices into vertices
 	vertices := []int{1, 3, 2, 5, 4}
 	edges := [][]int{{0, 1}, {1, 2}, {2, 3}, {0, 3}, {2, 4}, {3, 4}}
 	graph := newGraphAdjMat(vertices, edges)

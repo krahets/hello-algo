@@ -7,24 +7,24 @@
 namespace hello_algo.chapter_dynamic_programming;
 
 public class coin_change {
-    /* Coin change: dynamic programming */
+    /* Coin change with dynamic programming */
     int CoinChangeDP(int[] coins, int amt) {
         int n = coins.Length;
         int MAX = amt + 1;
         // Initialize the dp table
         int[,] dp = new int[n + 1, amt + 1];
-        // State transitions: first row and first column
+        // State transitions for the first row and column
         for (int a = 1; a <= amt; a++) {
             dp[0, a] = MAX;
         }
-        // State transitions: remaining rows and columns
+        // State transitions for the remaining rows and columns
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If the coin exceeds the target amount, do not choose coin i
+                    // Skip coin i if its value exceeds the target amount
                     dp[i, a] = dp[i - 1, a];
                 } else {
-                    // Take the smaller result of not choosing and choosing coin i
+                    // Take the minimum of the counts for skipping and taking coin i
                     dp[i, a] = Math.Min(dp[i - 1, a], dp[i, a - coins[i - 1]] + 1);
                 }
             }
@@ -32,7 +32,7 @@ public class coin_change {
         return dp[n, amt] != MAX ? dp[n, amt] : -1;
     }
 
-    /* Coin change: space-optimized dynamic programming */
+    /* Coin change with space-optimized dynamic programming */
     int CoinChangeDPComp(int[] coins, int amt) {
         int n = coins.Length;
         int MAX = amt + 1;
@@ -40,14 +40,14 @@ public class coin_change {
         int[] dp = new int[amt + 1];
         Array.Fill(dp, MAX);
         dp[0] = 0;
-        // State transitions
+        // State transition
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If the coin exceeds the target amount, do not choose coin i
+                    // Skip coin i if its value exceeds the target amount
                     dp[a] = dp[a];
                 } else {
-                    // Take the smaller result of not choosing and choosing coin i
+                    // Take the minimum of the counts for skipping and taking coin i
                     dp[a] = Math.Min(dp[a], dp[a - coins[i - 1]] + 1);
                 }
             }

@@ -1,0 +1,206 @@
+{
+  "animations": {
+    "preorder-find-paths": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "frame_id": "source-342",
+          "id": "step-1"
+        },
+        {
+          "frame_id": "source-343",
+          "id": "step-2"
+        },
+        {
+          "frame_id": "source-344",
+          "id": "step-3"
+        },
+        {
+          "frame_id": "source-345",
+          "id": "step-4"
+        },
+        {
+          "frame_id": "source-346",
+          "id": "step-5"
+        },
+        {
+          "frame_id": "source-347",
+          "id": "step-6"
+        },
+        {
+          "frame_id": "source-348",
+          "id": "step-7"
+        },
+        {
+          "frame_id": "source-349",
+          "id": "step-8"
+        },
+        {
+          "frame_id": "source-350",
+          "id": "step-9"
+        },
+        {
+          "frame_id": "source-351",
+          "id": "step-10"
+        },
+        {
+          "frame_id": "source-352",
+          "id": "step-11"
+        }
+      ]
+    }
+  },
+  "context": [
+    "下表列出這棵樹固定的父子關係。左側的 7 是根節點 1 的左子節點，右側的 7 則是節點 3 的右子節點。",
+    "依「根 → 左 → 右」的前序順序走訪整棵樹，找出從根節點 1 到每個值為 7 的節點的路徑。",
+    "狀態串列 path 隨時記錄從根到目前節點的路徑，結果串列 res 則保存每次找到 7 時的路徑副本。圖中以節點值簡寫 path 與 res，配套程式碼實際存放的是節點物件，並以 list(path) 複製串列。左右兩個值為 7 的節點是不同的物件。"
+  ],
+  "description": [
+    "每次「嘗試」進入節點時，將它加到 path 末端。若節點值為 7，就複製目前的 path，將副本加入 res。「回溯」離開節點前，將它從 path 末端移除，還原進入這個節點前的路徑。"
+  ],
+  "frames": [
+    {
+      "announcement": "進入根節點 1，將 1 加入 path。",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step1.png",
+      "explanation": "從根節點 1 開始，將 1 加入 path。節點值 1 與目標值 7 不同。目前 path = [1]，res = []。左右子樹都還沒探索，接下來進入左側的 7。",
+      "id": "source-342",
+      "key_state": "進入根節點 1，path = [1]，res = []。",
+      "title": "進入根節點 1"
+    },
+    {
+      "announcement": "走訪左側節點 7，將路徑副本 [1, 7] 存入 res。",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step2.png",
+      "explanation": "從根節點 1 進入左側的 7，將 7 加入路徑。由於找到目標，因此將目前的路徑副本存入 res。目前 path = [1, 7]，res = [[1, 7]]。接下來繼續探索左側 7 的子節點 4 和 5。",
+      "id": "source-343",
+      "key_state": "找到左側的 7，path = [1, 7]，存入副本後 res = [[1, 7]]。",
+      "title": "找到左側的 7，保存路徑"
+    },
+    {
+      "announcement": "進入左葉節點 4，path 更新為 [1, 7, 4]。",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step3.png",
+      "explanation": "進入左側 7 的左葉節點 4，將 4 加入 path。它的值與目標值 7 不同。目前 path = [1, 7, 4]，res = [[1, 7]]。節點 5 和根的右子樹仍待探索。",
+      "id": "source-344",
+      "key_state": "進入葉節點 4，path = [1, 7, 4]，res = [[1, 7]]。",
+      "title": "進入節點 4"
+    },
+    {
+      "announcement": "從葉節點 4 回溯並移除 4，path 還原為 [1, 7]。",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step4.png",
+      "explanation": "葉節點 4 的左右子樹都是空的，兩次遞迴都已返回。從 path 末端移除 4，回到父節點，也就是左側的 7。目前 path = [1, 7]，res = [[1, 7]]。節點 4 已走訪完畢，接著探索右子節點 5。",
+      "id": "source-345",
+      "key_state": "移除 4 並回到左側的 7，path 還原為 [1, 7]，res = [[1, 7]]。",
+      "title": "離開 4，回到左側的 7"
+    },
+    {
+      "announcement": "進入右葉節點 5，path 更新為 [1, 7, 5]。",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step5.png",
+      "explanation": "進入左側 7 的右葉節點 5，將 5 加入 path。先前已移除的兄弟節點 4 不會留在路徑上。目前 path = [1, 7, 5]，res = [[1, 7]]。左子樹已全部走訪完畢，根的右子樹仍待探索。",
+      "id": "source-346",
+      "key_state": "進入葉節點 5，path = [1, 7, 5]，res = [[1, 7]]。",
+      "title": "進入節點 5"
+    },
+    {
+      "announcement": "依序離開節點 5 和左側的 7，path 還原為 [1]。",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step6.png",
+      "explanation": "走訪完節點 5 後，先移除 5，回到左側的 7。它的左右子樹也都走訪完畢，因此再移除左側的 7，回到根節點 1。本畫面合併呈現這兩次回溯。目前 path = [1]，res = [[1, 7]]。接下來探索根的右子節點 3。",
+      "id": "source-347",
+      "key_state": "依序移除 5 和左側的 7，回到根節點 1。path 還原為 [1]，res 維持 [[1, 7]]。",
+      "title": "離開 5 和左側的 7"
+    },
+    {
+      "announcement": "進入根的右子節點 3，path 更新為 [1, 3]。",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step7.png",
+      "explanation": "進入根節點 1 的右子節點 3，將 3 加入 path。它的值與目標值 7 不同。目前 path = [1, 3]，res = [[1, 7]]。接下來探索節點 3 的左葉節點 6 和右葉節點 7。",
+      "id": "source-348",
+      "key_state": "進入右子節點 3，path = [1, 3]，res = [[1, 7]]。",
+      "title": "進入節點 3"
+    },
+    {
+      "announcement": "進入左葉節點 6，path 更新為 [1, 3, 6]。",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step8.png",
+      "explanation": "進入節點 3 的左葉節點 6，將 6 加入 path。它的值與目標值 7 不同。目前 path = [1, 3, 6]，res = [[1, 7]]。整棵樹只剩節點 3 的右子節點 7 尚未走訪。",
+      "id": "source-349",
+      "key_state": "進入葉節點 6，path = [1, 3, 6]，res = [[1, 7]]。",
+      "title": "進入節點 6"
+    },
+    {
+      "announcement": "從葉節點 6 回溯並移除 6，path 還原為 [1, 3]。",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step9.png",
+      "explanation": "葉節點 6 已走訪完畢，從 path 末端移除 6，回到父節點 3。目前 path = [1, 3]，res = [[1, 7]]。節點 6 已完成，接下來探索右側的 7。",
+      "id": "source-350",
+      "key_state": "移除 6 並回到節點 3，path 還原為 [1, 3]，res = [[1, 7]]。",
+      "title": "離開 6，回到 3"
+    },
+    {
+      "announcement": "走訪右側節點 7，將第二條路徑的副本 [1, 3, 7] 存入 res。",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step10.png",
+      "explanation": "進入節點 3 的右葉節點 7，將 7 加入路徑。這是第二個目標節點，因此將路徑副本存入 res。目前 path = [1, 3, 7]，res = [[1, 7], [1, 3, 7]]。所有節點都已走訪，只剩最後的回溯。",
+      "id": "source-351",
+      "key_state": "找到右側的 7，path = [1, 3, 7]，存入副本後 res = [[1, 7], [1, 3, 7]]。",
+      "title": "找到右側的 7，保存路徑"
+    },
+    {
+      "announcement": "依序離開右側的 7、節點 3 和根節點 1，path 清空，搜尋結束。",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step11.png",
+      "explanation": "走訪完右側的 7 後，依序從 path 移除右側的 7、父節點 3 和根節點 1。本畫面合併呈現最後三次回溯。搜尋結束時，path = []，res = [[1, 7], [1, 3, 7]]，先前保存的副本都完整保留。",
+      "id": "source-352",
+      "key_state": "依序移除右側的 7、3 和根節點 1，完成最後三次回溯。path = []，res = [[1, 7], [1, 3, 7]]。",
+      "title": "離開右側的 7、3 和根節點 1"
+    }
+  ],
+  "input_tables": [
+    0
+  ],
+  "result": "res 保存的是每次找到目標時複製的獨立串列。回溯時移除節點只會改變目前的 path，已保存的解不受影響。",
+  "schema_version": 2,
+  "summary": "進入節點時將它加入 path，離開時再移除。兩次找到 7 時都會保存當下的路徑副本，搜尋結束時 path 為空。",
+  "tables": [
+    {
+      "caption": "本例的二元樹：區分兩個值為 7 的節點",
+      "headers": [
+        "節點",
+        "左子節點",
+        "右子節點"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "根節點 1",
+          "左側的 7",
+          "3"
+        ],
+        [
+          "左側的 7",
+          "4",
+          "5"
+        ],
+        [
+          "3",
+          "6",
+          "右側的 7"
+        ],
+        [
+          "4",
+          "無",
+          "無"
+        ],
+        [
+          "5",
+          "無",
+          "無"
+        ],
+        [
+          "6",
+          "無",
+          "無"
+        ],
+        [
+          "右側的 7",
+          "無",
+          "無"
+        ]
+      ]
+    }
+  ],
+  "title": "嘗試與回溯：保存到達 7 的路徑"
+}

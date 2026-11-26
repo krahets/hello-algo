@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-// 경로와 결과의 길이가 100을 넘지 않는다고 가정
+// 경로와 결과의 길이는 각각 100 이하라고 가정한다
 #define MAX_SIZE 100
 #define MAX_RES_SIZE 100
 
@@ -45,7 +45,7 @@ int main() {
     // 전위 순회
     preOrder(root);
 
-    printf("\n값이 3인 노드를 포함하지 않는, 루트 노드에서 노드 7까지의 모든 경로 출력\n");
+    printf("\n루트에서 값이 7인 노드까지 값이 3인 노드를 거치지 않는 모든 경로 출력\n");
     for (int i = 0; i < resSize; ++i) {
         int *vals = malloc(MAX_SIZE * sizeof(int));
         int size = 0;
@@ -56,7 +56,7 @@ int main() {
         free(vals);
     }
 
-    // 메모리 해제
+    // 메모리를 해제한다
     freeMemoryTree(root);
     return 0;
 }

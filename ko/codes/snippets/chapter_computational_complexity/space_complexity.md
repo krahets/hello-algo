@@ -8,11 +8,11 @@ class Node:
 
 def function() -> int:
     """함수"""
-    # 몇 가지 연산 수행...
+    # 어떤 연산을 수행한다...
     return 0
 
 def algorithm(n) -> int:  # 입력 데이터
-    A = 0                 # 임시 데이터(상수, 보통 대문자로 표기)
+    A = 0                 # 임시 데이터(상수는 보통 대문자로 표기한다)
     b = 0                 # 임시 데이터(변수)
     node = Node(0)        # 임시 데이터(객체)
     c = function()        # 스택 프레임 공간(함수 호출)
@@ -29,7 +29,7 @@ struct Node {
 
 /* 함수 */
 int func() {
-    // 몇 가지 연산 수행...
+    // 어떤 연산을 수행한다...
     return 0;
 }
 
@@ -52,7 +52,7 @@ class Node {
 
 /* 함수 */
 int function() {
-    // 몇 가지 연산 수행...
+    // 어떤 연산을 수행한다...
     return 0;
 }
 
@@ -74,7 +74,7 @@ class Node(int x) {
 
 /* 함수 */
 int Function() {
-    // 몇 가지 연산 수행...
+    // 어떤 연산을 수행한다...
     return 0;
 }
 
@@ -94,14 +94,14 @@ type node struct {
     next *node
 }
 
-/* node 구조체 생성  */
+/* node 구조체를 만든다  */
 func newNode(val int) *node {
     return &node{val: val}
 }
 
 /* 함수 */
 func function() int {
-    // 몇 가지 연산 수행...
+    // 어떤 연산을 수행한다...
     return 0
 }
 
@@ -127,7 +127,7 @@ class Node {
 
 /* 함수 */
 func function() -> Int {
-    // 몇 가지 연산 수행...
+    // 어떤 연산을 수행한다...
     return 0
 }
 
@@ -153,7 +153,7 @@ class Node {
 
 /* 함수 */
 function constFunc() {
-    // 몇 가지 연산 수행
+    // 어떤 연산을 수행한다
     return 0;
 }
 
@@ -179,7 +179,7 @@ class Node {
 
 /* 함수 */
 function constFunc(): number {
-    // 몇 가지 연산 수행
+    // 어떤 연산을 수행한다
     return 0;
 }
 
@@ -202,7 +202,7 @@ class Node {
 
 /* 함수 */
 int function() {
-  // 몇 가지 연산 수행...
+  // 어떤 연산을 수행한다...
   return 0;
 }
 
@@ -225,7 +225,7 @@ struct Node {
     next: Option<Rc<RefCell<Node>>>,
 }
 
-/* Node 구조체 생성 */
+/* Node 구조체를 만든다 */
 impl Node {
     fn new(val: i32) -> Self {
         Self { val: val, next: None }
@@ -234,7 +234,7 @@ impl Node {
 
 /* 함수 */
 fn function() -> i32 {      
-    // 몇 가지 연산 수행...
+    // 어떤 연산을 수행한다...
     return 0;
 }
 
@@ -250,7 +250,7 @@ fn algorithm(n: i32) -> i32 {       // 입력 데이터
 ```c title=""
 /* 함수 */
 int func() {
-    // 몇 가지 연산 수행...
+    // 어떤 연산을 수행한다...
     return 0;
 }
 
@@ -270,7 +270,7 @@ class Node(var _val: Int) {
 
 /* 함수 */
 fun function(): Int {
-    // 몇 가지 연산 수행...
+    // 어떤 연산을 수행한다...
     return 0
 }
 
@@ -296,7 +296,7 @@ end
 
 ### 함수 ###
 def function
-    # 몇 가지 연산 수행...
+    # 어떤 연산을 수행한다...
     0
 end
 
@@ -441,16 +441,16 @@ end
 <!-- [snippet]{loop_vs_recursion_space} -->
 ```python title=""
 def function() -> int:
-    # 몇 가지 연산 수행
+    # 어떤 연산을 수행한다
     return 0
 
 def loop(n: int):
-    """반복문의 공간 복잡도는 O(1)"""
+    """반복문의 공간 복잡도는 O(1)이다"""
     for _ in range(n):
         function()
 
 def recur(n: int):
-    """재귀의 공간 복잡도는 O(n)"""
+    """재귀의 공간 복잡도는 O(n)이다"""
     if n == 1:
         return
     return recur(n - 1)
@@ -458,16 +458,16 @@ def recur(n: int):
 
 ```cpp title=""
 int func() {
-    // 몇 가지 연산 수행
+    // 어떤 연산을 수행한다
     return 0;
 }
-/* 반복문의 공간 복잡도는 O(1) */
+/* 반복문의 공간 복잡도는 O(1)이다 */
 void loop(int n) {
     for (int i = 0; i < n; i++) {
         func();
     }
 }
-/* 재귀의 공간 복잡도는 O(n) */
+/* 재귀의 공간 복잡도는 O(n)이다 */
 void recur(int n) {
     if (n == 1) return;
     recur(n - 1);
@@ -476,16 +476,16 @@ void recur(int n) {
 
 ```java title=""
 int function() {
-    // 몇 가지 연산 수행
+    // 어떤 연산을 수행한다
     return 0;
 }
-/* 반복문의 공간 복잡도는 O(1) */
+/* 반복문의 공간 복잡도는 O(1)이다 */
 void loop(int n) {
     for (int i = 0; i < n; i++) {
         function();
     }
 }
-/* 재귀의 공간 복잡도는 O(n) */
+/* 재귀의 공간 복잡도는 O(n)이다 */
 void recur(int n) {
     if (n == 1) return;
     recur(n - 1);
@@ -494,16 +494,16 @@ void recur(int n) {
 
 ```csharp title=""
 int Function() {
-    // 몇 가지 연산 수행
+    // 어떤 연산을 수행한다
     return 0;
 }
-/* 반복문의 공간 복잡도는 O(1) */
+/* 반복문의 공간 복잡도는 O(1)이다 */
 void Loop(int n) {
     for (int i = 0; i < n; i++) {
         Function();
     }
 }
-/* 재귀의 공간 복잡도는 O(n) */
+/* 재귀의 공간 복잡도는 O(n)이다 */
 int Recur(int n) {
     if (n == 1) return 1;
     return Recur(n - 1);
@@ -512,18 +512,18 @@ int Recur(int n) {
 
 ```go title=""
 func function() int {
-    // 몇 가지 연산 수행
+    // 어떤 연산을 수행한다
     return 0
 }
 
-/* 반복문의 공간 복잡도는 O(1) */
+/* 반복문의 공간 복잡도는 O(1)이다 */
 func loop(n int) {
     for i := 0; i < n; i++ {
         function()
     }
 }
 
-/* 재귀의 공간 복잡도는 O(n) */
+/* 재귀의 공간 복잡도는 O(n)이다 */
 func recur(n int) {
     if n == 1 {
         return
@@ -535,18 +535,18 @@ func recur(n int) {
 ```swift title=""
 @discardableResult
 func function() -> Int {
-    // 몇 가지 연산 수행
+    // 어떤 연산을 수행한다
     return 0
 }
 
-/* 반복문의 공간 복잡도는 O(1) */
+/* 반복문의 공간 복잡도는 O(1)이다 */
 func loop(n: Int) {
     for _ in 0 ..< n {
         function()
     }
 }
 
-/* 재귀의 공간 복잡도는 O(n) */
+/* 재귀의 공간 복잡도는 O(n)이다 */
 func recur(n: Int) {
     if n == 1 {
         return
@@ -557,16 +557,16 @@ func recur(n: Int) {
 
 ```javascript title=""
 function constFunc() {
-    // 몇 가지 연산 수행
+    // 어떤 연산을 수행한다
     return 0;
 }
-/* 반복문의 공간 복잡도는 O(1) */
+/* 반복문의 공간 복잡도는 O(1)이다 */
 function loop(n) {
     for (let i = 0; i < n; i++) {
         constFunc();
     }
 }
-/* 재귀의 공간 복잡도는 O(n) */
+/* 재귀의 공간 복잡도는 O(n)이다 */
 function recur(n) {
     if (n === 1) return;
     return recur(n - 1);
@@ -575,16 +575,16 @@ function recur(n) {
 
 ```typescript title=""
 function constFunc(): number {
-    // 몇 가지 연산 수행
+    // 어떤 연산을 수행한다
     return 0;
 }
-/* 반복문의 공간 복잡도는 O(1) */
+/* 반복문의 공간 복잡도는 O(1)이다 */
 function loop(n: number): void {
     for (let i = 0; i < n; i++) {
         constFunc();
     }
 }
-/* 재귀의 공간 복잡도는 O(n) */
+/* 재귀의 공간 복잡도는 O(n)이다 */
 function recur(n: number): void {
     if (n === 1) return;
     return recur(n - 1);
@@ -593,16 +593,16 @@ function recur(n: number): void {
 
 ```dart title=""
 int function() {
-  // 몇 가지 연산 수행
+  // 어떤 연산을 수행한다
   return 0;
 }
-/* 반복문의 공간 복잡도는 O(1) */
+/* 반복문의 공간 복잡도는 O(1)이다 */
 void loop(int n) {
   for (int i = 0; i < n; i++) {
     function();
   }
 }
-/* 재귀의 공간 복잡도는 O(n) */
+/* 재귀의 공간 복잡도는 O(n)이다 */
 void recur(int n) {
   if (n == 1) return;
   recur(n - 1);
@@ -611,16 +611,16 @@ void recur(int n) {
 
 ```rust title=""
 fn function() -> i32 {
-    // 몇 가지 연산 수행
+    // 어떤 연산을 수행한다
     return 0;
 }
-/* 반복문의 공간 복잡도는 O(1) */
+/* 반복문의 공간 복잡도는 O(1)이다 */
 fn for_loop(n: i32) {
     for i in 0..n {
         function();
     }
 }
-/* 재귀의 공간 복잡도는 O(n) */
+/* 재귀의 공간 복잡도는 O(n)이다 */
 fn recur(n: i32) {
     if n == 1 {
         return;
@@ -631,16 +631,16 @@ fn recur(n: i32) {
 
 ```c title=""
 int func() {
-    // 몇 가지 연산 수행
+    // 어떤 연산을 수행한다
     return 0;
 }
-/* 반복문의 공간 복잡도는 O(1) */
+/* 반복문의 공간 복잡도는 O(1)이다 */
 void loop(int n) {
     for (int i = 0; i < n; i++) {
         func();
     }
 }
-/* 재귀의 공간 복잡도는 O(n) */
+/* 재귀의 공간 복잡도는 O(n)이다 */
 void recur(int n) {
     if (n == 1) return;
     recur(n - 1);
@@ -649,16 +649,16 @@ void recur(int n) {
 
 ```kotlin title=""
 fun function(): Int {
-    // 몇 가지 연산 수행
+    // 어떤 연산을 수행한다
     return 0
 }
-/* 반복문의 공간 복잡도는 O(1) */
+/* 반복문의 공간 복잡도는 O(1)이다 */
 fun loop(n: Int) {
     for (i in 0..<n) {
         function()
     }
 }
-/* 재귀의 공간 복잡도는 O(n) */
+/* 재귀의 공간 복잡도는 O(n)이다 */
 fun recur(n: Int) {
     if (n == 1) return
     return recur(n - 1)
@@ -667,16 +667,16 @@ fun recur(n: Int) {
 
 ```ruby title=""
 def function
-    # 몇 가지 연산 수행
+    # 어떤 연산을 수행한다
     0
 end
 
-### 반복문의 공간 복잡도는 O(1) ###
+### 반복문의 공간 복잡도는 O(1)이다 ###
 def loop(n)
     (0...n).each { function }
 end
 
-### 재귀의 공간 복잡도는 O(n) ###
+### 재귀의 공간 복잡도는 O(n)이다 ###
 def recur(n)
     return if n == 1
     recur(n - 1)

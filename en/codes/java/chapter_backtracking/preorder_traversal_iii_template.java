@@ -20,7 +20,7 @@ public class preorder_traversal_iii_template {
         res.add(new ArrayList<>(state));
     }
 
-    /* Check whether the choice is valid in the current state */
+    /* Check whether this choice is valid in the current state */
     static boolean isValid(List<TreeNode> state, TreeNode choice) {
         return choice != null && choice.val != 3;
     }
@@ -37,20 +37,20 @@ public class preorder_traversal_iii_template {
 
     /* Backtracking: example 3 */
     static void backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res) {
-        // Check whether this is a solution
+        // Check for a solution
         if (isSolution(state)) {
             // Record the solution
             recordSolution(state, res);
         }
-        // Iterate over all choices
+        // Try each choice
         for (TreeNode choice : choices) {
             // Prune: check whether the choice is valid
             if (isValid(state, choice)) {
-                // Try: make a choice and update the state
+                // Make a choice and update the state
                 makeChoice(state, choice);
-                // Proceed to the next choice
+                // Make the next choice
                 backtrack(state, Arrays.asList(choice.left, choice.right), res);
-                // Backtrack: undo the choice and restore the previous state
+                // Backtrack: undo the choice to restore the previous state
                 undoChoice(state, choice);
             }
         }
@@ -61,11 +61,11 @@ public class preorder_traversal_iii_template {
         System.out.println("\nInitialize the binary tree");
         PrintUtil.printTree(root);
 
-        // Backtracking algorithm
+        // Backtracking
         List<List<TreeNode>> res = new ArrayList<>();
         backtrack(new ArrayList<>(), Arrays.asList(root), res);
 
-        System.out.println("\nOutput all paths from the root to nodes with value 7, requiring that no node on the path has value 3");
+        System.out.println("\nPrint all paths from the root to a node with value 7 that avoid nodes with value 3");
         for (List<TreeNode> path : res) {
             List<Integer> vals = new ArrayList<>();
             for (TreeNode node : path) {

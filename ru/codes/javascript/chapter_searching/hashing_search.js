@@ -6,40 +6,40 @@
 
 const { arrToLinkedList } = require('../modules/ListNode');
 
-/* Хеш-поиск (массив) */
+/* Поиск по хеш-таблице в массиве */
 function hashingSearchArray(map, target) {
-    // key хеш-таблицы: целевой элемент, value: индекс
-    // Если такого key нет в хеш-таблице, вернуть -1
+    // Ключ хеш-таблицы — искомый элемент, значение — его индекс
+    // Если ключа в хеш-таблице нет, возвращаем -1
     return map.has(target) ? map.get(target) : -1;
 }
 
-/* Хеш-поиск (связный список) */
+/* Поиск по хеш-таблице в связном списке */
 function hashingSearchLinkedList(map, target) {
-    // key хеш-таблицы: значение целевого узла, value: объект узла
-    // Если такого key нет в хеш-таблице, вернуть null
+    // Ключ хеш-таблицы — искомое значение узла, значение таблицы — сам узел
+    // Если ключа в хеш-таблице нет, возвращаем null
     return map.has(target) ? map.get(target) : null;
 }
 
-/* Driver Code */
+/* Пример использования */
 const target = 3;
 
-/* Хеш-поиск (массив) */
+/* Поиск по хеш-таблице в массиве */
 const nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
-// Инициализация хеш-таблицы
+// Создаём хеш-таблицу
 const map = new Map();
 for (let i = 0; i < nums.length; i++) {
-    map.set(nums[i], i); // key: элемент, value: индекс
+    map.set(nums[i], i); // Ключ — элемент, значение — индекс
 }
 const index = hashingSearchArray(map, target);
-console.log('Индекс целевого элемента 3 = ' + index);
+console.log('Индекс элемента 3 = ' + index);
 
-/* Хеш-поиск (связный список) */
+/* Поиск по хеш-таблице в связном списке */
 let head = arrToLinkedList(nums);
-// Инициализация хеш-таблицы
+// Создаём хеш-таблицу
 const map1 = new Map();
 while (head != null) {
-    map1.set(head.val, head); // key: значение узла, value: узел
+    map1.set(head.val, head); // Ключ — значение узла, значение — сам узел
     head = head.next;
 }
 const node = hashingSearchLinkedList(map1, target);
-console.log('Объект узла со значением 3 =', node);
+console.log('Узел со значением 3:', node);

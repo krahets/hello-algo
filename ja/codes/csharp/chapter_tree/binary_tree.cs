@@ -21,7 +21,7 @@ public class binary_tree {
         n1.right = n3;
         n2.left = n4;
         n2.right = n5;
-        Console.WriteLine("\n二分木を初期化する\n");
+        Console.WriteLine("\n二分木を初期化\n");
         PrintUtil.PrintTree(n1);
 
         /* ノードの挿入と削除 */

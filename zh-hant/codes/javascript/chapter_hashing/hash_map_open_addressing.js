@@ -12,21 +12,21 @@ class Pair {
     }
 }
 
-/* 開放定址雜湊表 */
+/* 採用開放定址法的雜湊表 */
 class HashMapOpenAddressing {
     #size; // 鍵值對數量
     #capacity; // 雜湊表容量
-    #loadThres; // 觸發擴容的負載因子閾值
-    #extendRatio; // 擴容倍數
+    #loadThres; // 觸發容量擴充的負載因子門檻
+    #extendRatio; // 容量擴充倍數
     #buckets; // 桶陣列
     #TOMBSTONE; // 刪除標記
 
-    /* 建構子 */
+    /* 建構方法 */
     constructor() {
         this.#size = 0; // 鍵值對數量
         this.#capacity = 4; // 雜湊表容量
-        this.#loadThres = 2.0 / 3.0; // 觸發擴容的負載因子閾值
-        this.#extendRatio = 2; // 擴容倍數
+        this.#loadThres = 2.0 / 3.0; // 觸發容量擴充的負載因子門檻
+        this.#extendRatio = 2; // 容量擴充倍數
         this.#buckets = Array(this.#capacity).fill(null); // 桶陣列
         this.#TOMBSTONE = new Pair(-1, '-1'); // 刪除標記
     }
@@ -41,60 +41,60 @@ class HashMapOpenAddressing {
         return this.#size / this.#capacity;
     }
 
-    /* 搜尋 key 對應的桶索引 */
+    /* 尋找 key 對應的桶索引 */
     #findBucket(key) {
         let index = this.#hashFunc(key);
         let firstTombstone = -1;
-        // 線性探查，當遇到空桶時跳出
+        // 進行線性探測，遇到空桶就跳出迴圈
         while (this.#buckets[index] !== null) {
-            // 若遇到 key ，返回對應的桶索引
+            // 若遇到 key，回傳對應的桶索引
             if (this.#buckets[index].key === key) {
-                // 若之前遇到了刪除標記，則將鍵值對移動至該索引處
+                // 若先前遇過刪除標記，將鍵值對移到該標記所在的索引位置
                 if (firstTombstone !== -1) {
                     this.#buckets[firstTombstone] = this.#buckets[index];
                     this.#buckets[index] = this.#TOMBSTONE;
-                    return firstTombstone; // 返回移動後的桶索引
+                    return firstTombstone; // 回傳移動後的桶索引
                 }
-                return index; // 返回桶索引
+                return index; // 回傳桶索引
             }
-            // 記錄遇到的首個刪除標記
+            // 記錄遇到的第一個刪除標記
             if (
                 firstTombstone === -1 &&
                 this.#buckets[index] === this.#TOMBSTONE
             ) {
                 firstTombstone = index;
             }
-            // 計算桶索引，越過尾部則返回頭部
+            // 計算桶索引，超過陣列尾端就回到開頭
             index = (index + 1) % this.#capacity;
         }
-        // 若 key 不存在，則返回新增點的索引
+        // 若 key 不存在，回傳可插入位置的索引
         return firstTombstone === -1 ? index : firstTombstone;
     }
 
     /* 查詢操作 */
     get(key) {
-        // 搜尋 key 對應的桶索引
+        // 尋找 key 對應的桶索引
         const index = this.#findBucket(key);
-        // 若找到鍵值對，則返回對應 val
+        // 若找到鍵值對，回傳對應的 val
         if (
             this.#buckets[index] !== null &&
             this.#buckets[index] !== this.#TOMBSTONE
         ) {
             return this.#buckets[index].val;
         }
-        // 若鍵值對不存在，則返回 null
+        // 若鍵值對不存在，回傳 null
         return null;
     }
 
     /* 新增操作 */
     put(key, val) {
-        // 當負載因子超過閾值時，執行擴容
+        // 當負載因子超過門檻時，擴充容量
         if (this.#loadFactor() > this.#loadThres) {
             this.#extend();
         }
-        // 搜尋 key 對應的桶索引
+        // 尋找 key 對應的桶索引
         const index = this.#findBucket(key);
-        // 若找到鍵值對，則覆蓋 val 並返回
+        // 若找到鍵值對，覆寫 val 並結束操作
         if (
             this.#buckets[index] !== null &&
             this.#buckets[index] !== this.#TOMBSTONE
@@ -102,16 +102,16 @@ class HashMapOpenAddressing {
             this.#buckets[index].val = val;
             return;
         }
-        // 若鍵值對不存在，則新增該鍵值對
+        // 若鍵值對不存在，新增該鍵值對
         this.#buckets[index] = new Pair(key, val);
         this.#size++;
     }
 
     /* 刪除操作 */
     remove(key) {
-        // 搜尋 key 對應的桶索引
+        // 尋找 key 對應的桶索引
         const index = this.#findBucket(key);
-        // 若找到鍵值對，則用刪除標記覆蓋它
+        // 若找到鍵值對，以刪除標記取代它
         if (
             this.#buckets[index] !== null &&
             this.#buckets[index] !== this.#TOMBSTONE
@@ -121,15 +121,15 @@ class HashMapOpenAddressing {
         }
     }
 
-    /* 擴容雜湊表 */
+    /* 擴充雜湊表容量 */
     #extend() {
-        // 暫存原雜湊表
+        // 暫存原本的雜湊表
         const bucketsTmp = this.#buckets;
-        // 初始化擴容後的新雜湊表
+        // 初始化擴充後的新雜湊表
         this.#capacity *= this.#extendRatio;
         this.#buckets = Array(this.#capacity).fill(null);
         this.#size = 0;
-        // 將鍵值對從原雜湊表搬運至新雜湊表
+        // 將鍵值對從原本的雜湊表移到新表
         for (const pair of bucketsTmp) {
             if (pair !== null && pair !== this.#TOMBSTONE) {
                 this.put(pair.key, pair.val);
@@ -137,7 +137,7 @@ class HashMapOpenAddressing {
         }
     }
 
-    /* 列印雜湊表 */
+    /* 印出雜湊表 */
     print() {
         for (const pair of this.#buckets) {
             if (pair === null) {
@@ -151,7 +151,7 @@ class HashMapOpenAddressing {
     }
 }
 
-/* Driver Code */
+/* 主程式 */
 // 初始化雜湊表
 const hashmap = new HashMapOpenAddressing();
 
@@ -162,16 +162,16 @@ hashmap.put(15937, '小囉');
 hashmap.put(16750, '小算');
 hashmap.put(13276, '小法');
 hashmap.put(10583, '小鴨');
-console.log('\n新增完成後，雜湊表為\nKey -> Value');
+console.log('\n新增後的雜湊表\nKey -> Value');
 hashmap.print();
 
 // 查詢操作
-// 向雜湊表中輸入鍵 key ，得到值 val
+// 輸入鍵 key，從雜湊表取得對應的值 val
 const name = hashmap.get(13276);
-console.log('\n輸入學號 13276 ，查詢到姓名 ' + name);
+console.log('\n輸入學號 13276，查得姓名 ' + name);
 
 // 刪除操作
-// 在雜湊表中刪除鍵值對 (key, val)
+// 從雜湊表刪除鍵值對 (key, val)
 hashmap.remove(16750);
-console.log('\n刪除 16750 後，雜湊表為\nKey -> Value');
+console.log('\n刪除 16750 後的雜湊表\nKey -> Value');
 hashmap.print();

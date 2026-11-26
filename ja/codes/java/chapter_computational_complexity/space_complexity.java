@@ -12,22 +12,22 @@ import java.util.*;
 public class space_complexity {
     /* 関数 */
     static int function() {
-        // 何らかの処理を実行する
+        // 何らかの処理を行う
         return 0;
     }
 
     /* 定数オーダー */
     static void constant(int n) {
-        // 定数、変数、オブジェクトは O(1) の領域を使用する
+        // 定数・変数・オブジェクトが使う領域は O(1)
         final int a = 0;
         int b = 0;
         int[] nums = new int[10000];
         ListNode node = new ListNode(0);
-        // ループ内の変数は O(1) の領域を使用する
+        // ループ内の変数が使う領域は O(1)
         for (int i = 0; i < n; i++) {
             int c = 0;
         }
-        // ループ内の関数は O(1) の領域を使用する
+        // ループ内の関数が使う領域は O(1)
         for (int i = 0; i < n; i++) {
             function();
         }
@@ -35,14 +35,14 @@ public class space_complexity {
 
     /* 線形オーダー */
     static void linear(int n) {
-        // 長さ n の配列は O(n) の領域を使用する
+        // 長さ n の配列が使う領域は O(n)
         int[] nums = new int[n];
-        // 長さ n のリストは O(n) の領域を使用する
+        // 長さ n のリストが使う領域は O(n)
         List<ListNode> nodes = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             nodes.add(new ListNode(i));
         }
-        // 長さ n のハッシュテーブルは O(n) の領域を使用する
+        // 長さ n のハッシュテーブルが使う領域は O(n)
         Map<Integer, String> map = new HashMap<>();
         for (int i = 0; i < n; i++) {
             map.put(i, String.valueOf(i));
@@ -59,9 +59,9 @@ public class space_complexity {
 
     /* 二次オーダー */
     static void quadratic(int n) {
-        // 行列は O(n^2) の領域を使用する
+        // 行列が使う領域は O(n^2)
         int[][] numMatrix = new int[n][n];
-        // 二次元リストは O(n^2) の領域を使用する
+        // 二次元リストが使う領域は O(n^2)
         List<List<Integer>> numList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             List<Integer> tmp = new ArrayList<>();
@@ -76,13 +76,13 @@ public class space_complexity {
     static int quadraticRecur(int n) {
         if (n <= 0)
             return 0;
-        // 配列 nums の長さは n, n-1, ..., 2, 1
+        // 配列 nums の長さは順に n, n-1, ..., 2, 1
         int[] nums = new int[n];
-        System.out.println("再帰 n = " + n + " における nums の長さ = " + nums.length);
+        System.out.println("再帰 n = " + n + " での nums の長さ = " + nums.length);
         return quadraticRecur(n - 1);
     }
 
-    /* 指数オーダー（パーフェクト二分木の構築） */
+    /* 指数オーダー（すべての葉が同じ深さの完全二分木を構築） */
     static TreeNode buildTree(int n) {
         if (n == 0)
             return null;
@@ -92,7 +92,7 @@ public class space_complexity {
         return root;
     }
 
-    /* 実行用コード */
+    /* 実行例 */
     public static void main(String[] args) {
         int n = 5;
         // 定数オーダー

@@ -9,10 +9,10 @@ package chapter_searching;
 import java.util.*;
 
 public class two_sum {
-    /* 방법 1: 완전 열거 */
+    /* 방법 1. 모든 조합 확인 */
     static int[] twoSumBruteForce(int[] nums, int target) {
         int size = nums.length;
-        // 이중 반복문이며 시간 복잡도는 O(n^2)이다
+        // 이중 반복문을 사용하므로 시간 복잡도는 O(n^2)이다.
         for (int i = 0; i < size - 1; i++) {
             for (int j = i + 1; j < size; j++) {
                 if (nums[i] + nums[j] == target)
@@ -22,12 +22,12 @@ public class two_sum {
         return new int[0];
     }
 
-    /* 방법 2: 보조 해시 테이블 */
+    /* 방법 2. 보조 해시 테이블 사용 */
     static int[] twoSumHashTable(int[] nums, int target) {
         int size = nums.length;
-        // 보조 해시 테이블의 공간 복잡도는 O(n)이다
+        // 보조 해시 테이블을 사용하므로 공간 복잡도는 O(n)이다.
         Map<Integer, Integer> dic = new HashMap<>();
-        // 단일 반복문이며 시간 복잡도는 O(n)이다
+        // 반복문 하나만 사용하므로 시간 복잡도는 O(n)이다.
         for (int i = 0; i < size; i++) {
             if (dic.containsKey(target - nums[i])) {
                 return new int[] { dic.get(target - nums[i]), i };
@@ -38,11 +38,11 @@ public class two_sum {
     }
 
     public static void main(String[] args) {
-        // ======= 테스트 사례 =======
+        // ======= 테스트 케이스 =======
         int[] nums = { 2, 7, 11, 15 };
         int target = 13;
 
-        // ====== 실행 코드 ======
+        // ====== 실행 예제 ======
         // 방법 1
         int[] res = twoSumBruteForce(nums, target);
         System.out.println("방법 1 res = " + Arrays.toString(res));

@@ -12,11 +12,11 @@ class Pair(int key, string val) {
     public string val = val;
 }
 
-/* 配列で実装したハッシュテーブル */
+/* 配列で実装したハッシュ表 */
 class ArrayHashMap {
     List<Pair?> buckets;
     public ArrayHashMap() {
-        // 100 個のバケットを含む配列を初期化する
+        // 100 個のバケットを持つ配列を初期化する
         buckets = [];
         for (int i = 0; i < 100; i++) {
             buckets.Add(null);
@@ -29,7 +29,7 @@ class ArrayHashMap {
         return index;
     }
 
-    /* 取得操作 */
+    /* 検索 */
     public string? Get(int key) {
         int index = HashFunc(key);
         Pair? pair = buckets[index];
@@ -37,17 +37,17 @@ class ArrayHashMap {
         return pair.val;
     }
 
-    /* 追加操作 */
+    /* 追加 */
     public void Put(int key, string val) {
         Pair pair = new(key, val);
         int index = HashFunc(key);
         buckets[index] = pair;
     }
 
-    /* 削除操作 */
+    /* 削除 */
     public void Remove(int key) {
         int index = HashFunc(key);
-        // null に設定して、削除を表す
+        // null を代入して削除する
         buckets[index] = null;
     }
 
@@ -81,7 +81,7 @@ class ArrayHashMap {
         return valueSet;
     }
 
-    /* ハッシュテーブルを表示する */
+    /* ハッシュ表を表示する */
     public void Print() {
         foreach (Pair kv in PairSet()) {
             Console.WriteLine(kv.key + " -> " + kv.val);
@@ -93,40 +93,40 @@ class ArrayHashMap {
 public class array_hash_map {
     [Test]
     public void Test() {
-        /* ハッシュテーブルを初期化する */
+        /* ハッシュ表を初期化する */
         ArrayHashMap map = new();
 
-        /* 追加操作 */
-        // ハッシュテーブルにキーと値のペア (key, value) を追加する
+        /* 追加 */
+        // ハッシュ表にペア (key, value) を追加する
         map.Put(12836, "小哈");
         map.Put(15937, "小啰");
         map.Put(16750, "小算");
         map.Put(13276, "小法");
         map.Put(10583, "小鸭");
-        Console.WriteLine("\n追加後のハッシュテーブル\nKey -> Value");
+        Console.WriteLine("\n追加後のハッシュ表\nKey -> Value");
         map.Print();
 
-        /* 取得操作 */
-        // ハッシュテーブルにキー key を渡し、値 value を取得する
+        /* 検索 */
+        // ハッシュ表でキー key に対応する値 value を取得する
         string? name = map.Get(15937);
-        Console.WriteLine("\n学生番号 15937 に対応する氏名は " + name);
+        Console.WriteLine("\n学籍番号 15937 に対応する名前は " + name);
 
-        /* 削除操作 */
-        // ハッシュテーブルからキーと値のペア (key, value) を削除する
+        /* 削除 */
+        // ハッシュ表からペア (key, value) を削除する
         map.Remove(10583);
-        Console.WriteLine("\n10583 を削除した後のハッシュテーブル\nKey -> Value");
+        Console.WriteLine("\n10583 を削除した後のハッシュ表\nKey -> Value");
         map.Print();
 
-        /* ハッシュテーブルを走査する */
-        Console.WriteLine("\nキーと値のペア Key->Value を走査する");
+        /* ハッシュ表を走査する */
+        Console.WriteLine("\nキーと値のペアを順に表示 Key->Value");
         foreach (Pair kv in map.PairSet()) {
             Console.WriteLine(kv.key + " -> " + kv.val);
         }
-        Console.WriteLine("\nキー Key だけを走査する");
+        Console.WriteLine("\nキーだけを順に表示 Key");
         foreach (int key in map.KeySet()) {
             Console.WriteLine(key);
         }
-        Console.WriteLine("\n値 Value だけを走査する");
+        Console.WriteLine("\n値だけを順に表示 Value");
         foreach (string val in map.ValueSet()) {
             Console.WriteLine(val);
         }

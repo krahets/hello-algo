@@ -8,23 +8,23 @@
 
 /* 関数 */
 int func() {
-    // 何らかの処理を実行する
+    // 何らかの処理を行う
     return 0;
 }
 
 /* 定数オーダー */
 void constant(int n) {
-    // 定数、変数、オブジェクトは O(1) の領域を使用する
+    // 定数・変数・オブジェクトが使う領域は O(1)
     const int a = 0;
     int b = 0;
     int nums[1000];
     ListNode *node = newListNode(0);
     free(node);
-    // ループ内の変数は O(1) の領域を使用する
+    // ループ内の変数が使う領域は O(1)
     for (int i = 0; i < n; i++) {
         int c = 0;
     }
-    // ループ内の関数は O(1) の領域を使用する
+    // ループ内の関数が使う領域は O(1)
     for (int i = 0; i < n; i++) {
         func();
     }
@@ -34,27 +34,27 @@ void constant(int n) {
 typedef struct {
     int key;
     int val;
-    UT_hash_handle hh; // uthash.h を用いて実装する
+    UT_hash_handle hh; // uthash.h を使って実装
 } HashTable;
 
 /* 線形オーダー */
 void linear(int n) {
-    // 長さ n の配列は O(n) の領域を使用する
+    // 長さ n の配列が使う領域は O(n)
     int *nums = malloc(sizeof(int) * n);
     free(nums);
 
-    // 長さ n のリストは O(n) の領域を使用する
+    // 長さ n のリストが使う領域は O(n)
     ListNode **nodes = malloc(sizeof(ListNode *) * n);
     for (int i = 0; i < n; i++) {
         nodes[i] = newListNode(i);
     }
-    // メモリの解放
+    // メモリを解放
     for (int i = 0; i < n; i++) {
         free(nodes[i]);
     }
     free(nodes);
 
-    // 長さ n のハッシュテーブルは O(n) の領域を使用する
+    // 長さ n のハッシュテーブルが使う領域は O(n)
     HashTable *h = NULL;
     for (int i = 0; i < n; i++) {
         HashTable *tmp = malloc(sizeof(HashTable));
@@ -63,7 +63,7 @@ void linear(int n) {
         HASH_ADD_INT(h, key, tmp);
     }
 
-    // メモリの解放
+    // メモリを解放
     HashTable *curr, *tmp;
     HASH_ITER(hh, h, curr, tmp) {
         HASH_DEL(h, curr);
@@ -81,7 +81,7 @@ void linearRecur(int n) {
 
 /* 二次オーダー */
 void quadratic(int n) {
-    // 二次元リストは O(n^2) の領域を使用する
+    // 二次元リストが使う領域は O(n^2)
     int **numMatrix = malloc(sizeof(int *) * n);
     for (int i = 0; i < n; i++) {
         int *tmp = malloc(sizeof(int) * n);
@@ -91,7 +91,7 @@ void quadratic(int n) {
         numMatrix[i] = tmp;
     }
 
-    // メモリの解放
+    // メモリを解放
     for (int i = 0; i < n; i++) {
         free(numMatrix[i]);
     }
@@ -103,13 +103,13 @@ int quadraticRecur(int n) {
     if (n <= 0)
         return 0;
     int *nums = malloc(sizeof(int) * n);
-    printf("再帰 n = %d における nums の長さ = %d\r\n", n, n);
+    printf("再帰 n = %d での nums の長さ = %d\r\n", n, n);
     int res = quadraticRecur(n - 1);
     free(nums);
     return res;
 }
 
-/* 指数オーダー（パーフェクト二分木の構築） */
+/* 指数オーダー（すべての葉が同じ深さの完全二分木を構築） */
 TreeNode *buildTree(int n) {
     if (n == 0)
         return NULL;
@@ -119,7 +119,7 @@ TreeNode *buildTree(int n) {
     return root;
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     int n = 5;
     // 定数オーダー
@@ -134,7 +134,7 @@ int main() {
     TreeNode *root = buildTree(n);
     printTree(root);
 
-    // メモリを解放する
+    // メモリを解放
     freeMemoryTree(root);
 
     return 0;

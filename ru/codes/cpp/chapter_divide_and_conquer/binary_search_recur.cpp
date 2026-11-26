@@ -8,20 +8,20 @@
 
 /* Двоичный поиск: задача f(i, j) */
 int dfs(vector<int> &nums, int target, int i, int j) {
-    // Если интервал пуст, целевой элемент отсутствует, вернуть -1
+    // Если интервал пуст, искомого элемента нет. Возвращаем -1
     if (i > j) {
         return -1;
     }
-    // Вычислить индекс середины m
+    // Вычисляем индекс середины m
     int m = (i + j) / 2;
     if (nums[m] < target) {
-        // Рекурсивная подзадача f(m+1, j)
+        // Рекурсивно решаем подзадачу f(m+1, j)
         return dfs(nums, target, m + 1, j);
     } else if (nums[m] > target) {
-        // Рекурсивная подзадача f(i, m-1)
+        // Рекурсивно решаем подзадачу f(i, m-1)
         return dfs(nums, target, i, m - 1);
     } else {
-        // Целевой элемент найден, вернуть его индекс
+        // Искомый элемент найден. Возвращаем его индекс
         return m;
     }
 }
@@ -29,18 +29,18 @@ int dfs(vector<int> &nums, int target, int i, int j) {
 /* Двоичный поиск */
 int binarySearch(vector<int> &nums, int target) {
     int n = nums.size();
-    // Решить задачу f(0, n-1)
+    // Решаем задачу f(0, n-1)
     return dfs(nums, target, 0, n - 1);
 }
 
-/* Driver Code */
+/* Основная программа */
 int main() {
     int target = 6;
     vector<int> nums = {1, 3, 6, 8, 12, 15, 23, 26, 31, 35};
 
     // Двоичный поиск (замкнутый интервал)
     int index = binarySearch(nums, target);
-    cout << "Индекс целевого элемента 6 = " << index << endl;
+    cout << "Индекс элемента 6 = " << index << endl;
 
     return 0;
 }

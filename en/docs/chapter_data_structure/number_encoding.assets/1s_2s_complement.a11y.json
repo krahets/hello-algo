@@ -1,28 +1,28 @@
 {
-  "schema_version": 2,
-  "title": "Eight-bit sign-magnitude, one's complement, and two's complement",
-  "summary": "Compare how positive and negative integers convert across the three encodings, and see why two's complement has only one representation of zero.",
   "context": [],
   "description": [
-    "The figure arranges sign-magnitude, one's complement, and two's complement in three rows comparing +0, +5, −0, and −28, each written as 8 bits grouped into two 4-bit nibbles. Bidirectional arrows connect sign-magnitude with one's complement and one's complement with two's complement; the notes on the right state the forward rules for converting a negative number from sign-magnitude to one's complement and then to two's complement."
+    "Three rows show sign and magnitude, ones' complement, and two's complement for +0, +5, −0, and −28. Each entry is an 8-bit binary number in groups of four bits. Two-way arrows link sign and magnitude to ones' complement, then ones' complement to two's complement. The text on the right gives the forward conversion rules for negative numbers."
   ],
   "frames": [
     {
-      "id": "source-41",
       "book_path": "chapter_data_structure/number_encoding.assets/1s_2s_complement.png",
-      "title": "Eight-bit sign-magnitude, one's complement, and two's complement",
-      "explanation": "The highest bit is the sign bit, and +0 and +5 have identical bit patterns across all three representations. For a negative number, keep the leading sign bit 1 and invert only the lower 7 bits to get the one's complement, then add 1 and keep the lower 8 bits to get the two's complement. In the table, −28 follows this rule; the reverse conversion subtracts 1 from the two's complement and then inverts the lower 7 bits while keeping the sign bit to return to sign-magnitude. Adding 1 to the one's complement of −0 (1111 1111) produces the nine-bit value 1 0000 0000; discarding the carry-out leaves 0000 0000, identical to +0, so positive zero and negative zero can no longer be distinguished from the two's complement."
+      "explanation": "The highest bit is the sign bit. For +0 and +5, all three representations agree. For a negative number, keep the high bit 1 and invert the low seven bits to get ones' complement. Add 1 and keep the low eight bits to get two's complement. The table applies this rule to −28. To go back, subtract 1 from the two's complement value, then keep the sign bit and invert the low seven bits to recover sign and magnitude. For −0, adding 1 to its ones' complement, 1111 1111, gives the nine-bit result 1 0000 0000. Discarding the carry leaves 0000 0000, the same as +0, so the original positive and negative zeros can no longer be distinguished.",
+      "id": "source-41",
+      "title": "Eight-bit sign and magnitude, ones' complement, and two's complement"
     }
   ],
+  "schema_version": 2,
+  "summary": "Compare the conversions for positive and negative numbers to see why two's complement has only one representation of zero.",
   "tables": [
     {
-      "caption": "Eight-bit encoding comparison",
+      "caption": "Eight-bit representations compared",
       "headers": [
         "Number",
-        "Sign-magnitude",
-        "One's complement",
+        "Sign and magnitude",
+        "Ones' complement",
         "Two's complement"
       ],
+      "row_header": 0,
       "rows": [
         [
           "+0",
@@ -48,8 +48,8 @@
           "1110 0011",
           "1110 0100"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Eight-bit sign and magnitude, ones' complement, and two's complement"
 }

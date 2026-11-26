@@ -16,7 +16,7 @@ void recordSolution(vector<TreeNode *> &state, vector<vector<TreeNode *>> &res) 
     res.push_back(state);
 }
 
-/* Check whether the choice is valid in the current state */
+/* Check whether this choice is valid in the current state */
 bool isValid(vector<TreeNode *> &state, TreeNode *choice) {
     return choice != nullptr && choice->val != 3;
 }
@@ -33,21 +33,21 @@ void undoChoice(vector<TreeNode *> &state, TreeNode *choice) {
 
 /* Backtracking: example 3 */
 void backtrack(vector<TreeNode *> &state, vector<TreeNode *> &choices, vector<vector<TreeNode *>> &res) {
-    // Check whether this is a solution
+    // Check for a solution
     if (isSolution(state)) {
         // Record the solution
         recordSolution(state, res);
     }
-    // Iterate over all choices
+    // Try each choice
     for (TreeNode *choice : choices) {
         // Prune: check whether the choice is valid
         if (isValid(state, choice)) {
-            // Try: make a choice and update the state
+            // Make a choice and update the state
             makeChoice(state, choice);
-            // Proceed to the next choice
+            // Make the next choice
             vector<TreeNode *> nextChoices{choice->left, choice->right};
             backtrack(state, nextChoices, res);
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             undoChoice(state, choice);
         }
     }
@@ -59,13 +59,13 @@ int main() {
     cout << "\nInitialize the binary tree" << endl;
     printTree(root);
 
-    // Backtracking algorithm
+    // Backtracking
     vector<TreeNode *> state;
     vector<TreeNode *> choices = {root};
     vector<vector<TreeNode *>> res;
     backtrack(state, choices, res);
 
-    cout << "\nOutput all paths from the root to nodes with value 7, requiring that no node on the path has value 3" << endl;
+    cout << "\nPrint all paths from the root to a node with value 7 that avoid nodes with value 3" << endl;
     for (vector<TreeNode *> &path : res) {
         vector<int> vals;
         for (TreeNode *node : path) {

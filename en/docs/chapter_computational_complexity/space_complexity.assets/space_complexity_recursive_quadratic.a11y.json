@@ -1,24 +1,23 @@
 {
-  "schema_version": 2,
-  "title": "Retaining an array at each recursive level creates quadratic space",
-  "summary": "When every recursive level also holds a local array, peak space sums the array lengths across all simultaneously unreturned levels.",
   "context": [
-    "Here n is a positive integer. Whenever k > 0, each call quadratic_recur(k) allocates an array nums of length k before calling quadratic_recur(k - 1). The figure omits the final call quadratic_recur(0), which allocates no array, simplifying the base case and return onto the row for argument 1; the actual code returns immediately at argument 0."
+    "The integer n is positive. For k > 0, quadratic_recur(k) creates an array nums of length k and calls itself with k−1. The figure omits the final call quadratic_recur(0), which allocates no array. For simplicity it shows termination and return on the row for 1. The code actually returns immediately when its argument is 0."
   ],
   "description": [
-    "From left to right, the figure arranges three columns—\"Length of array nums\", \"Recurse downward\", and \"Return upward\"—connecting each array length horizontally to its call. A brace labeled \"Recursion depth n\" spans the n levels that allocate arrays, with ellipses for intermediate calls. At the row for argument 1, an arrow labeled \"Reach the base case\" crosses to the right column, where return 0 entries are linked upward."
+    "From left to right the columns are “Length of nums,” “Descend,” and “Unwind.” A line connects each length to its call in the same row. A brace labeled “Recursion depth n” spans the n levels that allocate arrays. Ellipses stand for intermediate calls. An arrow labeled “Reach the base case” leads from the row for 1 to the right column, where upward arrows connect the return 0 steps."
   ],
   "frames": [
     {
-      "id": "source-36",
       "book_path": "chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_quadratic.png",
-      "title": "Retaining an array at each recursive level creates quadratic space",
-      "explanation": "While each upper call waits for its lower call to return, its local array remains live in memory. At the bottom, summing their lengths gives 1 + 2 + … + (n - 1) + n = n(n + 1)/2, pointing to Quadratic O(n²). Although the actual code adds one extra stack frame at argument 0 without allocating an array, the O(n) call-stack overhead does not change the O(n²) peak space dominated by those arrays."
+      "explanation": "Each outer call keeps its local array while waiting for its child. At the bottom of the figure, the lengths sum to 1 + 2 + … + (n−1) + n = n(n+1)/2, with an arrow to quadratic space, O(n²). At maximum depth the code has one additional frame for argument 0, but that call allocates no array. The O(n) stack overhead does not change the O(n²) peak space determined by the arrays.",
+      "id": "source-36",
+      "title": "Arrays retained across recursive calls use quadratic space"
     }
   ],
+  "schema_version": 2,
+  "summary": "Each recursive level retains a local array. To find peak space, add the lengths of the arrays in all calls that have yet to return.",
   "tables": [
     {
-      "caption": "Arrays retained across active recursive levels",
+      "caption": "Arrays retained at each call level",
       "headers": [
         "Call",
         "Length of nums"
@@ -47,5 +46,6 @@
         ]
       ]
     }
-  ]
+  ],
+  "title": "Arrays retained across recursive calls use quadratic space"
 }

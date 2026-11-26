@@ -11,10 +11,10 @@ class Vertex:
 
 
 def vals_to_vets(vals: list[int]) -> list["Vertex"]:
-    """輸入值串列 vals ，返回頂點串列 vets"""
+    """傳入數值串列 vals，回傳頂點串列 vets"""
     return [Vertex(val) for val in vals]
 
 
 def vets_to_vals(vets: list["Vertex"]) -> list[int]:
-    """輸入頂點串列 vets ，返回值串列 vals"""
+    """傳入頂點串列 vets，回傳數值串列 vals"""
     return [vet.val for vet in vets]

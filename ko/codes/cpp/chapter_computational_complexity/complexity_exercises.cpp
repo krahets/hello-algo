@@ -23,7 +23,7 @@ int sumRecur(int n) {
     return n + sumRecur(n - 1);
 }
 
-/* 선형 차수 반복문 */
+/* 선형 반복문 */
 int linearLoop(int n) {
     int res = 0;
     for (int i = 0; i < n; ++i) {
@@ -32,7 +32,7 @@ int linearLoop(int n) {
     return res;
 }
 
-/* 제곱 차수 반복문 */
+/* 이차 반복문 */
 int quadraticLoop(int n) {
     int res = 0;
     for (int i = 0; i < n; ++i) {
@@ -43,7 +43,7 @@ int quadraticLoop(int n) {
     return res;
 }
 
-/* 로그 차수 반복문 */
+/* 로그 반복문 */
 int logarithmicLoop(int n) {
     while (n > 1) {
         n /= 2;

@@ -1,0 +1,81 @@
+{
+  "animations": {
+    "linkedlist-deque": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "frame_id": "source-71",
+          "id": "step-1"
+        },
+        {
+          "frame_id": "source-72",
+          "id": "step-2"
+        },
+        {
+          "frame_id": "source-73",
+          "id": "step-3"
+        },
+        {
+          "frame_id": "source-74",
+          "id": "step-4"
+        },
+        {
+          "frame_id": "source-75",
+          "id": "step-5"
+        }
+      ]
+    }
+  },
+  "context": [
+    "左側是使用者看到的雙端佇列，右側是垂直排列的雙向鏈結串列。兩側都從上到下依隊首至隊尾的順序排列，頭、尾節點分別對應隊首與隊尾。相鄰節點以朝下的 next 和朝上的 prev 互相連接。"
+  ],
+  "description": [
+    "五個畫面依序顯示初始狀態、從隊尾加入 4、從隊首加入 1、從隊尾取出 4、從隊首取出 1。新加入的 4 是青色，1 是橘色，原有的 3、2、5 都留在原位。"
+  ],
+  "frames": [
+    {
+      "announcement": "初始雙向鏈結串列為 3 ⇄ 2 ⇄ 5，頭節點為 3，尾節點為 5。",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step1.png",
+      "explanation": "初始雙向鏈結串列為 3 ⇄ 2 ⇄ 5，頭節點是 3，尾節點是 5。左側對應的佇列為 [3, 2, 5]，沒有回傳值。",
+      "id": "source-71",
+      "key_state": "頭節點為 3，尾節點為 5，目前佇列為 [3, 2, 5]。",
+      "title": "初始雙端佇列"
+    },
+    {
+      "announcement": "讓 5 和 4 互相連接，並將尾節點的參照更新為指向 4。",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step2_push_last.png",
+      "explanation": "執行 push_last(4)，將新節點 4 接在 5 的下方，使 5.next 指向 4、4.prev 指向 5。目前串列為 3 ⇄ 2 ⇄ 5 ⇄ 4，頭節點仍為 3，尾節點更新為 4。此操作沒有回傳值。",
+      "id": "source-72",
+      "key_state": "頭節點為 3，尾節點為 4，目前佇列為 [3, 2, 5, 4]。",
+      "title": "從隊尾加入 4"
+    },
+    {
+      "announcement": "讓 1 和 3 互相連接，並將頭節點的參照更新為指向 1。",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step3_push_first.png",
+      "explanation": "執行 push_first(1)，將新節點 1 接在 3 的上方，使 1.next 指向 3、3.prev 指向 1。目前串列為 1 ⇄ 3 ⇄ 2 ⇄ 5 ⇄ 4，頭節點更新為 1，尾節點仍為 4。此操作沒有回傳值。",
+      "id": "source-73",
+      "key_state": "頭節點為 1，尾節點為 4，目前佇列為 [1, 3, 2, 5, 4]。",
+      "title": "從隊首加入 1"
+    },
+    {
+      "announcement": "沿著 4.prev 找到 5，更新尾節點的參照，移除節點 4 並回傳 4。",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step4_pop_last.png",
+      "explanation": "執行 pop_last()，沿著 4.prev 直接找到 5，將尾節點的參照改為指向 5，解除 5 和 4 之間的雙向連結，並回傳 4。目前串列為 1 ⇄ 3 ⇄ 2 ⇄ 5，頭節點為 1，尾節點為 5。",
+      "id": "source-74",
+      "key_state": "頭節點為 1，尾節點為 5，目前佇列為 [1, 3, 2, 5]，回傳 4。",
+      "title": "從隊尾取出 4"
+    },
+    {
+      "announcement": "沿著 1.next 找到 3，更新頭節點的參照，移除節點 1 並回傳 1。",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step5_pop_first.png",
+      "explanation": "執行 pop_first()，沿著 1.next 找到 3，將頭節點的參照改為指向 3，解除 1 和 3 之間的雙向連結，並回傳 1。串列恢復為 3 ⇄ 2 ⇄ 5，頭節點為 3，尾節點為 5。",
+      "id": "source-75",
+      "key_state": "頭節點為 3，尾節點為 5，目前佇列為 [3, 2, 5]，回傳 1。",
+      "title": "從隊首取出 1"
+    }
+  ],
+  "result": "有了頭、尾節點的參照，從隊尾出隊時就能沿著尾節點的 prev 直接找到新的隊尾，無須從頭走訪串列。在任一端入隊或出隊都只需修改端點附近的參照，時間複雜度都是 O(1)。",
+  "schema_version": 2,
+  "summary": "記錄頭、尾節點，並維護節點之間的雙向參照，就能在兩端新增或刪除節點，讓中間的節點留在原位。",
+  "title": "以雙向鏈結串列實作雙端佇列"
+}

@@ -10,37 +10,37 @@ import java.util.*;
 
 public class deque {
     public static void main(String[] args) {
-        /* Инициализация двусторонней очереди */
+        /* Инициализировать дек */
         Deque<Integer> deque = new LinkedList<>();
         deque.offerLast(3);
         deque.offerLast(2);
         deque.offerLast(5);
-        System.out.println("Двусторонняя очередь deque = " + deque);
+        System.out.println("Дек deque = " + deque);
 
-        /* Доступ к элементу */
+        /* Посмотреть первый и последний элементы */
         int peekFirst = deque.peekFirst();
-        System.out.println("Первый элемент peekFirst = " + peekFirst);
+        System.out.println("Первый элемент дека peekFirst = " + peekFirst);
         int peekLast = deque.peekLast();
-        System.out.println("Последний элемент peekLast = " + peekLast);
+        System.out.println("Последний элемент дека peekLast = " + peekLast);
 
-        /* Добавление элемента в очередь */
+        /* Добавить элементы в дек */
         deque.offerLast(4);
-        System.out.println("После добавления элемента 4 в хвост deque = " + deque);
+        System.out.println("После добавления 4 в конец дека deque = " + deque);
         deque.offerFirst(1);
-        System.out.println("После добавления элемента 1 в голову deque = " + deque);
+        System.out.println("После добавления 1 в начало дека deque = " + deque);
 
-        /* Извлечение элемента из очереди */
+        /* Извлечь элементы из дека */
         int popLast = deque.pollLast();
-        System.out.println("Извлеченный из хвоста элемент = " + popLast + ", deque после извлечения из хвоста = " + deque);
+        System.out.println("Извлечённый последний элемент = " + popLast + ", после извлечения из конца deque = " + deque);
         int popFirst = deque.pollFirst();
-        System.out.println("Извлеченный из головы элемент = " + popFirst + ", deque после извлечения из головы = " + deque);
+        System.out.println("Извлечённый первый элемент = " + popFirst + ", после извлечения из начала deque = " + deque);
 
-        /* Получение длины двусторонней очереди */
+        /* Получить длину дека */
         int size = deque.size();
-        System.out.println("Длина двусторонней очереди size = " + size);
+        System.out.println("Длина дека size = " + size);
 
-        /* Проверка, пуста ли двусторонняя очередь */
+        /* Проверить, пуст ли дек */
         boolean isEmpty = deque.isEmpty();
-        System.out.println("Пуста ли двусторонняя очередь = " + isEmpty);
+        System.out.println("Дек пуст = " + isEmpty);
     }
 }

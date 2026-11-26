@@ -6,33 +6,33 @@
 
 #include "../utils/common.hpp"
 
-/* バックトラッキング：すべての順列 II */
+/* バックトラッキングによる全順列 II */
 void backtrack(vector<int> &state, const vector<int> &choices, vector<bool> &selected, vector<vector<int>> &res) {
-    // 状態の長さが要素数と等しくなったら、解を記録する
+    // 状態の長さが要素数に達したら解を記録する
     if (state.size() == choices.size()) {
         res.push_back(state);
         return;
     }
-    // すべての選択肢を走査する
+    // すべての選択肢を調べる
     unordered_set<int> duplicated;
     for (int i = 0; i < choices.size(); i++) {
         int choice = choices[i];
-        // 枝刈り：同じ要素の再選択も、等しい値を持つ要素の重複選択も許可しない
+        // 枝刈り：同じ要素は二度選ばず、この段階で同じ値の要素も繰り返し試さない
         if (!selected[i] && duplicated.find(choice) == duplicated.end()) {
-            // 試行：選択を行い、状態を更新する
-            duplicated.emplace(choice); // 選択済みの要素の値を記録する
+            // 試行：選択して状態を更新する
+            duplicated.emplace(choice); // 選んだ要素の値を記録する
             selected[i] = true;
             state.push_back(choice);
             // 次の選択に進む
             backtrack(state, choices, selected, res);
-            // 復元：選択を取り消し、以前の状態に戻す
+            // 後戻り：選択を取り消し、元の状態に戻す
             selected[i] = false;
             state.pop_back();
         }
     }
 }
 
-/* すべての順列 II */
+/* 全順列 II */
 vector<vector<int>> permutationsII(vector<int> nums) {
     vector<int> state;
     vector<bool> selected(nums.size(), false);
@@ -41,7 +41,7 @@ vector<vector<int>> permutationsII(vector<int> nums) {
     return res;
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     vector<int> nums = {1, 1, 2};
 

@@ -13,10 +13,10 @@ extern "C" {
 
 /* 벡터 타입 정의 */
 typedef struct vector {
-    int size;     // 현재 벡터의 크기
-    int capacity; // 현재 벡터의 용량
-    int depth;    // 현재 벡터의 깊이
-    void **data;  // 데이터를 가리키는 포인터 배열
+    int size;     // 벡터의 현재 크기
+    int capacity; // 벡터의 현재 용량
+    int depth;    // 벡터의 현재 깊이
+    void **data;  // 데이터를 가리키는 포인터의 배열
 } vector;
 
 /* 벡터 생성 */
@@ -29,7 +29,7 @@ vector *newVector() {
     return v;
 }
 
-/* 크기와 원소 기본값을 지정하여 벡터 생성 */
+/* 크기와 원소의 기본값을 지정해 벡터 생성 */
 vector *_newVector(int size, void *elem, int elemSize) {
     vector *v = malloc(sizeof(vector));
     v->size = size;
@@ -44,7 +44,7 @@ vector *_newVector(int size, void *elem, int elemSize) {
     return v;
 }
 
-/* 벡터 소멸 */
+/* 벡터 해제 */
 void delVector(vector *v) {
     if (v) {
         if (v->depth == 0) {
@@ -63,7 +63,7 @@ void delVector(vector *v) {
     }
 }
 
-/*  벡터 끝에 원소를 복사하여 추가한다 */
+/*  원소를 복사해 벡터 끝에 추가 */
 void vectorPushback(vector *v, void *elem, int elemSize) {
     if (v->size == v->capacity) {
         v->capacity *= 2;
@@ -74,7 +74,7 @@ void vectorPushback(vector *v, void *elem, int elemSize) {
     v->data[v->size++] = tmp;
 }
 
-/* 벡터 끝에서 원소를 꺼낸다 */
+/* 벡터의 마지막 원소 제거 */
 void vectorPopback(vector *v) {
     if (v->size != 0) {
         free(v->data[v->size - 1]);
@@ -102,7 +102,7 @@ void *vectorBack(vector *v) {
     return n > 0 ? v->data[n - 1] : NULL;
 }
 
-/* 벡터의 첫 원소 반환 */
+/* 벡터의 첫 번째 원소 반환 */
 void *vectorFront(vector *v) {
     return v->size > 0 ? v->data[0] : NULL;
 }
@@ -110,7 +110,7 @@ void *vectorFront(vector *v) {
 /* 벡터에서 인덱스가 pos인 원소 반환 */
 void *vectorAt(vector *v, int pos) {
     if (pos < 0 || pos >= v->size) {
-        printf("vectorAt: 범위를 벗어났다\n");
+        printf("vectorAt: out of range\n");
         return NULL;
     }
     return v->data[pos];
@@ -119,7 +119,7 @@ void *vectorAt(vector *v, int pos) {
 /* 벡터에서 인덱스가 pos인 원소 설정 */
 void vectorSet(vector *v, int pos, void *elem, int elemSize) {
     if (pos < 0 || pos >= v->size) {
-        printf("vectorSet: 범위를 벗어났다\n");
+        printf("vectorSet: out of range\n");
         return;
     }
     free(v->data[pos]);
@@ -128,13 +128,13 @@ void vectorSet(vector *v, int pos, void *elem, int elemSize) {
     v->data[pos] = tmp;
 }
 
-/* 벡터 용량 확장 */
+/* 벡터 용량 늘리기 */
 void vectorExpand(vector *v) {
     v->capacity *= 2;
     v->data = realloc(v->data, v->capacity * sizeof(void *));
 }
 
-/* 벡터 용량 축소 */
+/* 벡터 용량 줄이기 */
 void vectorShrink(vector *v) {
     v->capacity /= 2;
     v->data = realloc(v->data, v->capacity * sizeof(void *));
@@ -165,7 +165,7 @@ void vectorErase(vector *v, int pos) {
     }
 }
 
-/* 벡터 원소 교환 */
+/* 벡터의 두 원소 교환 */
 void vectorSwap(vector *v, int i, int j) {
     void *tmp = v->data[i];
     v->data[i] = v->data[j];
@@ -185,27 +185,27 @@ bool vectorFull(vector *v) {
 /* 두 벡터가 같은지 확인 */
 bool vectorEqual(vector *v1, vector *v2) {
     if (v1->size != v2->size) {
-        printf("크기가 다르다\n");
+        printf("size not equal\n");
         return false;
     }
     for (int i = 0; i < v1->size; i++) {
         void *a = v1->data[i];
         void *b = v2->data[i];
         if (memcmp(a, b, sizeof(a)) != 0) {
-            printf("데이터 %d의 값이 다르다\n", i);
+            printf("data %d not equal\n", i);
             return false;
         }
     }
     return true;
 }
 
-/* 벡터 내부 정렬 */
+/* 벡터의 원소 정렬 */
 void vectorSort(vector *v, int (*cmp)(const void *, const void *)) {
     qsort(v->data, v->size, sizeof(void *), cmp);
 }
 
-/* 출력 함수: 변수를 출력하는 함수를 인수로 전달해야 한다 */
-/* 현재는 깊이가 1인 vector만 출력할 수 있다 */
+/* 출력 함수. 변수 하나를 출력하는 함수를 인수로 전달해야 한다. */
+/* 현재는 깊이가 1인 벡터만 출력할 수 있다. */
 void printVector(vector *v, void (*printFunc)(vector *v, void *p)) {
     if (v) {
         if (v->depth == 0) {
@@ -235,7 +235,7 @@ void printVector(vector *v, void (*printFunc)(vector *v, void *p)) {
     }
 }
 
-/* 현재는 깊이가 2인 vector만 출력할 수 있다 */
+/* 현재는 깊이가 2인 벡터만 출력할 수 있다. */
 void printVectorMatrix(vector *vv, void (*printFunc)(vector *v, void *p)) {
     printf("[\n");
     for (int i = 0; i < vv->size; i++) {

@@ -4,43 +4,43 @@
 
 package chapter_tree
 
-/* 陣列表示下的二元樹類別 */
+/* 以陣列表示二元樹的類別 */
 type arrayBinaryTree struct {
 	tree []any
 }
 
-/* 建構子 */
+/* 建構方法 */
 func newArrayBinaryTree(arr []any) *arrayBinaryTree {
 	return &arrayBinaryTree{
 		tree: arr,
 	}
 }
 
-/* 串列容量 */
+/* 串列長度 */
 func (abt *arrayBinaryTree) size() int {
 	return len(abt.tree)
 }
 
-/* 獲取索引為 i 節點的值 */
+/* 取得索引 i 處的節點值 */
 func (abt *arrayBinaryTree) val(i int) any {
-	// 若索引越界，則返回 null ，代表空位
+	// 若索引超出範圍，回傳 null 表示空位
 	if i < 0 || i >= abt.size() {
 		return nil
 	}
 	return abt.tree[i]
 }
 
-/* 獲取索引為 i 節點的左子節點的索引 */
+/* 取得索引 i 處節點的左子節點索引 */
 func (abt *arrayBinaryTree) left(i int) int {
 	return 2*i + 1
 }
 
-/* 獲取索引為 i 節點的右子節點的索引 */
+/* 取得索引 i 處節點的右子節點索引 */
 func (abt *arrayBinaryTree) right(i int) int {
 	return 2*i + 2
 }
 
-/* 獲取索引為 i 節點的父節點的索引 */
+/* 取得索引 i 處節點的父節點索引 */
 func (abt *arrayBinaryTree) parent(i int) int {
 	return (i - 1) / 2
 }
@@ -59,7 +59,7 @@ func (abt *arrayBinaryTree) levelOrder() []any {
 
 /* 深度優先走訪 */
 func (abt *arrayBinaryTree) dfs(i int, order string, res *[]any) {
-	// 若為空位，則返回
+	// 若為空位，直接返回
 	if abt.val(i) == nil {
 		return
 	}

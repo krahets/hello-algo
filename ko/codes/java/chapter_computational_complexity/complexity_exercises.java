@@ -24,7 +24,7 @@ public class complexity_exercises {
         return n + sumRecur(n - 1);
     }
 
-    /* 선형 차수 반복문 */
+    /* 선형 반복문 */
     static int linearLoop(int n) {
         int res = 0;
         for (int i = 0; i < n; i++) {
@@ -33,7 +33,7 @@ public class complexity_exercises {
         return res;
     }
 
-    /* 제곱 차수 반복문 */
+    /* 이차 반복문 */
     static int quadraticLoop(int n) {
         int res = 0;
         for (int i = 0; i < n; i++) {
@@ -44,7 +44,7 @@ public class complexity_exercises {
         return res;
     }
 
-    /* 로그 차수 반복문 */
+    /* 로그 반복문 */
     static int logarithmicLoop(int n) {
         while (n > 1) {
             n /= 2;

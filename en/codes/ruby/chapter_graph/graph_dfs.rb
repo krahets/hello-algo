@@ -8,24 +8,24 @@ require 'set'
 require_relative './graph_adjacency_list'
 require_relative '../utils/vertex'
 
-### Depth-first traversal helper function ###
+### Helper for depth-first traversal ###
 def dfs(graph, visited, res, vet)
   res << vet # Record the visited vertex
-  visited.add(vet) # Mark this vertex as visited
-  # Traverse all neighbors of this vertex
+  visited.add(vet) # Mark the vertex as visited
+  # Iterate over all neighbors of this vertex
   for adj_vet in graph.adj_list[vet]
-    next if visited.include?(adj_vet) # Skip vertices that have already been visited
-    # Recursively visit the neighboring vertex
+    next if visited.include?(adj_vet) # Skip visited vertices
+    # Visit neighbors recursively
     dfs(graph, visited, res, adj_vet)
   end
 end
 
 ### Depth-first traversal ###
 def graph_dfs(graph, start_vet)
-  # Represent the graph with an adjacency list to access all neighbors of a given vertex
-  # Vertex traversal sequence
+  # Represent the graph with an adjacency list to look up all neighbors of a given vertex
+  # Vertex traversal order
   res = []
-  # Hash set recording visited vertices
+  # Use a hash set to track visited vertices
   visited = Set.new
   dfs(graph, visited, res, start_vet)
   res
@@ -33,7 +33,7 @@ end
 
 ### Driver code ###
 if __FILE__ == $0
-  # Initialize the undirected graph
+  # Initialize an undirected graph
   v = vals_to_vets([0, 1, 2, 3, 4, 5, 6])
   edges = [
     [v[0], v[1]],
@@ -49,6 +49,6 @@ if __FILE__ == $0
 
   # Depth-first traversal
   res = graph_dfs(graph, v[0])
-  puts "\nVertex sequence from depth-first traversal (DFS):"
+  puts "\nDepth-first search (DFS) visits the vertices in this order:"
   p vets_to_vals(res)
 end

@@ -11,26 +11,26 @@ import java.util.*
 
 fun testPush(heap: Queue<Int>, _val: Int) {
     heap.offer(_val) // Push an element onto the heap
-    print("\nAfter pushing $_val onto the heap:\n")
+    print("\nHeap after pushing $_val:\n")
     printHeap(heap)
 }
 
 fun testPop(heap: Queue<Int>) {
-    val _val = heap.poll() // Pop the top element from the heap
-    print("\nAfter popping the top element $_val from the heap:\n")
+    val _val = heap.poll() // Pop the root
+    print("\nHeap after popping the root ($_val):\n")
     printHeap(heap)
 }
 
 /* Driver code */
 fun main() {
-    /* Initialize heaps */
-    // Initialize a min heap
+    /* Initialize the heap */
+    // Initialize a min-heap
     var minHeap = PriorityQueue<Int>()
 
-    // Initialize a max heap by supplying a lambda expression as the Comparator
+    // Initialize a max-heap using a lambda expression to customize the Comparator
     val maxHeap = PriorityQueue { a: Int, b: Int -> b - a }
 
-    println("\nThe following example uses a max heap")
+    println("\nThe following example uses a max-heap")
 
     /* Push an element onto the heap */
     testPush(maxHeap, 1)
@@ -39,11 +39,11 @@ fun main() {
     testPush(maxHeap, 5)
     testPush(maxHeap, 4)
 
-    /* Get the top element of the heap */
+    /* Get the root element */
     val peek = maxHeap.peek()
-    print("\nTop element of the heap: $peek\n")
+    print("\nRoot element: $peek\n")
 
-    /* Pop the top element from the heap */
+    /* Pop the root */
     testPop(maxHeap)
     testPop(maxHeap)
     testPop(maxHeap)
@@ -58,9 +58,9 @@ fun main() {
     val isEmpty = maxHeap.isEmpty()
     print("\nIs the heap empty? $isEmpty\n")
 
-    /* Build a heap from an input list */
-    // The time complexity is O(n), not O(nlogn)
+    /* Build a heap from the input list */
+    // The time complexity is O(n), rather than O(nlogn)
     minHeap = PriorityQueue(mutableListOf<Int?>(1, 3, 2, 5, 4))
-    println("\nAfter building a min heap from the input list:")
+    println("\nMin-heap built from the input list:")
     printHeap(minHeap)
 }

@@ -6,15 +6,15 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/list_node'
 
-### 基於鏈結串列頭現的佇列 ###
+### 以鏈結串列實作佇列 ###
 class LinkedListQueue
-  ### 獲取佇列的長度 ###
+  ### 取得佇列長度 ###
   attr_reader :size
 
-  ### 建構子 ###
+  ### 初始化方法 ###
   def initialize
-    @front = nil  # 頭節點 front
-    @rear = nil   # 尾節點 rear
+    @front = nil  # @front 指向首節點
+    @rear = nil   # @rear 指向尾節點
     @size = 0
   end
 
@@ -23,16 +23,16 @@ class LinkedListQueue
     @front.nil?
   end
 
-  ### 入列 ###
+  ### 入隊 ###
   def push(num)
-    # 在尾節點後新增 num
+    # 建立存有 num 的新節點，準備接到隊尾
     node = ListNode.new(num)
 
-    # 如果佇列為空，則令頭，尾節點都指向該節點
+    # 若佇列為空，讓隊首與隊尾都指向新節點
     if @front.nil?
       @front = node
       @rear = node
-    # 如果佇列不為空，則令該節點新增到尾節點後
+    # 若佇列非空，將新節點接在尾節點之後
     else
       @rear.next = node
       @rear = node
@@ -41,23 +41,23 @@ class LinkedListQueue
     @size += 1
   end
 
-  ### 出列 ###
+  ### 出隊 ###
   def pop
     num = peek
-    # 刪除頭節點
+    # 移除首節點
     @front = @front.next
     @size -= 1
     num
   end
 
-  ### 訪問佇列首元素 ###
+  ### 讀取隊首元素 ###
   def peek
     raise IndexError, '佇列為空' if is_empty?
 
     @front.val
   end
 
-  ### 將鏈結串列為 Array 並返回 ###
+  ### 將鏈結串列轉成 Array 並回傳 ###
   def to_array
     queue = []
     temp = @front
@@ -69,12 +69,12 @@ class LinkedListQueue
   end
 end
 
-### Driver Code ###
+### 範例程式 ###
 if __FILE__ == $0
   # 初始化佇列
   queue = LinkedListQueue.new
 
-  # 元素入列
+  # 將元素加入佇列
   queue.push(1)
   queue.push(3)
   queue.push(2)
@@ -82,16 +82,16 @@ if __FILE__ == $0
   queue.push(4)
   puts "佇列 queue = #{queue.to_array}"
 
-  # 訪問佇列首元素
+  # 讀取隊首元素
   peek = queue.peek
-  puts "佇列首元素 front = #{peek}"
+  puts "隊首元素 front = #{peek}"
 
-  # 元素出列
+  # 從佇列取出元素
   pop_front = queue.pop
-  puts "出列元素 pop = #{pop_front}"
-  puts "出列後 queue = #{queue.to_array}"
+  puts "出隊元素 pop = #{pop_front}"
+  puts "出隊後 queue = #{queue.to_array}"
 
-  # 獲取佇列的長度
+  # 取得佇列長度
   size = queue.size
   puts "佇列長度 size = #{size}"
 

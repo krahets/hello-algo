@@ -10,24 +10,24 @@ fn recur(n: i32) i32 {
     if (n == 1) {
         return 1;
     }
-    // Recurse: make a recursive call
+    // Descend: make a recursive call
     const res = recur(n - 1);
     // Unwind: return the result
     return n + res;
 }
 
-// Simulate recursion using iteration
+// Simulate recursion with iteration
 fn forLoopRecur(comptime n: i32) i32 {
-    // Use an explicit stack to simulate the system call stack
+    // Use an explicit stack to simulate the call stack
     var stack: [n]i32 = undefined;
     var res: i32 = 0;
-    // Simulate recursive descent by filling the explicit stack
+    // Descend: make a recursive call
     var i: usize = n;
     while (i > 0) {
         stack[i - 1] = @intCast(i);
         i -= 1;
     }
-    // Simulate unwinding by accumulating the stored values
+    // Unwind: return the result
     var index: usize = n;
     while (index > 0) {
         index -= 1;
@@ -43,7 +43,7 @@ fn tailRecur(n: i32, res: i32) i32 {
     if (n == 0) {
         return res;
     }
-    // Tail-recursive call
+    // Tail call
     return tailRecur(n - 1, res + n);
 }
 
@@ -59,22 +59,22 @@ fn fib(n: i32) i32 {
     return res;
 }
 
-// Driver code
+// Driver Code
 pub fn run() void {
     const n: i32 = 5;
     var res: i32 = 0;
 
     res = recur(n);
-    std.debug.print("Sum computed by recursion: res = {}\n", .{recur(n)});
+    std.debug.print("Recursive sum: res = {}\n", .{recur(n)});
 
     res = forLoopRecur(n);
-    std.debug.print("Sum computed by simulating recursion with iteration: res = {}\n", .{forLoopRecur(n)});
+    std.debug.print("Sum using simulated recursion: res = {}\n", .{forLoopRecur(n)});
 
     res = tailRecur(n, 0);
-    std.debug.print("Sum computed by tail recursion: res = {}\n", .{tailRecur(n, 0)});
+    std.debug.print("Tail-recursive sum: res = {}\n", .{tailRecur(n, 0)});
 
     res = fib(n);
-    std.debug.print("Term {} of the Fibonacci sequence is {}\n", .{ n, fib(n) });
+    std.debug.print("Fibonacci term {} is {}\n", .{ n, fib(n) });
 
     std.debug.print("\n", .{});
 }

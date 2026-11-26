@@ -1,0 +1,153 @@
+{
+  "animations": {
+    "selection-sort": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "frame_id": "source-241",
+          "id": "step-1"
+        },
+        {
+          "frame_id": "source-242",
+          "id": "step-2"
+        },
+        {
+          "frame_id": "source-243",
+          "id": "step-3"
+        },
+        {
+          "frame_id": "source-244",
+          "id": "step-4"
+        },
+        {
+          "frame_id": "source-245",
+          "id": "step-5"
+        },
+        {
+          "frame_id": "source-246",
+          "id": "step-6"
+        },
+        {
+          "frame_id": "source-247",
+          "id": "step-7"
+        },
+        {
+          "frame_id": "source-248",
+          "id": "step-8"
+        },
+        {
+          "frame_id": "source-249",
+          "id": "step-9"
+        },
+        {
+          "frame_id": "source-250",
+          "id": "step-10"
+        },
+        {
+          "frame_id": "source-251",
+          "id": "step-11"
+        }
+      ]
+    }
+  },
+  "context": [
+    "待排序陣列為 nums = [4, 1, 3, 1, 5, 2]，共有 6 個元素，索引從 0 到 5，目標是依非遞減順序排列。",
+    "每輪由指標 i 指向目前「未排序區間」的第一個元素，指標 k 記錄從該區間選出的最小元素的索引。綠色表示未排序部分，左側灰色方格表示已排序前綴，上方的大括號標出目前的「未排序區間」。確定 k 後，將最小元素 nums[k] 與區間的第一個元素 nums[i] 交換，使已排序前綴向右擴大一格。"
+  ],
+  "description": [
+    "圖中共有十一個畫面。前十個分為五輪，每輪各有一個選擇畫面和一個交換畫面。選擇畫面直接顯示掃描完畢時的 i、k，省略內層迴圈逐格比較的過程。交換畫面顯示交換後的陣列，以上下兩條弧線標出剛交換的位置，並隱藏 i、k 的指標文字。第十一個畫面顯示尾端只剩一個元素，無須執行第六輪。"
+  ],
+  "frames": [
+    {
+      "announcement": "第 1 輪在未排序區間 [0, 5] 內選出索引 k = 1 的最小元素 1。",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step1.png",
+      "explanation": "第 1 輪選擇：目前 nums = [4, 1, 3, 1, 5, 2]。掃描未排序的索引區間 [0, 5] 後，i = 0 指向第一個元素 4，k = 1 指向最小值 1。兩個 1 分別位於索引 1、3，因為只有遇到嚴格較小的值才更新 k，所以保留較靠左的 k = 1。此時尚無已排序前綴。尚未交換。",
+      "id": "source-241",
+      "key_state": "第 1 輪已選擇，尚未交換。nums = [4, 1, 3, 1, 5, 2]，未排序的索引區間為 [0, 5]，i = 0，k = 1，最小值為 1。",
+      "title": "選出索引 1 的最小值 1"
+    },
+    {
+      "announcement": "交換索引 0 的 4 與索引 1 的 1，將最小元素 1 固定在索引 0。",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step2.png",
+      "explanation": "第 1 輪交換：將未排序索引區間 [0, 5] 的最小值 1（索引 1）與第一個元素 4（索引 0）交換。目前 nums = [1, 4, 3, 1, 5, 2]。灰色的已排序前綴位於索引 0，其值為 [1]。未排序的索引區間為 [1, 5]，其值為 [4, 3, 1, 5, 2]。",
+      "id": "source-242",
+      "key_state": "第 1 輪交換完成。nums = [1, 4, 3, 1, 5, 2]，索引 0 的元素已就位，未排序的索引區間為 [1, 5]。",
+      "title": "交換索引 0 與 1 的元素"
+    },
+    {
+      "announcement": "第 2 輪在未排序區間 [1, 5] 內選出索引 k = 3 的最小元素 1。",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step3.png",
+      "explanation": "第 2 輪選擇：目前 nums = [1, 4, 3, 1, 5, 2]。掃描未排序的索引區間 [1, 5] 後，i = 1 指向第一個元素 4，k = 3 指向最小值 1。已排序前綴位於索引 0，其值為 [1]。尚未交換。",
+      "id": "source-243",
+      "key_state": "第 2 輪已選擇，尚未交換。nums = [1, 4, 3, 1, 5, 2]，未排序的索引區間為 [1, 5]，i = 1，k = 3，最小值為 1。",
+      "title": "選出索引 3 的最小值 1"
+    },
+    {
+      "announcement": "交換索引 1 的 4 與索引 3 的 1，將第二個 1 固定在索引 1。",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step4.png",
+      "explanation": "第 2 輪交換：將未排序索引區間 [1, 5] 的最小值 1（索引 3）與第一個元素 4（索引 1）交換。目前 nums = [1, 1, 3, 4, 5, 2]。灰色的已排序前綴位於索引 0 至 1，其值為 [1, 1]。未排序的索引區間為 [2, 5]，其值為 [3, 4, 5, 2]。",
+      "id": "source-244",
+      "key_state": "第 2 輪交換完成。nums = [1, 1, 3, 4, 5, 2]，索引 0 至 1 的元素已就位，未排序的索引區間為 [2, 5]。",
+      "title": "交換索引 1 與 3 的元素"
+    },
+    {
+      "announcement": "第 3 輪在未排序區間 [2, 5] 內選出索引 k = 5 的最小元素 2。",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step5.png",
+      "explanation": "第 3 輪選擇：目前 nums = [1, 1, 3, 4, 5, 2]。掃描未排序的索引區間 [2, 5] 後，i = 2 指向第一個元素 3，k = 5 指向最小值 2。已排序前綴位於索引 0 至 1，其值為 [1, 1]。尚未交換。",
+      "id": "source-245",
+      "key_state": "第 3 輪已選擇，尚未交換。nums = [1, 1, 3, 4, 5, 2]，未排序的索引區間為 [2, 5]，i = 2，k = 5，最小值為 2。",
+      "title": "選出索引 5 的最小值 2"
+    },
+    {
+      "announcement": "交換索引 2 的 3 與索引 5 的 2，將元素 2 固定在索引 2。",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step6.png",
+      "explanation": "第 3 輪交換：將未排序索引區間 [2, 5] 的最小值 2（索引 5）與第一個元素 3（索引 2）交換。目前 nums = [1, 1, 2, 4, 5, 3]。灰色的已排序前綴位於索引 0 至 2，其值為 [1, 1, 2]。未排序的索引區間為 [3, 5]，其值為 [4, 5, 3]。",
+      "id": "source-246",
+      "key_state": "第 3 輪交換完成。nums = [1, 1, 2, 4, 5, 3]，索引 0 至 2 的元素已就位，未排序的索引區間為 [3, 5]。",
+      "title": "交換索引 2 與 5 的元素"
+    },
+    {
+      "announcement": "第 4 輪在未排序區間 [3, 5] 內選出索引 k = 5 的最小元素 3。",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step7.png",
+      "explanation": "第 4 輪選擇：目前 nums = [1, 1, 2, 4, 5, 3]。掃描未排序的索引區間 [3, 5] 後，i = 3 指向第一個元素 4，k = 5 指向最小值 3。已排序前綴位於索引 0 至 2，其值為 [1, 1, 2]。尚未交換。",
+      "id": "source-247",
+      "key_state": "第 4 輪已選擇，尚未交換。nums = [1, 1, 2, 4, 5, 3]，未排序的索引區間為 [3, 5]，i = 3，k = 5，最小值為 3。",
+      "title": "選出索引 5 的最小值 3"
+    },
+    {
+      "announcement": "交換索引 3 的 4 與索引 5 的 3，將元素 3 固定在索引 3。",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step8.png",
+      "explanation": "第 4 輪交換：將未排序索引區間 [3, 5] 的最小值 3（索引 5）與第一個元素 4（索引 3）交換。目前 nums = [1, 1, 2, 3, 5, 4]。灰色的已排序前綴位於索引 0 至 3，其值為 [1, 1, 2, 3]。未排序的索引區間為 [4, 5]，其值為 [5, 4]。",
+      "id": "source-248",
+      "key_state": "第 4 輪交換完成。nums = [1, 1, 2, 3, 5, 4]，索引 0 至 3 的元素已就位，未排序的索引區間為 [4, 5]。",
+      "title": "交換索引 3 與 5 的元素"
+    },
+    {
+      "announcement": "第 5 輪在未排序區間 [4, 5] 內選出索引 k = 5 的最小元素 4。",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step9.png",
+      "explanation": "第 5 輪選擇：目前 nums = [1, 1, 2, 3, 5, 4]。掃描未排序的索引區間 [4, 5] 後，i = 4 指向第一個元素 5，k = 5 指向最小值 4。已排序前綴位於索引 0 至 3，其值為 [1, 1, 2, 3]。尚未交換。",
+      "id": "source-249",
+      "key_state": "第 5 輪已選擇，尚未交換。nums = [1, 1, 2, 3, 5, 4]，未排序的索引區間為 [4, 5]，i = 4，k = 5，最小值為 4。",
+      "title": "選出索引 5 的最小值 4"
+    },
+    {
+      "announcement": "交換索引 4 的 5 與索引 5 的 4，將元素 4 固定在索引 4。",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step10.png",
+      "explanation": "第 5 輪交換：將未排序索引區間 [4, 5] 的最小值 4（索引 5）與第一個元素 5（索引 4）交換。目前 nums = [1, 1, 2, 3, 4, 5]。灰色的已排序前綴位於索引 0 至 4，其值為 [1, 1, 2, 3, 4]。未排序的索引區間為 [5, 5]，其值為 [5]。",
+      "id": "source-250",
+      "key_state": "第 5 輪交換完成。nums = [1, 1, 2, 3, 4, 5]，索引 0 至 4 的元素已就位，未排序的索引區間為 [5, 5]。",
+      "title": "交換索引 4 與 5 的元素"
+    },
+    {
+      "announcement": "未排序區間只剩最後一個元素 5，無須再選，選擇排序完成。",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step11.png",
+      "explanation": "五輪後 nums = [1, 1, 2, 3, 4, 5]。灰色的已排序前綴涵蓋索引 0 至 4。索引 5 的綠色元素 5 仍標在單元素未排序區間 [5, 5] 中，但它必定是最大值，也已位於正確位置。圖中文字說明「排序完成（剩下一個元素，無須排序）」，指標 i、k 均已隱藏。",
+      "id": "source-251",
+      "key_state": "五輪結束，剩下的尾端元素 5 自然就位，最終的已排序陣列為 [1, 1, 2, 3, 4, 5]。",
+      "title": "排序完成"
+    }
+  ],
+  "schema_version": 2,
+  "summary": "每輪從未排序區間選出最小元素，與區間的第一個元素交換，使已排序前綴增加一個元素。",
+  "title": "選擇排序"
+}

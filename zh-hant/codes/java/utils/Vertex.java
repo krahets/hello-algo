@@ -16,7 +16,7 @@ public class Vertex {
         this.val = val;
     }
 
-    /* 輸入值串列 vals ，返回頂點串列 vets */
+    /* 傳入數值陣列 vals，回傳頂點陣列 vets */
     public static Vertex[] valsToVets(int[] vals) {
         Vertex[] vets = new Vertex[vals.length];
         for (int i = 0; i < vals.length; i++) {
@@ -25,7 +25,7 @@ public class Vertex {
         return vets;
     }
 
-    /* 輸入頂點串列 vets ，返回值串列 vals */
+    /* 傳入頂點串列 vets，回傳數值串列 vals */
     public static List<Integer> vetsToVals(List<Vertex> vets) {
         List<Integer> vals = new ArrayList<>();
         for (Vertex vet : vets) {

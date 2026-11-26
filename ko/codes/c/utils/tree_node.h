@@ -19,8 +19,8 @@ extern "C" {
 typedef struct TreeNode {
     int val;                // 노드 값
     int height;             // 노드 높이
-    struct TreeNode *left;  // 왼쪽 자식 노드 포인터
-    struct TreeNode *right; // 오른쪽 자식 노드 포인터
+    struct TreeNode *left;  // 왼쪽 자식 노드를 가리키는 포인터
+    struct TreeNode *right; // 오른쪽 자식 노드를 가리키는 포인터
 } TreeNode;
 
 /* 생성자 */
@@ -35,7 +35,7 @@ TreeNode *newTreeNode(int val) {
     return node;
 }
 
-// 직렬화 인코딩 규칙은 다음을 참고한다:
+// 직렬화 인코딩 규칙은 다음을 참고한다.
 // https://www.hello-algo.com/ko/chapter_tree/array_representation_of_tree/
 // 이진 트리의 배열 표현:
 // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
@@ -51,7 +51,7 @@ TreeNode *newTreeNode(int val) {
 //         \——— 4
 //             \——— 8
 
-/* 리스트를 이진 트리로 역직렬화: 재귀 */
+/* 재귀로 리스트를 이진 트리로 역직렬화 */
 TreeNode *arrayToTreeDFS(int *arr, int size, int i) {
     if (i < 0 || i >= size || arr[i] == INT_MAX) {
         return NULL;
@@ -68,7 +68,7 @@ TreeNode *arrayToTree(int *arr, int size) {
     return arrayToTreeDFS(arr, size, 0);
 }
 
-/* 이진 트리를 리스트로 직렬화: 재귀 */
+/* 재귀로 이진 트리를 리스트로 직렬화 */
 void treeToArrayDFS(TreeNode *root, int i, int *res, int *size) {
     if (root == NULL) {
         return;
@@ -91,7 +91,7 @@ int *treeToArray(TreeNode *root, int *size) {
     return res;
 }
 
-/* 이진 트리의 메모리를 해제한다 */
+/* 이진 트리에 할당한 메모리 해제 */
 void freeMemoryTree(TreeNode *root) {
     if (root == NULL)
         return;

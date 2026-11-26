@@ -12,15 +12,15 @@ def function() -> int:
     return 0
 
 def algorithm(n) -> int:  # Input data
-    A = 0                 # Temporary data (constant, conventionally named in uppercase)
+    A = 0                 # Temporary data (constant, usually named in uppercase)
     b = 0                 # Temporary data (variable)
     node = Node(0)        # Temporary data (object)
-    c = function()        # Stack frame (function call)
+    c = function()        # Stack frame space (function call)
     return A + b + c      # Output data
 ```
 
 ```cpp title=""
-/* Structure */
+/* Struct */
 struct Node {
     int val;
     Node *next;
@@ -37,7 +37,7 @@ int algorithm(int n) {        // Input data
     const int a = 0;          // Temporary data (constant)
     int b = 0;                // Temporary data (variable)
     Node* node = new Node(0); // Temporary data (object)
-    int c = func();           // Stack frame (function call)
+    int c = func();           // Stack frame space (function call)
     return a + b + c;         // Output data
 }
 ```
@@ -60,7 +60,7 @@ int algorithm(int n) {        // Input data
     final int a = 0;          // Temporary data (constant)
     int b = 0;                // Temporary data (variable)
     Node node = new Node(0);  // Temporary data (object)
-    int c = function();       // Stack frame (function call)
+    int c = function();       // Stack frame space (function call)
     return a + b + c;         // Output data
 }
 ```
@@ -82,19 +82,19 @@ int Algorithm(int n) {        // Input data
     const int a = 0;          // Temporary data (constant)
     int b = 0;                // Temporary data (variable)
     Node node = new(0);       // Temporary data (object)
-    int c = Function();       // Stack frame (function call)
+    int c = Function();       // Stack frame space (function call)
     return a + b + c;         // Output data
 }
 ```
 
 ```go title=""
-/* Structure */
+/* Struct */
 type node struct {
     val  int
     next *node
 }
 
-/* Create a node structure  */
+/* Create a node struct  */
 func newNode(val int) *node {
     return &node{val: val}
 }
@@ -109,7 +109,7 @@ func algorithm(n int) int { // Input data
     const a = 0             // Temporary data (constant)
     b := 0                  // Temporary data (variable)
     newNode(0)              // Temporary data (object)
-    c := function()         // Stack frame (function call)
+    c := function()         // Stack frame space (function call)
     return a + b + c        // Output data
 }
 ```
@@ -135,7 +135,7 @@ func algorithm(n: Int) -> Int { // Input data
     let a = 0             // Temporary data (constant)
     var b = 0             // Temporary data (variable)
     let node = Node(x: 0) // Temporary data (object)
-    let c = function()    // Stack frame (function call)
+    let c = function()    // Stack frame space (function call)
     return a + b + c      // Output data
 }
 ```
@@ -161,7 +161,7 @@ function algorithm(n) {       // Input data
     const a = 0;              // Temporary data (constant)
     let b = 0;                // Temporary data (variable)
     const node = new Node(0); // Temporary data (object)
-    const c = constFunc();    // Stack frame (function call)
+    const c = constFunc();    // Stack frame space (function call)
     return a + b + c;         // Output data
 }
 ```
@@ -187,7 +187,7 @@ function algorithm(n: number): number { // Input data
     const a = 0;                        // Temporary data (constant)
     let b = 0;                          // Temporary data (variable)
     const node = new Node(0);           // Temporary data (object)
-    const c = constFunc();              // Stack frame (function call)
+    const c = constFunc();              // Stack frame space (function call)
     return a + b + c;                   // Output data
 }
 ```
@@ -210,7 +210,7 @@ int algorithm(int n) {  // Input data
   const int a = 0;      // Temporary data (constant)
   int b = 0;            // Temporary data (variable)
   Node node = Node(0);  // Temporary data (object)
-  int c = function();   // Stack frame (function call)
+  int c = function();   // Stack frame space (function call)
   return a + b + c;     // Output data
 }
 ```
@@ -219,13 +219,13 @@ int algorithm(int n) {  // Input data
 use std::rc::Rc;
 use std::cell::RefCell;
 
-/* Structure */
+/* Struct */
 struct Node {
     val: i32,
     next: Option<Rc<RefCell<Node>>>,
 }
 
-/* Create a Node structure */
+/* Create a Node struct */
 impl Node {
     fn new(val: i32) -> Self {
         Self { val: val, next: None }
@@ -242,7 +242,7 @@ fn algorithm(n: i32) -> i32 {       // Input data
     const a: i32 = 0;               // Temporary data (constant)
     let mut b = 0;                  // Temporary data (variable)
     let node = Node::new(0);        // Temporary data (object)
-    let c = function();             // Stack frame (function call)
+    let c = function();             // Stack frame space (function call)
     return a + b + c;               // Output data
 }
 ```
@@ -257,7 +257,7 @@ int func() {
 int algorithm(int n) { // Input data
     const int a = 0;   // Temporary data (constant)
     int b = 0;         // Temporary data (variable)
-    int c = func();    // Stack frame (function call)
+    int c = func();    // Stack frame space (function call)
     return a + b + c;  // Output data
 }
 ```
@@ -278,7 +278,7 @@ fun algorithm(n: Int): Int { // Input data
     val a = 0                // Temporary data (constant)
     var b = 0                // Temporary data (variable)
     val node = Node(0)       // Temporary data (object)
-    val c = function()       // Stack frame (function call)
+    val c = function()       // Stack frame space (function call)
     return a + b + c         // Output data
 }
 ```
@@ -305,7 +305,7 @@ def algorithm(n)        # Input data
     a = 0               # Temporary data (constant)
     b = 0               # Temporary data (variable)
     node = Node.new(0)  # Temporary data (object)
-    c = function        # Stack frame (function call)
+    c = function        # Stack frame space (function call)
     a + b + c           # Output data
 end
 ```
@@ -450,7 +450,7 @@ def loop(n: int):
         function()
 
 def recur(n: int):
-    """The recursion uses O(n) space"""
+    """Recursion uses O(n) space"""
     if n == 1:
         return
     return recur(n - 1)
@@ -467,7 +467,7 @@ void loop(int n) {
         func();
     }
 }
-/* The recursion uses O(n) space */
+/* Recursion uses O(n) space */
 void recur(int n) {
     if (n == 1) return;
     recur(n - 1);
@@ -485,7 +485,7 @@ void loop(int n) {
         function();
     }
 }
-/* The recursion uses O(n) space */
+/* Recursion uses O(n) space */
 void recur(int n) {
     if (n == 1) return;
     recur(n - 1);
@@ -503,7 +503,7 @@ void Loop(int n) {
         Function();
     }
 }
-/* The recursion uses O(n) space */
+/* Recursion uses O(n) space */
 int Recur(int n) {
     if (n == 1) return 1;
     return Recur(n - 1);
@@ -523,7 +523,7 @@ func loop(n int) {
     }
 }
 
-/* The recursion uses O(n) space */
+/* Recursion uses O(n) space */
 func recur(n int) {
     if n == 1 {
         return
@@ -546,7 +546,7 @@ func loop(n: Int) {
     }
 }
 
-/* The recursion uses O(n) space */
+/* Recursion uses O(n) space */
 func recur(n: Int) {
     if n == 1 {
         return
@@ -566,7 +566,7 @@ function loop(n) {
         constFunc();
     }
 }
-/* The recursion uses O(n) space */
+/* Recursion uses O(n) space */
 function recur(n) {
     if (n === 1) return;
     return recur(n - 1);
@@ -584,7 +584,7 @@ function loop(n: number): void {
         constFunc();
     }
 }
-/* The recursion uses O(n) space */
+/* Recursion uses O(n) space */
 function recur(n: number): void {
     if (n === 1) return;
     return recur(n - 1);
@@ -602,7 +602,7 @@ void loop(int n) {
     function();
   }
 }
-/* The recursion uses O(n) space */
+/* Recursion uses O(n) space */
 void recur(int n) {
   if (n == 1) return;
   recur(n - 1);
@@ -620,7 +620,7 @@ fn for_loop(n: i32) {
         function();
     }
 }
-/* The recursion uses O(n) space */
+/* Recursion uses O(n) space */
 fn recur(n: i32) {
     if n == 1 {
         return;
@@ -640,7 +640,7 @@ void loop(int n) {
         func();
     }
 }
-/* The recursion uses O(n) space */
+/* Recursion uses O(n) space */
 void recur(int n) {
     if (n == 1) return;
     recur(n - 1);
@@ -658,7 +658,7 @@ fun loop(n: Int) {
         function()
     }
 }
-/* The recursion uses O(n) space */
+/* Recursion uses O(n) space */
 fun recur(n: Int) {
     if (n == 1) return
     return recur(n - 1)
@@ -676,7 +676,7 @@ def loop(n)
     (0...n).each { function }
 end
 
-### The recursion uses O(n) space ###
+### Recursion uses O(n) space ###
 def recur(n)
     return if n == 1
     recur(n - 1)

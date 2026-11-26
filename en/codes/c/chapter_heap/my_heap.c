@@ -8,7 +8,7 @@
 
 #define MAX_SIZE 5000
 
-/* Max heap */
+/* Max-heap */
 typedef struct {
     // size is the actual number of elements
     int size;
@@ -16,19 +16,19 @@ typedef struct {
     int data[MAX_SIZE];
 } MaxHeap;
 
-// Function declaration
+// Function declarations
 void siftDown(MaxHeap *maxHeap, int i);
 void siftUp(MaxHeap *maxHeap, int i);
 int parent(MaxHeap *maxHeap, int i);
 
-/* Constructor: build a heap from the input array */
+/* Constructor: build a heap from a slice */
 MaxHeap *newMaxHeap(int nums[], int size) {
-    // Place all elements in the heap
+    // Push all elements onto the heap
     MaxHeap *maxHeap = (MaxHeap *)malloc(sizeof(MaxHeap));
     maxHeap->size = size;
     memcpy(maxHeap->data, nums, size * sizeof(int));
     for (int i = parent(maxHeap, size - 1); i >= 0; i--) {
-        // Sift down from every non-leaf node
+        // Heapify all non-leaf nodes
         siftDown(maxHeap, i);
     }
     return maxHeap;
@@ -36,7 +36,7 @@ MaxHeap *newMaxHeap(int nums[], int size) {
 
 /* Destructor */
 void delMaxHeap(MaxHeap *maxHeap) {
-    // Free memory
+    // Free the memory
     free(maxHeap);
 }
 
@@ -52,7 +52,7 @@ int right(MaxHeap *maxHeap, int i) {
 
 /* Get the parent index */
 int parent(MaxHeap *maxHeap, int i) {
-    return (i - 1) / 2; // Integer division truncates toward zero
+    return (i - 1) / 2; // Round down
 }
 
 /* Swap elements */
@@ -72,16 +72,16 @@ int isEmpty(MaxHeap *maxHeap) {
     return maxHeap->size == 0;
 }
 
-/* Access the top element of the heap */
+/* Peek at the root */
 int peek(MaxHeap *maxHeap) {
     return maxHeap->data[0];
 }
 
 /* Push an element onto the heap */
 void push(MaxHeap *maxHeap, int val) {
-    // Normally, the number of nodes should remain below this limit
+    // The default capacity should be enough for the expected number of nodes
     if (maxHeap->size == MAX_SIZE) {
-        printf("Heap is full!");
+        printf("heap is full!");
         return;
     }
     // Add a node
@@ -96,25 +96,25 @@ void push(MaxHeap *maxHeap, int val) {
 int pop(MaxHeap *maxHeap) {
     // Handle an empty heap
     if (isEmpty(maxHeap)) {
-        printf("Heap is empty!");
+        printf("heap is empty!");
         return INT_MAX;
     }
-    // Swap the root with the rightmost leaf on the last level (swap the first and last elements)
+    // Swap the root and the rightmost leaf (the first and last elements)
     swap(maxHeap, 0, size(maxHeap) - 1);
-    // Remove a node
+    // Remove the node
     int val = maxHeap->data[maxHeap->size - 1];
     maxHeap->size--;
     // Sift down
     siftDown(maxHeap, 0);
 
-    // Return the top element of the heap
+    // Return the root element
     return val;
 }
 
-/* Sift down starting from node i */
+/* Sift down from node i */
 void siftDown(MaxHeap *maxHeap, int i) {
     while (true) {
-        // Find the node with the largest value among i, l, and r, and store its index in max
+        // Store the index of the largest of nodes i, l, and r in max
         int l = left(maxHeap, i);
         int r = right(maxHeap, i);
         int max = i;
@@ -124,7 +124,7 @@ void siftDown(MaxHeap *maxHeap, int i) {
         if (r < size(maxHeap) && maxHeap->data[r] > maxHeap->data[max]) {
             max = r;
         }
-        // Stop if node i is largest or both child indices l and r are out of bounds
+        // Stop if i is already largest or both child indices l and r are out of bounds
         if (max == i) {
             break;
         }
@@ -135,12 +135,12 @@ void siftDown(MaxHeap *maxHeap, int i) {
     }
 }
 
-/* Sift up starting from node i */
+/* Sift up from node i */
 void siftUp(MaxHeap *maxHeap, int i) {
     while (true) {
         // Get the parent of node i
         int p = parent(maxHeap, i);
-        // Stop sifting when the root has been passed or the node needs no repair
+        // Stop sifting at the root or when the node already satisfies the heap property
         if (p < 0 || maxHeap->data[i] <= maxHeap->data[p]) {
             break;
         }

@@ -7,43 +7,43 @@
 use hello_algo_rust::include::print_util;
 use std::collections::VecDeque;
 
-/* Driver Code */
+/* Пример использования */
 pub fn main() {
-    // Инициализация двусторонней очереди
+    // Инициализировать дек
     let mut deque: VecDeque<i32> = VecDeque::new();
     deque.push_back(3);
     deque.push_back(2);
     deque.push_back(5);
-    print!("Двусторонняя очередь deque = ");
+    print!("Дек deque = ");
     print_util::print_queue(&deque);
 
-    // Доступ к элементу
+    // Посмотреть первый и последний элементы
     let peek_first = deque.front().unwrap();
-    print!("\nПервый элемент peekFirst = {peek_first}");
+    print!("\nПервый элемент дека peekFirst = {peek_first}");
     let peek_last = deque.back().unwrap();
-    print!("\nПоследний элемент peekLast = {peek_last}");
+    print!("\nПоследний элемент дека peekLast = {peek_last}");
 
-    /* Добавление элемента в очередь */
+    /* Добавить элементы в дек */
     deque.push_back(4);
-    print!("\nПосле добавления элемента 4 в хвост deque = ");
+    print!("\nПосле добавления 4 в конец дека deque = ");
     print_util::print_queue(&deque);
     deque.push_front(1);
-    print!("\nПосле добавления элемента 1 в голову deque = ");
+    print!("\nПосле добавления 1 в начало дека deque = ");
     print_util::print_queue(&deque);
 
-    // Извлечение элемента из очереди
+    // Извлечь элементы из дека
     let pop_last = deque.pop_back().unwrap();
-    print!("\nИзвлеченный из хвоста элемент = {pop_last}, deque после извлечения из хвоста = ");
+    print!("\nИзвлечённый последний элемент = {pop_last}, после извлечения deque = ");
     print_util::print_queue(&deque);
     let pop_first = deque.pop_front().unwrap();
-    print!("\nИзвлеченный из головы элемент = {pop_first}, deque после извлечения из головы = ");
+    print!("\nИзвлечённый первый элемент = {pop_first}, после извлечения deque = ");
     print_util::print_queue(&deque);
 
-    // Получение длины двусторонней очереди
+    // Получить длину дека
     let size = deque.len();
-    print!("\nДлина двусторонней очереди size = {size}");
+    print!("\nДлина дека size = {size}");
 
-    // Проверка, пуста ли двусторонняя очередь
+    // Проверить, пуст ли дек
     let is_empty = deque.is_empty();
-    print!("\nПуста ли двусторонняя очередь = {is_empty}");
+    print!("\nДек пуст = {is_empty}");
 }

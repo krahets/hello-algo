@@ -36,7 +36,7 @@ func arrayTraversal(nums []int) int {
 /* 平方階 */
 func quadratic(n int) int {
 	count := 0
-	// 迴圈次數與資料大小 n 成平方關係
+	// 迴圈次數正比於資料大小 n 的平方
 	for i := 0; i < n; i++ {
 		for j := 0; j < n; j++ {
 			count++
@@ -45,26 +45,26 @@ func quadratic(n int) int {
 	return count
 }
 
-/* 平方階（泡沫排序） */
+/* 平方階（氣泡排序） */
 func bubbleSort(nums []int) int {
 	count := 0 // 計數器
-	// 外迴圈：未排序區間為 [0, i]
+	// 外層迴圈：未排序區間為 [0, i]
 	for i := len(nums) - 1; i > 0; i-- {
-		// 內迴圈：將未排序區間 [0, i] 中的最大元素交換至該區間的最右端
+		// 內層迴圈：藉由交換，將未排序區間 [0, i] 的最大元素移至最右端
 		for j := 0; j < i; j++ {
 			if nums[j] > nums[j+1] {
 				// 交換 nums[j] 與 nums[j + 1]
 				tmp := nums[j]
 				nums[j] = nums[j+1]
 				nums[j+1] = tmp
-				count += 3 // 元素交換包含 3 個單元操作
+				count += 3 // 交換元素需 3 個基本操作
 			}
 		}
 	}
 	return count
 }
 
-/* 指數階（迴圈實現）*/
+/* 指數階（迴圈實作）*/
 func exponential(n int) int {
 	count, base := 0, 1
 	// 細胞每輪一分為二，形成數列 1, 2, 4, 8, ..., 2^(n-1)
@@ -78,7 +78,7 @@ func exponential(n int) int {
 	return count
 }
 
-/* 指數階（遞迴實現）*/
+/* 指數階（遞迴實作）*/
 func expRecur(n int) int {
 	if n == 1 {
 		return 1
@@ -86,7 +86,7 @@ func expRecur(n int) int {
 	return expRecur(n-1) + expRecur(n-1) + 1
 }
 
-/* 對數階（迴圈實現）*/
+/* 對數階（迴圈實作）*/
 func logarithmic(n int) int {
 	count := 0
 	for n > 1 {
@@ -96,7 +96,7 @@ func logarithmic(n int) int {
 	return count
 }
 
-/* 對數階（遞迴實現）*/
+/* 對數階（遞迴實作）*/
 func logRecur(n int) int {
 	if n <= 1 {
 		return 0
@@ -116,13 +116,13 @@ func linearLogRecur(n int) int {
 	return count
 }
 
-/* 階乘階（遞迴實現） */
+/* 階乘階（遞迴實作） */
 func factorialRecur(n int) int {
 	if n == 0 {
 		return 1
 	}
 	count := 0
-	// 從 1 個分裂出 n 個
+	// 1 個呼叫分為 n 個
 	for i := 0; i < n; i++ {
 		count += factorialRecur(n - 1)
 	}

@@ -11,12 +11,12 @@
 extern "C" {
 #endif
 
-/* 頂点の構造体 */
+/* 頂点を表す構造体 */
 typedef struct {
     int val;
 } Vertex;
 
-/* コンストラクタ：新しいノードを初期化する */
+/* 新しいノードを初期化するコンストラクタ */
 Vertex *newVertex(int val) {
     Vertex *vet;
     vet = (Vertex *)malloc(sizeof(Vertex));

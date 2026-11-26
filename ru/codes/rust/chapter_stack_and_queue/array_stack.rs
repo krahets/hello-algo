@@ -12,53 +12,53 @@ struct ArrayStack<T> {
 }
 
 impl<T> ArrayStack<T> {
-    /* Инициализация стека */
+    /* Инициализировать стек */
     fn new() -> ArrayStack<T> {
         ArrayStack::<T> {
             stack: Vec::<T>::new(),
         }
     }
 
-    /* Получение длины стека */
+    /* Получить размер стека */
     fn size(&self) -> usize {
         self.stack.len()
     }
 
-    /* Проверка, пуст ли стек */
+    /* Проверить, пуст ли стек */
     fn is_empty(&self) -> bool {
         self.size() == 0
     }
 
-    /* Поместить в стек */
+    /* Поместить элемент в стек */
     fn push(&mut self, num: T) {
         self.stack.push(num);
     }
 
-    /* Извлечь из стека */
+    /* Снять элемент со стека */
     fn pop(&mut self) -> Option<T> {
         self.stack.pop()
     }
 
-    /* Доступ к верхнему элементу стека */
+    /* Посмотреть элемент на вершине стека */
     fn peek(&self) -> Option<&T> {
         if self.is_empty() {
-            panic!("стек пуст")
+            panic!("Стек пуст")
         };
         self.stack.last()
     }
 
-    /* Вернуть &Vec */
+    /* Вернуть ссылку на вектор (&Vec) */
     fn to_array(&self) -> &Vec<T> {
         &self.stack
     }
 }
 
-/* Driver Code */
+/* Пример использования */
 fn main() {
-    // Инициализация стека
+    // Инициализировать стек
     let mut stack = ArrayStack::<i32>::new();
 
-    // Помещение элемента в стек
+    // Поместить элементы в стек
     stack.push(1);
     stack.push(3);
     stack.push(2);
@@ -67,20 +67,20 @@ fn main() {
     print!("Стек stack = ");
     print_util::print_array(stack.to_array());
 
-    // Доступ к верхнему элементу стека
+    //Посмотреть элемент на вершине стека
     let peek = stack.peek().unwrap();
-    print!("\nВерхний элемент peek = {}", peek);
+    print!("\nЭлемент на вершине стека peek = {}", peek);
 
-    // Извлечение элемента из стека
+    // Снять элемент со стека
     let pop = stack.pop().unwrap();
-    print!("\nИзвлеченный элемент pop = {pop}, stack после извлечения = ");
+    print!("\nСнятый элемент pop = {pop}, после снятия stack = ");
     print_util::print_array(stack.to_array());
 
-    // Получение длины стека
+    // Получить размер стека
     let size = stack.size();
-    print!("\nДлина стека size = {size}");
+    print!("\nРазмер стека size = {size}");
 
-    // Проверка на пустоту
+    // Проверить, пуст ли стек
     let is_empty = stack.is_empty();
-    print!("\nПуст ли стек = {is_empty}");
+    print!("\nСтек пуст = {is_empty}");
 }

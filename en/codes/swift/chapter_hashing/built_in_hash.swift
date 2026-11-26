@@ -24,11 +24,11 @@ enum BuiltInHash {
 
         let str = "Hello 算法"
         let hashStr = str.hashValue
-        print("Hash value of string \(str): \(hashStr)")
+        print("String \(str) has hash value \(hashStr)")
 
         let arr = [AnyHashable(12836), AnyHashable("小哈")]
         let hashTup = arr.hashValue
-        print("Hash value of array \(arr): \(hashTup)")
+        print("Array \(arr) has hash value \(hashTup)")
 
         let obj = ListNode(x: 0)
         let hashObj = obj.hashValue

@@ -10,10 +10,10 @@ namespace hello_algo.chapter_hashing;
 class HashMapOpenAddressing {
     int size; // Number of key-value pairs
     int capacity = 4; // Hash table capacity
-    double loadThres = 2.0 / 3.0; // Load factor threshold that triggers capacity growth
-    int extendRatio = 2; // Capacity growth factor
+    double loadThres = 2.0 / 3.0; // Load factor threshold for resizing
+    int extendRatio = 2; // Growth factor
     Pair[] buckets; // Bucket array
-    Pair TOMBSTONE = new(-1, "-1"); // Tombstone marker
+    Pair TOMBSTONE = new(-1, "-1"); // Deletion marker
 
     /* Constructor */
     public HashMapOpenAddressing() {
@@ -39,75 +39,75 @@ class HashMapOpenAddressing {
         while (buckets[index] != null) {
             // If key is found, return its bucket index
             if (buckets[index].key == key) {
-                // If a tombstone was encountered earlier, move the key-value pair to that index
+                // If a deletion marker was found earlier, move the pair to that index
                 if (firstTombstone != -1) {
                     buckets[firstTombstone] = buckets[index];
                     buckets[index] = TOMBSTONE;
-                    return firstTombstone; // Return the bucket index after the move
+                    return firstTombstone; // Return the new bucket index
                 }
                 return index; // Return the bucket index
             }
-            // Record the first tombstone encountered
+            // Record the first deletion marker encountered
             if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                 firstTombstone = index;
             }
-            // Calculate the bucket index, wrapping to the beginning after the end
+            // Compute the next bucket index, wrapping to the start at the end
             index = (index + 1) % capacity;
         }
         // If key is absent, return the index for insertion
         return firstTombstone == -1 ? index : firstTombstone;
     }
 
-    /* Lookup operation */
+    /* Look up a value */
     public string? Get(int key) {
         // Find the bucket index for key
         int index = FindBucket(key);
-        // If the key-value pair is found, return its val
+        // If the pair is found, return its val
         if (buckets[index] != null && buckets[index] != TOMBSTONE) {
             return buckets[index].val;
         }
-        // Return null if the key-value pair is absent
+        // Return null if the pair is absent
         return null;
     }
 
-    /* Insert operation */
+    /* Insert a key-value pair */
     public void Put(int key, string val) {
-        // Grow the capacity when the load factor exceeds the threshold
+        // Expand the table when the load factor exceeds the threshold
         if (LoadFactor() > loadThres) {
             Extend();
         }
         // Find the bucket index for key
         int index = FindBucket(key);
-        // If the key-value pair is found, overwrite val and return
+        // If the pair is found, overwrite val and return
         if (buckets[index] != null && buckets[index] != TOMBSTONE) {
             buckets[index].val = val;
             return;
         }
-        // If the key-value pair is absent, insert it
+        // If the pair is absent, insert it
         buckets[index] = new Pair(key, val);
         size++;
     }
 
-    /* Remove operation */
+    /* Remove a key-value pair */
     public void Remove(int key) {
         // Find the bucket index for key
         int index = FindBucket(key);
-        // If the key-value pair is found, replace it with a tombstone
+        // If the pair is found, replace it with a deletion marker
         if (buckets[index] != null && buckets[index] != TOMBSTONE) {
             buckets[index] = TOMBSTONE;
             size--;
         }
     }
 
-    /* Grow the hash table capacity */
+    /* Expand the hash table */
     void Extend() {
-        // Keep a reference to the original hash table
+        // Save the original hash table
         Pair[] bucketsTmp = buckets;
-        // Initialize a new hash table with the expanded capacity
+        // Initialize the larger hash table
         capacity *= extendRatio;
         buckets = new Pair[capacity];
         size = 0;
-        // Move the key-value pairs from the original hash table to the new one
+        // Move the key-value pairs from the old table into the new one
         foreach (Pair pair in bucketsTmp) {
             if (pair != null && pair != TOMBSTONE) {
                 Put(pair.key, pair.val);
@@ -135,23 +135,23 @@ public class hash_map_open_addressing {
         /* Initialize the hash table */
         HashMapOpenAddressing map = new();
 
-        /* Insert operation */
-        // Insert the key-value pair (key, value) into the hash table
-        map.Put(12836, "小哈");
-        map.Put(15937, "小啰");
-        map.Put(16750, "小算");
-        map.Put(13276, "小法");
-        map.Put(10583, "小鸭");
+        /* Insert a key-value pair */
+        // Insert the pair (key, value) into the hash table
+        map.Put(12836, "Xiao Ha");
+        map.Put(15937, "Xiao Luo");
+        map.Put(16750, "Xiao Suan");
+        map.Put(13276, "Xiao Fa");
+        map.Put(10583, "Xiao Ya");
         Console.WriteLine("\nHash table after insertion:\nKey -> Value");
         map.Print();
 
-        /* Lookup operation */
-        // Look up key in the hash table to obtain value
+        /* Look up a value */
+        // Look up key in the hash table to get value
         string? name = map.Get(13276);
-        Console.WriteLine("\nLook up student ID 13276 to obtain the name " + name);
+        Console.WriteLine("\nName for student ID 13276: " + name);
 
-        /* Remove operation */
-        // Remove the key-value pair (key, value) from the hash table
+        /* Remove a key-value pair */
+        // Remove the pair (key, value) from the hash table
         map.Remove(16750);
         Console.WriteLine("\nHash table after removing 16750:\nKey -> Value");
         map.Print();

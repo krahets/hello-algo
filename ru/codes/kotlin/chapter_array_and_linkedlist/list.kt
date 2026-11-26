@@ -6,10 +6,10 @@
 
 package chapter_array_and_linkedlist
 
-/* Driver Code */
+/* Демонстрационный код */
 fun main() {
     /* Инициализация списка */
-    // Изменяемое множество
+    // Изменяемая коллекция
     val nums = mutableListOf(1, 3, 2, 5, 4)
     println("Список nums = $nums")
 
@@ -19,9 +19,9 @@ fun main() {
 
     /* Изменение элемента */
     nums[1] = 0
-    println("После изменения значения элемента с индексом 1 на 0 nums = $nums")
+    println("После записи 0 по индексу 1 nums = $nums")
 
-    /* Очистить список */
+    /* Очистка списка */
     nums.clear()
     println("После очистки списка nums = $nums")
 
@@ -41,23 +41,23 @@ fun main() {
     nums.removeAt(3)
     println("После удаления элемента по индексу 3 nums = $nums")
 
-    /* Обходить список по индексам */
+    /* Обойти список по индексам */
     var count = 0
     for (i in nums.indices) {
         count += nums[i]
     }
 
-    /* Непосредственно обходить элементы списка */
+    /* Перебрать элементы списка напрямую */
     for (j in nums) {
         count += j
     }
 
-    /* Объединить два списка */
+    /* Объединение двух списков*/
     val nums1 = mutableListOf(6, 8, 7, 10, 9)
     nums.addAll(nums1)
-    println("После конкатенации списка nums1 к nums nums = $nums")
+    println("После добавления nums1 в конец nums получаем nums = $nums")
 
-    /* Отсортировать список */
+    /* Сортировка списка */
     nums.sort()
-    println("После сортировки списка nums = $nums")
+    println("После сортировки nums = $nums")
 }

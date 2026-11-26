@@ -14,29 +14,29 @@ def move(src: list[int], tar: list[int]):
 
 
 def dfs(i: int, src: list[int], buf: list[int], tar: list[int]):
-    """Solve the Tower of Hanoi problem f(i)"""
-    # If this subproblem has only one disk to move, move it directly from src to tar
+    """Solve Tower of Hanoi subproblem f(i)"""
+    # If only one disk remains on src, move it directly to tar
     if i == 1:
         move(src, tar)
         return
     # Subproblem f(i-1): move the top i-1 disks from src to buf using tar
     dfs(i - 1, src, tar, buf)
-    # Subproblem f(1): move the remaining disk of this subproblem from src to tar
+    # Subproblem f(1): move the remaining disk from src to tar
     move(src, tar)
     # Subproblem f(i-1): move the top i-1 disks from buf to tar using src
     dfs(i - 1, buf, src, tar)
 
 
 def solve_hanota(A: list[int], B: list[int], C: list[int]):
-    """Solve the Tower of Hanoi problem"""
+    """Solve the Tower of Hanoi"""
     n = len(A)
     # Move the top n disks from A to C using B
     dfs(n, A, B, C)
 
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
-    # The end of each list represents the top of the peg
+    # The end of the list is the top of the peg
     A = [5, 4, 3, 2, 1]
     B = []
     C = []

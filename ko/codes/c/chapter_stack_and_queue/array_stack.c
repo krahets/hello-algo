@@ -17,7 +17,7 @@ typedef struct {
 /* 생성자 */
 ArrayStack *newArrayStack() {
     ArrayStack *stack = malloc(sizeof(ArrayStack));
-    // 용량 확장을 피하도록 큰 용량으로 초기화한다
+    // 용량을 늘릴 필요가 없도록 처음부터 넉넉하게 잡는다
     stack->data = malloc(sizeof(int) * MAX_SIZE);
     stack->size = 0;
     return stack;
@@ -29,12 +29,12 @@ void delArrayStack(ArrayStack *stack) {
     free(stack);
 }
 
-/* 스택의 길이 반환 */
+/* 스택의 길이 조회 */
 int size(ArrayStack *stack) {
     return stack->size;
 }
 
-/* 스택이 비어 있는지 판단 */
+/* 스택이 비어 있는지 확인 */
 bool isEmpty(ArrayStack *stack) {
     return stack->size == 0;
 }
@@ -49,7 +49,7 @@ void push(ArrayStack *stack, int num) {
     stack->size++;
 }
 
-/* 스택 맨 위 원소 접근 */
+/* 스택 맨 위의 원소 조회 */
 int peek(ArrayStack *stack) {
     if (stack->size == 0) {
         printf("스택이 비어 있다\n");
@@ -65,7 +65,7 @@ int pop(ArrayStack *stack) {
     return val;
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 int main() {
     /* 스택 초기화 */
     ArrayStack *stack = newArrayStack();
@@ -79,20 +79,20 @@ int main() {
     printf("스택 stack = ");
     printArray(stack->data, stack->size);
 
-    /* 스택 맨 위 원소 접근 */
+    /* 스택 맨 위의 원소 조회 */
     int val = peek(stack);
-    printf("스택의 맨 위 원소 top = %d\n", val);
+    printf("맨 위 원소 top = %d\n", val);
 
     /* 스택에서 원소 꺼내기 */
     val = pop(stack);
-    printf("스택에서 꺼낸 원소 pop = %d, 꺼낸 후 stack = ", val);
+    printf("꺼낸 원소 pop = %d, 꺼낸 후 stack = ", val);
     printArray(stack->data, stack->size);
 
-    /* 스택의 길이 반환 */
+    /* 스택의 길이 조회 */
     int size = stack->size;
     printf("스택의 길이 size = %d\n", size);
 
-    /* 비어 있는지 판단 */
+    /* 비어 있는지 확인 */
     bool empty = isEmpty(stack);
     printf("스택이 비어 있는가 = %s\n", empty ? "true" : "false");
 

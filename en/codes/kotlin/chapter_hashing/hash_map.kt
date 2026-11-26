@@ -13,37 +13,37 @@ fun main() {
     /* Initialize the hash table */
     val map = HashMap<Int, String>()
 
-    /* Insert operation */
-    // Insert the key-value pair (key, value) into the hash table
-    map[12836] = "小哈"
-    map[15937] = "小啰"
-    map[16750] = "小算"
-    map[13276] = "小法"
-    map[10583] = "小鸭"
+    /* Insert a key-value pair */
+    // Insert the pair (key, value) into the hash table
+    map[12836] = "Xiao Ha"
+    map[15937] = "Xiao Luo"
+    map[16750] = "Xiao Suan"
+    map[13276] = "Xiao Fa"
+    map[10583] = "Xiao Ya"
     println("\nHash table after insertion:\nKey -> Value")
     printHashMap(map)
 
-    /* Lookup operation */
-    // Look up key in the hash table to obtain value
+    /* Look up a value */
+    // Look up key in the hash table to get value
     val name = map[15937]
-    println("\nLook up student ID 15937 to obtain the name $name")
+    println("\nName for student ID 15937: $name")
 
-    /* Remove operation */
-    // Remove the key-value pair (key, value) from the hash table
+    /* Remove a key-value pair */
+    // Remove the pair (key, value) from the hash table
     map.remove(10583)
     println("\nHash table after removing 10583:\nKey -> Value")
     printHashMap(map)
 
-    /* Traverse the hash table */
-    println("\nTraverse key-value pairs: Key->Value")
+    /* Iterate over the hash table */
+    println("\nIterate over key-value pairs (Key->Value)")
     for ((key, value) in map) {
         println("$key -> $value")
     }
-    println("\nTraverse keys only: Key")
+    println("\nIterate over keys only")
     for (key in map.keys) {
         println(key)
     }
-    println("\nTraverse values only: Value")
+    println("\nIterate over values only")
     for (_val in map.values) {
         println(_val)
     }

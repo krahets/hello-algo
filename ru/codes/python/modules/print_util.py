@@ -39,10 +39,10 @@ def print_tree(
     root: TreeNode | None, prev: Trunk | None = None, is_right: bool = False
 ):
     """
-Вывести двоичное дерево
-Этот вывод дерева заимствован из TECHIE DELIGHT
-https://www.techiedelight.com/c-program-print-binary-tree/
-"""
+    Вывести двоичное дерево
+    Код для вывода дерева заимствован у TECHIE DELIGHT
+    https://www.techiedelight.com/c-program-print-binary-tree/
+    """
     if root is None:
         return
 
@@ -75,7 +75,7 @@ def print_dict(hmap: dict):
 
 def print_heap(heap: list[int]):
     """Вывести кучу"""
-    print("Массивное представление кучи:", heap)
-    print("Древовидное представление кучи:")
+    print("Куча в виде массива:", heap)
+    print("Куча в виде дерева:")
     root: TreeNode | None = list_to_tree(heap)
     print_tree(root)

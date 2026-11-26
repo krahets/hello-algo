@@ -8,12 +8,12 @@ package chapter_stack_and_queue
 
 import java.util.*
 
-/* Driver Code */
+/* 範例程式 */
 fun main() {
     /* 初始化佇列 */
     val queue = LinkedList<Int>()
 
-    /* 元素入列 */
+    /* 將元素加入佇列 */
     queue.offer(1)
     queue.offer(3)
     queue.offer(2)
@@ -21,15 +21,15 @@ fun main() {
     queue.offer(4)
     println("佇列 queue = $queue")
 
-    /* 訪問佇列首元素 */
+    /* 讀取隊首元素 */
     val peek = queue.peek()
-    println("佇列首元素 peek = $peek")
+    println("隊首元素 peek = $peek")
 
-    /* 元素出列 */
+    /* 從佇列取出元素 */
     val pop = queue.poll()
-    println("出列元素 pop = $pop，出列後 queue = $queue")
+    println("出隊元素 pop = $pop，出隊後 queue = $queue")
 
-    /* 獲取佇列的長度 */
+    /* 取得佇列長度 */
     val size = queue.size
     println("佇列長度 size = $size")
 

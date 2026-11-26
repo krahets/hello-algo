@@ -8,7 +8,7 @@
 
 /* 搜尋 */
 int dfs(int i) {
-    // 已知 dp[1] 和 dp[2] ，返回之
+    // 已知 dp[1] 和 dp[2]，直接回傳對應的值
     if (i == 1 || i == 2)
         return i;
     // dp[i] = dp[i-1] + dp[i-2]
@@ -21,12 +21,12 @@ int climbingStairsDFS(int n) {
     return dfs(n);
 }
 
-/* Driver Code */
+/* 主程式 */
 int main() {
     int n = 9;
 
     int res = climbingStairsDFS(n);
-    printf("爬 %d 階樓梯共有 %d 種方案\n", n, res);
+    printf("爬 %d 階樓梯共有 %d 種走法\n", n, res);
 
     return 0;
 }

@@ -14,45 +14,45 @@ import (
 )
 
 func testPush(h *intHeap, val int) {
-	// 呼叫 heap.Interface 的函式，來新增元素
+	// 呼叫 heap.Interface 的方法以加入元素
 	heap.Push(h, val)
-	fmt.Printf("\n元素 %d 入堆積後 \n", val)
+	fmt.Printf("\n將元素 %d 加入堆積後 \n", val)
 	PrintHeap(*h)
 }
 
 func testPop(h *intHeap) {
-	// 呼叫 heap.Interface 的函式，來移除元素
+	// 呼叫 heap.Interface 的方法以移除元素
 	val := heap.Pop(h)
-	fmt.Printf("\n堆積頂元素 %d 出堆積後 \n", val)
+	fmt.Printf("\n取出堆積頂端元素 %d 後 \n", val)
 	PrintHeap(*h)
 }
 
 func TestHeap(t *testing.T) {
 	/* 初始化堆積 */
-	// 初始化大頂堆積
+	// 初始化最大堆積
 	maxHeap := &intHeap{}
 	heap.Init(maxHeap)
-	/* 元素入堆積 */
+	/* 將元素加入堆積 */
 	testPush(maxHeap, 1)
 	testPush(maxHeap, 3)
 	testPush(maxHeap, 2)
 	testPush(maxHeap, 5)
 	testPush(maxHeap, 4)
 
-	/* 獲取堆積頂元素 */
+	/* 取得堆積頂端元素 */
 	top := maxHeap.Top()
-	fmt.Printf("堆積頂元素為 %d\n", top)
+	fmt.Printf("堆積頂端元素為 %d\n", top)
 
-	/* 堆積頂元素出堆積 */
+	/* 取出堆積頂端元素 */
 	testPop(maxHeap)
 	testPop(maxHeap)
 	testPop(maxHeap)
 	testPop(maxHeap)
 	testPop(maxHeap)
 
-	/* 獲取堆積大小 */
+	/* 取得堆積大小 */
 	size := len(*maxHeap)
-	fmt.Printf("堆積元素數量為 %d\n", size)
+	fmt.Printf("堆積中的元素個數為 %d\n", size)
 
 	/* 判斷堆積是否為空 */
 	isEmpty := len(*maxHeap) == 0
@@ -61,29 +61,29 @@ func TestHeap(t *testing.T) {
 
 func TestMyHeap(t *testing.T) {
 	/* 初始化堆積 */
-	// 初始化大頂堆積
+	// 初始化最大堆積
 	maxHeap := newMaxHeap([]any{9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2})
-	fmt.Printf("輸入陣列並建堆積後\n")
+	fmt.Printf("用輸入陣列建立堆積後\n")
 	maxHeap.print()
 
-	/* 獲取堆積頂元素 */
+	/* 取得堆積頂端元素 */
 	peek := maxHeap.peek()
-	fmt.Printf("\n堆積頂元素為 %d\n", peek)
+	fmt.Printf("\n堆積頂端元素為 %d\n", peek)
 
-	/* 元素入堆積 */
+	/* 將元素加入堆積 */
 	val := 7
 	maxHeap.push(val)
-	fmt.Printf("\n元素 %d 入堆積後\n", val)
+	fmt.Printf("\n將元素 %d 加入堆積後\n", val)
 	maxHeap.print()
 
-	/* 堆積頂元素出堆積 */
+	/* 取出堆積頂端元素 */
 	peek = maxHeap.pop()
-	fmt.Printf("\n堆積頂元素 %d 出堆積後\n", peek)
+	fmt.Printf("\n取出堆積頂端元素 %d 後\n", peek)
 	maxHeap.print()
 
-	/* 獲取堆積大小 */
+	/* 取得堆積大小 */
 	size := maxHeap.size()
-	fmt.Printf("\n堆積元素數量為 %d\n", size)
+	fmt.Printf("\n堆積中的元素個數為 %d\n", size)
 
 	/* 判斷堆積是否為空 */
 	isEmpty := maxHeap.isEmpty()

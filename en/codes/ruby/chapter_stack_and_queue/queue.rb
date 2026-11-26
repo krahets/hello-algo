@@ -7,7 +7,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 ### Driver code ###
 if __FILE__ == $0
   # Initialize the queue
-  # The built-in Ruby queue (Thread::Queue) has no peek or traversal methods; use an Array as a queue
+  # Ruby's built-in Thread::Queue has no methods for peeking or iterating, so use an Array as a queue
   queue = []
 
   # Enqueue elements
@@ -16,17 +16,17 @@ if __FILE__ == $0
   queue.push(2)
   queue.push(5)
   queue.push(4)
-  puts "Queue queue = #{queue}"
+  puts "queue = #{queue}"
 
-  # Access a queue element
+  # Peek at the front element
   peek = queue.first
-  puts "Front element peek = #{peek}"
+  puts "Front element (peek) = #{peek}"
 
   # Dequeue an element
-  # Note that Array#shift has O(n) time complexity because the underlying structure is an array
+  # Array#shift takes O(n) time because the queue uses an array
   pop = queue.shift
-  puts "Dequeued element pop = #{pop}"
-  puts "After dequeueing, queue = #{queue}"
+  puts "Dequeued element (pop) = #{pop}"
+  puts "After removal, queue = #{queue}"
 
   # Get the queue size
   size = queue.length
@@ -34,5 +34,5 @@ if __FILE__ == $0
 
   # Check whether the queue is empty
   is_empty = queue.empty?
-  puts "Is the queue empty? #{is_empty}"
+  puts "Queue is empty = #{is_empty}"
 end

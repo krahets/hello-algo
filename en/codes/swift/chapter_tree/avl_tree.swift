@@ -14,21 +14,21 @@ class AVLTree {
 
     /* Get the node height */
     func height(node: TreeNode?) -> Int {
-        // A nil node has height -1; a leaf has height 0
+        // A null node has height -1, and a leaf has height 0
         node?.height ?? -1
     }
 
     /* Update the node height */
     private func updateHeight(node: TreeNode?) {
-        // The node height equals the height of its taller subtree + 1
+        // Node height is the height of the taller subtree plus 1
         node?.height = max(height(node: node?.left), height(node: node?.right)) + 1
     }
 
     /* Get the balance factor */
     func balanceFactor(node: TreeNode?) -> Int {
-        // A nil node has balance factor 0
+        // A null node has a balance factor of 0
         guard let node = node else { return 0 }
-        // Node balance factor = left subtree height - right subtree height
+        // Balance factor = left subtree height - right subtree height
         return height(node: node.left) - height(node: node.right)
     }
 
@@ -60,7 +60,7 @@ class AVLTree {
         return child
     }
 
-    /* Perform rotations to restore balance in this subtree */
+    /* Rebalance the subtree by rotating it */
     private func rotate(node: TreeNode?) -> TreeNode? {
         // Get the balance factor of node
         let balanceFactor = balanceFactor(node: node)
@@ -86,7 +86,7 @@ class AVLTree {
                 return leftRotate(node: node)
             }
         }
-        // The tree is balanced; return without rotating
+        // The tree is balanced, so return without rotating
         return node
     }
 
@@ -107,27 +107,27 @@ class AVLTree {
         } else if val > node!.val {
             node?.right = insertHelper(node: node?.right, val: val)
         } else {
-            return node // Return without inserting a duplicate node
+            return node // Return without inserting a duplicate
         }
         updateHeight(node: node) // Update the node height
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = rotate(node: node)
-        // Return the subtree root
+        // Return the root of the subtree
         return node
     }
 
-    /* Remove a node */
+    /* Delete a node */
     func remove(val: Int) {
         root = removeHelper(node: root, val: val)
     }
 
-    /* Remove a node recursively (helper method) */
+    /* Delete a node recursively (helper method) */
     private func removeHelper(node: TreeNode?, val: Int) -> TreeNode? {
         var node = node
         if node == nil {
             return nil
         }
-        /* 1. Find and remove the node */
+        /* 1. Find the node and delete it */
         if val < node!.val {
             node?.left = removeHelper(node: node?.left, val: val)
         } else if val > node!.val {
@@ -135,16 +135,16 @@ class AVLTree {
         } else {
             if node?.left == nil || node?.right == nil {
                 let child = node?.left ?? node?.right
-                // Number of children = 0: remove node and return
+                // No children: delete node and return
                 if child == nil {
                     return nil
                 }
-                // Number of children = 1: remove node directly
+                // One child: delete node
                 else {
                     node = child
                 }
             } else {
-                // Number of children = 2: remove the inorder successor and use its value to replace the current node value
+                // Two children: delete the inorder successor and use it to replace the current node
                 var temp = node?.right
                 while temp?.left != nil {
                     temp = temp?.left
@@ -154,30 +154,30 @@ class AVLTree {
             }
         }
         updateHeight(node: node) // Update the node height
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = rotate(node: node)
-        // Return the subtree root
+        // Return the root of the subtree
         return node
     }
 
-    /* Find a node */
+    /* Search for a node */
     func search(val: Int) -> TreeNode? {
         var cur = root
         while cur != nil {
-            // If present, the target node lies in the right subtree of cur
+            // The target is in the right subtree of cur
             if cur!.val < val {
                 cur = cur?.right
             }
-            // If present, the target node lies in the left subtree of cur
+            // The target is in the left subtree of cur
             else if cur!.val > val {
                 cur = cur?.left
             }
-            // The target node was found; exit the loop
+            // The target was found, so exit the loop
             else {
                 break
             }
         }
-        // Return the target node, or nil if it was not found
+        // Return the target node
         return cur
     }
 }
@@ -186,13 +186,13 @@ class AVLTree {
 enum _AVLTree {
     static func testInsert(tree: AVLTree, val: Int) {
         tree.insert(val: val)
-        print("\nAVL tree after inserting node \(val):")
+        print("\nAVL tree after inserting \(val):")
         PrintUtil.printTree(root: tree.root)
     }
 
     static func testRemove(tree: AVLTree, val: Int) {
         tree.remove(val: val)
-        print("\nAVL tree after removing node \(val):")
+        print("\nAVL tree after deleting \(val):")
         PrintUtil.printTree(root: tree.root)
     }
 
@@ -202,7 +202,7 @@ enum _AVLTree {
         let avlTree = AVLTree()
 
         /* Insert a node */
-        // Observe how the AVL tree maintains balance after a node is inserted
+        // Watch how the AVL tree stays balanced after an insertion
         testInsert(tree: avlTree, val: 1)
         testInsert(tree: avlTree, val: 2)
         testInsert(tree: avlTree, val: 3)
@@ -217,14 +217,14 @@ enum _AVLTree {
         /* Insert a duplicate node */
         testInsert(tree: avlTree, val: 7)
 
-        /* Remove a node */
-        // Observe how the AVL tree maintains balance after a node is removed
-        testRemove(tree: avlTree, val: 8) // Remove a node with 0 children
-        testRemove(tree: avlTree, val: 5) // Remove a node with 1 child
-        testRemove(tree: avlTree, val: 4) // Remove a node with 2 children
+        /* Delete a node */
+        // Watch how the AVL tree stays balanced after a deletion
+        testRemove(tree: avlTree, val: 8) // Delete a node with no children
+        testRemove(tree: avlTree, val: 5) // Delete a node with one child
+        testRemove(tree: avlTree, val: 4) // Delete a node with two children
 
         /* Look up a node */
         let node = avlTree.search(val: 7)
-        print("\nFound node object: \(node!), node value = \(node!.val)")
+        print("\nNode found: \(node!), node value = \(node!.val)")
     }
 }

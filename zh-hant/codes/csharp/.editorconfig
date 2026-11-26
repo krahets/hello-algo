@@ -1,4 +1,4 @@
-# CSharp formatting rules
+# C# 格式設定規則
 [*.cs]
 csharp_new_line_before_open_brace = none
 csharp_new_line_before_else = false
@@ -20,19 +20,19 @@ csharp_style_expression_bodied_indexers = true:silent
 csharp_style_expression_bodied_accessors = true:silent
 csharp_style_expression_bodied_lambdas = true:silent
 
-# CS8981: The type name only contains lower-cased ascii characters. Such names may become reserved for the language.
+# CS8981：型別名稱僅含小寫 ASCII 字母。這類名稱日後可能成為語言的保留字。
 dotnet_diagnostic.CS8981.severity = silent
 
-# IDE1006: Naming Styles
+# IDE1006：命名樣式
 dotnet_diagnostic.IDE1006.severity = silent
 
-# CA1822: Mark members as static
+# CA1822：將成員標記為 static
 dotnet_diagnostic.CA1822.severity = silent
 
 [*.{cs,vb}]
-#### Naming styles ####
+#### 命名樣式 ####
 
-# Naming rules
+# 命名規則
 
 dotnet_naming_rule.interface_should_be_begins_with_i.severity = suggestion
 dotnet_naming_rule.interface_should_be_begins_with_i.symbols = interface
@@ -46,7 +46,7 @@ dotnet_naming_rule.non_field_members_should_be_pascal_case.severity = suggestion
 dotnet_naming_rule.non_field_members_should_be_pascal_case.symbols = non_field_members
 dotnet_naming_rule.non_field_members_should_be_pascal_case.style = pascal_case
 
-# Symbol specifications
+# 符號規格
 
 dotnet_naming_symbols.interface.applicable_kinds = interface
 dotnet_naming_symbols.interface.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
@@ -60,7 +60,7 @@ dotnet_naming_symbols.non_field_members.applicable_kinds = property, event, meth
 dotnet_naming_symbols.non_field_members.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
 dotnet_naming_symbols.non_field_members.required_modifiers = 
 
-# Naming styles
+# 命名樣式
 
 dotnet_naming_style.begins_with_i.required_prefix = I
 dotnet_naming_style.begins_with_i.required_suffix = 
@@ -81,8 +81,8 @@ tab_width = 4
 indent_size = 4
 end_of_line = crlf
 
-# IDE0040: Add accessibility modifiers
+# IDE0040：加上存取修飾詞
 dotnet_diagnostic.IDE0040.severity = silent
 
-# IDE0044: Add readonly modifier
+# IDE0044：加上 readonly 修飾詞
 dotnet_diagnostic.IDE0044.severity = silent

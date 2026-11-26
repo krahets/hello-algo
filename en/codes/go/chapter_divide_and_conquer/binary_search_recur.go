@@ -6,23 +6,23 @@ package chapter_divide_and_conquer
 
 /* Binary search: problem f(i, j) */
 func dfs(nums []int, target, i, j int) int {
-	// If the interval is empty, the target is absent; return -1
+	// An empty interval contains no target, so return -1
 	if i > j {
 		return -1
 	}
-	//	Calculate the midpoint index
+	//	Compute the middle index
 	m := i + ((j - i) >> 1)
-	//Compare the midpoint element with the target
+	//Compare the middle element with the target
 	if nums[m] < target {
-		// If it is smaller, recurse on the right half
-		// Recurse on subproblem f(m+1, j)
+		// If smaller, search the right half recursively
+		// Recursively solve f(m+1, j)
 		return dfs(nums, target, m+1, j)
 	} else if nums[m] > target {
-		// If it is larger, recurse on the left half
-		// Recurse on subproblem f(i, m-1)
+		// If larger, search the left half recursively
+		// Recursively solve f(i, m-1)
 		return dfs(nums, target, i, m-1)
 	} else {
-		// The target element was found; return its index
+		// Target found: return its index
 		return m
 	}
 }

@@ -68,20 +68,20 @@ fn post_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
 /* Driver code */
 fn main() {
     /* Initialize the binary tree */
-    // Use a helper function that builds a binary tree directly from an array
+    // Use a function that builds a binary tree directly from an array
     let root = vec_to_tree(op_vec![1, 2, 3, 4, 5, 6, 7]);
     println!("Initialize the binary tree\n");
     print_util::print_tree(root.as_ref().unwrap());
 
     /* Preorder traversal */
     let vec = pre_order(root.as_ref());
-    println!("\nNode sequence from preorder traversal = {:?}", vec);
+    println!("\nNodes in preorder = {:?}", vec);
 
     /* Inorder traversal */
     let vec = in_order(root.as_ref());
-    println!("\nNode sequence from inorder traversal = {:?}", vec);
+    println!("\nNodes in inorder = {:?}", vec);
 
     /* Postorder traversal */
     let vec = post_order(root.as_ref());
-    print!("\nNode sequence from postorder traversal = {:?}", vec);
+    print!("\nNodes in postorder = {:?}", vec);
 }

@@ -7,9 +7,9 @@
 /* Узел двоичного дерева */
 class TreeNode {
     val; // Значение узла
-    left; // Указатель на левый дочерний узел
-    right; // Указатель на правый дочерний узел
-    height; // Высота узла
+    left; // Ссылка на левый дочерний узел
+    right; // Ссылка на правый дочерний узел
+    height; //Высота узла
     constructor(val, left, right, height) {
         this.val = val === undefined ? 0 : val;
         this.left = left === undefined ? null : left;
@@ -18,7 +18,7 @@ class TreeNode {
     }
 }
 
-/* Десериализовать массив в двоичное дерево */
+/* Восстановить двоичное дерево из массива */
 function arrToTree(arr, i = 0) {
     if (i < 0 || i >= arr.length || arr[i] === null) {
         return null;

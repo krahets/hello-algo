@@ -5,11 +5,11 @@
 const std = @import("std");
 const utils = @import("utils");
 
-// Driver Code
+// Демонстрационный код
 pub fn run() !void {
     // Инициализация списка
     var nums = std.ArrayList(i32).init(std.heap.page_allocator);
-    defer nums.deinit(); // Отложенное освобождение памяти
+    defer nums.deinit(); // Отложить освобождение памяти
 
     try nums.appendSlice(&[_]i32{ 1, 3, 2, 5, 4 });
     std.debug.print("Список nums = {}\n", .{utils.fmt.slice(nums.items)});
@@ -20,9 +20,9 @@ pub fn run() !void {
 
     // Изменение элемента
     nums.items[1] = 0;
-    std.debug.print("После изменения значения элемента с индексом 1 на 0 nums = {}\n", .{utils.fmt.slice(nums.items)});
+    std.debug.print("После записи 0 по индексу 1 nums = {}\n", .{utils.fmt.slice(nums.items)});
 
-    // Очистить список
+    // Очистка списка
     nums.clearRetainingCapacity();
     std.debug.print("После очистки списка nums = {}\n", .{utils.fmt.slice(nums.items)});
 
@@ -42,29 +42,29 @@ pub fn run() !void {
     _ = nums.orderedRemove(3);
     std.debug.print("После удаления элемента по индексу 3 nums = {}\n", .{utils.fmt.slice(nums.items)});
 
-    // Обходить список по индексам
+    // Обойти список по индексам
     var count: i32 = 0;
     var i: usize = 0;
     while (i < nums.items.len) : (i += 1) {
         count += nums.items[i];
     }
 
-    // Непосредственно обходить элементы списка
+    // Перебрать элементы списка напрямую
     count = 0;
     for (nums.items) |x| {
         count += x;
     }
 
-    // Объединить два списка
+    // Объединение двух списков
     var nums1 = std.ArrayList(i32).init(std.heap.page_allocator);
     defer nums1.deinit();
     try nums1.appendSlice(&[_]i32{ 6, 8, 7, 10, 9 });
     try nums.insertSlice(nums.items.len, nums1.items);
-    std.debug.print("После конкатенации списка nums1 к nums nums = {}\n", .{utils.fmt.slice(nums.items)});
+    std.debug.print("После добавления nums1 в конец nums получаем nums = {}\n", .{utils.fmt.slice(nums.items)});
 
-    // Отсортировать список
+    // Сортировка списка
     std.mem.sort(i32, nums.items, {}, comptime std.sort.asc(i32));
-    std.debug.print("После сортировки списка nums = {}\n", .{utils.fmt.slice(nums.items)});
+    std.debug.print("После сортировки nums = {}\n", .{utils.fmt.slice(nums.items)});
 
     std.debug.print("\n", .{});
 }

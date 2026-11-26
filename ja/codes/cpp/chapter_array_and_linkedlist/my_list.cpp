@@ -9,7 +9,7 @@
 /* リストクラス */
 class MyList {
   private:
-    int *arr;             // 配列（リストの要素を格納する）
+    int *arr;             // 配列（リストの要素を格納）
     int arrCapacity = 10; // リストの容量
     int arrSize = 0;      // リストの長さ（現在の要素数）
     int extendRatio = 2;   // リストの容量を拡張する際の倍率
@@ -37,7 +37,7 @@ class MyList {
 
     /* 要素にアクセスする */
     int get(int index) {
-        // インデックスが範囲外の場合、例外を送出する。以下も同様
+        // インデックスが範囲外なら例外を送出する。以下も同様
         if (index < 0 || index >= size())
             throw out_of_range("インデックスが範囲外です");
         return arr[index];
@@ -52,7 +52,7 @@ class MyList {
 
     /* 末尾に要素を追加する */
     void add(int num) {
-        // 要素数が容量を超える場合、容量を拡張する
+        // 要素数が容量を超えるときは容量を拡張する
         if (size() == capacity())
             extendCapacity();
         arr[size()] = num;
@@ -64,10 +64,10 @@ class MyList {
     void insert(int index, int num) {
         if (index < 0 || index >= size())
             throw out_of_range("インデックスが範囲外です");
-        // 要素数が容量を超える場合、容量を拡張する
+        // 要素数が容量を超えるときは容量を拡張する
         if (size() == capacity())
             extendCapacity();
-        // インデックス index 以降の全要素を後ろに 1 つずらす
+        // インデックス index 以降の要素をすべて後ろに 1 つずらす
         for (int j = size() - 1; j >= index; j--) {
             arr[j + 1] = arr[j];
         }
@@ -81,7 +81,7 @@ class MyList {
         if (index < 0 || index >= size())
             throw out_of_range("インデックスが範囲外です");
         int num = arr[index];
-        // インデックス index より後の全要素を前に 1 つずらす
+        // インデックス index より後ろの要素をすべて前に 1 つずらす
         for (int j = index; j < size() - 1; j++) {
             arr[j] = arr[j + 1];
         }
@@ -93,7 +93,7 @@ class MyList {
 
     /* リストの容量を拡張する */
     void extendCapacity() {
-        // 元の配列の extendRatio 倍の長さの新しい配列を作成する
+        // 元の配列の extendRatio 倍の長さの配列を作る
         int newCapacity = capacity() * extendRatio;
         int *tmp = arr;
         arr = new int[newCapacity];
@@ -108,7 +108,7 @@ class MyList {
 
     /* 表示用にリストを Vector に変換する */
     vector<int> toVector() {
-        // 有効な長さの範囲内にあるリストの要素だけを変換する
+        // 有効な範囲内のリスト要素だけを変換する
         vector<int> vec(size());
         for (int i = 0; i < size(); i++) {
             vec[i] = arr[i];
@@ -117,7 +117,7 @@ class MyList {
     }
 };
 
-/* 実行用コード */
+/* ドライバコード */
 int main() {
     /* リストを初期化する */
     MyList *nums = new MyList();
@@ -134,32 +134,32 @@ int main() {
 
     /* 途中に要素を挿入する */
     nums->insert(3, 6);
-    cout << "インデックス 3 に数値 6 を挿入した結果 nums = ";
+    cout << "インデックス 3 に 6 を挿入した後の nums = ";
     vec = nums->toVector();
     printVector(vec);
 
     /* 要素を削除する */
     nums->remove(3);
-    cout << "インデックス 3 の要素を削除した結果 nums = ";
+    cout << "インデックス 3 の要素を削除した後の nums = ";
     vec = nums->toVector();
     printVector(vec);
 
     /* 要素にアクセスする */
     int num = nums->get(1);
-    cout << "インデックス 1 の要素にアクセスした結果 num = " << num << endl;
+    cout << "インデックス 1 の要素を読み出した結果 num = " << num << endl;
 
     /* 要素を更新する */
     nums->set(1, 0);
-    cout << "インデックス 1 の要素を 0 に更新した結果 nums = ";
+    cout << "インデックス 1 の要素を 0 に更新した後の nums = ";
     vec = nums->toVector();
     printVector(vec);
 
-    /* 容量の拡張をテストする */
+    /* 容量拡張の動作を確認する */
     for (int i = 0; i < 10; i++) {
-        // i = 5 のときにリストの長さが容量を超えるため、容量が拡張される
+        // i = 5 でリストの長さが容量を超えるため、容量を拡張する
         nums->add(i);
     }
-    cout << "容量を拡張した後のリスト nums = ";
+    cout << "容量拡張後のリスト nums = ";
     vec = nums->toVector();
     printVector(vec);
     cout << "容量 = " << nums->capacity() << " 、長さ = " << nums->size() << endl;

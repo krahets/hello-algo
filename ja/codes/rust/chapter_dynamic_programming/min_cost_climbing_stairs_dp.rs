@@ -6,7 +6,7 @@
 
 use std::cmp;
 
-/* 階段を上る最小コスト：動的計画法 */
+/* 階段を登る最小コスト：動的計画法 */
 fn min_cost_climbing_stairs_dp(cost: &[i32]) -> i32 {
     let n = cost.len() - 1;
     if n == 1 || n == 2 {
@@ -24,7 +24,7 @@ fn min_cost_climbing_stairs_dp(cost: &[i32]) -> i32 {
     dp[n]
 }
 
-/* 階段を上る最小コスト：空間を最適化した動的計画法 */
+/* 階段を登る最小コスト：使用メモリを削減した動的計画法 */
 fn min_cost_climbing_stairs_dp_comp(cost: &[i32]) -> i32 {
     let n = cost.len() - 1;
     if n == 1 || n == 2 {
@@ -39,14 +39,14 @@ fn min_cost_climbing_stairs_dp_comp(cost: &[i32]) -> i32 {
     b
 }
 
-/* 実行用コード */
+/* 実行例 */
 pub fn main() {
     let cost = [0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1];
-    println!("入力した階段のコストのリストは {:?}", &cost);
+    println!("各段のコストの入力リストは {:?}", &cost);
 
     let res = min_cost_climbing_stairs_dp(&cost);
-    println!("階段を上り終える最小コストは {res}");
+    println!("階段を登りきる最小コストは {res}");
 
     let res = min_cost_climbing_stairs_dp_comp(&cost);
-    println!("階段を上り終える最小コストは {res}");
+    println!("階段を登りきる最小コストは {res}");
 }

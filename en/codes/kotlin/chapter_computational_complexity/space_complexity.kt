@@ -16,40 +16,40 @@ fun function(): Int {
     return 0
 }
 
-/* Constant complexity */
+/* Constant space */
 fun constant(n: Int) {
-    // Constants, variables, and objects occupy O(1) space
+    // Constants, variables, and objects use O(1) space
     val a = 0
     var b = 0
     val nums = Array(10000) { 0 }
     val node = ListNode(0)
-    // Variables in the loop occupy O(1) space
+    // Variables in the loop use O(1) space
     for (i in 0..<n) {
         val c = 0
     }
-    // Function calls in the loop occupy O(1) space
+    // Function calls in the loop use O(1) space
     for (i in 0..<n) {
         function()
     }
 }
 
-/* Linear complexity */
+/* Linear space */
 fun linear(n: Int) {
     // An array of length n uses O(n) space
     val nums = Array(n) { 0 }
-    // A list of length n occupies O(n) space
+    // A list of length n uses O(n) space
     val nodes = mutableListOf<ListNode>()
     for (i in 0..<n) {
         nodes.add(ListNode(i))
     }
-    // A hash table with n entries occupies O(n) space
+    // A hash table with n entries uses O(n) space
     val map = mutableMapOf<Int, String>()
     for (i in 0..<n) {
         map[i] = i.toString()
     }
 }
 
-/* Linear complexity (recursive implementation) */
+/* Linear space (recursive) */
 fun linearRecur(n: Int) {
     println("Recursive call: n = $n")
     if (n == 1)
@@ -57,11 +57,11 @@ fun linearRecur(n: Int) {
     linearRecur(n - 1)
 }
 
-/* Quadratic complexity */
+/* Quadratic space */
 fun quadratic(n: Int) {
-    // A full n*n matrix uses O(n^2) space; only its outer array is allocated here
+    // A matrix uses O(n^2) space
     val numMatrix = arrayOfNulls<Array<Int>?>(n)
-    // The two-dimensional list occupies O(n^2) space
+    // A two-dimensional list uses O(n^2) space
     val numList = mutableListOf<MutableList<Int>>()
     for (i in 0..<n) {
         val tmp = mutableListOf<Int>()
@@ -72,17 +72,17 @@ fun quadratic(n: Int) {
     }
 }
 
-/* Quadratic allocation total (recursive example; tailrec removes recursive stack growth) */
+/* Quadratic space (recursive) */
 tailrec fun quadraticRecur(n: Int): Int {
     if (n <= 0)
         return 0
-    // The lengths of array nums are n, n-1, ..., 2, 1
+    // The successive lengths of nums are n, n-1, ..., 2, 1
     val nums = Array(n) { 0 }
-    println("In the recursive call with n = $n, nums has length ${nums.size}")
+    println("Recursive call: n = $n, length of nums = ${nums.size}")
     return quadraticRecur(n - 1)
 }
 
-/* Exponential complexity (building a perfect binary tree) */
+/* Exponential space (build a perfect binary tree) */
 fun buildTree(n: Int): TreeNode? {
     if (n == 0)
         return null
@@ -92,18 +92,18 @@ fun buildTree(n: Int): TreeNode? {
     return root
 }
 
-/* Driver code */
+/* Driver Code */
 fun main() {
     val n = 5
-    // Constant complexity
+    // Constant space
     constant(n)
-    // Linear complexity
+    // Linear space
     linear(n)
     linearRecur(n)
-    // Quadratic complexity
+    // Quadratic space
     quadratic(n)
     quadraticRecur(n)
-    // Exponential complexity
+    // Exponential space
     val root = buildTree(n)
     printTree(root)
 }

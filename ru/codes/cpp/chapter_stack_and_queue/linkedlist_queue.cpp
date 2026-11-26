@@ -9,7 +9,7 @@
 /* Очередь на основе связного списка */
 class LinkedListQueue {
   private:
-    ListNode *front, *rear; // Головной узел front, хвостовой узел rear
+    ListNode *front, *rear; // front — первый узел, rear — последний
     int queSize;
 
   public:
@@ -20,30 +20,30 @@ class LinkedListQueue {
     }
 
     ~LinkedListQueue() {
-        // Обходить связный список, удалять узлы и освобождать память
+        // Пройти по связному списку и удалить узлы, освободив память
         freeMemoryLinkedList(front);
     }
 
-    /* Получение длины очереди */
+    /* Получить длину очереди */
     int size() {
         return queSize;
     }
 
-    /* Проверка, пуста ли очередь */
+    /* Проверить, пуста ли очередь */
     bool isEmpty() {
         return queSize == 0;
     }
 
-    /* Поместить в очередь */
+    /* Добавить элемент в очередь */
     void push(int num) {
-        // Добавить num после хвостового узла
+        // Добавить узел со значением num после последнего узла
         ListNode *node = new ListNode(num);
-        // Если очередь пуста, сделать так, чтобы и head, и tail указывали на этот узел
+        // Если очередь пуста, установить ссылки на первый и последний узлы так, чтобы обе указывали на новый узел
         if (front == nullptr) {
             front = node;
             rear = node;
         }
-        // Если очередь не пуста, добавить этот узел после хвостового узла
+        // Если очередь непуста, добавить новый узел после последнего
         else {
             rear->next = node;
             rear = node;
@@ -51,10 +51,10 @@ class LinkedListQueue {
         queSize++;
     }
 
-    /* Извлечь из очереди */
+    /* Извлечь элемент из очереди */
     int pop() {
         int num = peek();
-        // Удалить головной узел
+        // Удалить первый узел
         ListNode *tmp = front;
         front = front->next;
         // Освободить память
@@ -63,14 +63,14 @@ class LinkedListQueue {
         return num;
     }
 
-    /* Доступ к элементу в начале очереди */
+    /* Посмотреть первый элемент очереди */
     int peek() {
         if (size() == 0)
-            throw out_of_range("очередь пуста");
+            throw out_of_range("Очередь пуста");
         return front->val;
     }
 
-    /* Преобразовать связный список в Vector и вернуть */
+    /* Преобразовать связный список в вектор и вернуть его */
     vector<int> toVector() {
         ListNode *node = front;
         vector<int> res(size());
@@ -82,12 +82,12 @@ class LinkedListQueue {
     }
 };
 
-/* Driver Code */
+/* Пример использования */
 int main() {
-    /* Инициализация очереди */
+    /* Инициализировать очередь */
     LinkedListQueue *queue = new LinkedListQueue();
 
-    /* Добавление элемента в очередь */
+    /* Добавить элементы в очередь */
     queue->push(1);
     queue->push(3);
     queue->push(2);
@@ -96,22 +96,22 @@ int main() {
     cout << "Очередь queue = ";
     printVector(queue->toVector());
 
-    /* Доступ к элементу в начале очереди */
+    /* Посмотреть первый элемент очереди */
     int peek = queue->peek();
-    cout << "Первый элемент peek = " << peek << endl;
+    cout << "Первый элемент очереди peek = " << peek << endl;
 
-    /* Извлечение элемента из очереди */
+    /* Извлечь элемент из очереди */
     peek = queue->pop();
-    cout << "Извлеченный элемент pop = " << peek << ", queue после извлечения = ";
+    cout << "Извлечённый элемент pop = " << peek << ", после извлечения queue = ";
     printVector(queue->toVector());
 
-    /* Получение длины очереди */
+    /* Получить длину очереди */
     int size = queue->size();
     cout << "Длина очереди size = " << size << endl;
 
-    /* Проверка, пуста ли очередь */
+    /* Проверить, пуста ли очередь */
     bool empty = queue->isEmpty();
-    cout << "Пуста ли очередь = " << empty << endl;
+    cout << "Очередь пуста = " << empty << endl;
 
     // Освободить память
     delete queue;

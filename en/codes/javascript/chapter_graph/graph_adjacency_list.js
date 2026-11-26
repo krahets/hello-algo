@@ -6,9 +6,9 @@
 
 const { Vertex } = require('../modules/Vertex');
 
-/* Undirected graph class implemented with an adjacency list */
+/* Undirected graph represented by an adjacency list */
 class GraphAdjList {
-    // Adjacency list: key is a vertex, value is the list of all its neighbors
+    // Adjacency list: each vertex maps to its neighbors
     adjList;
 
     /* Constructor */
@@ -22,7 +22,7 @@ class GraphAdjList {
         }
     }
 
-    /* Get the number of vertices */
+    /* Get the vertex count */
     size() {
         return this.adjList.size;
     }
@@ -34,9 +34,9 @@ class GraphAdjList {
             !this.adjList.has(vet2) ||
             vet1 === vet2
         ) {
-            throw new Error('Invalid argument');
+            throw new Error('Illegal Argument Exception');
         }
-        // Add edge vet1 - vet2
+        // Add the edge vet1 - vet2
         this.adjList.get(vet1).push(vet2);
         this.adjList.get(vet2).push(vet1);
     }
@@ -49,9 +49,9 @@ class GraphAdjList {
             vet1 === vet2 ||
             this.adjList.get(vet1).indexOf(vet2) === -1
         ) {
-            throw new Error('Invalid argument');
+            throw new Error('Illegal Argument Exception');
         }
-        // Remove edge vet1 - vet2
+        // Remove the edge vet1 - vet2
         this.adjList.get(vet1).splice(this.adjList.get(vet1).indexOf(vet2), 1);
         this.adjList.get(vet2).splice(this.adjList.get(vet2).indexOf(vet1), 1);
     }
@@ -59,18 +59,18 @@ class GraphAdjList {
     /* Add a vertex */
     addVertex(vet) {
         if (this.adjList.has(vet)) return;
-        // Add a new list to the adjacency list
+        // Add a new linked list to the adjacency list
         this.adjList.set(vet, []);
     }
 
     /* Remove a vertex */
     removeVertex(vet) {
         if (!this.adjList.has(vet)) {
-            throw new Error('Invalid argument');
+            throw new Error('Illegal Argument Exception');
         }
-        // Remove the list corresponding to vertex vet from the adjacency list
+        // Remove the linked list for vertex vet from the adjacency list
         this.adjList.delete(vet);
-        // Traverse the lists of the other vertices and remove all edges incident to vet
+        // Traverse the other vertices' lists and remove every edge incident to vet
         for (const set of this.adjList.values()) {
             const index = set.indexOf(vet);
             if (index > -1) {
@@ -94,7 +94,7 @@ class GraphAdjList {
 
 if (require.main === module) {
     /* Driver code */
-    /* Initialize the undirected graph */
+    /* Initialize an undirected graph */
     const v0 = new Vertex(1),
         v1 = new Vertex(3),
         v2 = new Vertex(2),
@@ -113,13 +113,13 @@ if (require.main === module) {
     graph.print();
 
     /* Add an edge */
-    // Vertices 1 and 2 are v0 and v2
+    // Vertices 1 and 2 are v0 and v2, respectively
     graph.addEdge(v0, v2);
     console.log('\nGraph after adding edge 1-2:');
     graph.print();
 
     /* Remove an edge */
-    // Vertices 1 and 3 are v0 and v1
+    // Vertices 1 and 3 are v0 and v1, respectively
     graph.removeEdge(v0, v1);
     console.log('\nGraph after removing edge 1-3:');
     graph.print();

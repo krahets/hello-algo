@@ -8,22 +8,22 @@
 
 /* 함수 */
 int func() {
-    // 몇 가지 연산을 수행한다
+    // 어떤 연산을 수행한다
     return 0;
 }
 
 /* 상수 차수 */
 void constant(int n) {
-    // 상수, 변수, 객체는 O(1) 공간을 차지한다
+    // 상수, 변수, 객체가 O(1)의 공간을 차지한다
     const int a = 0;
     int b = 0;
     vector<int> nums(10000);
     ListNode node(0);
-    // 반복문 안의 변수는 O(1) 공간을 차지한다
+    // 반복문 안의 변수가 O(1)의 공간을 차지한다
     for (int i = 0; i < n; i++) {
         int c = 0;
     }
-    // 반복문 안의 함수는 O(1) 공간을 차지한다
+    // 반복문 안의 함수가 O(1)의 공간을 차지한다
     for (int i = 0; i < n; i++) {
         func();
     }
@@ -31,14 +31,14 @@ void constant(int n) {
 
 /* 선형 차수 */
 void linear(int n) {
-    // 길이가 n인 배열은 O(n) 공간을 차지한다
+    // 길이 n인 배열이 O(n)의 공간을 차지한다
     vector<int> nums(n);
-    // 길이가 n인 리스트는 O(n) 공간을 차지한다
+    // 길이 n인 리스트가 O(n)의 공간을 차지한다
     vector<ListNode> nodes;
     for (int i = 0; i < n; i++) {
         nodes.push_back(ListNode(i));
     }
-    // 길이가 n인 해시 테이블은 O(n) 공간을 차지한다
+    // 길이 n인 해시 테이블이 O(n)의 공간을 차지한다
     unordered_map<int, string> map;
     for (int i = 0; i < n; i++) {
         map[i] = to_string(i);
@@ -47,15 +47,15 @@ void linear(int n) {
 
 /* 선형 차수(재귀 구현) */
 void linearRecur(int n) {
-    cout << "재귀 n = " << n << endl;
+    cout << "재귀 호출 n = " << n << endl;
     if (n == 1)
         return;
     linearRecur(n - 1);
 }
 
-/* 제곱 차수 */
+/* 이차 차수 */
 void quadratic(int n) {
-    // 이차원 리스트는 O(n^2) 공간을 차지한다
+    // 2차원 리스트가 O(n^2)의 공간을 차지한다
     vector<vector<int>> numMatrix;
     for (int i = 0; i < n; i++) {
         vector<int> tmp;
@@ -66,16 +66,16 @@ void quadratic(int n) {
     }
 }
 
-/* 제곱 차수(재귀 구현) */
+/* 이차 차수(재귀 구현) */
 int quadraticRecur(int n) {
     if (n <= 0)
         return 0;
     vector<int> nums(n);
-    cout << "재귀 n = " << n << " 일 때 nums의 길이 = " << nums.size() << endl;
+    cout << "재귀 호출 n = " << n << " 에서 nums의 길이 = " << nums.size() << endl;
     return quadraticRecur(n - 1);
 }
 
-/* 지수 차수(포화 이진 트리 구성) */
+/* 지수 차수(포화 이진 트리 생성) */
 TreeNode *buildTree(int n) {
     if (n == 0)
         return nullptr;
@@ -85,7 +85,7 @@ TreeNode *buildTree(int n) {
     return root;
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 int main() {
     int n = 5;
     // 상수 차수
@@ -93,7 +93,7 @@ int main() {
     // 선형 차수
     linear(n);
     linearRecur(n);
-    // 제곱 차수
+    // 이차 차수
     quadratic(n);
     quadraticRecur(n);
     // 지수 차수

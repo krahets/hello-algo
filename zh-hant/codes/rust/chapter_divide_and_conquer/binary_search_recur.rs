@@ -6,19 +6,19 @@
 
 /* 二分搜尋：問題 f(i, j) */
 fn dfs(nums: &[i32], target: i32, i: i32, j: i32) -> i32 {
-    // 若區間為空，代表無目標元素，則返回 -1
+    // 若區間為空，表示沒有目標元素，回傳 -1
     if i > j {
         return -1;
     }
     let m: i32 = i + (j - i) / 2;
     if nums[m as usize] < target {
-        // 遞迴子問題 f(m+1, j)
+        // 遞迴求解子問題 f(m+1, j)
         return dfs(nums, target, m + 1, j);
     } else if nums[m as usize] > target {
-        // 遞迴子問題 f(i, m-1)
+        // 遞迴求解子問題 f(i, m-1)
         return dfs(nums, target, i, m - 1);
     } else {
-        // 找到目標元素，返回其索引
+        // 找到目標元素，回傳其索引
         return m;
     }
 }
@@ -30,12 +30,12 @@ fn binary_search(nums: &[i32], target: i32) -> i32 {
     dfs(nums, target, 0, n - 1)
 }
 
-/* Driver Code */
+/* 主程式 */
 pub fn main() {
     let target = 6;
     let nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
 
-    // 二分搜尋（雙閉區間）
+    // 二分搜尋（兩端皆含的閉區間）
     let index = binary_search(&nums, target);
     println!("目標元素 6 的索引 = {index}");
 }

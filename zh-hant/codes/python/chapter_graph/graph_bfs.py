@@ -15,24 +15,24 @@ from graph_adjacency_list import GraphAdjList
 
 def graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
     """廣度優先走訪"""
-    # 使用鄰接表來表示圖，以便獲取指定頂點的所有鄰接頂點
-    # 頂點走訪序列
+    # 以鄰接串列表示圖，以便取得指定頂點的所有相鄰頂點
+    # 頂點走訪順序
     res = []
-    # 雜湊集合，用於記錄已被訪問過的頂點
+    # 用雜湊集合記錄已走訪的頂點
     visited = set[Vertex]([start_vet])
-    # 佇列用於實現 BFS
+    # 使用佇列實作 BFS
     que = deque[Vertex]([start_vet])
-    # 以頂點 vet 為起點，迴圈直至訪問完所有頂點
+    # 從頂點 vet 出發，反覆執行，直到走訪完所有頂點
     while len(que) > 0:
-        vet = que.popleft()  # 佇列首頂點出隊
-        res.append(vet)  # 記錄訪問頂點
-        # 走訪該頂點的所有鄰接頂點
+        vet = que.popleft()  # 取出佇列前端的頂點
+        res.append(vet)  # 記錄走訪的頂點
+        # 走訪此頂點的所有相鄰頂點
         for adj_vet in graph.adj_list[vet]:
             if adj_vet in visited:
-                continue  # 跳過已被訪問的頂點
-            que.append(adj_vet)  # 只入列未訪問的頂點
-            visited.add(adj_vet)  # 標記該頂點已被訪問
-    # 返回頂點走訪序列
+                continue  # 略過已走訪的頂點
+            que.append(adj_vet)  # 只將尚未走訪的頂點加入佇列
+            visited.add(adj_vet)  # 將此頂點標記為已走訪
+    # 回傳頂點的走訪順序
     return res
 
 
@@ -55,10 +55,10 @@ if __name__ == "__main__":
         [v[7], v[8]],
     ]
     graph = GraphAdjList(edges)
-    print("\n初始化後，圖為")
+    print("\n初始化後的圖為")
     graph.print()
 
     # 廣度優先走訪
     res = graph_bfs(graph, v[0])
-    print("\n廣度優先走訪（BFS）頂點序列為")
+    print("\n廣度優先走訪（BFS）的頂點順序為")
     print(vets_to_vals(res))

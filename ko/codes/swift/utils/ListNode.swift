@@ -6,7 +6,7 @@
 
 public class ListNode: Hashable {
     public var val: Int // 노드 값
-    public var next: ListNode? // 다음 노드 참조
+    public var next: ListNode? // 다음 노드에 대한 참조
 
     public init(x: Int) {
         val = x

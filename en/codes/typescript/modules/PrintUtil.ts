@@ -28,15 +28,15 @@ class Trunk {
 }
 
 /**
- * Print the binary tree
- * This tree printer is borrowed from TECHIE DELIGHT
+ * Print a binary tree
+ * This tree printer comes from Techie Delight
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 function printTree(root: TreeNode | null) {
     printTreeHelper(root, null, false);
 }
 
-/* Print the binary tree */
+/* Print a binary tree */
 function printTreeHelper(
     root: TreeNode | null,
     prev: Trunk | null,

@@ -15,7 +15,7 @@ public class ListNode {
         val = x;
     }
 
-    /* 將串列反序列化為鏈結串列 */
+    /* 將陣列反序列化為鏈結串列 */
     public static ListNode arrToLinkedList(int[] arr) {
         ListNode dum = new ListNode(0);
         ListNode head = dum;

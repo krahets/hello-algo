@@ -8,15 +8,15 @@ package chapter_stack_and_queue
 
 /* Doubly linked list node */
 class ListNode(var _val: Int) {
-    // The node value is stored in _val
+    // Node value
     var next: ListNode? = null // Reference to the next node
     var prev: ListNode? = null // Reference to the previous node
 }
 
-/* Deque implemented with a doubly linked list */
+/* Deque backed by a doubly linked list */
 class LinkedListDeque {
-    private var front: ListNode? = null // Head node front
-    private var rear: ListNode? = null // Tail node rear
+    private var front: ListNode? = null // Head node (front)
+    private var rear: ListNode? = null // Tail node (rear)
     private var queSize: Int = 0 // Deque size
 
     /* Get the deque size */
@@ -29,88 +29,88 @@ class LinkedListDeque {
         return size() == 0
     }
 
-    /* Enqueue operation */
+    /* Add an element at either end */
     fun push(num: Int, isFront: Boolean) {
         val node = ListNode(num)
-        // If the linked list is empty, make both front and rear point to node
+        // If the list is empty, point both front and rear at node
         if (isEmpty()) {
             rear = node
             front = rear
-            // Enqueue at the front
+            // Add at the front
         } else if (isFront) {
-            // Add node to the head of the linked list
+            // Link node at the head of the list
             front?.prev = node
             node.next = front
-            front = node // Update the head node
-            // Enqueue at the rear
+            front = node // Update the head
+            // Add at the rear
         } else {
-            // Add node to the tail of the linked list
+            // Link node at the tail of the list
             rear?.next = node
             node.prev = rear
-            rear = node // Update the tail node
+            rear = node // Update the tail
         }
-        queSize++ // Update the queue size
+        queSize++ // Update the deque size
     }
 
-    /* Enqueue at the front */
+    /* Add an element at the front */
     fun pushFirst(num: Int) {
         push(num, true)
     }
 
-    /* Enqueue at the rear */
+    /* Add an element at the rear */
     fun pushLast(num: Int) {
         push(num, false)
     }
 
-    /* Dequeue operation */
+    /* Remove an element from either end */
     fun pop(isFront: Boolean): Int {
         if (isEmpty()) 
             throw IndexOutOfBoundsException()
         val _val: Int
-        // When the queue size is 1, the head and tail point to the same node
+        // When the deque contains one element, the head and tail point to the same node
         if (queSize == 1) {
             _val = front!!._val
             front = null
             rear = null
         }
-        // Dequeue from the front
+        // Remove from the front
         else if (isFront) {
-            _val = front!!._val // Save the head node value
+            _val = front!!._val // Save the head node's value
             // Remove the head node
             val fNext = front!!.next
             fNext!!.prev = null
             front!!.next = null
-            front = fNext // Update the head node
-            // Dequeue from the rear
+            front = fNext // Update the head
+            // Remove from the rear
         } else {
-            _val = rear!!._val // Save the tail node value
+            _val = rear!!._val // Save the tail node's value
             // Remove the tail node
             val rPrev = rear!!.prev
             rPrev!!.next = null
             rear!!.prev = null
-            rear = rPrev // Update the tail node
+            rear = rPrev // Update the tail
         }
-        queSize-- // Update the queue size
+        queSize-- // Update the deque size
         return _val
     }
 
-    /* Dequeue from the front */
+    /* Remove and return the front element */
     fun popFirst(): Int {
         return pop(true)
     }
 
-    /* Dequeue from the rear */
+    /* Remove and return the rear element */
     fun popLast(): Int {
         return pop(false)
     }
 
-    /* Access the front element */
+    /* Peek at the front element */
     fun peekFirst(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
         return front!!._val
     }
 
-    /* Access the rear element */
+    /* Peek at the rear element */
     fun peekLast(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
         return rear!!._val
@@ -135,25 +135,25 @@ fun main() {
     deque.pushLast(3)
     deque.pushLast(2)
     deque.pushLast(5)
-    println("Deque deque = ${deque.toArray().contentToString()}")
+    println("deque = ${deque.toArray().contentToString()}")
 
-    /* Access an element */
+    /* Peek at the front and rear elements */
     val peekFirst = deque.peekFirst()
-    println("Front element: peekFirst = $peekFirst")
+    println("Front element (peekFirst) = $peekFirst")
     val peekLast = deque.peekLast()
-    println("Rear element: peekLast = $peekLast")
+    println("Rear element (peekLast) = $peekLast")
 
-    /* Enqueue elements */
+    /* Add elements to the deque */
     deque.pushLast(4)
-    println("After enqueuing 4 at the rear: deque = ${deque.toArray().contentToString()}")
+    println("After adding 4 at the rear, deque = ${deque.toArray().contentToString()}")
     deque.pushFirst(1)
-    println("After enqueuing 1 at the front: deque = ${deque.toArray().contentToString()}")
+    println("After adding 1 at the front, deque = ${deque.toArray().contentToString()}")
 
-    /* Dequeue an element */
+    /* Remove elements from both ends */
     val popLast = deque.popLast()
-    println("Element dequeued from the rear = ${popLast}; deque after removal = ${deque.toArray().contentToString()}")
+    println("Removed from the rear = ${popLast}, deque after removal = ${deque.toArray().contentToString()}")
     val popFirst = deque.popFirst()
-    println("Element dequeued from the front = ${popFirst}; deque after removal = ${deque.toArray().contentToString()}")
+    println("Removed from the front = ${popFirst}, deque after removal = ${deque.toArray().contentToString()}")
 
     /* Get the deque size */
     val size = deque.size()
@@ -161,5 +161,5 @@ fun main() {
 
     /* Check whether the deque is empty */
     val isEmpty = deque.isEmpty()
-    println("Is the deque empty? $isEmpty")
+    println("Deque is empty = $isEmpty")
 }

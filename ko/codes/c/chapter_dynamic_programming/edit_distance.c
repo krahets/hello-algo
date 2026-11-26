@@ -22,18 +22,18 @@ int editDistanceDFS(char *s, char *t, int i, int j) {
     // t가 비어 있으면 s의 길이를 반환한다
     if (j == 0)
         return i;
-    // 두 문자가 같으면 두 문자를 바로 건너뛴다
+    // 두 문자가 같으면 둘 다 건너뛴다
     if (s[i - 1] == t[j - 1])
         return editDistanceDFS(s, t, i - 1, j - 1);
-    // 최소 편집 횟수 = 삽입, 삭제, 교체 세 연산에 대한 최소 편집 횟수 + 1
+    // 최소 편집 횟수 = 삽입, 삭제, 교체 후 남은 편집 횟수의 최솟값 + 1
     int insert = editDistanceDFS(s, t, i, j - 1);
     int del = editDistanceDFS(s, t, i - 1, j);
     int replace = editDistanceDFS(s, t, i - 1, j - 1);
-    // 최소 편집 횟수를 반환한다
+    // 최소 편집 횟수 반환
     return myMin(myMin(insert, del), replace) + 1;
 }
 
-/* 편집 거리: 메모이제이션을 이용한 탐색 */
+/* 편집 거리: 메모이제이션 탐색 */
 int editDistanceDFSMem(char *s, char *t, int memCols, int **mem, int i, int j) {
     // s와 t가 모두 비어 있으면 0을 반환한다
     if (i == 0 && j == 0)
@@ -44,13 +44,13 @@ int editDistanceDFSMem(char *s, char *t, int memCols, int **mem, int i, int j) {
     // t가 비어 있으면 s의 길이를 반환한다
     if (j == 0)
         return i;
-    // 기록이 이미 있으면 해당 값을 바로 반환한다
+    // 기록이 있으면 바로 반환한다
     if (mem[i][j] != -1)
         return mem[i][j];
-    // 두 문자가 같으면 두 문자를 바로 건너뛴다
+    // 두 문자가 같으면 둘 다 건너뛴다
     if (s[i - 1] == t[j - 1])
         return editDistanceDFSMem(s, t, memCols, mem, i - 1, j - 1);
-    // 최소 편집 횟수 = 삽입, 삭제, 교체 세 연산에 대한 최소 편집 횟수 + 1
+    // 최소 편집 횟수 = 삽입, 삭제, 교체 후 남은 편집 횟수의 최솟값 + 1
     int insert = editDistanceDFSMem(s, t, memCols, mem, i, j - 1);
     int del = editDistanceDFSMem(s, t, memCols, mem, i - 1, j);
     int replace = editDistanceDFSMem(s, t, memCols, mem, i - 1, j - 1);
@@ -65,7 +65,7 @@ int editDistanceDP(char *s, char *t, int n, int m) {
     for (int i = 0; i <= n; i++) {
         dp[i] = calloc(m + 1, sizeof(int));
     }
-    // 상태 전이: 첫 번째 행과 첫 번째 열
+    // 상태 전이: 첫 행과 첫 열
     for (int i = 1; i <= n; i++) {
         dp[i][0] = i;
     }
@@ -76,10 +76,10 @@ int editDistanceDP(char *s, char *t, int n, int m) {
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (s[i - 1] == t[j - 1]) {
-                // 두 문자가 같으면 두 문자를 바로 건너뛴다
+                // 두 문자가 같으면 둘 다 건너뛴다
                 dp[i][j] = dp[i - 1][j - 1];
             } else {
-                // 최소 편집 횟수 = 삽입, 삭제, 교체 세 연산에 대한 최소 편집 횟수 + 1
+                // 최소 편집 횟수 = 삽입, 삭제, 교체 후 남은 편집 횟수의 최솟값 + 1
                 dp[i][j] = myMin(myMin(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
             }
         }
@@ -92,29 +92,29 @@ int editDistanceDP(char *s, char *t, int n, int m) {
     return res;
 }
 
-/* 편집 거리: 공간을 최적화한 동적 계획법 */
+/* 편집 거리: 공간 최적화 동적 계획법 */
 int editDistanceDPComp(char *s, char *t, int n, int m) {
     int *dp = calloc(m + 1, sizeof(int));
-    // 상태 전이: 첫 번째 행
+    // 상태 전이: 첫 행
     for (int j = 1; j <= m; j++) {
         dp[j] = j;
     }
     // 상태 전이: 나머지 행
     for (int i = 1; i <= n; i++) {
-        // 상태 전이: 첫 번째 열
-        int leftup = dp[0]; // dp[i-1, j-1]을 임시로 저장한다
+        // 상태 전이: 첫 열
+        int leftup = dp[0]; // dp[i-1, j-1] 임시 저장
         dp[0] = i;
         // 상태 전이: 나머지 열
         for (int j = 1; j <= m; j++) {
             int temp = dp[j];
             if (s[i - 1] == t[j - 1]) {
-                // 두 문자가 같으면 두 문자를 바로 건너뛴다
+                // 두 문자가 같으면 둘 다 건너뛴다
                 dp[j] = leftup;
             } else {
-                // 최소 편집 횟수 = 삽입, 삭제, 교체 세 연산에 대한 최소 편집 횟수 + 1
+                // 최소 편집 횟수 = 삽입, 삭제, 교체 후 남은 편집 횟수의 최솟값 + 1
                 dp[j] = myMin(myMin(dp[j - 1], dp[j]), leftup) + 1;
             }
-            leftup = temp; // 다음 반복의 dp[i-1, j-1]로 갱신한다
+            leftup = temp; // 다음 반복에서 쓸 dp[i-1, j-1] 값으로 갱신한다
         }
     }
     int res = dp[m];
@@ -123,7 +123,7 @@ int editDistanceDPComp(char *s, char *t, int n, int m) {
     return res;
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 int main() {
     char *s = "bag";
     char *t = "pack";
@@ -131,16 +131,16 @@ int main() {
 
     // 완전 탐색
     int res = editDistanceDFS(s, t, n, m);
-    printf("%s에서 %s로 바꾸려면 최소 %d회의 편집이 필요하다\n", s, t, res);
+    printf("%s에서 %s까지의 최소 편집 횟수: %d\n", s, t, res);
 
-    // 메모이제이션을 이용한 탐색
+    // 메모이제이션 탐색
     int **mem = malloc((n + 1) * sizeof(int *));
     for (int i = 0; i <= n; i++) {
         mem[i] = malloc((m + 1) * sizeof(int));
         memset(mem[i], -1, (m + 1) * sizeof(int));
     }
     res = editDistanceDFSMem(s, t, m + 1, mem, n, m);
-    printf("%s에서 %s로 바꾸려면 최소 %d회의 편집이 필요하다\n", s, t, res);
+    printf("%s에서 %s까지의 최소 편집 횟수: %d\n", s, t, res);
     // 메모리 해제
     for (int i = 0; i <= n; i++) {
         free(mem[i]);
@@ -149,11 +149,11 @@ int main() {
 
     // 동적 계획법
     res = editDistanceDP(s, t, n, m);
-    printf("%s에서 %s로 바꾸려면 최소 %d회의 편집이 필요하다\n", s, t, res);
+    printf("%s에서 %s까지의 최소 편집 횟수: %d\n", s, t, res);
 
-    // 공간을 최적화한 동적 계획법
+    // 공간 최적화 동적 계획법
     res = editDistanceDPComp(s, t, n, m);
-    printf("%s에서 %s로 바꾸려면 최소 %d회의 편집이 필요하다\n", s, t, res);
+    printf("%s에서 %s까지의 최소 편집 횟수: %d\n", s, t, res);
 
     return 0;
 }

@@ -8,16 +8,16 @@ import utils
 
 @main
 enum BinaryTree {
-    /* Driver Code */
+    /* Основная программа */
     static func main() {
         /* Инициализация двоичного дерева */
-        // Инициализация узла
+        // Инициализация узлов
         let n1 = TreeNode(x: 1)
         let n2 = TreeNode(x: 2)
         let n3 = TreeNode(x: 3)
         let n4 = TreeNode(x: 4)
         let n5 = TreeNode(x: 5)
-        // Построить связи между узлами (указатели)
+        // Связать узлы ссылками (указателями)
         n1.left = n2
         n1.right = n3
         n2.left = n4
@@ -27,14 +27,14 @@ enum BinaryTree {
 
         /* Вставка и удаление узлов */
         let P = TreeNode(x: 0)
-        // Вставить узел P между n1 -> n2
+        // Вставить узел P между n1 и n2
         n1.left = P
         P.left = n2
-        print("\nПосле вставки узла P\n")
+        print("\nПосле вставки узла P:\n")
         PrintUtil.printTree(root: n1)
         // Удалить узел P
         n1.left = n2
-        print("\nПосле удаления узла P\n")
+        print("\nПосле удаления узла P:\n")
         PrintUtil.printTree(root: n1)
     }
 }

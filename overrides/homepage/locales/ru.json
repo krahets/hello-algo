@@ -1,20 +1,20 @@
 {
   "hero_class": "hero-div hero-div--ru",
   "labels": {
-    "astronaut": "Введение в алгоритмы",
+    "astronaut": "Знакомство с алгоритмами",
     "chapter_computational_complexity": "Анализ сложности",
-    "chapter_array_and_linkedlist": "Массивы и списки",
-    "chapter_stack_and_queue": "Стек и очередь",
+    "chapter_array_and_linkedlist": "Массивы и связные списки",
+    "chapter_stack_and_queue": "Стеки и очереди",
     "chapter_hashing": "Хеш-таблицы",
     "chapter_tree": "Деревья",
-    "chapter_heap": "Куча",
+    "chapter_heap": "Кучи",
     "chapter_graph": "Графы",
     "chapter_searching": "Поиск",
     "chapter_sorting": "Сортировка",
     "chapter_divide_and_conquer": "Разделяй и властвуй",
     "chapter_backtracking": "Поиск с возвратом",
     "chapter_dynamic_programming": "Динамическое программирование",
-    "chapter_greedy": "Жадность"
+    "chapter_greedy": "Жадный подход"
   },
   "label_styles": {
     "astronaut": "left: 52.244%; top: 20.919%;",
@@ -34,15 +34,15 @@
   },
   "typing": {
     "style": "height: min(9vh, 12vw);",
-    "src": "https://readme-typing-svg.demolab.com/?font=Roboto&weight=400&duration=3500&pause=2000&color=FFF&center=true&vCenter=true&random=false&width=260&lines=Hello%2C+%D0%90%D0%BB%D0%B3%D0%BE!",
+    "src": "https://readme-typing-svg.demolab.com/?font=Roboto&weight=400&duration=3500&pause=2000&color=FFF&center=true&vCenter=true&random=false&width=260&lines=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%2C+%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%8B!",
     "alt": ""
   },
-  "tagline": "Учебник по структурам данных и алгоритмам с анимированными схемами и кодом, готовым к запуску в один клик",
+  "tagline": "Учебник по структурам данных и алгоритмам с анимациями и примерами кода, которые можно запустить одним нажатием",
   "start_label": "Начать чтение",
   "start_href": "chapter_hello_algo/",
   "reading": [
     {
-      "asset": "web_mac_iphone",
+      "asset": "ru_web_mac_iphone",
       "href": "chapter_hello_algo/",
       "alt": "",
       "label": "Читать онлайн",
@@ -53,7 +53,7 @@
       ]
     },
     {
-      "asset": "pdf_ipad",
+      "asset": "en_pdf_ipad",
       "href": "https://github.com/krahets/hello-algo/releases",
       "alt": "",
       "label": "Скачать PDF/EPUB",
@@ -61,48 +61,48 @@
       "spacers": []
     }
   ],
-  "reading_description": "500 анимированных схем, код на 14 языках программирования и 3000 ответов сообщества помогут вам быстро войти в мир структур данных и алгоритмов.",
+  "reading_description": "500 анимированных иллюстраций, примеры кода на 14 языках программирования и 3000 вопросов и ответов от сообщества помогут вам быстро освоить основы структур данных и алгоритмов",
   "endorsement_title": "Рекомендации",
   "endorsements": [
     [
-      "«Понятная вводная книга по структурам данных и алгоритмам, которая ведет читателя через практическое обучение шаг за шагом. Очень рекомендую всем начинающим.»",
-      "—— Junhui Deng, профессор факультета компьютерных наук Университета Цинхуа"
+      "«Это доступное введение в структуры данных и алгоритмы. Книга побуждает читателя самостоятельно думать и проверять идеи на практике. Очень рекомендую её всем, кто только начинает изучать алгоритмы».",
+      "— Дэн Цзюньхуэй, профессор кафедры информатики Университета Цинхуа"
     ],
     [
-      "«Если бы у меня была “Hello Algo”, когда я изучал структуры данных и алгоритмы, учиться было бы в десять раз проще!»",
-      "—— Mu Li, Senior Principal Scientist, Amazon"
+      "«Если бы у меня была книга „Hello Algo“, когда я изучал структуры данных и алгоритмы, учиться, наверное, было бы в 10 раз проще!»",
+      "— Ли Му, старший главный научный сотрудник Amazon"
     ]
   ],
   "features": [
     {
-      "title": "Анимированные схемы",
-      "description": "Материал изложен ясно и последовательно, поэтому вход в тему получается плавным.",
+      "title": "Анимированные иллюстрации",
+      "description": "Наглядные объяснения помогают осваивать материал постепенно",
       "quotes": [
         "\"A picture is worth a thousand words.\"",
-        "«Одна схема стоит тысячи слов»"
+        "«Одна картинка стоит тысячи слов»"
       ],
-      "video": "animation",
-      "video_label": "Animation example"
+      "video": "ru_animation",
+      "video_label": "Пример анимированной иллюстрации"
     },
     {
       "title": "Запуск в один клик",
-      "description": "Код на более чем десяти языках можно запускать и визуализировать прямо в книге.",
+      "description": "Примеры написаны более чем на десяти языках программирования. Запустите код, чтобы увидеть, как он выполняется",
       "quotes": [
         "\"Talk is cheap. Show me the code.\"",
-        "«Меньше слов, больше кода»"
+        "«Меньше слов, покажите код»"
       ],
-      "video": "running_code",
-      "video_label": "Running code example"
+      "video": "ru_running_code",
+      "video_label": "Пример выполнения кода"
     },
     {
       "title": "Учимся вместе",
-      "description": "Добро пожаловать к обсуждениям и вопросам: продвигаться вместе проще.",
+      "description": "Задавайте вопросы, участвуйте в обсуждениях и помогайте друг другу учиться",
       "quotes": [
         "\"Learning by teaching.\"",
         "«Обучая других, учишься сам»"
       ],
       "video": "comment",
-      "video_label": "Comments example"
+      "video_label": "Пример обсуждения между читателями"
     }
   ],
   "people": [
@@ -114,21 +114,21 @@
           "href": "https://github.com/krahets",
           "class": "profile-cell",
           "asset": "avatar_yudongjin",
-          "alt": "Author: yudongjin",
-          "name": "Yudong Jin (@krahets)",
+          "alt": "Автор: yudongjin",
+          "name": "Цзинь Юйдун (@krahets)",
           "detail": null
         }
       ]
     },
     {
-      "title": "Переводчики",
-      "description": "Русская печатная версия была переведена И. А. Шевкун, а русская онлайн-версия была вычитана Yuyan Huang. Благодарим их за вклад!",
+      "title": "Перевод и вычитка русского издания",
+      "description": "Перевод печатного издания на русский язык — И. А. Шевкун. Вычитка ранней русской онлайн-версии — Yuyan Huang. Спасибо за ваш вклад!",
       "profiles": [
         {
           "href": null,
           "class": "profile-cell translator-profile-cell",
           "asset": "avatar_shevkun",
-          "alt": "Translator: shevkun",
+          "alt": "Переводчик русского печатного издания: И. А. Шевкун",
           "name": "И. А. Шевкун",
           "detail": null
         },
@@ -136,21 +136,21 @@
           "href": "https://github.com/veronicahuang2977",
           "class": "profile-cell translator-profile-cell",
           "asset": "avatar_yuyanhuang",
-          "alt": "Translator: yuyanhuang",
+          "alt": "Вычитка ранней русской онлайн-версии: Yuyan Huang",
           "name": "Yuyan Huang",
           "detail": null
         }
       ]
     },
     {
-      "title": "Ревьюеры кода",
-      "description": "Многоязычные версии кода в этой книге были подготовлены при участии следующих разработчиков. Благодарим их за время и вклад!",
+      "title": "Рецензенты кода",
+      "description": "Эти разработчики вместе подготовили примеры кода для книги на разных языках программирования. Спасибо им за труд и вклад в проект!",
       "profiles": [
         {
           "href": "https://github.com/coderonion",
           "class": "profile-cell",
           "asset": "avatar_coderonion",
-          "alt": "Reviewer: coderonion",
+          "alt": "Рецензент кода: coderonion",
           "name": "coderonion",
           "detail": "Zig, Rust"
         },
@@ -158,7 +158,7 @@
           "href": "https://github.com/curtishd",
           "class": "profile-cell",
           "asset": "avatar_curtishd",
-          "alt": "Reviewer: curtishd",
+          "alt": "Рецензент кода: curtishd",
           "name": "curtishd",
           "detail": "Kotlin"
         },
@@ -166,7 +166,7 @@
           "href": "https://github.com/Gonglja",
           "class": "profile-cell",
           "asset": "avatar_Gonglja",
-          "alt": "Reviewer: Gonglja",
+          "alt": "Рецензент кода: Gonglja",
           "name": "Gonglja",
           "detail": "C, C++"
         },
@@ -174,7 +174,7 @@
           "href": "https://github.com/gvenusleo",
           "class": "profile-cell",
           "asset": "avatar_gvenusleo",
-          "alt": "Reviewer: gvenusleo",
+          "alt": "Рецензент кода: gvenusleo",
           "name": "gvenusleo",
           "detail": "Dart"
         },
@@ -182,7 +182,7 @@
           "href": "https://github.com/hpstory",
           "class": "profile-cell",
           "asset": "avatar_hpstory",
-          "alt": "Reviewer: hpstory",
+          "alt": "Рецензент кода: hpstory",
           "name": "hpstory",
           "detail": "C#"
         },
@@ -190,7 +190,7 @@
           "href": "https://github.com/justin-tse",
           "class": "profile-cell",
           "asset": "avatar_justin-tse",
-          "alt": "Reviewer: justin-tse",
+          "alt": "Рецензент кода: justin-tse",
           "name": "justin-tse",
           "detail": "JS, TS"
         },
@@ -198,7 +198,7 @@
           "href": "https://github.com/khoaxuantu",
           "class": "profile-cell",
           "asset": "avatar_khoaxuantu",
-          "alt": "Reviewer: khoaxuantu",
+          "alt": "Рецензент кода: khoaxuantu",
           "name": "khoaxuantu",
           "detail": "Ruby"
         },
@@ -206,7 +206,7 @@
           "href": "https://github.com/krahets",
           "class": "profile-cell",
           "asset": "avatar_krahets",
-          "alt": "Reviewer: krahets",
+          "alt": "Рецензент кода: krahets",
           "name": "krahets",
           "detail": "Python, Java"
         },
@@ -214,7 +214,7 @@
           "href": "https://github.com/night-cruise",
           "class": "profile-cell",
           "asset": "avatar_night-cruise",
-          "alt": "Reviewer: night-cruise",
+          "alt": "Рецензент кода: night-cruise",
           "name": "night-cruise",
           "detail": "Rust"
         },
@@ -222,7 +222,7 @@
           "href": "https://github.com/nuomi1",
           "class": "profile-cell",
           "asset": "avatar_nuomi1",
-          "alt": "Reviewer: nuomi1",
+          "alt": "Рецензент кода: nuomi1",
           "name": "nuomi1",
           "detail": "Swift"
         },
@@ -230,7 +230,7 @@
           "href": "https://github.com/Reanon",
           "class": "profile-cell",
           "asset": "avatar_Reanon",
-          "alt": "Reviewer: Reanon",
+          "alt": "Рецензент кода: Reanon",
           "name": "Reanon",
           "detail": "Go, C"
         },
@@ -238,7 +238,7 @@
           "href": "https://github.com/rongyi",
           "class": "profile-cell",
           "asset": "avatar_rongyi",
-          "alt": "Reviewer: rongyi",
+          "alt": "Рецензент кода: rongyi",
           "name": "rongyi",
           "detail": "Rust"
         }
@@ -246,12 +246,12 @@
     },
     {
       "title": "Участники проекта",
-      "description": "Книга постоянно совершенствуется благодаря совместным усилиям более чем 200 участников сообщества. Спасибо им за время и вклад!",
+      "description": "Книга становится лучше благодаря совместной работе более 200 участников сообщества открытого исходного кода. Спасибо им за время и силы, которые они вкладывают в проект!",
       "profiles": [],
       "banner": {
         "href": "https://github.com/krahets/hello-algo/graphs/contributors",
         "url": "https://contrib.rocks/image?repo=krahets/hello-algo&max=300&columns=12",
-        "alt": "Contributors",
+        "alt": "Люди, которые помогали создавать книгу",
         "style": "width: 100%; max-width: 38.5em;"
       }
     }

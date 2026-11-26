@@ -47,8 +47,8 @@ fn build_tree(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>
 fn main() {
     let preorder = [3, 9, 2, 1, 7];
     let inorder = [9, 3, 1, 2, 7];
-    println!("中序遍历 = {:?}", preorder);
-    println!("前序遍历 = {:?}", inorder);
+    println!("前序遍历 = {:?}", preorder);
+    println!("中序遍历 = {:?}", inorder);
 
     let root = build_tree(&preorder, &inorder);
     println!("构建的二叉树为：");

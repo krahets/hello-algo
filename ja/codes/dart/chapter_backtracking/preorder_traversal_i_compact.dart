@@ -20,16 +20,16 @@ void preOrder(TreeNode? root, List<TreeNode> res) {
   preOrder(root.right, res);
 }
 
-/* 実行用コード */
+/* 実行例 */
 void main() {
   TreeNode? root = listToTree([1, 7, 3, 4, 5, 6, 7]);
-  print("\n二分木を初期化する");
+  print("\n二分木を初期化");
   printTree(root);
 
   // 行きがけ順走査
   List<TreeNode> res = [];
   preOrder(root, res);
 
-  print("\n値が 7 であるすべてのノードを出力する");
+  print("\n値が 7 のノードをすべて出力");
   print(List.generate(res.length, (i) => res[i].val));
 }

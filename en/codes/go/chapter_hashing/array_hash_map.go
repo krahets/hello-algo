@@ -12,14 +12,14 @@ type pair struct {
 	val string
 }
 
-/* Hash table implemented with an array */
+/* Array-based hash table */
 type arrayHashMap struct {
 	buckets []*pair
 }
 
 /* Initialize the hash table */
 func newArrayHashMap() *arrayHashMap {
-	// Initialize an array containing 100 buckets
+	// Initialize an array with 100 buckets
 	buckets := make([]*pair, 100)
 	return &arrayHashMap{buckets: buckets}
 }
@@ -30,7 +30,7 @@ func (a *arrayHashMap) hashFunc(key int) int {
 	return index
 }
 
-/* Lookup operation */
+/* Look up a value */
 func (a *arrayHashMap) get(key int) string {
 	index := a.hashFunc(key)
 	pair := a.buckets[index]
@@ -40,17 +40,17 @@ func (a *arrayHashMap) get(key int) string {
 	return pair.val
 }
 
-/* Insert operation */
+/* Insert a key-value pair */
 func (a *arrayHashMap) put(key int, val string) {
 	pair := &pair{key: key, val: val}
 	index := a.hashFunc(key)
 	a.buckets[index] = pair
 }
 
-/* Remove operation */
+/* Remove a key-value pair */
 func (a *arrayHashMap) remove(key int) {
 	index := a.hashFunc(key)
-	// Set to nil to mark the entry as removed
+	// Set the slot to nil to remove the entry
 	a.buckets[index] = nil
 }
 

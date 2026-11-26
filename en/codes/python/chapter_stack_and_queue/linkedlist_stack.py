@@ -12,43 +12,43 @@ from modules import ListNode
 
 
 class LinkedListStack:
-    """Stack implemented with a linked list"""
+    """Stack backed by a linked list."""
 
     def __init__(self):
-        """Constructor"""
+        """Initialize the stack."""
         self._peek: ListNode | None = None
         self._size: int = 0
 
     def size(self) -> int:
-        """Get the stack size"""
+        """Get the stack size."""
         return self._size
 
     def is_empty(self) -> bool:
-        """Check whether the stack is empty"""
+        """Check whether the stack is empty."""
         return self._size == 0
 
     def push(self, val: int):
-        """Push"""
+        """Push an element onto the stack."""
         node = ListNode(val)
         node.next = self._peek
         self._peek = node
         self._size += 1
 
     def pop(self) -> int:
-        """Pop"""
+        """Remove and return the top element."""
         num = self.peek()
         self._peek = self._peek.next
         self._size -= 1
         return num
 
     def peek(self) -> int:
-        """Access the top element"""
+        """Peek at the top element."""
         if self.is_empty():
             raise IndexError("Stack is empty")
         return self._peek.val
 
     def to_list(self) -> list[int]:
-        """Convert to a list for printing"""
+        """Convert to a list for printing."""
         arr = []
         node = self._peek
         while node:
@@ -58,7 +58,7 @@ class LinkedListStack:
         return arr
 
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
     # Initialize the stack
     stack = LinkedListStack()
@@ -69,21 +69,21 @@ if __name__ == "__main__":
     stack.push(2)
     stack.push(5)
     stack.push(4)
-    print("Stack stack =", stack.to_list())
+    print("stack =", stack.to_list())
 
-    # Access the top element
+    # Peek at the top element
     peek: int = stack.peek()
-    print("Top element peek =", peek)
+    print("Top element (peek) =", peek)
 
-    # Pop an element from the stack
+    # Pop the top element
     pop: int = stack.pop()
-    print("Popped element pop =", pop)
-    print("After popping, stack =", stack.to_list())
+    print("Popped element (pop) =", pop)
+    print("After the pop, stack =", stack.to_list())
 
     # Get the stack size
     size: int = stack.size()
     print("Stack size =", size)
 
-    # Check whether it is empty
+    # Check whether the stack is empty
     is_empty: bool = stack.is_empty()
-    print("Is the stack empty =", is_empty)
+    print("Stack is empty =", is_empty)

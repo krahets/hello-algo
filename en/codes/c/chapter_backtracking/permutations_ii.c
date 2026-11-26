@@ -6,12 +6,12 @@
 
 #include "../utils/common.h"
 
-// Assume at most 1000 permutations and a maximum element value of 1000
+// Assume at most 1000 permutations and element values at most 1000
 #define MAX_SIZE 1000
 
 /* Backtracking: permutations II */
 void backtrack(int *state, int stateSize, int *choices, int choicesSize, bool *selected, int **res, int *resSize) {
-    // Record a solution when the state length equals the number of elements
+    // Record a solution when the state contains all the elements
     if (stateSize == choicesSize) {
         res[*resSize] = (int *)malloc(choicesSize * sizeof(int));
         for (int i = 0; i < choicesSize; i++) {
@@ -20,19 +20,19 @@ void backtrack(int *state, int stateSize, int *choices, int choicesSize, bool *s
         (*resSize)++;
         return;
     }
-    // Iterate over all choices
+    // Try each choice
     bool duplicated[MAX_SIZE] = {false};
     for (int i = 0; i < choicesSize; i++) {
         int choice = choices[i];
-        // Prune: do not reuse an element or choose the same value again at this depth
+        // Skip elements already in use and values already tried at this level
         if (!selected[i] && !duplicated[choice]) {
-            // Try: make a choice and update the state
-            duplicated[choice] = true; // Record the chosen value
+            // Make a choice and update the state
+            duplicated[choice] = true; // Track values already tried
             selected[i] = true;
             state[stateSize] = choice;
-            // Proceed to the next choice
+            // Make the next choice
             backtrack(state, stateSize + 1, choices, choicesSize, selected, res, resSize);
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             selected[i] = false;
         }
     }
@@ -71,7 +71,7 @@ int main() {
         printArray(res[i], numsSize);
     }
 
-    // Free memory
+    // Free the memory
     for (int i = 0; i < returnSize; i++) {
         free(res[i]);
     }

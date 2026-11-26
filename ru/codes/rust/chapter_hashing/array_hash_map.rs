@@ -4,7 +4,7 @@
  * Author: xBLACICEx (xBLACKICEx@outlook.com)
  */
 
-/* Пара ключ-значение */
+/* Пара «ключ — значение» */
 #[derive(Debug, Clone, PartialEq)]
 pub struct Pair {
     pub key: i32,
@@ -17,7 +17,7 @@ pub struct ArrayHashMap {
 
 impl ArrayHashMap {
     pub fn new() -> ArrayHashMap {
-        // Инициализировать массив, содержащий 100 корзин
+        // Создать массив из 100 корзин
         Self {
             buckets: vec![None; 100],
         }
@@ -28,13 +28,13 @@ impl ArrayHashMap {
         key as usize % 100
     }
 
-    /* Операция поиска */
+    /* Поиск */
     pub fn get(&self, key: i32) -> Option<&String> {
         let index = self.hash_func(key);
         self.buckets[index].as_ref().map(|pair| &pair.val)
     }
 
-    /* Операция добавления */
+    /* Вставка */
     pub fn put(&mut self, key: i32, val: &str) {
         let index = self.hash_func(key);
         self.buckets[index] = Some(Pair {
@@ -43,14 +43,14 @@ impl ArrayHashMap {
         });
     }
 
-    /* Операция удаления */
+    /* Удаление */
     pub fn remove(&mut self, key: i32) {
         let index = self.hash_func(key);
-        // Присвоить None, что означает удаление
+        // Записать None в знак удаления
         self.buckets[index] = None;
     }
 
-    /* Получить все пары ключ-значение */
+    /* Получить все пары «ключ — значение» */
     pub fn entry_set(&self) -> Vec<&Pair> {
         self.buckets
             .iter()
@@ -83,41 +83,41 @@ impl ArrayHashMap {
 }
 
 fn main() {
-    /* Инициализация хеш-таблицы */
+    /* Создать хеш-таблицу */
     let mut map = ArrayHashMap::new();
-    /* Операция добавления */
-    // Добавить пару (key, value) в хеш-таблицу
+    /*Вставка */
+    // Добавить в таблицу пару (key, value)
     map.put(12836, "Сяо Ха");
     map.put(15937, "Сяо Ло");
     map.put(16750, "Сяо Суань");
     map.put(13276, "Сяо Фа");
     map.put(10583, "Сяо Я");
-    println!("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение");
+    println!("\nХеш-таблица после вставки:\nКлюч -> Значение");
     map.print();
 
-    /* Операция поиска */
-    // Ввести в хеш-таблицу ключ key и получить значение value
+    /* Поиск */
+    // Получить из таблицы значение value по ключу key
     let name = map.get(15937).unwrap();
-    println!("\nДля номера 15937 найдено имя {}", name);
+    println!("\nИмя студента с номером 15937: {}", name);
 
-    /* Операция удаления */
-    // Удалить пару (key, value) из хеш-таблицы
+    /* Удаление */
+    // Удалить из таблицы пару (key, value)
     map.remove(10583);
-    println!("\nПосле удаления 10583 хеш-таблица имеет вид\nКлюч -> Значение");
+    println!("\nХеш-таблица после удаления 10583:\nКлюч -> Значение");
     map.print();
 
     /* Обход хеш-таблицы */
-    println!("\nОтдельный обход пар ключ-значение");
+    println!("\nОбход пар «ключ -> значение»");
     for pair in map.entry_set() {
         println!("{} -> {}", pair.key, pair.val);
     }
 
-    println!("\nОтдельный обход ключей");
+    println!("\nОбход только ключей");
     for key in map.key_set() {
         println!("{}", key);
     }
 
-    println!("\nОтдельный обход значений");
+    println!("\nОбход только значений");
     for val in map.value_set() {
         println!("{}", val);
     }

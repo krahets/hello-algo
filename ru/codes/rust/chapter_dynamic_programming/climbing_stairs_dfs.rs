@@ -6,7 +6,7 @@
 
 /* Поиск */
 fn dfs(i: usize) -> i32 {
-    // dp[1] и dp[2] уже известны, вернуть их
+    // Для dp[1] и dp[2] вернуть известные значения
     if i == 1 || i == 2 {
         return i as i32;
     }
@@ -15,15 +15,15 @@ fn dfs(i: usize) -> i32 {
     count
 }
 
-/* Подъем по лестнице: поиск */
+/* Подъём по лестнице: поиск */
 fn climbing_stairs_dfs(n: usize) -> i32 {
     dfs(n)
 }
 
-/* Driver Code */
+/* Основная программа */
 pub fn main() {
     let n: usize = 9;
 
     let res = climbing_stairs_dfs(n);
-    println!("Количество способов подняться по лестнице из {n} ступеней = {res}");
+    println!("Число способов подняться на лестницу из {n} ступеней: {res}.");
 }

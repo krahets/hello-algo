@@ -11,7 +11,7 @@ sys.path.append(str(Path(__file__).parent.parent))
 from modules import TreeNode, print_tree
 
 
-"""実行用コード"""
+"""Driver Code"""
 if __name__ == "__main__":
     # 二分木を初期化する
     # ノードを初期化する
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     n1.right = n3
     n2.left = n4
     n2.right = n5
-    print("\n二分木を初期化する\n")
+    print("\n二分木を初期化\n")
     print_tree(n1)
 
     # ノードの挿入と削除

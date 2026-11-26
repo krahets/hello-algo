@@ -6,25 +6,25 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 ### Backtracking: n-queens ###
 def backtrack(row, n, state, res, cols, diags1, diags2)
-  # Record a solution when a queen has been placed in every row
+  # Record the solution once every row has a queen
   if row == n
     res << state.map { |row| row.dup }
     return
   end
 
-  # Iterate over all columns
+  # Try each column
   for col in 0...n
-    # Calculate the main-diagonal and anti-diagonal indices for this square
+    # Find the two diagonals through this square
     diag1 = row - col + n - 1
     diag2 = row + col
-    # Prune: the square must have no queen in its column, main diagonal, or anti-diagonal
+    # Prune if the column or either diagonal already has a queen
     if !cols[col] && !diags1[diag1] && !diags2[diag2]
-      # Try: place a queen on this square
+      # Try placing a queen on this square
       state[row][col] = "Q"
       cols[col] = diags1[diag1] = diags2[diag2] = true
       # Place a queen in the next row
       backtrack(row + 1, n, state, res, cols, diags1, diags2)
-      # Backtrack: restore this square to empty
+      # Backtrack: clear this square
       state[row][col] = "#"
       cols[col] = diags1[diag1] = diags2[diag2] = false
     end
@@ -33,11 +33,11 @@ end
 
 ### Solve the n-queens problem ###
 def n_queens(n)
-  # Initialize an n*n board, where 'Q' represents a queen and '#' represents an empty square
+  # Set up an n-by-n board with 'Q' for a queen and '#' for an empty square
   state = Array.new(n) { Array.new(n, "#") }
-  cols = Array.new(n, false) # Track whether a column contains a queen
-  diags1 = Array.new(2 * n - 1, false) # Track whether a main diagonal contains a queen
-  diags2 = Array.new(2 * n - 1, false) # Track whether an anti-diagonal contains a queen
+  cols = Array.new(n, false) # Track occupied columns
+  diags1 = Array.new(2 * n - 1, false) # Track occupied main diagonals
+  diags2 = Array.new(2 * n - 1, false) # Track occupied secondary diagonals
   res = []
   backtrack(0, n, state, res, cols, diags1, diags2)
 
@@ -49,8 +49,8 @@ if __FILE__ == $0
   n = 4
   res = n_queens(n)
 
-  puts "Input board width and height: #{n}"
-  puts "Number of queen arrangements: #{res.length}"
+  puts "Board side length: #{n}"
+  puts "Found #{res.length} queen arrangements"
 
   for state in res
     puts "--------------------"

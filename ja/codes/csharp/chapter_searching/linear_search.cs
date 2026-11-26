@@ -11,11 +11,11 @@ public class linear_search {
     int LinearSearchArray(int[] nums, int target) {
         // 配列を走査する
         for (int i = 0; i < nums.Length; i++) {
-            // 目的の要素が見つかったので、そのインデックスを返す
+            // 目標の要素が見つかったので、そのインデックスを返す
             if (nums[i] == target)
                 return i;
         }
-        // 目的の要素が見つからなかったので、-1 を返す
+        // 目標の要素が見つからなかったので -1 を返す
         return -1;
     }
 
@@ -23,12 +23,12 @@ public class linear_search {
     ListNode? LinearSearchLinkedList(ListNode? head, int target) {
         // 連結リストを走査する
         while (head != null) {
-            // 目的のノードが見つかったので、それを返す
+            // 目標ノードが見つかったので、そのノードを返す
             if (head.val == target)
                 return head;
             head = head.next;
         }
-        // 目的のノードが見つからなかったので、null を返す
+        // 目標ノードが見つからなかったので null を返す
         return null;
     }
 
@@ -39,11 +39,11 @@ public class linear_search {
         /* 配列で線形探索を行う */
         int[] nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
         int index = LinearSearchArray(nums, target);
-        Console.WriteLine("目的の要素 3 のインデックス = " + index);
+        Console.WriteLine("目標値 3 のインデックス = " + index);
 
         /* 連結リストで線形探索を行う */
         ListNode? head = ListNode.ArrToLinkedList(nums);
         ListNode? node = LinearSearchLinkedList(head, target);
-        Console.WriteLine("目的のノードの値 3 に対応するノードオブジェクトは " + node);
+        Console.WriteLine("目標値 3 に対応するノードオブジェクトは " + node);
     }
 }

@@ -20,19 +20,19 @@ class BinarySearchTree
     @root
   end
 
-  ### Find a node ###
+  ### Search for a node ###
   def search(num)
     cur = @root
 
-    # Search in a loop, stopping if cur becomes nil
+    # Stop the search after passing a leaf
     while !cur.nil?
-      # The target node lies in the right subtree of cur
+      # The target is in the right subtree of cur
       if cur.val < num
         cur = cur.right
-      # The target node lies in the left subtree of cur
+      # The target is in the left subtree of cur
       elsif cur.val > num
         cur = cur.left
-      # The target node was found; exit the loop
+      # The target was found, so exit the loop
       else
         break
       end
@@ -43,23 +43,23 @@ class BinarySearchTree
 
   ### Insert a node ###
   def insert(num)
-    # If the tree is empty, initialize the root node
+    # If the tree is empty, initialize the root
     if @root.nil?
       @root = TreeNode.new(num)
       return
     end
 
-    # Search in a loop, stopping if cur becomes nil
+    # Stop the search after passing a leaf
     cur, pre = @root, nil
     while !cur.nil?
-      # Return immediately if a duplicate node is found
+      # Return if a duplicate is found
       return if cur.val == num
 
       pre = cur
-      # The insertion position lies in the right subtree of cur
+      # The insertion position is in the right subtree of cur
       if cur.val < num
         cur = cur.right
-      # The insertion position lies in the left subtree of cur
+      # The insertion position is in the left subtree of cur
       else
         cur = cur.left
       end
@@ -74,34 +74,34 @@ class BinarySearchTree
     end
   end
 
-  ### Remove a node ###
+  ### Delete a node ###
   def remove(num)
     # Return immediately if the tree is empty
     return if @root.nil?
 
-    # Search in a loop, stopping if cur becomes nil
+    # Stop the search after passing a leaf
     cur, pre = @root, nil
     while !cur.nil?
-      # The node to remove was found; exit the loop
+      # The node to delete was found, so exit the loop
       break if cur.val == num
 
       pre = cur
-      # The node to remove lies in the right subtree of cur
+      # The node to delete is in the right subtree of cur
       if cur.val < num
         cur = cur.right
-      # The node to remove lies in the left subtree of cur
+      # The node to delete is in the left subtree of cur
       else
         cur = cur.left
       end
     end
-    # Return immediately if the node to remove does not exist
+    # Return if the node to delete does not exist
     return if cur.nil?
 
     # Number of children = 0 or 1
     if cur.left.nil? || cur.right.nil?
-      # With 0 / 1 children, child is nil / the child node, respectively
+      # With no children, child = null. With one child, child is that child.
       child = cur.left || cur.right
-      # Remove node cur
+      # Delete node cur
       if cur != @root
         if pre.left == cur
           pre.left = child
@@ -109,7 +109,7 @@ class BinarySearchTree
           pre.right = child
         end
       else
-        # If the removed node is the root, assign the new root
+        # If deleting the root, assign a new root
         @root = child
       end
     # Number of children = 2
@@ -119,9 +119,9 @@ class BinarySearchTree
       while !tmp.left.nil?
         tmp = tmp.left
       end
-      # Recursively remove node tmp
+      # Recursively delete node tmp
       remove(tmp.val)
-      # Replace the value of cur with the value of tmp
+      # Replace the value of cur with that of tmp
       cur.val = tmp.val
     end
   end
@@ -132,12 +132,12 @@ if __FILE__ == $0
   # Initialize the binary search tree
   bst = BinarySearchTree.new
   nums = [8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15]
-  # Different insertion orders produce different binary trees; this sequence produces a perfect binary tree
+  # Different insertion orders produce different tree shapes. This sequence produces a perfect binary tree.
   nums.each { |num| bst.insert(num) }
-  puts "\nThe initialized binary tree is:\n"
+  puts "\nInitial binary tree:\n"
   print_tree(bst.get_root)
 
-  # Find a node
+  # Search for a node
   node = bst.search(7)
   puts "\nNode found: #{node}, node value = #{node.val}"
 
@@ -146,16 +146,16 @@ if __FILE__ == $0
   puts "\nBinary tree after inserting node 16:\n"
   print_tree(bst.get_root)
 
-  # Remove a node
+  # Delete a node
   bst.remove(1)
-  puts "\nBinary tree after removing node 1:\n"
+  puts "\nBinary tree after deleting node 1:\n"
   print_tree(bst.get_root)
 
   bst.remove(2)
-  puts "\nBinary tree after removing node 2:\n"
+  puts "\nBinary tree after deleting node 2:\n"
   print_tree(bst.get_root)
 
   bst.remove(4)
-  puts "\nBinary tree after removing node 4:\n"
+  puts "\nBinary tree after deleting node 4:\n"
   print_tree(bst.get_root)
 end

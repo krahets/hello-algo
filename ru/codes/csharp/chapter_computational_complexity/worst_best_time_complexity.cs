@@ -7,7 +7,7 @@
 namespace hello_algo.chapter_computational_complexity;
 
 public class worst_best_time_complexity {
-    /* Создать массив с элементами { 1, 2, ..., n } в случайном порядке */
+    /* Создать массив из чисел { 1, 2, ..., n } в случайном порядке */
     int[] RandomNumbers(int n) {
         int[] nums = new int[n];
         // Создать массив nums = { 1, 2, 3, ..., n }
@@ -26,8 +26,8 @@ public class worst_best_time_complexity {
     /* Найти индекс числа 1 в массиве nums */
     int FindOne(int[] nums) {
         for (int i = 0; i < nums.Length; i++) {
-            // Когда элемент 1 находится в начале массива, достигается лучшая временная сложность O(1)
-            // Когда элемент 1 находится в конце массива, достигается худшая временная сложность O(n)
+            // Если 1 стоит в начале массива, сложность минимальна: O(1)
+            // Если 1 стоит в конце массива, сложность максимальна: O(n)
             if (nums[i] == 1)
                 return i;
         }
@@ -35,15 +35,15 @@ public class worst_best_time_complexity {
     }
 
 
-    /* Driver Code */
+    /* Основная программа */
     [Test]
     public void Test() {
         for (int i = 0; i < 10; i++) {
             int n = 100;
             int[] nums = RandomNumbers(n);
             int index = FindOne(nums);
-            Console.WriteLine("\nМассив [1, 2, ..., n] после перемешивания = " + string.Join(",", nums));
-            Console.WriteLine("Индекс числа 1 = " + index);
+            Console.WriteLine("\nМассив [ 1, 2, ..., n ] после перемешивания = " + string.Join(",", nums));
+            Console.WriteLine("Индекс числа 1: " + index);
         }
     }
 }

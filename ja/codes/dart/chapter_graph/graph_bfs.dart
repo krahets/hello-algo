@@ -9,35 +9,35 @@ import 'dart:collection';
 import '../utils/vertex.dart';
 import 'graph_adjacency_list.dart';
 
-/* 幅優先走査 */
+/* 幅優先探索 */
 List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet) {
-  // 指定した頂点に隣接する全頂点を取得しやすいように、グラフを隣接リストで表す
-  // 頂点の走査順序
+  // 指定した頂点の隣接頂点をすべて取得できるよう、グラフを隣接リストで表す
+  // 頂点の訪問順
   List<Vertex> res = [];
   // 訪問済みの頂点を記録するハッシュ集合
   Set<Vertex> visited = {};
   visited.add(startVet);
-  // BFS の実装にキューを使う
+  // BFS にキューを使う
   Queue<Vertex> que = Queue();
   que.add(startVet);
-  // 頂点 vet を始点として、すべての頂点を訪問するまで繰り返す
+  // 頂点 vet から開始し、すべての頂点を訪問するまで繰り返す
   while (que.isNotEmpty) {
-    Vertex vet = que.removeFirst(); // キューの先頭の頂点をデキューする
+    Vertex vet = que.removeFirst(); // キューの先頭から頂点を取り出す
     res.add(vet); // 訪問した頂点を記録する
-    // この頂点に隣接する全頂点を走査する
+    // この頂点の隣接頂点をすべて調べる
     for (Vertex adjVet in graph.adjList[vet]!) {
       if (visited.contains(adjVet)) {
-        continue; // 訪問済みの頂点をスキップする
+        continue; // 訪問済みの頂点を飛ばす
       }
-      que.add(adjVet); // 未訪問の頂点だけをエンキューする
+      que.add(adjVet); // 未訪問の頂点だけをキューに追加する
       visited.add(adjVet); // この頂点を訪問済みにする
     }
   }
-  // 頂点の走査順序を返す
+  // 頂点を訪問順に返す
   return res;
 }
 
-/* 実行用コード */
+/* 実行例 */
 void main() {
   /* 無向グラフを初期化する */
   List<Vertex> v = Vertex.valsToVets([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
@@ -56,11 +56,11 @@ void main() {
     [v[7], v[8]],
   ];
   GraphAdjList graph = GraphAdjList(edges);
-  print("\n初期化後のグラフ");
+  print("\n初期化後のグラフ：");
   graph.printAdjList();
 
-  /* 幅優先走査 */
+  /* 幅優先探索 */
   List<Vertex> res = graphBFS(graph, v[0]);
-  print("\n幅優先走査（BFS）の頂点の順序");
+  print("\n幅優先探索（BFS）での頂点の訪問順：");
   print(Vertex.vetsToVals(res));
 }

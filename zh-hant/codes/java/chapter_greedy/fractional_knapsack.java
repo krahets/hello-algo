@@ -21,26 +21,26 @@ class Item {
 }
 
 public class fractional_knapsack {
-    /* 分數背包：貪婪 */
+    /* 分數背包：貪婪法 */
     static double fractionalKnapsack(int[] wgt, int[] val, int cap) {
-        // 建立物品串列，包含兩個屬性：重量、價值
+        // 建立物品清單，每件物品有重量與價值兩項屬性
         Item[] items = new Item[wgt.length];
         for (int i = 0; i < wgt.length; i++) {
             items[i] = new Item(wgt[i], val[i]);
         }
-        // 按照單位價值 item.v / item.w 從高到低進行排序
+        // 依單位價值 item.v / item.w 由高到低排序
         Arrays.sort(items, Comparator.comparingDouble(item -> -((double) item.v / item.w)));
-        // 迴圈貪婪選擇
+        // 反覆依貪婪策略選取物品
         double res = 0;
         for (Item item : items) {
             if (item.w <= cap) {
-                // 若剩餘容量充足，則將當前物品整個裝進背包
+                // 若剩餘容量足夠，就將目前的物品整件裝入背包
                 res += item.v;
                 cap -= item.w;
             } else {
-                // 若剩餘容量不足，則將當前物品的一部分裝進背包
+                // 若剩餘容量不足，就將目前物品的一部分裝入背包
                 res += (double) item.v / item.w * cap;
-                // 已無剩餘容量，因此跳出迴圈
+                // 背包已滿，跳出迴圈
                 break;
             }
         }
@@ -54,6 +54,6 @@ public class fractional_knapsack {
 
         // 貪婪演算法
         double res = fractionalKnapsack(wgt, val, cap);
-        System.out.println("不超過背包容量的最大物品價值為 " + res);
+        System.out.println("在背包容量限制內，物品的最大總價值為 " + res);
     }
 }

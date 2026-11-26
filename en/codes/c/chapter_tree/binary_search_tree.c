@@ -30,19 +30,19 @@ TreeNode *getRoot(BinarySearchTree *bst) {
     return bst->root;
 }
 
-/* Find a node */
+/* Search for a node */
 TreeNode *search(BinarySearchTree *bst, int num) {
     TreeNode *cur = bst->root;
-    // Search in a loop until reaching a null reference beyond a leaf
+    // Stop the search after passing a leaf
     while (cur != NULL) {
         if (cur->val < num) {
-            // The target node lies in the right subtree of cur
+            // The target is in the right subtree of cur
             cur = cur->right;
         } else if (cur->val > num) {
-            // The target node lies in the left subtree of cur
+            // The target is in the left subtree of cur
             cur = cur->left;
         } else {
-            // The target node was found; exit the loop
+            // The target was found, so exit the loop
             break;
         }
     }
@@ -52,24 +52,24 @@ TreeNode *search(BinarySearchTree *bst, int num) {
 
 /* Insert a node */
 void insert(BinarySearchTree *bst, int num) {
-    // If the tree is empty, initialize the root node
+    // If the tree is empty, initialize the root
     if (bst->root == NULL) {
         bst->root = newTreeNode(num);
         return;
     }
     TreeNode *cur = bst->root, *pre = NULL;
-    // Search in a loop until reaching a null reference beyond a leaf
+    // Stop the search after passing a leaf
     while (cur != NULL) {
-        // Return immediately if a duplicate node is found
+        // Return if a duplicate is found
         if (cur->val == num) {
             return;
         }
         pre = cur;
         if (cur->val < num) {
-            // The insertion position lies in the right subtree of cur
+            // The insertion position is in the right subtree of cur
             cur = cur->right;
         } else {
-            // The insertion position lies in the left subtree of cur
+            // The insertion position is in the left subtree of cur
             cur = cur->left;
         }
     }
@@ -82,36 +82,36 @@ void insert(BinarySearchTree *bst, int num) {
     }
 }
 
-/* Remove a node */
-// The name remove conflicts with the function declared in stdio.h
+/* Delete a node */
+// Including stdio.h prevents us from using the name remove here
 void removeItem(BinarySearchTree *bst, int num) {
     // Return immediately if the tree is empty
     if (bst->root == NULL)
         return;
     TreeNode *cur = bst->root, *pre = NULL;
-    // Search in a loop until reaching a null reference beyond a leaf
+    // Stop the search after passing a leaf
     while (cur != NULL) {
-        // The node to remove was found; exit the loop
+        // The node to delete was found, so exit the loop
         if (cur->val == num)
             break;
         pre = cur;
         if (cur->val < num) {
-            // The node to remove is in cur's right subtree
+            // The node to delete is in the right subtree of root
             cur = cur->right;
         } else {
-            // The node to remove is in cur's left subtree
+            // The node to delete is in the left subtree of root
             cur = cur->left;
         }
     }
-    // Return immediately if the node to remove does not exist
+    // Return if the node to delete does not exist
     if (cur == NULL)
         return;
-    // Check whether the node to remove has children
+    // Check whether the node to delete has children
     if (cur->left == NULL || cur->right == NULL) {
         /* Number of children = 0 or 1 */
-        // With 0 or 1 child, child is NULL or that child, respectively
+        // With no children, child = nullptr. With one child, child is that child.
         TreeNode *child = cur->left != NULL ? cur->left : cur->right;
-        // Remove node cur
+        // Delete node cur
         if (pre == NULL) {
             bst->root = child;
         } else if (pre->left == cur) {
@@ -129,9 +129,9 @@ void removeItem(BinarySearchTree *bst, int num) {
             tmp = tmp->left;
         }
         int tmpVal = tmp->val;
-        // Recursively remove node tmp
+        // Recursively delete node tmp
         removeItem(bst, tmp->val);
-        // Replace the value of cur with the value of tmp
+        // Replace the value of cur with that of tmp
         cur->val = tmpVal;
     }
 }
@@ -144,10 +144,10 @@ int main() {
     for (int i = 0; i < sizeof(nums) / sizeof(int); i++) {
         insert(bst, nums[i]);
     }
-    printf("Binary tree after initialization:\n");
+    printf("Initial binary tree:\n");
     printTree(getRoot(bst));
 
-    /* Find a node */
+    /* Search for a node */
     TreeNode *node = search(bst, 7);
     printf("Value of the node found = %d\n", node->val);
 
@@ -156,15 +156,15 @@ int main() {
     printf("Binary tree after inserting node 16:\n");
     printTree(getRoot(bst));
 
-    /* Remove a node */
+    /* Delete a node */
     removeItem(bst, 1);
-    printf("Binary tree after removing node 1:\n");
+    printf("Binary tree after deleting node 1:\n");
     printTree(getRoot(bst));
     removeItem(bst, 2);
-    printf("Binary tree after removing node 2:\n");
+    printf("Binary tree after deleting node 2:\n");
     printTree(getRoot(bst));
     removeItem(bst, 4);
-    printf("Binary tree after removing node 4:\n");
+    printf("Binary tree after deleting node 4:\n");
     printTree(getRoot(bst));
 
     // Free memory

@@ -6,7 +6,7 @@ Author: krahets (krahets@163.com)
 
 
 def min_cost_climbing_stairs_dp(cost: list[int]) -> int:
-    """階段を上る最小コスト：動的計画法"""
+    """階段を登る最小コスト：動的計画法"""
     n = len(cost) - 1
     if n == 1 or n == 2:
         return cost[n]
@@ -21,7 +21,7 @@ def min_cost_climbing_stairs_dp(cost: list[int]) -> int:
 
 
 def min_cost_climbing_stairs_dp_comp(cost: list[int]) -> int:
-    """階段を上る最小コスト：空間を最適化した動的計画法"""
+    """階段を登る最小コスト：使用メモリを削減した動的計画法"""
     n = len(cost) - 1
     if n == 1 or n == 2:
         return cost[n]
@@ -31,13 +31,13 @@ def min_cost_climbing_stairs_dp_comp(cost: list[int]) -> int:
     return b
 
 
-"""実行用コード"""
+"""Driver Code"""
 if __name__ == "__main__":
     cost = [0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1]
-    print(f"入力した階段のコストのリストは {cost}")
+    print(f"各段のコストの入力リストは {cost}")
 
     res = min_cost_climbing_stairs_dp(cost)
-    print(f"階段を上り終える最小コストは {res}")
+    print(f"階段を登りきる最小コストは {res}")
 
     res = min_cost_climbing_stairs_dp_comp(cost)
-    print(f"階段を上り終える最小コストは {res}")
+    print(f"階段を登りきる最小コストは {res}")

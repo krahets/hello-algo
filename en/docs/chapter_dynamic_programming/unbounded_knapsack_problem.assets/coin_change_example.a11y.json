@@ -1,30 +1,30 @@
 {
-  "schema_version": 2,
-  "title": "Minimum coin count for coin change",
-  "summary": "Illustrate an optimal coin selection that makes target amount 11.",
   "context": [
-    "Coin change provides 3 coin denominations coins = [1, 2, 5] in unlimited supply; here the target amount is amt = 11 (distinct from target amount 5 in Coin change II below and target amount 4 in the dynamic programming table). The goal is to find the minimum number of coins that sum to 11."
+    "There are 3 denominations, coins = [1, 2, 5], with an unlimited supply of each. Here the target is amt = 11. The later coin change II example uses 5, and the dynamic programming table example uses 4. Find the fewest coins that make exactly 11."
   ],
   "description": [
-    "On the left, a table lists ID i and denomination coins[i - 1]; denomination 1 is shaded light orange and denomination 5 is shaded light green, sending arrows for 1 coin and 2 coins into the pouch on the right labeled \"Target amount amt = 11\". Denomination 2 is unused. The table below summarizes these highlights and arrows as coin counts.",
-    "At the bottom appear \"Optimal coin combination: 1 + 5 + 5\" and \"Minimum number of coins: 3\"."
+    "The table on the left gives each number i and denomination coins[i-1]. The row for 1 is light orange, and the row for 5 is light green. Arrows labeled “take 1” and “take 2,” respectively, lead to a purse labeled “Target amount amt = 11.” Denomination 2 is unused. The table below translates the highlights and arrows into coin counts.",
+    "The caption reads “Optimal coin combination: 1 + 5 + 5” and “Minimum number of coins: 3.”"
   ],
   "frames": [
     {
-      "id": "source-424",
       "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_example.png",
-      "title": "Optimal coin combination for amount 11",
-      "explanation": "From the illustrated combination, 1 + 5 + 5 = 11 using 3 coins in total. Why 3 is minimal: because the largest denomination is 5, any two coins sum to at most 5 + 5 = 10 < 11, so fewer than 3 coins cannot reach 11 (derived from the input data rather than written in the figure)."
+      "explanation": "The combination shown uses 3 coins: 1 + 5 + 5 = 11. To see why 3 is minimal, note that the largest denomination is 5. Any two coins total at most 5 + 5 = 10, short of 11. This argument follows from the input and does not appear in the original figure.",
+      "id": "source-424",
+      "title": "Optimal coin combination for amount 11"
     }
   ],
+  "schema_version": 2,
+  "summary": "The figure shows an optimal choice of coins for amount 11.",
   "tables": [
     {
-      "caption": "Amount 11 example: available denominations and coins used",
+      "caption": "Amount 11 example: available coins and counts selected",
       "headers": [
-        "ID i",
+        "Coin number i",
         "Denomination",
-        "Coins used in figure"
+        "Number selected in the diagram"
       ],
+      "row_header": 0,
       "rows": [
         [
           "1",
@@ -41,8 +41,8 @@
           "5",
           "2"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Minimum number of coins for coin change"
 }

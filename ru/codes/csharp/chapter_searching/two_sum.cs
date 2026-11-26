@@ -7,7 +7,7 @@
 namespace hello_algo.chapter_searching;
 
 public class two_sum {
-    /* Метод 1: полный перебор */
+    /* Способ 1: полный перебор */
     int[] TwoSumBruteForce(int[] nums, int target) {
         int size = nums.Length;
         // Два вложенных цикла, временная сложность O(n^2)
@@ -20,7 +20,7 @@ public class two_sum {
         return [];
     }
 
-    /* Метод 2: вспомогательная хеш-таблица */
+    /* Способ 2: вспомогательная хеш-таблица */
     int[] TwoSumHashTable(int[] nums, int target) {
         int size = nums.Length;
         // Вспомогательная хеш-таблица, пространственная сложность O(n)
@@ -37,16 +37,16 @@ public class two_sum {
 
     [Test]
     public void Test() {
-        // ======= Test Case =======
+        // ======= Тестовый пример =======
         int[] nums = [2, 7, 11, 15];
         int target = 13;
 
-        // ====== Основной код ======
-        // Метод 1
+        // ====== Пример использования ======
+        // Способ 1
         int[] res = TwoSumBruteForce(nums, target);
-        Console.WriteLine("Результат метода 1 res = " + string.Join(",", res));
-        // Метод 2
+        Console.WriteLine("Способ 1, res = " + string.Join(",", res));
+        // Способ 2
         res = TwoSumHashTable(nums, target);
-        Console.WriteLine("Результат метода 2 res = " + string.Join(",", res));
+        Console.WriteLine("Способ 2, res = " + string.Join(",", res));
     }
 }

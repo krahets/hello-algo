@@ -13,24 +13,24 @@ import (
 
 func TestHashingSearch(t *testing.T) {
 	target := 3
-	/* Хеш-поиск (массив) */
+	/* Поиск по хеш-таблице в массиве */
 	nums := []int{1, 5, 3, 2, 4, 7, 5, 9, 10, 8}
-	// Инициализация хеш-таблицы
+	// Создаём хеш-таблицу
 	m := make(map[int]int)
 	for i := 0; i < len(nums); i++ {
 		m[nums[i]] = i
 	}
 	index := hashingSearchArray(m, target)
-	fmt.Println("Индекс целевого элемента 3 = ", index)
+	fmt.Println("Индекс элемента 3 = ", index)
 
-	/* Хеш-поиск (связный список) */
+	/* Поиск по хеш-таблице в связном списке */
 	head := ArrayToLinkedList(nums)
-	// Инициализация хеш-таблицы
+	// Создаём хеш-таблицу
 	m1 := make(map[int]*ListNode)
 	for head != nil {
 		m1[head.Val] = head
 		head = head.Next
 	}
 	node := hashingSearchLinkedList(m1, target)
-	fmt.Println("Объект узла со значением 3 =", node)
+	fmt.Println("Узел со значением 3: ", node)
 }

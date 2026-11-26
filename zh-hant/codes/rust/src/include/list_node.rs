@@ -25,7 +25,7 @@ impl<T> ListNode<T> {
         T: Copy + Clone,
     {
         let mut head = None;
-        // insert in reverse order
+        // 依相反順序插入元素
         for item in array.iter().rev() {
             let node = Rc::new(RefCell::new(ListNode {
                 val: *item,
@@ -36,7 +36,7 @@ impl<T> ListNode<T> {
         head
     }
 
-    /* 將鏈結串列轉化為雜湊表 */
+    /* 將鏈結串列轉為雜湊表 */
     pub fn linked_list_to_hashmap(
         linked_list: Option<Rc<RefCell<ListNode<T>>>>,
     ) -> HashMap<T, Rc<RefCell<ListNode<T>>>>

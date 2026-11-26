@@ -6,10 +6,10 @@
 
 /* List class */
 class MyList {
-    private var arr: [Int] // Array (stores the list elements)
+    private var arr: [Int] // Array that stores the list elements
     private var _capacity: Int // List capacity
     private var _size: Int // List length (current number of elements)
-    private let extendRatio: Int // Factor by which the list capacity grows each time
+    private let extendRatio: Int // Factor by which the list capacity grows
 
     /* Constructor */
     init() {
@@ -31,7 +31,7 @@ class MyList {
 
     /* Access an element */
     func get(index: Int) -> Int {
-        // An out-of-bounds index triggers a fatal error; the same check is used below
+        // Throw an error if the index is out of bounds, here and below
         if index < 0 || index >= size() {
             fatalError("Index out of bounds")
         }
@@ -46,14 +46,14 @@ class MyList {
         arr[index] = num
     }
 
-    /* Append at the end */
+    /* Append an element */
     func add(num: Int) {
-        // Grow the capacity when adding an element would exceed it
+        // Increase capacity when the elements would no longer fit
         if size() == capacity() {
             extendCapacity()
         }
         arr[size()] = num
-        // Update the number of elements
+        // Update the element count
         _size += 1
     }
 
@@ -62,16 +62,16 @@ class MyList {
         if index < 0 || index >= size() {
             fatalError("Index out of bounds")
         }
-        // Grow the capacity when adding an element would exceed it
+        // Increase capacity when the elements would no longer fit
         if size() == capacity() {
             extendCapacity()
         }
-        // Shift all elements at and after index `index` one position to the right
+        // Shift the elements from index onward one position to the right
         for j in (index ..< size()).reversed() {
             arr[j + 1] = arr[j]
         }
         arr[index] = num
-        // Update the number of elements
+        // Update the element count
         _size += 1
     }
 
@@ -82,19 +82,19 @@ class MyList {
             fatalError("Index out of bounds")
         }
         let num = arr[index]
-        // Shift all elements after index `index` one position to the left
+        // Shift the elements after index one position to the left
         for j in index ..< (size() - 1) {
             arr[j] = arr[j + 1]
         }
-        // Update the number of elements
+        // Update the element count
         _size -= 1
         // Return the removed element
         return num
     }
 
-    /* Grow the list capacity */
+    /* Increase the list capacity */
     func extendCapacity() {
-        // Create an array extendRatio times as long as the original and copy the original array into it
+        // Create an array extendRatio times as long and copy the original array into it
         arr = arr + Array(repeating: 0, count: capacity() * (extendRatio - 1))
         // Update the list capacity
         _capacity = arr.count
@@ -108,11 +108,11 @@ class MyList {
 
 @main
 enum _MyList {
-    /* Driver code */
+    /* Driver Code */
     static func main() {
         /* Initialize the list */
         let nums = MyList()
-        /* Append at the end */
+        /* Append an element */
         nums.add(num: 1)
         nums.add(num: 3)
         nums.add(num: 2)
@@ -130,17 +130,17 @@ enum _MyList {
 
         /* Access an element */
         let num = nums.get(index: 1)
-        print("Access the element at index 1; num = \(num)")
+        print("Reading index 1 gives num = \(num)")
 
         /* Update an element */
         nums.set(index: 1, num: 0)
-        print("After updating the element at index 1 to 0, nums = \(nums.toArray())")
+        print("After setting the element at index 1 to 0, nums = \(nums.toArray())")
 
         /* Test capacity growth */
         for i in 0 ..< 10 {
-            // When i = 5, the list length would exceed its capacity, triggering capacity growth
+            // At i = 5, the list length would exceed its capacity, so the list grows
             nums.add(num: i)
         }
-        print("After capacity growth, list nums = \(nums.toArray()), capacity = \(nums.capacity()), length = \(nums.size())")
+        print("After increasing capacity, nums = \(nums.toArray()), capacity = \(nums.capacity()), length = \(nums.size())")
     }
 }

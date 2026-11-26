@@ -11,7 +11,7 @@ struct Pair {
     val: String,
 }
 
-/* チェイン法のハッシュテーブル */
+/* チェイン法によるハッシュ表 */
 struct HashMapChaining {
     size: usize,
     capacity: usize,
@@ -42,11 +42,11 @@ impl HashMapChaining {
         self.size as f32 / self.capacity as f32
     }
 
-    /* 削除操作 */
+    /* 削除 */
     fn remove(&mut self, key: i32) -> Option<String> {
         let index = self.hash_func(key);
 
-        // バケットを走査し、キーと値のペアを削除する
+        // バケットを走査し、該当するペアを削除する
         for (i, p) in self.buckets[index].iter_mut().enumerate() {
             if p.key == key {
                 let pair = self.buckets[index].remove(i);
@@ -55,21 +55,21 @@ impl HashMapChaining {
             }
         }
 
-        // key が見つからなかった場合、None を返す
+        // key が見つからなければ None を返す
         None
     }
 
-    /* ハッシュテーブルの容量を拡張する */
+    /* ハッシュ表を拡張する */
     fn extend(&mut self) {
-        // 元のハッシュテーブルを一時保存する
+        // 元のハッシュ表を一時保存する
         let buckets_tmp = std::mem::take(&mut self.buckets);
 
-        // 拡張後の新しいハッシュテーブルを初期化する
+        // 拡張後の新しいハッシュ表を初期化する
         self.capacity *= self.extend_ratio;
         self.buckets = vec![Vec::new(); self.capacity as usize];
         self.size = 0;
 
-        // キーと値のペアを元のハッシュテーブルから新しいハッシュテーブルに移す
+        // 元のハッシュ表から新しい表にペアを移す
         for bucket in buckets_tmp {
             for pair in bucket {
                 self.put(pair.key, pair.val);
@@ -77,7 +77,7 @@ impl HashMapChaining {
         }
     }
 
-    /* ハッシュテーブルを表示する */
+    /* ハッシュ表を表示する */
     fn print(&self) {
         for bucket in &self.buckets {
             let mut res = Vec::new();
@@ -88,16 +88,16 @@ impl HashMapChaining {
         }
     }
 
-    /* 追加操作 */
+    /* 追加 */
     fn put(&mut self, key: i32, val: String) {
-        // 負荷率がしきい値を超えた場合、容量を拡張する
+        // 負荷率がしきい値を超えたら表を拡張する
         if self.load_factor() > self.load_thres {
             self.extend();
         }
 
         let index = self.hash_func(key);
 
-        // バケットを走査し、指定された key が見つかったら、対応する val を更新して戻る
+        // バケットを走査し、指定の key が見つかったら対応する val を更新して処理を終える
         for pair in self.buckets[index].iter_mut() {
             if pair.key == key {
                 pair.val = val;
@@ -105,13 +105,13 @@ impl HashMapChaining {
             }
         }
 
-        // key が存在しない場合、キーと値のペアを末尾に追加する
+        // key がなければ末尾にペアを追加する
         let pair = Pair { key, val };
         self.buckets[index].push(pair);
         self.size += 1;
     }
 
-    /* 取得操作 */
+    /* 検索 */
     fn get(&self, key: i32) -> Option<&str> {
         let index = self.hash_func(key);
 
@@ -122,39 +122,39 @@ impl HashMapChaining {
             }
         }
 
-        // key が見つからなかった場合、None を返す
+        // key が見つからなければ None を返す
         None
     }
 }
 
-/* 実行用コード */
+/* 実行例 */
 pub fn main() {
-    /* ハッシュテーブルを初期化する */
+    /* ハッシュ表を初期化する */
     let mut map = HashMapChaining::new();
 
-    /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加する
+    /* 追加 */
+    // ハッシュ表にペア (key, value) を追加する
     map.put(12836, "小哈".to_string());
     map.put(15937, "小啰".to_string());
     map.put(16750, "小算".to_string());
     map.put(13276, "小法".to_string());
     map.put(10583, "小鸭".to_string());
-    println!("\n追加後のハッシュテーブル\nKey -> Value");
+    println!("\n追加後のハッシュ表\nKey -> Value");
     map.print();
 
-    /* 取得操作 */
-    // ハッシュテーブルにキー key を渡し、値 value を取得する
+    /* 検索 */
+    // ハッシュ表でキー key に対応する値 value を取得する
     println!(
-        "\n学生番号 13276 に対応する氏名は {}",
+        "\n学籍番号 13276 に対応する名前は {}",
         match map.get(13276) {
             Some(value) => value,
             None => "有効なキーではありません",
         }
     );
 
-    /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除する
+    /* 削除 */
+    // ハッシュ表からペア (key, value) を削除する
     map.remove(12836);
-    println!("\n12836 を削除した後のハッシュテーブル\nKey -> Value");
+    println!("\n12836 を削除した後のハッシュ表\nKey -> Value");
     map.print();
 }

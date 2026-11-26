@@ -13,7 +13,7 @@ public class stack {
         /* 初始化堆疊 */
         Stack<Integer> stack = new Stack<>();
 
-        /* 元素入堆疊 */
+        /* 將元素推入堆疊 */
         stack.push(1);
         stack.push(3);
         stack.push(2);
@@ -21,19 +21,19 @@ public class stack {
         stack.push(4);
         System.out.println("堆疊 stack = " + stack);
 
-        /* 訪問堆疊頂元素 */
+        /* 讀取堆疊頂端的元素 */
         int peek = stack.peek();
-        System.out.println("堆疊頂元素 peek = " + peek);
+        System.out.println("堆疊頂端元素 peek = " + peek);
 
-        /* 元素出堆疊 */
+        /* 從堆疊彈出元素 */
         int pop = stack.pop();
-        System.out.println("出堆疊元素 pop = " + pop + "，出堆疊後 stack = " + stack);
+        System.out.println("彈出的元素 pop = " + pop + "，彈出後 stack = " + stack);
 
-        /* 獲取堆疊的長度 */
+        /* 取得堆疊長度 */
         int size = stack.size();
-        System.out.println("堆疊的長度 size = " + size);
+        System.out.println("堆疊長度 size = " + size);
 
-        /* 判斷是否為空 */
+        /* 判斷堆疊是否為空 */
         boolean isEmpty = stack.isEmpty();
         System.out.println("堆疊是否為空 = " + isEmpty);
     }

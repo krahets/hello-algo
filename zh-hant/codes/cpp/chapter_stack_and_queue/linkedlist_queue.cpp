@@ -6,10 +6,10 @@
 
 #include "../utils/common.hpp"
 
-/* 基於鏈結串列實現的佇列 */
+/* 以鏈結串列實作佇列 */
 class LinkedListQueue {
   private:
-    ListNode *front, *rear; // 頭節點 front ，尾節點 rear
+    ListNode *front, *rear; // front 指向首節點，rear 指向尾節點
     int queSize;
 
   public:
@@ -20,11 +20,11 @@ class LinkedListQueue {
     }
 
     ~LinkedListQueue() {
-        // 走訪鏈結串列刪除節點，釋放記憶體
+        // 走訪鏈結串列，逐一刪除節點並釋放記憶體
         freeMemoryLinkedList(front);
     }
 
-    /* 獲取佇列的長度 */
+    /* 取得佇列長度 */
     int size() {
         return queSize;
     }
@@ -34,16 +34,16 @@ class LinkedListQueue {
         return queSize == 0;
     }
 
-    /* 入列 */
+    /* 入隊 */
     void push(int num) {
-        // 在尾節點後新增 num
+        // 建立存有 num 的新節點，準備接到隊尾
         ListNode *node = new ListNode(num);
-        // 如果佇列為空，則令頭、尾節點都指向該節點
+        // 若佇列為空，讓隊首與隊尾都指向新節點
         if (front == nullptr) {
             front = node;
             rear = node;
         }
-        // 如果佇列不為空，則將該節點新增到尾節點後
+        // 若佇列非空，將新節點接在尾節點之後
         else {
             rear->next = node;
             rear = node;
@@ -51,26 +51,26 @@ class LinkedListQueue {
         queSize++;
     }
 
-    /* 出列 */
+    /* 出隊 */
     int pop() {
         int num = peek();
-        // 刪除頭節點
+        // 移除首節點
         ListNode *tmp = front;
         front = front->next;
-        // 釋放記憶體
+        // 釋放已移除節點的記憶體
         delete tmp;
         queSize--;
         return num;
     }
 
-    /* 訪問佇列首元素 */
+    /* 讀取隊首元素 */
     int peek() {
         if (size() == 0)
             throw out_of_range("佇列為空");
         return front->val;
     }
 
-    /* 將鏈結串列轉化為 Vector 並返回 */
+    /* 將鏈結串列轉成 vector 並回傳 */
     vector<int> toVector() {
         ListNode *node = front;
         vector<int> res(size());
@@ -82,12 +82,12 @@ class LinkedListQueue {
     }
 };
 
-/* Driver Code */
+/* 範例程式 */
 int main() {
     /* 初始化佇列 */
     LinkedListQueue *queue = new LinkedListQueue();
 
-    /* 元素入列 */
+    /* 將元素加入佇列 */
     queue->push(1);
     queue->push(3);
     queue->push(2);
@@ -96,16 +96,16 @@ int main() {
     cout << "佇列 queue = ";
     printVector(queue->toVector());
 
-    /* 訪問佇列首元素 */
+    /* 讀取隊首元素 */
     int peek = queue->peek();
-    cout << "佇列首元素 peek = " << peek << endl;
+    cout << "隊首元素 peek = " << peek << endl;
 
-    /* 元素出列 */
+    /* 從佇列取出元素 */
     peek = queue->pop();
-    cout << "出列元素 pop = " << peek << "，出列後 queue = ";
+    cout << "出隊元素 pop = " << peek << "，出隊後 queue = ";
     printVector(queue->toVector());
 
-    /* 獲取佇列的長度 */
+    /* 取得佇列長度 */
     int size = queue->size();
     cout << "佇列長度 size = " << size << endl;
 

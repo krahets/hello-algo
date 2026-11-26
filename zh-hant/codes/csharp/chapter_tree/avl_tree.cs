@@ -10,23 +10,23 @@ namespace hello_algo.chapter_tree;
 class AVLTree {
     public TreeNode? root; // 根節點
 
-    /* 獲取節點高度 */
+    /* 取得節點高度 */
     int Height(TreeNode? node) {
-        // 空節點高度為 -1 ，葉節點高度為 0
+        // 空節點的高度為 -1，葉節點的高度為 0
         return node == null ? -1 : node.height;
     }
 
     /* 更新節點高度 */
     void UpdateHeight(TreeNode node) {
-        // 節點高度等於最高子樹高度 + 1
+        // 節點高度等於最高子樹的高度加 1
         node.height = Math.Max(Height(node.left), Height(node.right)) + 1;
     }
 
-    /* 獲取平衡因子 */
+    /* 取得平衡因子 */
     public int BalanceFactor(TreeNode? node) {
-        // 空節點平衡因子為 0
+        // 空節點的平衡因子為 0
         if (node == null) return 0;
-        // 節點平衡因子 = 左子樹高度 - 右子樹高度
+        // 節點的平衡因子 = 左子樹高度 - 右子樹高度
         return Height(node.left) - Height(node.right);
     }
 
@@ -34,13 +34,13 @@ class AVLTree {
     TreeNode? RightRotate(TreeNode? node) {
         TreeNode? child = node?.left;
         TreeNode? grandChild = child?.right;
-        // 以 child 為原點，將 node 向右旋轉
+        // 以 child 為支點，將 node 向右旋轉
         child.right = node;
         node.left = grandChild;
         // 更新節點高度
         UpdateHeight(node);
         UpdateHeight(child);
-        // 返回旋轉後子樹的根節點
+        // 回傳旋轉後的子樹根節點
         return child;
     }
 
@@ -48,19 +48,19 @@ class AVLTree {
     TreeNode? LeftRotate(TreeNode? node) {
         TreeNode? child = node?.right;
         TreeNode? grandChild = child?.left;
-        // 以 child 為原點，將 node 向左旋轉
+        // 以 child 為支點，將 node 向左旋轉
         child.left = node;
         node.right = grandChild;
         // 更新節點高度
         UpdateHeight(node);
         UpdateHeight(child);
-        // 返回旋轉後子樹的根節點
+        // 回傳旋轉後的子樹根節點
         return child;
     }
 
-    /* 執行旋轉操作，使該子樹重新恢復平衡 */
+    /* 透過旋轉讓這棵子樹恢復平衡 */
     TreeNode? Rotate(TreeNode? node) {
-        // 獲取節點 node 的平衡因子
+        // 取得節點 node 的平衡因子
         int balanceFactorInt = BalanceFactor(node);
         // 左偏樹
         if (balanceFactorInt > 1) {
@@ -68,7 +68,7 @@ class AVLTree {
                 // 右旋
                 return RightRotate(node);
             } else {
-                // 先左旋後右旋
+                // 先左旋再右旋
                 node!.left = LeftRotate(node!.left);
                 return RightRotate(node);
             }
@@ -79,12 +79,12 @@ class AVLTree {
                 // 左旋
                 return LeftRotate(node);
             } else {
-                // 先右旋後左旋
+                // 先右旋再左旋
                 node!.right = RightRotate(node!.right);
                 return LeftRotate(node);
             }
         }
-        // 平衡樹，無須旋轉，直接返回
+        // 樹已平衡，無須旋轉，直接返回
         return node;
     }
 
@@ -93,20 +93,20 @@ class AVLTree {
         root = InsertHelper(root, val);
     }
 
-    /* 遞迴插入節點（輔助方法） */
+    /* 以遞迴插入節點（輔助方法） */
     TreeNode? InsertHelper(TreeNode? node, int val) {
         if (node == null) return new TreeNode(val);
-        /* 1. 查詢插入位置並插入節點 */
+        /* 1. 找出插入位置並插入節點 */
         if (val < node.val)
             node.left = InsertHelper(node.left, val);
         else if (val > node.val)
             node.right = InsertHelper(node.right, val);
         else
-            return node;     // 重複節點不插入，直接返回
+            return node;     // 若節點重複，直接返回，略過插入操作
         UpdateHeight(node);  // 更新節點高度
-        /* 2. 執行旋轉操作，使該子樹重新恢復平衡 */
+        /* 2. 透過旋轉讓這棵子樹恢復平衡 */
         node = Rotate(node);
-        // 返回子樹的根節點
+        // 回傳子樹的根節點
         return node;
     }
 
@@ -115,10 +115,10 @@ class AVLTree {
         root = RemoveHelper(root, val);
     }
 
-    /* 遞迴刪除節點（輔助方法） */
+    /* 以遞迴刪除節點（輔助方法） */
     TreeNode? RemoveHelper(TreeNode? node, int val) {
         if (node == null) return null;
-        /* 1. 查詢節點並刪除 */
+        /* 1. 找出並刪除節點 */
         if (val < node.val)
             node.left = RemoveHelper(node.left, val);
         else if (val > node.val)
@@ -126,14 +126,14 @@ class AVLTree {
         else {
             if (node.left == null || node.right == null) {
                 TreeNode? child = node.left ?? node.right;
-                // 子節點數量 = 0 ，直接刪除 node 並返回
+                // 若有 0 個子節點，直接刪除 node 並返回
                 if (child == null)
                     return null;
-                // 子節點數量 = 1 ，直接刪除 node
+                // 若只有 1 個子節點，直接刪除 node
                 else
                     node = child;
             } else {
-                // 子節點數量 = 2 ，則將中序走訪的下個節點刪除，並用該節點替換當前節點
+                // 若有 2 個子節點，刪除中序走訪的下一個節點，並用它的值取代目前節點的值
                 TreeNode? temp = node.right;
                 while (temp.left != null) {
                     temp = temp.left;
@@ -143,16 +143,16 @@ class AVLTree {
             }
         }
         UpdateHeight(node);  // 更新節點高度
-        /* 2. 執行旋轉操作，使該子樹重新恢復平衡 */
+        /* 2. 透過旋轉讓這棵子樹恢復平衡 */
         node = Rotate(node);
-        // 返回子樹的根節點
+        // 回傳子樹的根節點
         return node;
     }
 
-    /* 查詢節點 */
+    /* 搜尋節點 */
     public TreeNode? Search(int val) {
         TreeNode? cur = root;
-        // 迴圈查詢，越過葉節點後跳出
+        // 用迴圈搜尋，越過葉節點後跳出迴圈
         while (cur != null) {
             // 目標節點在 cur 的右子樹中
             if (cur.val < val)
@@ -164,7 +164,7 @@ class AVLTree {
             else
                 break;
         }
-        // 返回目標節點
+        // 回傳目標節點
         return cur;
     }
 }
@@ -172,23 +172,23 @@ class AVLTree {
 public class avl_tree {
     static void TestInsert(AVLTree tree, int val) {
         tree.Insert(val);
-        Console.WriteLine("\n插入節點 " + val + " 後，AVL 樹為");
+        Console.WriteLine("\n插入節點 " + val + " 後的 AVL 樹為");
         PrintUtil.PrintTree(tree.root);
     }
 
     static void TestRemove(AVLTree tree, int val) {
         tree.Remove(val);
-        Console.WriteLine("\n刪除節點 " + val + " 後，AVL 樹為");
+        Console.WriteLine("\n刪除節點 " + val + " 後的 AVL 樹為");
         PrintUtil.PrintTree(tree.root);
     }
 
     [Test]
     public void Test() {
-        /* 初始化空 AVL 樹 */
+        /* 初始化一棵空的 AVL 樹 */
         AVLTree avlTree = new();
 
         /* 插入節點 */
-        // 請關注插入節點後，AVL 樹是如何保持平衡的
+        // 請觀察插入節點後 AVL 樹如何維持平衡
         TestInsert(avlTree, 1);
         TestInsert(avlTree, 2);
         TestInsert(avlTree, 3);
@@ -204,13 +204,13 @@ public class avl_tree {
         TestInsert(avlTree, 7);
 
         /* 刪除節點 */
-        // 請關注刪除節點後，AVL 樹是如何保持平衡的
-        TestRemove(avlTree, 8); // 刪除度為 0 的節點
-        TestRemove(avlTree, 5); // 刪除度為 1 的節點
-        TestRemove(avlTree, 4); // 刪除度為 2 的節點
+        // 請觀察刪除節點後 AVL 樹如何維持平衡
+        TestRemove(avlTree, 8); // 刪除分支度為 0 的節點
+        TestRemove(avlTree, 5); // 刪除分支度為 1 的節點
+        TestRemove(avlTree, 4); // 刪除分支度為 2 的節點
 
         /* 查詢節點 */
         TreeNode? node = avlTree.Search(7);
-        Console.WriteLine("\n查詢到的節點物件為 " + node + "，節點值 = " + node?.val);
+        Console.WriteLine("\n找到的節點物件為 " + node + "，節點值 = " + node?.val);
     }
 }

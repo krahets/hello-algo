@@ -4,7 +4,7 @@ Created Time: 2024-03-30
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Constant complexity ###
+### Constant time ###
 def constant(n)
   count = 0
   size = 100000
@@ -14,18 +14,18 @@ def constant(n)
   count
 end
 
-### Linear complexity ###
+### Linear time ###
 def linear(n)
   count = 0
   (0...n).each { count += 1 }
   count
 end
 
-### Linear complexity (array traversal)###
+### Linear time (array traversal)###
 def array_traversal(nums)
   count = 0
 
-  # The number of iterations is proportional to the array length
+  # The iteration count is proportional to the array length
   for num in nums
     count += 1
   end
@@ -33,11 +33,11 @@ def array_traversal(nums)
   count
 end
 
-### Quadratic complexity ###
+### Quadratic time ###
 def quadratic(n)
   count = 0
 
-  # The number of iterations is proportional to the square of the input size n
+  # The iteration count grows quadratically with input size n
   for i in 0...n
     for j in 0...n
       count += 1
@@ -47,13 +47,13 @@ def quadratic(n)
   count
 end
 
-### Quadratic complexity (bubble sort)###
+### Quadratic time (bubble sort)###
 def bubble_sort(nums)
   count = 0  # Counter
 
-  # Outer loop: the unsorted range is [0, i]
+  # Outer loop: the unsorted range is the closed interval [0, i]
   for i in (nums.length - 1).downto(0)
-    # Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
+    # Inner loop: swap adjacent elements to move the largest in [0, i] to index i
     for j in 0...i
       if nums[j] > nums[j + 1]
         # Swap nums[j] and nums[j + 1]
@@ -68,11 +68,11 @@ def bubble_sort(nums)
   count
 end
 
-### Exponential complexity (iterative implementation)###
+### Exponential time (iterative)###
 def exponential(n)
   count, base = 0, 1
 
-  # Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
+  # Each cell divides in two per round, giving 1, 2, 4, 8, ..., 2^(n-1)
   (0...n).each do
     (0...base).each { count += 1 }
     base *= 2
@@ -82,13 +82,13 @@ def exponential(n)
   count
 end
 
-### Exponential complexity (recursive implementation)###
+### Exponential time (recursive)###
 def exp_recur(n)
   return 1 if n == 1
   exp_recur(n - 1) + exp_recur(n - 1) + 1
 end
 
-### Logarithmic complexity (iterative implementation)###
+### Logarithmic time (iterative)###
 def logarithmic(n)
   count = 0
 
@@ -100,13 +100,13 @@ def logarithmic(n)
   count
 end
 
-### Logarithmic complexity (recursive implementation)###
+### Logarithmic time (recursive)###
 def log_recur(n)
   return 0 unless n > 1
   log_recur(n / 2) + 1
 end
 
-### Linearithmic complexity ###
+### Linearithmic time ###
 def linear_log_recur(n)
   return 1 unless n > 1
 
@@ -116,7 +116,7 @@ def linear_log_recur(n)
   count
 end
 
-### Factorial complexity (recursive implementation)###
+### Factorial time (recursive)###
 def factorial_recur(n)
   return 1 if n == 0
 
@@ -127,39 +127,39 @@ def factorial_recur(n)
   count
 end
 
-### Driver code ###
+### Driver Code ###
 if __FILE__ == $0
   # Try different values of n to see how the operation count grows for each complexity
   n = 8
   puts "Input size n = #{n}"
 
   count = constant(n)
-  puts "Operation count for constant time = #{count}"
+  puts "Constant operation count = #{count}"
 
   count = linear(n)
-  puts "Operation count for linear time = #{count}"
+  puts "Linear operation count = #{count}"
   count = array_traversal(Array.new(n, 0))
-  puts "Operation count for linear time (array traversal) = #{count}"
+  puts "Linear operation count (array traversal) = #{count}"
 
   count = quadratic(n)
-  puts "Operation count for quadratic time = #{count}"
+  puts "Quadratic operation count = #{count}"
   nums = Array.new(n) { |i| n - i } # [n, n-1, ..., 2, 1]
   count = bubble_sort(nums)
-  puts "Operation count for quadratic time (bubble sort) = #{count}"
+  puts "Quadratic operation count (bubble sort) = #{count}"
 
   count = exponential(n)
-  puts "Operation count for exponential time (iteration) = #{count}"
+  puts "Exponential operation count (iterative) = #{count}"
   count = exp_recur(n)
-  puts "Operation count for exponential time (recursion) = #{count}"
+  puts "Exponential operation count (recursive) = #{count}"
 
   count = logarithmic(n)
-  puts "Operation count for logarithmic time (iteration) = #{count}"
+  puts "Logarithmic operation count (iterative) = #{count}"
   count = log_recur(n)
-  puts "Operation count for logarithmic time (recursion) = #{count}"
+  puts "Logarithmic operation count (recursive) = #{count}"
 
   count = linear_log_recur(n)
-  puts "Operation count for linearithmic time (recursion) = #{count}"
+  puts "Linearithmic operation count (recursive) = #{count}"
 
   count = factorial_recur(n)
-  puts "Operation count for factorial time (recursion) = #{count}"
+  puts "Factorial operation count (recursive) = #{count}"
 end

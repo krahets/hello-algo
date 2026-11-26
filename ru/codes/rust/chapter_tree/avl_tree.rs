@@ -12,9 +12,9 @@ use std::rc::Rc;
 
 type OptionTreeNodeRc = Option<Rc<RefCell<TreeNode>>>;
 
-/* AVL-дерево */
+/* АВЛ-дерево */
 struct AVLTree {
-    root: OptionTreeNodeRc, // Корневой узел
+    root: OptionTreeNodeRc, // Корень
 }
 
 impl AVLTree {
@@ -25,7 +25,7 @@ impl AVLTree {
 
     /* Получить высоту узла */
     fn height(node: OptionTreeNodeRc) -> i32 {
-        // Высота пустого узла равна -1, высота листового узла равна 0
+        // Высота пустого узла равна -1, высота листа равна 0
         match node {
             Some(node) => node.borrow().height,
             None => -1,
@@ -37,7 +37,7 @@ impl AVLTree {
         if let Some(node) = node {
             let left = node.borrow().left.clone();
             let right = node.borrow().right.clone();
-            // Высота узла равна высоте более высокого поддерева + 1
+            // Высота узла на 1 больше высоты самого высокого поддерева
             node.borrow_mut().height = std::cmp::max(Self::height(left), Self::height(right)) + 1;
         }
     }
@@ -47,82 +47,82 @@ impl AVLTree {
         match node {
             // Коэффициент баланса пустого узла равен 0
             None => 0,
-            // Коэффициент баланса узла = высота левого поддерева - высота правого поддерева
+            // Коэффициент баланса узла равен высоте левого поддерева минус высота правого
             Some(node) => {
                 Self::height(node.borrow().left.clone()) - Self::height(node.borrow().right.clone())
             }
         }
     }
 
-    /* Операция правого вращения */
+    /* Правый поворот */
     fn right_rotate(node: OptionTreeNodeRc) -> OptionTreeNodeRc {
         match node {
             Some(node) => {
                 let child = node.borrow().left.clone().unwrap();
                 let grand_child = child.borrow().right.clone();
-                // Выполнить правое вращение узла node вокруг child
+                // Повернуть node вправо вокруг child
                 child.borrow_mut().right = Some(node.clone());
                 node.borrow_mut().left = grand_child;
                 // Обновить высоту узла
                 Self::update_height(Some(node));
                 Self::update_height(Some(child.clone()));
-                // Вернуть корневой узел поддерева после вращения
+                // Вернуть корень поддерева после поворота
                 Some(child)
             }
             None => None,
         }
     }
 
-    /* Операция левого вращения */
+    /* Левый поворот */
     fn left_rotate(node: OptionTreeNodeRc) -> OptionTreeNodeRc {
         match node {
             Some(node) => {
                 let child = node.borrow().right.clone().unwrap();
                 let grand_child = child.borrow().left.clone();
-                // Выполнить левое вращение узла node вокруг child
+                // Повернуть node влево вокруг child
                 child.borrow_mut().left = Some(node.clone());
                 node.borrow_mut().right = grand_child;
                 // Обновить высоту узла
                 Self::update_height(Some(node));
                 Self::update_height(Some(child.clone()));
-                // Вернуть корневой узел поддерева после вращения
+                // Вернуть корень поддерева после поворота
                 Some(child)
             }
             None => None,
         }
     }
 
-    /* Выполнить вращение, чтобы снова сбалансировать поддерево */
+    /* Выполнить поворот, чтобы восстановить баланс поддерева */
     fn rotate(node: OptionTreeNodeRc) -> OptionTreeNodeRc {
         // Получить коэффициент баланса узла node
         let balance_factor = Self::balance_factor(node.clone());
-        // Левосторонне перекошенное дерево
+        // Перевес влево
         if balance_factor > 1 {
             let node = node.unwrap();
             if Self::balance_factor(node.borrow().left.clone()) >= 0 {
-                // Правое вращение
+                // Поворот вправо
                 Self::right_rotate(Some(node))
             } else {
-                // Сначала левое вращение, затем правое
+                // Сначала поворот влево, затем вправо
                 let left = node.borrow().left.clone();
                 node.borrow_mut().left = Self::left_rotate(left);
                 Self::right_rotate(Some(node))
             }
         }
-        // Правосторонне перекошенное дерево
+        // Перевес вправо
         else if balance_factor < -1 {
             let node = node.unwrap();
             if Self::balance_factor(node.borrow().right.clone()) <= 0 {
-                // Левое вращение
+                // Поворот влево
                 Self::left_rotate(Some(node))
             } else {
-                // Сначала правое вращение, затем левое
+                // Сначала поворот вправо, затем влево
                 let right = node.borrow().right.clone();
                 node.borrow_mut().right = Self::right_rotate(right);
                 Self::left_rotate(Some(node))
             }
         } else {
-            // Дерево сбалансировано, вращение не требуется, вернуть сразу
+            // Дерево сбалансировано: завершить вызов без поворота
             node
         }
     }
@@ -136,7 +136,7 @@ impl AVLTree {
     fn insert_helper(node: OptionTreeNodeRc, val: i32) -> OptionTreeNodeRc {
         match node {
             Some(mut node) => {
-                /* 1. Найти позицию вставки и вставить узел */
+                /* 1. Найти место вставки и вставить узел */
                 match {
                     let node_val = node.borrow().val;
                     node_val
@@ -152,14 +152,14 @@ impl AVLTree {
                         node.borrow_mut().right = Self::insert_helper(right, val);
                     }
                     Ordering::Equal => {
-                        return Some(node); // Повторяющийся узел не вставлять, сразу вернуть
+                        return Some(node); // Такой узел уже есть: завершить вызов без вставки
                     }
                 }
                 Self::update_height(Some(node.clone())); // Обновить высоту узла
 
-                /* 2. Выполнить вращение, чтобы снова сбалансировать поддерево */
+                /* 2. Восстановить баланс поддерева с помощью поворота */
                 node = Self::rotate(Some(node)).unwrap();
-                // Вернуть корневой узел поддерева
+                // Вернуть корень поддерева
                 Some(node)
             }
             None => Some(TreeNode::new(val)),
@@ -175,7 +175,7 @@ impl AVLTree {
     fn remove_helper(node: OptionTreeNodeRc, val: i32) -> OptionTreeNodeRc {
         match node {
             Some(mut node) => {
-                /* 1. Найти узел и удалить его */
+                /* 1. Найти и удалить узел */
                 if val < node.borrow().val {
                     let left = node.borrow().left.clone();
                     node.borrow_mut().left = Self::remove_helper(left, val);
@@ -189,15 +189,15 @@ impl AVLTree {
                         node.borrow().right.clone()
                     };
                     match child {
-                        // Число дочерних узлов = 0, удалить node и сразу вернуть
+                        // Нет потомков: удалить node и завершить вызов
                         None => {
                             return None;
                         }
-                        // Число дочерних узлов = 1, удалить node напрямую
+                        // Один потомок: удалить node
                         Some(child) => node = child,
                     }
                 } else {
-                    // Число дочерних узлов = 2, удалить следующий по симметричному обходу узел и заменить им текущий узел
+                    // Два потомка: удалить следующий узел симметричного обхода и заменить им текущий узел
                     let mut temp = node.borrow().right.clone().unwrap();
                     loop {
                         let temp_left = temp.borrow().left.clone();
@@ -212,9 +212,9 @@ impl AVLTree {
                 }
                 Self::update_height(Some(node.clone())); // Обновить высоту узла
 
-                /* 2. Выполнить вращение, чтобы снова сбалансировать поддерево */
+                /* 2. Восстановить баланс поддерева с помощью поворота */
                 node = Self::rotate(Some(node)).unwrap();
-                // Вернуть корневой узел поддерева
+                // Вернуть корень поддерева
                 Some(node)
             }
             None => None,
@@ -224,47 +224,47 @@ impl AVLTree {
     /* Поиск узла */
     fn search(&self, val: i32) -> OptionTreeNodeRc {
         let mut cur = self.root.clone();
-        // Искать в цикле и выйти после прохода за листовой узел
+        // Искать в цикле до выхода за пределы листа
         while let Some(current) = cur.clone() {
             match current.borrow().val.cmp(&val) {
-                // Целевой узел находится в правом поддереве cur
+                // Искомый узел в правом поддереве cur
                 Ordering::Less => {
                     cur = current.borrow().right.clone();
                 }
-                // Целевой узел находится в левом поддереве cur
+                // Искомый узел в левом поддереве cur
                 Ordering::Greater => {
                     cur = current.borrow().left.clone();
                 }
-                // Найти целевой узел и выйти из цикла
+                // Узел найден: выйти из цикла
                 Ordering::Equal => {
                     break;
                 }
             }
         }
-        // Вернуть целевой узел
+        // Вернуть искомый узел
         cur
     }
 }
 
-/* Driver Code */
+/* Основная программа */
 fn main() {
     fn test_insert(tree: &mut AVLTree, val: i32) {
         tree.insert(val);
-        println!("\nПосле вставки узла {} AVL-дерево имеет вид", val);
+        println!("\nАВЛ-дерево после вставки узла {}:", val);
         print_util::print_tree(&tree.root.clone().unwrap());
     }
 
     fn test_remove(tree: &mut AVLTree, val: i32) {
         tree.remove(val);
-        println!("\nПосле удаления узла {} AVL-дерево имеет вид", val);
+        println!("\nАВЛ-дерево после удаления узла {}:", val);
         print_util::print_tree(&tree.root.clone().unwrap());
     }
 
-    /* Инициализация пустого AVL-дерева */
+    /* Инициализация пустого АВЛ-дерева */
     let mut avl_tree = AVLTree::new();
 
     /* Вставка узла */
-    // Обратите внимание, как AVL-дерево сохраняет баланс после вставки узла
+    // Проследите, как АВЛ-дерево сохраняет баланс после вставки узла
     test_insert(&mut avl_tree, 1);
     test_insert(&mut avl_tree, 2);
     test_insert(&mut avl_tree, 3);
@@ -280,16 +280,16 @@ fn main() {
     test_insert(&mut avl_tree, 7);
 
     /* Удаление узла */
-    // Обратите внимание, как AVL-дерево сохраняет баланс после удаления узла
-    test_remove(&mut avl_tree, 8); // Удаление узла степени 0
-    test_remove(&mut avl_tree, 5); // Удаление узла степени 1
-    test_remove(&mut avl_tree, 4); // Удаление узла степени 2
+    // Проследите, как АВЛ-дерево сохраняет баланс после удаления узла
+    test_remove(&mut avl_tree, 8); // Удаление узла без потомков
+    test_remove(&mut avl_tree, 5); // Удаление узла с одним потомком
+    test_remove(&mut avl_tree, 4); // Удаление узла с двумя потомками
 
     /* Поиск узла */
     let node = avl_tree.search(7);
     if let Some(node) = node {
         println!(
-            "\nНайденный объект узла = {:?}, значение узла = {}",
+            "\nНайденный узел: {:?}, значение узла = {}",
             &*node.borrow(),
             node.borrow().val
         );

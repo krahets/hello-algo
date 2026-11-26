@@ -22,7 +22,7 @@ def record_solution(state: list[TreeNode], res: list[list[TreeNode]]):
 
 
 def is_valid(state: list[TreeNode], choice: TreeNode) -> bool:
-    """Check whether the choice is valid in the current state"""
+    """Check whether this choice is valid in the current state"""
     return choice is not None and choice.val != 3
 
 
@@ -40,32 +40,32 @@ def backtrack(
     state: list[TreeNode], choices: list[TreeNode], res: list[list[TreeNode]]
 ):
     """Backtracking: example 3"""
-    # Check whether this is a solution
+    # Check for a solution
     if is_solution(state):
         # Record the solution
         record_solution(state, res)
-    # Iterate over all choices
+    # Try each choice
     for choice in choices:
         # Prune: check whether the choice is valid
         if is_valid(state, choice):
-            # Try: make a choice and update the state
+            # Make a choice and update the state
             make_choice(state, choice)
-            # Proceed to the next choice
+            # Make the next choice
             backtrack(state, [choice.left, choice.right], res)
-            # Backtrack: undo the choice and restore the previous state
+            # Backtrack: undo the choice to restore the previous state
             undo_choice(state, choice)
 
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
     root = list_to_tree([1, 7, 3, 4, 5, 6, 7])
     print("\nInitialize the binary tree")
     print_tree(root)
 
-    # Backtracking algorithm
+    # Backtracking
     res = []
     backtrack(state=[], choices=[root], res=res)
 
-    print("\nOutput all paths from the root to nodes with value 7, requiring that no node on the path has value 3")
+    print("\nPrint all paths from the root to a node with value 7 that avoid nodes with value 3")
     for path in res:
         print([node.val for node in path])

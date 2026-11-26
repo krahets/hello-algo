@@ -12,34 +12,34 @@ fn backtrack(
     start: usize,
     res: &mut Vec<Vec<i32>>,
 ) {
-    // Record a solution when the remaining target is zero
+    // Record a solution when the subset sums to target
     if target == 0 {
         res.push(state.clone());
         return;
     }
-    // Iterate over all choices
-    // Pruning 2: iterate from start to avoid generating duplicate subsets
+    // Try each choice
+    // Pruning rule 2: start at start to avoid duplicate subsets
     for i in start..choices.len() {
-        // Pruning 1: exit the loop if the next element exceeds the remaining target
-        // The array is sorted, so later elements are at least as large and also exceed the remaining target
+        // Pruning rule 1: break if the subset sum would exceed target
+        // The array is sorted, so later elements are at least as large and would also take the sum over target
         if target - choices[i] < 0 {
             break;
         }
-        // Try: make a choice and update target and start
+        // Make a choice and update target and start
         state.push(choices[i]);
-        // Proceed to the next choice
+        // Make the next choice
         backtrack(state, target - choices[i], choices, i, res);
-        // Backtrack: undo the choice and restore the previous state
+        // Backtrack: undo the choice to restore the previous state
         state.pop();
     }
 }
 
 /* Solve subset sum I */
 fn subset_sum_i(nums: &mut [i32], target: i32) -> Vec<Vec<i32>> {
-    let mut state = Vec::new(); // State (subset)
+    let mut state = Vec::new(); // State (current subset)
     nums.sort(); // Sort nums
-    let start = 0; // Starting index for iteration
-    let mut res = Vec::new(); // Result list (list of subsets)
+    let start = 0; // Starting index
+    let mut res = Vec::new(); // Results (list of subsets)
     backtrack(&mut state, target, nums, start, &mut res);
     res
 }
@@ -52,5 +52,5 @@ pub fn main() {
     let res = subset_sum_i(&mut nums, target);
 
     println!("Input array nums = {:?}, target = {}", &nums, target);
-    println!("All subsets with sum {}: res = {:?}", target, &res);
+    println!("Subsets that sum to {}: res = {:?}", target, &res);
 }

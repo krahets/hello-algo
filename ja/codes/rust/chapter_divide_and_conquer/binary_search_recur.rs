@@ -6,7 +6,7 @@
 
 /* 二分探索：問題 f(i, j) */
 fn dfs(nums: &[i32], target: i32, i: i32, j: i32) -> i32 {
-    // 区間が空なら目的の要素が存在しないため、-1 を返す
+    // 区間が空なら目的の要素はないので -1 を返す
     if i > j {
         return -1;
     }
@@ -30,12 +30,12 @@ fn binary_search(nums: &[i32], target: i32) -> i32 {
     dfs(nums, target, 0, n - 1)
 }
 
-/* 実行用コード */
+/* 実行例 */
 pub fn main() {
     let target = 6;
     let nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
 
-    // 二分探索（閉区間）
+    // 二分探索（両端を含む区間）
     let index = binary_search(&nums, target);
     println!("目的の要素 6 のインデックス = {index}");
 }

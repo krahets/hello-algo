@@ -20,10 +20,10 @@ func coinChangeIIDP(coins []int, amt int) int {
 	for i := 1; i <= n; i++ {
 		for a := 1; a <= amt; a++ {
 			if coins[i-1] > a {
-				// 目標金額を超える場合、硬貨 i を選ばない
+				// 目標金額を超える場合は硬貨 i を使わない
 				dp[i][a] = dp[i-1][a]
 			} else {
-				// 硬貨 i を選ばない場合と選ぶ場合の方法の数の和
+				// 硬貨 i を使わない場合と使う場合の組合せ数を足す
 				dp[i][a] = dp[i-1][a] + dp[i][a-coins[i-1]]
 			}
 		}
@@ -31,7 +31,7 @@ func coinChangeIIDP(coins []int, amt int) int {
 	return dp[n][amt]
 }
 
-/* 硬貨の両替 II：空間を最適化した動的計画法 */
+/* 硬貨の両替 II：使用メモリを削減した動的計画法 */
 func coinChangeIIDPComp(coins []int, amt int) int {
 	n := len(coins)
 	// dp テーブルを初期化する
@@ -39,13 +39,13 @@ func coinChangeIIDPComp(coins []int, amt int) int {
 	dp[0] = 1
 	// 状態遷移
 	for i := 1; i <= n; i++ {
-		// 順方向に走査する
+		// 昇順に走査する
 		for a := 1; a <= amt; a++ {
 			if coins[i-1] > a {
-				// 目標金額を超える場合、硬貨 i を選ばない
+				// 目標金額を超える場合は硬貨 i を使わない
 				dp[a] = dp[a]
 			} else {
-				// 硬貨 i を選ばない場合と選ぶ場合の方法の数の和
+				// 硬貨 i を使わない場合と使う場合の組合せ数を足す
 				dp[a] = dp[a] + dp[a-coins[i-1]]
 			}
 		}

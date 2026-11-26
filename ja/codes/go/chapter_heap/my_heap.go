@@ -11,41 +11,41 @@ import (
 )
 
 type maxHeap struct {
-	// 配列ではなくスライスを使うため、容量の拡張を考慮する必要がない
+	// 配列の代わりにスライスを使えば、容量の拡張を自分で扱う必要がない
 	data []any
 }
 
-/* コンストラクタ：空のヒープを構築する */
+/* 空のヒープを作るコンストラクタ */
 func newHeap() *maxHeap {
 	return &maxHeap{
 		data: make([]any, 0),
 	}
 }
 
-/* コンストラクタ：スライスからヒープを構築する */
+/* スライスからヒープを構築するコンストラクタ */
 func newMaxHeap(nums []any) *maxHeap {
 	// リストの要素をそのままヒープに追加する
 	h := &maxHeap{data: nums}
 	for i := h.parent(len(h.data) - 1); i >= 0; i-- {
-		// 葉ノード以外の全ノードをヒープ化する
+		// 葉以外のすべてのノードをヒープ化する
 		h.siftDown(i)
 	}
 	return h
 }
 
-/* 左の子のインデックスを取得 */
+/* 左の子のインデックスを取得する */
 func (h *maxHeap) left(i int) int {
 	return 2*i + 1
 }
 
-/* 右の子のインデックスを取得 */
+/* 右の子のインデックスを取得する */
 func (h *maxHeap) right(i int) int {
 	return 2*i + 2
 }
 
-/* 親のインデックスを取得 */
+/* 親のインデックスを取得する */
 func (h *maxHeap) parent(i int) int {
-	// 切り捨て除算
+	// 商を 0 方向に丸める
 	return (i - 1) / 2
 }
 
@@ -59,63 +59,63 @@ func (h *maxHeap) size() int {
 	return len(h.data)
 }
 
-/* ヒープが空か判定 */
+/* ヒープが空か判定する */
 func (h *maxHeap) isEmpty() bool {
 	return len(h.data) == 0
 }
 
-/* ヒープの先頭要素にアクセスする */
+/* ヒープの根の要素を参照する */
 func (h *maxHeap) peek() any {
 	return h.data[0]
 }
 
-/* ヒープに要素を挿入する */
+/* 要素をヒープに挿入する */
 func (h *maxHeap) push(val any) {
 	// ノードを追加する
 	h.data = append(h.data, val)
-	// 下から上へヒープ化する
+	// 上に向かってヒープ化する
 	h.siftUp(len(h.data) - 1)
 }
 
-/* ノード i から上向きにヒープ化する */
+/* ノード i から上に向かってヒープ化する */
 func (h *maxHeap) siftUp(i int) {
 	for true {
-		// ノード i の親ノードを取得する
+		// ノード i の親を取得する
 		p := h.parent(i)
-		// 「根ノードを越えた」または「ノードの修復が不要」の場合、ヒープ化を終了する
+		// 根を越えるか、ノードを調整する必要がなくなれば、ヒープ化を終える
 		if p < 0 || h.data[i].(int) <= h.data[p].(int) {
 			break
 		}
 		// 2 つのノードを交換する
 		h.swap(i, p)
-		// 上向きのヒープ化を繰り返す
+		// 上へのヒープ化を繰り返す
 		i = p
 	}
 }
 
-/* ヒープから要素を取り出す */
+/* 根の要素をヒープから取り出す */
 func (h *maxHeap) pop() any {
-	// 空かどうかを確認する
+	// 空の場合の処理
 	if h.isEmpty() {
 		fmt.Println("エラー")
 		return nil
 	}
-	// 根と最右の葉を交換（先頭要素と末尾要素を交換）
+	// 根と最も右の葉（先頭要素と末尾要素）を交換する
 	h.swap(0, h.size()-1)
 	// ノードを削除する
 	val := h.data[len(h.data)-1]
 	h.data = h.data[:len(h.data)-1]
-	// 上から下へヒープ化する
+	// 下に向かってヒープ化する
 	h.siftDown(0)
 
-	// ヒープの先頭要素を返す
+	// 根の要素を返す
 	return val
 }
 
-/* ノード i から下向きにヒープ化する */
+/* ノード i から下に向かってヒープ化する */
 func (h *maxHeap) siftDown(i int) {
 	for true {
-		// ノード i, l, r のうち値が最大のノードを求め、max とする
+		// ノード i、l、r のうち値が最大のものを max とする
 		l, r, max := h.left(i), h.right(i), i
 		if l < h.size() && h.data[l].(int) > h.data[max].(int) {
 			max = l
@@ -123,18 +123,18 @@ func (h *maxHeap) siftDown(i int) {
 		if r < h.size() && h.data[r].(int) > h.data[max].(int) {
 			max = r
 		}
-		// ノード i が最大か添字 l, r が範囲外なら、ヒープ化は不要なので終了
+		// ノード i が最大か、インデックス l と r がともに範囲外なら、ヒープ化を終えてループを抜ける
 		if max == i {
 			break
 		}
 		// 2 つのノードを交換する
 		h.swap(i, max)
-		// 下向きのヒープ化を繰り返す
+		// 下へのヒープ化を繰り返す
 		i = max
 	}
 }
 
-/* ヒープ（二分木）を表示する */
+/* ヒープを二分木として表示する */
 func (h *maxHeap) print() {
 	PrintHeap(h.data)
 }

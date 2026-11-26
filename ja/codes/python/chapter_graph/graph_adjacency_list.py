@@ -12,11 +12,11 @@ from modules import Vertex, vals_to_vets
 
 
 class GraphAdjList:
-    """隣接リストで実装した無向グラフクラス"""
+    """隣接リストで無向グラフを表すクラス"""
 
     def __init__(self, edges: list[list[Vertex]]):
         """コンストラクタ"""
-        # 隣接リスト。key：頂点、value：その頂点に隣接する全頂点
+        # 隣接リスト。key は頂点、value はその頂点の全隣接頂点
         self.adj_list = dict[Vertex, list[Vertex]]()
         # すべての頂点と辺を追加する
         for edge in edges:
@@ -55,9 +55,9 @@ class GraphAdjList:
         """頂点を削除する"""
         if vet not in self.adj_list:
             raise ValueError()
-        # 隣接リストから頂点 vet に対応する連結リストを削除する
+        # 隣接リストから頂点 vet の連結リストを削除する
         self.adj_list.pop(vet)
-        # 他の頂点の連結リストを走査し、vet を含むすべての辺を削除する
+        # 他の頂点の連結リストをたどり、vet を端点とする辺をすべて削除する
         for vertex in self.adj_list:
             if vet in self.adj_list[vertex]:
                 self.adj_list[vertex].remove(vet)
@@ -70,7 +70,7 @@ class GraphAdjList:
             print(f"{vertex.val}: {tmp},")
 
 
-"""実行用コード"""
+"""Driver Code"""
 if __name__ == "__main__":
     # 無向グラフを初期化する
     v = vals_to_vets([1, 3, 2, 5, 4])
@@ -83,29 +83,29 @@ if __name__ == "__main__":
         [v[3], v[4]],
     ]
     graph = GraphAdjList(edges)
-    print("\n初期化後のグラフ")
+    print("\n初期化後のグラフ：")
     graph.print()
 
     # 辺を追加する
-    # 頂点 1, 2 は v[0], v[2] に対応する
+    # 頂点 1 と 2 はそれぞれ v[0] と v[2]
     graph.add_edge(v[0], v[2])
-    print("\n辺 1-2 を追加した後のグラフ")
+    print("\n辺 1-2 を追加した後のグラフ：")
     graph.print()
 
     # 辺を削除する
-    # 頂点 1, 3 は v[0], v[1] に対応する
+    # 頂点 1 と 3 はそれぞれ v[0] と v[1]
     graph.remove_edge(v[0], v[1])
-    print("\n辺 1-3 を削除した後のグラフ")
+    print("\n辺 1-3 を削除した後のグラフ：")
     graph.print()
 
     # 頂点を追加する
     v5 = Vertex(6)
     graph.add_vertex(v5)
-    print("\n頂点 6 を追加した後のグラフ")
+    print("\n頂点 6 を追加した後のグラフ：")
     graph.print()
 
     # 頂点を削除する
-    # 頂点 3 は v[1] に対応する
+    # 頂点 3 は v[1]
     graph.remove_vertex(v[1])
-    print("\n頂点 3 を削除した後のグラフ")
+    print("\n頂点 3 を削除した後のグラフ：")
     graph.print()

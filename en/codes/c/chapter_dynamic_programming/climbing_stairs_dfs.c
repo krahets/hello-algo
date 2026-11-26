@@ -8,7 +8,7 @@
 
 /* Search */
 int dfs(int i) {
-    // The values of dp[1] and dp[2] are known; return them
+    // Return the known value for dp[1] or dp[2]
     if (i == 1 || i == 2)
         return i;
     // dp[i] = dp[i-1] + dp[i-2]
@@ -16,7 +16,7 @@ int dfs(int i) {
     return count;
 }
 
-/* Climbing stairs: search */
+/* Climbing stairs with search */
 int climbingStairsDFS(int n) {
     return dfs(n);
 }
@@ -26,7 +26,7 @@ int main() {
     int n = 9;
 
     int res = climbingStairsDFS(n);
-    printf("Number of ways to climb %d stairs: %d\n", n, res);
+    printf("Ways to climb %d stairs: %d\n", n, res);
 
     return 0;
 }

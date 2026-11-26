@@ -12,47 +12,47 @@ class ArrayStack {
     vector<int> stack;
 
   public:
-    /* Получение длины стека */
+    /* Получить размер стека */
     int size() {
         return stack.size();
     }
 
-    /* Проверка, пуст ли стек */
+    /* Проверить, пуст ли стек */
     bool isEmpty() {
         return stack.size() == 0;
     }
 
-    /* Поместить в стек */
+    /* Поместить элемент в стек */
     void push(int num) {
         stack.push_back(num);
     }
 
-    /* Извлечь из стека */
+    /* Снять элемент со стека */
     int pop() {
         int num = top();
         stack.pop_back();
         return num;
     }
 
-    /* Доступ к верхнему элементу стека */
+    /* Посмотреть элемент на вершине стека */
     int top() {
         if (isEmpty())
-            throw out_of_range("стек пуст");
+            throw out_of_range("Стек пуст");
         return stack.back();
     }
 
-    /* Вернуть Vector */
+    /* Вернуть вектор */
     vector<int> toVector() {
         return stack;
     }
 };
 
-/* Driver Code */
+/* Пример использования */
 int main() {
-    /* Инициализация стека */
+    /* Инициализировать стек */
     ArrayStack *stack = new ArrayStack();
 
-    /* Помещение элемента в стек */
+    /* Поместить элементы в стек */
     stack->push(1);
     stack->push(3);
     stack->push(2);
@@ -61,22 +61,22 @@ int main() {
     cout << "Стек stack = ";
     printVector(stack->toVector());
 
-    /* Доступ к верхнему элементу стека */
+    /* Посмотреть элемент на вершине стека */
     int top = stack->top();
-    cout << "Верхний элемент top = " << top << endl;
+    cout << "Элемент на вершине стека top = " << top << endl;
 
-    /* Извлечение элемента из стека */
+    /* Снять элемент со стека */
     top = stack->pop();
-    cout << "Извлеченный элемент pop = " << top << ", stack после извлечения = ";
+    cout << "Снятый элемент pop = " << top << ", после снятия stack = ";
     printVector(stack->toVector());
 
-    /* Получение длины стека */
+    /* Получить размер стека */
     int size = stack->size();
-    cout << "Длина стека size = " << size << endl;
+    cout << "Размер стека size = " << size << endl;
 
-    /* Проверка на пустоту */
+    /* Проверить, пуст ли стек */
     bool empty = stack->isEmpty();
-    cout << "Пуст ли стек = " << empty << endl;
+    cout << "Стек пуст = " << empty << endl;
 
     // Освободить память
     delete stack;

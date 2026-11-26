@@ -6,18 +6,18 @@
 
 use hello_algo_rust::include::print_util;
 
-/* Max heap */
+/* Max-heap */
 struct MaxHeap {
-    // Use a vector instead of a fixed-size array so that capacity grows automatically
+    // Use a vector instead of an array so it can grow as needed
     max_heap: Vec<i32>,
 }
 
 impl MaxHeap {
     /* Constructor: build a heap from the input list */
     fn new(nums: Vec<i32>) -> Self {
-        // Place the list elements in the heap without changing their order
+        // Copy the list elements into the heap in their original order
         let mut heap = MaxHeap { max_heap: nums };
-        // Sift down from every non-leaf node
+        // Heapify all non-leaf nodes
         for i in (0..=Self::parent(heap.size() - 1)).rev() {
             heap.sift_down(i);
         }
@@ -54,7 +54,7 @@ impl MaxHeap {
         self.max_heap.is_empty()
     }
 
-    /* Access the top element of the heap */
+    /* Peek at the root */
     fn peek(&self) -> Option<i32> {
         self.max_heap.first().copied()
     }
@@ -67,16 +67,16 @@ impl MaxHeap {
         self.sift_up(self.size() - 1);
     }
 
-    /* Sift up starting from node i */
+    /* Sift up from node i */
     fn sift_up(&mut self, mut i: usize) {
         loop {
-            // Stop sifting up if node i is already the root
+            // Node i is already the root, so stop sifting
             if i == 0 {
                 break;
             }
             // Get the parent of node i
             let p = Self::parent(i);
-            // Stop sifting up when the node already satisfies the heap property
+            // Stop sifting when the node already satisfies the heap property
             if self.max_heap[i] <= self.max_heap[p] {
                 break;
             }
@@ -91,22 +91,22 @@ impl MaxHeap {
     fn pop(&mut self) -> i32 {
         // Handle an empty heap
         if self.is_empty() {
-            panic!("Index out of bounds");
+            panic!("index out of bounds");
         }
-        // Swap the root with the rightmost leaf on the last level (swap the first and last elements)
+        // Swap the root and the rightmost leaf (the first and last elements)
         self.swap(0, self.size() - 1);
-        // Remove a node
+        // Remove the node
         let val = self.max_heap.pop().unwrap();
         // Sift down
         self.sift_down(0);
-        // Return the top element of the heap
+        // Return the root element
         val
     }
 
-    /* Sift down starting from node i */
+    /* Sift down from node i */
     fn sift_down(&mut self, mut i: usize) {
         loop {
-            // Find the node with the largest value among i, l, and r, and store its index in ma
+            // Store the index of the largest of nodes i, l, and r in ma
             let (l, r, mut ma) = (Self::left(i), Self::right(i), i);
             if l < self.size() && self.max_heap[l] > self.max_heap[ma] {
                 ma = l;
@@ -114,7 +114,7 @@ impl MaxHeap {
             if r < self.size() && self.max_heap[r] > self.max_heap[ma] {
                 ma = r;
             }
-            // Stop if node i is largest or both child indices l and r are out of bounds
+            // Stop if i is already largest or both child indices l and r are out of bounds
             if ma == i {
                 break;
             }
@@ -125,7 +125,7 @@ impl MaxHeap {
         }
     }
 
-    /* Print the heap (binary tree) */
+    /* Print the heap as a binary tree */
     fn print(&self) {
         print_util::print_heap(self.max_heap.clone());
     }
@@ -133,31 +133,31 @@ impl MaxHeap {
 
 /* Driver code */
 fn main() {
-    /* Initialize a max heap */
+    /* Initialize a max-heap */
     let mut max_heap = MaxHeap::new(vec![9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
-    println!("\nAfter building a heap from the input list:");
+    println!("\nHeap built from the input list:");
     max_heap.print();
 
-    /* Get the top element of the heap */
+    /* Get the root element */
     let peek = max_heap.peek();
     if let Some(peek) = peek {
-        println!("\nTop element: {}", peek);
+        println!("\nRoot element: {}", peek);
     }
 
     /* Push an element onto the heap */
     let val = 7;
     max_heap.push(val);
-    println!("\nAfter pushing element {} into the heap", val);
+    println!("\nHeap after pushing {}:", val);
     max_heap.print();
 
-    /* Pop the top element from the heap */
+    /* Pop the root */
     let peek = max_heap.pop();
-    println!("\nAfter removing the top element {} from the heap", peek);
+    println!("\nHeap after popping the root ({}):", peek);
     max_heap.print();
 
     /* Get the heap size */
     let size = max_heap.size();
-    println!("\nNumber of heap elements: {}", size);
+    println!("\nNumber of elements in the heap: {}", size);
 
     /* Check whether the heap is empty */
     let is_empty = max_heap.is_empty();

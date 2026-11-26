@@ -4,7 +4,7 @@ Created Time: 2024-04-13
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Пара ключ-значение ###
+### Пара «ключ — значение» ###
 class Pair
   attr_accessor :key, :val
 
@@ -18,7 +18,7 @@ end
 class ArrayHashMap
   ### Конструктор ###
   def initialize
-    # Инициализировать массив, содержащий 100 корзин
+    # Создать массив из 100 корзин
     @buckets = Array.new(100)
   end
 
@@ -27,7 +27,7 @@ class ArrayHashMap
     index = key % 100
   end
 
-  ### Операция поиска ###
+  ### Поиск ###
   def get(key)
     index = hash_func(key)
     pair = @buckets[index]
@@ -36,21 +36,21 @@ class ArrayHashMap
     pair.val
   end
 
-  ### Операция добавления ###
+  ### Вставка ###
   def put(key, val)
     pair = Pair.new(key, val)
     index = hash_func(key)
     @buckets[index] = pair
   end
 
-  ### Операция удаления ###
+  ### Удаление ###
   def remove(key)
     index = hash_func(key)
-    # Присвоить nil, что означает удаление
+    # Записать nil в знак удаления
     @buckets[index] = nil
   end
 
-  ### Получить все пары ключ-значение ###
+  ### Получить все пары «ключ — значение» ###
   def entry_set
     result = []
     @buckets.each { |pair| result << pair unless pair.nil? }
@@ -77,44 +77,44 @@ class ArrayHashMap
   end
 end
 
-### Driver Code ###
+### Демонстрационный код ###
 if __FILE__ == $0
-  # Инициализация хеш-таблицы
+  # Создать хеш-таблицу
   hmap = ArrayHashMap.new
 
-  # Операция добавления
-  # Добавить пару (key, value) в хеш-таблицу
+  # Вставка
+  # Добавить в таблицу пару (key, value)
   hmap.put(12836, "Сяо Ха")
   hmap.put(15937, "Сяо Ло")
   hmap.put(16750, "Сяо Суань")
   hmap.put(13276, "Сяо Фа")
   hmap.put(10583, "Сяо Я")
-  puts "\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение"
+  puts "\nХеш-таблица после вставки:\nКлюч -> Значение"
   hmap.print
 
-  # Операция поиска
-  # По ключу key получить из хеш-таблицы значение value
+  # Поиск
+  # Получить из таблицы значение value по ключу key
   name = hmap.get(15937)
-  puts "\nДля номера 15937 найдено имя #{name}"
+  puts "\nИмя студента с номером 15937: #{name}"
 
-  # Операция удаления
-  # Удалить пару значений (key, value) из хеш-таблицы
+  # Удаление
+  # Удалить из таблицы пару (key, value)
   hmap.remove(10583)
-  puts "\nПосле удаления 10583 хеш-таблица имеет вид\nКлюч -> Значение"
+  puts "\nХеш-таблица после удаления 10583:\nКлюч -> Значение"
   hmap.print
 
   # Обход хеш-таблицы
-  puts "\nОтдельный обход пар ключ-значение"
+  puts "\nОбход пар «ключ -> значение»"
   for pair in hmap.entry_set
     puts "#{pair.key} -> #{pair.val}"
   end
 
-  puts "\nОтдельный обход ключей"
+  puts "\nОбход только ключей"
   for key in hmap.key_set
     puts key
   end
 
-  puts "\nОтдельный обход значений"
+  puts "\nОбход только значений"
   for val in hmap.value_set
     puts val
   end

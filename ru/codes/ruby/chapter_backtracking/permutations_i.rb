@@ -4,43 +4,43 @@ Created Time: 2024-05-22
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Алгоритм бэктрекинга: все перестановки I ###
+### Поиск с возвратом: перестановки I ###
 def backtrack(state, choices, selected, res)
-  # Когда длина состояния равна числу элементов, записать решение
+  # Когда длина текущей перестановки равна числу элементов, сохраняем решение
   if state.length == choices.length
     res << state.dup
     return
   end
 
-  # Перебор всех вариантов выбора
+  # Перебираем все варианты
   choices.each_with_index do |choice, i|
-    # Отсечение: нельзя выбирать один и тот же элемент повторно
+    # Отсечение: нельзя выбирать один элемент дважды
     unless selected[i]
-      # Попытка: сделать выбор и обновить состояние
+      # Пробуем вариант и обновляем состояние
       selected[i] = true
       state << choice
-      # Перейти к следующему выбору
+      # Переходим к следующему выбору
       backtrack(state, choices, selected, res)
-      # Откат: отменить выбор и восстановить предыдущее состояние
+      # Возврат: отменяем выбор и восстанавливаем прежнее состояние
       selected[i] = false
       state.pop
     end
   end
 end
 
-### Все перестановки I ###
+### Перестановки I ###
 def permutations_i(nums)
   res = []
   backtrack([], nums, Array.new(nums.length, false), res)
   res
 end
 
-### Driver Code ###
+### Основная программа ###
 if __FILE__ == $0
   nums = [1, 2, 3]
 
   res = permutations_i(nums)
 
-  puts "Входной массив nums = #{nums}"
+  puts "Исходный массив nums = #{nums}"
   puts "Все перестановки res = #{res}"
 end

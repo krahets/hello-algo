@@ -13,9 +13,9 @@ public class ListNode(int val) {
     public ListNode? prev = null; // Reference to the previous node
 }
 
-/* Deque implemented with a doubly linked list */
+/* Deque backed by a doubly linked list */
 public class LinkedListDeque {
-    ListNode? front, rear; // Head node front and tail node rear
+    ListNode? front, rear; // front points to the head node and rear to the tail node
     int queSize = 0;      // Deque size
 
     public LinkedListDeque() {
@@ -33,94 +33,94 @@ public class LinkedListDeque {
         return Size() == 0;
     }
 
-    /* Enqueue operation */
+    /* Add an element at either end */
     void Push(int num, bool isFront) {
         ListNode node = new(num);
-        // If the linked list is empty, make both front and rear point to node
+        // If the list is empty, point both front and rear at node
         if (IsEmpty()) {
             front = node;
             rear = node;
         }
-        // Enqueue at the front
+        // Add at the front
         else if (isFront) {
-            // Add node to the head of the linked list
+            // Link node at the head of the list
             front!.prev = node;
             node.next = front;
-            front = node; // Update the head node                           
+            front = node; // Update the head                           
         }
-        // Enqueue at the rear
+        // Add at the rear
         else {
-            // Add node to the tail of the linked list
+            // Link node at the tail of the list
             rear!.next = node;
             node.prev = rear;
-            rear = node;  // Update the tail node
+            rear = node;  // Update the tail
         }
 
-        queSize++; // Update the queue size
+        queSize++; // Update the deque size
     }
 
-    /* Enqueue at the front */
+    /* Add an element at the front */
     public void PushFirst(int num) {
         Push(num, true);
     }
 
-    /* Enqueue at the rear */
+    /* Add an element at the rear */
     public void PushLast(int num) {
         Push(num, false);
     }
 
-    /* Dequeue operation */
+    /* Remove an element from either end */
     int? Pop(bool isFront) {
         if (IsEmpty())
             throw new Exception();
         int? val;
-        // When the queue size is 1, the head and tail point to the same node
+        // When the deque contains one element, the head and tail point to the same node
         if (queSize == 1) {
             val = front!.val;
             front = null;
             rear = null;
         }
-        // Dequeue from the front
+        // Remove from the front
         else if (isFront) {
-            val = front!.val; // Save the head node value
+            val = front!.val; // Save the head node's value
             // Remove the head node
             ListNode? fNext = front?.next;
             fNext!.prev = null;
             front.next = null;
-            front = fNext;   // Update the head node
+            front = fNext;   // Update the head
         }
-        // Dequeue from the rear
+        // Remove from the rear
         else {
-            val = rear!.val;  // Save the tail node value
+            val = rear!.val;  // Save the tail node's value
             // Remove the tail node
             ListNode? rPrev = rear?.prev;
             rPrev!.next = null;
             rear.prev = null;
-            rear = rPrev;    // Update the tail node
+            rear = rPrev;    // Update the tail
         }
 
-        queSize--; // Update the queue size
+        queSize--; // Update the deque size
         return val;
     }
 
-    /* Dequeue from the front */
+    /* Remove and return the front element */
     public int? PopFirst() {
         return Pop(true);
     }
 
-    /* Dequeue from the rear */
+    /* Remove and return the rear element */
     public int? PopLast() {
         return Pop(false);
     }
 
-    /* Access the front element */
+    /* Peek at the front element */
     public int? PeekFirst() {
         if (IsEmpty())
             throw new Exception();
         return front?.val;
     }
 
-    /* Access the rear element */
+    /* Peek at the rear element */
     public int? PeekLast() {
         if (IsEmpty())
             throw new Exception();
@@ -148,25 +148,25 @@ public class linkedlist_deque {
         deque.PushLast(3);
         deque.PushLast(2);
         deque.PushLast(5);
-        Console.WriteLine("Deque deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("deque = " + string.Join(" ", deque.ToArray()));
 
-        /* Access an element */
+        /* Peek at the front and rear elements */
         int? peekFirst = deque.PeekFirst();
-        Console.WriteLine("Front element peekFirst = " + peekFirst);
+        Console.WriteLine("Front element (peekFirst) = " + peekFirst);
         int? peekLast = deque.PeekLast();
-        Console.WriteLine("Rear element peekLast = " + peekLast);
+        Console.WriteLine("Rear element (peekLast) = " + peekLast);
 
-        /* Enqueue elements */
+        /* Add elements to the deque */
         deque.PushLast(4);
-        Console.WriteLine("After enqueuing element 4 at the rear, deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("After adding 4 at the rear, deque = " + string.Join(" ", deque.ToArray()));
         deque.PushFirst(1);
-        Console.WriteLine("After enqueuing element 1 at the front, deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("After adding 1 at the front, deque = " + string.Join(" ", deque.ToArray()));
 
-        /* Dequeue an element */
+        /* Remove elements from both ends */
         int? popLast = deque.PopLast();
-        Console.WriteLine("Element dequeued from the rear = " + popLast + ", after dequeuing from the rear, deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("Removed from the rear = " + popLast + ", deque after removal = " + string.Join(" ", deque.ToArray()));
         int? popFirst = deque.PopFirst();
-        Console.WriteLine("Element dequeued from the front = " + popFirst + ", after dequeuing from the front, deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("Removed from the front = " + popFirst + ", deque after removal = " + string.Join(" ", deque.ToArray()));
 
         /* Get the deque size */
         int size = deque.Size();
@@ -174,6 +174,6 @@ public class linkedlist_deque {
 
         /* Check whether the deque is empty */
         bool isEmpty = deque.IsEmpty();
-        Console.WriteLine("Is the deque empty = " + isEmpty);
+        Console.WriteLine("Deque is empty = " + isEmpty);
     }
 }

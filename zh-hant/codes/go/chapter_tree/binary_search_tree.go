@@ -19,15 +19,15 @@ func newBinarySearchTree() *binarySearchTree {
 	return bst
 }
 
-/* 獲取根節點 */
+/* 取得根節點 */
 func (bst *binarySearchTree) getRoot() *TreeNode {
 	return bst.root
 }
 
-/* 查詢節點 */
+/* 搜尋節點 */
 func (bst *binarySearchTree) search(num int) *TreeNode {
 	node := bst.root
-	// 迴圈查詢，越過葉節點後跳出
+	// 用迴圈搜尋，越過葉節點後跳出迴圈
 	for node != nil {
 		if node.Val.(int) < num {
 			// 目標節點在 cur 的右子樹中
@@ -40,7 +40,7 @@ func (bst *binarySearchTree) search(num int) *TreeNode {
 			break
 		}
 	}
-	// 返回目標節點
+	// 回傳目標節點
 	return node
 }
 
@@ -52,9 +52,9 @@ func (bst *binarySearchTree) insert(num int) {
 		bst.root = NewTreeNode(num)
 		return
 	}
-	// 待插入節點之前的節點位置
+	// 記錄搜尋插入位置時經過的上一個節點
 	var pre *TreeNode = nil
-	// 迴圈查詢，越過葉節點後跳出
+	// 用迴圈搜尋，越過葉節點後跳出迴圈
 	for cur != nil {
 		if cur.Val == num {
 			return
@@ -78,34 +78,34 @@ func (bst *binarySearchTree) insert(num int) {
 /* 刪除節點 */
 func (bst *binarySearchTree) remove(num int) {
 	cur := bst.root
-	// 若樹為空，直接提前返回
+	// 若樹為空，直接返回
 	if cur == nil {
 		return
 	}
-	// 待刪除節點之前的節點位置
+	// 記錄搜尋待刪節點時經過的上一個節點
 	var pre *TreeNode = nil
-	// 迴圈查詢，越過葉節點後跳出
+	// 用迴圈搜尋，越過葉節點後跳出迴圈
 	for cur != nil {
 		if cur.Val == num {
 			break
 		}
 		pre = cur
 		if cur.Val.(int) < num {
-			// 待刪除節點在右子樹中
+			// 要刪除的節點在右子樹中
 			cur = cur.Right
 		} else {
-			// 待刪除節點在左子樹中
+			// 要刪除的節點在左子樹中
 			cur = cur.Left
 		}
 	}
-	// 若無待刪除節點，則直接返回
+	// 若找不到要刪除的節點，直接返回
 	if cur == nil {
 		return
 	}
 	// 子節點數為 0 或 1
 	if cur.Left == nil || cur.Right == nil {
 		var child *TreeNode = nil
-		// 取出待刪除節點的子節點
+		// 取出要刪除節點的子節點
 		if cur.Left != nil {
 			child = cur.Left
 		} else {
@@ -119,24 +119,24 @@ func (bst *binarySearchTree) remove(num int) {
 				pre.Right = child
 			}
 		} else {
-			// 若刪除節點為根節點，則重新指定根節點
+			// 若刪除的是根節點，則重新指定根節點
 			bst.root = child
 		}
 		// 子節點數為 2
 	} else {
-		// 獲取中序走訪中待刪除節點 cur 的下一個節點
+		// 取得中序走訪中待刪節點 cur 的下一個節點
 		tmp := cur.Right
 		for tmp.Left != nil {
 			tmp = tmp.Left
 		}
-		// 遞迴刪除節點 tmp
+		// 以遞迴刪除節點 tmp
 		bst.remove(tmp.Val.(int))
-		// 用 tmp 覆蓋 cur
+		// 用 tmp 的值覆寫 cur 的值
 		cur.Val = tmp.Val
 	}
 }
 
-/* 列印二元搜尋樹 */
+/* 印出二元搜尋樹 */
 func (bst *binarySearchTree) print() {
 	PrintTree(bst.root)
 }

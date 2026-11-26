@@ -4,12 +4,12 @@
  * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
  */
 
-/* Driver Code */
-/* Инициализация стека */
-// В JavaScript нет встроенного класса стека, поэтому Array можно использовать как стек
+/* Пример использования */
+/* Инициализировать стек */
+// В JavaScript нет встроенного класса стека, поэтому в качестве стека можно использовать Array
 const stack = [];
 
-/* Помещение элемента в стек */
+/* Поместить элементы в стек */
 stack.push(1);
 stack.push(3);
 stack.push(2);
@@ -17,19 +17,19 @@ stack.push(5);
 stack.push(4);
 console.log('Стек stack =', stack);
 
-/* Доступ к верхнему элементу стека */
+/* Посмотреть элемент на вершине стека */
 const peek = stack[stack.length - 1];
-console.log('Верхний элемент peek =', peek);
+console.log('Элемент на вершине стека peek =', peek);
 
-/* Извлечение элемента из стека */
+/* Снять элемент со стека */
 const pop = stack.pop();
-console.log('Извлеченный элемент pop =', pop);
-console.log('stack после извлечения =', stack);
+console.log('Снятый элемент pop =', pop);
+console.log('После снятия элемента stack =', stack);
 
-/* Получение длины стека */
+/* Получить размер стека */
 const size = stack.length;
-console.log('Длина стека size =', size);
+console.log('Размер стека size =', size);
 
-/* Проверка на пустоту */
+/* Проверить, пуст ли стек */
 const isEmpty = stack.length === 0;
-console.log('Пуст ли стек =', isEmpty);
+console.log('Стек пуст =', isEmpty);

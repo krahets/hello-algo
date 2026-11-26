@@ -8,47 +8,47 @@ use hello_algo_rust::include::ListNode;
 use std::cell::RefCell;
 use std::rc::Rc;
 
-/* Линейный поиск (массив) */
+/* Линейный поиск в массиве */
 fn linear_search_array(nums: &[i32], target: i32) -> i32 {
-    // Обход массива
+    // Обходим массив
     for (i, num) in nums.iter().enumerate() {
-        // Целевой элемент найден, вернуть его индекс
+        // Элемент найден, возвращаем его индекс
         if num == &target {
             return i as i32;
         }
     }
-    // Целевой элемент не найден, вернуть -1
+    // Элемент не найден, возвращаем -1
     return -1;
 }
 
-/* Линейный поиск (связный список) */
+/* Линейный поиск в связном списке */
 fn linear_search_linked_list(
     head: Rc<RefCell<ListNode<i32>>>,
     target: i32,
 ) -> Option<Rc<RefCell<ListNode<i32>>>> {
-    // Целевой узел найден, возвращается этот узел
+    // Нужный узел найден, возвращаем его
     if head.borrow().val == target {
         return Some(head);
     };
-    // Целевой узел найден, возвращается этот узел
+    // Нужный узел найден, возвращаем его
     if let Some(node) = &head.borrow_mut().next {
         return linear_search_linked_list(node.clone(), target);
     }
-    // Целевой узел не найден, вернуть None
+    // Нужный узел не найден, возвращаем None
     return None;
 }
 
-/* Driver Code */
+/* Пример использования */
 pub fn main() {
     let target = 3;
 
-    /* Выполнить линейный поиск в массиве */
+    /* Выполняем линейный поиск в массиве */
     let nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
     let index = linear_search_array(&nums, target);
-    println!("Индекс целевого элемента 3 = {}", index);
+    println!("Индекс элемента 3 = {}", index);
 
-    /* Выполнить линейный поиск в связном списке */
+    /* Выполняем линейный поиск в связном списке */
     let head = ListNode::arr_to_linked_list(&nums);
     let node = linear_search_linked_list(head.unwrap(), target);
-    println!("Объект узла со значением 3 = {:?}", node);
+    println!("Узел со значением 3: {:?}", node);
 }

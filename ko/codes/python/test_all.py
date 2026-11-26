@@ -6,11 +6,11 @@ env = os.environ.copy()
 env["PYTHONIOENCODING"] = "utf-8"
 
 if __name__ == "__main__":
-    # 소스 코드 파일을 찾는다
+    # 소스 코드 파일 찾기
     src_paths = sorted(glob.glob("chapter_*/*.py"))
     errors = []
 
-    # Python 코드를 실행한다
+    # 파이썬 코드 실행
     for src_path in src_paths:
         process = subprocess.Popen(
             ["python", src_path],
@@ -20,14 +20,14 @@ if __name__ == "__main__":
             env=env,
             encoding='utf-8'
         )
-        # 프로세스가 완료될 때까지 기다린 후 출력과 오류 메시지를 가져온다
+        # 프로세스가 종료될 때까지 기다린 뒤 출력과 오류 메시지를 가져온다.
         stdout, stderr = process.communicate()
-        # 종료 상태를 확인한다
+        # 종료 상태 확인
         exit_status = process.returncode
         if exit_status != 0:
             errors.append(stderr)
 
-    print(f"파일 {len(src_paths)}개 테스트 완료")
-    print(f"파일 {len(errors)}개에서 예외 발견")
+    print(f"Tested {len(src_paths)} files")
+    print(f"Found exception in {len(errors)} files")
     if len(errors) > 0:
         raise RuntimeError("\n\n".join(errors))

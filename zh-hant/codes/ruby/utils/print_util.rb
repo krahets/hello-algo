@@ -6,14 +6,14 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative "./tree_node"
 
-### 列印矩陣 ###
+### 印出矩陣 ###
 def print_matrix(mat)
   s = []
   mat.each { |arr| s << " #{arr.to_s}" }
   puts "[\n#{s.join(",\n")}\n]"
 end
 
-### 列印鏈結串列 ###
+### 印出鏈結串列 ###
 def print_linked_list(head)
   list = []
   while head
@@ -39,8 +39,8 @@ def show_trunk(p)
   print p.str
 end
 
-### 列印二元樹 ###
-# This tree printer is borrowed from TECHIE DELIGHT
+### 印出二元樹 ###
+# 這段印出樹狀結構的程式碼取自 TECHIE DELIGHT
 # https://www.techiedelight.com/c-program-print-binary-tree/
 def print_tree(root, prev=nil, is_right=false)
   return if root.nil?
@@ -66,15 +66,15 @@ def print_tree(root, prev=nil, is_right=false)
   print_tree(root.left, trunk, false)
 end
 
-### 列印雜湊表 ###
+### 印出雜湊表 ###
 def print_hash_map(hmap)
   hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
 end
 
-### 列印堆積 ###
+### 印出堆積 ###
 def print_heap(heap)
-  puts "堆積的陣列表示：#{heap}"
-  puts "堆積的樹狀表示："
+  puts "堆積的陣列表示法：#{heap}"
+  puts "堆積的樹狀表示法："
   root = arr_to_tree(heap)
   print_tree(root)
 end

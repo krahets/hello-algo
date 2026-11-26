@@ -15,23 +15,23 @@ class Item
   end
 end
 
-### Fractional knapsack: greedy algorithm ###
+### Greedy fractional knapsack ###
 def fractional_knapsack(wgt, val, cap)
-  # Create a list of items, each with two attributes: weight and value
+  # Create a list of items, each with a weight and a value
   items = wgt.each_with_index.map { |w, i| Item.new(w, val[i]) }
-  # Sort by value per unit weight, item.v / item.w, in descending order
+  # Sort by value per unit of weight, item.v / item.w, in descending order
   items.sort! { |a, b| (b.v.to_f / b.w) <=> (a.v.to_f / a.w) }
-  # Repeatedly make greedy choices
+  # Make greedy choices in a loop
   res = 0
   for item in items
     if item.w <= cap
-      # If enough capacity remains, put the entire current item in the knapsack
+      # If the whole item fits, put it in the knapsack
       res += item.v
       cap -= item.w
     else
-      # If the remaining capacity is insufficient, put part of the current item in the knapsack
+      # If the whole item does not fit, take a fraction of it
       res += (item.v.to_f / item.w) * cap
-      # No capacity remains, so exit the loop
+      # The knapsack is full, so exit the loop
       break
     end
   end
@@ -47,5 +47,5 @@ if __FILE__ == $0
 
   # Greedy algorithm
   res = fractional_knapsack(wgt, val, cap)
-  puts "Maximum total item value within the knapsack capacity: #{res}"
+  puts "The maximum total value within the weight limit is #{res}"
 end

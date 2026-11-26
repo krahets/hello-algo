@@ -4,9 +4,9 @@
 
 package chapter_backtracking
 
-/* バックトラッキング：n クイーン */
+/* バックトラッキングによる n クイーン問題 */
 func backtrack(row, n int, state *[][]string, res *[][][]string, cols, diags1, diags2 *[]bool) {
-	// すべての行への配置が終わったら、解を記録する
+	// すべての行に置いたら解を記録する
 	if row == n {
 		newState := make([][]string, len(*state))
 		for i, _ := range newState {
@@ -17,19 +17,19 @@ func backtrack(row, n int, state *[][]string, res *[][][]string, cols, diags1, d
 		*res = append(*res, newState)
 		return
 	}
-	// すべての列を走査する
+	// すべての列を調べる
 	for col := 0; col < n; col++ {
-		// このマスに対応する主対角線と副対角線を求める
+		// このマスを通る主対角線と副対角線を求める
 		diag1 := row - col + n - 1
 		diag2 := row + col
 		// 枝刈り：このマスと同じ列、主対角線、副対角線にクイーンがあってはならない
 		if !(*cols)[col] && !(*diags1)[diag1] && !(*diags2)[diag2] {
-			// 試行：このマスにクイーンを配置する
+			// 試行：このマスにクイーンを置く
 			(*state)[row][col] = "Q"
 			(*cols)[col], (*diags1)[diag1], (*diags2)[diag2] = true, true, true
-			// 次の行に配置する
+			// 次の行に置く
 			backtrack(row+1, n, state, res, cols, diags1, diags2)
-			// 復元：このマスを空きマスに戻す
+			// 後戻り：このマスを空きに戻す
 			(*state)[row][col] = "#"
 			(*cols)[col], (*diags1)[diag1], (*diags2)[diag2] = false, false, false
 		}
@@ -47,7 +47,7 @@ func nQueens(n int) [][][]string {
 		}
 		state[i] = row
 	}
-	// 列にクイーンがあるかどうかを記録する
+	// 各列にクイーンがあるか記録する
 	cols := make([]bool, n)
 	diags1 := make([]bool, 2*n-1)
 	diags2 := make([]bool, 2*n-1)

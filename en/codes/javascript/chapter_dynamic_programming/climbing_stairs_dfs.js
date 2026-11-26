@@ -6,14 +6,14 @@
 
 /* Search */
 function dfs(i) {
-    // The values of dp[1] and dp[2] are known; return them
+    // Return the known value for dp[1] or dp[2]
     if (i === 1 || i === 2) return i;
     // dp[i] = dp[i-1] + dp[i-2]
     const count = dfs(i - 1) + dfs(i - 2);
     return count;
 }
 
-/* Climbing stairs: search */
+/* Climbing stairs with search */
 function climbingStairsDFS(n) {
     return dfs(n);
 }
@@ -21,4 +21,4 @@ function climbingStairsDFS(n) {
 /* Driver code */
 const n = 9;
 const res = climbingStairsDFS(n);
-console.log(`Number of ways to climb ${n} stairs: ${res}`);
+console.log(`Climbing ${n} stairs: ${res} ways`);

@@ -49,7 +49,7 @@ public class simple_hash {
 
     [Test]
     public void Test() {
-        string key = "Hello 演算法";
+        string key = "Hello 算法";
 
         int hash = AddHash(key);
         Console.WriteLine("加法雜湊值為 " + hash);

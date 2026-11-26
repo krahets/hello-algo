@@ -9,7 +9,7 @@
 /* Цикл for */
 int forLoop(int n) {
     int res = 0;
-    // Циклическое суммирование 1, 2, ..., n-1, n
+    // Сложить числа 1, 2, ..., n-1, n в цикле
     for (int i = 1; i <= n; ++i) {
         res += i;
     }
@@ -19,35 +19,35 @@ int forLoop(int n) {
 /* Цикл while */
 int whileLoop(int n) {
     int res = 0;
-    int i = 1; // Инициализация условной переменной
-    // Циклическое суммирование 1, 2, ..., n-1, n
+    int i = 1; // Задать начальное значение переменной условия
+    // Сложить числа 1, 2, ..., n-1, n в цикле
     while (i <= n) {
         res += i;
-        i++; // Обновить условную переменную
+        i++; // Обновить переменную условия
     }
     return res;
 }
 
-/* Цикл while (двойное обновление) */
+/* Цикл while с двумя обновлениями */
 int whileLoopII(int n) {
     int res = 0;
-    int i = 1; // Инициализация условной переменной
-    // Циклическое суммирование 1, 4, 10, ...
+    int i = 1; // Задать начальное значение переменной условия
+    // Сложить числа 1, 4, 10, ... в цикле
     while (i <= n) {
         res += i;
-        // Обновить условную переменную
+        // Обновить переменную условия
         i++;
         i *= 2;
     }
     return res;
 }
 
-/* Двойной цикл for */
+/* Вложенные циклы for */
 string nestedForLoop(int n) {
     ostringstream res;
-    // Цикл по i = 1, 2, ..., n-1, n
+    // Перебрать i = 1, 2, ..., n-1, n
     for (int i = 1; i <= n; ++i) {
-        // Цикл по j = 1, 2, ..., n-1, n
+        // Перебрать j = 1, 2, ..., n-1, n
         for (int j = 1; j <= n; ++j) {
             res << "(" << i << ", " << j << "), ";
         }
@@ -55,22 +55,22 @@ string nestedForLoop(int n) {
     return res.str();
 }
 
-/* Driver Code */
+/* Основная программа */
 int main() {
     int n = 5;
     int res;
 
     res = forLoop(n);
-    cout << "\nРезультат суммирования в цикле for res = " << res << endl;
+    cout << "\nСумма в цикле for: res = " << res << endl;
 
     res = whileLoop(n);
-    cout << "\nРезультат суммирования в цикле while res = " << res << endl;
+    cout << "\nСумма в цикле while: res = " << res << endl;
 
     res = whileLoopII(n);
-    cout << "\nРезультат суммирования в цикле while (двойное обновление) res = " << res << endl;
+    cout << "\nСумма в цикле while с двумя обновлениями: res = " << res << endl;
 
     string resStr = nestedForLoop(n);
-    cout << "\nРезультат двойного цикла for " << resStr << endl;
+    cout << "\nРезультат обхода вложенными циклами for: " << resStr << endl;
 
     return 0;
 }

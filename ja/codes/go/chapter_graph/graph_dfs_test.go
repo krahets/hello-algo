@@ -21,8 +21,8 @@ func TestGraphDFS(t *testing.T) {
 	fmt.Println("初期化後のグラフ：")
 	graph.print()
 
-	/* 深さ優先走査 */
+	/* 深さ優先探索 */
 	res := graphDFS(graph, vets[0])
-	fmt.Println("深さ優先走査（DFS）の頂点の順序：")
+	fmt.Println("深さ優先探索（DFS）での頂点の訪問順：")
 	PrintSlice(VetsToVals(res))
 }

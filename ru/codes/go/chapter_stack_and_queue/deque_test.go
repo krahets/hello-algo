@@ -13,124 +13,124 @@ import (
 )
 
 func TestDeque(t *testing.T) {
-	/* Инициализация двусторонней очереди */
-	// В Go list используется как двусторонняя очередь
+	/* Инициализировать дек */
+	// В Go в качестве дека используется список из пакета list
 	deque := list.New()
 
-	/* Добавление элемента в очередь */
+	/* Добавить элементы в дек */
 	deque.PushBack(2)
 	deque.PushBack(5)
 	deque.PushBack(4)
 	deque.PushFront(3)
 	deque.PushFront(1)
-	fmt.Print("Двусторонняя очередь deque = ")
+	fmt.Print("Дек deque = ")
 	PrintList(deque)
 
-	/* Доступ к элементу */
+	/* Посмотреть первый и последний элементы */
 	front := deque.Front()
-	fmt.Println("Первый элемент front =", front.Value)
+	fmt.Println("Первый элемент дека front =", front.Value)
 	rear := deque.Back()
-	fmt.Println("Последний элемент rear =", rear.Value)
+	fmt.Println("Последний элемент дека rear =", rear.Value)
 
-	/* Извлечение элемента из очереди */
+	/* Извлечь элементы из дека */
 	deque.Remove(front)
-	fmt.Print("Извлеченный из головы элемент front = ", front.Value, ", deque после извлечения из головы = ")
+	fmt.Print("Извлечённый первый элемент front = ", front.Value, ", после извлечения из начала deque = ")
 	PrintList(deque)
 	deque.Remove(rear)
-	fmt.Print("Извлеченный из хвоста элемент rear = ", rear.Value, ", deque после извлечения из хвоста = ")
+	fmt.Print("Извлечённый последний элемент rear = ", rear.Value, ", после извлечения из конца deque = ")
 	PrintList(deque)
 
-	/* Получение длины двусторонней очереди */
+	/* Получить длину дека */
 	size := deque.Len()
-	fmt.Println("Длина двусторонней очереди size =", size)
+	fmt.Println("Длина дека size =", size)
 
-	/* Проверка, пуста ли двусторонняя очередь */
+	/* Проверить, пуст ли дек */
 	isEmpty := deque.Len() == 0
-	fmt.Println("Пуста ли двусторонняя очередь =", isEmpty)
+	fmt.Println("Дек пуст =", isEmpty)
 }
 
 func TestArrayDeque(t *testing.T) {
-	/* Инициализация двусторонней очереди */
+	/* Инициализировать дек */
 	deque := newArrayDeque(16)
 
-	/* Добавление элемента в очередь */
+	/* Добавить элементы в дек */
 	deque.pushLast(3)
 	deque.pushLast(2)
 	deque.pushLast(5)
-	fmt.Print("Двусторонняя очередь deque = ")
+	fmt.Print("Дек deque = ")
 	PrintSlice(deque.toSlice())
 
-	/* Доступ к элементу */
+	/* Посмотреть первый и последний элементы */
 	peekFirst := deque.peekFirst()
-	fmt.Println("Первый элемент peekFirst =", peekFirst)
+	fmt.Println("Первый элемент дека peekFirst =", peekFirst)
 	peekLast := deque.peekLast()
-	fmt.Println("Последний элемент peekLast =", peekLast)
+	fmt.Println("Последний элемент дека peekLast =", peekLast)
 
-	/* Добавление элемента в очередь */
+	/* Добавить элементы в дек */
 	deque.pushLast(4)
-	fmt.Print("После добавления элемента 4 в хвост deque = ")
+	fmt.Print("После добавления 4 в конец дека deque = ")
 	PrintSlice(deque.toSlice())
 	deque.pushFirst(1)
-	fmt.Print("После добавления элемента 1 в голову deque = ")
+	fmt.Print("После добавления 1 в начало дека deque = ")
 	PrintSlice(deque.toSlice())
 
-	/* Извлечение элемента из очереди */
+	/* Извлечь элементы из дека */
 	popFirst := deque.popFirst()
-	fmt.Print("Извлеченный из головы элемент popFirst = ", popFirst, ", deque после извлечения из головы = ")
+	fmt.Print("Извлечённый первый элемент popFirst = ", popFirst, ", после извлечения из начала deque = ")
 	PrintSlice(deque.toSlice())
 	popLast := deque.popLast()
-	fmt.Print("Извлеченный из хвоста элемент popLast = ", popLast, ", deque после извлечения из хвоста = ")
+	fmt.Print("Извлечённый последний элемент popLast = ", popLast, ", после извлечения из конца deque = ")
 	PrintSlice(deque.toSlice())
 
-	/* Получение длины двусторонней очереди */
+	/* Получить длину дека */
 	size := deque.size()
-	fmt.Println("Длина двусторонней очереди size =", size)
+	fmt.Println("Длина дека size =", size)
 
-	/* Проверка, пуста ли двусторонняя очередь */
+	/* Проверить, пуст ли дек */
 	isEmpty := deque.isEmpty()
-	fmt.Println("Пуста ли двусторонняя очередь =", isEmpty)
+	fmt.Println("Дек пуст =", isEmpty)
 }
 
 func TestLinkedListDeque(t *testing.T) {
-	// Инициализация очереди
+	// Инициализировать дек
 	deque := newLinkedListDeque()
 
-	// Добавление элемента в очередь
+	// Добавить элементы в дек
 	deque.pushLast(2)
 	deque.pushLast(5)
 	deque.pushLast(4)
 	deque.pushFirst(3)
 	deque.pushFirst(1)
-	fmt.Print("Двусторонняя очередь deque = ")
+	fmt.Print("Дек deque = ")
 	PrintList(deque.toList())
 
-	// Доступ к элементу в начале очереди
+	// Посмотреть первый элемент дека
 	front := deque.peekFirst()
-	fmt.Println("Первый элемент front =", front)
+	fmt.Println("Первый элемент дека front =", front)
 	rear := deque.peekLast()
-	fmt.Println("Последний элемент rear =", rear)
+	fmt.Println("Последний элемент дека rear =", rear)
 
-	// Извлечение элемента из очереди
+	// Извлечь элементы из дека
 	popFirst := deque.popFirst()
-	fmt.Print("Извлеченный из головы элемент popFirst = ", popFirst, ", deque после извлечения из головы = ")
+	fmt.Print("Извлечённый первый элемент popFirst = ", popFirst, ", после извлечения из начала deque = ")
 	PrintList(deque.toList())
 	popLast := deque.popLast()
-	fmt.Print("Извлеченный из хвоста элемент popLast = ", popLast, ", deque после извлечения из хвоста = ")
+	fmt.Print("Извлечённый последний элемент popLast = ", popLast, ", после извлечения из конца deque = ")
 	PrintList(deque.toList())
 
-	// Получить длину очереди
+	// Получить длину дека
 	size := deque.size()
-	fmt.Println("Длина очереди size =", size)
+	fmt.Println("Длина дека size =", size)
 
-	// Проверка на пустоту
+	// Проверить, пуст ли дек
 	isEmpty := deque.isEmpty()
-	fmt.Println("Пуста ли очередь =", isEmpty)
+	fmt.Println("Дек пуст =", isEmpty)
 }
 
-// BenchmarkLinkedListDeque 67.92 ns/op in Mac M1 Pro
+// Результат BenchmarkLinkedListDeque на Mac с M1 Pro — 67.92 ns/op
 func BenchmarkLinkedListDeque(b *testing.B) {
 	deque := newLinkedListDeque()
-	// use b.N for looping
+	// Число итераций цикла задаёт b.N
 	for i := 0; i < b.N; i++ {
 		deque.pushLast(777)
 	}

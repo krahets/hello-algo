@@ -23,7 +23,7 @@ function Trunk(prev, str) {
 
 /**
  * 二分木を表示する
- * この木の表示処理は TECHIE DELIGHT から借用した
+ * 木の表示には TECHIE DELIGHT のコードを使用
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 function printTree(root) {
@@ -75,7 +75,7 @@ function showTrunks(p) {
 function printHeap(arr) {
     console.log('ヒープの配列表現：');
     console.log(arr);
-    console.log('ヒープの木構造表現：');
+    console.log('ヒープの木構造：');
     printTree(arrToTree(arr));
 }
 

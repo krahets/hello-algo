@@ -13,7 +13,7 @@ func insert(n0: ListNode, P: ListNode) {
     n0.next = P
 }
 
-/* Remove the first node after node n0 in the linked list */
+/* Remove the node immediately after n0 in the linked list */
 func remove(n0: ListNode) {
     if n0.next == nil {
         return
@@ -24,7 +24,7 @@ func remove(n0: ListNode) {
     n0.next = n1
 }
 
-/* Access the node at index `index` in the linked list */
+/* Access the linked list node at the specified index */
 func access(head: ListNode, index: Int) -> ListNode? {
     var head: ListNode? = head
     for _ in 0 ..< index {
@@ -52,39 +52,39 @@ func find(head: ListNode, target: Int) -> Int {
 
 @main
 enum LinkedList {
-    /* Driver code */
+    /* Driver Code */
     static func main() {
         /* Initialize the linked list */
-        // Initialize the individual nodes
+        // Initialize the nodes
         let n0 = ListNode(x: 1)
         let n1 = ListNode(x: 3)
         let n2 = ListNode(x: 2)
         let n3 = ListNode(x: 5)
         let n4 = ListNode(x: 4)
-        // Set up references between the nodes
+        // Link the nodes together
         n0.next = n1
         n1.next = n2
         n2.next = n3
         n3.next = n4
-        print("The initialized linked list is")
+        print("Initial linked list:")
         PrintUtil.printLinkedList(head: n0)
 
         /* Insert a node */
         insert(n0: n0, P: ListNode(x: 0))
-        print("The linked list after inserting a node is")
+        print("Linked list after insertion:")
         PrintUtil.printLinkedList(head: n0)
 
         /* Remove a node */
         remove(n0: n0)
-        print("The linked list after removing a node is")
+        print("Linked list after removal:")
         PrintUtil.printLinkedList(head: n0)
 
         /* Access a node */
         let node = access(head: n0, index: 3)
-        print("Value of the node at index 3 in the linked list = \(node!.val)")
+        print("Value of the node at index 3 = \(node!.val)")
 
         /* Find a node */
         let index = find(head: n0, target: 2)
-        print("Index of the node with value 2 in the linked list = \(index)")
+        print("Index of the node with value 2 = \(index)")
     }
 }

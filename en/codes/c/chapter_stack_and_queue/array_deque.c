@@ -6,12 +6,12 @@
 
 #include "../utils/common.h"
 
-/* Deque implemented with a circular array */
+/* Deque backed by a circular array */
 typedef struct {
-    int *nums;       // Array that stores the queue elements
-    int front;       // Front pointer, pointing to the first element
-    int queSize;     // Current number of elements in the deque
-    int queCapacity; // Queue capacity
+    int *nums;       // Array that stores the deque elements
+    int front;       // Index of the front element
+    int queSize;     // Number of elements in the deque
+    int queCapacity; // Deque capacity
 } ArrayDeque;
 
 /* Constructor */
@@ -45,66 +45,66 @@ bool empty(ArrayDeque *deque) {
     return deque->queSize == 0;
 }
 
-/* Calculate an index in the circular array */
+/* Compute the circular array index */
 int dequeIndex(ArrayDeque *deque, int i) {
-    // Use modulo to connect the end of the array to its beginning
-    // When i passes the end of the array, wrap to the beginning
-    // When i passes the beginning of the array, wrap around to the end
+    // Use the remainder to wrap indices around the array
+    // When i goes past the end, wrap it back to the start
+    // When i goes before the start, wrap it around to the end
     return ((i + capacity(deque)) % capacity(deque));
 }
 
-/* Enqueue at the front */
+/* Add an element at the front */
 void pushFirst(ArrayDeque *deque, int num) {
     if (deque->queSize == capacity(deque)) {
         printf("Deque is full\r\n");
         return;
     }
-    // Move the front pointer one position to the left
-    // Use modulo to wrap front to the end when it passes the beginning
+    // Move the front index one slot to the left
+    // Use the remainder to wrap front to the end if it goes before the start
     deque->front = dequeIndex(deque, deque->front - 1);
-    // Add num to the front
+    // Add num at the front
     deque->nums[deque->front] = num;
     deque->queSize++;
 }
 
-/* Enqueue at the rear */
+/* Add an element at the rear */
 void pushLast(ArrayDeque *deque, int num) {
     if (deque->queSize == capacity(deque)) {
         printf("Deque is full\r\n");
         return;
     }
-    // Calculate the rear pointer, which points one position past the last element
+    // Compute the index one slot past the rear element
     int rear = dequeIndex(deque, deque->front + deque->queSize);
-    // Add num to the rear
+    // Add num at the rear
     deque->nums[rear] = num;
     deque->queSize++;
 }
 
-/* Access the front element */
+/* Peek at the front element */
 int peekFirst(ArrayDeque *deque) {
-    // Access error: the deque is empty
+    // Cannot access an element in an empty deque
     assert(empty(deque) == 0);
     return deque->nums[deque->front];
 }
 
-/* Access the rear element */
+/* Peek at the rear element */
 int peekLast(ArrayDeque *deque) {
-    // Access error: the deque is empty
+    // Cannot access an element in an empty deque
     assert(empty(deque) == 0);
     int last = dequeIndex(deque, deque->front + deque->queSize - 1);
     return deque->nums[last];
 }
 
-/* Dequeue from the front */
+/* Remove and return the front element */
 int popFirst(ArrayDeque *deque) {
     int num = peekFirst(deque);
-    // Advance the front pointer by one position
+    // Advance the front index by one
     deque->front = dequeIndex(deque, deque->front + 1);
     deque->queSize--;
     return num;
 }
 
-/* Dequeue from the rear */
+/* Remove and return the rear element */
 int popLast(ArrayDeque *deque) {
     int num = peekLast(deque);
     deque->queSize--;
@@ -125,47 +125,47 @@ int *toArray(ArrayDeque *deque, int *queSize) {
 
 /* Driver code */
 int main() {
-    /* Initialize the queue */
+    /* Initialize the deque */
     int capacity = 10;
     int queSize;
     ArrayDeque *deque = newArrayDeque(capacity);
     pushLast(deque, 3);
     pushLast(deque, 2);
     pushLast(deque, 5);
-    printf("Deque deque = ");
+    printf("deque = ");
     printArray(toArray(deque, &queSize), queSize);
 
-    /* Access an element */
+    /* Peek at the front and rear elements */
     int peekFirstNum = peekFirst(deque);
-    printf("Front element peekFirst = %d\r\n", peekFirstNum);
+    printf("Front element (peekFirst) = %d\r\n", peekFirstNum);
     int peekLastNum = peekLast(deque);
-    printf("Rear element peekLast = %d\r\n", peekLastNum);
+    printf("Rear element (peekLast) = %d\r\n", peekLastNum);
 
-    /* Enqueue elements */
+    /* Add elements to the deque */
     pushLast(deque, 4);
-    printf("After enqueuing element 4 at the rear, deque = ");
+    printf("After adding 4 at the rear, deque = ");
     printArray(toArray(deque, &queSize), queSize);
     pushFirst(deque, 1);
-    printf("After enqueuing element 1 at the front, deque = ");
+    printf("After adding 1 at the front, deque = ");
     printArray(toArray(deque, &queSize), queSize);
 
-    /* Dequeue an element */
+    /* Remove elements from both ends */
     int popLastNum = popLast(deque);
-    printf("Element removed from the rear = %d; after removal, deque= ", popLastNum);
+    printf("Removed from the rear = %d, deque after removal = ", popLastNum);
     printArray(toArray(deque, &queSize), queSize);
     int popFirstNum = popFirst(deque);
-    printf("Element removed from the front = %d; after removal, deque= ", popFirstNum);
+    printf("Removed from the front = %d, deque after removal = ", popFirstNum);
     printArray(toArray(deque, &queSize), queSize);
 
-    /* Get the queue size */
+    /* Get the deque size */
     int dequeSize = size(deque);
     printf("Deque size = %d\r\n", dequeSize);
 
-    /* Check whether the queue is empty */
+    /* Check whether the deque is empty */
     bool isEmpty = empty(deque);
-    printf("Is the queue empty = %s\r\n", isEmpty ? "true" : "false");
+    printf("Deque is empty = %s\r\n", isEmpty ? "true" : "false");
 
-    // Free memory
+    // Free the allocated memory
     delArrayDeque(deque);
 
     return 0;

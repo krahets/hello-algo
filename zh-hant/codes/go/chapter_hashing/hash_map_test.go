@@ -23,18 +23,18 @@ func TestHashMap(t *testing.T) {
 	hmap[16750] = "小算"
 	hmap[13276] = "小法"
 	hmap[10583] = "小鴨"
-	fmt.Println("\n新增完成後，雜湊表為\nKey -> Value")
+	fmt.Println("\n新增後的雜湊表\nKey -> Value")
 	PrintMap(hmap)
 
 	/* 查詢操作 */
-	// 向雜湊表中輸入鍵 key ，得到值 value
+	// 輸入鍵 key，從雜湊表取得對應的值 value
 	name := hmap[15937]
-	fmt.Println("\n輸入學號 15937 ，查詢到姓名 ", name)
+	fmt.Println("\n輸入學號 15937，查得姓名 ", name)
 
 	/* 刪除操作 */
-	// 在雜湊表中刪除鍵值對 (key, value)
+	// 從雜湊表刪除鍵值對 (key, value)
 	delete(hmap, 10583)
-	fmt.Println("\n刪除 10583 後，雜湊表為\nKey -> Value")
+	fmt.Println("\n刪除 10583 後的雜湊表\nKey -> Value")
 	PrintMap(hmap)
 
 	/* 走訪雜湊表 */
@@ -43,13 +43,13 @@ func TestHashMap(t *testing.T) {
 	for key, value := range hmap {
 		fmt.Println(key, "->", value)
 	}
-	// 單獨走訪鍵 key
-	fmt.Println("\n單獨走訪鍵 Key")
+	// 只走訪鍵 key
+	fmt.Println("\n只走訪鍵 Key")
 	for key := range hmap {
 		fmt.Println(key)
 	}
-	// 單獨走訪值 value
-	fmt.Println("\n單獨走訪值 Value")
+	// 只走訪值 value
+	fmt.Println("\n只走訪值 Value")
 	for _, value := range hmap {
 		fmt.Println(value)
 	}
@@ -58,7 +58,7 @@ func TestHashMap(t *testing.T) {
 func TestSimpleHash(t *testing.T) {
 	var hash int
 
-	key := "Hello 演算法"
+	key := "Hello 算法"
 
 	hash = addHash(key)
 	fmt.Println("加法雜湊值為 " + strconv.Itoa(hash))

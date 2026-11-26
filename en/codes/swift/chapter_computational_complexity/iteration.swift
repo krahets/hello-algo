@@ -55,21 +55,21 @@ func nestedForLoop(n: Int) -> String {
 
 @main
 enum Iteration {
-    /* Driver code */
+    /* Driver Code */
     static func main() {
         let n = 5
         var res = 0
 
         res = forLoop(n: n)
-        print("\nSum from the for loop: res = \(res)")
+        print("\nfor loop sum: res = \(res)")
 
         res = whileLoop(n: n)
-        print("\nSum from the while loop: res = \(res)")
+        print("\nwhile loop sum: res = \(res)")
 
         res = whileLoopII(n: n)
-        print("\nSum from the while loop (two updates): res = \(res)")
+        print("\nwhile loop sum (two updates): res = \(res)")
 
         let resStr = nestedForLoop(n: n)
-        print("\nTraversal result from nested for loops: \(resStr)")
+        print("\nNested for loop traversal: \(resStr)")
     }
 }

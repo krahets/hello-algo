@@ -6,7 +6,7 @@
 
 #include "graph_adjacency_list.c"
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     int vals[] = {1, 3, 2, 5, 4};
     int size = sizeof(vals) / sizeof(vals[0]);
@@ -21,29 +21,29 @@ int main() {
     for (int i = 0; i < egdeSize; i++) {
         addEdge(graph, edges[i][0], edges[i][1]);
     }
-    printf("\n初期化後のグラフ\n");
+    printf("\n初期化後のグラフ：\n");
     printGraph(graph);
 
     /* 辺を追加する */
-    // 頂点 1, 2 は v[0], v[2] に対応する
+    // 頂点 1 と 2 はそれぞれ v[0] と v[2]
     addEdge(graph, v[0], v[2]);
-    printf("\n辺 1-2 を追加した後のグラフ\n");
+    printf("\n辺 1-2 を追加した後のグラフ：\n");
     printGraph(graph);
 
     /* 辺を削除する */
-    // 頂点 1, 3 は v[0], v[1] に対応する
+    // 頂点 1 と 3 はそれぞれ v[0] と v[1]
     removeEdge(graph, v[0], v[1]);
-    printf("\n辺 1-3 を削除した後のグラフ\n");
+    printf("\n辺 1-3 を削除した後のグラフ：\n");
     printGraph(graph);
 
     /* 頂点を追加する */
     Vertex *v5 = newVertex(6);
     addVertex(graph, v5);
-    printf("\n頂点 6 を追加した後のグラフ\n");
+    printf("\n頂点 6 を追加した後のグラフ：\n");
     printGraph(graph);
 
     /* 頂点を削除する */
-    // 頂点 3 は v[1] に対応する
+    // 頂点 3 は v[1]
     removeVertex(graph, v[1]);
     printf("\n頂点 3 を削除した後のグラフ：\n");
     printGraph(graph);

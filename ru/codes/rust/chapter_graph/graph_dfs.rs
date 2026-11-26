@@ -12,35 +12,35 @@ use std::collections::HashSet;
 
 /* Вспомогательная функция обхода в глубину */
 fn dfs(graph: &GraphAdjList, visited: &mut HashSet<Vertex>, res: &mut Vec<Vertex>, vet: Vertex) {
-    res.push(vet); // Отметить посещенную вершину
-    visited.insert(vet); // Отметить эту вершину как посещенную
-                         // Обойти все смежные вершины данной вершины
+    res.push(vet); // Записать посещённую вершину
+    visited.insert(vet); // Отметить вершину как посещённую
+                         // Перебрать всех соседей этой вершины
     if let Some(adj_vets) = graph.adj_list.get(&vet) {
         for &adj_vet in adj_vets {
             if visited.contains(&adj_vet) {
-                continue; // Пропустить уже посещенную вершину
+                continue; // Пропустить посещённые вершины
             }
-            // Рекурсивно обходить смежные вершины
+            // Рекурсивно посетить соседнюю вершину
             dfs(graph, visited, res, adj_vet);
         }
     }
 }
 
 /* Обход в глубину */
-// Использовать список смежности для представления графа, чтобы получить все смежные вершины заданной вершины
+// Список смежности позволяет получить всех соседей заданной вершины
 fn graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
-    // Последовательность обхода вершин
+    // Порядок обхода вершин
     let mut res = vec![];
-    // Хеш-множество для хранения уже посещенных вершин
+    // Хеш-множество посещённых вершин
     let mut visited = HashSet::new();
     dfs(&graph, &mut visited, &mut res, start_vet);
 
     res
 }
 
-/* Driver Code */
+/* Пример использования */
 fn main() {
-    /* Инициализация неориентированного графа */
+    /* Инициализировать неориентированный граф */
     let v = vals_to_vets(vec![0, 1, 2, 3, 4, 5, 6]);
     let edges = vec![
         [v[0], v[1]],
@@ -51,11 +51,11 @@ fn main() {
         [v[5], v[6]],
     ];
     let graph = GraphAdjList::new(edges);
-    println!("\nГраф после инициализации");
+    println!("\nГраф после инициализации:");
     graph.print();
 
     /* Обход в глубину */
     let res = graph_dfs(graph, v[0]);
-    println!("\nПоследовательность вершин при обходе в глубину (DFS)");
+    println!("\nПорядок обхода вершин в глубину (DFS):");
     println!("{:?}", vets_to_vals(res));
 }

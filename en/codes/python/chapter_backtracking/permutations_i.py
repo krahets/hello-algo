@@ -9,20 +9,20 @@ def backtrack(
     state: list[int], choices: list[int], selected: list[bool], res: list[list[int]]
 ):
     """Backtracking: permutations I"""
-    # Record a solution when the state length equals the number of elements
+    # Record a solution when the state contains all the elements
     if len(state) == len(choices):
         res.append(list(state))
         return
-    # Iterate over all choices
+    # Try each choice
     for i, choice in enumerate(choices):
-        # Prune: do not choose an element more than once
+        # Prune: skip elements already in use
         if not selected[i]:
-            # Try: make a choice and update the state
+            # Make a choice and update the state
             selected[i] = True
             state.append(choice)
-            # Proceed to the next choice
+            # Make the next choice
             backtrack(state, choices, selected, res)
-            # Backtrack: undo the choice and restore the previous state
+            # Backtrack: undo the choice to restore the previous state
             selected[i] = False
             state.pop()
 
@@ -34,11 +34,11 @@ def permutations_i(nums: list[int]) -> list[list[int]]:
     return res
 
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
     nums = [1, 2, 3]
 
     res = permutations_i(nums)
 
     print(f"Input array nums = {nums}")
-    print(f"All permutations: res = {res}")
+    print(f"All permutations res = {res}")

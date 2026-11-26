@@ -4,7 +4,7 @@
  * Author: Hello Algo Team
  */
 
-/* Итеративное суммирование */
+/* Суммирование в цикле */
 function sumIter(n) {
     let res = 0;
     for (let i = 1; i <= n; i++) {

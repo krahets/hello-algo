@@ -7,7 +7,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-### Driver Code ###
+### 主程式 ###
 if __FILE__ == $0
   # 初始化二元樹
   # 初始化節點
@@ -16,7 +16,7 @@ if __FILE__ == $0
   n3 = TreeNode.new(3)
   n4 = TreeNode.new(4)
   n5 = TreeNode.new(5)
-  # 構建節點之間的引用（指標）
+  # 建立節點之間的參照（指標）
   n1.left = n2
   n1.right = n3
   n2.left = n4
@@ -26,7 +26,7 @@ if __FILE__ == $0
 
   # 插入與刪除節點
   _p = TreeNode.new(0)
-  # 在 n1 -> n2 中間插入節點 _p
+  # 在 n1 -> n2 之間插入節點 _p
   n1.left = _p
   _p.left = n2
   puts "\n插入節點 _p 後\n\n"

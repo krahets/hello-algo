@@ -6,7 +6,7 @@
 use std::rc::Rc;
 use hello_algo_rust::include::{print_util, TreeNode};
 
-/* Driver Code */
+/* 主程式 */
 fn main() {
     /* 初始化二元樹 */
     // 初始化節點
@@ -15,7 +15,7 @@ fn main() {
     let n3 = TreeNode::new(3);
     let n4 = TreeNode::new(4);
     let n5 = TreeNode::new(5);
-    // 構建節點之間的引用（指標）
+    // 建立節點之間的參照（指標）
     n1.borrow_mut().left = Some(Rc::clone(&n2));
     n1.borrow_mut().right = Some(Rc::clone(&n3));
     n2.borrow_mut().left = Some(Rc::clone(&n4));
@@ -23,9 +23,9 @@ fn main() {
     println!("\n初始化二元樹\n");
     print_util::print_tree(&n1);
 
-    // 插入節點與刪除節點
+    // 插入與刪除節點
     let p = TreeNode::new(0);
-    // 在 n1 -> n2 中間插入節點 P
+    // 在 n1 -> n2 之間插入節點 P
     p.borrow_mut().left = Some(Rc::clone(&n2));
     n1.borrow_mut().left = Some(Rc::clone(&p));
     println!("\n插入節點 P 後\n");

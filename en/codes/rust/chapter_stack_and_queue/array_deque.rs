@@ -4,10 +4,10 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 use hello_algo_rust::include::print_util;
-/* Deque implemented with a circular array */
+/* Deque backed by a circular array */
 struct ArrayDeque<T> {
-    nums: Vec<T>,    // Array for storing deque elements
-    front: usize,    // Front index, identifying the first element
+    nums: Vec<T>,    // Array that stores the deque elements
+    front: usize,    // Index of the front element
     que_size: usize, // Deque size
 }
 
@@ -36,58 +36,58 @@ impl<T: Copy + Default> ArrayDeque<T> {
         self.que_size == 0
     }
 
-    /* Calculate an index in the circular array */
+    /* Compute the circular array index */
     fn index(&self, i: i32) -> usize {
-        // Use modulo to connect the end of the array to its beginning
-        // When i passes the end of the array, wrap around to the beginning
-        // When i passes the beginning of the array, wrap around to the end
+        // Use the remainder to wrap indices around the array
+        // When i goes past the end, wrap it back to the start
+        // When i goes before the start, wrap it around to the end
         ((i + self.capacity() as i32) % self.capacity() as i32) as usize
     }
 
-    /* Enqueue at the front */
+    /* Add an element at the front */
     pub fn push_first(&mut self, num: T) {
         if self.que_size == self.capacity() {
             println!("Deque is full");
             return;
         }
-        // Move the front index one position to the left
-        // Use modulo to wrap front to the end when it passes the beginning of the array
+        // Move the front index one slot to the left
+        // Use the remainder to wrap front to the end if it goes before the start
         self.front = self.index(self.front as i32 - 1);
-        // Add num to the front
+        // Add num at the front
         self.nums[self.front] = num;
         self.que_size += 1;
     }
 
-    /* Enqueue at the rear */
+    /* Add an element at the rear */
     pub fn push_last(&mut self, num: T) {
         if self.que_size == self.capacity() {
             println!("Deque is full");
             return;
         }
-        // Calculate the rear index, one position past the last element
+        // Compute the index one slot past the rear element
         let rear = self.index(self.front as i32 + self.que_size as i32);
-        // Add num to the rear
+        // Add num at the rear
         self.nums[rear] = num;
         self.que_size += 1;
     }
 
-    /* Dequeue from the front */
+    /* Remove and return the front element */
     fn pop_first(&mut self) -> T {
         let num = self.peek_first();
-        // Advance the front index by one position
+        // Advance the front index by one
         self.front = self.index(self.front as i32 + 1);
         self.que_size -= 1;
         num
     }
 
-    /* Dequeue from the rear */
+    /* Remove and return the rear element */
     fn pop_last(&mut self) -> T {
         let num = self.peek_last();
         self.que_size -= 1;
         num
     }
 
-    /* Access the front element */
+    /* Peek at the front element */
     fn peek_first(&self) -> T {
         if self.is_empty() {
             panic!("Deque is empty")
@@ -95,19 +95,19 @@ impl<T: Copy + Default> ArrayDeque<T> {
         self.nums[self.front]
     }
 
-    /* Access the rear element */
+    /* Peek at the rear element */
     fn peek_last(&self) -> T {
         if self.is_empty() {
             panic!("Deque is empty")
         };
-        // Calculate the index of the last element
+        // Compute the index of the rear element
         let last = self.index(self.front as i32 + self.que_size as i32 - 1);
         self.nums[last]
     }
 
     /* Return a vector for printing */
     fn to_array(&self) -> Vec<T> {
-        // Convert only the list elements within the occupied range
+        // Copy only the elements currently in the deque
         let mut res = vec![T::default(); self.que_size];
         let mut j = self.front;
         for i in 0..self.que_size {
@@ -125,29 +125,29 @@ fn main() {
     deque.push_last(3);
     deque.push_last(2);
     deque.push_last(5);
-    print!("Deque deque = ");
+    print!("deque = ");
     print_util::print_array(&deque.to_array());
 
-    /* Access an element */
+    /* Peek at the front and rear elements */
     let peek_first = deque.peek_first();
-    print!("\nFront element peek_first = {}", peek_first);
+    print!("\nFront element (peek_first) = {}", peek_first);
     let peek_last = deque.peek_last();
-    print!("\nRear element peek_last = {}", peek_last);
+    print!("\nRear element (peek_last) = {}", peek_last);
 
-    /* Enqueue elements */
+    /* Add elements to the deque */
     deque.push_last(4);
-    print!("\nAfter enqueuing element 4 at the rear, deque = ");
+    print!("\nAfter adding 4 at the rear, deque = ");
     print_util::print_array(&deque.to_array());
     deque.push_first(1);
-    print!("\nAfter enqueuing element 1 at the front, deque = ");
+    print!("\nAfter adding 1 at the front, deque = ");
     print_util::print_array(&deque.to_array());
 
-    /* Dequeue an element */
+    /* Remove elements from both ends */
     let pop_last = deque.pop_last();
-    print!("\nElement removed from the rear = {}; after removal, deque = ", pop_last);
+    print!("\nRemoved from the rear = {}, deque after removal = ", pop_last);
     print_util::print_array(&deque.to_array());
     let pop_first = deque.pop_first();
-    print!("\nElement removed from the front = {}; after removal, deque = ", pop_first);
+    print!("\nRemoved from the front = {}, deque after removal = ", pop_first);
     print_util::print_array(&deque.to_array());
 
     /* Get the deque size */
@@ -156,5 +156,5 @@ fn main() {
 
     /* Check whether the deque is empty */
     let is_empty = deque.is_empty();
-    print!("\nIs the deque empty? {}", is_empty);
+    print!("\nDeque is empty = {}", is_empty);
 }

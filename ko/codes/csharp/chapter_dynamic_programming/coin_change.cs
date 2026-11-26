@@ -11,9 +11,9 @@ public class coin_change {
     int CoinChangeDP(int[] coins, int amt) {
         int n = coins.Length;
         int MAX = amt + 1;
-        // dp 테이블을 초기화한다
+        // dp 테이블 초기화
         int[,] dp = new int[n + 1, amt + 1];
-        // 상태 전이: 첫 번째 행과 첫 번째 열
+        // 상태 전이: 첫 행과 첫 열
         for (int a = 1; a <= amt; a++) {
             dp[0, a] = MAX;
         }
@@ -21,10 +21,10 @@ public class coin_change {
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 목표 금액을 초과하면 동전 i를 선택하지 않는다
+                    // 목표 금액을 넘으면 동전 i를 선택하지 않는다
                     dp[i, a] = dp[i - 1, a];
                 } else {
-                    // 동전 i를 선택하지 않는 경우와 선택하는 경우 중 더 작은 값
+                    // 동전 i를 선택하지 않을 때와 선택할 때 중 작은 값
                     dp[i, a] = Math.Min(dp[i - 1, a], dp[i, a - coins[i - 1]] + 1);
                 }
             }
@@ -32,11 +32,11 @@ public class coin_change {
         return dp[n, amt] != MAX ? dp[n, amt] : -1;
     }
 
-    /* 동전 교환: 공간을 최적화한 동적 계획법 */
+    /* 동전 교환: 공간 최적화 동적 계획법 */
     int CoinChangeDPComp(int[] coins, int amt) {
         int n = coins.Length;
         int MAX = amt + 1;
-        // dp 테이블을 초기화한다
+        // dp 테이블 초기화
         int[] dp = new int[amt + 1];
         Array.Fill(dp, MAX);
         dp[0] = 0;
@@ -44,10 +44,10 @@ public class coin_change {
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 목표 금액을 초과하면 동전 i를 선택하지 않는다
+                    // 목표 금액을 넘으면 동전 i를 선택하지 않는다
                     dp[a] = dp[a];
                 } else {
-                    // 동전 i를 선택하지 않는 경우와 선택하는 경우 중 더 작은 값
+                    // 동전 i를 선택하지 않을 때와 선택할 때 중 작은 값
                     dp[a] = Math.Min(dp[a], dp[a - coins[i - 1]] + 1);
                 }
             }
@@ -62,10 +62,10 @@ public class coin_change {
 
         // 동적 계획법
         int res = CoinChangeDP(coins, amt);
-        Console.WriteLine("목표 금액을 만드는 데 필요한 최소 동전 개수: " + res);
+        Console.WriteLine("목표 금액을 만드는 데 필요한 최소 동전 수: " + res);
 
-        // 공간을 최적화한 동적 계획법
+        // 공간 최적화 동적 계획법
         res = CoinChangeDPComp(coins, amt);
-        Console.WriteLine("목표 금액을 만드는 데 필요한 최소 동전 개수: " + res);
+        Console.WriteLine("목표 금액을 만드는 데 필요한 최소 동전 수: " + res);
     }
 }

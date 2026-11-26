@@ -10,7 +10,7 @@ import (
 
 /* 이중 연결 리스트로 구현한 덱 */
 type linkedListDeque struct {
-	// 내장 패키지 list를 사용한다
+	// 표준 라이브러리의 list 패키지 사용
 	data *list.List
 }
 
@@ -31,7 +31,7 @@ func (s *linkedListDeque) pushLast(value any) {
 	s.data.PushBack(value)
 }
 
-/* 맨 앞 원소를 꺼낸다 */
+/* 맨 앞에서 원소 꺼내기 */
 func (s *linkedListDeque) popFirst() any {
 	if s.isEmpty() {
 		return nil
@@ -41,7 +41,7 @@ func (s *linkedListDeque) popFirst() any {
 	return e.Value
 }
 
-/* 맨 뒤 원소를 꺼낸다 */
+/* 맨 뒤에서 원소 꺼내기 */
 func (s *linkedListDeque) popLast() any {
 	if s.isEmpty() {
 		return nil
@@ -51,7 +51,7 @@ func (s *linkedListDeque) popLast() any {
 	return e.Value
 }
 
-/* 맨 앞 원소 접근 */
+/* 맨 앞 원소 조회 */
 func (s *linkedListDeque) peekFirst() any {
 	if s.isEmpty() {
 		return nil
@@ -60,7 +60,7 @@ func (s *linkedListDeque) peekFirst() any {
 	return e.Value
 }
 
-/* 맨 뒤 원소 접근 */
+/* 맨 뒤 원소 조회 */
 func (s *linkedListDeque) peekLast() any {
 	if s.isEmpty() {
 		return nil
@@ -69,17 +69,17 @@ func (s *linkedListDeque) peekLast() any {
 	return e.Value
 }
 
-/* 큐의 길이 반환 */
+/* 덱의 길이 조회 */
 func (s *linkedListDeque) size() int {
 	return s.data.Len()
 }
 
-/* 큐가 비어 있는지 판단 */
+/* 덱이 비어 있는지 확인 */
 func (s *linkedListDeque) isEmpty() bool {
 	return s.data.Len() == 0
 }
 
-/* 출력에 사용할 List 반환 */
+/* 출력에 사용할 list.List 반환 */
 func (s *linkedListDeque) toList() *list.List {
 	return s.data
 }

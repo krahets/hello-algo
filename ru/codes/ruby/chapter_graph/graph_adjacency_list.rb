@@ -6,15 +6,15 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/vertex'
 
-### Класс неориентированного графа на основе списка смежности ###
+### Неориентированный граф на списках смежности ###
 class GraphAdjList
   attr_reader :adj_list
   
   ### Конструктор ###
   def initialize(edges)
-    # Список смежности, где key — вершина, а value — все смежные ей вершины
+    # Список смежности: ключ — вершина, значение — все её соседи
     @adj_list = {}
-    # Добавить все вершины и ребра
+    # Добавить все вершины и рёбра
     for edge in edges
       add_vertex(edge[0])
       add_vertex(edge[1])
@@ -22,12 +22,12 @@ class GraphAdjList
     end
   end
 
-  ### Получение числа вершин ###
+  ### Получить число вершин ###
   def size
     @adj_list.length
   end
 
-  ### Добавление ребра ###
+  ### Добавить ребро ###
   def add_edge(vet1, vet2)
     raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2) || vet1 == vet2
 
@@ -35,30 +35,30 @@ class GraphAdjList
     @adj_list[vet2] << vet1
   end
 
-  ### Удаление ребра ###
+  ### Удалить ребро ###
   def remove_edge(vet1, vet2)
     raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2) || vet1 == vet2
 
-    # Удалить ребро vet1 - vet2
+    # Удалить ребро vet1 — vet2
     @adj_list[vet1].delete(vet2)
     @adj_list[vet2].delete(vet1)
   end
 
-  ### Добавление вершины ###
+  ### Добавить вершину ###
   def add_vertex(vet)
     return if @adj_list.include?(vet)
 
-    # Добавить новый список в список смежности
+    # Добавить новый связный список в список смежности
     @adj_list[vet] = []
   end
 
-  ### Удаление вершины ###
+  ### Удалить вершину ###
   def remove_vertex(vet)
     raise ArgumentError unless @adj_list.include?(vet)
 
-    # Удалить из списка смежности список, соответствующий вершине vet
+    # Удалить из списка смежности список вершины vet
     @adj_list.delete(vet)
-    # Обойти списки других вершин и удалить все ребра, содержащие vet
+    # Обойти списки остальных вершин и удалить все рёбра, инцидентные vet
     for vertex in @adj_list
       @adj_list[vertex.first].delete(vet) if @adj_list[vertex.first].include?(vet)
     end
@@ -74,9 +74,9 @@ class GraphAdjList
   end
 end
 
-### Driver Code ###
+### Пример использования ###
 if __FILE__ == $0
-  # Инициализация неориентированного графа
+  # Инициализировать неориентированный граф
   v = vals_to_vets([1, 3, 2, 5, 4])
   edges = [
     [v[0], v[1]],
@@ -87,30 +87,30 @@ if __FILE__ == $0
     [v[3], v[4]],
   ]
   graph = GraphAdjList.new(edges)
-  puts "\nГраф после инициализации"
+  puts "\nГраф после инициализации:"
   graph.__print__
 
   # Добавить ребро
-  # Вершины 1 и 2, то есть v[0] и v[2]
+  # Вершинам 1 и 2 соответствуют v[0] и v[2]
   graph.add_edge(v[0], v[2])
-  puts "\nГраф после добавления ребра 1-2"
+  puts "\nГраф после добавления ребра 1–2:"
   graph.__print__
 
   # Удалить ребро
-  # Вершины 1 и 3 соответствуют v[0], v[1]
+  # Вершинам 1 и 3 соответствуют v[0] и v[1]
   graph.remove_edge(v[0], v[1])
-  puts "\nГраф после удаления ребра 1-3"
+  puts "\nГраф после удаления ребра 1–3:"
   graph.__print__
 
-  # Добавление вершины
+  # Добавить вершину
   v5 = Vertex.new(6)
   graph.add_vertex(v5)
-  puts "\nГраф после добавления вершины 6"
+  puts "\nГраф после добавления вершины 6:"
   graph.__print__
 
-  # Удаление вершины
-  # Вершина 3 соответствует v[1]
+  # Удалить вершину
+  # Вершине 3 соответствует v[1]
   graph.remove_vertex(v[1])
-  puts "\nГраф после удаления вершины 3"
+  puts "\nГраф после удаления вершины 3:"
   graph.__print__
 end

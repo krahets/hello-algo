@@ -12,7 +12,7 @@ public class Trunk(Trunk? prev, string str) {
 };
 
 public static class PrintUtil {
-    /* 列印串列 */
+    /* 印出串列 */
     public static void PrintList<T>(IList<T> list) {
         Console.WriteLine("[" + string.Join(", ", list) + "]");
     }
@@ -21,7 +21,7 @@ public static class PrintUtil {
         return $"[ {string.Join(", ", list.Select(x => x?.ToString() ?? "null"))} ]";
     }
 
-    /* 列印矩陣 (Array) */
+    /* 印出矩陣（Array） */
     public static void PrintMatrix<T>(T[][] matrix) {
         Console.WriteLine("[");
         foreach (T[] row in matrix) {
@@ -30,7 +30,7 @@ public static class PrintUtil {
         Console.WriteLine("]");
     }
 
-    /* 列印矩陣 (List) */
+    /* 印出矩陣（List） */
     public static void PrintMatrix<T>(List<List<T>> matrix) {
         Console.WriteLine("[");
         foreach (List<T> row in matrix) {
@@ -39,7 +39,7 @@ public static class PrintUtil {
         Console.WriteLine("]");
     }
 
-    /* 列印鏈結串列 */
+    /* 印出鏈結串列 */
     public static void PrintLinkedList(ListNode? head) {
         List<string> list = [];
         while (head != null) {
@@ -50,15 +50,15 @@ public static class PrintUtil {
     }
 
     /**
-     * 列印二元樹
-     * This tree printer is borrowed from TECHIE DELIGHT
+     * 印出二元樹
+     * 這段印出樹狀結構的程式碼取自 TECHIE DELIGHT
      * https://www.techiedelight.com/c-program-print-binary-tree/
      */
     public static void PrintTree(TreeNode? root) {
         PrintTree(root, null, false);
     }
 
-    /* 列印二元樹 */
+    /* 印出二元樹 */
     public static void PrintTree(TreeNode? root, Trunk? prev, bool isRight) {
         if (root == null) {
             return;
@@ -99,33 +99,33 @@ public static class PrintUtil {
         Console.Write(p.str);
     }
 
-    /* 列印雜湊表 */
+    /* 印出雜湊表 */
     public static void PrintHashMap<K, V>(Dictionary<K, V> map) where K : notnull {
         foreach (var kv in map.Keys) {
             Console.WriteLine(kv.ToString() + " -> " + map[kv]?.ToString());
         }
     }
 
-    /* 列印堆積 */
+    /* 印出堆積 */
     public static void PrintHeap(Queue<int> queue) {
-        Console.Write("堆積的陣列表示：");
+        Console.Write("堆積的陣列表示法：");
         List<int> list = [.. queue];
         Console.WriteLine(string.Join(',', list));
-        Console.WriteLine("堆積的樹狀表示：");
+        Console.WriteLine("堆積的樹狀表示法：");
         TreeNode? tree = TreeNode.ListToTree(list.Cast<int?>().ToList());
         PrintTree(tree);
     }
 
-    /* 列印優先佇列 */
+    /* 印出優先佇列 */
     public static void PrintHeap(PriorityQueue<int, int> queue) {
         var newQueue = new PriorityQueue<int, int>(queue.UnorderedItems, queue.Comparer);
-        Console.Write("堆積的陣列表示：");
+        Console.Write("堆積的陣列表示法：");
         List<int> list = [];
         while (newQueue.TryDequeue(out int element, out _)) {
             list.Add(element);
         }
         Console.WriteLine(string.Join(',', list.ToList()));
-        Console.WriteLine("堆積的樹狀表示：");
+        Console.WriteLine("堆積的樹狀表示法：");
         TreeNode? tree = TreeNode.ListToTree(list.Cast<int?>().ToList());
         PrintTree(tree);
     }

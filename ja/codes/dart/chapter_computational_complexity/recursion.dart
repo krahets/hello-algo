@@ -8,25 +8,25 @@
 int recur(int n) {
   // 終了条件
   if (n == 1) return 1;
-  // 往路：再帰呼び出し
+  // 行き：再帰呼び出し
   int res = recur(n - 1);
-  // 復路：結果を返す
+  // 帰り：結果を返す
   return n + res;
 }
 
-/* 反復を使って再帰を再現する */
+/* 反復で再帰を模擬 */
 int forLoopRecur(int n) {
-  // 明示的なスタックを使って、システムの呼び出しスタックを再現する
+  // 明示的なスタックでシステムの呼び出しスタックを模擬
   List<int> stack = [];
   int res = 0;
-  // 往路：再帰呼び出し
+  // 行き：再帰呼び出し
   for (int i = n; i > 0; i--) {
-    // 「プッシュ操作」で再帰の「往路」を再現する
+    // プッシュで「行き」を模擬
     stack.add(i);
   }
-  // 復路：結果を返す
+  // 帰り：結果を返す
   while (!stack.isEmpty) {
-    // 「ポップ操作」で再帰の「復路」を再現する
+    // ポップで「帰り」を模擬
     res += stack.removeLast();
   }
   // res = 1+2+3+...+n
@@ -51,19 +51,19 @@ int fib(int n) {
   return res;
 }
 
-/* 実行用コード */
+/* 実行例 */
 void main() {
   int n = 5;
   int res;
 
   res = recur(n);
-  print("\n再帰関数で求めた和 res = $res");
+  print("\n再帰関数による総和 res = $res");
 
   res = tailRecur(n, 0);
-  print("\n末尾再帰関数で求めた和 res = $res");
+  print("\n末尾再帰関数による総和 res = $res");
 
   res = forLoopRecur(n);
-  print("\n反復で再帰を再現して求めた和 res = $res");
+  print("\n反復で再帰を模擬して求めた総和 res = $res");
 
   res = fib(n);
   print("\nフィボナッチ数列の第 $n 項は $res");

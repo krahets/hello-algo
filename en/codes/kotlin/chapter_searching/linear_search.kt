@@ -8,29 +8,29 @@ package chapter_searching
 
 import utils.ListNode
 
-/* Linear search (array) */
+/* Linear search in an array */
 fun linearSearchArray(nums: IntArray, target: Int): Int {
     // Traverse the array
     for (i in nums.indices) {
-        // The target element was found; return its index
+        // Found the target. Return its index
         if (nums[i] == target)
             return i
     }
-    // The target element was not found; return -1
+    // Target not found. Return -1
     return -1
 }
 
-/* Linear search (linked list) */
+/* Linear search in a linked list */
 fun linearSearchLinkedList(h: ListNode?, target: Int): ListNode? {
     // Traverse the linked list
     var head = h
     while (head != null) {
-        // The target node was found; return it
+        // Found the target node. Return it
         if (head._val == target)
             return head
         head = head.next
     }
-    // The target node was not found; return null
+    // Target node not found. Return null
     return null
 }
 
@@ -38,13 +38,13 @@ fun linearSearchLinkedList(h: ListNode?, target: Int): ListNode? {
 fun main() {
     val target = 3
 
-    /* Perform linear search on the array */
+    /* Run linear search on the array */
     val nums = intArrayOf(1, 5, 3, 2, 4, 7, 5, 9, 10, 8)
     val index = linearSearchArray(nums, target)
-    println("Index of target element 3 = $index")
+    println("Index of target 3 = $index")
 
-    /* Perform linear search on the linked list */
+    /* Run linear search on the linked list */
     val head = ListNode.arrToLinkedList(nums)
     val node = linearSearchLinkedList(head, target)
-    println("Node object with target value 3: $node")
+    println("Node object for target value 3 = $node")
 }

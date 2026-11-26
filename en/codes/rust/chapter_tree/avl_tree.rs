@@ -25,7 +25,7 @@ impl AVLTree {
 
     /* Get the node height */
     fn height(node: OptionTreeNodeRc) -> i32 {
-        // A null node has height -1; a leaf has height 0
+        // A null node has height -1, and a leaf has height 0
         match node {
             Some(node) => node.borrow().height,
             None => -1,
@@ -37,7 +37,7 @@ impl AVLTree {
         if let Some(node) = node {
             let left = node.borrow().left.clone();
             let right = node.borrow().right.clone();
-            // The node height equals the height of its taller subtree + 1
+            // Node height is the height of the taller subtree plus 1
             node.borrow_mut().height = std::cmp::max(Self::height(left), Self::height(right)) + 1;
         }
     }
@@ -45,9 +45,9 @@ impl AVLTree {
     /* Get the balance factor */
     fn balance_factor(node: OptionTreeNodeRc) -> i32 {
         match node {
-            // A null node has balance factor 0
+            // A null node has a balance factor of 0
             None => 0,
-            // Node balance factor = left subtree height - right subtree height
+            // Balance factor = left subtree height - right subtree height
             Some(node) => {
                 Self::height(node.borrow().left.clone()) - Self::height(node.borrow().right.clone())
             }
@@ -92,7 +92,7 @@ impl AVLTree {
         }
     }
 
-    /* Perform rotations to restore balance in this subtree */
+    /* Rebalance the subtree by rotating it */
     fn rotate(node: OptionTreeNodeRc) -> OptionTreeNodeRc {
         // Get the balance factor of node
         let balance_factor = Self::balance_factor(node.clone());
@@ -122,7 +122,7 @@ impl AVLTree {
                 Self::left_rotate(Some(node))
             }
         } else {
-            // The tree is balanced; return without rotating
+            // The tree is balanced, so return without rotating
             node
         }
     }
@@ -152,12 +152,12 @@ impl AVLTree {
                         node.borrow_mut().right = Self::insert_helper(right, val);
                     }
                     Ordering::Equal => {
-                        return Some(node); // Return without inserting a duplicate node
+                        return Some(node); // Return without inserting a duplicate
                     }
                 }
                 Self::update_height(Some(node.clone())); // Update the node height
 
-                /* 2. Perform rotations to restore balance in this subtree */
+                /* 2. Rebalance the subtree by rotating it */
                 node = Self::rotate(Some(node)).unwrap();
                 // Return the root of the subtree
                 Some(node)
@@ -166,16 +166,16 @@ impl AVLTree {
         }
     }
 
-    /* Remove a node */
+    /* Delete a node */
     fn remove(&self, val: i32) {
         Self::remove_helper(self.root.clone(), val);
     }
 
-    /* Remove a node recursively (helper method) */
+    /* Delete a node recursively (helper method) */
     fn remove_helper(node: OptionTreeNodeRc, val: i32) -> OptionTreeNodeRc {
         match node {
             Some(mut node) => {
-                /* 1. Find and remove the node */
+                /* 1. Find the node and delete it */
                 if val < node.borrow().val {
                     let left = node.borrow().left.clone();
                     node.borrow_mut().left = Self::remove_helper(left, val);
@@ -189,15 +189,15 @@ impl AVLTree {
                         node.borrow().right.clone()
                     };
                     match child {
-                        // Number of children = 0: remove node and return
+                        // No children: delete node and return
                         None => {
                             return None;
                         }
-                        // Number of children = 1: remove node directly
+                        // One child: delete node
                         Some(child) => node = child,
                     }
                 } else {
-                    // Number of children = 2: remove the inorder successor and use its value to replace the current node value
+                    // Two children: delete the inorder successor and use it to replace the current node
                     let mut temp = node.borrow().right.clone().unwrap();
                     loop {
                         let temp_left = temp.borrow().left.clone();
@@ -212,7 +212,7 @@ impl AVLTree {
                 }
                 Self::update_height(Some(node.clone())); // Update the node height
 
-                /* 2. Perform rotations to restore balance in this subtree */
+                /* 2. Rebalance the subtree by rotating it */
                 node = Self::rotate(Some(node)).unwrap();
                 // Return the root of the subtree
                 Some(node)
@@ -221,27 +221,27 @@ impl AVLTree {
         }
     }
 
-    /* Find a node */
+    /* Search for a node */
     fn search(&self, val: i32) -> OptionTreeNodeRc {
         let mut cur = self.root.clone();
-        // Search while cur refers to a node
+        // Stop the search after passing a leaf
         while let Some(current) = cur.clone() {
             match current.borrow().val.cmp(&val) {
-                // The target node lies in the right subtree of cur
+                // The target is in the right subtree of cur
                 Ordering::Less => {
                     cur = current.borrow().right.clone();
                 }
-                // The target node lies in the left subtree of cur
+                // The target is in the left subtree of cur
                 Ordering::Greater => {
                     cur = current.borrow().left.clone();
                 }
-                // The target node was found; exit the loop
+                // The target was found, so exit the loop
                 Ordering::Equal => {
                     break;
                 }
             }
         }
-        // Return the matching node, or None if no match was found
+        // Return the target node
         cur
     }
 }
@@ -250,13 +250,13 @@ impl AVLTree {
 fn main() {
     fn test_insert(tree: &mut AVLTree, val: i32) {
         tree.insert(val);
-        println!("\nAVL tree after inserting node {}:", val);
+        println!("\nAVL tree after inserting {}:", val);
         print_util::print_tree(&tree.root.clone().unwrap());
     }
 
     fn test_remove(tree: &mut AVLTree, val: i32) {
         tree.remove(val);
-        println!("\nAVL tree after removing node {}:", val);
+        println!("\nAVL tree after deleting {}:", val);
         print_util::print_tree(&tree.root.clone().unwrap());
     }
 
@@ -264,7 +264,7 @@ fn main() {
     let mut avl_tree = AVLTree::new();
 
     /* Insert a node */
-    // Observe how the AVL tree maintains balance after a node is inserted
+    // Watch how the AVL tree stays balanced after an insertion
     test_insert(&mut avl_tree, 1);
     test_insert(&mut avl_tree, 2);
     test_insert(&mut avl_tree, 3);
@@ -279,17 +279,17 @@ fn main() {
     /* Insert a duplicate node */
     test_insert(&mut avl_tree, 7);
 
-    /* Remove a node */
-    // Observe how the AVL tree maintains balance after a node is removed
-    test_remove(&mut avl_tree, 8); // Remove a node with 0 children
-    test_remove(&mut avl_tree, 5); // Remove a node with 1 child
-    test_remove(&mut avl_tree, 4); // Remove a node with 2 children
+    /* Delete a node */
+    // Watch how the AVL tree stays balanced after a deletion
+    test_remove(&mut avl_tree, 8); // Delete a node with no children
+    test_remove(&mut avl_tree, 5); // Delete a node with one child
+    test_remove(&mut avl_tree, 4); // Delete a node with two children
 
     /* Look up a node */
     let node = avl_tree.search(7);
     if let Some(node) = node {
         println!(
-            "\nFound node: {:?}, node value = {}",
+            "\nNode found: {:?}, node value = {}",
             &*node.borrow(),
             node.borrow().val
         );

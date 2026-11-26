@@ -10,10 +10,10 @@ import (
 
 /* 개방 주소법 해시 테이블 */
 type hashMapOpenAddressing struct {
-	size        int     // 키-값 쌍 개수
-	capacity    int     // 해시 테이블 용량
-	loadThres   float64 // 용량 확장을 수행하는 적재율 임계값
-	extendRatio int     // 용량 확장 배수
+	size        int     // 키-값 쌍의 개수
+	capacity    int     // 해시 테이블의 용량
+	loadThres   float64 // 용량을 늘리는 기준이 되는 적재율
+	extendRatio int     // 용량 증가 배수
 	buckets     []*pair // 버킷 배열
 	TOMBSTONE   *pair   // 삭제 표시
 }
@@ -32,79 +32,79 @@ func newHashMapOpenAddressing() *hashMapOpenAddressing {
 
 /* 해시 함수 */
 func (h *hashMapOpenAddressing) hashFunc(key int) int {
-	return key % h.capacity // 키를 바탕으로 해시값을 계산한다
+	return key % h.capacity // 키로 해시값 계산
 }
 
 /* 적재율 */
 func (h *hashMapOpenAddressing) loadFactor() float64 {
-	return float64(h.size) / float64(h.capacity) // 현재 적재율을 계산한다
+	return float64(h.size) / float64(h.capacity) // 현재 적재율 계산
 }
 
-/* key에 해당하는 버킷 인덱스 탐색 */
+/* key에 해당하는 버킷 인덱스 찾기 */
 func (h *hashMapOpenAddressing) findBucket(key int) int {
-	index := h.hashFunc(key) // 초기 인덱스를 구한다
-	firstTombstone := -1     // 처음 만난 TOMBSTONE의 위치를 기록한다
+	index := h.hashFunc(key) // 시작 인덱스 구하기
+	firstTombstone := -1     // 처음 만난 TOMBSTONE의 위치 기록
 	for h.buckets[index] != nil {
 		if h.buckets[index].key == key {
 			if firstTombstone != -1 {
-				// 이전에 삭제 표시를 만났으면 키-값 쌍을 그 인덱스로 옮긴다
+				// 앞서 삭제 표시를 만났으면 키-값 쌍을 그 위치로 이동
 				h.buckets[firstTombstone] = h.buckets[index]
 				h.buckets[index] = h.TOMBSTONE
-				return firstTombstone // 옮긴 후의 버킷 인덱스를 반환한다
+				return firstTombstone // 옮긴 뒤의 버킷 인덱스 반환
 			}
-			return index // 찾은 인덱스를 반환한다
+			return index // 찾은 인덱스 반환
 		}
 		if firstTombstone == -1 && h.buckets[index] == h.TOMBSTONE {
-			firstTombstone = index // 처음 만난 삭제 표시의 위치를 기록한다
+			firstTombstone = index // 처음 만난 삭제 표시의 위치 기록
 		}
-		index = (index + 1) % h.capacity // 선형 탐사를 수행하며, 끝을 넘어가면 처음으로 돌아온다
+		index = (index + 1) % h.capacity // 선형 탐사 중 끝을 지나면 처음으로 돌아감
 	}
-	// key가 없으면 추가할 위치의 인덱스를 반환한다
+	// key가 없으면 삽입할 위치의 인덱스 반환
 	if firstTombstone != -1 {
 		return firstTombstone
 	}
 	return index
 }
 
-/* 조회 연산 */
+/* 조회 */
 func (h *hashMapOpenAddressing) get(key int) string {
-	index := h.findBucket(key) // key에 해당하는 버킷 인덱스 탐색
+	index := h.findBucket(key) // key에 해당하는 버킷 인덱스 찾기
 	if h.buckets[index] != nil && h.buckets[index] != h.TOMBSTONE {
-		return h.buckets[index].val // 키-값 쌍을 찾으면 해당 val을 반환한다
+		return h.buckets[index].val // 키-값 쌍을 찾으면 해당 val 반환
 	}
-	return "" // 키-값 쌍이 없으면 ""를 반환한다
+	return "" // 키-값 쌍이 없으면 "" 반환
 }
 
-/* 추가 연산 */
+/* 추가 */
 func (h *hashMapOpenAddressing) put(key int, val string) {
 	if h.loadFactor() > h.loadThres {
-		h.extend() // 적재율이 임계값을 초과하면 용량을 확장한다
+		h.extend() // 적재율이 임계값을 넘으면 용량 늘리기
 	}
-	index := h.findBucket(key) // key에 해당하는 버킷 인덱스 탐색
+	index := h.findBucket(key) // key에 해당하는 버킷 인덱스 찾기
 	if h.buckets[index] == nil || h.buckets[index] == h.TOMBSTONE {
-		h.buckets[index] = &pair{key, val} // 키-값 쌍이 없으면 해당 키-값 쌍을 추가한다
+		h.buckets[index] = &pair{key, val} // 키-값 쌍이 없으면 새로 추가
 		h.size++
 	} else {
-		h.buckets[index].val = val // 키-값 쌍을 찾으면 val을 덮어쓴다
+		h.buckets[index].val = val // 키-값 쌍을 찾으면 val 덮어쓰기
 	}
 }
 
-/* 삭제 연산 */
+/* 삭제 */
 func (h *hashMapOpenAddressing) remove(key int) {
-	index := h.findBucket(key) // key에 해당하는 버킷 인덱스 탐색
+	index := h.findBucket(key) // key에 해당하는 버킷 인덱스 찾기
 	if h.buckets[index] != nil && h.buckets[index] != h.TOMBSTONE {
-		h.buckets[index] = h.TOMBSTONE // 키-값 쌍을 찾으면 삭제 표시로 덮어쓴다
+		h.buckets[index] = h.TOMBSTONE // 키-값 쌍을 찾으면 삭제 표시로 덮어쓰기
 		h.size--
 	}
 }
 
-/* 해시 테이블 용량 확장 */
+/* 해시 테이블 용량 늘리기 */
 func (h *hashMapOpenAddressing) extend() {
-	oldBuckets := h.buckets               // 원래 해시 테이블을 임시로 저장한다
-	h.capacity *= h.extendRatio           // 용량을 갱신한다
-	h.buckets = make([]*pair, h.capacity) // 용량을 확장한 새 해시 테이블을 초기화한다
-	h.size = 0                            // 크기를 초기화한다
-	// 원래 해시 테이블의 키-값 쌍을 새 해시 테이블로 옮긴다
+	oldBuckets := h.buckets               // 기존 해시 테이블 임시 보관
+	h.capacity *= h.extendRatio           // 용량 갱신
+	h.buckets = make([]*pair, h.capacity) // 용량을 늘린 새 해시 테이블 초기화
+	h.size = 0                            // 크기 초기화
+	// 기존 해시 테이블의 키-값 쌍을 새 해시 테이블로 이동
 	for _, pair := range oldBuckets {
 		if pair != nil && pair != h.TOMBSTONE {
 			h.put(pair.key, pair.val)

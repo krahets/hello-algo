@@ -15,12 +15,12 @@ class Pair {
     }
 }
 
-/* Hash table implemented with an array */
+/* Array-based hash table */
 class ArrayHashMap {
     private readonly buckets: (Pair | null)[];
 
     constructor() {
-        // Initialize an array containing 100 buckets
+        // Initialize an array with 100 buckets
         this.buckets = new Array(100).fill(null);
     }
 
@@ -29,7 +29,7 @@ class ArrayHashMap {
         return key % 100;
     }
 
-    /* Lookup operation */
+    /* Look up a value */
     public get(key: number): string | null {
         let index = this.hashFunc(key);
         let pair = this.buckets[index];
@@ -37,16 +37,16 @@ class ArrayHashMap {
         return pair.val;
     }
 
-    /* Insert operation */
+    /* Insert a key-value pair */
     public set(key: number, val: string) {
         let index = this.hashFunc(key);
         this.buckets[index] = new Pair(key, val);
     }
 
-    /* Remove operation */
+    /* Remove a key-value pair */
     public delete(key: number) {
         let index = this.hashFunc(key);
-        // Set the bucket to null to mark it as deleted
+        // Set the slot to null to remove the entry
         this.buckets[index] = null;
     }
 
@@ -95,38 +95,38 @@ class ArrayHashMap {
 /* Driver code */
 /* Initialize the hash table */
 const map = new ArrayHashMap();
-/* Insert operation */
-// Insert the key-value pair (key, value) into the hash table
-map.set(12836, '小哈');
-map.set(15937, '小啰');
-map.set(16750, '小算');
-map.set(13276, '小法');
-map.set(10583, '小鸭');
+/* Insert a key-value pair */
+// Insert the pair (key, value) into the hash table
+map.set(12836, 'Xiao Ha');
+map.set(15937, 'Xiao Luo');
+map.set(16750, 'Xiao Suan');
+map.set(13276, 'Xiao Fa');
+map.set(10583, 'Xiao Ya');
 console.info('\nHash table after insertion:\nKey -> Value');
 map.print();
 
-/* Lookup operation */
-// Look up key in the hash table to obtain value
+/* Look up a value */
+// Look up key in the hash table to get value
 let name = map.get(15937);
-console.info('\nLook up student ID 15937 to obtain the name ' + name);
+console.info('\nName for student ID 15937: ' + name);
 
-/* Remove operation */
-// Remove the key-value pair (key, value) from the hash table
+/* Remove a key-value pair */
+// Remove the pair (key, value) from the hash table
 map.delete(10583);
 console.info('\nHash table after removing 10583:\nKey -> Value');
 map.print();
 
-/* Traverse the hash table */
-console.info('\nTraverse key-value pairs: Key->Value');
+/* Iterate over the hash table */
+console.info('\nIterate over key-value pairs (Key->Value)');
 for (const pair of map.entries()) {
     if (!pair) continue;
     console.info(pair.key + ' -> ' + pair.val);
 }
-console.info('\nTraverse keys only: Key');
+console.info('\nIterate over keys only');
 for (const key of map.keys()) {
     console.info(key);
 }
-console.info('\nTraverse values only: Value');
+console.info('\nIterate over values only');
 for (const val of map.values()) {
     console.info(val);
 }

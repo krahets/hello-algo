@@ -19,22 +19,22 @@ public class stack {
         stack.push(2);
         stack.push(5);
         stack.push(4);
-        System.out.println("Stack stack = " + stack);
+        System.out.println("stack = " + stack);
 
-        /* Access the top element */
+        /* Peek at the top element */
         int peek = stack.peek();
-        System.out.println("Top element peek = " + peek);
+        System.out.println("Top element (peek) = " + peek);
 
-        /* Pop an element from the stack */
+        /* Pop the top element */
         int pop = stack.pop();
-        System.out.println("Popped element pop = " + pop + ", after popping, stack = " + stack);
+        System.out.println("Popped element (pop) = " + pop + ", stack after the pop = " + stack);
 
         /* Get the stack size */
         int size = stack.size();
         System.out.println("Stack size = " + size);
 
-        /* Check whether it is empty */
+        /* Check whether the stack is empty */
         boolean isEmpty = stack.isEmpty();
-        System.out.println("Is the stack empty = " + isEmpty);
+        System.out.println("Stack is empty = " + isEmpty);
     }
 }

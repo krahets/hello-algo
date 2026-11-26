@@ -14,29 +14,29 @@ pub fn main() {
     deque.push_back(3);
     deque.push_back(2);
     deque.push_back(5);
-    print!("Deque deque = ");
+    print!("deque = ");
     print_util::print_queue(&deque);
 
-    // Access an element
+    // Peek at the front and rear elements
     let peek_first = deque.front().unwrap();
-    print!("\nFront element peekFirst = {peek_first}");
+    print!("\nFront element (peek_first) = {peek_first}");
     let peek_last = deque.back().unwrap();
-    print!("\nRear element peekLast = {peek_last}");
+    print!("\nRear element (peek_last) = {peek_last}");
 
-    /* Enqueue elements */
+    /* Add elements to the deque */
     deque.push_back(4);
-    print!("\nAfter enqueuing element 4 at the rear, deque = ");
+    print!("\nAfter adding 4 at the rear, deque = ");
     print_util::print_queue(&deque);
     deque.push_front(1);
-    print!("\nAfter enqueuing element 1 at the front, deque = ");
+    print!("\nAfter adding 1 at the front, deque = ");
     print_util::print_queue(&deque);
 
-    // Dequeue an element
+    // Remove elements from both ends
     let pop_last = deque.pop_back().unwrap();
-    print!("\nElement removed from the rear = {pop_last}; after removal, deque = ");
+    print!("\nRemoved from the rear = {pop_last}, deque after removal = ");
     print_util::print_queue(&deque);
     let pop_first = deque.pop_front().unwrap();
-    print!("\nElement removed from the front = {pop_first}; after removal, deque = ");
+    print!("\nRemoved from the front = {pop_first}, deque after removal = ");
     print_util::print_queue(&deque);
 
     // Get the deque size
@@ -45,5 +45,5 @@ pub fn main() {
 
     // Check whether the deque is empty
     let is_empty = deque.is_empty();
-    print!("\nIs the deque empty? {is_empty}");
+    print!("\nDeque is empty = {is_empty}");
 }

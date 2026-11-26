@@ -14,7 +14,7 @@ func TestWorstBestTimeComplexity(t *testing.T) {
 		n := 100
 		nums := randomNumbers(n)
 		index := findOne(nums)
-		fmt.Println("\n陣列 [ 1, 2, ..., n ] 被打亂後 =", nums)
+		fmt.Println("\n陣列 [ 1, 2, ..., n ] 打亂順序後 =", nums)
 		fmt.Println("數字 1 的索引為", index)
 	}
 }

@@ -4,30 +4,30 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 要素にランダムアクセスする */
+/* 要素にランダムにアクセスする */
 func randomAccess(nums: [Int]) -> Int {
-    // 区間 [0, nums.count) から数値をランダムに 1 つ選ぶ
+    // 区間 [0, nums.count) から数をランダムに選ぶ
     let randomIndex = nums.indices.randomElement()!
     // ランダムに選んだ要素を取得して返す
     let randomNum = nums[randomIndex]
     return randomNum
 }
 
-/* 配列の長さを拡張する */
+/* 配列の長さを増やす */
 func extend(nums: [Int], enlarge: Int) -> [Int] {
-    // 拡張後の長さの配列を初期化する
+    // 長さを増やした配列を初期化する
     var res = Array(repeating: 0, count: nums.count + enlarge)
     // 元の配列の全要素を新しい配列にコピーする
     for i in nums.indices {
         res[i] = nums[i]
     }
-    // 拡張後の新しい配列を返す
+    // 長さを増やした新しい配列を返す
     return res
 }
 
 /* 配列のインデックス index に要素 num を挿入する */
 func insert(nums: inout [Int], num: Int, index: Int) {
-    // インデックス index 以降の全要素を 1 つ後ろにずらす
+    // インデックス index 以降の全要素を後ろに 1 つずらす
     for i in stride(from: nums.count - 1, to: index, by: -1) {
         nums[i] = nums[i - 1]
     }
@@ -37,7 +37,7 @@ func insert(nums: inout [Int], num: Int, index: Int) {
 
 /* インデックス index の要素を削除する */
 func remove(nums: inout [Int], index: Int) {
-    // インデックス index より後の全要素を 1 つ前にずらす
+    // インデックス index より後ろの全要素を前に 1 つずらす
     for i in nums.indices.dropFirst(index).dropLast() {
         nums[i] = nums[i + 1]
     }
@@ -54,14 +54,14 @@ func traverse(nums: [Int]) {
     for num in nums {
         count += num
     }
-    // データのインデックスと要素を同時に走査する
+    // インデックスと要素を同時にたどる
     for (i, num) in nums.enumerated() {
         count += nums[i]
         count += num
     }
 }
 
-/* 配列から指定した要素を探索する */
+/* 配列から指定した要素を探す */
 func find(nums: [Int], target: Int) -> Int {
     for i in nums.indices {
         if nums[i] == target {
@@ -73,7 +73,7 @@ func find(nums: [Int], target: Int) -> Int {
 
 @main
 enum _Array {
-    /* 実行用コード */
+    /* ドライバコード */
     static func main() {
         /* 配列を初期化する */
         let arr = Array(repeating: 0, count: 5)
@@ -83,25 +83,25 @@ enum _Array {
 
         /* ランダムアクセス */
         let randomNum = randomAccess(nums: nums)
-        print("nums からランダムに取得した要素 \(randomNum)")
+        print("nums からランダムに選んだ要素：\(randomNum)")
 
-        /* 長さの拡張 */
+        /* 配列の長さを増やす */
         nums = extend(nums: nums, enlarge: 3)
-        print("配列の長さを 8 に拡張した結果 nums = \(nums)")
+        print("配列の長さを 8 に増やした後の nums = \(nums)")
 
         /* 要素を挿入する */
         insert(nums: &nums, num: 6, index: 3)
-        print("インデックス 3 に数値 6 を挿入した結果 nums = \(nums)")
+        print("インデックス 3 に 6 を挿入した後の nums = \(nums)")
 
         /* 要素を削除する */
         remove(nums: &nums, index: 2)
-        print("インデックス 2 の要素を削除した結果 nums = \(nums)")
+        print("インデックス 2 の要素を削除した後の nums = \(nums)")
 
         /* 配列を走査する */
         traverse(nums: nums)
 
-        /* 要素を探索する */
+        /* 要素を探す */
         let index = find(nums: nums, target: 3)
-        print("nums から要素 3 を探索した結果のインデックス = \(index)")
+        print("nums で要素 3 が見つかったインデックス = \(index)")
     }
 }

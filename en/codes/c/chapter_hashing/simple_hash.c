@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* Additive hash */
+/* Additive hashing */
 int addHash(char *key) {
     long long hash = 0;
     const int MODULUS = 1000000007;
@@ -16,7 +16,7 @@ int addHash(char *key) {
     return (int)hash;
 }
 
-/* Multiplicative hash */
+/* Multiplicative hashing */
 int mulHash(char *key) {
     long long hash = 0;
     const int MODULUS = 1000000007;
@@ -26,7 +26,7 @@ int mulHash(char *key) {
     return (int)hash;
 }
 
-/* XOR hash */
+/* XOR hashing */
 int xorHash(char *key) {
     int hash = 0;
     const int MODULUS = 1000000007;
@@ -37,7 +37,7 @@ int xorHash(char *key) {
     return hash & MODULUS;
 }
 
-/* Rotating hash */
+/* Rotation hashing */
 int rotHash(char *key) {
     long long hash = 0;
     const int MODULUS = 1000000007;

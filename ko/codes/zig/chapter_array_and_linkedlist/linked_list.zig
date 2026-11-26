@@ -13,7 +13,7 @@ pub fn insert(comptime T: type, n0: *ListNode(T), P: *ListNode(T)) void {
     n0.next = P;
 }
 
-// 연결 리스트의 노드 n0 바로 뒤에 있는 노드 삭제
+// 연결 리스트에서 n0 바로 다음 노드 삭제
 pub fn remove(comptime T: type, n0: *ListNode(T)) void {
     // n0 -> P -> n1 => n0 -> n1
     const P = n0.next;
@@ -21,7 +21,7 @@ pub fn remove(comptime T: type, n0: *ListNode(T)) void {
     n0.next = n1;
 }
 
-// 연결 리스트에서 인덱스가 index인 노드에 접근
+// 연결 리스트의 인덱스 index에 있는 노드에 접근
 pub fn access(comptime T: type, node: *ListNode(T), index: i32) ?*ListNode(T) {
     var head: ?*ListNode(T) = node;
     var i: i32 = 0;
@@ -35,7 +35,7 @@ pub fn access(comptime T: type, node: *ListNode(T), index: i32) ?*ListNode(T) {
     return head;
 }
 
-// 연결 리스트에서 값이 target인 첫 번째 노드 탐색
+// 연결 리스트에서 값이 target인 첫 번째 노드 찾기
 pub fn find(comptime T: type, node: *ListNode(T), target: T) i32 {
     var head: ?*ListNode(T) = node;
     var index: i32 = 0;
@@ -47,15 +47,15 @@ pub fn find(comptime T: type, node: *ListNode(T), target: T) i32 {
     return -1;
 }
 
-// 실행 코드
+// 실행 예제
 pub fn run() void {
-    // 각 노드를 초기화한다
+    // 각 노드 초기화
     var n0 = ListNode(i32){ .val = 1 };
     var n1 = ListNode(i32){ .val = 3 };
     var n2 = ListNode(i32){ .val = 2 };
     var n3 = ListNode(i32){ .val = 5 };
     var n4 = ListNode(i32){ .val = 4 };
-    // 노드 사이의 참조를 설정한다
+    // 노드 사이의 참조 연결
     n0.next = &n1;
     n1.next = &n2;
     n2.next = &n3;
@@ -69,25 +69,25 @@ pub fn run() void {
     var tmp = ListNode(i32){ .val = 0 };
     insert(i32, &n0, &tmp);
     std.debug.print(
-        "노드를 삽입한 후의 연결 리스트: {}\n",
+        "노드 삽입 후 연결 리스트: {}\n",
         .{utils.fmt.linkedList(i32, &n0)},
     );
 
     // 노드 삭제
     remove(i32, &n0);
     std.debug.print(
-        "노드를 삭제한 후의 연결 리스트: {}\n",
+        "노드 삭제 후 연결 리스트:{}\n",
         .{utils.fmt.linkedList(i32, &n0)},
     );
 
     // 노드 접근
     const node = access(i32, &n0, 3);
     std.debug.print(
-        "연결 리스트에서 인덱스 3에 있는 노드의 값 = {}\n",
+        "연결 리스트에서 인덱스 3인 노드의 값 = {}\n",
         .{node.?.val},
     );
 
-    // 노드 탐색
+    // 노드 찾기
     const index = find(i32, &n0, 2);
     std.debug.print(
         "연결 리스트에서 값이 2인 노드의 인덱스 = {}\n",

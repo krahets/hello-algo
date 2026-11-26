@@ -7,12 +7,12 @@
 use hello_algo_rust::include::{print_util, vec_to_tree, TreeNode};
 use std::{cell::RefCell, rc::Rc};
 
-/* Проверить, является ли текущее состояние решением */
+/* Проверяем, является ли текущее состояние решением */
 fn is_solution(state: &mut Vec<Rc<RefCell<TreeNode>>>) -> bool {
     return !state.is_empty() && state.last().unwrap().borrow().val == 7;
 }
 
-/* Записать решение */
+/* Сохраняем решение */
 fn record_solution(
     state: &mut Vec<Rc<RefCell<TreeNode>>>,
     res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
@@ -20,39 +20,39 @@ fn record_solution(
     res.push(state.clone());
 }
 
-/* Проверить, допустим ли этот выбор в текущем состоянии */
+/* Проверяем, допустим ли выбор в текущем состоянии */
 fn is_valid(_: &mut Vec<Rc<RefCell<TreeNode>>>, choice: Option<&Rc<RefCell<TreeNode>>>) -> bool {
     return choice.is_some() && choice.unwrap().borrow().val != 3;
 }
 
-/* Обновить состояние */
+/* Обновляем состояние */
 fn make_choice(state: &mut Vec<Rc<RefCell<TreeNode>>>, choice: Rc<RefCell<TreeNode>>) {
     state.push(choice);
 }
 
-/* Восстановить состояние */
+/* Восстанавливаем состояние */
 fn undo_choice(state: &mut Vec<Rc<RefCell<TreeNode>>>, _: Rc<RefCell<TreeNode>>) {
     state.pop();
 }
 
-/* Алгоритм бэктрекинга: пример 3 */
+/* Поиск с возвратом: пример 3 */
 fn backtrack(
     state: &mut Vec<Rc<RefCell<TreeNode>>>,
     choices: &Vec<Option<&Rc<RefCell<TreeNode>>>>,
     res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
 ) {
-    // Проверить, является ли текущее состояние решением
+    // Проверяем, найдено ли решение
     if is_solution(state) {
-        // Записать решение
+        // Сохраняем решение
         record_solution(state, res);
     }
-    // Перебор всех вариантов выбора
+    // Перебираем все варианты
     for &choice in choices.iter() {
-        // Отсечение: проверить допустимость выбора
+        // Отсечение: проверяем допустимость выбора
         if is_valid(state, choice) {
-            // Попытка: сделать выбор и обновить состояние
+            // Пробуем вариант и обновляем состояние
             make_choice(state, choice.unwrap().clone());
-            // Перейти к следующему выбору
+            // Переходим к следующему выбору
             backtrack(
                 state,
                 &vec![
@@ -61,23 +61,23 @@ fn backtrack(
                 ],
                 res,
             );
-            // Откат: отменить выбор и восстановить предыдущее состояние
+            // Возврат: отменяем выбор и восстанавливаем прежнее состояние
             undo_choice(state, choice.unwrap().clone());
         }
     }
 }
 
-/* Driver Code */
+/* Основная программа */
 pub fn main() {
     let root = vec_to_tree([1, 7, 3, 4, 5, 6, 7].map(|x| Some(x)).to_vec());
-    println!("Инициализация двоичного дерева");
+    println!("Создаём двоичное дерево");
     print_util::print_tree(root.as_ref().unwrap());
 
-    // Алгоритм бэктрекинга
+    // Поиск с возвратом
     let mut res = Vec::new();
     backtrack(&mut Vec::new(), &mut vec![root.as_ref()], &mut res);
 
-    println!("\nВсе пути от корня к узлу 7, в которых путь не содержит узлов со значением 3");
+    println!("\nВыводим все пути от корня до узлов со значением 7 без узлов со значением 3");
     for path in res {
         let mut vals = Vec::new();
         for node in path {

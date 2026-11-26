@@ -9,19 +9,19 @@ require_relative '../utils/print_util'
 
 ### AVL 樹 ###
 class AVLTree
-  ### 建構子 ###
+  ### 建構方法 ###
   def initialize
     @root = nil
   end
 
-  ### 獲取二元樹根節點 ###
+  ### 取得二元樹的根節點 ###
   def get_root
     @root
   end
 
-  ### 獲取節點高度 ###
+  ### 取得節點高度 ###
   def height(node)
-    # 空節點高度為 -1 ，葉節點高度為 0
+    # 空節點的高度為 -1，葉節點的高度為 0
     return node.height unless node.nil?
 
     -1
@@ -29,16 +29,16 @@ class AVLTree
 
   ### 更新節點高度 ###
   def update_height(node)
-    # 節點高度等於最高子樹高度 + 1
+    # 節點高度等於最高子樹的高度加 1
     node.height = [height(node.left), height(node.right)].max + 1
   end
 
-  ### 獲取平衡因子 ###
+  ### 取得平衡因子 ###
   def balance_factor(node)
-    # 空節點平衡因子為 0
+    # 空節點的平衡因子為 0
     return 0 if node.nil?
 
-    # 節點平衡因子 = 左子樹高度 - 右子樹高度
+    # 節點的平衡因子 = 左子樹高度 - 右子樹高度
     height(node.left) - height(node.right)
   end
 
@@ -46,13 +46,13 @@ class AVLTree
   def right_rotate(node)
     child = node.left
     grand_child = child.right
-    # 以 child 為原點，將 node 向右旋轉
+    # 以 child 為支點，將 node 向右旋轉
     child.right = node
     node.left = grand_child
     # 更新節點高度
     update_height(node)
     update_height(child)
-    # 返回旋轉後子樹的根節點
+    # 回傳旋轉後的子樹根節點
     child
   end
 
@@ -60,42 +60,42 @@ class AVLTree
   def left_rotate(node)
     child = node.right
     grand_child = child.left
-    # 以 child 為原點，將 node 向左旋轉
+    # 以 child 為支點，將 node 向左旋轉
     child.left = node
     node.right = grand_child
     # 更新節點高度
     update_height(node)
     update_height(child)
-    # 返回旋轉後子樹的根節點
+    # 回傳旋轉後的子樹根節點
     child
   end
 
-  ### 執行旋轉操作，使該子樹重新恢復平衡 ###
+  ### 透過旋轉讓這棵子樹恢復平衡 ###
   def rotate(node)
-    # 獲取節點 node 的平衡因子
+    # 取得節點 node 的平衡因子
     balance_factor = balance_factor(node)
-    # 左遍樹
+    # 左偏樹
     if balance_factor > 1
       if balance_factor(node.left) >= 0
         # 右旋
         return right_rotate(node)
       else
-        # 先左旋後右旋
+        # 先左旋再右旋
         node.left = left_rotate(node.left)
         return right_rotate(node)
       end
-    # 右遍樹
+    # 右偏樹
     elsif balance_factor < -1
       if balance_factor(node.right) <= 0
         # 左旋
         return left_rotate(node)
       else
-        # 先右旋後左旋
+        # 先右旋再左旋
         node.right = right_rotate(node.right)
         return left_rotate(node)
       end
     end
-    # 平衡樹，無須旋轉，直接返回
+    # 樹已平衡，無須旋轉，直接返回
     node
   end
 
@@ -104,21 +104,21 @@ class AVLTree
     @root = insert_helper(@root, val)
   end
 
-  ### 遞迴插入節點（輔助方法）###
+  ### 以遞迴插入節點（輔助方法）###
   def insert_helper(node, val)
     return TreeNode.new(val) if node.nil?
-    # 1. 查詢插入位置並插入節點
+    # 1. 找出插入位置並插入節點
     if val < node.val
       node.left = insert_helper(node.left, val)
     elsif val > node.val
       node.right = insert_helper(node.right, val)
     else
-      # 重複節點不插入，直接返回
+      # 若節點重複，直接返回，略過插入操作
       return node
     end
     # 更新節點高度
     update_height(node)
-    # 2. 執行旋轉操作，使該子樹重新恢復平衡
+    # 2. 透過旋轉讓這棵子樹恢復平衡
     rotate(node)
   end
 
@@ -127,10 +127,10 @@ class AVLTree
     @root = remove_helper(@root, val)
   end
 
-  ### 遞迴刪除節點（輔助方法）###
+  ### 以遞迴刪除節點（輔助方法）###
   def remove_helper(node, val)
     return if node.nil?
-    # 1. 查詢節點並刪除
+    # 1. 找出並刪除節點
     if val < node.val
       node.left = remove_helper(node.left, val)
     elsif val > node.val
@@ -138,12 +138,12 @@ class AVLTree
     else
       if node.left.nil? || node.right.nil?
         child = node.left || node.right
-        # 子節點數量 = 0 ，直接刪除 node 並返回
+        # 若有 0 個子節點，直接刪除 node 並返回
         return if child.nil?
-        # 子節點數量 = 1 ，直接刪除 node
+        # 若只有 1 個子節點，直接刪除 node
         node = child
       else
-        # 子節點數量 = 2 ，則將中序走訪的下個節點刪除，並用該節點替換當前節點
+        # 若有 2 個子節點，刪除中序走訪的下一個節點，並用它的值取代目前節點的值
         temp = node.right
         while !temp.left.nil?
           temp = temp.left
@@ -154,14 +154,14 @@ class AVLTree
     end
     # 更新節點高度
     update_height(node)
-    # 2. 執行旋轉操作，使該子樹重新恢復平衡
+    # 2. 透過旋轉讓這棵子樹恢復平衡
     rotate(node)
   end
 
-  ### 查詢節點 ###
+  ### 搜尋節點 ###
   def search(val)
     cur = @root
-    # 迴圈查詢，越過葉節點後跳出
+    # 用迴圈搜尋，越過葉節點後跳出迴圈
     while !cur.nil?
       # 目標節點在 cur 的右子樹中
       if cur.val < val
@@ -174,30 +174,30 @@ class AVLTree
         break
       end
     end
-    # 返回目標節點
+    # 回傳目標節點
     cur
   end
 end
 
-### Driver Code ###
+### 主程式 ###
 if __FILE__ == $0
   def test_insert(tree, val)
     tree.insert(val)
-    puts "\n插入節點 #{val} 後，AVL 樹為"
+    puts "\n插入節點 #{val} 後的 AVL 樹為"
     print_tree(tree.get_root)
   end
 
   def test_remove(tree, val)
     tree.remove(val)
-    puts "\n刪除節點 #{val} 後，AVL 樹為"
+    puts "\n刪除節點 #{val} 後的 AVL 樹為"
     print_tree(tree.get_root)
   end
 
-  # 初始化空 AVL 樹
+  # 初始化一棵空的 AVL 樹
   avl_tree = AVLTree.new
 
   # 插入節點
-  # 請關注插入節點後，AVL 樹是如何保持平衡的
+  # 請觀察插入節點後 AVL 樹如何維持平衡
   for val in [1, 2, 3, 4, 5, 8, 7, 9, 10, 6]
     test_insert(avl_tree, val)
   end
@@ -206,11 +206,11 @@ if __FILE__ == $0
   test_insert(avl_tree, 7)
 
   # 刪除節點
-  # 請關注刪除節點後，AVL 樹是如何保持平衡的
-  test_remove(avl_tree, 8) # 刪除度為 0 的節點
-  test_remove(avl_tree, 5) # 刪除度為 1 的節點
-  test_remove(avl_tree, 4) # 刪除度為 2 的節點
+  # 請觀察刪除節點後 AVL 樹如何維持平衡
+  test_remove(avl_tree, 8) # 刪除分支度為 0 的節點
+  test_remove(avl_tree, 5) # 刪除分支度為 1 的節點
+  test_remove(avl_tree, 4) # 刪除分支度為 2 的節點
 
   result_node = avl_tree.search(7)
-  puts "\n查詢到的節點物件為 #{result_node}，節點值 = #{result_node.val}"
+  puts "\n找到的節點物件為 #{result_node}，節點值 = #{result_node.val}"
 end

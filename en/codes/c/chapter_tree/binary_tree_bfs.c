@@ -18,19 +18,19 @@ int *levelOrder(TreeNode *root, int *size) {
 
     /* Auxiliary queue */
     queue = (TreeNode **)malloc(sizeof(TreeNode *) * MAX_SIZE);
-    // Queue indices
+    // Queue pointers
     front = 0, rear = 0;
-    // Enqueue the root node
+    // Enqueue the root
     queue[rear++] = root;
     // Initialize a list to store the traversal sequence
     /* Auxiliary array */
     arr = (int *)malloc(sizeof(int) * MAX_SIZE);
-    // Array index
+    // Array pointer
     index = 0;
     while (front < rear) {
-        // Dequeue from the queue
+        // Dequeue a node
         node = queue[front++];
-        // Store the node value
+        // Save the node value
         arr[index++] = node->val;
         if (node->left != NULL) {
             // Enqueue the left child
@@ -45,7 +45,7 @@ int *levelOrder(TreeNode *root, int *size) {
     *size = index;
     arr = realloc(arr, sizeof(int) * (*size));
 
-    // Free the auxiliary queue array
+    // Free the auxiliary array
     free(queue);
     return arr;
 }
@@ -53,7 +53,7 @@ int *levelOrder(TreeNode *root, int *size) {
 /* Driver code */
 int main() {
     /* Initialize the binary tree */
-    // Use a helper function that builds a binary tree directly from an array
+    // Use a function that builds a binary tree directly from an array
     int nums[] = {1, 2, 3, 4, 5, 6, 7};
     int size = sizeof(nums) / sizeof(int);
     TreeNode *root = arrayToTree(nums, size);
@@ -61,9 +61,9 @@ int main() {
     printTree(root);
 
     /* Level-order traversal */
-    // Pass a pointer to receive the array length
+    // Pass in the array length
     int *arr = levelOrder(root, &size);
-    printf("Node sequence from level-order traversal = ");
+    printf("Nodes in level order = ");
     printArray(arr, size);
 
     // Free memory

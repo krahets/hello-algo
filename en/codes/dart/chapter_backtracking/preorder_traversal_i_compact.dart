@@ -30,6 +30,6 @@ void main() {
   List<TreeNode> res = [];
   preOrder(root, res);
 
-  print("\nOutput all nodes with value 7");
+  print("\nPrint all nodes with value 7");
   print(List.generate(res.length, (i) => res[i].val));
 }

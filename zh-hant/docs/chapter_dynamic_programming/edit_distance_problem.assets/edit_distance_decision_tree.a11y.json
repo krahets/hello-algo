@@ -1,0 +1,48 @@
+{
+  "context": [
+    "在決策樹模型中，每個節點代表一個字串狀態，從節點出發的每條有向邊代表一次決策，也就是插入、刪除或取代一次。求字串 s = hello 到 t = algo 的編輯距離，就等於在這棵決策樹中，尋找從根節點 hello 到目標節點 algo 的最短路徑。"
+  ],
+  "description": [
+    "圖的左側由上而下展開一條路徑，由 4 個字串節點和 3 條有向邊組成。最上方是 s = hello，最下方是 t = algo。下表依序列出各條邊對應的操作。第一條邊只標出「將 l 換成 g」，表中的「後一個 l」是比對兩端字串後補充的位置說明。",
+    "前三層展開的節點 hello、helgo、halgo 右側各有 3 個分支箭頭指向省略號「…」，表示當操作不受限制時，每個字串還有許多其他編輯選擇。圖中略去這些分支的具體字串，以一條展開的路徑說明如何從決策樹理解最短路徑，並未列出整棵搜尋樹。"
+  ],
+  "frames": [
+    {
+      "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_decision_tree.png",
+      "explanation": "這條路徑經過 3 次編輯就從 hello 到達 algo，與本節圖 14-27 範例的編輯距離 3 相符。單看這條路徑，只能確認 3 次編輯可行，還不能排除有更短路徑的可能。",
+      "id": "source-442",
+      "title": "從 hello 到 algo 的三步編輯路徑"
+    }
+  ],
+  "schema_version": 2,
+  "summary": "將字串當作節點，將單次編輯當作有向邊，就能在決策樹中尋找從 hello 到 algo 的最短路徑。圖中展示一條只需三步的轉換路徑，其餘分支未展開。",
+  "tables": [
+    {
+      "caption": "展開路徑上的編輯操作",
+      "headers": [
+        "起點字串",
+        "操作",
+        "得到的字串"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "hello",
+          "將後一個 l 換成 g",
+          "helgo"
+        ],
+        [
+          "helgo",
+          "將 e 換成 a",
+          "halgo"
+        ],
+        [
+          "halgo",
+          "刪除開頭的 h",
+          "algo"
+        ]
+      ]
+    }
+  ],
+  "title": "編輯距離的決策樹"
+}

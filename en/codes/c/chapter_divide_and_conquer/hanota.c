@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-// Assume at most 1000 disks
+// Assume at most 1000 permutations
 #define MAX_SIZE 1000
 
 /* Move one disk */
@@ -20,22 +20,22 @@ void move(int *src, int *srcSize, int *tar, int *tarSize) {
     (*tarSize)++;
 }
 
-/* Solve the Tower of Hanoi problem f(i) */
+/* Solve Tower of Hanoi subproblem f(i) */
 void dfs(int i, int *src, int *srcSize, int *buf, int *bufSize, int *tar, int *tarSize) {
-    // If only one disk remains to be moved from src, move it directly to tar
+    // If only one disk remains on src, move it directly to tar
     if (i == 1) {
         move(src, srcSize, tar, tarSize);
         return;
     }
     // Subproblem f(i-1): move the top i-1 disks from src to buf using tar
     dfs(i - 1, src, srcSize, tar, tarSize, buf, bufSize);
-    // Subproblem f(1): move the remaining disk of this subproblem from src to tar
+    // Subproblem f(1): move the remaining disk from src to tar
     move(src, srcSize, tar, tarSize);
     // Subproblem f(i-1): move the top i-1 disks from buf to tar using src
     dfs(i - 1, buf, bufSize, src, srcSize, tar, tarSize);
 }
 
-/* Solve the Tower of Hanoi problem */
+/* Solve the Tower of Hanoi */
 void solveHanota(int *A, int *ASize, int *B, int *BSize, int *C, int *CSize) {
     // Move the top n disks from A to C using B
     dfs(*ASize, A, ASize, B, BSize, C, CSize);
@@ -43,7 +43,7 @@ void solveHanota(int *A, int *ASize, int *B, int *BSize, int *C, int *CSize) {
 
 /* Driver code */
 int main() {
-    // The end of each list represents the top of the peg
+    // The end of the list is the top of the peg
     int a[] = {5, 4, 3, 2, 1};
     int b[MAX_SIZE] = {0};
     int c[MAX_SIZE] = {0};

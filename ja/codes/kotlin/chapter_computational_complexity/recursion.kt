@@ -13,25 +13,25 @@ fun recur(n: Int): Int {
     // 終了条件
     if (n == 1)
         return 1
-    // 往路：再帰呼び出し
+    // 行き：再帰呼び出し
     val res = recur(n - 1)
-    // 復路：結果を返す
+    // 帰り：結果を返す
     return n + res
 }
 
-/* 反復を使って再帰を再現する */
+/* 反復で再帰を模擬 */
 fun forLoopRecur(n: Int): Int {
-    // 明示的なスタックを使って、システムの呼び出しスタックを再現する
+    // 明示的なスタックでシステムの呼び出しスタックを模擬
     val stack = Stack<Int>()
     var res = 0
-    // 往路：再帰呼び出し
+    // 行き：再帰呼び出し
     for (i in n downTo 0) {
-        // 「プッシュ操作」で再帰の「往路」を再現する
+        // プッシュで「行き」を模擬
         stack.push(i)
     }
-    // 復路：結果を返す
+    // 帰り：結果を返す
     while (stack.isNotEmpty()) {
-        // 「ポップ操作」で再帰の「復路」を再現する
+        // ポップで「帰り」を模擬
         res += stack.pop()
     }
     // res = 1+2+3+...+n
@@ -40,7 +40,7 @@ fun forLoopRecur(n: Int): Int {
 
 /* 末尾再帰 */
 tailrec fun tailRecur(n: Int, res: Int): Int {
-    // tailrec キーワードを追加し、末尾再帰の最適化を有効にする
+    // tailrec キーワードを付けて末尾再帰最適化を有効にする
     // 終了条件
     if (n == 0)
         return res
@@ -59,19 +59,19 @@ fun fib(n: Int): Int {
     return res
 }
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
     val n = 5
     var res: Int
 
     res = recur(n)
-    println("\n再帰関数で求めた和 res = $res")
+    println("\n再帰関数による総和 res = $res")
 
     res = forLoopRecur(n)
-    println("\n反復で再帰を再現して求めた和 res = $res")
+    println("\n反復で再帰を模擬して求めた総和 res = $res")
 
     res = tailRecur(n, 0)
-    println("\n末尾再帰関数で求めた和 res = $res")
+    println("\n末尾再帰関数による総和 res = $res")
 
     res = fib(n)
     println("\nフィボナッチ数列の第 $n 項は $res")

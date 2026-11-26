@@ -6,13 +6,13 @@
 
 import utils
 
-/* Build a binary tree: divide and conquer */
+/* Build a binary tree using divide and conquer */
 func dfs(preorder: [Int], inorderMap: [Int: Int], i: Int, l: Int, r: Int) -> TreeNode? {
     // Stop when the subtree interval is empty
     if r - l < 0 {
         return nil
     }
-    // Initialize the root node
+    // Initialize the root
     let root = TreeNode(x: preorder[i])
     // Look up m to separate the left and right subtrees
     let m = inorderMap[preorder[i]]!
@@ -20,13 +20,13 @@ func dfs(preorder: [Int], inorderMap: [Int: Int], i: Int, l: Int, r: Int) -> Tre
     root.left = dfs(preorder: preorder, inorderMap: inorderMap, i: i + 1, l: l, r: m - 1)
     // Subproblem: build the right subtree
     root.right = dfs(preorder: preorder, inorderMap: inorderMap, i: i + 1 + m - l, l: m + 1, r: r)
-    // Return the root node
+    // Return the root
     return root
 }
 
 /* Build a binary tree */
 func buildTree(preorder: [Int], inorder: [Int]) -> TreeNode? {
-    // Initialize a hash table mapping each element in inorder to its index
+    // Map each inorder value to its index in a hash table
     let inorderMap = inorder.enumerated().reduce(into: [:]) { $0[$1.element] = $1.offset }
     return dfs(preorder: preorder, inorderMap: inorderMap, i: inorder.startIndex, l: inorder.startIndex, r: inorder.endIndex - 1)
 }
@@ -41,7 +41,7 @@ enum BuildTree {
         print("Inorder traversal = \(inorder)")
 
         let root = buildTree(preorder: preorder, inorder: inorder)
-        print("The constructed binary tree is:")
+        print("Reconstructed binary tree:")
         PrintUtil.printTree(root: root)
     }
 }

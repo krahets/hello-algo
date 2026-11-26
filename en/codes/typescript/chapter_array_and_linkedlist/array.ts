@@ -4,42 +4,42 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* Access an element at a random index */
+/* Access a random element */
 function randomAccess(nums: number[]): number {
-    // Choose a random index in the interval [0, nums.length)
+    // Pick a random index in [0, nums.length)
     const random_index = Math.floor(Math.random() * nums.length);
-    // Get and return the randomly selected element
+    // Get and return the element at that index
     const random_num = nums[random_index];
     return random_num;
 }
 
-/* Extend the array length */
-// Note: TypeScript Array is a dynamic array and can grow directly
-// For learning purposes, this function treats Array as a fixed-length array
+/* Extend the array */
+// A TypeScript Array is dynamic and can grow directly
+// For this example, treat Array as a fixed-length array
 function extend(nums: number[], enlarge: number): number[] {
-    // Initialize an array with the extended length
+    // Initialize an array with the new length
     const res = new Array(nums.length + enlarge).fill(0);
-    // Copy all elements from the original array to the new array
+    // Copy all elements from the original array into the new array
     for (let i = 0; i < nums.length; i++) {
         res[i] = nums[i];
     }
-    // Return the new, extended array
+    // Return the new, longer array
     return res;
 }
 
-/* Insert element num at index `index` in the array */
+/* Insert num at the specified array index */
 function insert(nums: number[], num: number, index: number): void {
-    // Shift all elements at and after index `index` one position to the right
+    // Shift the elements from index onward one position to the right
     for (let i = nums.length - 1; i > index; i--) {
         nums[i] = nums[i - 1];
     }
-    // Assign num to the element at index `index`
+    // Store num at the specified index
     nums[index] = num;
 }
 
-/* Remove the element at index `index` */
+/* Remove the element at the specified index */
 function remove(nums: number[], index: number): void {
-    // Shift all elements after index `index` one position to the left
+    // Shift all elements after index one position to the left
     for (let i = index; i < nums.length - 1; i++) {
         nums[i] = nums[i + 1];
     }
@@ -58,7 +58,7 @@ function traverse(nums: number[]): void {
     }
 }
 
-/* Find a specified element in the array */
+/* Find a given element in the array */
 function find(nums: number[], target: number): number {
     for (let i = 0; i < nums.length; i++) {
         if (nums[i] === target) {
@@ -68,7 +68,7 @@ function find(nums: number[], target: number): number {
     return -1;
 }
 
-/* Driver code */
+/* Driver Code */
 /* Initialize the array */
 const arr: number[] = new Array(5).fill(0);
 console.log('Array arr =', arr);
@@ -77,25 +77,25 @@ console.log('Array nums =', nums);
 
 /* Random access */
 let random_num = randomAccess(nums);
-console.log('Randomly selected element from nums:', random_num);
+console.log('Random element from nums:', random_num);
 
-/* Extend the length */
+/* Extend the array */
 nums = extend(nums, 3);
-console.log('Extend the array length to 8, giving nums =', nums);
+console.log('After extending the array to length 8, nums =', nums);
 
 /* Insert an element */
 insert(nums, 6, 3);
-console.log('Insert the number 6 at index 3, giving nums =', nums);
+console.log('After inserting 6 at index 3, nums =', nums);
 
 /* Remove an element */
 remove(nums, 2);
-console.log('Remove the element at index 2, giving nums =', nums);
+console.log('After removing the element at index 2, nums =', nums);
 
 /* Traverse the array */
 traverse(nums);
 
 /* Find an element */
 let index = find(nums, 3);
-console.log('Find element 3 in nums, giving index =', index);
+console.log('Index of 3 in nums =', index);
 
 export {};

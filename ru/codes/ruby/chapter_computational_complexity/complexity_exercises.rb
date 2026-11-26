@@ -4,7 +4,7 @@ Created Time: 2026-08-18
 Author: Hello Algo Team
 =end
 
-### Итеративное суммирование ###
+### Суммирование в цикле ###
 def sum_iter(n)
   res = 0
   for i in 1..n

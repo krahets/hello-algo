@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* 階段の上り方：動的計画法 */
+/* 階段の登り方：動的計画法 */
 int climbingStairsDP(int n) {
     if (n == 1 || n == 2)
         return n;
@@ -22,7 +22,7 @@ int climbingStairsDP(int n) {
     return dp[n];
 }
 
-/* 階段の上り方：空間を最適化した動的計画法 */
+/* 階段の登り方：使用メモリを削減した動的計画法 */
 int climbingStairsDPComp(int n) {
     if (n == 1 || n == 2)
         return n;
@@ -35,15 +35,15 @@ int climbingStairsDPComp(int n) {
     return b;
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     int n = 9;
 
     int res = climbingStairsDP(n);
-    cout << "上る段数： " << n << " 段、上り方は全部で " << res << " 通り" << endl;
+    cout << "全 " << n << " 段の階段の登り方は " << res << " 通り" << endl;
 
     res = climbingStairsDPComp(n);
-    cout << "上る段数： " << n << " 段、上り方は全部で " << res << " 通り" << endl;
+    cout << "全 " << n << " 段の階段の登り方は " << res << " 通り" << endl;
 
     return 0;
 }

@@ -7,40 +7,40 @@
 namespace hello_algo.chapter_divide_and_conquer;
 
 public class hanota {
-    /* Переместить один диск */
+    /* Перенос одного диска */
     void Move(List<int> src, List<int> tar) {
-        // Снять диск с вершины src
+        // Снимаем верхний диск с src
         int pan = src[^1];
         src.RemoveAt(src.Count - 1);
-        // Положить диск на вершину tar
+        // Кладём диск на вершину tar
         tar.Add(pan);
     }
 
-    /* Решить задачу Ханойской башни f(i) */
+    /* Решение задачи о ханойских башнях f(i) */
     void DFS(int i, List<int> src, List<int> buf, List<int> tar) {
-        // Если в src остался только один диск, сразу переместить его в tar
+        // Если с src осталось перенести один диск, кладём его сразу на tar
         if (i == 1) {
             Move(src, tar);
             return;
         }
-        // Подзадача f(i-1): переместить верхние i-1 дисков из src в buf с помощью tar
+        // Подзадача f(i-1): переносим i-1 верхних дисков с src на buf с помощью tar
         DFS(i - 1, src, tar, buf);
-        // Подзадача f(1): переместить оставшийся один диск из src в tar
+        // Подзадача f(1): переносим оставшийся диск с src на tar
         Move(src, tar);
-        // Подзадача f(i-1): переместить верхние i-1 дисков из buf в tar с помощью src
+        // Подзадача f(i-1): переносим i-1 верхних дисков с buf на tar с помощью src
         DFS(i - 1, buf, src, tar);
     }
 
-    /* Решить задачу Ханойской башни */
+    /* Решение задачи о ханойских башнях */
     void SolveHanota(List<int> A, List<int> B, List<int> C) {
         int n = A.Count;
-        // Переместить верхние n дисков из A в C с помощью B
+        // Переносим n верхних дисков с A на C с помощью B
         DFS(n, A, B, C);
     }
 
     [Test]
     public void Test() {
-        // Хвост списка соответствует вершине столбца
+        // Последний элемент списка соответствует вершине стержня
         List<int> A = [5, 4, 3, 2, 1];
         List<int> B = [];
         List<int> C = [];
@@ -51,7 +51,7 @@ public class hanota {
 
         SolveHanota(A, B, C);
 
-        Console.WriteLine("После завершения перемещения дисков:");
+        Console.WriteLine("После переноса дисков:");
         Console.WriteLine("A = " + string.Join(", ", A));
         Console.WriteLine("B = " + string.Join(", ", B));
         Console.WriteLine("C = " + string.Join(", ", C));

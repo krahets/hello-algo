@@ -24,7 +24,7 @@ function mulHash(key: string): number {
     return hash;
 }
 
-/* XOR-хеширование */
+/* Хеширование с помощью XOR */
 function xorHash(key: string): number {
     let hash = 0;
     const MODULUS = 1000000007;
@@ -44,17 +44,17 @@ function rotHash(key: string): number {
     return hash;
 }
 
-/* Driver Code */
-const key = 'Hello Algo';
+/* Демонстрационный код */
+const key = 'Hello 算法';
 
 let hash = addHash(key);
-console.log('Хеш-значение по сложению = ' + hash);
+console.log('Аддитивный хеш: ' + hash);
 
 hash = mulHash(key);
-console.log('Хеш-значение по умножению = ' + hash);
+console.log('Мультипликативный хеш: ' + hash);
 
 hash = xorHash(key);
-console.log('Хеш-значение по XOR = ' + hash);
+console.log('Хеш на основе XOR: ' + hash);
 
 hash = rotHash(key);
-console.log('Хеш-значение по циклическому сдвигу = ' + hash);
+console.log('Хеш с циклическим сдвигом: ' + hash);

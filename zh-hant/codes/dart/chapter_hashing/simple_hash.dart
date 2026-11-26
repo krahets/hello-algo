@@ -44,9 +44,9 @@ int rotHash(String key) {
   return hash;
 }
 
-/* Dirver Code */
+/* 主程式 */
 void main() {
-  String key = "Hello 演算法";
+  String key = "Hello 算法";
 
   int hash = addHash(key);
   print("加法雜湊值為 $hash");

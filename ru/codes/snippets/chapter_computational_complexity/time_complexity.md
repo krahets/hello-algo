@@ -1,188 +1,188 @@
 <!-- [snippet]{run_time_estimate} -->
 ```python title=""
-# На некоторой платформе выполнения
+# На некоторой платформе
 def algorithm(n: int):
-    a = 2      # 1 нс
-    a = a + 1  # 1 нс
-    a = a * 2  # 10 нс
-    # Цикл выполняется n раз
-    for _ in range(n):  # 1 нс
-        print(0)        # 5 нс
+    a = 2      # 1 ns
+    a = a + 1  # 1 ns
+    a = a * 2  # 10 ns
+    # Повторить n раз
+    for _ in range(n):  # 1 ns
+        print(0)        # 5 ns
 ```
 
 ```cpp title=""
-// На некоторой платформе выполнения
+// На некоторой платформе
 void algorithm(int n) {
-    int a = 2;  // 1 нс
-    a = a + 1;  // 1 нс
-    a = a * 2;  // 10 нс
-    // Цикл выполняется n раз
-    for (int i = 0; i < n; i++) {  // 1 нс
-        cout << 0 << endl;         // 5 нс
+    int a = 2;  // 1 ns
+    a = a + 1;  // 1 ns
+    a = a * 2;  // 10 ns
+    // Повторить n раз
+    for (int i = 0; i < n; i++) {  // 1 ns
+        cout << 0 << endl;         // 5 ns
     }
 }
 ```
 
 ```java title=""
-// На некоторой платформе выполнения
+// На некоторой платформе
 void algorithm(int n) {
-    int a = 2;  // 1 нс
-    a = a + 1;  // 1 нс
-    a = a * 2;  // 10 нс
-    // Цикл выполняется n раз
-    for (int i = 0; i < n; i++) {  // 1 нс
-        System.out.println(0);     // 5 нс
+    int a = 2;  // 1 ns
+    a = a + 1;  // 1 ns
+    a = a * 2;  // 10 ns
+    // Повторить n раз
+    for (int i = 0; i < n; i++) {  // 1 ns
+        System.out.println(0);     // 5 ns
     }
 }
 ```
 
 ```csharp title=""
-// На некоторой платформе выполнения
+// На некоторой платформе
 void Algorithm(int n) {
-    int a = 2;  // 1 нс
-    a = a + 1;  // 1 нс
-    a = a * 2;  // 10 нс
-    // Цикл выполняется n раз
-    for (int i = 0; i < n; i++) {  // 1 нс
-        Console.WriteLine(0);      // 5 нс
+    int a = 2;  // 1 ns
+    a = a + 1;  // 1 ns
+    a = a * 2;  // 10 ns
+    // Повторить n раз
+    for (int i = 0; i < n; i++) {  // 1 ns
+        Console.WriteLine(0);      // 5 ns
     }
 }
 ```
 
 ```go title=""
-// На некоторой платформе выполнения
+// На некоторой платформе
 func algorithm(n int) {
-    a := 2     // 1 нс
-    a = a + 1  // 1 нс
-    a = a * 2  // 10 нс
-    // Цикл выполняется n раз
-    for i := 0; i < n; i++ {  // 1 нс
-        fmt.Println(a)        // 5 нс
+    a := 2     // 1 ns
+    a = a + 1  // 1 ns
+    a = a * 2  // 10 ns
+    // Повторить n раз
+    for i := 0; i < n; i++ {  // 1 ns
+        fmt.Println(a)        // 5 ns
     }
 }
 ```
 
 ```swift title=""
-// На некоторой платформе выполнения
+// На некоторой платформе
 func algorithm(n: Int) {
-    var a = 2 // 1 нс
-    a = a + 1 // 1 нс
-    a = a * 2 // 10 нс
-    // Цикл выполняется n раз
-    for _ in 0 ..< n { // 1 нс
-        print(0) // 5 нс
+    var a = 2 // 1 ns
+    a = a + 1 // 1 ns
+    a = a * 2 // 10 ns
+    // Повторить n раз
+    for _ in 0 ..< n { // 1 ns
+        print(0) // 5 ns
     }
 }
 ```
 
 ```javascript title=""
-// На некоторой платформе выполнения
+// На некоторой платформе
 function algorithm(n) {
-    var a = 2; // 1 нс
-    a = a + 1; // 1 нс
-    a = a * 2; // 10 нс
-    // Цикл выполняется n раз
-    for(let i = 0; i < n; i++) { // 1 нс
-        console.log(0); // 5 нс
+    var a = 2; // 1 ns
+    a = a + 1; // 1 ns
+    a = a * 2; // 10 ns
+    // Повторить n раз
+    for(let i = 0; i < n; i++) { // 1 ns
+        console.log(0); // 5 ns
     }
 }
 ```
 
 ```typescript title=""
-// На некоторой платформе выполнения
+// На некоторой платформе
 function algorithm(n: number): void {
-    var a: number = 2; // 1 нс
-    a = a + 1; // 1 нс
-    a = a * 2; // 10 нс
-    // Цикл выполняется n раз
-    for(let i = 0; i < n; i++) { // 1 нс
-        console.log(0); // 5 нс
+    var a: number = 2; // 1 ns
+    a = a + 1; // 1 ns
+    a = a * 2; // 10 ns
+    // Повторить n раз
+    for(let i = 0; i < n; i++) { // 1 ns
+        console.log(0); // 5 ns
     }
 }
 ```
 
 ```dart title=""
-// На некоторой платформе выполнения
+// На некоторой платформе
 void algorithm(int n) {
-  int a = 2; // 1 нс
-  a = a + 1; // 1 нс
-  a = a * 2; // 10 нс
-  // Цикл выполняется n раз
-  for (int i = 0; i < n; i++) { // 1 нс
-    print(0); // 5 нс
+  int a = 2; // 1 ns
+  a = a + 1; // 1 ns
+  a = a * 2; // 10 ns
+  // Повторить n раз
+  for (int i = 0; i < n; i++) { // 1 ns
+    print(0); // 5 ns
   }
 }
 ```
 
 ```rust title=""
-// На некоторой платформе выполнения
+// На некоторой платформе
 fn algorithm(n: i32) {
-    let mut a = 2;      // 1 нс
-    a = a + 1;          // 1 нс
-    a = a * 2;          // 10 нс
-    // Цикл выполняется n раз
-    for _ in 0..n {     // 1 нс
-        println!("{}", 0);  // 5 нс
+    let mut a = 2;      // 1 ns
+    a = a + 1;          // 1 ns
+    a = a * 2;          // 10 ns
+    // Повторить n раз
+    for _ in 0..n {     // 1 ns
+        println!("{}", 0);  // 5 ns
     }
 }
 ```
 
 ```c title=""
-// На некоторой платформе выполнения
+// На некоторой платформе
 void algorithm(int n) {
-    int a = 2;  // 1 нс
-    a = a + 1;  // 1 нс
-    a = a * 2;  // 10 нс
-    // Цикл выполняется n раз
-    for (int i = 0; i < n; i++) {   // 1 нс
-        printf("%d", 0);            // 5 нс
+    int a = 2;  // 1 ns
+    a = a + 1;  // 1 ns
+    a = a * 2;  // 10 ns
+    // Повторить n раз
+    for (int i = 0; i < n; i++) {   // 1 ns
+        printf("%d", 0);            // 5 ns
     }
 }
 ```
 
 ```kotlin title=""
-// На некоторой платформе выполнения
+// На некоторой платформе
 fun algorithm(n: Int) {
-    var a = 2 // 1 нс
-    a = a + 1 // 1 нс
-    a = a * 2 // 10 нс
-    // Цикл выполняется n раз
-    for (i in 0..<n) {  // 1 нс
-        println(0)      // 5 нс
+    var a = 2 // 1 ns
+    a = a + 1 // 1 ns
+    a = a * 2 // 10 ns
+    // Повторить n раз
+    for (i in 0..<n) {  // 1 ns
+        println(0)      // 5 ns
     }
 }
 ```
 
 ```ruby title=""
-# На некоторой платформе выполнения
+# На некоторой платформе
 def algorithm(n)
-    a = 2       # 1 нс
-    a = a + 1   # 1 нс
-    a = a * 2   # 10 нс
-    # Цикл выполняется n раз
-    (0...n).each do # 1 нс
-        puts 0      # 5 нс
+    a = 2       # 1 ns
+    a = a + 1   # 1 ns
+    a = a * 2   # 10 ns
+    # Повторить n раз
+    (0...n).each do # 1 ns
+        puts 0      # 5 ns
     end
 end
 ```
 
 <!-- [snippet]{growth_trend} -->
 ```python title=""
-# Временная сложность алгоритма A: постоянная
+# Временная сложность алгоритма A: константная
 def algorithm_A(n: int):
     print(0)
 # Временная сложность алгоритма B: линейная
 def algorithm_B(n: int):
     for _ in range(n):
         print(0)
-# Временная сложность алгоритма C: постоянная
+# Временная сложность алгоритма C: константная
 def algorithm_C(n: int):
     for _ in range(1000000):
         print(0)
 ```
 
 ```cpp title=""
-// Временная сложность алгоритма A: постоянная
+// Временная сложность алгоритма A: константная
 void algorithm_A(int n) {
     cout << 0 << endl;
 }
@@ -192,7 +192,7 @@ void algorithm_B(int n) {
         cout << 0 << endl;
     }
 }
-// Временная сложность алгоритма C: постоянная
+// Временная сложность алгоритма C: константная
 void algorithm_C(int n) {
     for (int i = 0; i < 1000000; i++) {
         cout << 0 << endl;
@@ -201,7 +201,7 @@ void algorithm_C(int n) {
 ```
 
 ```java title=""
-// Временная сложность алгоритма A: постоянная
+// Временная сложность алгоритма A: константная
 void algorithm_A(int n) {
     System.out.println(0);
 }
@@ -211,7 +211,7 @@ void algorithm_B(int n) {
         System.out.println(0);
     }
 }
-// Временная сложность алгоритма C: постоянная
+// Временная сложность алгоритма C: константная
 void algorithm_C(int n) {
     for (int i = 0; i < 1000000; i++) {
         System.out.println(0);
@@ -220,7 +220,7 @@ void algorithm_C(int n) {
 ```
 
 ```csharp title=""
-// Временная сложность алгоритма A: постоянная
+// Временная сложность алгоритма A: константная
 void AlgorithmA(int n) {
     Console.WriteLine(0);
 }
@@ -230,7 +230,7 @@ void AlgorithmB(int n) {
         Console.WriteLine(0);
     }
 }
-// Временная сложность алгоритма C: постоянная
+// Временная сложность алгоритма C: константная
 void AlgorithmC(int n) {
     for (int i = 0; i < 1000000; i++) {
         Console.WriteLine(0);
@@ -239,7 +239,7 @@ void AlgorithmC(int n) {
 ```
 
 ```go title=""
-// Временная сложность алгоритма A: постоянная
+// Временная сложность алгоритма A: константная
 func algorithm_A(n int) {
     fmt.Println(0)
 }
@@ -249,7 +249,7 @@ func algorithm_B(n int) {
         fmt.Println(0)
     }
 }
-// Временная сложность алгоритма C: постоянная
+// Временная сложность алгоритма C: константная
 func algorithm_C(n int) {
     for i := 0; i < 1000000; i++ {
         fmt.Println(0)
@@ -258,7 +258,7 @@ func algorithm_C(n int) {
 ```
 
 ```swift title=""
-// Временная сложность алгоритма A: постоянная
+// Временная сложность алгоритма A: константная
 func algorithmA(n: Int) {
     print(0)
 }
@@ -270,7 +270,7 @@ func algorithmB(n: Int) {
     }
 }
 
-// Временная сложность алгоритма C: постоянная
+// Временная сложность алгоритма C: константная
 func algorithmC(n: Int) {
     for _ in 0 ..< 1_000_000 {
         print(0)
@@ -279,7 +279,7 @@ func algorithmC(n: Int) {
 ```
 
 ```javascript title=""
-// Временная сложность алгоритма A: постоянная
+// Временная сложность алгоритма A: константная
 function algorithm_A(n) {
     console.log(0);
 }
@@ -289,7 +289,7 @@ function algorithm_B(n) {
         console.log(0);
     }
 }
-// Временная сложность алгоритма C: постоянная
+// Временная сложность алгоритма C: константная
 function algorithm_C(n) {
     for (let i = 0; i < 1000000; i++) {
         console.log(0);
@@ -299,7 +299,7 @@ function algorithm_C(n) {
 ```
 
 ```typescript title=""
-// Временная сложность алгоритма A: постоянная
+// Временная сложность алгоритма A: константная
 function algorithm_A(n: number): void {
     console.log(0);
 }
@@ -309,7 +309,7 @@ function algorithm_B(n: number): void {
         console.log(0);
     }
 }
-// Временная сложность алгоритма C: постоянная
+// Временная сложность алгоритма C: константная
 function algorithm_C(n: number): void {
     for (let i = 0; i < 1000000; i++) {
         console.log(0);
@@ -318,7 +318,7 @@ function algorithm_C(n: number): void {
 ```
 
 ```dart title=""
-// Временная сложность алгоритма A: постоянная
+// Временная сложность алгоритма A: константная
 void algorithmA(int n) {
   print(0);
 }
@@ -328,7 +328,7 @@ void algorithmB(int n) {
     print(0);
   }
 }
-// Временная сложность алгоритма C: постоянная
+// Временная сложность алгоритма C: константная
 void algorithmC(int n) {
   for (int i = 0; i < 1000000; i++) {
     print(0);
@@ -337,7 +337,7 @@ void algorithmC(int n) {
 ```
 
 ```rust title=""
-// Временная сложность алгоритма A: постоянная
+// Временная сложность алгоритма A: константная
 fn algorithm_A(n: i32) {
     println!("{}", 0);
 }
@@ -347,7 +347,7 @@ fn algorithm_B(n: i32) {
         println!("{}", 0);
     }
 }
-// Временная сложность алгоритма C: постоянная
+// Временная сложность алгоритма C: константная
 fn algorithm_C(n: i32) {
     for _ in 0..1000000 {
         println!("{}", 0);
@@ -356,7 +356,7 @@ fn algorithm_C(n: i32) {
 ```
 
 ```c title=""
-// Временная сложность алгоритма A: постоянная
+// Временная сложность алгоритма A: константная
 void algorithm_A(int n) {
     printf("%d", 0);
 }
@@ -366,7 +366,7 @@ void algorithm_B(int n) {
         printf("%d", 0);
     }
 }
-// Временная сложность алгоритма C: постоянная
+// Временная сложность алгоритма C: константная
 void algorithm_C(int n) {
     for (int i = 0; i < 1000000; i++) {
         printf("%d", 0);
@@ -375,7 +375,7 @@ void algorithm_C(int n) {
 ```
 
 ```kotlin title=""
-// Временная сложность алгоритма A: постоянная
+// Временная сложность алгоритма A: константная
 fun algorithm_A(n: Int) {
     println(0)
 }
@@ -385,7 +385,7 @@ fun algorithm_B(n: Int) {
         println(0)
     }
 }
-// Временная сложность алгоритма C: постоянная
+// Временная сложность алгоритма C: константная
 fun algorithm_C(n: Int) {
     for (i in 0..<1000000) {
         println(0)
@@ -394,7 +394,7 @@ fun algorithm_C(n: Int) {
 ```
 
 ```ruby title=""
-# Временная сложность алгоритма A: постоянная
+# Временная сложность алгоритма A: константная
 def algorithm_A(n)
     puts 0
 end
@@ -404,7 +404,7 @@ def algorithm_B(n)
     (0...n).each { puts 0 }
 end
 
-# Временная сложность алгоритма C: постоянная
+# Временная сложность алгоритма C: константная
 def algorithm_C(n)
     (0...1_000_000).each { puts 0 }
 end
@@ -416,7 +416,7 @@ def algorithm(n: int):
     a = 1      # +1
     a = a + 1  # +1
     a = a * 2  # +1
-    # Цикл выполняется n раз
+    # Повторить n раз
     for i in range(n):  # +1
         print(0)        # +1
 ```
@@ -426,8 +426,8 @@ void algorithm(int n) {
     int a = 1;  // +1
     a = a + 1;  // +1
     a = a * 2;  // +1
-    // Цикл выполняется n раз
-    for (int i = 0; i < n; i++) { // +1 (каждый раз выполняется i ++)
+    // Повторить n раз
+    for (int i = 0; i < n; i++) { // +1 (i ++ на каждой итерации)
         cout << 0 << endl;    // +1
     }
 }
@@ -438,8 +438,8 @@ void algorithm(int n) {
     int a = 1;  // +1
     a = a + 1;  // +1
     a = a * 2;  // +1
-    // Цикл выполняется n раз
-    for (int i = 0; i < n; i++) { // +1 (каждый раз выполняется i ++)
+    // Повторить n раз
+    for (int i = 0; i < n; i++) { // +1 (i ++ на каждой итерации)
         System.out.println(0);    // +1
     }
 }
@@ -450,8 +450,8 @@ void Algorithm(int n) {
     int a = 1;  // +1
     a = a + 1;  // +1
     a = a * 2;  // +1
-    // Цикл выполняется n раз
-    for (int i = 0; i < n; i++) {   // +1 (каждый раз выполняется i ++)
+    // Повторить n раз
+    for (int i = 0; i < n; i++) {   // +1 (i ++ на каждой итерации)
         Console.WriteLine(0);   // +1
     }
 }
@@ -462,7 +462,7 @@ func algorithm(n int) {
     a := 1      // +1
     a = a + 1   // +1
     a = a * 2   // +1
-    // Цикл выполняется n раз
+    // Повторить n раз
     for i := 0; i < n; i++ {   // +1
         fmt.Println(a)         // +1
     }
@@ -474,7 +474,7 @@ func algorithm(n: Int) {
     var a = 1 // +1
     a = a + 1 // +1
     a = a * 2 // +1
-    // Цикл выполняется n раз
+    // Повторить n раз
     for _ in 0 ..< n { // +1
         print(0) // +1
     }
@@ -486,8 +486,8 @@ function algorithm(n) {
     var a = 1; // +1
     a += 1; // +1
     a *= 2; // +1
-    // Цикл выполняется n раз
-    for(let i = 0; i < n; i++){ // +1 (каждый раз выполняется i ++)
+    // Повторить n раз
+    for(let i = 0; i < n; i++){ // +1 (i ++ на каждой итерации)
         console.log(0); // +1
     }
 }
@@ -498,8 +498,8 @@ function algorithm(n: number): void{
     var a: number = 1; // +1
     a += 1; // +1
     a *= 2; // +1
-    // Цикл выполняется n раз
-    for(let i = 0; i < n; i++){ // +1 (каждый раз выполняется i ++)
+    // Повторить n раз
+    for(let i = 0; i < n; i++){ // +1 (i ++ на каждой итерации)
         console.log(0); // +1
     }
 }
@@ -510,8 +510,8 @@ void algorithm(int n) {
   int a = 1; // +1
   a = a + 1; // +1
   a = a * 2; // +1
-  // Цикл выполняется n раз
-  for (int i = 0; i < n; i++) { // +1 (каждый раз выполняется i ++)
+  // Повторить n раз
+  for (int i = 0; i < n; i++) { // +1 (i ++ на каждой итерации)
     print(0); // +1
   }
 }
@@ -523,8 +523,8 @@ fn algorithm(n: i32) {
     a = a + 1;      // +1
     a = a * 2;      // +1
 
-    // Цикл выполняется n раз
-    for _ in 0..n { // +1 (каждый раз выполняется i ++)
+    // Повторить n раз
+    for _ in 0..n { // +1 (i ++ на каждой итерации)
         println!("{}", 0); // +1
     }
 }
@@ -535,8 +535,8 @@ void algorithm(int n) {
     int a = 1;  // +1
     a = a + 1;  // +1
     a = a * 2;  // +1
-    // Цикл выполняется n раз
-    for (int i = 0; i < n; i++) {   // +1 (каждый раз выполняется i ++)
+    // Повторить n раз
+    for (int i = 0; i < n; i++) {   // +1 (i ++ на каждой итерации)
         printf("%d", 0);            // +1
     }
 }
@@ -547,8 +547,8 @@ fun algorithm(n: Int) {
     var a = 1 // +1
     a = a + 1 // +1
     a = a * 2 // +1
-    // Цикл выполняется n раз
-    for (i in 0..<n) { // +1 (каждый раз выполняется i ++)
+    // Повторить n раз
+    for (i in 0..<n) { // +1 (i ++ на каждой итерации)
         println(0) // +1
     }
 }
@@ -559,7 +559,7 @@ def algorithm(n)
     a = 1       # +1
     a = a + 1   # +1
     a = a * 2   # +1
-    # Цикл выполняется n раз
+    # Повторить n раз
     (0...n).each do # +1
         puts 0      # +1
     end
@@ -569,12 +569,12 @@ end
 <!-- [snippet]{count_operations} -->
 ```python title=""
 def algorithm(n: int):
-    a = 1      # +0 (прием 1)
-    a = a + n  # +0 (прием 1)
-    # +n (прием 2)
+    a = 1      # +0 (приём 1)
+    a = a + n  # +0 (приём 1)
+    # +n (приём 2)
     for i in range(5 * n + 1):
         print(0)
-    # +n*n (прием 3)
+    # +n*n (приём 3)
     for i in range(2 * n):
         for j in range(n + 1):
             print(0)
@@ -582,13 +582,13 @@ def algorithm(n: int):
 
 ```cpp title=""
 void algorithm(int n) {
-    int a = 1;  // +0 (прием 1)
-    a = a + n;  // +0 (прием 1)
-    // +n (прием 2)
+    int a = 1;  // +0 (приём 1)
+    a = a + n;  // +0 (приём 1)
+    // +n (приём 2)
     for (int i = 0; i < 5 * n + 1; i++) {
         cout << 0 << endl;
     }
-    // +n*n (прием 3)
+    // +n*n (приём 3)
     for (int i = 0; i < 2 * n; i++) {
         for (int j = 0; j < n + 1; j++) {
             cout << 0 << endl;
@@ -599,13 +599,13 @@ void algorithm(int n) {
 
 ```java title=""
 void algorithm(int n) {
-    int a = 1;  // +0 (прием 1)
-    a = a + n;  // +0 (прием 1)
-    // +n (прием 2)
+    int a = 1;  // +0 (приём 1)
+    a = a + n;  // +0 (приём 1)
+    // +n (приём 2)
     for (int i = 0; i < 5 * n + 1; i++) {
         System.out.println(0);
     }
-    // +n*n (прием 3)
+    // +n*n (приём 3)
     for (int i = 0; i < 2 * n; i++) {
         for (int j = 0; j < n + 1; j++) {
             System.out.println(0);
@@ -616,13 +616,13 @@ void algorithm(int n) {
 
 ```csharp title=""
 void Algorithm(int n) {
-    int a = 1;  // +0 (прием 1)
-    a = a + n;  // +0 (прием 1)
-    // +n (прием 2)
+    int a = 1;  // +0 (приём 1)
+    a = a + n;  // +0 (приём 1)
+    // +n (приём 2)
     for (int i = 0; i < 5 * n + 1; i++) {
         Console.WriteLine(0);
     }
-    // +n*n (прием 3)
+    // +n*n (приём 3)
     for (int i = 0; i < 2 * n; i++) {
         for (int j = 0; j < n + 1; j++) {
             Console.WriteLine(0);
@@ -633,13 +633,13 @@ void Algorithm(int n) {
 
 ```go title=""
 func algorithm(n int) {
-    a := 1     // +0 (прием 1)
-    a = a + n  // +0 (прием 1)
-    // +n (прием 2)
+    a := 1     // +0 (приём 1)
+    a = a + n  // +0 (приём 1)
+    // +n (приём 2)
     for i := 0; i < 5 * n + 1; i++ {
         fmt.Println(0)
     }
-    // +n*n (прием 3)
+    // +n*n (приём 3)
     for i := 0; i < 2 * n; i++ {
         for j := 0; j < n + 1; j++ {
             fmt.Println(0)
@@ -650,13 +650,13 @@ func algorithm(n int) {
 
 ```swift title=""
 func algorithm(n: Int) {
-    var a = 1 // +0 (прием 1)
-    a = a + n // +0 (прием 1)
-    // +n (прием 2)
+    var a = 1 // +0 (приём 1)
+    a = a + n // +0 (приём 1)
+    // +n (приём 2)
     for _ in 0 ..< (5 * n + 1) {
         print(0)
     }
-    // +n*n (прием 3)
+    // +n*n (приём 3)
     for _ in 0 ..< (2 * n) {
         for _ in 0 ..< (n + 1) {
             print(0)
@@ -667,13 +667,13 @@ func algorithm(n: Int) {
 
 ```javascript title=""
 function algorithm(n) {
-    let a = 1;  // +0 (прием 1)
-    a = a + n;  // +0 (прием 1)
-    // +n (прием 2)
+    let a = 1;  // +0 (приём 1)
+    a = a + n;  // +0 (приём 1)
+    // +n (приём 2)
     for (let i = 0; i < 5 * n + 1; i++) {
         console.log(0);
     }
-    // +n*n (прием 3)
+    // +n*n (приём 3)
     for (let i = 0; i < 2 * n; i++) {
         for (let j = 0; j < n + 1; j++) {
             console.log(0);
@@ -684,13 +684,13 @@ function algorithm(n) {
 
 ```typescript title=""
 function algorithm(n: number): void {
-    let a = 1;  // +0 (прием 1)
-    a = a + n;  // +0 (прием 1)
-    // +n (прием 2)
+    let a = 1;  // +0 (приём 1)
+    a = a + n;  // +0 (приём 1)
+    // +n (приём 2)
     for (let i = 0; i < 5 * n + 1; i++) {
         console.log(0);
     }
-    // +n*n (прием 3)
+    // +n*n (приём 3)
     for (let i = 0; i < 2 * n; i++) {
         for (let j = 0; j < n + 1; j++) {
             console.log(0);
@@ -701,13 +701,13 @@ function algorithm(n: number): void {
 
 ```dart title=""
 void algorithm(int n) {
-  int a = 1; // +0 (прием 1)
-  a = a + n; // +0 (прием 1)
-  // +n (прием 2)
+  int a = 1; // +0 (приём 1)
+  a = a + n; // +0 (приём 1)
+  // +n (приём 2)
   for (int i = 0; i < 5 * n + 1; i++) {
     print(0);
   }
-  // +n*n (прием 3)
+  // +n*n (приём 3)
   for (int i = 0; i < 2 * n; i++) {
     for (int j = 0; j < n + 1; j++) {
       print(0);
@@ -718,15 +718,15 @@ void algorithm(int n) {
 
 ```rust title=""
 fn algorithm(n: i32) {
-    let mut a = 1;     // +0 (прием 1)
-    a = a + n;        // +0 (прием 1)
+    let mut a = 1;     // +0 (приём 1)
+    a = a + n;        // +0 (приём 1)
 
-    // +n (прием 2)
+    // +n (приём 2)
     for i in 0..(5 * n + 1) {
         println!("{}", 0);
     }
 
-    // +n*n (прием 3)
+    // +n*n (приём 3)
     for i in 0..(2 * n) {
         for j in 0..(n + 1) {
             println!("{}", 0);
@@ -737,13 +737,13 @@ fn algorithm(n: i32) {
 
 ```c title=""
 void algorithm(int n) {
-    int a = 1;  // +0 (прием 1)
-    a = a + n;  // +0 (прием 1)
-    // +n (прием 2)
+    int a = 1;  // +0 (приём 1)
+    a = a + n;  // +0 (приём 1)
+    // +n (приём 2)
     for (int i = 0; i < 5 * n + 1; i++) {
         printf("%d", 0);
     }
-    // +n*n (прием 3)
+    // +n*n (приём 3)
     for (int i = 0; i < 2 * n; i++) {
         for (int j = 0; j < n + 1; j++) {
             printf("%d", 0);
@@ -754,13 +754,13 @@ void algorithm(int n) {
 
 ```kotlin title=""
 fun algorithm(n: Int) {
-    var a = 1   // +0 (прием 1)
-    a = a + n   // +0 (прием 1)
-    // +n (прием 2)
+    var a = 1   // +0 (приём 1)
+    a = a + n   // +0 (приём 1)
+    // +n (приём 2)
     for (i in 0..<5 * n + 1) {
         println(0)
     }
-    // +n*n (прием 3)
+    // +n*n (приём 3)
     for (i in 0..<2 * n) {
         for (j in 0..<n + 1) {
             println(0)
@@ -771,11 +771,11 @@ fun algorithm(n: Int) {
 
 ```ruby title=""
 def algorithm(n)
-    a = 1       # +0 (прием 1)
-    a = a + n   # +0 (прием 1)
-    # +n (прием 2)
+    a = 1       # +0 (приём 1)
+    a = a + n   # +0 (приём 1)
+    # +n (приём 2)
     (0...(5 * n + 1)).each { puts 0 }
-    # +n*n (прием 3)
+    # +n*n (приём 3)
     (0...(2 * n)).each do
         (0...(n + 1)).each { puts 0 }
     end

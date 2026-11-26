@@ -12,9 +12,9 @@ class Pair(
     var _val: String
 )
 
-/* 配列で実装したハッシュテーブル */
+/* 配列で実装したハッシュ表 */
 class ArrayHashMap {
-    // 100 個のバケットを含む配列を初期化する
+    // 100 個のバケットを持つ配列を初期化する
     private val buckets = arrayOfNulls<Pair>(100)
 
     /* ハッシュ関数 */
@@ -23,24 +23,24 @@ class ArrayHashMap {
         return index
     }
 
-    /* 取得操作 */
+    /* 検索 */
     fun get(key: Int): String? {
         val index = hashFunc(key)
         val pair = buckets[index] ?: return null
         return pair._val
     }
 
-    /* 追加操作 */
+    /* 追加 */
     fun put(key: Int, _val: String) {
         val pair = Pair(key, _val)
         val index = hashFunc(key)
         buckets[index] = pair
     }
 
-    /* 削除操作 */
+    /* 削除 */
     fun remove(key: Int) {
         val index = hashFunc(key)
-        // null に設定して、削除を表す
+        // null を代入して削除する
         buckets[index] = null
     }
 
@@ -74,7 +74,7 @@ class ArrayHashMap {
         return valueSet
     }
 
-    /* ハッシュテーブルを表示する */
+    /* ハッシュ表を表示する */
     fun print() {
         for (kv in pairSet()) {
             val key = kv.key
@@ -84,42 +84,42 @@ class ArrayHashMap {
     }
 }
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
-    /* ハッシュテーブルを初期化する */
+    /* ハッシュ表を初期化する */
     val map = ArrayHashMap()
 
-    /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加する
+    /* 追加 */
+    // ハッシュ表にペア (key, value) を追加する
     map.put(12836, "小哈")
     map.put(15937, "小啰")
     map.put(16750, "小算")
     map.put(13276, "小法")
     map.put(10583, "小鸭")
-    println("\n追加後のハッシュテーブル\nKey -> Value")
+    println("\n追加後のハッシュ表\nKey -> Value")
     map.print()
 
-    /* 取得操作 */
-    // ハッシュテーブルにキー key を渡し、値 value を取得する
+    /* 検索 */
+    // ハッシュ表でキー key に対応する値 value を取得する
     val name = map.get(15937)
-    println("\n学生番号 15937 に対応する氏名は $name")
+    println("\n学籍番号 15937 に対応する名前は $name")
 
-    /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除する
+    /* 削除 */
+    // ハッシュ表からペア (key, value) を削除する
     map.remove(10583)
-    println("\n10583 を削除した後のハッシュテーブル\nKey -> Value")
+    println("\n10583 を削除した後のハッシュ表\nKey -> Value")
     map.print()
 
-    /* ハッシュテーブルを走査する */
-    println("\nキーと値のペア Key -> Value を走査する")
+    /* ハッシュ表を走査する */
+    println("\nキーと値のペアを順に表示 Key -> Value")
     for (kv in map.pairSet()) {
         println("${kv.key} -> ${kv._val}")
     }
-    println("\nキー Key だけを走査する")
+    println("\nキーだけを順に表示 Key")
     for (key in map.keySet()) {
         println(key)
     }
-    println("\n値 Value だけを走査する")
+    println("\n値だけを順に表示 Value")
     for (_val in map.valueSet()) {
         println(_val)
     }

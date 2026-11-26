@@ -11,44 +11,44 @@ class ArrayStack {
         this.#stack = [];
     }
 
-    /* Получение длины стека */
+    /* Получить размер стека */
     get size() {
         return this.#stack.length;
     }
 
-    /* Проверка, пуст ли стек */
+    /* Проверить, пуст ли стек */
     isEmpty() {
         return this.#stack.length === 0;
     }
 
-    /* Поместить в стек */
+    /* Поместить элемент в стек */
     push(num) {
         this.#stack.push(num);
     }
 
-    /* Извлечь из стека */
+    /* Снять элемент со стека */
     pop() {
-        if (this.isEmpty()) throw new Error('стек пуст');
+        if (this.isEmpty()) throw new Error('Стек пуст');
         return this.#stack.pop();
     }
 
-    /* Доступ к верхнему элементу стека */
+    /* Посмотреть элемент на вершине стека */
     top() {
-        if (this.isEmpty()) throw new Error('стек пуст');
+        if (this.isEmpty()) throw new Error('Стек пуст');
         return this.#stack[this.#stack.length - 1];
     }
 
-    /* Вернуть Array */
+    /* Вернуть массив */
     toArray() {
         return this.#stack;
     }
 }
 
-/* Driver Code */
-/* Инициализация стека */
+/* Пример использования */
+/* Инициализировать стек */
 const stack = new ArrayStack();
 
-/* Помещение элемента в стек */
+/* Поместить элементы в стек */
 stack.push(1);
 stack.push(3);
 stack.push(2);
@@ -57,19 +57,19 @@ stack.push(4);
 console.log('Стек stack = ');
 console.log(stack.toArray());
 
-/* Доступ к верхнему элементу стека */
+/* Посмотреть элемент на вершине стека */
 const top = stack.top();
-console.log('Верхний элемент top = ' + top);
+console.log('Элемент на вершине стека top = ' + top);
 
-/* Извлечение элемента из стека */
+/* Снять элемент со стека */
 const pop = stack.pop();
-console.log('Извлеченный элемент pop = ' + pop + ', stack после извлечения = ');
+console.log('Снятый элемент pop = ' + pop + ', после снятия stack = ');
 console.log(stack.toArray());
 
-/* Получение длины стека */
+/* Получить размер стека */
 const size = stack.size;
-console.log('Длина стека size = ' + size);
+console.log('Размер стека size = ' + size);
 
-/* Проверка на пустоту */
+/* Проверить, пуст ли стек */
 const isEmpty = stack.isEmpty();
-console.log('Пуст ли стек = ' + isEmpty);
+console.log('Стек пуст = ' + isEmpty);

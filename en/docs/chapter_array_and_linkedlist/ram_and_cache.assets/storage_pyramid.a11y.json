@@ -1,25 +1,24 @@
 {
-  "schema_version": 2,
-  "title": "Pyramid hierarchy of computer storage",
-  "summary": "The storage pyramid compares speed, capacity, cost per unit capacity, and persistence across storage levels.",
   "context": [
-    "The pyramid widens from top to bottom across five levels. The top three levels sit inside a green box labeled CPU and are grouped on the left as \"Cache\"; the fourth level is labeled \"Memory\", and the fifth level is labeled \"Disk\"."
+    "The five-level pyramid widens from top to bottom. The top three levels sit inside a green box labeled CPU and are grouped under “Cache” on the left. The fourth level is labeled “Main memory” and the fifth “Disk.”"
   ],
   "description": [],
   "frames": [
     {
-      "id": "source-54",
       "book_path": "chapter_array_and_linkedlist/ram_and_cache.assets/storage_pyramid.png",
-      "title": "Pyramid hierarchy of computer storage",
-      "explanation": "On the right, the upward arrow is labeled \"Speed, Cost\": higher levels provide faster access at higher cost per unit capacity. The downward arrow is labeled \"Capacity, Persistence\": lower levels offer larger capacity, and HDD/SSD at the bottom retains data long term without power. Cache and memory are volatile storage and lose data when power is removed."
+      "explanation": "An upward arrow on the right reads “Speed, price”: higher levels provide faster access at a higher cost per unit of storage. A downward arrow reads “Capacity, persistence”: capacity increases toward the bottom, where HDDs and SSDs can retain data long after power is removed. Cache and main memory are volatile and lose their data when power is removed.",
+      "id": "source-54",
+      "title": "Levels of the computer memory and storage hierarchy"
     }
   ],
+  "schema_version": 2,
+  "summary": "The pyramid compares speed, capacity, cost per unit of storage, and persistence across levels.",
   "tables": [
     {
-      "caption": "Five storage levels from top to bottom",
+      "caption": "The five storage levels from top to bottom",
       "headers": [
         "Level",
-        "Label in figure",
+        "Label in the diagram",
         "Category"
       ],
       "row_header": 0,
@@ -27,22 +26,22 @@
         [
           "1, top",
           "L1 Cache",
-          "Cache inside CPU"
+          "Cache inside the CPU"
         ],
         [
           "2",
           "L2 Cache",
-          "Cache inside CPU"
+          "Cache inside the CPU"
         ],
         [
           "3",
           "L3 Cache",
-          "Cache inside CPU"
+          "Cache inside the CPU"
         ],
         [
           "4",
           "RAM",
-          "Memory"
+          "Main memory"
         ],
         [
           "5, bottom",
@@ -51,5 +50,6 @@
         ]
       ]
     }
-  ]
+  ],
+  "title": "Levels of the computer memory and storage hierarchy"
 }

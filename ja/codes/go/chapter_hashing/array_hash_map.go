@@ -12,14 +12,14 @@ type pair struct {
 	val string
 }
 
-/* 配列で実装したハッシュテーブル */
+/* 配列で実装したハッシュ表 */
 type arrayHashMap struct {
 	buckets []*pair
 }
 
-/* ハッシュテーブルを初期化する */
+/* ハッシュ表を初期化する */
 func newArrayHashMap() *arrayHashMap {
-	// 100 個のバケットを含む配列を初期化する
+	// 100 個のバケットを持つ配列を初期化する
 	buckets := make([]*pair, 100)
 	return &arrayHashMap{buckets: buckets}
 }
@@ -30,7 +30,7 @@ func (a *arrayHashMap) hashFunc(key int) int {
 	return index
 }
 
-/* 取得操作 */
+/* 検索 */
 func (a *arrayHashMap) get(key int) string {
 	index := a.hashFunc(key)
 	pair := a.buckets[index]
@@ -40,21 +40,21 @@ func (a *arrayHashMap) get(key int) string {
 	return pair.val
 }
 
-/* 追加操作 */
+/* 追加 */
 func (a *arrayHashMap) put(key int, val string) {
 	pair := &pair{key: key, val: val}
 	index := a.hashFunc(key)
 	a.buckets[index] = pair
 }
 
-/* 削除操作 */
+/* 削除 */
 func (a *arrayHashMap) remove(key int) {
 	index := a.hashFunc(key)
-	// nil に設定して、削除を表す
+	// nil を代入して削除する
 	a.buckets[index] = nil
 }
 
-/* すべてのキーと値のペアを取得する */
+/* キーと値のペアをすべて取得する */
 func (a *arrayHashMap) pairSet() []*pair {
 	var pairs []*pair
 	for _, pair := range a.buckets {
@@ -87,7 +87,7 @@ func (a *arrayHashMap) valueSet() []string {
 	return values
 }
 
-/* ハッシュテーブルを表示する */
+/* ハッシュ表を表示する */
 func (a *arrayHashMap) print() {
 	for _, pair := range a.buckets {
 		if pair != nil {

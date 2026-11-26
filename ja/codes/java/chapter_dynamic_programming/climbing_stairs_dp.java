@@ -7,7 +7,7 @@
 package chapter_dynamic_programming;
 
 public class climbing_stairs_dp {
-    /* 階段の上り方：動的計画法 */
+    /* 階段の登り方：動的計画法 */
     public static int climbingStairsDP(int n) {
         if (n == 1 || n == 2)
             return n;
@@ -23,7 +23,7 @@ public class climbing_stairs_dp {
         return dp[n];
     }
 
-    /* 階段の上り方：空間を最適化した動的計画法 */
+    /* 階段の登り方：使用メモリを削減した動的計画法 */
     public static int climbingStairsDPComp(int n) {
         if (n == 1 || n == 2)
             return n;
@@ -40,9 +40,9 @@ public class climbing_stairs_dp {
         int n = 9;
 
         int res = climbingStairsDP(n);
-        System.out.println(String.format("%d 段の階段を上る方法は全部で %d 通り", n, res));
+        System.out.println(String.format("全 %d 段の階段の登り方は %d 通り", n, res));
 
         res = climbingStairsDPComp(n);
-        System.out.println(String.format("%d 段の階段を上る方法は全部で %d 通り", n, res));
+        System.out.println(String.format("全 %d 段の階段の登り方は %d 通り", n, res));
     }
 }

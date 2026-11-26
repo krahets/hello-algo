@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     int num = 3;
     size_t hashNum = hash<int>()(num);
@@ -18,12 +18,12 @@ int main() {
 
     double dec = 3.14159;
     size_t hashDec = hash<double>()(dec);
-    cout << "小数 " << dec << " のハッシュ値は " << hashDec << "\n";
+    cout << "浮動小数点数 " << dec << " のハッシュ値は " << hashDec << "\n";
 
     string str = "Hello 算法";
     size_t hashStr = hash<string>()(str);
     cout << "文字列 " << str << " のハッシュ値は " << hashStr << "\n";
 
-    // C++ の組み込み std::hash() は、基本データ型と標準ライブラリの一部の型（std::string など）のハッシュ値の計算にのみ対応する
+    // C++ の標準の std::hash() でハッシュ値を計算できるのは、基本型と一部の標準ライブラリの型（std::string など）に限られる
     // 配列やオブジェクトのハッシュ値の計算は自分で実装する必要がある
 }

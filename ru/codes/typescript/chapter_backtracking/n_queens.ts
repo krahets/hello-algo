@@ -4,7 +4,7 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* Алгоритм бэктрекинга: n ферзей */
+/* Поиск с возвратом: задача о n ферзях */
 function backtrack(
     row: number,
     n: number,
@@ -14,49 +14,49 @@ function backtrack(
     diags1: boolean[],
     diags2: boolean[]
 ): void {
-    // Когда все строки уже обработаны, записать решение
+    // Когда ферзи расставлены во всех строках, сохраняем решение
     if (row === n) {
         res.push(state.map((row) => row.slice()));
         return;
     }
-    // Обойти все столбцы
+    // Перебираем все столбцы
     for (let col = 0; col < n; col++) {
-        // Вычислить главную и побочную диагонали, соответствующие этой клетке
+        // Вычисляем индексы прямой и обратной диагоналей клетки
         const diag1 = row - col + n - 1;
         const diag2 = row + col;
-        // Отсечение: в столбце, главной диагонали и побочной диагонали этой клетки не должно быть ферзей
+        // Отсечение: в столбце и на обеих диагоналях клетки не должно быть ферзей
         if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-            // Попытка: поставить ферзя в эту клетку
+            // Пробуем поставить ферзя на эту клетку
             state[row][col] = 'Q';
             cols[col] = diags1[diag1] = diags2[diag2] = true;
-            // Перейти к размещению следующей строки
+            // Переходим к следующей строке
             backtrack(row + 1, n, state, res, cols, diags1, diags2);
-            // Откат: восстановить эту клетку как пустую
+            // Возврат: освобождаем клетку
             state[row][col] = '#';
             cols[col] = diags1[diag1] = diags2[diag2] = false;
         }
     }
 }
 
-/* Решить задачу о n ферзях */
+/* Решение задачи о n ферзях */
 function nQueens(n: number): string[][][] {
-    // Инициализировать доску размера n*n, где 'Q' обозначает ферзя, а '#' — пустую клетку
+    // Создаём доску n*n, где 'Q' обозначает ферзя, а '#' — пустую клетку
     const state = Array.from({ length: n }, () => Array(n).fill('#'));
-    const cols = Array(n).fill(false); // Отмечать, есть ли ферзь в столбце
-    const diags1 = Array(2 * n - 1).fill(false); // Отмечать наличие ферзя на главной диагонали
-    const diags2 = Array(2 * n - 1).fill(false); // Отмечать наличие ферзя на побочной диагонали
+    const cols = Array(n).fill(false); // Отмечаем столбцы, занятые ферзями
+    const diags1 = Array(2 * n - 1).fill(false); // Отмечаем прямые диагонали, занятые ферзями
+    const diags2 = Array(2 * n - 1).fill(false); // Отмечаем обратные диагонали, занятые ферзями
     const res: string[][][] = [];
 
     backtrack(0, n, state, res, cols, diags1, diags2);
     return res;
 }
 
-// Driver Code
+// Основная программа
 const n = 4;
 const res = nQueens(n);
 
-console.log(`Размер входной доски = ${n}`);
-console.log(`Количество способов расстановки ферзей: ${res.length}`);
+console.log(`Длина стороны доски: ${n}`);
+console.log(`Число расстановок ферзей: ${res.length}.`);
 res.forEach((state) => {
     console.log('--------------------');
     state.forEach((row) => console.log(row));

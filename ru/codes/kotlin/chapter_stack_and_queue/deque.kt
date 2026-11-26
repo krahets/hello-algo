@@ -8,38 +8,38 @@ package chapter_stack_and_queue
 
 import java.util.*
 
-/* Driver Code */
+/* Пример использования */
 fun main() {
-    /* Инициализация двусторонней очереди */
+    /* Инициализировать дек */
     val deque = LinkedList<Int>()
     deque.offerLast(3)
     deque.offerLast(2)
     deque.offerLast(5)
-    println("Двусторонняя очередь deque = $deque")
+    println("Дек deque = $deque")
 
-    /* Доступ к элементу */
+    /* Посмотреть первый и последний элементы */
     val peekFirst = deque.peekFirst()
-    println("Первый элемент peekFirst = $peekFirst")
+    println("Первый элемент дека peekFirst = $peekFirst")
     val peekLast = deque.peekLast()
-    println("Последний элемент peekLast = $peekLast")
+    println("Последний элемент дека peekLast = $peekLast")
 
-    /* Добавление элемента в очередь */
+    /* Добавить элементы в дек */
     deque.offerLast(4)
-    println("После добавления элемента 4 в хвост deque = $deque")
+    println("После добавления 4 в конец дека deque = $deque")
     deque.offerFirst(1)
-    println("После добавления элемента 1 в голову deque = $deque")
+    println("После добавления 1 в начало дека deque = $deque")
 
-    /* Извлечение элемента из очереди */
+    /* Извлечь элементы из дека */
     val popLast = deque.pollLast()
-    println("Извлеченный из хвоста элемент = $popLast, deque после извлечения из хвоста = $deque")
+    println("Извлечённый последний элемент = $popLast, после извлечения deque = $deque")
     val popFirst = deque.pollFirst()
-    println("Извлеченный из головы элемент = $popFirst, deque после извлечения из головы = $deque")
+    println("Извлечённый первый элемент = $popFirst, после извлечения deque = $deque")
 
-    /* Получение длины двусторонней очереди */
+    /* Получить длину дека */
     val size = deque.size
-    println("Длина двусторонней очереди size = $size")
+    println("Длина дека size = $size")
 
-    /* Проверка, пуста ли двусторонняя очередь */
+    /* Проверить, пуст ли дек */
     val isEmpty = deque.isEmpty()
-    println("Пуста ли двусторонняя очередь = $isEmpty")
+    println("Дек пуст = $isEmpty")
 }

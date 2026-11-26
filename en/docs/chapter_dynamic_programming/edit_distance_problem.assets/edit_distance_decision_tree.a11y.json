@@ -1,22 +1,21 @@
 {
-  "schema_version": 2,
-  "title": "Decision tree for edit distance",
-  "summary": "Modeling strings as nodes and single edits as directed edges frames the problem as finding the shortest path from hello to algo in a decision tree; the figure expands one three-step transformation path while leaving other branches unexpanded.",
   "context": [
-    "In the decision tree model, each node represents a string state, and each outgoing directed edge represents one decision (a single insertion, deletion, or replacement operation). Finding the edit distance from string s = hello to t = algo is equivalent to finding the shortest path from the root node hello to the target node algo in this decision tree."
+    "In the decision tree, each node represents a string state. Each outgoing directed edge represents one decision: insert, delete, or replace a character. Finding the edit distance from s = hello to t = algo is equivalent to finding the shortest path from the root hello to the target algo."
   ],
   "description": [
-    "From top to bottom on the left, the figure expands a single path of 4 string nodes and 3 directed edges, starting from s = hello at the top and ending at t = algo at the bottom. The table below lists each edge and its operation in order; the first edge in the drawing reads only \"Replace l with g,\" and \"the second l\" is added by comparing the two node strings to clarify the position.",
-    "To the right of each expanded node in the top three levels (hello, helgo, and halgo), 3 additional branch arrows point to ellipses \"...\", indicating that without restrictions on edits, every string can branch into many other edit choices; those abbreviated branches omit specific strings, since the figure illustrates the shortest-path perspective on the decision tree rather than exhausting the entire search tree."
+    "On the left, a path runs downward through 4 string nodes connected by 3 directed edges, from s = hello at the top to t = algo at the bottom. The table lists each edge and operation in order. The first edge says only “Replace l with g.” Comparing its two strings tells us that it is the second l.",
+    "Each expanded node in the first three levels (hello, helgo, halgo) also has 3 arrows to the right pointing to ellipses “…”: without restrictions, each string admits many other edits. The omitted branches do not specify strings. The diagram illustrates the shortest-path interpretation without enumerating the entire tree."
   ],
   "frames": [
     {
-      "id": "source-442",
       "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_decision_tree.png",
-      "title": "Three-step edit path from hello to algo",
-      "explanation": "This path reaches algo from hello in 3 edits, matching the edit distance of 3 shown in Figure 14-27 earlier in this section. Examining this single expanded path only confirms that 3 edits suffice; by itself, it cannot rule out a shorter path."
+      "explanation": "This path takes 3 edits from hello to algo, matching the edit distance of 3 given in Figure 14-27 of this section. The path alone establishes that 3 edits suffice. It cannot rule out a shorter path.",
+      "id": "source-442",
+      "title": "A three-edit path from hello to algo"
     }
   ],
+  "schema_version": 2,
+  "summary": "Each node is a string, and each directed edge is one edit. Find the shortest path from hello to algo. The figure shows a three-edit path and leaves the other branches unexpanded.",
   "tables": [
     {
       "caption": "Edits along the expanded path",
@@ -25,6 +24,7 @@
         "Operation",
         "Resulting string"
       ],
+      "row_header": 0,
       "rows": [
         [
           "hello",
@@ -38,11 +38,11 @@
         ],
         [
           "halgo",
-          "Delete the leading h",
+          "Delete the initial h",
           "algo"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Decision tree for edit distance"
 }

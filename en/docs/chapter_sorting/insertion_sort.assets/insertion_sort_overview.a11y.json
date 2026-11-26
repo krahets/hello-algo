@@ -1,88 +1,16 @@
 {
-  "schema_version": 2,
-  "title": "Round-by-round insertion sort process",
-  "summary": "Each round inserts the immediately adjacent element on the right into the sorted prefix, expanding the prefix by one element.",
-  "context": [
-    "The initial array is nums = [4, 1, 3, 1, 5, 2], indexed from 0 to 5. A single-element range containing only the first element 4 is trivially sorted, so the initial \"Sorted region\" is [0, 0].",
-    "Each round selects the element immediately to the right of the sorted prefix as base, shifts elements greater than base to the right, and writes base into the vacated position."
-  ],
-  "description": [
-    "The sorted prefix only guarantees relative order among its current elements; when smaller elements are inserted in later rounds, elements inside it may still shift right.",
-    "In the third round, when inserting the second 1, shifting stops as soon as it meets the equal first 1, preserving their original relative order. In the fourth round, 5 needs no movement while the sorted prefix still expands; the fifth round inserts 2 to complete the sort."
-  ],
-  "frames": [
-    {
-      "id": "source-262",
-      "book_path": "chapter_sorting/insertion_sort.assets/insertion_sort_overview.png",
-      "title": "Round-by-round insertion sort process",
-      "explanation": "After five rounds, the sorted prefix covers the entire array, and the two 1s retain their original order."
-    }
-  ],
-  "tables": [
-    {
-      "caption": "Round-by-round states of insertion sort",
-      "headers": [
-        "Stage",
-        "Array",
-        "Sorted region",
-        "Next base value"
-      ],
-      "rows": [
-        [
-          "Initial",
-          "[4, 1, 3, 1, 5, 2]",
-          "[0, 0]",
-          "1"
-        ],
-        [
-          "After round 1",
-          "[1, 4, 3, 1, 5, 2]",
-          "[0, 1]",
-          "3"
-        ],
-        [
-          "After round 2",
-          "[1, 3, 4, 1, 5, 2]",
-          "[0, 2]",
-          "1"
-        ],
-        [
-          "After round 3",
-          "[1, 1, 3, 4, 5, 2]",
-          "[0, 3]",
-          "5"
-        ],
-        [
-          "After round 4",
-          "[1, 1, 3, 4, 5, 2]",
-          "[0, 4]",
-          "2"
-        ],
-        [
-          "After round 5",
-          "[1, 1, 2, 3, 4, 5]",
-          "[0, 5]",
-          "None (completed)"
-        ]
-      ],
-      "row_header": 0
-    }
-  ],
   "animations": {
     "insertion-sort-overview": {
       "kind": "prose",
       "prose": {
-        "title": "Round-by-round insertion sort process",
-        "summary": "The six states correspond to the initial state followed by the states after rounds 1 through 5; each animation step number is 1 greater than the number of completed rounds.",
         "context": [],
         "description": [],
         "steps": [
           {
+            "announcement": "Start with a sorted prefix containing only 4.",
+            "explanation": "Initially, the first element, 4 at index 0, forms the sorted prefix [0, 0] on its own. The next pass will insert the 1 at index 1 into this prefix.",
             "id": "step-1",
-            "title": "Start from a single-element prefix",
-            "explanation": "Initially, the first element 4 at index 0 forms the sorted prefix [0, 0] by itself; the next round will select 1 at index 1 as the base element to insert into the prefix.",
-            "key_state": "Initial state: nums = [4, 1, 3, 1, 5, 2], sorted prefix [0, 0]. Next base element: 1 at index 1.",
-            "announcement": "Starting from a sorted prefix containing only 4.",
+            "key_state": "Initially nums = [4, 1, 3, 1, 5, 2], with sorted prefix [0, 0]. The next value to insert is 1 at index 1.",
             "state_tables": [
               {
                 "caption": "Initial array for insertion sort",
@@ -91,6 +19,7 @@
                   "Value",
                   "Current role"
                 ],
+                "row_header": 0,
                 "rows": [
                   [
                     "0",
@@ -100,7 +29,7 @@
                   [
                     "1",
                     "1",
-                    "Next base element"
+                    "Next element to insert"
                   ],
                   [
                     "2",
@@ -122,25 +51,25 @@
                     "2",
                     "Unprocessed"
                   ]
-                ],
-                "row_header": 0
+                ]
               }
-            ]
+            ],
+            "title": "Start with a one-element prefix"
           },
           {
+            "announcement": "Pass 1 is complete. The 1 has been inserted before 4.",
+            "explanation": "Pass 1 takes the 1 at index 1, shifts the larger 4 in the prefix right to index 1, and writes 1 to index 0. The sorted prefix grows to [0, 1]. Next comes the 3 at index 2.",
             "id": "step-2",
-            "title": "Insert 1 before 4",
-            "explanation": "Round 1 selects 1 at index 1, shifts the larger element 4 right to index 1, and writes 1 to index 0, expanding the sorted prefix to [0, 1]. The next base element is 3 at index 2.",
-            "key_state": "After round 1: nums = [1, 4, 3, 1, 5, 2], sorted prefix [0, 1]. Next base element: 3 at index 2.",
-            "announcement": "Round 1 complete: inserted 1 before 4.",
+            "key_state": "After pass 1, nums = [1, 4, 3, 1, 5, 2], with sorted prefix [0, 1]. Next comes the 3 at index 2.",
             "state_tables": [
               {
-                "caption": "Insertion sort array after round 1",
+                "caption": "Array after insertion sort pass 1",
                 "headers": [
                   "Index",
                   "Value",
                   "Current role"
                 ],
+                "row_header": 0,
                 "rows": [
                   [
                     "0",
@@ -155,7 +84,7 @@
                   [
                     "2",
                     "3",
-                    "Next base element"
+                    "Next element to insert"
                   ],
                   [
                     "3",
@@ -172,25 +101,25 @@
                     "2",
                     "Unprocessed"
                   ]
-                ],
-                "row_header": 0
+                ]
               }
-            ]
+            ],
+            "title": "Insert 1 before 4"
           },
           {
+            "announcement": "Pass 2 is complete. The 3 has been inserted between 1 and 4.",
+            "explanation": "Pass 2 takes the 3 at index 2. Only 4 in the prefix exceeds 3, so shift 4 right to index 2 and insert 3 at index 1, between 1 and 4. The sorted prefix grows to [0, 2]. Next comes the 1 at index 3.",
             "id": "step-3",
-            "title": "Insert 3 between 1 and 4",
-            "explanation": "Round 2 selects 3 at index 2, shifts only 4 (greater than 3 in the prefix) right to index 2, and inserts 3 at index 1 (between 1 and 4), expanding the sorted prefix to [0, 2]. The next base element is 1 at index 3.",
-            "key_state": "After round 2: nums = [1, 3, 4, 1, 5, 2], sorted prefix [0, 2]. Next base element: 1 at index 3.",
-            "announcement": "Round 2 complete: inserted 3 between 1 and 4.",
+            "key_state": "After pass 2, nums = [1, 3, 4, 1, 5, 2], with sorted prefix [0, 2]. Next comes the 1 at index 3.",
             "state_tables": [
               {
-                "caption": "Insertion sort array after round 2",
+                "caption": "Array after insertion sort pass 2",
                 "headers": [
                   "Index",
                   "Value",
                   "Current role"
                 ],
+                "row_header": 0,
                 "rows": [
                   [
                     "0",
@@ -210,7 +139,7 @@
                   [
                     "3",
                     "1",
-                    "Next base element"
+                    "Next element to insert"
                   ],
                   [
                     "4",
@@ -222,25 +151,25 @@
                     "2",
                     "Unprocessed"
                   ]
-                ],
-                "row_header": 0
+                ]
               }
-            ]
+            ],
+            "title": "Insert 3 between 1 and 4"
           },
           {
+            "announcement": "Pass 3 is complete. The second 1 has been inserted after the first, preserving their order.",
+            "explanation": "Pass 3 takes the second 1, at index 3, and shifts the larger values 4 and 3 right in turn. Shifting stops as soon as the scan reaches the equal first 1 at index 0. Insert the second 1 just after it at index 1, preserving their original order. Next comes the 5 at index 4. The sorted prefix is now [0, 3].",
             "id": "step-4",
-            "title": "Insert the second 1 after the first 1",
-            "explanation": "Round 3 selects the second 1 at index 3 and shifts 4 and 3 (both greater than 1 in the prefix) to the right in turn; upon reaching the equal first 1 at index 0, shifting stops immediately and the second 1 is inserted right after it at index 1, preserving the stable order of equal elements. The next base element is 5 at index 4. The sorted prefix is now [0, 3].",
-            "key_state": "After round 3: nums = [1, 1, 3, 4, 5, 2], sorted prefix [0, 3]. Next base element: 5 at index 4. The two 1s keep their original order.",
-            "announcement": "Round 3 complete: inserted the second 1 after the first 1, preserving their original order.",
+            "key_state": "After pass 3, nums = [1, 1, 3, 4, 5, 2], with sorted prefix [0, 3]. Next comes the 5 at index 4. The two 1s retain their original order.",
             "state_tables": [
               {
-                "caption": "Insertion sort array after round 3",
+                "caption": "Array after insertion sort pass 3",
                 "headers": [
                   "Index",
                   "Value",
                   "Current role"
                 ],
+                "row_header": 0,
                 "rows": [
                   [
                     "0",
@@ -265,32 +194,32 @@
                   [
                     "4",
                     "5",
-                    "Next base element"
+                    "Next element to insert"
                   ],
                   [
                     "5",
                     "2",
                     "Unprocessed"
                   ]
-                ],
-                "row_header": 0
+                ]
               }
-            ]
+            ],
+            "title": "Insert the second 1 after the first"
           },
           {
+            "announcement": "Pass 4 is complete. The 5 stayed in place, and the sorted prefix grew.",
+            "explanation": "Pass 4 takes the 5 at index 4. It exceeds 4, the largest value in the sorted prefix [1, 1, 3, 4], so nothing shifts right. The 5 joins the prefix in place, extending it to [0, 4]. Next comes the 2 at index 5.",
             "id": "step-5",
-            "title": "Include 5 in the sorted prefix",
-            "explanation": "Round 4 selects 5 at index 4; because 5 is greater than the largest element 4 in the sorted prefix [1, 1, 3, 4], no elements need to shift right and 5 joins the prefix in place, expanding the sorted prefix to [0, 4]. The next base element is 2 at index 5.",
-            "key_state": "After round 4: nums = [1, 1, 3, 4, 5, 2], sorted prefix [0, 4]. Next base element: 2 at index 5. No elements moved in this round, and 5 joined the prefix.",
-            "announcement": "Round 4 complete: 5 needed no movement, and the sorted prefix expanded.",
+            "key_state": "After pass 4, nums = [1, 1, 3, 4, 5, 2], with sorted prefix [0, 4]. Next comes the 2 at index 5. No elements moved as 5 joined the prefix.",
             "state_tables": [
               {
-                "caption": "Insertion sort array after round 4",
+                "caption": "Array after insertion sort pass 4",
                 "headers": [
                   "Index",
                   "Value",
                   "Current role"
                 ],
+                "row_header": 0,
                 "rows": [
                   [
                     "0",
@@ -320,27 +249,27 @@
                   [
                     "5",
                     "2",
-                    "Next base element"
+                    "Next element to insert"
                   ]
-                ],
-                "row_header": 0
+                ]
               }
-            ]
+            ],
+            "title": "Add 5 to the sorted prefix"
           },
           {
+            "announcement": "Pass 5 is complete. The 2 has been inserted after the two 1s, completing the sort.",
+            "explanation": "Pass 5 takes the final 2 at index 5 and shifts the larger values 5, 4, and 3 one place right in turn. Insert 2 after the two 1s at index 2. The sorted prefix now covers [0, 5], completing the sort.",
             "id": "step-6",
-            "title": "Insert 2 after the two 1s",
-            "explanation": "Round 5 selects 2 at the final index 5, shifts 5, 4, and 3 (all greater than 2 in the prefix) one position to the right in turn, and inserts 2 at index 2 after the two 1s; the sorted prefix now covers [0, 5], completing the sort.",
-            "key_state": "After round 5: nums = [1, 1, 2, 3, 4, 5], sorted prefix [0, 5]. Sorting complete.",
-            "announcement": "Round 5 complete: inserted 2 after the two 1s; sorting complete.",
+            "key_state": "After pass 5, nums = [1, 1, 2, 3, 4, 5], with sorted prefix [0, 5]. Sorting is complete.",
             "state_tables": [
               {
-                "caption": "Insertion sort array after round 5",
+                "caption": "Array after insertion sort pass 5",
                 "headers": [
                   "Index",
                   "Value",
                   "Current role"
                 ],
+                "row_header": 0,
                 "rows": [
                   [
                     "0",
@@ -372,13 +301,84 @@
                     "5",
                     "Sorted prefix"
                   ]
-                ],
-                "row_header": 0
+                ]
               }
-            ]
+            ],
+            "title": "Insert 2 after both 1s"
           }
-        ]
+        ],
+        "summary": "The six states show the initial array and the array after passes 1 through 5. The animation step number is one greater than the number of completed passes.",
+        "title": "Insertion sort pass by pass"
       }
     }
-  }
+  },
+  "context": [
+    "Initially nums = [4, 1, 3, 1, 5, 2], with indices 0 through 5. The single-element range holding the first element, 4, is already sorted. The initial sorted range is therefore [0, 0].",
+    "Each pass takes the element immediately to the right of the sorted prefix as base, shifts larger elements right, and writes base into the position that opens up."
+  ],
+  "description": [
+    "Only the order within the prefix is guaranteed. Its elements may still shift right when smaller elements are inserted later.",
+    "Pass 3 inserts the second 1. Shifting stops at the equal first 1, preserving their original order. The 5 in pass 4 needs no move, but the prefix still grows. Pass 5 inserts 2 to finish sorting."
+  ],
+  "frames": [
+    {
+      "book_path": "chapter_sorting/insertion_sort.assets/insertion_sort_overview.png",
+      "explanation": "After five passes, the sorted prefix covers the whole array and the two 1s remain in their original order.",
+      "id": "source-262",
+      "title": "Insertion sort pass by pass"
+    }
+  ],
+  "schema_version": 2,
+  "summary": "Each pass inserts the next element on the right into the sorted prefix, extending it by one.",
+  "tables": [
+    {
+      "caption": "Array states by insertion sort pass",
+      "headers": [
+        "Stage",
+        "Array",
+        "Sorted range",
+        "Value to insert next"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "Initial",
+          "[4, 1, 3, 1, 5, 2]",
+          "[0, 0]",
+          "1"
+        ],
+        [
+          "After pass 1",
+          "[1, 4, 3, 1, 5, 2]",
+          "[0, 1]",
+          "3"
+        ],
+        [
+          "After pass 2",
+          "[1, 3, 4, 1, 5, 2]",
+          "[0, 2]",
+          "1"
+        ],
+        [
+          "After pass 3",
+          "[1, 1, 3, 4, 5, 2]",
+          "[0, 3]",
+          "5"
+        ],
+        [
+          "After pass 4",
+          "[1, 1, 3, 4, 5, 2]",
+          "[0, 4]",
+          "2"
+        ],
+        [
+          "After pass 5",
+          "[1, 1, 2, 3, 4, 5]",
+          "[0, 5]",
+          "None, sorting complete"
+        ]
+      ]
+    }
+  ],
+  "title": "Insertion sort pass by pass"
 }

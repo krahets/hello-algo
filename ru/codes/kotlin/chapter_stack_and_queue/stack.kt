@@ -8,12 +8,12 @@ package chapter_stack_and_queue
 
 import java.util.*
 
-/* Driver Code */
+/* Пример использования */
 fun main() {
-    /* Инициализация стека */
+    /* Инициализировать стек */
     val stack = Stack<Int>()
 
-    /* Помещение элемента в стек */
+    /* Поместить элементы в стек */
     stack.push(1)
     stack.push(3)
     stack.push(2)
@@ -21,19 +21,19 @@ fun main() {
     stack.push(4)
     println("Стек stack = $stack")
 
-    /* Доступ к верхнему элементу стека */
+    /* Посмотреть элемент на вершине стека */
     val peek = stack.peek()
-    println("Верхний элемент peek = $peek")
+    println("Элемент на вершине стека peek = $peek")
 
-    /* Извлечение элемента из стека */
+    /* Снять элемент со стека */
     val pop = stack.pop()
-    println("Извлеченный элемент pop = $pop, stack после извлечения = $stack")
+    println("Снятый элемент pop = $pop, после снятия stack = $stack")
 
-    /* Получение длины стека */
+    /* Получить размер стека */
     val size = stack.size
-    println("Длина стека size = $size")
+    println("Размер стека size = $size")
 
-    /* Проверка на пустоту */
+    /* Проверить, пуст ли стек */
     val isEmpty = stack.isEmpty()
-    println("Пуст ли стек = $isEmpty")
+    println("Стек пуст = $isEmpty")
 }

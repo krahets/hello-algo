@@ -6,10 +6,10 @@
 
 namespace hello_algo.chapter_graph;
 
-/* 隣接行列で実装した無向グラフクラス */
+/* 隣接行列で無向グラフを表すクラス */
 class GraphAdjMat {
-    List<int> vertices;     // 頂点リスト。要素は「頂点の値」、インデックスは「頂点のインデックス」を表す
-    List<List<int>> adjMat; // 隣接行列。行と列のインデックスは「頂点のインデックス」に対応する
+    List<int> vertices;     // 頂点リスト。要素は頂点の値を、インデックスは頂点のインデックスを表す
+    List<List<int>> adjMat; // 隣接行列。行と列のインデックスは頂点のインデックスに対応する
 
     /* コンストラクタ */
     public GraphAdjMat(int[] vertices, int[][] edges) {
@@ -20,7 +20,7 @@ class GraphAdjMat {
             AddVertex(val);
         }
         // 辺を追加する
-        // edges の要素は頂点のインデックス、すなわち vertices の要素のインデックスを表すことに注意
+        // edges の各要素が示すのは頂点のインデックス、すなわち vertices の要素のインデックス
         foreach (int[] e in edges) {
             AddEdge(e[0], e[1]);
         }
@@ -34,15 +34,15 @@ class GraphAdjMat {
     /* 頂点を追加する */
     public void AddVertex(int val) {
         int n = Size();
-        // 頂点リストに新しい頂点の値を追加する
+        // 新しい頂点の値を頂点リストに追加する
         vertices.Add(val);
-        // 隣接行列に 1 行追加する
+        // 隣接行列に行を 1 つ追加する
         List<int> newRow = new(n);
         for (int j = 0; j < n; j++) {
             newRow.Add(0);
         }
         adjMat.Add(newRow);
-        // 隣接行列に 1 列追加する
+        // 隣接行列に列を 1 つ追加する
         foreach (List<int> row in adjMat) {
             row.Add(0);
         }
@@ -63,20 +63,20 @@ class GraphAdjMat {
     }
 
     /* 辺を追加する */
-    // 引数 i, j は vertices の要素のインデックスに対応する
+    // 引数 i と j は vertices の要素のインデックス
     public void AddEdge(int i, int j) {
-        // 添字が範囲外または互いに等しい場合の処理
+        // インデックスが範囲外または同じ値の場合の処理
         if (i < 0 || j < 0 || i >= Size() || j >= Size() || i == j)
             throw new IndexOutOfRangeException();
-        // 無向グラフの隣接行列は主対角線に関して対称であり、(i, j) == (j, i) を満たす
+        // 無向グラフの隣接行列は主対角線に関して対称で、(i, j) == (j, i) を満たす
         adjMat[i][j] = 1;
         adjMat[j][i] = 1;
     }
 
     /* 辺を削除する */
-    // 引数 i, j は vertices の要素のインデックスに対応する
+    // 引数 i と j は vertices の要素のインデックス
     public void RemoveEdge(int i, int j) {
-        // 添字が範囲外または互いに等しい場合の処理
+        // インデックスが範囲外または同じ値の場合の処理
         if (i < 0 || j < 0 || i >= Size() || j >= Size() || i == j)
             throw new IndexOutOfRangeException();
         adjMat[i][j] = 0;
@@ -96,7 +96,7 @@ public class graph_adjacency_matrix {
     [Test]
     public void Test() {
         /* 無向グラフを初期化する */
-        // edges の要素は頂点のインデックス、すなわち vertices の要素のインデックスを表すことに注意
+        // edges の各要素が示すのは頂点のインデックス、すなわち vertices の要素のインデックス
         int[] vertices = [1, 3, 2, 5, 4];
         int[][] edges = 
         [
@@ -108,30 +108,30 @@ public class graph_adjacency_matrix {
             [3, 4]
         ];
         GraphAdjMat graph = new(vertices, edges);
-        Console.WriteLine("\n初期化後のグラフ");
+        Console.WriteLine("\n初期化後のグラフ：");
         graph.Print();
 
         /* 辺を追加する */
-        // 頂点 1, 2 のインデックスはそれぞれ 0, 2
+        // 頂点 1 と 2 のインデックスはそれぞれ 0 と 2
         graph.AddEdge(0, 2);
-        Console.WriteLine("\n辺 1-2 を追加した後のグラフ");
+        Console.WriteLine("\n辺 1-2 を追加した後のグラフ：");
         graph.Print();
 
         /* 辺を削除する */
-        // 頂点 1, 3 のインデックスはそれぞれ 0, 1
+        // 頂点 1 と 3 のインデックスはそれぞれ 0 と 1
         graph.RemoveEdge(0, 1);
-        Console.WriteLine("\n辺 1-3 を削除した後のグラフ");
+        Console.WriteLine("\n辺 1-3 を削除した後のグラフ：");
         graph.Print();
 
         /* 頂点を追加する */
         graph.AddVertex(6);
-        Console.WriteLine("\n頂点 6 を追加した後のグラフ");
+        Console.WriteLine("\n頂点 6 を追加した後のグラフ：");
         graph.Print();
 
         /* 頂点を削除する */
         // 頂点 3 のインデックスは 1
         graph.RemoveVertex(1);
-        Console.WriteLine("\n頂点 3 を削除した後のグラフ");
+        Console.WriteLine("\n頂点 3 を削除した後のグラフ：");
         graph.Print();
     }
 }

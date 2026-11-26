@@ -9,8 +9,8 @@
 /* Стек на основе связного списка */
 class LinkedListStack {
   private:
-    ListNode *stackTop; // Использовать головной узел как вершину стека
-    int stkSize;        // Длина стека
+    ListNode *stackTop; // Первый узел списка служит вершиной стека
+    int stkSize;        // Размер стека
 
   public:
     LinkedListStack() {
@@ -19,21 +19,21 @@ class LinkedListStack {
     }
 
     ~LinkedListStack() {
-        // Обходить связный список, удалять узлы и освобождать память
+        // Пройти по связному списку и удалить узлы, освободив память
         freeMemoryLinkedList(stackTop);
     }
 
-    /* Получение длины стека */
+    /* Получить размер стека */
     int size() {
         return stkSize;
     }
 
-    /* Проверка, пуст ли стек */
+    /* Проверить, пуст ли стек */
     bool isEmpty() {
         return size() == 0;
     }
 
-    /* Поместить в стек */
+    /* Поместить элемент в стек */
     void push(int num) {
         ListNode *node = new ListNode(num);
         node->next = stackTop;
@@ -41,7 +41,7 @@ class LinkedListStack {
         stkSize++;
     }
 
-    /* Извлечь из стека */
+    /* Снять элемент со стека */
     int pop() {
         int num = top();
         ListNode *tmp = stackTop;
@@ -52,14 +52,14 @@ class LinkedListStack {
         return num;
     }
 
-    /* Доступ к верхнему элементу стека */
+    /* Посмотреть элемент на вершине стека */
     int top() {
         if (isEmpty())
-            throw out_of_range("стек пуст");
+            throw out_of_range("Стек пуст");
         return stackTop->val;
     }
 
-    /* Преобразовать List в Array и вернуть */
+    /* Преобразовать связный список в динамический массив и вернуть его */
     vector<int> toVector() {
         ListNode *node = stackTop;
         vector<int> res(size());
@@ -71,12 +71,12 @@ class LinkedListStack {
     }
 };
 
-/* Driver Code */
+/* Пример использования */
 int main() {
-    /* Инициализация стека */
+    /* Инициализировать стек */
     LinkedListStack *stack = new LinkedListStack();
 
-    /* Помещение элемента в стек */
+    /* Поместить элементы в стек */
     stack->push(1);
     stack->push(3);
     stack->push(2);
@@ -85,22 +85,22 @@ int main() {
     cout << "Стек stack = ";
     printVector(stack->toVector());
 
-    /* Доступ к верхнему элементу стека */
+    /* Посмотреть элемент на вершине стека */
     int top = stack->top();
-    cout << "Верхний элемент top = " << top << endl;
+    cout << "Элемент на вершине стека top = " << top << endl;
 
-    /* Извлечение элемента из стека */
+    /* Снять элемент со стека */
     top = stack->pop();
-    cout << "Извлеченный элемент pop = " << top << ", stack после извлечения = ";
+    cout << "Снятый элемент pop = " << top << ", после снятия stack = ";
     printVector(stack->toVector());
 
-    /* Получение длины стека */
+    /* Получить размер стека */
     int size = stack->size();
-    cout << "Длина стека size = " << size << endl;
+    cout << "Размер стека size = " << size << endl;
 
-    /* Проверка на пустоту */
+    /* Проверить, пуст ли стек */
     bool empty = stack->isEmpty();
-    cout << "Пуст ли стек = " << empty << endl;
+    cout << "Стек пуст = " << empty << endl;
 
     // Освободить память
     delete stack;

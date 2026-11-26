@@ -7,8 +7,8 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 ### Узел двусвязного списка ###
 class ListNode
   attr_accessor :val
-  attr_accessor :next # Ссылка на узел-преемник
-  attr_accessor :prev # Ссылка на узел-предшественник
+  attr_accessor :next # Ссылка на следующий узел
+  attr_accessor :prev # Ссылка на предыдущий узел
 
   ### Конструктор ###
   def initialize(val)
@@ -16,106 +16,106 @@ class ListNode
   end
 end
 
-### Двусторонняя очередь на основе двусвязного списка ###
+### Двусторонняя очередь (дек) на основе двусвязного списка ###
 class LinkedListDeque
-  ### Получение длины двусторонней очереди ###
+  ### Получить длину дека ###
   attr_reader :size
 
   ### Конструктор ###
   def initialize
-    @front = nil  # Головной узел front
-    @rear = nil   # Хвостовой узел rear
-    @size = 0     # Длина двусторонней очереди
+    @front = nil  # Первый узел front
+    @rear = nil   # Последний узел rear
+    @size = 0     # Длина дека
   end
 
-  ### Проверка, пуста ли двусторонняя очередь ###
+  ### Проверить, пуст ли дек ###
   def is_empty?
     size.zero?
   end
 
-  ### Операция добавления в очередь ###
+  ### Добавить элемент в дек ###
   def push(num, is_front)
     node = ListNode.new(num)
-    # Если связный список пуст, пусть front и rear оба указывают на node
+    # Если связный список пуст, установить front и rear так, чтобы они указывали на node
     if is_empty?
       @front = @rear = node
-    # Операция добавления в голову очереди
+    # Добавить элемент в начало дека
     elsif is_front
-      # Добавить node в голову списка
+      # Добавить node в начало связного списка
       @front.prev = node
       node.next = @front
-      @front = node # Обновить головной узел
-    # Операция добавления в хвост очереди
+      @front = node # Обновить ссылку на первый узел
+    # Добавить элемент в конец дека
     else
-      # Добавить node в хвост списка
+      # Добавить node в конец связного списка
       @rear.next = node
       node.prev = @rear
-      @rear = node # Обновить хвостовой узел
+      @rear = node # Обновить ссылку на последний узел
     end
-    @size += 1 # Обновить длину очереди
+    @size += 1 # Обновить длину дека
   end
 
-  ### Добавление в голову очереди ###
+  ### Добавить элемент в начало дека ###
   def push_first(num)
     push(num, true)
   end
 
-  ### Добавление в хвост очереди ###
+  ### Добавить элемент в конец дека ###
   def push_last(num)
     push(num, false)
   end
 
-  ### Операция извлечения из очереди ###
+  ### Извлечь элемент из дека ###
   def pop(is_front)
-    raise IndexError, 'двусторонняя очередь пуста' if is_empty?
+    raise IndexError, 'Дек пуст' if is_empty?
 
-    # Если в очереди один элемент, начало и конец указывают на один узел
+    # Если длина дека равна 1, ссылки на первый и последний узлы указывают на один и тот же узел
     if @size == 1
       val = @front.val
       @front = nil
       @rear = nil
-    # Операция извлечения из головы очереди
+    # Извлечь элемент из начала дека
     elsif is_front
-      val = @front.val # Временно сохранить значение головного узла
-      # Удалить головной узел
+      val = @front.val # Временно сохранить значение первого узла
+      # Удалить первый узел
       fnext = @front.next
       fnext.prev = nil
       @front.next = nil
-      @front = fnext # Обновить головной узел
-    # Операция извлечения из хвоста очереди
+      @front = fnext # Обновить ссылку на первый узел
+    # Извлечь элемент из конца дека
     else
-      val = @rear.val # Временно сохранить значение хвостового узла
-      # Удалить хвостовой узел
+      val = @rear.val # Временно сохранить значение последнего узла
+      # Удалить последний узел
       rprev = @rear.prev
       rprev.next = nil
       @rear.prev = nil
-      @rear = rprev # Обновить хвостовой узел
+      @rear = rprev # Обновить ссылку на последний узел
     end
-    @size -= 1 # Обновить длину очереди
+    @size -= 1 # Обновить длину дека
 
     val
   end
 
-  ### Извлечение из головы очереди ###
+  ### Извлечь элемент из начала дека ###
   def pop_first
     pop(true)
   end
 
-  ### Извлечение из хвоста очереди ###
+  ### Извлечь элемент из конца дека ###
   def pop_last
     pop(false)
   end
 
-  ### Доступ к элементу в начале очереди ###
+  ### Посмотреть первый элемент дека ###
   def peek_first
-    raise IndexError, 'двусторонняя очередь пуста' if is_empty?
+    raise IndexError, 'Дек пуст' if is_empty?
 
     @front.val
   end
 
-  ### Доступ к элементу в хвосте очереди ###
+  ### Посмотреть последний элемент дека ###
   def peek_last
-    raise IndexError, 'двусторонняя очередь пуста' if is_empty?
+    raise IndexError, 'Дек пуст' if is_empty?
 
     @rear.val
   end
@@ -132,38 +132,38 @@ class LinkedListDeque
   end
 end
 
-### Driver Code ###
+### Пример использования ###
 if __FILE__ == $0
-  # Инициализация двусторонней очереди
+  # Инициализировать дек
   deque = LinkedListDeque.new
   deque.push_last(3)
   deque.push_last(2)
   deque.push_last(5)
-  puts "Двусторонняя очередь deque = #{deque.to_array}"
+  puts "Дек deque = #{deque.to_array}"
 
-  # Доступ к элементу
+  # Посмотреть первый и последний элементы
   peek_first = deque.peek_first
-  puts "Первый элемент peek_first = #{peek_first}"
+  puts "Первый элемент дека peek_first = #{peek_first}"
   peek_last = deque.peek_last
-  puts "Последний элемент peek_last = #{peek_last}"
+  puts "Последний элемент дека peek_last = #{peek_last}"
 
-  # Добавление элемента в очередь
+  # Добавить элементы в дек
   deque.push_last(4)
-  puts "После добавления элемента 4 в хвост deque = #{deque.to_array}"
+  puts "После добавления 4 в конец дека deque = #{deque.to_array}"
   deque.push_first(1)
-  puts "После добавления элемента 1 в голову deque = #{deque.to_array}"
+  puts "После добавления 1 в начало дека deque = #{deque.to_array}"
 
-  # Извлечение элемента из очереди
+  # Извлечь элементы из дека
   pop_last = deque.pop_last
-  puts "Извлечен элемент из хвоста = #{pop_last}, deque после извлечения из хвоста = #{deque.to_array}"
+  puts "Извлечённый последний элемент = #{pop_last}, после извлечения deque = #{deque.to_array}"
   pop_first = deque.pop_first
-  puts "Извлечен элемент из головы = #{pop_first}, deque после извлечения из головы = #{deque.to_array}"
+  puts "Извлечённый первый элемент = #{pop_first}, после извлечения deque = #{deque.to_array}"
 
-  # Получение длины двусторонней очереди
+  # Получить длину дека
   size = deque.size
-  puts "Длина двусторонней очереди size = #{size}"
+  puts "Длина дека size = #{size}"
 
-  # Проверка, пуста ли двусторонняя очередь
+  # Проверить, пуст ли дек
   is_empty = deque.is_empty?
-  puts "Пуста ли двусторонняя очередь = #{is_empty}"
+  puts "Дек пуст = #{is_empty}"
 end

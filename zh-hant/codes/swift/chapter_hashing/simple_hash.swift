@@ -54,9 +54,9 @@ func rotHash(key: String) -> Int {
 
 @main
 enum SimpleHash {
-    /* Driver Code */
+    /* 主程式 */
     static func main() {
-        let key = "Hello 演算法"
+        let key = "Hello 算法"
 
         var hash = addHash(key: key)
         print("加法雜湊值為 \(hash)")

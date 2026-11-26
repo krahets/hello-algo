@@ -4,7 +4,7 @@
  * Author: yuan0221 (yl1452491917@gmail.com)
  */
 
-/* Алгоритм бэктрекинга: сумма подмножеств I */
+/* Поиск с возвратом: сумма подмножества I */
 function backtrack(
     state: number[],
     target: number,
@@ -12,40 +12,40 @@ function backtrack(
     choices: number[],
     res: number[][]
 ): void {
-    // Если сумма подмножества равна target, записать решение
+    // Если сумма подмножества равна target, сохраняем решение
     if (total === target) {
         res.push([...state]);
         return;
     }
-    // Перебор всех вариантов выбора
+    // Перебираем все варианты
     for (let i = 0; i < choices.length; i++) {
-        // Отсечение: если сумма подмножества превышает target, пропустить этот выбор
+        // Отсечение: если сумма подмножества превысит target, пропускаем этот вариант
         if (total + choices[i] > target) {
             continue;
         }
-        // Попытка: сделать выбор и обновить элемент и total
+        // Пробуем вариант и обновляем сумму элементов total
         state.push(choices[i]);
-        // Перейти к следующему выбору
+        // Переходим к следующему выбору
         backtrack(state, target, total + choices[i], choices, res);
-        // Откат: отменить выбор и восстановить предыдущее состояние
+        // Возврат: отменяем выбор и восстанавливаем прежнее состояние
         state.pop();
     }
 }
 
-/* Решить задачу суммы подмножеств I (с повторяющимися подмножествами) */
+/* Задача о сумме подмножества I (с повторяющимися подмножествами) */
 function subsetSumINaive(nums: number[], target: number): number[][] {
     const state = []; // Состояние (подмножество)
-    const total = 0; // Сумма подмножеств
+    const total = 0; // Сумма подмножества
     const res = []; // Список результатов (список подмножеств)
     backtrack(state, target, total, nums, res);
     return res;
 }
 
-/* Driver Code */
+/* Основная программа */
 const nums = [3, 4, 5];
 const target = 9;
 const res = subsetSumINaive(nums, target);
-console.log(`Входной массив nums = ${JSON.stringify(nums)}, target = ${target}`);
+console.log(`Исходный массив nums = ${JSON.stringify(nums)}, target = ${target}`);
 console.log(`Все подмножества с суммой ${target}: res = ${JSON.stringify(res)}`);
 console.log('Обратите внимание: результат этого метода содержит повторяющиеся множества');
 

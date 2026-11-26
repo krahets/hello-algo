@@ -7,7 +7,7 @@
 use hello_algo_rust::include::print_util;
 use std::collections::HashMap;
 
-/* Метод 1: полный перебор */
+/* Способ 1: полный перебор */
 pub fn two_sum_brute_force(nums: &Vec<i32>, target: i32) -> Option<Vec<i32>> {
     let size = nums.len();
     // Два вложенных цикла, временная сложность O(n^2)
@@ -21,7 +21,7 @@ pub fn two_sum_brute_force(nums: &Vec<i32>, target: i32) -> Option<Vec<i32>> {
     None
 }
 
-/* Метод 2: вспомогательная хеш-таблица */
+/* Способ 2: вспомогательная хеш-таблица */
 pub fn two_sum_hash_table(nums: &Vec<i32>, target: i32) -> Option<Vec<i32>> {
     // Вспомогательная хеш-таблица, пространственная сложность O(n)
     let mut dic = HashMap::new();
@@ -36,17 +36,17 @@ pub fn two_sum_hash_table(nums: &Vec<i32>, target: i32) -> Option<Vec<i32>> {
 }
 
 fn main() {
-    // ======= Test Case =======
+    // ======= Тестовый пример =======
     let nums = vec![2, 7, 11, 15];
     let target = 13;
 
-    // ====== Основной код ======
-    // Метод 1
+    // ====== Пример использования ======
+    // Способ 1
     let res = two_sum_brute_force(&nums, target).unwrap();
-    print!("Результат метода 1 res = ");
+    print!("Способ 1, res = ");
     print_util::print_array(&res);
-    // Метод 2
+    // Способ 2
     let res = two_sum_hash_table(&nums, target).unwrap();
-    print!("\nРезультат метода 2 res = ");
+    print!("\nСпособ 2, res = ");
     print_util::print_array(&res);
 }

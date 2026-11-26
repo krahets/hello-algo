@@ -11,38 +11,38 @@ use graph_adjacency_list::{vals_to_vets, vets_to_vals, Vertex};
 use std::collections::{HashSet, VecDeque};
 
 /* Breadth-first traversal */
-// Represent the graph with an adjacency list to access all neighbors of a given vertex
+// Represent the graph with an adjacency list to look up all neighbors of a given vertex
 fn graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
-    // Vertex traversal sequence
+    // Vertex traversal order
     let mut res = vec![];
-    // Hash set recording visited vertices
+    // Use a hash set to track visited vertices
     let mut visited = HashSet::new();
     visited.insert(start_vet);
-    // Use a queue to implement BFS
+    // Use a queue for BFS
     let mut que = VecDeque::new();
     que.push_back(start_vet);
-    // Start at start_vet and loop until all reachable vertices have been visited
+    // Starting at vertex vet, loop until all reachable vertices have been visited
     while let Some(vet) = que.pop_front() {
         res.push(vet); // Record the visited vertex
 
-        // Traverse all neighbors of this vertex
+        // Iterate over all neighbors of this vertex
         if let Some(adj_vets) = graph.adj_list.get(&vet) {
             for &adj_vet in adj_vets {
                 if visited.contains(&adj_vet) {
-                    continue; // Skip vertices that have already been visited
+                    continue; // Skip visited vertices
                 }
                 que.push_back(adj_vet); // Enqueue only unvisited vertices
-                visited.insert(adj_vet); // Mark this vertex as visited
+                visited.insert(adj_vet); // Mark the vertex as visited
             }
         }
     }
-    // Return the vertex traversal sequence
+    // Return the vertex traversal order
     res
 }
 
 /* Driver code */
 fn main() {
-    /* Initialize the undirected graph */
+    /* Initialize an undirected graph */
     let v = vals_to_vets(vec![0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
     let edges = vec![
         [v[0], v[1]],
@@ -64,6 +64,6 @@ fn main() {
 
     /* Breadth-first traversal */
     let res = graph_bfs(graph, v[0]);
-    println!("\nVertex sequence from breadth-first traversal (BFS):");
+    println!("\nBreadth-first search (BFS) visits the vertices in this order:");
     println!("{:?}", vets_to_vals(res));
 }

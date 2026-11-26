@@ -13,18 +13,18 @@ func function() -> Int {
     return 0
 }
 
-/* Постоянная сложность */
+/* Константная сложность */
 func constant(n: Int) {
     // Константы, переменные и объекты занимают O(1) памяти
     let a = 0
     var b = 0
     let nums = Array(repeating: 0, count: 10000)
     let node = ListNode(x: 0)
-    // Переменные в цикле занимают O(1) памяти
+    // Переменные цикла занимают O(1) памяти
     for _ in 0 ..< n {
         let c = 0
     }
-    // Функции в цикле занимают O(1) памяти
+    // Вызовы функции в цикле требуют O(1) памяти
     for _ in 0 ..< n {
         function()
     }
@@ -36,13 +36,13 @@ func linear(n: Int) {
     let nums = Array(repeating: 0, count: n)
     // Список длины n занимает O(n) памяти
     let nodes = (0 ..< n).map { ListNode(x: $0) }
-    // Хеш-таблица длины n занимает O(n) памяти
+    // Хеш-таблица из n элементов занимает O(n) памяти
     let map = Dictionary(uniqueKeysWithValues: (0 ..< n).map { ($0, "\($0)") })
 }
 
-/* Линейная сложность (рекурсивная реализация) */
+/* Линейная сложность (рекурсия) */
 func linearRecur(n: Int) {
-    print("Рекурсия n = \(n)")
+    print("Рекурсивный вызов: n = \(n)")
     if n == 1 {
         return
     }
@@ -55,19 +55,19 @@ func quadratic(n: Int) {
     let numList = Array(repeating: Array(repeating: 0, count: n), count: n)
 }
 
-/* Квадратичная сложность (рекурсивная реализация) */
+/* Квадратичная сложность (рекурсия) */
 @discardableResult
 func quadraticRecur(n: Int) -> Int {
     if n <= 0 {
         return 0
     }
-    // Длина массива nums равна n, n-1, ..., 2, 1
+    // Длина массива nums принимает значения n, n-1, ..., 2, 1
     let nums = Array(repeating: 0, count: n)
-    print("В рекурсии n = \(n), длина nums = \(nums.count)")
+    print("При n = \(n) длина nums = \(nums.count)")
     return quadraticRecur(n: n - 1)
 }
 
-/* Экспоненциальная сложность (построение полного двоичного дерева) */
+/* Экспоненциальная сложность (построение совершенного двоичного дерева) */
 func buildTree(n: Int) -> TreeNode? {
     if n == 0 {
         return nil
@@ -80,10 +80,10 @@ func buildTree(n: Int) -> TreeNode? {
 
 @main
 enum SpaceComplexity {
-    /* Driver Code */
+    /* Основная программа */
     static func main() {
         let n = 5
-        // Постоянная сложность
+        // Константная сложность
         constant(n: n)
         // Линейная сложность
         linear(n: n)

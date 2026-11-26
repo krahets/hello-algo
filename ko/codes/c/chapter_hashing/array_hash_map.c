@@ -9,7 +9,7 @@
 /* 해시 테이블의 기본 크기 */
 #define MAX_SIZE 100
 
-/* 키-값 쌍 int->string */
+/* int->string 키-값 쌍 */
 typedef struct {
     int key;
     char *val;
@@ -52,7 +52,7 @@ int hashFunc(int key) {
     return index;
 }
 
-/* 조회 연산 */
+/* 조회 */
 const char *get(const ArrayHashMap *hmap, const int key) {
     int index = hashFunc(key);
     const Pair *Pair = hmap->buckets[index];
@@ -61,7 +61,7 @@ const char *get(const ArrayHashMap *hmap, const int key) {
     return Pair->val;
 }
 
-/* 추가 연산 */
+/* 추가 */
 void put(ArrayHashMap *hmap, const int key, const char *val) {
     Pair *pair = malloc(sizeof(Pair));
     pair->key = key;
@@ -72,7 +72,7 @@ void put(ArrayHashMap *hmap, const int key, const char *val) {
     hmap->buckets[index] = pair;
 }
 
-/* 삭제 연산 */
+/* 삭제 */
 void removeItem(ArrayHashMap *hmap, const int key) {
     int index = hashFunc(key);
     free(hmap->buckets[index]->val);
@@ -80,12 +80,12 @@ void removeItem(ArrayHashMap *hmap, const int key) {
     hmap->buckets[index] = NULL;
 }
 
-/* 모든 키-값 쌍 반환 */
+/* 모든 키-값 쌍 가져오기 */
 void pairSet(ArrayHashMap *hmap, MapSet *set) {
     Pair *entries;
     int i = 0, index = 0;
     int total = 0;
-    /* 유효한 키-값 쌍의 개수를 센다 */
+    /* 유효한 키-값 쌍의 개수 세기 */
     for (i = 0; i < MAX_SIZE; i++) {
         if (hmap->buckets[i] != NULL) {
             total++;
@@ -104,12 +104,12 @@ void pairSet(ArrayHashMap *hmap, MapSet *set) {
     set->len = total;
 }
 
-/* 모든 키 반환 */
+/* 모든 키 가져오기 */
 void keySet(ArrayHashMap *hmap, MapSet *set) {
     int *keys;
     int i = 0, index = 0;
     int total = 0;
-    /* 유효한 키-값 쌍의 개수를 센다 */
+    /* 유효한 키-값 쌍의 개수 세기 */
     for (i = 0; i < MAX_SIZE; i++) {
         if (hmap->buckets[i] != NULL) {
             total++;
@@ -126,12 +126,12 @@ void keySet(ArrayHashMap *hmap, MapSet *set) {
     set->len = total;
 }
 
-/* 모든 값 반환 */
+/* 모든 값 가져오기 */
 void valueSet(ArrayHashMap *hmap, MapSet *set) {
     char **vals;
     int i = 0, index = 0;
     int total = 0;
-    /* 유효한 키-값 쌍의 개수를 센다 */
+    /* 유효한 키-값 쌍의 개수 세기 */
     for (i = 0; i < MAX_SIZE; i++) {
         if (hmap->buckets[i] != NULL) {
             total++;
@@ -160,43 +160,43 @@ void print(ArrayHashMap *hmap) {
     free(set.set);
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 int main() {
     /* 해시 테이블 초기화 */
     ArrayHashMap *hmap = newArrayHashMap();
 
-    /* 추가 연산 */
-    // 해시 테이블에 (key, value) 키-값 쌍을 추가한다
-    put(hmap, 12836, "小哈");
-    put(hmap, 15937, "小啰");
-    put(hmap, 16750, "小算");
-    put(hmap, 13276, "小法");
-    put(hmap, 10583, "小鸭");
-    printf("\n추가한 후의 해시 테이블:\n키 -> 값\n");
+    /* 추가 */
+    // 해시 테이블에 키-값 쌍 (key, value) 추가
+    put(hmap, 12836, "샤오하");
+    put(hmap, 15937, "샤오뤄");
+    put(hmap, 16750, "샤오쑤안");
+    put(hmap, 13276, "샤오파");
+    put(hmap, 10583, "샤오야");
+    printf("\n추가 후 해시 테이블\nKey -> Value\n");
     print(hmap);
 
-    /* 조회 연산 */
-    // 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+    /* 조회 */
+    // 해시 테이블에 키 key를 입력하여 값 value 조회
     const char *name = get(hmap, 15937);
-    printf("\n학번 15937을 입력하여 조회한 이름: %s\n", name);
+    printf("\n학번 15937로 조회한 이름: %s\n", name);
 
-    /* 삭제 연산 */
-    // 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+    /* 삭제 */
+    // 해시 테이블에서 키-값 쌍 (key, value) 삭제
     removeItem(hmap, 10583);
-    printf("\n10583을 삭제한 후의 해시 테이블:\n키 -> 값\n");
+    printf("\n키 10583 삭제 후 해시 테이블\nKey -> Value\n");
     print(hmap);
 
     /* 해시 테이블 순회 */
     int i;
 
-    printf("\n키-값 쌍(키->값) 순회\n");
+    printf("\n키-값 쌍 순회 Key->Value\n");
     print(hmap);
 
     MapSet set;
 
     keySet(hmap, &set);
     int *keys = (int *)set.set;
-    printf("\n키 Key만 순회\n");
+    printf("\n키만 순회 Key\n");
     for (i = 0; i < set.len; i++) {
         printf("%d\n", keys[i]);
     }
@@ -204,7 +204,7 @@ int main() {
 
     valueSet(hmap, &set);
     char **vals = (char **)set.set;
-    printf("\n키 Value만 순회\n");
+    printf("\n값만 순회 Value\n");
     for (i = 0; i < set.len; i++) {
         printf("%s\n", vals[i]);
     }

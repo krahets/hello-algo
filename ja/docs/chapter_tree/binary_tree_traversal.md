@@ -1,41 +1,41 @@
 # 二分木の走査
 
-物理的な構造として、木は連結リストに基づくデータ構造なので、ポインタでノードを一つずつ訪問します。ただし、木は非線形なので、連結リストの走査より複雑で、探索アルゴリズムを使う必要があります。
+物理的な構造に着目すると、ここで扱う木は連結リストに基づくデータ構造なので、ポインタをたどってノードを一つずつ訪問します。ただし、木は非線形のデータ構造です。そのため、木の走査は連結リストの走査より複雑で、探索アルゴリズムを使って実現します。
 
-主な方法には、レベル順、行きがけ順、通りがけ順、帰りがけ順などがあります。
+二分木でよく使う走査には、レベル順、行きがけ順、通りがけ順、帰りがけ順などがあります。
 
 ## レベル順走査
 
-下図の<u>レベル順走査（level-order traversal）</u>は、上から下へ層ごとに進み、各層では左から右へノードを訪問します。
+下図のように、<u>レベル順走査（level-order traversal）</u>では二分木を上の層から下の層へ順にたどり、各層では左から右へノードを訪問します。
 
-これは本質的に<u>幅優先走査（breadth-first traversal）</u>であり、<u>幅優先探索（breadth-first search, BFS）</u>とも呼びます。一周ずつ外へ広がるように、層ごとに走査する方法です。
+レベル順走査は<u>幅優先走査（breadth-first traversal）</u>の一種です。<u>幅優先探索（breadth-first search, BFS）</u>とも呼ばれ、輪を一つずつ外へ広げるように層ごとに進みます。
 
 ![二分木のレベル順走査](binary_tree_traversal.assets/binary_tree_bfs.svg)
 
-### コードの実装
+### コードによる実装
 
-幅優先走査は通常、キューで実装します。キューの「先入れ先出し」と、幅優先走査の「層ごとに進む」という規則は、同じ考え方に基づいています。実装は次のとおりです。
+幅優先走査は通常、キューを使って実装します。キューは先に入れたものから取り出す「先入れ先出し」であり、この仕組みが幅優先走査の「一層ずつ進む」という規則に合っています。実装は次のとおりです。
 
 ```src
 [file]{binary_tree_bfs}-[class]{}-[func]{level_order}
 ```
 
-### 計算量の解析
+### 計算量の分析
 
-- **時間計算量は $O(n)$**：全ノードを一回ずつ訪問するため、$O(n)$ 時間です。$n$ はノード数です。
-- **空間計算量は $O(n)$**：最悪の場合、つまりパーフェクト二分木では、最下層の走査直前に最大 $(n + 1) / 2$ 個のノードが同時にキューに入り、$O(n)$ の領域を使います。
+- **時間計算量は $O(n)$ です**。すべてのノードを 1 回ずつ訪問するため、時間は $O(n)$ です。ここで $n$ はノード数です。
+- **空間計算量は $O(n)$ です**。最悪の場合、すなわち完璧二分木では、最下層を走査する直前に最大 $(n + 1) / 2$ 個のノードが同時にキューに入り、$O(n)$ の領域を使います。
 
-## 行きがけ順・通りがけ順・帰りがけ順走査
+## 行きがけ順、通りがけ順、帰りがけ順の走査
 
-これに対し、行きがけ順、通りがけ順、帰りがけ順は、いずれも<u>深さ優先走査（depth-first traversal）</u>です。<u>深さ優先探索（depth-first search, DFS）</u>とも呼び、行き止まりまで進んでから戻り、探索を続ける方法です。
+一方、行きがけ順、通りがけ順、帰りがけ順はいずれも<u>深さ優先走査（depth-first traversal）</u>に属し、<u>深さ優先探索（depth-first search, DFS）</u>とも呼ばれます。一つの経路を行き止まりまで進み、そこから戻って続ける走査です。
 
-下図は二分木の深さ優先走査の仕組みです。**木全体の外周を一周歩くようなものです**。各ノードで三つの位置を通り、それぞれが行きがけ順、通りがけ順、帰りがけ順に対応します。
+下図は、二分木を深さ優先で走査する仕組みを示しています。**深さ優先走査は、二分木全体の外周を一周するようなものです**。各ノードの周りで 3 つの位置を通り、それぞれ行きがけ順、通りがけ順、帰りがけ順に対応します。
 
-![二分探索木の行きがけ順・通りがけ順・帰りがけ順走査](binary_tree_traversal.assets/binary_tree_dfs.svg)
+![二分探索木の行きがけ順、通りがけ順、帰りがけ順走査](binary_tree_traversal.assets/binary_tree_dfs.svg)
 
-### コードの実装
+### コードによる実装
 
-深さ優先探索は通常、再帰で実装します。
+深さ優先探索は通常、次のように再帰で実装します。
 
 ```src
 [file]{binary_tree_dfs}-[class]{}-[func]{post_order}
@@ -43,47 +43,47 @@
 
 !!! tip
 
-    反復でも実装できます。興味があれば調べてみてください。
+    深さ優先探索は反復でも実装できます。興味がある方は調べてみてください。
 
-下図は行きがけ順走査の再帰過程です。「呼び出し」と「戻り」という、逆方向の二つの部分に分けられます。
+下図に、二分木を行きがけ順に走査する再帰の流れを示します。再帰には、呼び出し先へ進む動きと、そこから戻る動きの 2 つがあります。
 
-1. 「呼び出し」では新しいメソッドの実行を始め、次のノードを訪問します。
-2. 「戻り」は関数から戻ることで、現在のノードの訪問が終わったことを表します。
+1. 「進む」とは新たにメソッドを呼び出すことで、プログラムは次のノードを訪問します。
+2. 「戻る」とは関数が呼び出し元に戻ることで、現在のノードの処理が終わったことを示します。
 
 === "<1>"
-    ![行きがけ順走査の再帰過程](binary_tree_traversal.assets/preorder_step1.svg)
+    ![行きがけ順走査の再帰の流れ](binary_tree_traversal.assets/preorder_step1.svg)
 
 === "<2>"
-    ![行きがけ順走査の手順 2](binary_tree_traversal.assets/preorder_step2.svg)
+    ![preorder_step2](binary_tree_traversal.assets/preorder_step2.svg)
 
 === "<3>"
-    ![行きがけ順走査の手順 3](binary_tree_traversal.assets/preorder_step3.svg)
+    ![preorder_step3](binary_tree_traversal.assets/preorder_step3.svg)
 
 === "<4>"
-    ![行きがけ順走査の手順 4](binary_tree_traversal.assets/preorder_step4.svg)
+    ![preorder_step4](binary_tree_traversal.assets/preorder_step4.svg)
 
 === "<5>"
-    ![行きがけ順走査の手順 5](binary_tree_traversal.assets/preorder_step5.svg)
+    ![preorder_step5](binary_tree_traversal.assets/preorder_step5.svg)
 
 === "<6>"
-    ![行きがけ順走査の手順 6](binary_tree_traversal.assets/preorder_step6.svg)
+    ![preorder_step6](binary_tree_traversal.assets/preorder_step6.svg)
 
 === "<7>"
-    ![行きがけ順走査の手順 7](binary_tree_traversal.assets/preorder_step7.svg)
+    ![preorder_step7](binary_tree_traversal.assets/preorder_step7.svg)
 
 === "<8>"
-    ![行きがけ順走査の手順 8](binary_tree_traversal.assets/preorder_step8.svg)
+    ![preorder_step8](binary_tree_traversal.assets/preorder_step8.svg)
 
 === "<9>"
-    ![行きがけ順走査の手順 9](binary_tree_traversal.assets/preorder_step9.svg)
+    ![preorder_step9](binary_tree_traversal.assets/preorder_step9.svg)
 
 === "<10>"
-    ![行きがけ順走査の手順 10](binary_tree_traversal.assets/preorder_step10.svg)
+    ![preorder_step10](binary_tree_traversal.assets/preorder_step10.svg)
 
 === "<11>"
-    ![行きがけ順走査の手順 11](binary_tree_traversal.assets/preorder_step11.svg)
+    ![preorder_step11](binary_tree_traversal.assets/preorder_step11.svg)
 
-### 計算量の解析
+### 計算量の分析
 
-- **時間計算量は $O(n)$**：全ノードを一回ずつ訪問するため、$O(n)$ 時間です。
-- **空間計算量は $O(n)$**：最悪の場合、木が連結リストに退化すると再帰の深さが $n$ となり、スタックフレームに $O(n)$ の領域を使います。
+- **時間計算量は $O(n)$ です**。すべてのノードを 1 回ずつ訪問するので、$O(n)$ の時間がかかります。
+- **空間計算量は $O(n)$ です**。最悪の場合、すなわち木が連結リストに退化した場合、再帰の深さは $n$ に達し、システムはスタックフレームに $O(n)$ の領域を使います。

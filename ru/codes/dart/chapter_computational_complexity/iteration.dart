@@ -7,7 +7,7 @@
 /* Цикл for */
 int forLoop(int n) {
   int res = 0;
-  // Циклическое суммирование 1, 2, ..., n-1, n
+  // Сложить числа 1, 2, ..., n-1, n в цикле
   for (int i = 1; i <= n; i++) {
     res += i;
   }
@@ -17,35 +17,35 @@ int forLoop(int n) {
 /* Цикл while */
 int whileLoop(int n) {
   int res = 0;
-  int i = 1; // Инициализация условной переменной
-  // Циклическое суммирование 1, 2, ..., n-1, n
+  int i = 1; // Задать начальное значение переменной условия
+  // Сложить числа 1, 2, ..., n-1, n в цикле
   while (i <= n) {
     res += i;
-    i++; // Обновить условную переменную
+    i++; // Обновить переменную условия
   }
   return res;
 }
 
-/* Цикл while (двойное обновление) */
+/* Цикл while с двумя обновлениями */
 int whileLoopII(int n) {
   int res = 0;
-  int i = 1; // Инициализация условной переменной
-  // Циклическое суммирование 1, 4, 10, ...
+  int i = 1; // Задать начальное значение переменной условия
+  // Сложить числа 1, 4, 10, ... в цикле
   while (i <= n) {
     res += i;
-    // Обновить условную переменную
+    // Обновить переменную условия
     i++;
     i *= 2;
   }
   return res;
 }
 
-/* Двойной цикл for */
+/* Вложенные циклы for */
 String nestedForLoop(int n) {
   String res = "";
-  // Цикл по i = 1, 2, ..., n-1, n
+  // Перебрать i = 1, 2, ..., n-1, n
   for (int i = 1; i <= n; i++) {
-    // Цикл по j = 1, 2, ..., n-1, n
+    // Перебрать j = 1, 2, ..., n-1, n
     for (int j = 1; j <= n; j++) {
       res += "($i, $j), ";
     }
@@ -53,20 +53,20 @@ String nestedForLoop(int n) {
   return res;
 }
 
-/* Driver Code */
+/* Основная программа */
 void main() {
   int n = 5;
   int res;
 
   res = forLoop(n);
-  print("\nРезультат суммирования в цикле for res = $res");
+  print("\nСумма в цикле for: res = $res");
 
   res = whileLoop(n);
-  print("\nРезультат суммирования в цикле while res = $res");
+  print("\nСумма в цикле while: res = $res");
 
   res = whileLoopII(n);
-  print("\nРезультат суммирования в цикле while (двойное обновление) res = $res");
+  print("\nСумма в цикле while с двумя обновлениями: res = $res");
 
   String resStr = nestedForLoop(n);
-  print("\nРезультат двойного цикла for $resStr");
+  print("\nРезультат обхода вложенными циклами for: $resStr");
 }

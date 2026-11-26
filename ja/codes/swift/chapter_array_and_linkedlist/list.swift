@@ -6,7 +6,7 @@
 
 @main
 enum List {
-    /* 実行用コード */
+    /* ドライバコード */
     static func main() {
         /* リストを初期化する */
         var nums = [1, 3, 2, 5, 4]
@@ -14,15 +14,15 @@ enum List {
 
         /* 要素にアクセスする */
         let num = nums[1]
-        print("インデックス 1 の要素にアクセスした結果 num = \(num)")
+        print("インデックス 1 の要素を読み出した結果 num = \(num)")
 
         /* 要素を更新する */
         nums[1] = 0
-        print("インデックス 1 の要素を 0 に更新した結果 nums = \(nums)")
+        print("インデックス 1 の要素を 0 に更新した後の nums = \(nums)")
 
         /* リストを空にする */
         nums.removeAll()
-        print("リストを空にした後 nums = \(nums)")
+        print("リストを空にした後の nums = \(nums)")
 
         /* 末尾に要素を追加する */
         nums.append(1)
@@ -30,15 +30,15 @@ enum List {
         nums.append(2)
         nums.append(5)
         nums.append(4)
-        print("要素を追加した後 nums = \(nums)")
+        print("要素追加後の nums = \(nums)")
 
         /* 途中に要素を挿入する */
         nums.insert(6, at: 3)
-        print("インデックス 3 に数値 6 を挿入した結果 nums = \(nums)")
+        print("インデックス 3 に 6 を挿入した後の nums = \(nums)")
 
         /* 要素を削除する */
         nums.remove(at: 3)
-        print("インデックス 3 の要素を削除した結果 nums = \(nums)")
+        print("インデックス 3 の要素を削除した後の nums = \(nums)")
 
         /* インデックスを使ってリストを走査する */
         var count = 0
@@ -54,10 +54,10 @@ enum List {
         /* 2 つのリストを連結する */
         let nums1 = [6, 8, 7, 10, 9]
         nums.append(contentsOf: nums1)
-        print("リスト nums の後ろに nums1 を連結した結果 nums = \(nums)")
+        print("リスト nums1 を nums の末尾に連結した後の nums = \(nums)")
 
         /* リストをソートする */
         nums.sort()
-        print("リストをソートした後 nums = \(nums)")
+        print("ソート後のリスト nums = \(nums)")
     }
 }

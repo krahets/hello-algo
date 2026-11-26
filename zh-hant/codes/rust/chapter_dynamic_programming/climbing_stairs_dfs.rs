@@ -6,7 +6,7 @@
 
 /* 搜尋 */
 fn dfs(i: usize) -> i32 {
-    // 已知 dp[1] 和 dp[2] ，返回之
+    // 已知 dp[1] 和 dp[2]，直接回傳對應的值
     if i == 1 || i == 2 {
         return i as i32;
     }
@@ -20,10 +20,10 @@ fn climbing_stairs_dfs(n: usize) -> i32 {
     dfs(n)
 }
 
-/* Driver Code */
+/* 主程式 */
 pub fn main() {
     let n: usize = 9;
 
     let res = climbing_stairs_dfs(n);
-    println!("爬 {n} 階樓梯共有 {res} 種方案");
+    println!("爬 {n} 階樓梯共有 {res} 種走法");
 }

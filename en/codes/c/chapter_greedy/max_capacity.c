@@ -15,19 +15,19 @@ int myMax(int a, int b) {
     return a > b ? a : b;
 }
 
-/* Maximum container capacity: greedy algorithm */
+/* Greedy maximum capacity algorithm */
 int maxCapacity(int ht[], int htLength) {
-    // Initialize i and j at opposite ends of the array
+    // Start i and j at opposite ends of the array
     int i = 0;
     int j = htLength - 1;
     // The initial maximum capacity is 0
     int res = 0;
-    // Repeatedly make greedy choices until the two sides meet
+    // Make greedy choices until the two pointers meet
     while (i < j) {
         // Update the maximum capacity
         int capacity = myMin(ht[i], ht[j]) * (j - i);
         res = myMax(res, capacity);
-        // Move the shorter side inward
+        // Move the pointer at the shorter board inward
         if (ht[i] < ht[j]) {
             i++;
         } else {
@@ -43,7 +43,7 @@ int main(void) {
 
     // Greedy algorithm
     int res = maxCapacity(ht, sizeof(ht) / sizeof(int));
-    printf("Maximum capacity: %d\n", res);
+    printf("The maximum capacity is %d\n", res);
 
     return 0;
 }

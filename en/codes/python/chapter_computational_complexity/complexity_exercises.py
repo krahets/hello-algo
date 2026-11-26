@@ -6,7 +6,7 @@ Author: Hello Algo Team
 
 
 def sum_iter(n: int) -> int:
-    """Sum using iteration"""
+    """Iterative sum"""
     res = 0
     for i in range(1, n + 1):
         res += i
@@ -14,7 +14,7 @@ def sum_iter(n: int) -> int:
 
 
 def sum_recur(n: int) -> int:
-    """Sum using recursion"""
+    """Recursive sum"""
     if n == 1:
         return 1
     return n + sum_recur(n - 1)

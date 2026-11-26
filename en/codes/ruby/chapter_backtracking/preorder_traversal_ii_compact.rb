@@ -11,7 +11,7 @@ require_relative '../utils/print_util'
 def pre_order(root)
   return unless root
 
-  # Try
+  # Try a choice
   $path << root
 
   # Record the solution
@@ -34,7 +34,7 @@ if __FILE__ == $0
   $path, $res = [], []
   pre_order(root)
 
-  puts "\nOutput all paths from the root to nodes with value 7"
+  puts "\nPrint all paths from the root to a node with value 7"
   for path in $res
     p path.map { |node| node.val }
   end

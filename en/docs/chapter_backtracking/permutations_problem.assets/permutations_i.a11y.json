@@ -1,30 +1,30 @@
 {
-  "schema_version": 2,
-  "title": "Recursive choice tree for permutations of distinct elements",
-  "summary": "Starting from an empty prefix, choose one unused element from [1, 2, 3] in each round and append it to state, producing 6 permutations after three rounds.",
   "context": [
-    "The candidate array is choices = [1, 2, 3], whose three elements are distinct and may each be used only once per permutation. The root node is drawn as three blank slots representing the empty prefix [] before any element is chosen; the blank slots themselves are not element values."
+    "The candidate array choices = [1, 2, 3] contains three distinct elements. Each element can appear only once in a permutation. The root shows three blank slots for the empty prefix []. No values have been filled in, and the blank slots are not themselves elements."
   ],
   "description": [
-    "The figure expands all recursive branches simultaneously; in actual backtracking execution, after copying and saving state at a leaf node, the code pops the last element and marks it unselected again before trying sibling branches.",
-    "The choice tree has four levels, from the empty prefix at level 0 to the leaf nodes at level 3. The two tables below look up available next choices by prefix and list all six permutations by index."
+    "The figure shows every recursive branch at once. In the backtracking code, after saving a copy of state at a leaf, the algorithm pops the last element and marks it as unused again so it can try a sibling branch.",
+    "The choice tree has four levels, from the empty prefix at level 0 to the leaves at level 3. The first table gives subsequent choices by prefix, and the second lists all six permutations by number."
   ],
   "frames": [
     {
-      "id": "source-353",
       "book_path": "chapter_backtracking/permutations_problem.assets/permutations_i.png",
-      "title": "Recursive choice tree for permutations of distinct elements",
-      "explanation": "Across the first, second, and third rounds, each node has 3, 2, and 1 available elements respectively, generating 3 × 2 × 1 = 6 leaf nodes corresponding to all 6 permutations of [1, 2, 3]."
+      "explanation": "Each node offers 3 choices in the first round, 2 in the second, and 1 in the third. This produces 3 × 2 × 1 = 6 leaves, one for each of the 6 permutations of [1, 2, 3].",
+      "id": "source-353",
+      "title": "Recursive choice tree for permutations of distinct elements"
     }
   ],
+  "schema_version": 2,
+  "summary": "Starting with an empty prefix, append one unused element from [1, 2, 3] to state in each round. Three rounds generate all 6 permutations.",
   "tables": [
     {
-      "caption": "Available next choices by prefix",
+      "caption": "Next choices by prefix",
       "headers": [
         "Current prefix",
         "Available elements",
-        "Next-level prefixes or leaf result"
+        "Next-level prefixes or leaf results"
       ],
+      "row_header": 0,
       "rows": [
         [
           "[]",
@@ -76,8 +76,7 @@
           "1",
           "[3, 2, 1]"
         ]
-      ],
-      "row_header": 0
+      ]
     },
     {
       "caption": "All six permutations",
@@ -85,6 +84,7 @@
         "Result number",
         "Complete permutation"
       ],
+      "row_header": 0,
       "rows": [
         [
           "1",
@@ -110,8 +110,8 @@
           "6",
           "[3, 2, 1]"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Recursive choice tree for permutations of distinct elements"
 }

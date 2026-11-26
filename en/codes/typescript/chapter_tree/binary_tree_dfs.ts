@@ -46,7 +46,7 @@ function postOrder(root: TreeNode | null): void {
 
 /* Driver code */
 /* Initialize the binary tree */
-// Use a helper function that builds a binary tree directly from an array
+// Use a function that builds a binary tree directly from an array
 const root = arrToTree([1, 2, 3, 4, 5, 6, 7]);
 console.log('\nInitialize the binary tree\n');
 printTree(root);
@@ -54,16 +54,16 @@ printTree(root);
 /* Preorder traversal */
 list.length = 0;
 preOrder(root);
-console.log('\nNode sequence from preorder traversal = ' + list);
+console.log('\nNodes in preorder = ' + list);
 
 /* Inorder traversal */
 list.length = 0;
 inOrder(root);
-console.log('\nNode sequence from inorder traversal = ' + list);
+console.log('\nNodes in inorder = ' + list);
 
 /* Postorder traversal */
 list.length = 0;
 postOrder(root);
-console.log('\nNode sequence from postorder traversal = ' + list);
+console.log('\nNodes in postorder = ' + list);
 
 export {};

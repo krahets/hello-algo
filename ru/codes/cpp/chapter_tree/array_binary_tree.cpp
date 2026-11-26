@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* Класс двоичного дерева в массивном представлении */
+/* Класс двоичного дерева на основе массива */
 class ArrayBinaryTree {
   public:
     /* Конструктор */
@@ -14,38 +14,38 @@ class ArrayBinaryTree {
         tree = arr;
     }
 
-    /* Вместимость списка */
+    /* Ёмкость списка */
     int size() {
         return tree.size();
     }
 
     /* Получить значение узла с индексом i */
     int val(int i) {
-        // Если индекс выходит за границы, вернуть INT_MAX, обозначающий пустую позицию
+        // Если индекс выходит за границы массива, вернуть INT_MAX — признак пустой позиции
         if (i < 0 || i >= size())
             return INT_MAX;
         return tree[i];
     }
 
-    /* Получить индекс левого дочернего узла узла с индексом i */
+    /* Получить индекс левого потомка узла с индексом i */
     int left(int i) {
         return 2 * i + 1;
     }
 
-    /* Получить индекс правого дочернего узла узла с индексом i */
+    /* Получить индекс правого потомка узла с индексом i */
     int right(int i) {
         return 2 * i + 2;
     }
 
-    /* Получить индекс родительского узла узла с индексом i */
+    /* Получить индекс родителя узла с индексом i */
     int parent(int i) {
         return (i - 1) / 2;
     }
 
-    /* Обход в ширину */
+    /* Обход по уровням */
     vector<int> levelOrder() {
         vector<int> res;
-        // Непосредственно обходить массив
+        // Пройти непосредственно по массиву
         for (int i = 0; i < size(); i++) {
             if (val(i) != INT_MAX)
                 res.push_back(val(i));
@@ -53,7 +53,7 @@ class ArrayBinaryTree {
         return res;
     }
 
-    /* Предварительный обход */
+    /* Прямой обход */
     vector<int> preOrder() {
         vector<int> res;
         dfs(0, "pre", res);
@@ -79,10 +79,10 @@ class ArrayBinaryTree {
 
     /* Обход в глубину */
     void dfs(int i, string order, vector<int> &res) {
-        // Если это пустая позиция, вернуть
+        // Если позиция пуста, завершить вызов
         if (val(i) == INT_MAX)
             return;
-        // Предварительный обход
+        // Прямой обход
         if (order == "pre")
             res.push_back(val(i));
         dfs(left(i), order, res);
@@ -96,35 +96,35 @@ class ArrayBinaryTree {
     }
 };
 
-/* Driver Code */
+/* Основная программа */
 int main() {
-    // Инициализировать двоичное дерево
-    // Использовать INT_MAX для обозначения пустой позиции nullptr
+    // Инициализация двоичного дерева
+    // INT_MAX обозначает пустую позицию nullptr
     vector<int> arr = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
     TreeNode *root = vectorToTree(arr);
     cout << "\nИнициализация двоичного дерева\n";
-    cout << "Массивное представление двоичного дерева:\n";
+    cout << "Представление двоичного дерева в виде массива:\n";
     printVector(arr);
     cout << "Связное представление двоичного дерева:\n";
     printTree(root);
 
-    // Класс двоичного дерева в массивном представлении
+    // Класс двоичного дерева на основе массива
     ArrayBinaryTree abt(arr);
 
     // Доступ к узлу
     int i = 1;
     int l = abt.left(i), r = abt.right(i), p = abt.parent(i);
-    cout << "\nТекущий узел: индекс = " << i << ", значение = " << abt.val(i) << "\n";
-    cout << "Индекс левого дочернего узла = " << l << ", значение = " << (abt.val(l) != INT_MAX ? to_string(abt.val(l)) : "nullptr") << "\n";
-    cout << "Индекс правого дочернего узла = " << r << ", значение = " << (abt.val(r) != INT_MAX ? to_string(abt.val(r)) : "nullptr") << "\n";
-    cout << "Индекс родительского узла = " << p << ", значение = " << (abt.val(p) != INT_MAX ? to_string(abt.val(p)) : "nullptr") << "\n";
+    cout << "\nИндекс текущего узла: " << i << ", значение: " << abt.val(i) << "\n";
+    cout << "Индекс левого потомка: " << l << ", значение: " << (abt.val(l) != INT_MAX ? to_string(abt.val(l)) : "nullptr") << "\n";
+    cout << "Индекс правого потомка: " << r << ", значение: " << (abt.val(r) != INT_MAX ? to_string(abt.val(r)) : "nullptr") << "\n";
+    cout << "Индекс родителя: " << p << ", значение: " << (abt.val(p) != INT_MAX ? to_string(abt.val(p)) : "nullptr") << "\n";
 
-    // Обходить дерево
+    // Обход дерева
     vector<int> res = abt.levelOrder();
-    cout << "\nОбход в ширину: ";
+    cout << "\nОбход по уровням: ";
     printVector(res);
     res = abt.preOrder();
-    cout << "Предварительный обход: ";
+    cout << "Прямой обход: ";
     printVector(res);
     res = abt.inOrder();
     cout << "Симметричный обход: ";

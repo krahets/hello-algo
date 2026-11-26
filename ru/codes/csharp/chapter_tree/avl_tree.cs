@@ -6,19 +6,19 @@
 
 namespace hello_algo.chapter_tree;
 
-/* AVL-дерево */
+/* АВЛ-дерево */
 class AVLTree {
-    public TreeNode? root; // Корневой узел
+    public TreeNode? root; // Корень
 
     /* Получить высоту узла */
     int Height(TreeNode? node) {
-        // Высота пустого узла равна -1, высота листового узла равна 0
+        // Высота пустого узла равна -1, высота листа равна 0
         return node == null ? -1 : node.height;
     }
 
     /* Обновить высоту узла */
     void UpdateHeight(TreeNode node) {
-        // Высота узла равна высоте более высокого поддерева + 1
+        // Высота узла на 1 больше высоты самого высокого поддерева
         node.height = Math.Max(Height(node.left), Height(node.right)) + 1;
     }
 
@@ -26,65 +26,65 @@ class AVLTree {
     public int BalanceFactor(TreeNode? node) {
         // Коэффициент баланса пустого узла равен 0
         if (node == null) return 0;
-        // Коэффициент баланса узла = высота левого поддерева - высота правого поддерева
+        // Коэффициент баланса узла равен высоте левого поддерева минус высота правого
         return Height(node.left) - Height(node.right);
     }
 
-    /* Операция правого вращения */
+    /* Правый поворот */
     TreeNode? RightRotate(TreeNode? node) {
         TreeNode? child = node?.left;
         TreeNode? grandChild = child?.right;
-        // Выполнить правое вращение узла node вокруг child
+        // Повернуть node вправо вокруг child
         child.right = node;
         node.left = grandChild;
         // Обновить высоту узла
         UpdateHeight(node);
         UpdateHeight(child);
-        // Вернуть корневой узел поддерева после вращения
+        // Вернуть корень поддерева после поворота
         return child;
     }
 
-    /* Операция левого вращения */
+    /* Левый поворот */
     TreeNode? LeftRotate(TreeNode? node) {
         TreeNode? child = node?.right;
         TreeNode? grandChild = child?.left;
-        // Выполнить левое вращение узла node вокруг child
+        // Повернуть node влево вокруг child
         child.left = node;
         node.right = grandChild;
         // Обновить высоту узла
         UpdateHeight(node);
         UpdateHeight(child);
-        // Вернуть корневой узел поддерева после вращения
+        // Вернуть корень поддерева после поворота
         return child;
     }
 
-    /* Выполнить вращение, чтобы снова сбалансировать поддерево */
+    /* Выполнить поворот, чтобы восстановить баланс поддерева */
     TreeNode? Rotate(TreeNode? node) {
         // Получить коэффициент баланса узла node
         int balanceFactorInt = BalanceFactor(node);
-        // Левосторонне перекошенное дерево
+        // Перевес влево
         if (balanceFactorInt > 1) {
             if (BalanceFactor(node?.left) >= 0) {
-                // Правое вращение
+                // Поворот вправо
                 return RightRotate(node);
             } else {
-                // Сначала левое вращение, затем правое
+                // Сначала поворот влево, затем вправо
                 node!.left = LeftRotate(node!.left);
                 return RightRotate(node);
             }
         }
-        // Правосторонне перекошенное дерево
+        // Перевес вправо
         if (balanceFactorInt < -1) {
             if (BalanceFactor(node?.right) <= 0) {
-                // Левое вращение
+                // Поворот влево
                 return LeftRotate(node);
             } else {
-                // Сначала правое вращение, затем левое
+                // Сначала поворот вправо, затем влево
                 node!.right = RightRotate(node!.right);
                 return LeftRotate(node);
             }
         }
-        // Дерево сбалансировано, вращение не требуется, вернуть сразу
+        // Дерево сбалансировано: завершить вызов без поворота
         return node;
     }
 
@@ -96,17 +96,17 @@ class AVLTree {
     /* Рекурсивная вставка узла (вспомогательный метод) */
     TreeNode? InsertHelper(TreeNode? node, int val) {
         if (node == null) return new TreeNode(val);
-        /* 1. Найти позицию вставки и вставить узел */
+        /* 1. Найти место вставки и вставить узел */
         if (val < node.val)
             node.left = InsertHelper(node.left, val);
         else if (val > node.val)
             node.right = InsertHelper(node.right, val);
         else
-            return node;     // Повторяющийся узел не вставлять, сразу вернуть
+            return node;     // Такой узел уже есть: завершить вызов без вставки
         UpdateHeight(node);  // Обновить высоту узла
-        /* 2. Выполнить вращение, чтобы снова сбалансировать поддерево */
+        /* 2. Восстановить баланс поддерева с помощью поворота */
         node = Rotate(node);
-        // Вернуть корневой узел поддерева
+        // Вернуть корень поддерева
         return node;
     }
 
@@ -118,7 +118,7 @@ class AVLTree {
     /* Рекурсивное удаление узла (вспомогательный метод) */
     TreeNode? RemoveHelper(TreeNode? node, int val) {
         if (node == null) return null;
-        /* 1. Найти узел и удалить его */
+        /* 1. Найти и удалить узел */
         if (val < node.val)
             node.left = RemoveHelper(node.left, val);
         else if (val > node.val)
@@ -126,14 +126,14 @@ class AVLTree {
         else {
             if (node.left == null || node.right == null) {
                 TreeNode? child = node.left ?? node.right;
-                // Число дочерних узлов = 0, удалить node и сразу вернуть
+                // Нет потомков: удалить node и завершить вызов
                 if (child == null)
                     return null;
-                // Число дочерних узлов = 1, удалить node напрямую
+                // Один потомок: удалить node
                 else
                     node = child;
             } else {
-                // Число дочерних узлов = 2, удалить следующий по симметричному обходу узел и заменить им текущий узел
+                // Два потомка: удалить следующий узел симметричного обхода и заменить им текущий узел
                 TreeNode? temp = node.right;
                 while (temp.left != null) {
                     temp = temp.left;
@@ -143,28 +143,28 @@ class AVLTree {
             }
         }
         UpdateHeight(node);  // Обновить высоту узла
-        /* 2. Выполнить вращение, чтобы снова сбалансировать поддерево */
+        /* 2. Восстановить баланс поддерева с помощью поворота */
         node = Rotate(node);
-        // Вернуть корневой узел поддерева
+        // Вернуть корень поддерева
         return node;
     }
 
     /* Поиск узла */
     public TreeNode? Search(int val) {
         TreeNode? cur = root;
-        // Искать в цикле и выйти после прохода за листовой узел
+        // Искать в цикле до выхода за пределы листа
         while (cur != null) {
-            // Целевой узел находится в правом поддереве cur
+            // Искомый узел в правом поддереве cur
             if (cur.val < val)
                 cur = cur.right;
-            // Целевой узел находится в левом поддереве cur
+            // Искомый узел в левом поддереве cur
             else if (cur.val > val)
                 cur = cur.left;
-            // Найти целевой узел и выйти из цикла
+            // Узел найден: выйти из цикла
             else
                 break;
         }
-        // Вернуть целевой узел
+        // Вернуть искомый узел
         return cur;
     }
 }
@@ -172,23 +172,23 @@ class AVLTree {
 public class avl_tree {
     static void TestInsert(AVLTree tree, int val) {
         tree.Insert(val);
-        Console.WriteLine("\nПосле вставки узла " + val + " AVL-дерево имеет вид");
+        Console.WriteLine("\nПосле вставки узла " + val + " АВЛ-дерево имеет вид:");
         PrintUtil.PrintTree(tree.root);
     }
 
     static void TestRemove(AVLTree tree, int val) {
         tree.Remove(val);
-        Console.WriteLine("\nПосле удаления узла " + val + " AVL-дерево имеет вид");
+        Console.WriteLine("\nПосле удаления узла " + val + " АВЛ-дерево имеет вид:");
         PrintUtil.PrintTree(tree.root);
     }
 
     [Test]
     public void Test() {
-        /* Инициализация пустого AVL-дерева */
+        /* Инициализация пустого АВЛ-дерева */
         AVLTree avlTree = new();
 
         /* Вставка узла */
-        // Обратите внимание, как AVL-дерево сохраняет баланс после вставки узла
+        // Проследите, как АВЛ-дерево сохраняет баланс после вставки узла
         TestInsert(avlTree, 1);
         TestInsert(avlTree, 2);
         TestInsert(avlTree, 3);
@@ -204,13 +204,13 @@ public class avl_tree {
         TestInsert(avlTree, 7);
 
         /* Удаление узла */
-        // Обратите внимание, как AVL-дерево сохраняет баланс после удаления узла
-        TestRemove(avlTree, 8); // Удаление узла степени 0
-        TestRemove(avlTree, 5); // Удаление узла степени 1
-        TestRemove(avlTree, 4); // Удаление узла степени 2
+        // Проследите, как АВЛ-дерево сохраняет баланс после удаления узла
+        TestRemove(avlTree, 8); // Удаление узла без потомков
+        TestRemove(avlTree, 5); // Удаление узла с одним потомком
+        TestRemove(avlTree, 4); // Удаление узла с двумя потомками
 
         /* Поиск узла */
         TreeNode? node = avlTree.Search(7);
-        Console.WriteLine("\nНайденный объект узла = " + node + ", значение узла = " + node?.val);
+        Console.WriteLine("\nНайденный узел: " + node + ", значение узла = " + node?.val);
     }
 }

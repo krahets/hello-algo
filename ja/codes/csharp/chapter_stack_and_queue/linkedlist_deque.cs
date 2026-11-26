@@ -9,21 +9,21 @@ namespace hello_algo.chapter_stack_and_queue;
 /* 双方向連結リストのノード */
 public class ListNode(int val) {
     public int val = val;       // ノードの値
-    public ListNode? next = null; // 後続ノードへの参照
+    public ListNode? next = null; // 次のノードへの参照
     public ListNode? prev = null; // 前のノードへの参照
 }
 
-/* 双方向連結リストで実装した両端キュー */
+/* 双方向連結リストを使った両端キュー */
 public class LinkedListDeque {
-    ListNode? front, rear; // 先頭ノード front、末尾ノード rear
-    int queSize = 0;      // 両端キューの長さ
+    ListNode? front, rear; // front は先頭ノード、rear は末尾ノードを指す
+    int queSize = 0;      // 両端キューの要素数
 
     public LinkedListDeque() {
         front = null;
         rear = null;
     }
 
-    /* 両端キューの長さを取得する */
+    /* 両端キューの要素数を取得する */
     public int Size() {
         return queSize;
     }
@@ -33,65 +33,65 @@ public class LinkedListDeque {
         return Size() == 0;
     }
 
-    /* エンキュー操作 */
+    /* 両端キューに要素を追加する */
     void Push(int num, bool isFront) {
         ListNode node = new(num);
-        // 連結リストが空の場合、front と rear の両方が node を指すようにする
+        // リストが空なら、front と rear の両方が node を指すようにする
         if (IsEmpty()) {
             front = node;
             rear = node;
         }
-        // 先頭へのエンキュー操作
+        // 先頭に追加する
         else if (isFront) {
-            // node を連結リストの先頭に追加する
+            // node をリストの先頭に追加する
             front!.prev = node;
             node.next = front;
             front = node; // 先頭ノードを更新する                           
         }
-        // 末尾へのエンキュー操作
+        // 末尾に追加する
         else {
-            // node を連結リストの末尾に追加する
+            // node をリストの末尾に追加する
             rear!.next = node;
             node.prev = rear;
             rear = node;  // 末尾ノードを更新する
         }
 
-        queSize++; // キューの長さを更新する
+        queSize++; // 両端キューの要素数を更新する
     }
 
-    /* 先頭にエンキューする */
+    /* 先頭に追加する */
     public void PushFirst(int num) {
         Push(num, true);
     }
 
-    /* 末尾にエンキューする */
+    /* 末尾に追加する */
     public void PushLast(int num) {
         Push(num, false);
     }
 
-    /* デキュー操作 */
+    /* 両端キューから要素を取り出す */
     int? Pop(bool isFront) {
         if (IsEmpty())
             throw new Exception();
         int? val;
-        // キューの長さが 1 のとき、先頭と末尾は同じノードを指す
+        // 両端キューの要素数が 1 のとき、先頭と末尾は同じノードを指す
         if (queSize == 1) {
             val = front!.val;
             front = null;
             rear = null;
         }
-        // 先頭からのデキュー操作
+        // 先頭から取り出す
         else if (isFront) {
-            val = front!.val; // 先頭ノードの値を一時保存する
+            val = front!.val; // 先頭ノードの値を一時的に保存する
             // 先頭ノードを削除する
             ListNode? fNext = front?.next;
             fNext!.prev = null;
             front.next = null;
             front = fNext;   // 先頭ノードを更新する
         }
-        // 末尾からのデキュー操作
+        // 末尾から取り出す
         else {
-            val = rear!.val;  // 末尾ノードの値を一時保存する
+            val = rear!.val;  // 末尾ノードの値を一時的に保存する
             // 末尾ノードを削除する
             ListNode? rPrev = rear?.prev;
             rPrev!.next = null;
@@ -99,28 +99,28 @@ public class LinkedListDeque {
             rear = rPrev;    // 末尾ノードを更新する
         }
 
-        queSize--; // キューの長さを更新する
+        queSize--; // 両端キューの要素数を更新する
         return val;
     }
 
-    /* 先頭からデキューする */
+    /* 先頭から取り出す */
     public int? PopFirst() {
         return Pop(true);
     }
 
-    /* 末尾からデキューする */
+    /* 末尾から取り出す */
     public int? PopLast() {
         return Pop(false);
     }
 
-    /* キューの先頭要素にアクセス */
+    /* 両端キューの先頭要素を参照する */
     public int? PeekFirst() {
         if (IsEmpty())
             throw new Exception();
         return front?.val;
     }
 
-    /* キューの末尾要素にアクセスする */
+    /* 両端キューの末尾要素を参照する */
     public int? PeekLast() {
         if (IsEmpty())
             throw new Exception();
@@ -150,27 +150,27 @@ public class linkedlist_deque {
         deque.PushLast(5);
         Console.WriteLine("両端キュー deque = " + string.Join(" ", deque.ToArray()));
 
-        /* 要素にアクセスする */
+        /* 要素を参照する */
         int? peekFirst = deque.PeekFirst();
-        Console.WriteLine("キューの先頭要素 peekFirst = " + peekFirst);
+        Console.WriteLine("先頭要素 peekFirst = " + peekFirst);
         int? peekLast = deque.PeekLast();
-        Console.WriteLine("キューの末尾要素 peekLast = " + peekLast);
+        Console.WriteLine("末尾要素 peekLast = " + peekLast);
 
-        /* 要素をエンキューする */
+        /* 要素を両端キューに追加する */
         deque.PushLast(4);
-        Console.WriteLine("要素 4 を末尾にエンキューした後 deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("末尾に 4 を追加した後の deque = " + string.Join(" ", deque.ToArray()));
         deque.PushFirst(1);
-        Console.WriteLine("要素 1 を先頭にエンキューした後 deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("先頭に 1 を追加した後の deque = " + string.Join(" ", deque.ToArray()));
 
-        /* 要素をデキューする */
+        /* 両端キューから要素を取り出す */
         int? popLast = deque.PopLast();
-        Console.WriteLine("末尾からデキューした要素 = " + popLast + "、末尾からデキューした後 deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("末尾から取り出した要素 = " + popLast + "、末尾から取り出した後の deque = " + string.Join(" ", deque.ToArray()));
         int? popFirst = deque.PopFirst();
-        Console.WriteLine("先頭からデキューした要素 = " + popFirst + "、先頭からデキューした後 deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("先頭から取り出した要素 = " + popFirst + "、先頭から取り出した後の deque = " + string.Join(" ", deque.ToArray()));
 
-        /* 両端キューの長さを取得する */
+        /* 両端キューの要素数を取得する */
         int size = deque.Size();
-        Console.WriteLine("両端キューの長さ size = " + size);
+        Console.WriteLine("両端キューの要素数 size = " + size);
 
         /* 両端キューが空かどうかを判定する */
         bool isEmpty = deque.IsEmpty();

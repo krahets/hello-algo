@@ -2,86 +2,86 @@
 
 ## Check your understanding
 
-### Will this permutation algorithm miss results?
+### Will this permutation algorithm miss any results?
 
-A backtracking algorithm tries the numbers `1, 2, 3` in order to generate all permutations. Whenever it chooses a number `x`, it:
+A backtracking algorithm tries the numbers `1, 2, 3` in that order to generate all permutations. Each time it chooses a number `x`, it takes these steps:
 
-1. Appends `x` to the current path.
-2. Marks `x` as used.
-3. Recursively fills the next position.
+1. Append `x` to the current path.
+2. Mark `x` as used.
+3. Recursively fill the next position.
 
-After the recursive call returns, the student removes only `x` from the end of the path, then continues trying the next number.
-
-<!-- numbered-subquestions -->
-
-1. Which permutation does the algorithm produce first? Can it still produce all six permutations?
-2. Before returning to the previous recursion level, is removing the last number from the path enough? If not, what else is needed? Explain.
-
-??? success "Reference answer"
-
-    1. It first produces `[1, 2, 3]`, but cannot generate every permutation. Although the path becomes shorter as calls return,
-        the numbers 1, 2, and 3 remain marked as used, leaving later branches with no available numbers.
-
-    2. No. After removing `x` from the end of the path, we must also mark `x` as unused again.
-        The current path and the used markers together describe the search state. Choosing a number changes both, so backtracking must restore both
-        to allow other branches to choose `x` again.
-
-### Does the order of choosing numbers matter?
-
-Given the sorted array `[2, 3, 5]` and target value 5, each number may be chosen repeatedly.
-The algorithm requires the numbers along each search path to appear in nondecreasing order.
+When the recursive call returns, a student removes `x` from the end of the path and goes straight on to try the next number.
 
 <!-- numbered-subquestions -->
 
-1. Which distinct combinations can be obtained?
-2. Why is it unnecessary to search the same set of numbers in different orders? What does the nondecreasing-order restriction achieve?
-3. The current path is `[3]`, the remaining sum is 2, and the next candidate is 3. Why can we stop checking all further candidates at this level?
+1. Which permutation does the algorithm produce first? Can it still produce all six?
+2. Before returning to the previous level, is it enough to remove the last number from the path? If not, what else must you do, and why?
 
-??? success "Reference answer"
+??? success "Sample answer"
+
+    1. The first permutation is `[1, 2, 3]`, but the algorithm misses the rest. Although the path gets shorter as the calls return,
+        the numbers 1, 2, and 3 are all still marked as used, leaving no choices for later branches.
+
+    2. No. After removing `x` from the end of the path, you must also mark `x` as unused.
+        The path and the usage flags together describe the search state. A choice changes both, so backtracking must restore both
+        to let other branches choose `x` again.
+
+### Does the order of the choices matter?
+
+Given the sorted array `[2, 3, 5]` and a target of 5, you may choose each number more than once.
+The algorithm requires the numbers on each search path to appear in nondecreasing order.
+
+<!-- numbered-subquestions -->
+
+1. Which distinct combinations can you obtain?
+2. Why is there no need to search for the same combination in different orders? What does the ordering constraint accomplish?
+3. Suppose the current path is `[3]`, you still need 2, and the next candidate is 3. Why can you stop checking candidates at this level?
+
+??? success "Sample answer"
 
     1. The distinct combinations are `[2, 3]` and `[5]`.
 
-    2. This problem treats `[2, 3]` and `[3, 2]` as the same combination: selection order does not distinguish answers.
-        Requiring the path's numbers to appear in nondecreasing order lets the search skip duplicate combinations such as `[3, 2]` directly.
+    2. The problem treats `[2, 3]` and `[3, 2]` as the same combination. The order of selection does not count.
+        Keeping the path in nondecreasing order lets the search skip duplicates such as `[3, 2]`.
 
-    3. The remaining sum is 2, and candidate 3 already exceeds it. Since the array is sorted,
-        all candidates after 3 are larger still and cannot join the current combination. We can therefore stop checking this level.
+    3. You still need 2, and the candidate 3 already exceeds 2. Because the array is sorted,
+        every candidate after 3 is even larger. None can join the current combination, so you can stop checking at this level.
 
-### Where can the next queen be placed?
+### Where can the next queen go?
 
-Place queens row by row on a `4 × 4` board, with both row and column indices starting at 0.
-Queens are already at `(0, 1)` and `(1, 3)`. The next queen must be placed in row 2.
+Place queens one row at a time on a `4 × 4` board, with row and column indices starting at 0.
+Queens already occupy `(0, 1)` and `(1, 3)`. The next queen goes in row 2.
 
 <!-- numbered-subquestions -->
 
-1. Which columns are ruled out because they already contain a queen?
-2. Among the remaining columns, which positions are ruled out by sharing a diagonal with a queen?
-3. Which positions in row 2 remain available to try?
+1. Which columns already contain a queen and can be ruled out?
+2. Of the remaining squares, which can you rule out because they share a diagonal with a queen?
+3. Which squares in row 2 can you still try?
 
-??? success "Reference answer"
+??? success "Sample answer"
 
-    1. Columns 1 and 3 already contain queens, ruling out positions `(2, 1)` and `(2, 3)`.
+    1. Columns 1 and 3 already contain queens, ruling out `(2, 1)` and `(2, 3)`.
 
-    2. Of the remaining positions, `(2, 2)` shares a diagonal with `(1, 3)`, so it is also ruled out.
-        Position `(2, 0)` shares neither a column nor a diagonal with either existing queen.
+    2. Among the remaining squares, `(2, 2)` shares a diagonal with `(1, 3)`, so you can rule it out as well.
+        Square `(2, 0)` shares neither a column nor a diagonal with either queen.
 
-    3. The only position to try in row 2 is `(2, 0)`.
+    3. The only square you can try in row 2 is `(2, 0)`.
 
-        This step establishes only that the current placement is valid. If the board cannot be completed later, we must still backtrack and try other earlier choices.
+        This placement is valid so far. If you cannot complete the board later, you must still backtrack and try a different earlier choice.
 
 ## Programming exercises
 
-### All permutations of distinct elements
+### Permutations of distinct elements
 
 The integer array `nums` contains at least one element, and all its elements are distinct.
-List every possible ordering that uses each element exactly once, returning each ordering as an array.
+Return every possible ordering as an array, using each element exactly once in each ordering.
 The permutations may appear in any order in the result.
-Use backtracking and a Boolean array to record whether the element at each position is already included in the current permutation.
+Use backtracking and a Boolean array to track whether the element at each index is already in the current permutation.
 
 ??? tip "Hints"
 
-    1. The recursion depth indicates which position in the permutation is being filled.
-    2. At each level, try only unused elements.
-    3. When the path length reaches the length of `nums`, add a copy of the path to the answer.
+    1. The recursion depth tells you which position to fill
+    2. At each level, try only unused elements
+    3. When the path is as long as `nums`, add a copy to the result
 
 [LeetCode](https://leetcode.com/problems/permutations/){ .rounded-button .exercise-button target="_blank" rel="noopener noreferrer" }

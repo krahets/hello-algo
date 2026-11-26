@@ -6,43 +6,43 @@
 
 use hello_algo_rust::include::print_util;
 
-/* 원소 num의 k번째 자릿값 반환. 이때 exp = 10^(k-1)이다 */
+/* 원소 num의 k번째 자릿값 구하기. 여기서 exp = 10^(k-1) */
 fn digit(num: i32, exp: i32) -> usize {
-    // k 대신 exp를 전달하면 여기서 비용이 큰 거듭제곱 계산을 반복하지 않아도 된다
+    // k 대신 exp를 전달하여 비용이 큰 거듭제곱 연산의 반복 방지
     return ((num / exp) % 10) as usize;
 }
 
-/* 계수 정렬(nums의 k번째 자릿값을 기준으로 정렬) */
+/* 계수 정렬(nums의 k번째 자릿값 기준) */
 fn counting_sort_digit(nums: &mut [i32], exp: i32) {
-    // 십진수의 각 자리는 0~9 범위이므로 길이가 10인 버킷 배열이 필요하다
+    // 십진수 한 자리의 값은 0~9이므로 길이 10인 버킷 배열이 필요함
     let mut counter = [0; 10];
     let n = nums.len();
-    // 0~9 각 숫자의 등장 횟수를 센다
+    // 0~9의 각 숫자가 나타난 횟수 세기
     for i in 0..n {
-        let d = digit(nums[i], exp); // nums[i]의 k번째 자릿값을 구하여 d로 표시한다
-        counter[d] += 1; // 숫자 d의 등장 횟수를 센다
+        let d = digit(nums[i], exp); // nums[i]의 k번째 자릿값을 구해 d에 저장
+        counter[d] += 1; // 숫자 d의 출현 횟수 세기
     }
-    // 접두 합을 구하여 등장 개수를 배열 인덱스로 변환한다
+    // 누적합을 구해 ‘출현 횟수’를 ‘배열 인덱스’로 변환
     for i in 1..10 {
         counter[i] += counter[i - 1];
     }
-    // 역순으로 순회하며 버킷에 집계된 결과에 따라 각 원소를 res에 채운다
+    // 역순으로 순회하며 버킷별 계수 결과에 따라 각 원소를 res에 채우기
     let mut res = vec![0; n];
     for i in (0..n).rev() {
         let d = digit(nums[i], exp);
-        let j = counter[d] - 1; // 배열에서 d의 인덱스 j를 구한다
-        res[j] = nums[i]; // 현재 원소를 인덱스 j에 채운다
-        counter[d] -= 1; // d의 개수를 1 줄인다
+        let j = counter[d] - 1; // 배열에서 d가 들어갈 인덱스 j 구하기
+        res[j] = nums[i]; // 현재 원소를 인덱스 j에 배치
+        counter[d] -= 1; // d의 개수를 1 줄이기
     }
-    // 결과로 원래 배열 nums를 덮어쓴다
+    // 결과로 원래 배열 nums를 덮어쓰기
     nums.copy_from_slice(&res);
 }
 
 /* 기수 정렬 */
 fn radix_sort(nums: &mut [i32]) {
-    // 배열의 최댓값을 구하여 최대 자릿수를 판단한다
+    // 최대 자릿수를 알아내기 위해 배열의 최댓값 구하기
     let m = *nums.into_iter().max().unwrap();
-    // 낮은 자리에서 높은 자리 순서로 순회한다
+    // 낮은 자리부터 높은 자리까지 차례로 순회
     let mut exp = 1;
     while exp <= m {
         counting_sort_digit(nums, exp);
@@ -50,7 +50,7 @@ fn radix_sort(nums: &mut [i32]) {
     }
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 fn main() {
     // 기수 정렬
     let mut nums = [
@@ -58,6 +58,6 @@ fn main() {
         63832996,
     ];
     radix_sort(&mut nums);
-    print!("기수 정렬을 마친 후 nums = ");
+    print!("기수 정렬 후 nums = ");
     print_util::print_array(&nums);
 }

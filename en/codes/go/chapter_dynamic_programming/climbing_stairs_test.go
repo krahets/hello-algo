@@ -12,37 +12,37 @@ import (
 func TestClimbingStairsBacktrack(t *testing.T) {
 	n := 9
 	res := climbingStairsBacktrack(n)
-	fmt.Printf("Number of ways to climb %d steps: %d\n", n, res)
+	fmt.Printf("Ways to climb %d stairs: %d\n", n, res)
 }
 
 func TestClimbingStairsDFS(t *testing.T) {
 	n := 9
 	res := climbingStairsDFS(n)
-	fmt.Printf("Number of ways to climb %d steps: %d\n", n, res)
+	fmt.Printf("Ways to climb %d stairs: %d\n", n, res)
 }
 
 func TestClimbingStairsDFSMem(t *testing.T) {
 	n := 9
 	res := climbingStairsDFSMem(n)
-	fmt.Printf("Number of ways to climb %d steps: %d\n", n, res)
+	fmt.Printf("Ways to climb %d stairs: %d\n", n, res)
 }
 
 func TestClimbingStairsDP(t *testing.T) {
 	n := 9
 	res := climbingStairsDP(n)
-	fmt.Printf("Number of ways to climb %d steps: %d\n", n, res)
+	fmt.Printf("Ways to climb %d stairs: %d\n", n, res)
 }
 
 func TestClimbingStairsDPComp(t *testing.T) {
 	n := 9
 	res := climbingStairsDPComp(n)
-	fmt.Printf("Number of ways to climb %d steps: %d\n", n, res)
+	fmt.Printf("Ways to climb %d stairs: %d\n", n, res)
 }
 
 func TestClimbingStairsConstraintDP(t *testing.T) {
 	n := 9
 	res := climbingStairsConstraintDP(n)
-	fmt.Printf("Number of ways to climb %d steps: %d\n", n, res)
+	fmt.Printf("Ways to climb %d stairs: %d\n", n, res)
 }
 
 func TestMinCostClimbingStairsDPComp(t *testing.T) {
@@ -50,8 +50,8 @@ func TestMinCostClimbingStairsDPComp(t *testing.T) {
 	fmt.Printf("Input stair costs: %v\n", cost)
 
 	res := minCostClimbingStairsDP(cost)
-	fmt.Printf("Minimum cost to reach the top: %d\n", res)
+	fmt.Printf("Minimum cost to climb the stairs: %d\n", res)
 
 	res = minCostClimbingStairsDPComp(cost)
-	fmt.Printf("Minimum cost to reach the top: %d\n", res)
+	fmt.Printf("Minimum cost to climb the stairs: %d\n", res)
 }

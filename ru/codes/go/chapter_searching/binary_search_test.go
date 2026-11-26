@@ -15,26 +15,26 @@ func TestBinarySearch(t *testing.T) {
 		nums     = []int{1, 3, 6, 8, 12, 15, 23, 26, 31, 35}
 		expected = 2
 	)
-	// Выполнить двоичный поиск в массиве
+	// Выполняем двоичный поиск в массиве
 	actual := binarySearch(nums, target)
-	fmt.Println("Индекс целевого элемента 6 =", actual)
+	fmt.Println("Индекс элемента 6 =", actual)
 	if actual != expected {
-		t.Errorf("Индекс целевого элемента 6 = %d, должно быть %d", actual, expected)
+		t.Errorf("Индекс элемента 6 = %d, ожидается %d", actual, expected)
 	}
 }
 
 func TestBinarySearchEdge(t *testing.T) {
 	// Массив с повторяющимися элементами
 	nums := []int{1, 3, 6, 8, 12, 15, 23, 26, 31, 35}
-	fmt.Println("\nМассив nums =", nums)
+	fmt.Println("\nМассив nums = ", nums)
 
-	// Двоичный поиск левой и правой границы
+	// Двоичный поиск левой и правой границ
 	for _, target := range []int{6, 7} {
 		index := binarySearchLeftEdge(nums, target)
-		fmt.Println("Индекс самого левого элемента", target, "равен", index)
+		fmt.Println("Индекс первого вхождения", target, "равен", index)
 
 		index = binarySearchRightEdge(nums, target)
-		fmt.Println("Индекс самого правого элемента", target, "равен", index)
+		fmt.Println("Индекс последнего вхождения", target, "равен", index)
 	}
 }
 
@@ -43,19 +43,19 @@ func TestBinarySearchInsertion(t *testing.T) {
 	nums := []int{1, 3, 6, 8, 12, 15, 23, 26, 31, 35}
 	fmt.Println("Массив nums =", nums)
 
-	// Двоичный поиск точки вставки
+	// Двоичный поиск позиции вставки
 	for _, target := range []int{6, 9} {
 		index := binarySearchInsertionSimple(nums, target)
-		fmt.Println("Индекс позиции вставки элемента", target, "равен", index)
+		fmt.Println("Позиция вставки элемента", target, "равна", index)
 	}
 
 	// Массив с повторяющимися элементами
 	nums = []int{1, 3, 6, 6, 6, 6, 6, 10, 12, 15}
 	fmt.Println("\nМассив nums =", nums)
 
-	// Двоичный поиск точки вставки
+	// Двоичный поиск позиции вставки
 	for _, target := range []int{2, 6, 20} {
 		index := binarySearchInsertion(nums, target)
-		fmt.Println("Индекс позиции вставки элемента", target, "равен", index)
+		fmt.Println("Позиция вставки элемента", target, "равна", index)
 	}
 }

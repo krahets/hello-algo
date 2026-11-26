@@ -1,8 +1,8 @@
-# Follow the PEP 585 - Type Hinting Generics In Standard Collections
+# Следуем PEP 585 об обобщённых типах в аннотациях стандартных коллекций
 # https://peps.python.org/pep-0585/
 from __future__ import annotations
 
-# Import common libs here to simplify the code by `from module import *`
+# Импортируем здесь общие библиотеки, чтобы упростить код с помощью `from module import *`
 from .list_node import (
     ListNode,
     list_to_linked_list,

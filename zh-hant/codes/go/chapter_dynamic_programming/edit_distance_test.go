@@ -17,7 +17,7 @@ func TestEditDistanceDFS(test *testing.T) {
 
 	// 暴力搜尋
 	res := editDistanceDFS(s, t, n, m)
-	fmt.Printf("將 %s 更改為 %s 最少需要編輯 %d 步\n", s, t, res)
+	fmt.Printf("將 %s 改成 %s 至少需要編輯 %d 步\n", s, t, res)
 
 	// 記憶化搜尋
 	mem := make([][]int, n+1)
@@ -28,13 +28,13 @@ func TestEditDistanceDFS(test *testing.T) {
 		}
 	}
 	res = editDistanceDFSMem(s, t, mem, n, m)
-	fmt.Printf("將 %s 更改為 %s 最少需要編輯 %d 步\n", s, t, res)
+	fmt.Printf("將 %s 改成 %s 至少需要編輯 %d 步\n", s, t, res)
 
 	// 動態規劃
 	res = editDistanceDP(s, t)
-	fmt.Printf("將 %s 更改為 %s 最少需要編輯 %d 步\n", s, t, res)
+	fmt.Printf("將 %s 改成 %s 至少需要編輯 %d 步\n", s, t, res)
 
 	// 空間最佳化後的動態規劃
 	res = editDistanceDPComp(s, t)
-	fmt.Printf("將 %s 更改為 %s 最少需要編輯 %d 步\n", s, t, res)
+	fmt.Printf("將 %s 改成 %s 至少需要編輯 %d 步\n", s, t, res)
 }

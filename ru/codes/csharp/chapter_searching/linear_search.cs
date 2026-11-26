@@ -7,28 +7,28 @@
 namespace hello_algo.chapter_searching;
 
 public class linear_search {
-    /* Линейный поиск (массив) */
+    /* Линейный поиск в массиве */
     int LinearSearchArray(int[] nums, int target) {
-        // Обход массива
+        // Обходим массив
         for (int i = 0; i < nums.Length; i++) {
-            // Целевой элемент найден, вернуть его индекс
+            // Элемент найден, возвращаем его индекс
             if (nums[i] == target)
                 return i;
         }
-        // Целевой элемент не найден, вернуть -1
+        // Элемент не найден, возвращаем -1
         return -1;
     }
 
-    /* Линейный поиск (связный список) */
+    /* Линейный поиск в связном списке */
     ListNode? LinearSearchLinkedList(ListNode? head, int target) {
-        // Обойти связный список
+        // Обходим связный список
         while (head != null) {
-            // Целевой узел найден, возвращается этот узел
+            // Нужный узел найден, возвращаем его
             if (head.val == target)
                 return head;
             head = head.next;
         }
-        // Целевой узел не найден, вернуть null
+        // Нужный узел не найден, возвращаем null
         return null;
     }
 
@@ -36,14 +36,14 @@ public class linear_search {
     public void Test() {
         int target = 3;
 
-        /* Выполнить линейный поиск в массиве */
+        /* Выполняем линейный поиск в массиве */
         int[] nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
         int index = LinearSearchArray(nums, target);
-        Console.WriteLine("Индекс целевого элемента 3 = " + index);
+        Console.WriteLine("Индекс элемента 3 = " + index);
 
-        /* Выполнить линейный поиск в связном списке */
+        /* Выполняем линейный поиск в связном списке */
         ListNode? head = ListNode.ArrToLinkedList(nums);
         ListNode? node = LinearSearchLinkedList(head, target);
-        Console.WriteLine("Объект узла со значением 3 = " + node);
+        Console.WriteLine("Узел со значением 3: " + node);
     }
 }

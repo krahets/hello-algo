@@ -28,7 +28,7 @@ int linear(int n) {
 /* 線形オーダー（配列の走査） */
 int arrayTraversal(List<int> nums) {
   int count = 0;
-  // ループの回数は配列の長さに比例する
+  // 反復回数は配列の長さに比例
   for (var _num in nums) {
     count++;
   }
@@ -38,7 +38,7 @@ int arrayTraversal(List<int> nums) {
 /* 二次オーダー */
 int quadratic(int n) {
   int count = 0;
-  // ループの回数はデータの大きさ n の二乗に比例する
+  // 反復回数はデータサイズ n の二乗に比例
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < n; j++) {
       count++;
@@ -50,16 +50,16 @@ int quadratic(int n) {
 /* 二次オーダー（バブルソート） */
 int bubbleSort(List<int> nums) {
   int count = 0; // カウンタ
-  // 外側のループ：未ソート区間は [0, i]
+  // 外側のループ：未整列区間は [0, i]
   for (var i = nums.length - 1; i > 0; i--) {
-    // 内側のループ：未ソート区間 [0, i] の最大要素を区間の右端に移す
+    // 内側のループ：未整列区間 [0, i] の最大要素を、交換しながら区間の右端へ移す
     for (var j = 0; j < i; j++) {
       if (nums[j] > nums[j + 1]) {
-        // nums[j] と nums[j + 1] を交換する
+        // nums[j] と nums[j + 1] を交換
         int tmp = nums[j];
         nums[j] = nums[j + 1];
         nums[j + 1] = tmp;
-        count += 3; // 要素の交換は 3 回の単位操作からなる
+        count += 3; // 要素の交換は 3 回の基本操作からなる
       }
     }
   }
@@ -69,7 +69,7 @@ int bubbleSort(List<int> nums) {
 /* 指数オーダー（ループによる実装） */
 int exponential(int n) {
   int count = 0, base = 1;
-  // 各回で細胞が 2 つに分裂し、数列 1, 2, 4, 8, ..., 2^(n-1) を形成する
+  // 各回で細胞が二分し、分裂する細胞の数は 1, 2, 4, 8, ..., 2^(n-1) となる
   for (var i = 0; i < n; i++) {
     for (var j = 0; j < base; j++) {
       count++;
@@ -116,18 +116,18 @@ int linearLogRecur(int n) {
 int factorialRecur(int n) {
   if (n == 0) return 1;
   int count = 0;
-  // 1 個から n 個に分裂する
+  // 1 個から n 個に分かれる
   for (var i = 0; i < n; i++) {
     count += factorialRecur(n - 1);
   }
   return count;
 }
 
-/* 実行用コード */
+/* 実行例 */
 void main() {
-  // n を変更して実行し、各計算量で操作回数がどのように変化するか確かめられる
+  // n を変えて実行し、計算量ごとに操作回数の増え方を確かめる
   int n = 8;
-  print('入力データの大きさ n = $n');
+  print('入力データのサイズ n = $n');
 
   int count = constant(n);
   print('定数オーダーの操作回数 = $count');

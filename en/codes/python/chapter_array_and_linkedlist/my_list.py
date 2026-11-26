@@ -11,9 +11,9 @@ class MyList:
     def __init__(self):
         """Constructor"""
         self._capacity: int = 10  # List capacity
-        self._arr: list[int] = [0] * self._capacity  # Array (stores the list elements)
+        self._arr: list[int] = [0] * self._capacity  # Array that stores the list elements
         self._size: int = 0  # List length (current number of elements)
-        self._extend_ratio: int = 2  # Factor by which the list capacity grows each time
+        self._extend_ratio: int = 2  # Factor by which the list capacity grows
 
     def size(self) -> int:
         """Get the list length (current number of elements)"""
@@ -25,7 +25,7 @@ class MyList:
 
     def get(self, index: int) -> int:
         """Access an element"""
-        # Raise an exception if the index is out of bounds; the same applies below
+        # Throw an exception if the index is out of bounds, here and below
         if index < 0 or index >= self._size:
             raise IndexError("Index out of bounds")
         return self._arr[index]
@@ -37,8 +37,8 @@ class MyList:
         self._arr[index] = num
 
     def add(self, num: int):
-        """Append an element at the end"""
-        # Grow the capacity when adding an element would exceed it
+        """Append an element"""
+        # Increase capacity when the elements would no longer fit
         if self.size() == self.capacity():
             self.extend_capacity()
         self._arr[self._size] = num
@@ -48,14 +48,14 @@ class MyList:
         """Insert an element in the middle"""
         if index < 0 or index >= self._size:
             raise IndexError("Index out of bounds")
-        # Grow the capacity when adding an element would exceed it
+        # Increase capacity when the elements would no longer fit
         if self._size == self.capacity():
             self.extend_capacity()
-        # Shift all elements at and after index `index` one position to the right
+        # Shift the elements from index onward one position to the right
         for j in range(self._size - 1, index - 1, -1):
             self._arr[j + 1] = self._arr[j]
         self._arr[index] = num
-        # Update the number of elements
+        # Update the element count
         self._size += 1
 
     def remove(self, index: int) -> int:
@@ -63,31 +63,31 @@ class MyList:
         if index < 0 or index >= self._size:
             raise IndexError("Index out of bounds")
         num = self._arr[index]
-        # Shift all elements after index `index` one position to the left
+        # Shift the elements after index one position to the left
         for j in range(index, self._size - 1):
             self._arr[j] = self._arr[j + 1]
-        # Update the number of elements
+        # Update the element count
         self._size -= 1
         # Return the removed element
         return num
 
     def extend_capacity(self):
-        """Grow the list capacity"""
-        # Create a new array with _extend_ratio times the original length and copy the original array into it
+        """Increase the list capacity"""
+        # Create an array _extend_ratio times as long and copy the original array into it
         self._arr = self._arr + [0] * self.capacity() * (self._extend_ratio - 1)
         # Update the list capacity
         self._capacity = len(self._arr)
 
     def to_array(self) -> list[int]:
-        """Return the portion of the list that contains elements"""
+        """Return the list up to its current length"""
         return self._arr[: self._size]
 
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
     # Initialize the list
     nums = MyList()
-    # Append an element at the end
+    # Append an element
     nums.add(1)
     nums.add(3)
     nums.add(2)
@@ -97,22 +97,22 @@ if __name__ == "__main__":
 
     # Insert an element in the middle
     nums.insert(6, index=3)
-    print("Insert the number 6 at index 3, giving nums =", nums.to_array())
+    print("After inserting 6 at index 3, nums =", nums.to_array())
 
     # Remove an element
     nums.remove(3)
-    print("Remove the element at index 3, giving nums =", nums.to_array())
+    print("After removing the element at index 3, nums =", nums.to_array())
 
     # Access an element
     num = nums.get(1)
-    print("Access the element at index 1, giving num =", num)
+    print("Reading index 1 gives num =", num)
 
     # Update an element
     nums.set(0, 1)
-    print("Update the element at index 1 to 0, giving nums =", nums.to_array())
+    print("After setting the element at index 1 to 0, nums =", nums.to_array())
 
     # Test capacity growth
     for i in range(10):
-        # When i = 5, the list length would exceed its capacity, triggering capacity growth
+        # At i = 5, the list length would exceed its capacity, so the list grows
         nums.add(i)
-    print(f"List after growing its capacity: {nums.to_array()}, capacity = {nums.capacity()}, length = {nums.size()}")
+    print(f"After increasing capacity, the list is {nums.to_array()}, capacity = {nums.capacity()}, length = {nums.size()}")

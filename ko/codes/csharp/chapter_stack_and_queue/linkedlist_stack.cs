@@ -8,19 +8,19 @@ namespace hello_algo.chapter_stack_and_queue;
 
 /* 연결 리스트로 구현한 스택 */
 class LinkedListStack {
-    ListNode? stackPeek;  // 머리 노드를 스택의 맨 위로 사용한다
+    ListNode? stackPeek;  // 첫 노드를 스택의 맨 위로 사용한다
     int stkSize = 0;   // 스택의 길이
 
     public LinkedListStack() {
         stackPeek = null;
     }
 
-    /* 스택의 길이 반환 */
+    /* 스택의 길이 조회 */
     public int Size() {
         return stkSize;
     }
 
-    /* 스택이 비어 있는지 판단 */
+    /* 스택이 비어 있는지 확인 */
     public bool IsEmpty() {
         return Size() == 0;
     }
@@ -42,14 +42,14 @@ class LinkedListStack {
         return num;
     }
 
-    /* 스택 맨 위 원소 접근 */
+    /* 스택 맨 위의 원소 조회 */
     public int Peek() {
         if (IsEmpty())
             throw new Exception();
         return stackPeek!.val;
     }
 
-    /* List를 Array로 변환하여 반환 */
+    /* 연결 리스트를 배열로 변환해 반환한다 */
     public int[] ToArray() {
         if (stackPeek == null)
             return [];
@@ -78,19 +78,19 @@ public class linkedlist_stack {
         stack.Push(4);
         Console.WriteLine("스택 stack = " + string.Join(",", stack.ToArray()));
 
-        /* 스택 맨 위 원소 접근 */
+        /* 스택 맨 위의 원소 조회 */
         int peek = stack.Peek();
-        Console.WriteLine("스택 맨 위 원소 peek = " + peek);
+        Console.WriteLine("맨 위 원소 peek = " + peek);
 
         /* 스택에서 원소 꺼내기 */
         int pop = stack.Pop();
-        Console.WriteLine("스택에서 꺼낸 원소 pop = " + pop + ", 스택에서 꺼낸 후 stack = " + string.Join(",", stack.ToArray()));
+        Console.WriteLine("꺼낸 원소 pop = " + pop + ", 꺼낸 후 stack = " + string.Join(",", stack.ToArray()));
 
-        /* 스택의 길이 반환 */
+        /* 스택의 길이 조회 */
         int size = stack.Size();
         Console.WriteLine("스택의 길이 size = " + size);
 
-        /* 비어 있는지 판단 */
+        /* 비어 있는지 확인 */
         bool isEmpty = stack.IsEmpty();
         Console.WriteLine("스택이 비어 있는가 = " + isEmpty);
     }

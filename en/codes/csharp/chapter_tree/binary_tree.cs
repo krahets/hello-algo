@@ -16,7 +16,7 @@ public class binary_tree {
         TreeNode n3 = new(3);
         TreeNode n4 = new(4);
         TreeNode n5 = new(5);
-        // Set up references (pointers) between the nodes
+        // Link the nodes with references (pointers)
         n1.left = n2;
         n1.right = n3;
         n2.left = n4;
@@ -24,16 +24,16 @@ public class binary_tree {
         Console.WriteLine("\nInitialize the binary tree\n");
         PrintUtil.PrintTree(n1);
 
-        /* Insert and remove nodes */
+        /* Insert and delete nodes */
         TreeNode P = new(0);
-        // Insert node P between n1 and n2 in n1 -> n2
+        // Insert node P between n1 and n2
         n1.left = P;
         P.left = n2;
         Console.WriteLine("\nAfter inserting node P:\n");
         PrintUtil.PrintTree(n1);
-        // Remove node P
+        // Delete node P
         n1.left = n2;
-        Console.WriteLine("\nAfter removing node P:\n");
+        Console.WriteLine("\nAfter deleting node P:\n");
         PrintUtil.PrintTree(n1);
     }
 }

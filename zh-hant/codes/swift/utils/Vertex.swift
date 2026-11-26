@@ -20,12 +20,12 @@ public class Vertex: Hashable {
         hasher.combine(val)
     }
 
-    /* 輸入值串列 vals ，返回頂點串列 vets */
+    /* 傳入數值陣列 vals，回傳頂點陣列 vets */
     public static func valsToVets(vals: [Int]) -> [Vertex] {
         vals.map { Vertex(val: $0) }
     }
 
-    /* 輸入頂點串列 vets ，返回值串列 vals */
+    /* 傳入頂點陣列 vets，回傳數值陣列 vals */
     public static func vetsToVals(vets: [Vertex]) -> [Int] {
         vets.map { $0.val }
     }

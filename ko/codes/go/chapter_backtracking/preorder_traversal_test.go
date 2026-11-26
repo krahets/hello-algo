@@ -39,7 +39,7 @@ func TestPreorderTraversalIICompact(t *testing.T) {
 	res := make([][]*TreeNode, 0)
 	preOrderII(root, &res, &path)
 
-	fmt.Println("\n루트 노드에서 노드 7까지의 모든 경로 출력")
+	fmt.Println("\n루트에서 값이 7인 노드까지의 모든 경로 출력")
 	for _, path := range res {
 		for _, node := range path {
 			fmt.Printf("%v ", node.Val)
@@ -59,7 +59,7 @@ func TestPreorderTraversalIIICompact(t *testing.T) {
 	res := make([][]*TreeNode, 0)
 	preOrderIII(root, &res, &path)
 
-	fmt.Println("\n루트 노드에서 노드 7까지의 모든 경로 출력. 경로에는 값이 3인 노드가 포함되지 않는다")
+	fmt.Println("\n루트에서 값이 7인 노드까지 값이 3인 노드를 거치지 않는 모든 경로 출력")
 	for _, path := range res {
 		for _, node := range path {
 			fmt.Printf("%v ", node.Val)
@@ -81,7 +81,7 @@ func TestPreorderTraversalIIITemplate(t *testing.T) {
 	choices = append(choices, root)
 	backtrackIII(&state, &choices, &res)
 
-	fmt.Println("\n루트 노드에서 노드 7까지의 모든 경로 출력. 경로에는 값이 3인 노드가 포함되지 않는다")
+	fmt.Println("\n루트에서 값이 7인 노드까지 값이 3인 노드를 거치지 않는 모든 경로 출력")
 	for _, path := range res {
 		for _, node := range path {
 			fmt.Printf("%v ", node.Val)

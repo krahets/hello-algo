@@ -29,14 +29,14 @@ pub fn print_array<T: Display>(nums: &[T]) {
     }
 }
 
-/* Print the hash table */
+/* Print a hash table */
 pub fn print_hash_map<TKey: Display, TValue: Display>(map: &HashMap<TKey, TValue>) {
     for (key, value) in map {
         println!("{key} -> {value}");
     }
 }
 
-/* Print a queue (deque) */
+/* Print a queue implemented as a deque */
 pub fn print_queue<T: Display>(queue: &VecDeque<T>) {
     print!("[");
     let iter = queue.iter();

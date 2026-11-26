@@ -6,13 +6,13 @@
 
 #include "../utils/common.h"
 
-/* 連結リストで実装したスタック */
+/* 連結リストを使ったスタック */
 typedef struct {
-    ListNode *top; // 先頭ノードをスタックの先頭とする
-    int size;      // スタックの長さ
+    ListNode *top; // 先頭ノードをスタックのトップとする
+    int size;      // スタックの要素数
 } LinkedListStack;
 
-/* コンストラクタ */
+/* 生成関数 */
 LinkedListStack *newLinkedListStack() {
     LinkedListStack *s = malloc(sizeof(LinkedListStack));
     s->top = NULL;
@@ -20,7 +20,7 @@ LinkedListStack *newLinkedListStack() {
     return s;
 }
 
-/* デストラクタ */
+/* 解放関数 */
 void delLinkedListStack(LinkedListStack *s) {
     while (s->top) {
         ListNode *n = s->top->next;
@@ -30,7 +30,7 @@ void delLinkedListStack(LinkedListStack *s) {
     free(s);
 }
 
-/* スタックの長さを取得する */
+/* スタックの要素数を取得する */
 int size(LinkedListStack *s) {
     return s->size;
 }
@@ -40,16 +40,16 @@ bool isEmpty(LinkedListStack *s) {
     return size(s) == 0;
 }
 
-/* プッシュ */
+/* プッシュする */
 void push(LinkedListStack *s, int num) {
     ListNode *node = (ListNode *)malloc(sizeof(ListNode));
-    node->next = s->top; // 追加するノードのポインタ領域を更新する
-    node->val = num;     // 追加するノードのデータ領域を更新する
-    s->top = node;       // スタックの先頭を更新する
-    s->size++;           // スタックのサイズを更新する
+    node->next = s->top; // 新しいノードのポインタフィールドを更新する
+    node->val = num;     // 新しいノードのデータフィールドを更新する
+    s->top = node;       // スタックのトップを更新する
+    s->size++;           // スタックの要素数を更新する
 }
 
-/* スタックの先頭要素にアクセスする */
+/* スタックのトップを参照する */
 int peek(LinkedListStack *s) {
     if (s->size == 0) {
         printf("スタックが空です\n");
@@ -58,7 +58,7 @@ int peek(LinkedListStack *s) {
     return s->top->val;
 }
 
-/* ポップ */
+/* ポップする */
 int pop(LinkedListStack *s) {
     int val = peek(s);
     ListNode *tmp = s->top;
@@ -69,7 +69,7 @@ int pop(LinkedListStack *s) {
     return val;
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     /* スタックを初期化する */
     LinkedListStack *stack = newLinkedListStack();
@@ -84,17 +84,17 @@ int main() {
     printf("スタック stack = ");
     printLinkedList(stack->top);
 
-    /* スタックの先頭要素にアクセスする */
+    /* スタックのトップを参照する */
     int val = peek(stack);
-    printf("スタックの先頭要素 top = %d\r\n", val);
+    printf("スタックのトップの要素 top = %d\r\n", val);
 
     /* 要素をポップする */
     val = pop(stack);
-    printf("ポップした要素 pop = %d, ポップ後 stack =  ", val);
+    printf("ポップした要素 pop = %d、 ポップ後の stack =  ", val);
     printLinkedList(stack->top);
 
-    /* スタックの長さを取得する */
-    printf("スタックの長さ size = %d\n", size(stack));
+    /* スタックの要素数を取得する */
+    printf("スタックの要素数 size = %d\n", size(stack));
 
     /* 空かどうかを判定する */
     bool empty = isEmpty(stack);

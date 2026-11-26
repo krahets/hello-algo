@@ -4,10 +4,10 @@
  * Author: gyt95 (gytkwan@gmail.com)
  */
 
-/* 방법 1: 완전 열거 */
+/* 방법 1. 모든 조합 확인 */
 function twoSumBruteForce(nums, target) {
     const n = nums.length;
-    // 이중 반복문이며 시간 복잡도는 O(n^2)이다
+    // 이중 반복문을 사용하므로 시간 복잡도는 O(n^2)이다.
     for (let i = 0; i < n; i++) {
         for (let j = i + 1; j < n; j++) {
             if (nums[i] + nums[j] === target) {
@@ -18,11 +18,11 @@ function twoSumBruteForce(nums, target) {
     return [];
 }
 
-/* 방법 2: 보조 해시 테이블 */
+/* 방법 2. 보조 해시 테이블 사용 */
 function twoSumHashTable(nums, target) {
-    // 보조 해시 테이블의 공간 복잡도는 O(n)이다
+    // 보조 해시 테이블을 사용하므로 공간 복잡도는 O(n)이다.
     let m = {};
-    // 단일 반복문이며 시간 복잡도는 O(n)이다
+    // 반복문 하나만 사용하므로 시간 복잡도는 O(n)이다.
     for (let i = 0; i < nums.length; i++) {
         if (m[target - nums[i]] !== undefined) {
             return [m[target - nums[i]], i];
@@ -33,7 +33,7 @@ function twoSumHashTable(nums, target) {
     return [];
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 // 방법 1
 const nums = [2, 7, 11, 15],
     target = 13;

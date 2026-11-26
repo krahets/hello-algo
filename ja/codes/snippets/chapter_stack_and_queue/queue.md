@@ -4,26 +4,26 @@ from collections import deque
 
 # キューを初期化する
 # Python では一般に、両端キューのクラス deque をキューとして使う
-# queue.Queue() は専用のキュークラスだが、やや使いづらいため推奨しない
+# queue.Queue() はキュー専用のクラスだが、使いづらいため推奨しない
 que: deque[int] = deque()
 
-# 要素をエンキューする
+# 要素をキューに追加する
 que.append(1)
 que.append(3)
 que.append(2)
 que.append(5)
 que.append(4)
 
-# キューの先頭要素にアクセス
+# キューの先頭要素を参照する
 front: int = que[0]
 
-# 要素をデキューする
+# キューから要素を取り出す
 pop: int = que.popleft()
 
-# キューの長さを取得
+# キューの要素数を取得する
 size: int = len(que)
 
-# キューが空か判定
+# キューが空かどうかを判定する
 is_empty: bool = len(que) == 0
 ```
 
@@ -31,23 +31,23 @@ is_empty: bool = len(que) == 0
 /* キューを初期化する */
 queue<int> queue;
 
-/* 要素をエンキューする */
+/* 要素をキューに追加する */
 queue.push(1);
 queue.push(3);
 queue.push(2);
 queue.push(5);
 queue.push(4);
 
-/* キューの先頭要素にアクセス */
+/* キューの先頭要素を参照する */
 int front = queue.front();
 
-/* 要素をデキューする */
+/* キューから要素を取り出す */
 queue.pop();
 
-/* キューの長さを取得 */
+/* キューの要素数を取得する */
 int size = queue.size();
 
-/* キューが空か判定 */
+/* キューが空かどうかを判定する */
 bool empty = queue.empty();
 ```
 
@@ -55,23 +55,23 @@ bool empty = queue.empty();
 /* キューを初期化する */
 Queue<Integer> queue = new LinkedList<>();
 
-/* 要素をエンキューする */
+/* 要素をキューに追加する */
 queue.offer(1);
 queue.offer(3);
 queue.offer(2);
 queue.offer(5);
 queue.offer(4);
 
-/* キューの先頭要素にアクセス */
+/* キューの先頭要素を参照する */
 int peek = queue.peek();
 
-/* 要素をデキューする */
+/* キューから要素を取り出す */
 int pop = queue.poll();
 
-/* キューの長さを取得 */
+/* キューの要素数を取得する */
 int size = queue.size();
 
-/* キューが空か判定 */
+/* キューが空かどうかを判定する */
 boolean isEmpty = queue.isEmpty();
 ```
 
@@ -79,23 +79,23 @@ boolean isEmpty = queue.isEmpty();
 /* キューを初期化する */
 Queue<int> queue = new();
 
-/* 要素をエンキューする */
+/* 要素をキューに追加する */
 queue.Enqueue(1);
 queue.Enqueue(3);
 queue.Enqueue(2);
 queue.Enqueue(5);
 queue.Enqueue(4);
 
-/* キューの先頭要素にアクセス */
+/* キューの先頭要素を参照する */
 int peek = queue.Peek();
 
-/* 要素をデキューする */
+/* キューから要素を取り出す */
 int pop = queue.Dequeue();
 
-/* キューの長さを取得 */
+/* キューの要素数を取得する */
 int size = queue.Count;
 
-/* キューが空か判定 */
+/* キューが空かどうかを判定する */
 bool isEmpty = queue.Count == 0;
 ```
 
@@ -104,102 +104,102 @@ bool isEmpty = queue.Count == 0;
 // Go では list をキューとして使う
 queue := list.New()
 
-/* 要素をエンキューする */
+/* 要素をキューに追加する */
 queue.PushBack(1)
 queue.PushBack(3)
 queue.PushBack(2)
 queue.PushBack(5)
 queue.PushBack(4)
 
-/* キューの先頭要素にアクセス */
+/* キューの先頭要素を参照する */
 peek := queue.Front()
 
-/* 要素をデキューする */
+/* キューから要素を取り出す */
 pop := queue.Front()
 queue.Remove(pop)
 
-/* キューの長さを取得 */
+/* キューの要素数を取得する */
 size := queue.Len()
 
-/* キューが空か判定 */
+/* キューが空かどうかを判定する */
 isEmpty := queue.Len() == 0
 ```
 
 ```swift title="queue.swift"
 /* キューを初期化する */
-// Swift には組み込みのキュークラスがないため、Array をキューとして使える
+// Swift には組み込みのキュークラスがないので、Array をキューとして使える
 var queue: [Int] = []
 
-/* 要素をエンキューする */
+/* 要素をキューに追加する */
 queue.append(1)
 queue.append(3)
 queue.append(2)
 queue.append(5)
 queue.append(4)
 
-/* キューの先頭要素にアクセス */
+/* キューの先頭要素を参照する */
 let peek = queue.first!
 
-/* 要素をデキューする */
-// Array で再現する場合、removeFirst の計算量は O(n)
+/* キューから要素を取り出す */
+// Array でキューの動作を再現すると、removeFirst の時間計算量は O(n) になる
 let pop = queue.removeFirst()
 
-/* キューの長さを取得 */
+/* キューの要素数を取得する */
 let size = queue.count
 
-/* キューが空か判定 */
+/* キューが空かどうかを判定する */
 let isEmpty = queue.isEmpty
 ```
 
 ```javascript title="queue.js"
 /* キューを初期化する */
-// JavaScript には組み込みのキューがないため、Array をキューとして使える
+// JavaScript には組み込みのキューがないので、Array をキューとして使える
 const queue = [];
 
-/* 要素をエンキューする */
+/* 要素をキューに追加する */
 queue.push(1);
 queue.push(3);
 queue.push(2);
 queue.push(5);
 queue.push(4);
 
-/* キューの先頭要素にアクセス */
+/* キューの先頭要素を参照する */
 const peek = queue[0];
 
-/* 要素をデキューする */
-// 内部は配列なので、shift() メソッドの時間計算量は O(n)
+/* キューから要素を取り出す */
+// 内部では配列を使うため、shift() の時間計算量は O(n) になる
 const pop = queue.shift();
 
-/* キューの長さを取得 */
+/* キューの要素数を取得する */
 const size = queue.length;
 
-/* キューが空か判定 */
+/* キューが空かどうかを判定する */
 const isEmpty = queue.length === 0;
 ```
 
 ```typescript title="queue.ts"
 /* キューを初期化する */
-// TypeScript には組み込みのキューがないため、Array をキューとして使える
+// TypeScript には組み込みのキューがないので、Array をキューとして使える
 const queue: number[] = [];
 
-/* 要素をエンキューする */
+/* 要素をキューに追加する */
 queue.push(1);
 queue.push(3);
 queue.push(2);
 queue.push(5);
 queue.push(4);
 
-/* キューの先頭要素にアクセス */
+/* キューの先頭要素を参照する */
 const peek = queue[0];
 
-/* 要素をデキューする */
-// 内部は配列なので、shift() メソッドの時間計算量は O(n)
+/* キューから要素を取り出す */
+// 内部では配列を使うため、shift() の時間計算量は O(n) になる
 const pop = queue.shift();
 
-/* キューの長さを取得 */
+/* キューの要素数を取得する */
 const size = queue.length;
 
-/* キューが空か判定 */
+/* キューが空かどうかを判定する */
 const isEmpty = queue.length === 0;
 ```
 
@@ -208,23 +208,23 @@ const isEmpty = queue.length === 0;
 // Dart では一般に、両端キューのクラス Queue をキューとして使う
 final Queue<int> queue = Queue();
 
-/* 要素をエンキューする */
+/* 要素をキューに追加する */
 queue.add(1);
 queue.add(3);
 queue.add(2);
 queue.add(5);
 queue.add(4);
 
-/* キューの先頭要素にアクセス */
+/* キューの先頭要素を参照する */
 final int peek = queue.first;
 
-/* 要素をデキューする */
+/* キューから要素を取り出す */
 final int pop = queue.removeFirst();
 
-/* キューの長さを取得 */
+/* キューの要素数を取得する */
 final int size = queue.length;
 
-/* キューが空か判定 */
+/* キューが空かどうかを判定する */
 final bool isEmpty = queue.isEmpty;
 ```
 
@@ -233,23 +233,23 @@ final bool isEmpty = queue.isEmpty;
 // Rust では一般に、両端キュー VecDeque をキューとして使う
 let mut queue: VecDeque<i32> = VecDeque::new();
 
-// 要素をエンキューする
+// 要素をキューに追加する
 queue.push_back(1);
 queue.push_back(3);
 queue.push_back(2);
 queue.push_back(5);
 queue.push_back(4);
 
-// キューの先頭要素にアクセス
+// キューの先頭要素を参照する
 let peek = queue.front().unwrap();
 
-// 要素をデキューする
+// キューから要素を取り出す
 let pop = queue.pop_front().unwrap();
 
-// キューの長さを取得
+// キューの要素数を取得する
 let size = queue.len();
 
-// キューが空か判定
+// キューが空かどうかを判定する
 let is_empty = queue.is_empty();
 ```
 
@@ -261,51 +261,51 @@ let is_empty = queue.is_empty();
 /* キューを初期化する */
 val queue = LinkedList<Int>()
 
-/* 要素をエンキューする */
+/* 要素をキューに追加する */
 queue.offer(1)
 queue.offer(3)
 queue.offer(2)
 queue.offer(5)
 queue.offer(4)
 
-/* キューの先頭要素にアクセス */
+/* キューの先頭要素を参照する */
 val peek = queue.peek()
 
-/* 要素をデキューする */
+/* キューから要素を取り出す */
 val pop = queue.poll()
 
-/* キューの長さを取得 */
+/* キューの要素数を取得する */
 val size = queue.size
 
-/* キューが空か判定 */
+/* キューが空かどうかを判定する */
 val isEmpty = queue.isEmpty()
 ```
 
 ```ruby title="queue.rb"
 # キューを初期化する
-# Ruby の組み込みキュー（Thread::Queue）には peek と走査のメソッドがないため、Array をキューとして使える
+# Ruby 組み込みのキュー（Thread::Queue）には peek メソッドも要素を順にたどるメソッドもないので、Array をキューとして使える
 queue = []
 
-# 要素をエンキューする
+# 要素をキューに追加する
 queue.push(1)
 queue.push(3)
 queue.push(2)
 queue.push(5)
 queue.push(4)
 
-# キューの要素にアクセスする
+# キューの要素を参照する
 peek = queue.first
 
-# 要素をデキューする
-# 配列なので Array#shift メソッドの時間計算量は O(n) であることに注意
+# キューから要素を取り出す
+# 配列を使うため、Array#shift の時間計算量は O(n) になる点に注意
 pop = queue.shift
 
-# キューの長さを取得
+# キューの要素数を取得する
 size = queue.length
 
-# キューが空か判定
+# キューが空かどうかを判定する
 is_empty = queue.empty?
 ```
 
 <!-- [tutor]{queue_operations_tutor} -->
-https://pythontutor.com/render.html#code=from%20collections%20import%20deque%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20Python%20%E3%81%A7%E3%81%AF%E9%80%9A%E5%B8%B8%E3%80%81%E4%B8%A1%E7%AB%AF%E3%82%AD%E3%83%A5%E3%83%BC%E3%82%AF%E3%83%A9%E3%82%B9%20deque%20%E3%82%92%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%A8%E3%81%97%E3%81%A6%E4%BD%BF%E3%81%86%0A%20%20%20%20%23%20queue.Queue()%20%E3%81%AF%E6%9C%AC%E6%9D%A5%E3%81%AE%E3%82%AD%E3%83%A5%E3%83%BC%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%A0%E3%81%8C%E3%80%81%E4%BD%BF%E3%81%84%E3%81%AB%E3%81%8F%E3%81%84%0A%20%20%20%20que%20%3D%20deque()%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%82%A8%E3%83%B3%E3%82%AD%E3%83%A5%E3%83%BC%0A%20%20%20%20que.append(1)%0A%20%20%20%20que.append(3)%0A%20%20%20%20que.append(2)%0A%20%20%20%20que.append(5)%0A%20%20%20%20que.append(4)%0A%20%20%20%20print(%22%E3%82%AD%E3%83%A5%E3%83%BC%20que%20%3D%22%2C%20que)%0A%0A%20%20%20%20%23%20%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20%20%20%20front%20%3D%20que%5B0%5D%0A%20%20%20%20print(%22%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%20front%20%3D%22%2C%20front)%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%87%E3%82%AD%E3%83%A5%E3%83%BC%0A%20%20%20%20pop%20%3D%20que.popleft()%0A%20%20%20%20print(%22%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%22%2C%20pop)%0A%20%20%20%20print(%22%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%81%9F%E5%BE%8C%E3%81%AE%20que%20%3D%22%2C%20que)%0A%0A%20%20%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%0A%20%20%20%20size%20%3D%20len(que)%0A%20%20%20%20print(%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%22%2C%20size)%0A%0A%20%20%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%0A%20%20%20%20is_empty%20%3D%20len(que)%20%3D%3D%200%0A%20%20%20%20print(%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AF%E7%A9%BA%E3%81%8B%20%3D%22%2C%20is_empty)&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20Python%20%E3%81%A7%E3%81%AF%E9%80%9A%E5%B8%B8%E3%80%81%E4%B8%A1%E7%AB%AF%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E3%82%AF%E3%83%A9%E3%82%B9%20deque%20%E3%82%92%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%A8%E3%81%97%E3%81%A6%E4%BD%BF%E3%81%86%0A%20%20%20%20%23%20queue.Queue%28%29%20%E3%81%AF%E3%82%AD%E3%83%A5%E3%83%BC%E5%B0%82%E7%94%A8%E3%81%AE%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%A0%E3%81%8C%E3%80%81%E3%82%84%E3%82%84%E4%BD%BF%E3%81%84%E3%81%AB%E3%81%8F%E3%81%84%0A%20%20%20%20que%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E8%BF%BD%E5%8A%A0%0A%20%20%20%20que.append%281%29%0A%20%20%20%20que.append%283%29%0A%20%20%20%20que.append%282%29%0A%20%20%20%20que.append%285%29%0A%20%20%20%20que.append%284%29%0A%20%20%20%20print%28%22%E3%82%AD%E3%83%A5%E3%83%BC%20que%20%3D%22,%20que%29%0A%0A%20%20%20%20%23%20%E5%85%88%E9%A0%AD%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20%20%20%20front%20%3D%20que%5B0%5D%0A%20%20%20%20print%28%22%E5%85%88%E9%A0%AD%E3%81%AE%E8%A6%81%E7%B4%A0%20front%20%3D%22,%20front%29%0A%0A%20%20%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8B%E3%82%89%E8%A6%81%E7%B4%A0%E3%82%92%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%99%0A%20%20%20%20pop%20%3D%20que.popleft%28%29%0A%20%20%20%20print%28%22%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%81%9F%E5%BE%8C%E3%81%AE%20que%20%3D%22,%20que%29%0A%0A%20%20%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%0A%20%20%20%20size%20%3D%20len%28que%29%0A%20%20%20%20print%28%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%0A%20%20%20%20is_empty%20%3D%20len%28que%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%8C%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%20%3D%22,%20is_empty%29&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false

@@ -6,17 +6,17 @@ package chapter_graph
 
 import "fmt"
 
-/* Undirected graph type implemented with an adjacency matrix */
+/* Undirected graph represented by an adjacency matrix */
 type graphAdjMat struct {
-	// Vertex list: elements are vertex values, and indices are vertex indices
+	// Vertex list: each element holds a vertex value, and its position is the vertex index
 	vertices []int
-	// Adjacency matrix: row and column indices correspond to vertex indices
+	// Adjacency matrix: row and column indices are vertex indices
 	adjMat [][]int
 }
 
 /* Constructor */
 func newGraphAdjMat(vertices []int, edges [][]int) *graphAdjMat {
-	// Allocate the adjacency matrix for all vertices
+	// Add a vertex
 	n := len(vertices)
 	adjMat := make([][]int, n)
 	for i := range adjMat {
@@ -27,15 +27,15 @@ func newGraphAdjMat(vertices []int, edges [][]int) *graphAdjMat {
 		vertices: vertices,
 		adjMat:   adjMat,
 	}
-	// Add all edges
-	// Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+	// Add an edge
+	// The entries in edges are vertex indices, that is, indices into vertices
 	for i := range edges {
 		g.addEdge(edges[i][0], edges[i][1])
 	}
 	return g
 }
 
-/* Get the number of vertices */
+/* Get the vertex count */
 func (g *graphAdjMat) size() int {
 	return len(g.vertices)
 }
@@ -59,34 +59,34 @@ func (g *graphAdjMat) removeVertex(index int) {
 	if index >= g.size() {
 		return
 	}
-	// Remove the vertex at index `index` from the vertex list
+	// Remove the vertex at the specified index from the vertex list
 	g.vertices = append(g.vertices[:index], g.vertices[index+1:]...)
-	// Remove row `index` from the adjacency matrix
+	// Remove the row at the specified index from the adjacency matrix
 	g.adjMat = append(g.adjMat[:index], g.adjMat[index+1:]...)
-	// Remove column `index` from the adjacency matrix
+	// Remove the column at the specified index from the adjacency matrix
 	for i := range g.adjMat {
 		g.adjMat[i] = append(g.adjMat[i][:index], g.adjMat[i][index+1:]...)
 	}
 }
 
 /* Add an edge */
-// Parameters i and j are element indices in vertices
+// Parameters i and j are indices into vertices
 func (g *graphAdjMat) addEdge(i, j int) {
-	// Check for out-of-bounds or equal indices (the constructed error is not returned)
+	// Check for out-of-bounds or equal indices
 	if i < 0 || j < 0 || i >= g.size() || j >= g.size() || i == j {
-		fmt.Errorf("%s", "Index out of bounds")
+		fmt.Errorf("%s", "Index Out Of Bounds Exception")
 	}
-	// For an undirected graph, the adjacency matrix is symmetric about its main diagonal: entries (i, j) and (j, i) are equal
+	// An undirected graph has a symmetric adjacency matrix: (i, j) == (j, i)
 	g.adjMat[i][j] = 1
 	g.adjMat[j][i] = 1
 }
 
 /* Remove an edge */
-// Parameters i and j are element indices in vertices
+// Parameters i and j are indices into vertices
 func (g *graphAdjMat) removeEdge(i, j int) {
-	// Check for out-of-bounds or equal indices (the constructed error is not returned)
+	// Check for out-of-bounds or equal indices
 	if i < 0 || j < 0 || i >= g.size() || j >= g.size() || i == j {
-		fmt.Errorf("%s", "Index out of bounds")
+		fmt.Errorf("%s", "Index Out Of Bounds Exception")
 	}
 	g.adjMat[i][j] = 0
 	g.adjMat[j][i] = 0

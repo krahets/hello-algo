@@ -16,5 +16,5 @@ func TestFractionalKnapsack(t *testing.T) {
 
 	// 貪婪演算法
 	res := fractionalKnapsack(wgt, val, capacity)
-	fmt.Println("不超過背包容量的最大物品價值為", res)
+	fmt.Println("在背包容量限制內，物品的最大總價值為", res)
 }

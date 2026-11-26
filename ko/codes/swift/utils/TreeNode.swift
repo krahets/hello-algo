@@ -8,8 +8,8 @@
 public class TreeNode {
     public var val: Int // 노드 값
     public var height: Int // 노드 높이
-    public var left: TreeNode? // 왼쪽 자식 노드 참조
-    public var right: TreeNode? // 오른쪽 자식 노드 참조
+    public var left: TreeNode? // 왼쪽 자식 노드에 대한 참조
+    public var right: TreeNode? // 오른쪽 자식 노드에 대한 참조
 
     /* 생성자 */
     public init(x: Int) {
@@ -17,7 +17,7 @@ public class TreeNode {
         height = 0
     }
 
-    // 직렬화 인코딩 규칙은 다음을 참고한다:
+    // 직렬화 인코딩 규칙은 다음을 참고한다.
     // https://www.hello-algo.com/ko/chapter_tree/array_representation_of_tree/
     // 이진 트리의 배열 표현:
     // [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
@@ -33,7 +33,7 @@ public class TreeNode {
     //         \——— 4
     //             \——— 8
 
-    /* 리스트를 이진 트리로 역직렬화: 재귀 */
+    /* 재귀로 리스트를 이진 트리로 역직렬화 */
     private static func listToTreeDFS(arr: [Int?], i: Int) -> TreeNode? {
         if i < 0 || i >= arr.count || arr[i] == nil {
             return nil
@@ -49,7 +49,7 @@ public class TreeNode {
         listToTreeDFS(arr: arr, i: 0)
     }
 
-    /* 이진 트리를 리스트로 직렬화: 재귀 */
+    /* 재귀로 이진 트리를 리스트로 직렬화 */
     private static func treeToListDFS(root: TreeNode?, i: Int, res: inout [Int?]) {
         if root == nil {
             return

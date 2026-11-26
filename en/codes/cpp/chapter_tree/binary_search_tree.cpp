@@ -28,43 +28,43 @@ class BinarySearchTree {
         return root;
     }
 
-    /* Find a node */
+    /* Search for a node */
     TreeNode *search(int num) {
         TreeNode *cur = root;
-        // Continue searching while the current node pointer is not null
+        // Stop the search after passing a leaf
         while (cur != nullptr) {
-            // The target node lies in the right subtree of cur
+            // The target is in the right subtree of cur
             if (cur->val < num)
                 cur = cur->right;
-            // The target node lies in the left subtree of cur
+            // The target is in the left subtree of cur
             else if (cur->val > num)
                 cur = cur->left;
-            // The target node was found; exit the loop
+            // The target was found, so exit the loop
             else
                 break;
         }
-        // Return the target node, or nullptr if it was not found
+        // Return the target node
         return cur;
     }
 
     /* Insert a node */
     void insert(int num) {
-        // If the tree is empty, initialize the root node
+        // If the tree is empty, initialize the root
         if (root == nullptr) {
             root = new TreeNode(num);
             return;
         }
         TreeNode *cur = root, *pre = nullptr;
-        // Continue searching while the current node pointer is not null
+        // Stop the search after passing a leaf
         while (cur != nullptr) {
-            // Return immediately if a duplicate node is found
+            // Return if a duplicate is found
             if (cur->val == num)
                 return;
             pre = cur;
-            // The insertion position lies in the right subtree of cur
+            // The insertion position is in the right subtree of cur
             if (cur->val < num)
                 cur = cur->right;
-            // The insertion position lies in the left subtree of cur
+            // The insertion position is in the left subtree of cur
             else
                 cur = cur->left;
         }
@@ -76,40 +76,40 @@ class BinarySearchTree {
             pre->left = node;
     }
 
-    /* Remove a node */
+    /* Delete a node */
     void remove(int num) {
         // Return immediately if the tree is empty
         if (root == nullptr)
             return;
         TreeNode *cur = root, *pre = nullptr;
-        // Continue searching while the current node pointer is not null
+        // Stop the search after passing a leaf
         while (cur != nullptr) {
-            // The node to remove was found; exit the loop
+            // The node to delete was found, so exit the loop
             if (cur->val == num)
                 break;
             pre = cur;
-            // The node to remove lies in the right subtree of cur
+            // The node to delete is in the right subtree of cur
             if (cur->val < num)
                 cur = cur->right;
-            // The node to remove lies in the left subtree of cur
+            // The node to delete is in the left subtree of cur
             else
                 cur = cur->left;
         }
-        // Return immediately if the node to remove does not exist
+        // Return if the node to delete does not exist
         if (cur == nullptr)
             return;
         // Number of children = 0 or 1
         if (cur->left == nullptr || cur->right == nullptr) {
-            // With 0 or 1 child, child is nullptr or that child, respectively
+            // With no children, child = nullptr. With one child, child is that child.
             TreeNode *child = cur->left != nullptr ? cur->left : cur->right;
-            // Remove node cur
+            // Delete node cur
             if (cur != root) {
                 if (pre->left == cur)
                     pre->left = child;
                 else
                     pre->right = child;
             } else {
-                // If the removed node is the root, assign the new root
+                // If deleting the root, assign a new root
                 root = child;
             }
             // Free memory
@@ -123,9 +123,9 @@ class BinarySearchTree {
                 tmp = tmp->left;
             }
             int tmpVal = tmp->val;
-            // Recursively remove node tmp
+            // Recursively delete node tmp
             remove(tmp->val);
-            // Replace the value of cur with the value of tmp
+            // Replace the value of cur with that of tmp
             cur->val = tmpVal;
         }
     }
@@ -135,32 +135,32 @@ class BinarySearchTree {
 int main() {
     /* Initialize the binary search tree */
     BinarySearchTree *bst = new BinarySearchTree();
-    // Different insertion orders produce different binary trees; this sequence produces a perfect binary tree
+    // Different insertion orders produce different tree shapes. This sequence produces a perfect binary tree.
     vector<int> nums = {8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15};
     for (int num : nums) {
         bst->insert(num);
     }
-    cout << endl << "Binary tree after initialization:\n" << endl;
+    cout << endl << "Initial binary tree:\n" << endl;
     printTree(bst->getRoot());
 
-    /* Find a node */
+    /* Search for a node */
     TreeNode *node = bst->search(7);
-    cout << endl << "Found node address: " << node << ", node value = " << node->val << endl;
+    cout << endl << "Node found: " << node << ", node value = " << node->val << endl;
 
     /* Insert a node */
     bst->insert(16);
     cout << endl << "Binary tree after inserting node 16:\n" << endl;
     printTree(bst->getRoot());
 
-    /* Remove a node */
+    /* Delete a node */
     bst->remove(1);
-    cout << endl << "Binary tree after removing node 1:\n" << endl;
+    cout << endl << "Binary tree after deleting node 1:\n" << endl;
     printTree(bst->getRoot());
     bst->remove(2);
-    cout << endl << "Binary tree after removing node 2:\n" << endl;
+    cout << endl << "Binary tree after deleting node 2:\n" << endl;
     printTree(bst->getRoot());
     bst->remove(4);
-    cout << endl << "Binary tree after removing node 4:\n" << endl;
+    cout << endl << "Binary tree after deleting node 4:\n" << endl;
     printTree(bst->getRoot());
 
     // Free memory

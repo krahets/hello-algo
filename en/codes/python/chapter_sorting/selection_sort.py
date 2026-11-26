@@ -19,7 +19,7 @@ def selection_sort(nums: list[int]):
         nums[i], nums[k] = nums[k], nums[i]
 
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
     nums = [4, 1, 3, 1, 5, 2]
     selection_sort(nums)

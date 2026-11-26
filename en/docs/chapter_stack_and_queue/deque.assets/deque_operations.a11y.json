@@ -1,101 +1,101 @@
 {
-  "schema_version": 2,
-  "title": "Operations at both ends of a deque",
-  "summary": "Two examples show all four deque operations: inserting and removing an element at the rear and at the front.",
-  "context": [
-    "Five vertical panels run from left to right. The front is at the top and the rear at the bottom. All sequences in the table below run from front to rear. The first three panels show initialization, insertion at the rear, and removal from the rear. The last two show insertion at the front and removal from the front.",
-    "Although arrows connect the panels from left to right, the front-insertion panel still contains 4. It does not continue from the preceding panel, which removed 4. The front example starts over from [3, 2, 5, 4]. The table has six rows because it includes this starting state, which has no panel of its own."
-  ],
-  "description": [
-    "Dashed squares mark an element’s previous position and do not count as current elements. A solid square outside the deque represents the value returned by removal. In the first panel, arrows at each end show the directions of insertion and removal."
-  ],
-  "frames": [
-    {
-      "id": "source-70",
-      "book_path": "chapter_stack_and_queue/deque.assets/deque_operations.png",
-      "title": "Operations at both ends of a deque",
-      "explanation": "The rear example adds and removes 4 at the rear. The front example adds and removes 1 at the front. The remaining elements retain their relative order in both cases. A deque supports insertion and removal at either end."
-    }
-  ],
   "animations": {
-    "deque-tail-operations": {
-      "kind": "prose",
-      "prose": {
-        "title": "Operations at the rear of a deque",
-        "summary": "Insert an element at the rear, then remove it from the same end. All other elements retain their order.",
-        "context": [],
-        "description": [
-          "Dashed squares mark an element’s previous position and do not count as current elements. A solid square outside the deque represents the value returned by removal. In the first panel, arrows at each end show the directions of insertion and removal."
-        ],
-        "steps": [
-          {
-            "id": "step-1",
-            "title": "Independent starting state",
-            "explanation": "The rear example starts with [3, 2, 5]: 3 elements, front 3, rear 5. No value has been returned.",
-            "key_state": "Deque [3, 2, 5], front 3, rear 5. No return value.",
-            "announcement": "Start with [3, 2, 5] before operating on the rear."
-          },
-          {
-            "id": "step-2",
-            "title": "push_last(4)",
-            "explanation": "Call push_last(4) to add 4 at the rear without reordering the other elements. The deque now has 4 elements: [3, 2, 5, 4]. The front is 3 and the rear is 4. No value is returned.",
-            "key_state": "Deque [3, 2, 5, 4], front 3, rear 4. No return value.",
-            "announcement": "Added 4 at the rear. The deque is now [3, 2, 5, 4]."
-          },
-          {
-            "id": "step-3",
-            "title": "pop_last()",
-            "explanation": "Call pop_last() to remove and return 4 from the rear. The deque is back to 3 elements: [3, 2, 5], with front 3 and rear 5. The returned 4 is outside the deque.",
-            "key_state": "Deque [3, 2, 5], front 3, rear 5. Returned 4.",
-            "announcement": "Removed and returned 4 from the rear. The deque is back to [3, 2, 5]."
-          }
-        ]
-      }
-    },
     "deque-head-operations": {
       "kind": "prose",
       "prose": {
-        "title": "Operations at the front of a deque",
-        "summary": "Insert an element at the front, then remove it from the same end. All other elements retain their order.",
         "context": [],
         "description": [
-          "Dashed squares mark an element’s previous position and do not count as current elements. A solid square outside the deque represents the value returned by removal. In the first panel, arrows at each end show the directions of insertion and removal."
+          "Dashed squares mark positions before an operation and do not count toward the current deque. A solid square outside the container shows the value returned by the removal. Arrows at both ends of the first panel show the directions of insertion and removal."
         ],
         "steps": [
           {
+            "announcement": "The front example starts independently with [3, 2, 5, 4]. The next operation acts on the front.",
+            "explanation": "The front example starts afresh with four elements, [3, 2, 5, 4], with 3 at the front and 4 at the rear. There is no return value. This starting state still contains 4, so it does not continue from the removal of 4 in the other example.",
             "id": "step-1",
-            "title": "Independent starting state",
-            "explanation": "The front example starts over with [3, 2, 5, 4]: 4 elements, front 3, rear 4, no return value. This initial state still contains 4. It is independent of the other example, in which 4 was removed.",
-            "key_state": "Deque [3, 2, 5, 4], front 3, rear 4. No return value.",
-            "announcement": "Start the independent front example with [3, 2, 5, 4]."
+            "key_state": "The deque is [3, 2, 5, 4], with 3 at the front and 4 at the rear. There is no return value.",
+            "title": "Independent starting state"
           },
           {
+            "announcement": "Adding 1 at the front gives the deque [1, 3, 2, 5, 4].",
+            "explanation": "The call push_first(1) adds 1 at the front. The other elements keep their order. The deque now contains five elements, [1, 3, 2, 5, 4], with 1 at the front and 4 at the rear. The call returns no value.",
             "id": "step-2",
-            "title": "push_first(1)",
-            "explanation": "Call push_first(1) to add 1 at the front without reordering the other elements. The deque now has 5 elements: [1, 3, 2, 5, 4]. The front is 1 and the rear is 4. No value is returned.",
-            "key_state": "Deque [1, 3, 2, 5, 4], front 1, rear 4. No return value.",
-            "announcement": "Added 1 at the front. The deque is now [1, 3, 2, 5, 4]."
+            "key_state": "The deque is [1, 3, 2, 5, 4], with 1 at the front and 4 at the rear. There is no return value.",
+            "title": "push_first(1)"
           },
           {
+            "announcement": "Removing and returning 1 from the front restores the deque to [3, 2, 5, 4].",
+            "explanation": "The call pop_first() removes and returns 1 from the front. The deque is back to four elements, [3, 2, 5, 4], with 3 at the front and 4 at the rear. The returned 1 is outside the deque.",
             "id": "step-3",
-            "title": "pop_first()",
-            "explanation": "Call pop_first() to remove and return 1 from the front. The deque is back to 4 elements: [3, 2, 5, 4], with front 3 and rear 4. The returned 1 is outside the deque.",
-            "key_state": "Deque [3, 2, 5, 4], front 3, rear 4. Returned 1.",
-            "announcement": "Removed and returned 1 from the front. The deque is back to [3, 2, 5, 4]."
+            "key_state": "The deque is [3, 2, 5, 4], with 3 at the front and 4 at the rear. The call returns 1.",
+            "title": "pop_first()"
           }
-        ]
+        ],
+        "summary": "Add an element at the front and then remove that same element. The others keep their order.",
+        "title": "Operations at the front of a deque"
+      }
+    },
+    "deque-tail-operations": {
+      "kind": "prose",
+      "prose": {
+        "context": [],
+        "description": [
+          "Dashed squares mark positions before an operation and do not count toward the current deque. A solid square outside the container shows the value returned by the removal. Arrows at both ends of the first panel show the directions of insertion and removal."
+        ],
+        "steps": [
+          {
+            "announcement": "The rear example starts with [3, 2, 5]. The next operation acts on the rear.",
+            "explanation": "The rear example starts with three elements, [3, 2, 5]. The front is 3 and the rear is 5. There is no return value.",
+            "id": "step-1",
+            "key_state": "The deque is [3, 2, 5], with 3 at the front and 5 at the rear. There is no return value.",
+            "title": "Independent starting state"
+          },
+          {
+            "announcement": "Adding 4 at the rear gives the deque [3, 2, 5, 4].",
+            "explanation": "The call push_last(4) adds 4 at the rear. The other elements keep their order. The deque now contains four elements, [3, 2, 5, 4], with 3 at the front and 4 at the rear. The call returns no value.",
+            "id": "step-2",
+            "key_state": "The deque is [3, 2, 5, 4], with 3 at the front and 4 at the rear. There is no return value.",
+            "title": "push_last(4)"
+          },
+          {
+            "announcement": "Removing and returning 4 from the rear restores the deque to [3, 2, 5].",
+            "explanation": "The call pop_last() removes and returns 4 from the rear. The deque is back to three elements, [3, 2, 5], with 3 at the front and 5 at the rear. The returned 4 is outside the deque.",
+            "id": "step-3",
+            "key_state": "The deque is [3, 2, 5], with 3 at the front and 5 at the rear. The call returns 4.",
+            "title": "pop_last()"
+          }
+        ],
+        "summary": "Add an element at the rear and then remove that same element. The others keep their order.",
+        "title": "Operations at the rear of a deque"
       }
     }
   },
+  "context": [
+    "Five vertical panels run from left to right. The top is the front and the bottom is the rear. All sequences in the table below run from front to rear. The first three panels show the initial state, insertion at the rear, and removal from the rear. The last two show insertion at the front and removal from the front.",
+    "Although arrows point right between panels, the panel showing insertion at the front still contains 4. It cannot follow directly from the previous panel, where 4 was removed. The front example starts separately with [3, 2, 5, 4]. This starting state has no panel of its own. The table includes it, which gives six rows in all."
+  ],
+  "description": [
+    "Dashed squares mark positions before an operation and do not count toward the current deque. A solid square outside the container shows the value returned by the removal. Arrows at both ends of the first panel show the directions of insertion and removal."
+  ],
+  "frames": [
+    {
+      "book_path": "chapter_stack_and_queue/deque.assets/deque_operations.png",
+      "explanation": "The rear example adds and then removes 4 at the rear. The front example adds and then removes 1 at the front. In both cases, the other elements keep their relative order. A deque supports insertion and removal at both ends.",
+      "id": "source-70",
+      "title": "Operations at the front and rear of a deque"
+    }
+  ],
+  "schema_version": 2,
+  "summary": "Two examples show the four basic deque operations: insertion and removal at the rear, then insertion and removal at the front.",
   "tables": [
     {
       "caption": "Two independent examples",
       "headers": [
         "Example and operation",
         "Panel (left to right)",
-        "Deque after the operation",
+        "Active deque after operation",
         "Return value"
       ],
+      "row_header": 0,
       "rows": [
         [
           "Rear: initial state",
@@ -117,7 +117,7 @@
         ],
         [
           "Front: independent starting state",
-          "Starting state supplied here; no separate panel",
+          "Included for reference, with no separate panel",
           "[3,2,5,4]",
           "None"
         ],
@@ -133,8 +133,8 @@
           "[3,2,5,4]",
           "1"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Operations at the front and rear of a deque"
 }

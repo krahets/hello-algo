@@ -6,41 +6,41 @@
 
 #include "../utils/common.hpp"
 
-/* Driver Code */
+/* Пример использования */
 int main() {
-    /* Инициализация двусторонней очереди */
+    /* Инициализировать дек */
     deque<int> deque;
 
-    /* Добавление элемента в очередь */
+    /* Добавить элементы в дек */
     deque.push_back(2);
     deque.push_back(5);
     deque.push_back(4);
     deque.push_front(3);
     deque.push_front(1);
-    cout << "Двусторонняя очередь deque = ";
+    cout << "Дек deque = ";
     printDeque(deque);
 
-    /* Доступ к элементу */
+    /* Посмотреть первый и последний элементы */
     int front = deque.front();
-    cout << "Первый элемент front = " << front << endl;
+    cout << "Первый элемент дека front = " << front << endl;
     int back = deque.back();
-    cout << "Последний элемент back = " << back << endl;
+    cout << "Последний элемент дека back = " << back << endl;
 
-    /* Извлечение элемента из очереди */
+    /* Извлечь элементы из дека */
     deque.pop_front();
-    cout << "Извлеченный из головы элемент popFront = " << front << ", deque после извлечения из головы = ";
+    cout << "Извлечённый первый элемент popFront = " << front << ", после извлечения из начала deque = ";
     printDeque(deque);
     deque.pop_back();
-    cout << "Извлеченный из хвоста элемент popLast = " << back << ", deque после извлечения из хвоста = ";
+    cout << "Извлечённый последний элемент popLast = " << back << ", после извлечения из конца deque = ";
     printDeque(deque);
 
-    /* Получение длины двусторонней очереди */
+    /* Получить длину дека */
     int size = deque.size();
-    cout << "Длина двусторонней очереди size = " << size << endl;
+    cout << "Длина дека size = " << size << endl;
 
-    /* Проверка, пуста ли двусторонняя очередь */
+    /* Проверить, пуст ли дек */
     bool empty = deque.empty();
-    cout << "Пуста ли двусторонняя очередь = " << empty << endl;
+    cout << "Дек пуст = " << empty << endl;
 
     return 0;
 }

@@ -14,7 +14,7 @@ class ListNode {
     }
 }
 
-/* Десериализовать массив в связный список */
+/* Восстановить связный список из массива */
 function arrToLinkedList(arr: number[]): ListNode | null {
     const dum: ListNode = new ListNode(0);
     let head = dum;

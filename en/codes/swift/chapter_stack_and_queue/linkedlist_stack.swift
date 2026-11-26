@@ -6,9 +6,9 @@
 
 import utils
 
-/* Stack implemented with a linked list */
+/* Stack backed by a linked list */
 class LinkedListStack {
-    private var _peek: ListNode? // Use the head node as the stack top
+    private var _peek: ListNode? // Use the head node as the top of the stack
     private var _size: Int // Stack size
 
     init() {
@@ -25,7 +25,7 @@ class LinkedListStack {
         size() == 0
     }
 
-    /* Push */
+    /* Push an element onto the stack */
     func push(num: Int) {
         let node = ListNode(x: num)
         node.next = _peek
@@ -33,7 +33,7 @@ class LinkedListStack {
         _size += 1
     }
 
-    /* Pop */
+    /* Remove and return the top element */
     @discardableResult
     func pop() -> Int {
         let num = peek()
@@ -42,7 +42,7 @@ class LinkedListStack {
         return num
     }
 
-    /* Access the top element */
+    /* Peek at the top element */
     func peek() -> Int {
         if isEmpty() {
             fatalError("Stack is empty")
@@ -50,7 +50,7 @@ class LinkedListStack {
         return _peek!.val
     }
 
-    /* Convert the linked list to an array and return it */
+    /* Return the linked list elements as an array */
     func toArray() -> [Int] {
         var node = _peek
         var res = Array(repeating: 0, count: size())
@@ -75,22 +75,22 @@ enum _LinkedListStack {
         stack.push(num: 2)
         stack.push(num: 5)
         stack.push(num: 4)
-        print("Stack stack = \(stack.toArray())")
+        print("stack = \(stack.toArray())")
 
-        /* Access the top element */
+        /* Peek at the top element */
         let peek = stack.peek()
-        print("Top element peek = \(peek)")
+        print("Top element (peek) = \(peek)")
 
-        /* Pop an element from the stack */
+        /* Pop the top element */
         let pop = stack.pop()
-        print("Popped element pop = \(pop); after popping, stack = \(stack.toArray())")
+        print("Popped element (pop) = \(pop), stack after the pop = \(stack.toArray())")
 
         /* Get the stack size */
         let size = stack.size()
         print("Stack size = \(size)")
 
-        /* Check whether it is empty */
+        /* Check whether the stack is empty */
         let isEmpty = stack.isEmpty()
-        print("Is the stack empty? \(isEmpty)")
+        print("Stack is empty = \(isEmpty)")
     }
 }

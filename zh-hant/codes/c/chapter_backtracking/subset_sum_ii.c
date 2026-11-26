@@ -20,7 +20,7 @@ int resSize = 0;
 
 /* 回溯演算法：子集和 II */
 void backtrack(int target, int *choices, int choicesSize, int start) {
-    // 子集和等於 target 時，記錄解
+    // 子集總和達到目標時，記錄此解
     if (target == 0) {
         for (int i = 0; i < stateSize; i++) {
             res[resSize][i] = state[i];
@@ -28,24 +28,24 @@ void backtrack(int target, int *choices, int choicesSize, int start) {
         resColSizes[resSize++] = stateSize;
         return;
     }
-    // 走訪所有選擇
-    // 剪枝二：從 start 開始走訪，避免生成重複子集
-    // 剪枝三：從 start 開始走訪，避免重複選擇同一元素
+    // 逐一檢查所有選項
+    // 剪枝二：從 start 開始走訪，避免產生重複子集
+    // 剪枝三：從 start 開始走訪，避免重複選取同一個元素
     for (int i = start; i < choicesSize; i++) {
-        // 剪枝一：若子集和超過 target ，則直接跳過
+        // 剪枝一：若候選值超過剩餘目標值 target，直接略過
         if (target - choices[i] < 0) {
             continue;
         }
-        // 剪枝四：如果該元素與左邊元素相等，說明該搜尋分支重複，直接跳過
+        // 剪枝四：若本輪已嘗試過左鄰的相等元素，就略過這個重複分支
         if (i > start && choices[i] == choices[i - 1]) {
             continue;
         }
-        // 嘗試：做出選擇，更新 target, start
+        // 嘗試：做出選擇，更新 target 和 start
         state[stateSize] = choices[i];
         stateSize++;
-        // 進行下一輪選擇
+        // 進入下一輪選擇
         backtrack(target - choices[i], choices, choicesSize, i + 1);
-        // 回退：撤銷選擇，恢復到之前的狀態
+        // 回溯：撤銷選擇，還原先前的狀態
         stateSize--;
     }
 }
@@ -57,13 +57,13 @@ int cmp(const void *a, const void *b) {
 
 /* 求解子集和 II */
 void subsetSumII(int *nums, int numsSize, int target) {
-    // 對 nums 進行排序
+    // 將 nums 排序
     qsort(nums, numsSize, sizeof(int), cmp);
-    // 開始回溯
+    // 開始回溯搜尋
     backtrack(target, nums, numsSize, 0);
 }
 
-/* Driver Code */
+/* 主程式 */
 int main() {
     int nums[] = {4, 4, 5};
     int numsSize = sizeof(nums) / sizeof(nums[0]);
@@ -74,7 +74,7 @@ int main() {
     printf("輸入陣列 nums = ");
     printArray(nums, numsSize);
     printf("target = %d\n", target);
-    printf("所有和等於 %d 的子集 res = \n", target);
+    printf("總和等於 %d 的所有子集 res = \n", target);
     for (int i = 0; i < resSize; ++i) {
         printArray(res[i], resColSizes[i]);
     }

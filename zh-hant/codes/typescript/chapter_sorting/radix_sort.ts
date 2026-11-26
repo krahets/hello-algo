@@ -4,35 +4,35 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* 獲取元素 num 的第 k 位，其中 exp = 10^(k-1) */
+/* 取得元素 num 的第 k 位數字，其中 exp = 10^(k-1) */
 function digit(num: number, exp: number): number {
-    // 傳入 exp 而非 k 可以避免在此重複執行昂貴的次方計算
+    // 傳入 exp 而非 k，可避免在此重複執行成本較高的次方運算
     return Math.floor(num / exp) % 10;
 }
 
-/* 計數排序（根據 nums 第 k 位排序） */
+/* 計數排序（依 nums 中各元素的第 k 位數字排序） */
 function countingSortDigit(nums: number[], exp: number): void {
-    // 十進位制的位範圍為 0~9 ，因此需要長度為 10 的桶陣列
+    // 十進位的每個數位介於 0~9 之間，因此需要長度為 10 的桶陣列
     const counter = new Array(10).fill(0);
     const n = nums.length;
-    // 統計 0~9 各數字的出現次數
+    // 統計 0~9 各數字出現的次數
     for (let i = 0; i < n; i++) {
-        const d = digit(nums[i], exp); // 獲取 nums[i] 第 k 位，記為 d
-        counter[d]++; // 統計數字 d 的出現次數
+        const d = digit(nums[i], exp); // 取得 nums[i] 的第 k 位數字，記為 d
+        counter[d]++; // 統計數字 d 出現的次數
     }
-    // 求前綴和，將“出現個數”轉換為“陣列索引”
+    // 計算前綴和，將「出現次數」轉為「陣列索引」
     for (let i = 1; i < 10; i++) {
         counter[i] += counter[i - 1];
     }
-    // 倒序走訪，根據桶內統計結果，將各元素填入 res
+    // 反向走訪，依桶內的統計結果將各元素填入 res
     const res = new Array(n).fill(0);
     for (let i = n - 1; i >= 0; i--) {
         const d = digit(nums[i], exp);
-        const j = counter[d] - 1; // 獲取 d 在陣列中的索引 j
-        res[j] = nums[i]; // 將當前元素填入索引 j
+        const j = counter[d] - 1; // 取得 d 在陣列中的索引 j
+        res[j] = nums[i]; // 將目前的元素填入索引 j 的位置
         counter[d]--; // 將 d 的數量減 1
     }
-    // 使用結果覆蓋原陣列 nums
+    // 用結果覆寫原陣列 nums
     for (let i = 0; i < n; i++) {
         nums[i] = res[i];
     }
@@ -40,11 +40,11 @@ function countingSortDigit(nums: number[], exp: number): void {
 
 /* 基數排序 */
 function radixSort(nums: number[]): void {
-    // 獲取陣列的最大元素，用於判斷最大位數
+    // 取得陣列中的最大元素，用來判斷最多有幾位數
     let m: number = Math.max(... nums);
-    // 按照從低位到高位的順序走訪
+    // 依序從最低位走訪到最高位
     for (let exp = 1; exp <= m; exp *= 10) {
-        // 對陣列元素的第 k 位執行計數排序
+        // 依陣列元素的第 k 位數字執行計數排序
         // k = 1 -> exp = 1
         // k = 2 -> exp = 10
         // 即 exp = 10^(k-1)
@@ -52,7 +52,7 @@ function radixSort(nums: number[]): void {
     }
 }
 
-/* Driver Code */
+/* 主程式 */
 const nums = [
     10546151, 35663510, 42865989, 34862445, 81883077, 88906420, 72429244,
     30524779, 82060337, 63832996,

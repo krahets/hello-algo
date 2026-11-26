@@ -4,10 +4,10 @@
  * Author: gyt95 (gytkwan@gmail.com)
  */
 
-/* Method 1: brute-force enumeration */
+/* Method 1: Brute-force enumeration */
 function twoSumBruteForce(nums: number[], target: number): number[] {
     const n = nums.length;
-    // Two nested loops give a time complexity of O(n^2)
+    // Two nested loops take O(n^2) time
     for (let i = 0; i < n; i++) {
         for (let j = i + 1; j < n; j++) {
             if (nums[i] + nums[j] === target) {
@@ -18,11 +18,11 @@ function twoSumBruteForce(nums: number[], target: number): number[] {
     return [];
 }
 
-/* Method 2: auxiliary hash table */
+/* Method 2: Auxiliary hash table */
 function twoSumHashTable(nums: number[], target: number): number[] {
     // The auxiliary hash table uses O(n) space
     let m: Map<number, number> = new Map();
-    // A single loop gives a time complexity of O(n)
+    // A single loop takes O(n) time
     for (let i = 0; i < nums.length; i++) {
         let index = m.get(target - nums[i]);
         if (index !== undefined) {

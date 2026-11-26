@@ -6,24 +6,24 @@
 
 /* 編集距離：全探索 */
 function editDistanceDFS(s: string, t: string, i: number, j: number): number {
-    // s と t がともに空の場合、0 を返す
+    // s と t がともに空なら 0 を返す
     if (i === 0 && j === 0) return 0;
 
-    // s が空の場合、t の長さを返す
+    // s が空なら t の長さを返す
     if (i === 0) return j;
 
-    // t が空の場合、s の長さを返す
+    // t が空なら s の長さを返す
     if (j === 0) return i;
 
-    // 2 つの文字が等しい場合、その 2 文字をスキップする
+    // 2 文字が等しければ、両方とも読み飛ばす
     if (s.charAt(i - 1) === t.charAt(j - 1))
         return editDistanceDFS(s, t, i - 1, j - 1);
 
-    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+    // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
     const insert = editDistanceDFS(s, t, i, j - 1);
     const del = editDistanceDFS(s, t, i - 1, j);
     const replace = editDistanceDFS(s, t, i - 1, j - 1);
-    // 最小編集回数を返す
+    // 最少編集回数を返す
     return Math.min(insert, del, replace) + 1;
 }
 
@@ -35,27 +35,27 @@ function editDistanceDFSMem(
     i: number,
     j: number
 ): number {
-    // s と t がともに空の場合、0 を返す
+    // s と t がともに空なら 0 を返す
     if (i === 0 && j === 0) return 0;
 
-    // s が空の場合、t の長さを返す
+    // s が空なら t の長さを返す
     if (i === 0) return j;
 
-    // t が空の場合、s の長さを返す
+    // t が空なら s の長さを返す
     if (j === 0) return i;
 
-    // 記録済みなら、その値をそのまま返す
+    // 記録済みなら、その値を返す
     if (mem[i][j] !== -1) return mem[i][j];
 
-    // 2 つの文字が等しい場合、その 2 文字をスキップする
+    // 2 文字が等しければ、両方とも読み飛ばす
     if (s.charAt(i - 1) === t.charAt(j - 1))
         return editDistanceDFSMem(s, t, mem, i - 1, j - 1);
 
-    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+    // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
     const insert = editDistanceDFSMem(s, t, mem, i, j - 1);
     const del = editDistanceDFSMem(s, t, mem, i - 1, j);
     const replace = editDistanceDFSMem(s, t, mem, i - 1, j - 1);
-    // 最小編集回数を記録して返す
+    // 最少編集回数を記録して返す
     mem[i][j] = Math.min(insert, del, replace) + 1;
     return mem[i][j];
 }
@@ -78,10 +78,10 @@ function editDistanceDP(s: string, t: string): number {
     for (let i = 1; i <= n; i++) {
         for (let j = 1; j <= m; j++) {
             if (s.charAt(i - 1) === t.charAt(j - 1)) {
-                // 2 つの文字が等しい場合、その 2 文字をスキップする
+                // 2 文字が等しければ、両方とも読み飛ばす
                 dp[i][j] = dp[i - 1][j - 1];
             } else {
-                // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                 dp[i][j] =
                     Math.min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]) + 1;
             }
@@ -90,7 +90,7 @@ function editDistanceDP(s: string, t: string): number {
     return dp[n][m];
 }
 
-/* 編集距離：空間を最適化した動的計画法 */
+/* 編集距離：使用メモリを削減した動的計画法 */
 function editDistanceDPComp(s: string, t: string): number {
     const n = s.length,
         m = t.length;
@@ -108,19 +108,19 @@ function editDistanceDPComp(s: string, t: string): number {
         for (let j = 1; j <= m; j++) {
             const temp = dp[j];
             if (s.charAt(i - 1) === t.charAt(j - 1)) {
-                // 2 つの文字が等しい場合、その 2 文字をスキップする
+                // 2 文字が等しければ、両方とも読み飛ばす
                 dp[j] = leftup;
             } else {
-                // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                 dp[j] = Math.min(dp[j - 1], dp[j], leftup) + 1;
             }
-            leftup = temp; // 次の反復の dp[i-1, j-1] に更新する
+            leftup = temp; // 次の反復で使う dp[i-1, j-1] に更新する
         }
     }
     return dp[m];
 }
 
-/* 実行用コード */
+/* 実行例 */
 const s = 'bag';
 const t = 'pack';
 const n = s.length,
@@ -128,21 +128,21 @@ const n = s.length,
 
 // 全探索
 let res = editDistanceDFS(s, t, n, m);
-console.log(`${s} を ${t} に変更するには最低 ${res} 回の編集が必要`);
+console.log(`文字列 ${s} を ${t} に変えるには最低 ${res} 回の編集が必要`);
 
 // メモ化探索
 const mem = Array.from({ length: n + 1 }, () =>
     Array.from({ length: m + 1 }, () => -1)
 );
 res = editDistanceDFSMem(s, t, mem, n, m);
-console.log(`${s} を ${t} に変更するには最低 ${res} 回の編集が必要`);
+console.log(`文字列 ${s} を ${t} に変えるには最低 ${res} 回の編集が必要`);
 
 // 動的計画法
 res = editDistanceDP(s, t);
-console.log(`${s} を ${t} に変更するには最低 ${res} 回の編集が必要`);
+console.log(`文字列 ${s} を ${t} に変えるには最低 ${res} 回の編集が必要`);
 
-// 空間を最適化した動的計画法
+// 使用メモリを削減した動的計画法
 res = editDistanceDPComp(s, t);
-console.log(`${s} を ${t} に変更するには最低 ${res} 回の編集が必要`);
+console.log(`文字列 ${s} を ${t} に変えるには最低 ${res} 回の編集が必要`);
 
 export {};

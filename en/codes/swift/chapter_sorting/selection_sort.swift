@@ -22,7 +22,7 @@ func selectionSort(nums: inout [Int]) {
 
 @main
 enum SelectionSort {
-    /* Driver code */
+    /* Driver Code */
     static func main() {
         var nums = [4, 1, 3, 1, 5, 2]
         selectionSort(nums: &nums)

@@ -8,7 +8,7 @@ package chapter_graph
 
 import utils.Vertex
 
-/* 深さ優先走査の補助関数 */
+/* 深さ優先探索の補助関数 */
 fun dfs(
     graph: GraphAdjList,
     visited: MutableSet<Vertex?>,
@@ -17,19 +17,19 @@ fun dfs(
 ) {
     res.add(vet)     // 訪問した頂点を記録する
     visited.add(vet) // この頂点を訪問済みにする
-    // この頂点に隣接する全頂点を走査する
+    // この頂点の隣接頂点をすべて調べる
     for (adjVet in graph.adjList[vet]!!) {
         if (visited.contains(adjVet))
-            continue  // 訪問済みの頂点をスキップする
-        // 隣接する頂点を再帰的に訪問する
+            continue  // 訪問済みの頂点を飛ばす
+        // 隣接頂点を再帰的に訪問する
         dfs(graph, visited, res, adjVet)
     }
 }
 
-/* 深さ優先走査 */
-// 指定した頂点に隣接する全頂点を取得しやすいように、グラフを隣接リストで表す
+/* 深さ優先探索 */
+// 指定した頂点の隣接頂点をすべて取得できるよう、グラフを隣接リストで表す
 fun graphDFS(graph: GraphAdjList, startVet: Vertex?): MutableList<Vertex?> {
-    // 頂点の走査順序
+    // 頂点の訪問順
     val res = mutableListOf<Vertex?>()
     // 訪問済みの頂点を記録するハッシュ集合
     val visited = HashSet<Vertex?>()
@@ -37,7 +37,7 @@ fun graphDFS(graph: GraphAdjList, startVet: Vertex?): MutableList<Vertex?> {
     return res
 }
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
     /* 無向グラフを初期化する */
     val v = Vertex.valsToVets(intArrayOf(0, 1, 2, 3, 4, 5, 6))
@@ -50,11 +50,11 @@ fun main() {
         arrayOf(v[5], v[6])
     )
     val graph = GraphAdjList(edges)
-    println("\n初期化後のグラフ")
+    println("\n初期化後のグラフ：")
     graph.print()
 
-    /* 深さ優先走査 */
+    /* 深さ優先探索 */
     val res = graphDFS(graph, v[0])
-    println("\n深さ優先走査（DFS）の頂点の順序")
+    println("\n深さ優先探索（DFS）での頂点の訪問順：")
     println(Vertex.vetsToVals(res))
 }

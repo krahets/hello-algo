@@ -6,10 +6,10 @@ package chapter_searching
 
 import . "github.com/krahets/hello-algo/pkg"
 
-/* Хеш-поиск (массив) */
+/* Поиск по хеш-таблице в массиве */
 func hashingSearchArray(m map[int]int, target int) int {
-	// key хеш-таблицы: целевой элемент, value: индекс
-	// Если такого key нет в хеш-таблице, вернуть -1
+	// Ключ хеш-таблицы — искомый элемент, значение — его индекс
+	// Если ключа в хеш-таблице нет, возвращаем -1
 	if index, ok := m[target]; ok {
 		return index
 	} else {
@@ -17,10 +17,10 @@ func hashingSearchArray(m map[int]int, target int) int {
 	}
 }
 
-/* Хеш-поиск (связный список) */
+/* Поиск по хеш-таблице в связном списке */
 func hashingSearchLinkedList(m map[int]*ListNode, target int) *ListNode {
-	// key хеш-таблицы: значение целевого узла, value: объект узла
-	// Если такого key нет в хеш-таблице, вернуть nil
+	// Ключ хеш-таблицы — искомое значение узла, значение таблицы — сам узел
+	// Если ключа в хеш-таблице нет, возвращаем nil
 	if node, ok := m[target]; ok {
 		return node
 	} else {

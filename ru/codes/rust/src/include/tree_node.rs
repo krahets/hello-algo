@@ -39,23 +39,23 @@ macro_rules! op_vec {
     };
 }
 
-// Правила кодирования сериализации см.:
-// https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-// Массивное представление двоичного дерева:
+// Правила кодирования при сериализации описаны здесь:
+// https://www.hello-algo.com/ru/chapter_tree/array_representation_of_tree/
+// Двоичное дерево в виде массива:
 // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
-// Связное представление двоичного дерева:
-// /——— 15
-// /——— 7
-// /——— 3
-// |    \——— 6
-// |        \——— 12
+// Двоичное дерево в виде связанных узлов:
+//             /——— 15
+//         /——— 7
+//     /——— 3
+//    |    \——— 6
+//    |        \——— 12
 // ——— 1
-// \——— 2
-// |    /——— 9
-// \——— 4
-// \——— 8
+//     \——— 2
+//        |    /——— 9
+//         \——— 4
+//             \——— 8
 
-/* Десериализовать список в двоичное дерево: рекурсия */
+/* Рекурсивно восстановить двоичное дерево из списка */
 fn vec_to_tree_dfs(arr: &[Option<i32>], i: usize) -> Option<Rc<RefCell<TreeNode>>> {
     if i >= arr.len() || arr[i].is_none() {
         return None;
@@ -66,15 +66,15 @@ fn vec_to_tree_dfs(arr: &[Option<i32>], i: usize) -> Option<Rc<RefCell<TreeNode>
     Some(root)
 }
 
-/* Десериализовать список в двоичное дерево */
+/* Восстановить двоичное дерево из списка */
 pub fn vec_to_tree(arr: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
     vec_to_tree_dfs(&arr, 0)
 }
 
-/* Сериализовать двоичное дерево в список: рекурсия */
+/* Рекурсивно сериализовать двоичное дерево в список */
 fn tree_to_vec_dfs(root: Option<&Rc<RefCell<TreeNode>>>, i: usize, res: &mut Vec<Option<i32>>) {
     if let Some(root) = root {
-        // i + 1 is the minimum valid size to access index i
+        // Для доступа к элементу с индексом i размер должен быть не меньше i + 1
         while res.len() < i + 1 {
             res.push(None);
         }

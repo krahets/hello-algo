@@ -10,25 +10,25 @@ func recur(n: Int) -> Int {
     if n == 1 {
         return 1
     }
-    // 往路：再帰呼び出し
+    // 行き：再帰呼び出し
     let res = recur(n: n - 1)
-    // 復路：結果を返す
+    // 帰り：結果を返す
     return n + res
 }
 
-/* 反復を使って再帰を再現する */
+/* 反復で再帰を模擬 */
 func forLoopRecur(n: Int) -> Int {
-    // 明示的なスタックを使って、システムの呼び出しスタックを再現する
+    // 明示的なスタックでシステムの呼び出しスタックを模擬
     var stack: [Int] = []
     var res = 0
-    // 往路：再帰呼び出し
+    // 行き：再帰呼び出し
     for i in (1 ... n).reversed() {
-        // 「プッシュ操作」で再帰の「往路」を再現する
+        // プッシュで「行き」を模擬
         stack.append(i)
     }
-    // 復路：結果を返す
+    // 帰り：結果を返す
     while !stack.isEmpty {
-        // 「ポップ操作」で再帰の「復路」を再現する
+        // ポップで「帰り」を模擬
         res += stack.removeLast()
     }
     // res = 1+2+3+...+n
@@ -59,19 +59,19 @@ func fib(n: Int) -> Int {
 
 @main
 enum Recursion {
-    /* 実行用コード */
+    /* 実行例 */
     static func main() {
         let n = 5
         var res = 0
 
         res = recursion.recur(n: n)
-        print("\n再帰関数で求めた和 res = \(res)")
+        print("\n再帰関数による総和 res = \(res)")
 
         res = recursion.forLoopRecur(n: n)
-        print("\n反復で再帰を再現して求めた和 res = \(res)")
+        print("\n反復で再帰を模擬して求めた総和 res = \(res)")
 
         res = recursion.tailRecur(n: n, res: 0)
-        print("\n末尾再帰関数で求めた和 res = \(res)")
+        print("\n末尾再帰関数による総和 res = \(res)")
 
         res = recursion.fib(n: n)
         print("\nフィボナッチ数列の第 \(n) 項は \(res)")

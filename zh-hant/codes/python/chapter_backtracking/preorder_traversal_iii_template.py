@@ -12,17 +12,17 @@ from modules import TreeNode, print_tree, list_to_tree
 
 
 def is_solution(state: list[TreeNode]) -> bool:
-    """判斷當前狀態是否為解"""
+    """判斷目前的狀態是否為解"""
     return state and state[-1].val == 7
 
 
 def record_solution(state: list[TreeNode], res: list[list[TreeNode]]):
-    """記錄解"""
+    """記錄此解"""
     res.append(list(state))
 
 
 def is_valid(state: list[TreeNode], choice: TreeNode) -> bool:
-    """判斷在當前狀態下，該選擇是否合法"""
+    """判斷這個選擇在目前的狀態下是否合法"""
     return choice is not None and choice.val != 3
 
 
@@ -32,7 +32,7 @@ def make_choice(state: list[TreeNode], choice: TreeNode):
 
 
 def undo_choice(state: list[TreeNode], choice: TreeNode):
-    """恢復狀態"""
+    """還原狀態"""
     state.pop()
 
 
@@ -40,19 +40,19 @@ def backtrack(
     state: list[TreeNode], choices: list[TreeNode], res: list[list[TreeNode]]
 ):
     """回溯演算法：例題三"""
-    # 檢查是否為解
+    # 檢查目前的狀態是否為解
     if is_solution(state):
-        # 記錄解
+        # 記錄此解
         record_solution(state, res)
-    # 走訪所有選擇
+    # 逐一檢查所有選項
     for choice in choices:
         # 剪枝：檢查選擇是否合法
         if is_valid(state, choice):
-            # 嘗試：做出選擇，更新狀態
+            # 嘗試：做出選擇並更新狀態
             make_choice(state, choice)
-            # 進行下一輪選擇
+            # 進入下一輪選擇
             backtrack(state, [choice.left, choice.right], res)
-            # 回退：撤銷選擇，恢復到之前的狀態
+            # 回溯：撤銷選擇，還原先前的狀態
             undo_choice(state, choice)
 
 
@@ -66,6 +66,6 @@ if __name__ == "__main__":
     res = []
     backtrack(state=[], choices=[root], res=res)
 
-    print("\n輸出所有根節點到節點 7 的路徑，要求路徑中不包含值為 3 的節點")
+    print("\n輸出從根節點到值為 7 的節點的所有路徑，且路徑中不得包含值為 3 的節點")
     for path in res:
         print([node.val for node in path])

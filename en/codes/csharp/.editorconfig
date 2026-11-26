@@ -1,4 +1,4 @@
-# CSharp formatting rules
+# C# formatting rules
 [*.cs]
 csharp_new_line_before_open_brace = none
 csharp_new_line_before_else = false

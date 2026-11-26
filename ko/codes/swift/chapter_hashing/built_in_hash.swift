@@ -8,7 +8,7 @@ import utils
 
 @main
 enum BuiltInHash {
-    /* 실행 코드 */
+    /* 실행 예제 */
     static func main() {
         let num = 3
         let hashNum = num.hashValue
@@ -16,19 +16,19 @@ enum BuiltInHash {
 
         let bol = true
         let hashBol = bol.hashValue
-        print("불리언 값 \(bol) → 해시값: \(hashBol)")
+        print("불리언 \(bol) → 해시값: \(hashBol)")
 
         let dec = 3.14159
         let hashDec = dec.hashValue
-        print("소수 \(dec) → 해시값: \(hashDec)")
+        print("실수 \(dec) → 해시값: \(hashDec)")
 
         let str = "Hello 算法"
         let hashStr = str.hashValue
-        print("문자열 = \(str), 해시값 = \(hashStr)")
+        print("문자열 \(str) → 해시값: \(hashStr)")
 
         let arr = [AnyHashable(12836), AnyHashable("小哈")]
         let hashTup = arr.hashValue
-        print("배열 = \(arr), 해시값 = \(hashTup)")
+        print("배열 \(arr) → 해시값: \(hashTup)")
 
         let obj = ListNode(x: 0)
         let hashObj = obj.hashValue

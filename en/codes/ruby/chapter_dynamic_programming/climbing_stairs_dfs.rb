@@ -6,13 +6,13 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 ### Search ###
 def dfs(i)
-  # The values of dp[1] and dp[2] are known; return them
+  # Return the known value for dp[1] or dp[2]
   return i if i == 1 || i == 2
   # dp[i] = dp[i-1] + dp[i-2]
   dfs(i - 1) + dfs(i - 2)
 end
 
-### Climbing stairs: search ###
+### Climbing stairs with search ###
 def climbing_stairs_dfs(n)
   dfs(n)
 end
@@ -22,5 +22,5 @@ if __FILE__ == $0
   n = 9
 
   res = climbing_stairs_dfs(n)
-  puts "Number of ways to climb #{n} stairs: #{res}"
+  puts "Climbing #{n} stairs: #{res} ways"
 end

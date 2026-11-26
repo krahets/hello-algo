@@ -4,43 +4,43 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Binary search (closed interval) */
+/* Binary search on a closed interval */
 func binarySearch(nums: [Int], target: Int) -> Int {
-    // Initialize the closed interval [0, n-1], with i and j pointing to the first and last elements
+    // Initialize the closed interval [0, n-1] with i at the first element and j at the last
     var i = nums.startIndex
     var j = nums.endIndex - 1
-    // Loop until the search interval is empty (when i > j)
+    // Stop when the search interval is empty (i > j)
     while i <= j {
-        let m = i + (j - i) / 2 // Calculate the midpoint index m
-        if nums[m] < target { // In this case, target must be in [m+1, j] if it exists
+        let m = i + (j - i) / 2 // Compute the midpoint index m
+        if nums[m] < target { // Any match must lie in [m+1, j]
             i = m + 1
-        } else if nums[m] > target { // In this case, target must be in [i, m-1] if it exists
+        } else if nums[m] > target { // Any match must lie in [i, m-1]
             j = m - 1
-        } else { // The target element was found; return its index
+        } else { // Found the target. Return its index
             return m
         }
     }
-    // The target element was not found; return -1
+    // Target not found. Return -1
     return -1
 }
 
-/* Binary search (left-closed, right-open interval) */
+/* Binary search on a left-closed, right-open interval */
 func binarySearchLCRO(nums: [Int], target: Int) -> Int {
-    // Initialize the left-closed, right-open interval [0, n), with i at the first element and j one past the last
+    // Initialize [0, n) with i at the first element and j one past the last
     var i = nums.startIndex
     var j = nums.endIndex
-    // Loop until the search interval is empty (when i = j)
+    // Stop when the search interval is empty (i = j)
     while i < j {
-        let m = i + (j - i) / 2 // Calculate the midpoint index m
-        if nums[m] < target { // In this case, target must be in [m+1, j) if it exists
+        let m = i + (j - i) / 2 // Compute the midpoint index m
+        if nums[m] < target { // Any match must lie in [m+1, j)
             i = m + 1
-        } else if nums[m] > target { // In this case, target must be in [i, m) if it exists
+        } else if nums[m] > target { // Any match must lie in [i, m)
             j = m
-        } else { // The target element was found; return its index
+        } else { // Found the target. Return its index
             return m
         }
     }
-    // The target element was not found; return -1
+    // Target not found. Return -1
     return -1
 }
 
@@ -51,12 +51,12 @@ enum BinarySearch {
         let target = 6
         let nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]
 
-        /* Binary search (closed interval) */
+        /* Binary search on a closed interval */
         var index = binarySearch(nums: nums, target: target)
-        print("Index of target element 6 = \(index)")
+        print("Index of target 6 = \(index)")
 
-        /* Binary search (left-closed, right-open interval) */
+        /* Binary search on a left-closed, right-open interval */
         index = binarySearchLCRO(nums: nums, target: target)
-        print("Index of target element 6 = \(index)")
+        print("Index of target 6 = \(index)")
     }
 }

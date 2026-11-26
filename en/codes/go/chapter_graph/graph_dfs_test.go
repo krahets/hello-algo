@@ -12,7 +12,7 @@ import (
 )
 
 func TestGraphDFS(t *testing.T) {
-	/* Initialize the undirected graph */
+	/* Initialize an undirected graph */
 	vets := ValsToVets([]int{0, 1, 2, 3, 4, 5, 6})
 	edges := [][]Vertex{
 		{vets[0], vets[1]}, {vets[0], vets[3]}, {vets[1], vets[2]},
@@ -23,6 +23,6 @@ func TestGraphDFS(t *testing.T) {
 
 	/* Depth-first traversal */
 	res := graphDFS(graph, vets[0])
-	fmt.Println("Vertex sequence from depth-first traversal (DFS):")
+	fmt.Println("Depth-first search (DFS) visits the vertices in this order:")
 	PrintSlice(VetsToVals(res))
 }

@@ -6,12 +6,12 @@
 
 #include "../utils/common.hpp"
 
-/* Build a binary tree: divide and conquer */
+/* Build a binary tree using divide and conquer */
 TreeNode *dfs(vector<int> &preorder, unordered_map<int, int> &inorderMap, int i, int l, int r) {
     // Stop when the subtree interval is empty
     if (r - l < 0)
         return NULL;
-    // Initialize the root node
+    // Initialize the root
     TreeNode *root = new TreeNode(preorder[i]);
     // Look up m to separate the left and right subtrees
     int m = inorderMap[preorder[i]];
@@ -19,13 +19,13 @@ TreeNode *dfs(vector<int> &preorder, unordered_map<int, int> &inorderMap, int i,
     root->left = dfs(preorder, inorderMap, i + 1, l, m - 1);
     // Subproblem: build the right subtree
     root->right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r);
-    // Return the root node
+    // Return the root
     return root;
 }
 
 /* Build a binary tree */
 TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
-    // Initialize a hash table mapping each element in inorder to its index
+    // Map each inorder value to its index in a hash table
     unordered_map<int, int> inorderMap;
     for (int i = 0; i < inorder.size(); i++) {
         inorderMap[inorder[i]] = i;
@@ -44,7 +44,7 @@ int main() {
     printVector(inorder);
 
     TreeNode *root = buildTree(preorder, inorder);
-    cout << "Constructed binary tree:\n";
+    cout << "Reconstructed binary tree:\n";
     printTree(root);
 
     return 0;

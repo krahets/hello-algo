@@ -12,8 +12,8 @@ use std::rc::Rc;
 /* Стек на основе связного списка */
 #[allow(dead_code)]
 pub struct LinkedListStack<T> {
-    stack_peek: Option<Rc<RefCell<ListNode<T>>>>, // Использовать головной узел как вершину стека
-    stk_size: usize,                              // Длина стека
+    stack_peek: Option<Rc<RefCell<ListNode<T>>>>, // Первый узел списка служит вершиной стека
+    stk_size: usize,                              // Размер стека
 }
 
 impl<T: Copy> LinkedListStack<T> {
@@ -24,17 +24,17 @@ impl<T: Copy> LinkedListStack<T> {
         }
     }
 
-    /* Получение длины стека */
+    /* Получить размер стека */
     pub fn size(&self) -> usize {
         return self.stk_size;
     }
 
-    /* Проверка, пуст ли стек */
+    /* Проверить, пуст ли стек */
     pub fn is_empty(&self) -> bool {
         return self.size() == 0;
     }
 
-    /* Поместить в стек */
+    /* Поместить элемент в стек */
     pub fn push(&mut self, num: T) {
         let node = ListNode::new(num);
         node.borrow_mut().next = self.stack_peek.take();
@@ -42,7 +42,7 @@ impl<T: Copy> LinkedListStack<T> {
         self.stk_size += 1;
     }
 
-    /* Извлечь из стека */
+    /* Снять элемент со стека */
     pub fn pop(&mut self) -> Option<T> {
         self.stack_peek.take().map(|old_head| {
             self.stack_peek = old_head.borrow_mut().next.take();
@@ -52,12 +52,12 @@ impl<T: Copy> LinkedListStack<T> {
         })
     }
 
-    /* Доступ к верхнему элементу стека */
+    /* Посмотреть элемент на вершине стека */
     pub fn peek(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
         self.stack_peek.as_ref()
     }
 
-    /* Преобразовать List в Array и вернуть */
+    /* Преобразовать связный список в динамический массив и вернуть его */
     pub fn to_array(&self) -> Vec<T> {
         fn _to_array<T: Sized + Copy>(head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
             if let Some(node) = head {
@@ -72,12 +72,12 @@ impl<T: Copy> LinkedListStack<T> {
     }
 }
 
-/* Driver Code */
+/* Пример использования */
 fn main() {
-    /* Инициализация стека */
+    /* Инициализировать стек */
     let mut stack = LinkedListStack::new();
 
-    /* Помещение элемента в стек */
+    /* Поместить элементы в стек */
     stack.push(1);
     stack.push(3);
     stack.push(2);
@@ -86,20 +86,20 @@ fn main() {
     print!("Стек stack = ");
     print_util::print_array(&stack.to_array());
 
-    /* Доступ к верхнему элементу стека */
+    /* Посмотреть элемент на вершине стека */
     let peek = stack.peek().unwrap().borrow().val;
-    print!("\nВерхний элемент peek = {}", peek);
+    print!("\nЭлемент на вершине стека peek = {}", peek);
 
-    /* Извлечение элемента из стека */
+    /* Снять элемент со стека */
     let pop = stack.pop().unwrap();
-    print!("\nИзвлеченный элемент pop = {}, stack после извлечения = ", pop);
+    print!("\nСнятый элемент pop = {}, после снятия stack = ", pop);
     print_util::print_array(&stack.to_array());
 
-    /* Получение длины стека */
+    /* Получить размер стека */
     let size = stack.size();
-    print!("\nДлина стека size = {}", size);
+    print!("\nРазмер стека size = {}", size);
 
-    /* Проверка на пустоту */
+    /* Проверить, пуст ли стек */
     let is_empty = stack.is_empty();
-    print!("\nПуст ли стек = {}", is_empty);
+    print!("\nСтек пуст = {}", is_empty);
 }

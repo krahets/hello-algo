@@ -7,18 +7,18 @@
 package chapter_greedy;
 
 public class max_capacity {
-    /* Maximum container capacity: greedy algorithm */
+    /* Greedy maximum capacity algorithm */
     static int maxCapacity(int[] ht) {
-        // Initialize i and j at opposite ends of the array
+        // Start i and j at opposite ends of the array
         int i = 0, j = ht.length - 1;
         // The initial maximum capacity is 0
         int res = 0;
-        // Repeatedly make greedy choices until the two sides meet
+        // Make greedy choices until the two pointers meet
         while (i < j) {
             // Update the maximum capacity
             int cap = Math.min(ht[i], ht[j]) * (j - i);
             res = Math.max(res, cap);
-            // Move the shorter side inward
+            // Move the pointer at the shorter board inward
             if (ht[i] < ht[j]) {
                 i++;
             } else {
@@ -33,6 +33,6 @@ public class max_capacity {
 
         // Greedy algorithm
         int res = maxCapacity(ht);
-        System.out.println("Maximum container capacity: " + res);
+        System.out.println("The maximum capacity is " + res);
     }
 }

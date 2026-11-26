@@ -20,7 +20,7 @@ def insertion_sort(nums)
   end
 end
 
-### Driver code ###
+### Driver Code ###
 nums = [4, 1, 3, 1, 5, 2]
 insertion_sort(nums)
 puts "After insertion sort, nums = #{nums}"

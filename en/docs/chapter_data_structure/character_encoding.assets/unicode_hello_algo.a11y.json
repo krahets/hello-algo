@@ -1,28 +1,28 @@
 {
-  "schema_version": 2,
-  "title": "Sixteen-bit view of the code points in Hello算法",
-  "summary": "Align English and Chinese characters in the same string to 16 bits to compare the convenience and storage cost of fixed-width encoding.",
   "context": [
-    "The two columns are headed \"Character\" and \"Unicode\", listing the 7-character string Hello算法 (without spaces) from top to bottom. The table below preserves the 16-bit binary values shown in the figure and adds the corresponding hexadecimal code points converted from binary."
+    "The columns are labeled “Character” and “Unicode.” From top to bottom, the seven characters spell Hello算法 with no spaces. The table reproduces the 16-bit binary values and gives their hexadecimal equivalents."
   ],
   "description": [
-    "In the first five rows, the upper 8 bits of each English character are padded with 00000000 in gray, while the lower 8 bits retain the original code point. The brace on the right reads \"One-byte English characters (high bits padded with 0)\", and the brace beside the last two rows, \"算\" and \"法\", reads \"Two-byte Chinese characters\"."
+    "For the English letters in the first five rows, the high 8 bits are padded with 00000000 in gray, and the low 8 bits hold the original code point. A brace on the right labels these rows “1-byte English characters (high bits padded with 0).” A brace beside the last two rows, 算 and 法, labels them “2-byte Chinese characters.”"
   ],
   "frames": [
     {
-      "id": "source-44",
       "book_path": "chapter_data_structure/character_encoding.assets/unicode_hello_algo.png",
-      "title": "Sixteen-bit view of the code points in Hello算法",
-      "explanation": "If 1-byte English code points and 2-byte Chinese code points were mixed directly without padding, two consecutive bytes could be misparsed either as a single Chinese character or as two English letters. Zero-padding in the figure makes every character in this example occupy 2 bytes so the stream can be sliced at fixed intervals, at the cost of using twice as much space as ASCII for the five English letters."
+      "explanation": "If 1-byte English code points and 2-byte Chinese code points were stored together as they are, two consecutive bytes could be misread as either one Chinese character or two English letters. Padding with zeros gives each character in this example 2 bytes, so the string can be split at fixed intervals. The five English letters then take up twice as much space as in ASCII.",
+      "id": "source-44",
+      "title": "Code points in Hello算法 shown in 16 bits"
     }
   ],
+  "result": "This 16-bit illustration covers only the example characters, all in the Basic Multilingual Plane (BMP). Unicode defines code points up to U+10FFFF, which requires 21 bits. The actual byte count depends on the encoding, such as UTF-8 or UTF-16. Characters do not all occupy a fixed 2 bytes.",
+  "schema_version": 2,
+  "summary": "Writing the English and Chinese characters at the same 16-bit width shows both the convenience and the cost of fixed-width storage.",
   "tables": [
     {
-      "caption": "Per-character code points of Hello算法",
+      "caption": "Code points for each character in Hello算法",
       "headers": [
         "Position and character",
-        "16-bit binary in figure",
-        "Hexadecimal code point (added)"
+        "16-bit binary value shown",
+        "Equivalent hexadecimal code point"
       ],
       "row_header": 0,
       "rows": [
@@ -64,5 +64,5 @@
       ]
     }
   ],
-  "result": "This diagram only illustrates 16-bit values for characters within the Basic Multilingual Plane (BMP). Unicode itself defines code points up to U+10FFFF, which require 21 bits; the actual byte length depends on the encoding scheme such as UTF-8 or UTF-16, and not all Unicode characters occupy a fixed 2 bytes."
+  "title": "Code points in Hello算法 shown in 16 bits"
 }

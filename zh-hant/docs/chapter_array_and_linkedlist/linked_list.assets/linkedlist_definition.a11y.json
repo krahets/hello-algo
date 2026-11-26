@@ -1,0 +1,15 @@
+{
+  "context": [],
+  "description": [],
+  "frames": [
+    {
+      "book_path": "chapter_array_and_linkedlist/linked_list.assets/linkedlist_definition.png",
+      "explanation": "鏈結串列共有 5 個節點，沿著 next 參照依序為 1 → 3 → 2 → 5 → 4 → None。頭節點是 1，尾節點是 4，None 表示沒有下一個節點。在記憶體網格中，節點 2、5 位於下方，尾節點 4 卻位於上方。節點 5 的 next 仍指向 4，可見邏輯順序取決於參照，與實體位置無關。",
+      "id": "source-50",
+      "title": "鏈結串列的節點與連結"
+    }
+  ],
+  "schema_version": 2,
+  "summary": "圖中以邏輯關係圖和記憶體網格呈現同一條鏈結串列。網格中每個節點占相鄰的兩格，分別儲存節點值和指向後繼節點的參照 next（指標）。其餘淺色格子代表可用空間，格子的大小僅供示意。",
+  "title": "鏈結串列的節點與連結"
+}

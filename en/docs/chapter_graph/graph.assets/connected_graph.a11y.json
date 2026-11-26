@@ -1,20 +1,20 @@
 {
-  "schema_version": 2,
-  "title": "Connected and disconnected graphs: all vertices reachable vs. an isolated vertex",
-  "summary": "Compare connectivity when all five vertices are mutually reachable versus when an isolated vertex is present.",
   "context": [
-    "Both the left and right figures show undirected graphs with vertices 1, 2, 3, 4, 5. An undirected graph is \"connected\" if starting from any vertex, every other vertex can be reached along a path of one or more edges; it does not require a direct edge between every pair of vertices."
+    "Both diagrams show undirected graphs on vertices 1, 2, 3, 4, and 5. In a connected undirected graph, you can reach any other vertex from any starting vertex by following a path of one or more edges. The vertices need not all be directly connected in pairs."
   ],
   "description": [
-    "On the left is \"Connected graph (All vertices are mutually reachable)\" with seven undirected edges: 1—2, 1—3, 1—5, 2—3, 2—4, 2—5, and 4—5. Even though vertices 3 and 4 have no direct edge, they can reach each other along path 3—2—4 or 3—1—5—4, so all five vertices form a single connected whole.",
-    "On the right is \"Disconnected graph (Some vertices are unreachable from others)\": it keeps the five undirected edges 1—2, 1—3, 1—5, 2—3, and 2—5 among the four vertices on the left, while removing the two edges 2—4 and 4—5 incident to vertex 4. Vertices 1, 2, 3, 5 remain mutually reachable among themselves, whereas no path reaches the isolated vertex 4 in the right figure."
+    "The connected graph on the left, labeled “All vertices are reachable,” has seven undirected edges: 1–2, 1–3, 1–5, 2–3, 2–4, 2–5, and 4–5. Even vertices 3 and 4, which have no direct edge, can reach each other along 3–2–4 or 3–1–5–4. All five vertices thus belong to one connected component.",
+    "The disconnected graph on the right, labeled “Some vertices are unreachable,” retains the five edges 1–2, 1–3, 1–5, 2–3, and 2–5 among four vertices. The two edges incident to vertex 4, namely 2–4 and 4–5, have been removed. Vertices 1, 2, 3, and 5 remain mutually reachable, but none has a path to the isolated vertex 4."
   ],
   "frames": [
     {
-      "id": "source-175",
       "book_path": "chapter_graph/graph.assets/connected_graph.png",
-      "title": "Connected and disconnected graphs: all vertices reachable vs. an isolated vertex",
-      "explanation": "The right graph splits into the connected subset {1, 2, 3, 5} and the isolated vertex {4}. Whenever at least one pair of vertices cannot reach each other along a path, the entire undirected graph is disconnected."
+      "explanation": "The graph on the right splits into the connected set {1, 2, 3, 5} and the isolated vertex {4}. An undirected graph is disconnected if even one pair of vertices has no path between them.",
+      "id": "source-175",
+      "title": "Connected and disconnected graphs: all vertices reachable versus an isolated vertex"
     }
-  ]
+  ],
+  "schema_version": 2,
+  "summary": "Compare a graph in which all five vertices are mutually reachable with one that has an isolated vertex.",
+  "title": "Connected and disconnected graphs: all vertices reachable versus an isolated vertex"
 }

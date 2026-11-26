@@ -8,10 +8,10 @@ pub use hello_algo_rust::include::{vals_to_vets, vets_to_vals, Vertex};
 
 use std::collections::HashMap;
 
-/* 隣接リストで実装した無向グラフの型 */
+/* 隣接リストで無向グラフを表す型 */
 pub struct GraphAdjList {
-    // 隣接リスト。key：頂点、value：その頂点に隣接する全頂点
-    pub adj_list: HashMap<Vertex, Vec<Vertex>>, // 値の部分には HashSet<Vertex> のほうがよいかもしれない？
+    // 隣接リスト。key は頂点、value はその頂点の全隣接頂点
+    pub adj_list: HashMap<Vertex, Vec<Vertex>>, // 値の部分は HashSet<Vertex> のほうがよいだろうか
 }
 
 impl GraphAdjList {
@@ -73,9 +73,9 @@ impl GraphAdjList {
     /* 頂点を削除する */
     #[allow(unused)]
     pub fn remove_vertex(&mut self, vet: Vertex) {
-        // 隣接リストから頂点 vet に対応する連結リストを削除する
+        // 隣接リストから頂点 vet の連結リストを削除する
         self.adj_list.remove(&vet);
-        // 他の頂点の連結リストを走査し、vet を含むすべての辺を削除する
+        // 他の頂点の連結リストをたどり、vet を端点とする辺をすべて削除する
         for list in self.adj_list.values_mut() {
             list.retain(|&v| v != vet);
         }
@@ -91,7 +91,7 @@ impl GraphAdjList {
     }
 }
 
-/* 実行用コード */
+/* 実行例 */
 #[allow(unused)]
 fn main() {
     /* 無向グラフを初期化する */
@@ -106,30 +106,30 @@ fn main() {
     ];
 
     let mut graph = GraphAdjList::new(edges);
-    println!("\n初期化後のグラフ");
+    println!("\n初期化後のグラフ：");
     graph.print();
 
     /* 辺を追加する */
-    // 頂点 1, 2 は v[0], v[2] に対応する
+    // 頂点 1 と 2 はそれぞれ v[0] と v[2]
     graph.add_edge(v[0], v[2]);
-    println!("\n辺 1-2 を追加した後のグラフ");
+    println!("\n辺 1-2 を追加した後のグラフ：");
     graph.print();
 
     /* 辺を削除する */
-    // 頂点 1, 3 は v[0], v[1] に対応する
+    // 頂点 1 と 3 はそれぞれ v[0] と v[1]
     graph.remove_edge(v[0], v[1]);
-    println!("\n辺 1-3 を削除した後のグラフ");
+    println!("\n辺 1-3 を削除した後のグラフ：");
     graph.print();
 
     /* 頂点を追加する */
     let v5 = Vertex { val: 6 };
     graph.add_vertex(v5);
-    println!("\n頂点 6 を追加した後のグラフ");
+    println!("\n頂点 6 を追加した後のグラフ：");
     graph.print();
 
     /* 頂点を削除する */
-    // 頂点 3 は v[1] に対応する
+    // 頂点 3 は v[1]
     graph.remove_vertex(v[1]);
-    println!("\n頂点 3 を削除した後のグラフ");
+    println!("\n頂点 3 を削除した後のグラフ：");
     graph.print();
 }

@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-// Assume each path and the result list contain at most 100 entries
+// Assume the path and the result each have length at most 100
 #define MAX_SIZE 100
 #define MAX_RES_SIZE 100
 
@@ -20,7 +20,7 @@ void preOrder(TreeNode *root) {
     if (root == NULL || root->val == 3) {
         return;
     }
-    // Try
+    // Try a choice
     path[pathSize++] = root;
     if (root->val == 7) {
         // Record the solution
@@ -45,7 +45,7 @@ int main() {
     // Preorder traversal
     preOrder(root);
 
-    printf("\nPrint all paths from the root to nodes with value 7 that contain no node with value 3\n");
+    printf("\nPrint all paths from the root to a node with value 7 that avoid nodes with value 3\n");
     for (int i = 0; i < resSize; ++i) {
         int *vals = malloc(MAX_SIZE * sizeof(int));
         int size = 0;
@@ -56,7 +56,7 @@ int main() {
         free(vals);
     }
 
-    // Free memory
+    // Free the memory
     freeMemoryTree(root);
     return 0;
 }

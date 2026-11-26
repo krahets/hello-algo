@@ -4,7 +4,7 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* Stack implemented with an array */
+/* Array-backed stack */
 class ArrayStack {
   late List<int> _stack;
   ArrayStack() {
@@ -21,12 +21,12 @@ class ArrayStack {
     return _stack.isEmpty;
   }
 
-  /* Push */
+  /* Push an element onto the stack */
   void push(int _num) {
     _stack.add(_num);
   }
 
-  /* Pop */
+  /* Remove and return the top element */
   int pop() {
     if (isEmpty()) {
       throw Exception("Stack is empty");
@@ -34,7 +34,7 @@ class ArrayStack {
     return _stack.removeLast();
   }
 
-  /* Access the top element */
+  /* Peek at the top element */
   int peek() {
     if (isEmpty()) {
       throw Exception("Stack is empty");
@@ -42,7 +42,7 @@ class ArrayStack {
     return _stack.last;
   }
 
-  /* Return the underlying stack array */
+  /* Return the list that backs the stack */
   List<int> toArray() => _stack;
 }
 
@@ -57,21 +57,21 @@ void main() {
   stack.push(2);
   stack.push(5);
   stack.push(4);
-  print("Stack stack = ${stack.toArray()}");
+  print("stack = ${stack.toArray()}");
 
-  /* Access the top element */
+  /* Peek at the top element */
   final int peek = stack.peek();
-  print("Top element peek = $peek");
+  print("Top element (peek) = $peek");
 
-  /* Pop an element from the stack */
+  /* Pop the top element */
   final int pop = stack.pop();
-  print("Popped element pop = $pop; after popping, stack = ${stack.toArray()}");
+  print("Popped element (pop) = $pop, stack after the pop = ${stack.toArray()}");
 
   /* Get the stack size */
   final int size = stack.size();
   print("Stack size = $size");
 
-  /* Check whether it is empty */
+  /* Check whether the stack is empty */
   final bool isEmpty = stack.isEmpty();
-  print("Is the stack empty = $isEmpty");
+  print("Stack is empty = $isEmpty");
 }

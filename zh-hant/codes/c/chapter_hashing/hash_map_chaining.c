@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// 假設 val 最大長度為 100
+// 假設 val 的最大長度為 100
 #define MAX_SIZE 100
 
 /* 鍵值對 */
@@ -23,16 +23,16 @@ typedef struct Node {
     struct Node *next;
 } Node;
 
-/* 鏈式位址雜湊表 */
+/* 鏈結法雜湊表 */
 typedef struct {
     int size;         // 鍵值對數量
     int capacity;     // 雜湊表容量
-    double loadThres; // 觸發擴容的負載因子閾值
-    int extendRatio;  // 擴容倍數
+    double loadThres; // 觸發容量擴充的負載因子門檻
+    int extendRatio;  // 容量擴充倍數
     Node **buckets;   // 桶陣列
 } HashMapChaining;
 
-/* 建構子 */
+/* 建構函式 */
 HashMapChaining *newHashMapChaining() {
     HashMapChaining *hashMap = (HashMapChaining *)malloc(sizeof(HashMapChaining));
     hashMap->size = 0;
@@ -46,7 +46,7 @@ HashMapChaining *newHashMapChaining() {
     return hashMap;
 }
 
-/* 析構函式 */
+/* 解構函式 */
 void delHashMapChaining(HashMapChaining *hashMap) {
     for (int i = 0; i < hashMap->capacity; i++) {
         Node *cur = hashMap->buckets[i];
@@ -74,7 +74,7 @@ double loadFactor(HashMapChaining *hashMap) {
 /* 查詢操作 */
 char *get(HashMapChaining *hashMap, int key) {
     int index = hashFunc(hashMap, key);
-    // 走訪桶，若找到 key ，則返回對應 val
+    // 走訪桶中的元素，若找到 key，就回傳對應的 val
     Node *cur = hashMap->buckets[index];
     while (cur) {
         if (cur->pair->key == key) {
@@ -82,25 +82,25 @@ char *get(HashMapChaining *hashMap, int key) {
         }
         cur = cur->next;
     }
-    return ""; // 若未找到 key ，則返回空字串
+    return ""; // 若找不到 key，則回傳空字串
 }
 
 /* 新增操作 */
 void put(HashMapChaining *hashMap, int key, const char *val);
 
-/* 擴容雜湊表 */
+/* 擴充雜湊表容量 */
 void extend(HashMapChaining *hashMap) {
-    // 暫存原雜湊表
+    // 暫存原本的雜湊表
     int oldCapacity = hashMap->capacity;
     Node **oldBuckets = hashMap->buckets;
-    // 初始化擴容後的新雜湊表
+    // 初始化擴充後的新雜湊表
     hashMap->capacity *= hashMap->extendRatio;
     hashMap->buckets = (Node **)malloc(hashMap->capacity * sizeof(Node *));
     for (int i = 0; i < hashMap->capacity; i++) {
         hashMap->buckets[i] = NULL;
     }
     hashMap->size = 0;
-    // 將鍵值對從原雜湊表搬運至新雜湊表
+    // 將鍵值對從原本的雜湊表移到新表
     for (int i = 0; i < oldCapacity; i++) {
         Node *cur = oldBuckets[i];
         while (cur) {
@@ -118,21 +118,21 @@ void extend(HashMapChaining *hashMap) {
 
 /* 新增操作 */
 void put(HashMapChaining *hashMap, int key, const char *val) {
-    // 當負載因子超過閾值時，執行擴容
+    // 當負載因子超過門檻時，擴充容量
     if (loadFactor(hashMap) > hashMap->loadThres) {
         extend(hashMap);
     }
     int index = hashFunc(hashMap, key);
-    // 走訪桶，若遇到指定 key ，則更新對應 val 並返回
+    // 走訪桶中的元素，若遇到指定的 key，就更新對應的 val 並結束操作
     Node *cur = hashMap->buckets[index];
     while (cur) {
         if (cur->pair->key == key) {
-            strcpy(cur->pair->val, val); // 若遇到指定 key ，則更新對應 val 並返回
+            strcpy(cur->pair->val, val); // 若遇到指定的 key，就更新對應的 val 並結束操作
             return;
         }
         cur = cur->next;
     }
-    // 若無該 key ，則將鍵值對新增至鏈結串列頭部
+    // 若沒有這個 key，就將鍵值對加到鏈結串列的開頭
     Pair *newPair = (Pair *)malloc(sizeof(Pair));
     newPair->key = key;
     strcpy(newPair->val, val);
@@ -167,7 +167,7 @@ void removeItem(HashMapChaining *hashMap, int key) {
     }
 }
 
-/* 列印雜湊表 */
+/* 印出雜湊表 */
 void print(HashMapChaining *hashMap) {
     for (int i = 0; i < hashMap->capacity; i++) {
         Node *cur = hashMap->buckets[i];
@@ -180,7 +180,7 @@ void print(HashMapChaining *hashMap) {
     }
 }
 
-/* Driver Code */
+/* 主程式 */
 int main() {
     /* 初始化雜湊表 */
     HashMapChaining *hashMap = newHashMapChaining();
@@ -192,21 +192,21 @@ int main() {
     put(hashMap, 16750, "小算");
     put(hashMap, 13276, "小法");
     put(hashMap, 10583, "小鴨");
-    printf("\n新增完成後，雜湊表為\nKey -> Value\n");
+    printf("\n新增後的雜湊表\nKey -> Value\n");
     print(hashMap);
 
     /* 查詢操作 */
-    // 向雜湊表中輸入鍵 key ，得到值 value
+    // 輸入鍵 key，從雜湊表取得對應的值 value
     char *name = get(hashMap, 13276);
-    printf("\n輸入學號 13276 ，查詢到姓名 %s\n", name);
+    printf("\n輸入學號 13276，查得姓名 %s\n", name);
 
     /* 刪除操作 */
-    // 在雜湊表中刪除鍵值對 (key, value)
+    // 從雜湊表刪除鍵值對 (key, value)
     removeItem(hashMap, 12836);
-    printf("\n刪除學號 12836 後，雜湊表為\nKey -> Value\n");
+    printf("\n刪除學號 12836 後的雜湊表\nKey -> Value\n");
     print(hashMap);
 
-    /* 釋放雜湊表空間 */
+    /* 釋放雜湊表占用的空間 */
     delHashMapChaining(hashMap);
 
     return 0;

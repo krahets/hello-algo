@@ -9,7 +9,7 @@ public class ListNode(int x) {
     public int val = x;
     public ListNode? next;
 
-    /* 配列をデシリアライズして連結リストにする */
+    /* 配列をデシリアライズして連結リストを復元する */
     public static ListNode? ArrToLinkedList(int[] arr) {
         ListNode dum = new(0);
         ListNode head = dum;

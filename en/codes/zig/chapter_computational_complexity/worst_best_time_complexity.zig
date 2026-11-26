@@ -5,40 +5,40 @@
 const std = @import("std");
 const utils = @import("utils");
 
-// Generate an array containing { 1, 2, ..., n } in shuffled order
+// Generate a shuffled array containing { 1, 2, ..., n }
 pub fn randomNumbers(comptime n: usize) [n]i32 {
     var nums: [n]i32 = undefined;
     // Generate the array nums = { 1, 2, 3, ..., n }
     for (&nums, 0..) |*num, i| {
         num.* = @as(i32, @intCast(i)) + 1;
     }
-    // Randomly shuffle the array elements
+    // Shuffle the array elements at random
     const rand = std.crypto.random;
     rand.shuffle(i32, &nums);
     return nums;
 }
 
-// Find the index of the number 1 in array nums
+// Find the index of 1 in the array nums
 pub fn findOne(nums: []i32) i32 {
     for (nums, 0..) |num, i| {
-        // When 1 is at the start of the array, the best-case time complexity is O(1)
-        // When 1 is at the end of the array, the worst-case time complexity is O(n)
+        // Best case: 1 is the first element, so the search takes O(1) time
+        // Worst case: 1 is the last element, so the search takes O(n) time
         if (num == 1) return @intCast(i);
     }
     return -1;
 }
 
-// Driver code
+// Driver Code
 pub fn run() void {
     var i: i32 = 0;
     while (i < 10) : (i += 1) {
         const n: usize = 100;
         var nums = randomNumbers(n);
         const index = findOne(&nums);
-        std.debug.print("Shuffled array [1, 2, ..., n] = ", .{});
+        std.debug.print("Shuffled array [ 1, 2, ..., n ] = ", .{});
         std.debug.print("{}\n", .{utils.fmt.slice(nums)});
 
-        std.debug.print("Index of 1: {}\n", .{index});
+        std.debug.print("Index of 1 = {}\n", .{index});
     }
 
     std.debug.print("\n", .{});

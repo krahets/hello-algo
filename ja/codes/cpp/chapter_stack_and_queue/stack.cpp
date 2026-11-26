@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     /* スタックを初期化する */
     stack<int> stack;
@@ -20,18 +20,18 @@ int main() {
     cout << "スタック stack = ";
     printStack(stack);
 
-    /* スタックの先頭要素にアクセスする */
+    /* スタックのトップを参照する */
     int top = stack.top();
-    cout << "スタックの先頭要素 top = " << top << endl;
+    cout << "スタックのトップの要素 top = " << top << endl;
 
     /* 要素をポップする */
     stack.pop(); // 戻り値なし
-    cout << "ポップした要素 pop = " << top << "、ポップ後 stack = ";
+    cout << "ポップした要素 pop = " << top << "、ポップ後の stack = ";
     printStack(stack);
 
-    /* スタックの長さを取得する */
+    /* スタックの要素数を取得する */
     int size = stack.size();
-    cout << "スタックの長さ size = " << size << endl;
+    cout << "スタックの要素数 size = " << size << endl;
 
     /* 空かどうかを判定する */
     bool empty = stack.empty();

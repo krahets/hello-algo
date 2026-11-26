@@ -12,7 +12,7 @@ import (
 )
 
 func TestGraphBFS(t *testing.T) {
-	/* Инициализация неориентированного графа */
+	/* Инициализировать неориентированный граф */
 	vets := ValsToVets([]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9})
 	edges := [][]Vertex{
 		{vets[0], vets[1]}, {vets[0], vets[3]}, {vets[1], vets[2]}, {vets[1], vets[4]},
@@ -24,6 +24,6 @@ func TestGraphBFS(t *testing.T) {
 
 	/* Обход в ширину */
 	res := graphBFS(graph, vets[0])
-	fmt.Println("Последовательность вершин при обходе в ширину (BFS):")
+	fmt.Println("Порядок обхода вершин в ширину (BFS):")
 	PrintSlice(VetsToVals(res))
 }

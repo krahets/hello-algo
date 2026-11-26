@@ -17,7 +17,7 @@ void recordSolution(List<TreeNode> state, List<List<TreeNode>> res) {
   res.add(List.from(state));
 }
 
-/* Check whether the choice is valid in the current state */
+/* Check whether this choice is valid in the current state */
 bool isValid(List<TreeNode> state, TreeNode? choice) {
   return choice != null && choice.val != 3;
 }
@@ -38,20 +38,20 @@ void backtrack(
   List<TreeNode?> choices,
   List<List<TreeNode>> res,
 ) {
-  // Check whether this is a solution
+  // Check for a solution
   if (isSolution(state)) {
     // Record the solution
     recordSolution(state, res);
   }
-  // Iterate over all choices
+  // Try each choice
   for (TreeNode? choice in choices) {
     // Prune: check whether the choice is valid
     if (isValid(state, choice)) {
-      // Try: make a choice and update the state
+      // Make a choice and update the state
       makeChoice(state, choice);
-      // Proceed to the next choice
+      // Make the next choice
       backtrack(state, [choice!.left, choice.right], res);
-      // Backtrack: undo the choice and restore the previous state
+      // Backtrack: undo the choice to restore the previous state
       undoChoice(state, choice);
     }
   }
@@ -63,10 +63,10 @@ void main() {
   print("\nInitialize the binary tree");
   printTree(root);
 
-  // Backtracking algorithm
+  // Backtracking
   List<List<TreeNode>> res = [];
   backtrack([], [root!], res);
-  print("\nOutput all paths from the root to nodes with value 7, requiring that no node on the path has value 3");
+  print("\nPrint all paths from the root to a node with value 7 that avoid nodes with value 3");
   for (List<TreeNode> path in res) {
     print(List.from(path.map((e) => e.val)));
   }

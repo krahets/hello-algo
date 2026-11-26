@@ -44,7 +44,7 @@ def rot_hash(key)
   hash % modulus
 end
 
-### 실행 코드 ###
+### 실행 예제 ###
 if __FILE__ == $0
   key = "Hello 算法"
 

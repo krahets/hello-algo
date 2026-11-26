@@ -13,7 +13,7 @@ fn function() i32 {
     return 0;
 }
 
-// Постоянная сложность
+// Константная сложность
 fn constant(n: i32) void {
     // Константы, переменные и объекты занимают O(1) памяти
     const a: i32 = 0;
@@ -21,12 +21,12 @@ fn constant(n: i32) void {
     const nums = [_]i32{0} ** 10000;
     const node = ListNode(i32){ .val = 0 };
     var i: i32 = 0;
-    // Переменные в цикле занимают O(1) памяти
+    // Переменные цикла занимают O(1) памяти
     while (i < n) : (i += 1) {
         const c: i32 = 0;
         _ = c;
     }
-    // Функции в цикле занимают O(1) памяти
+    // Вызовы функции в цикле требуют O(1) памяти
     i = 0;
     while (i < n) : (i += 1) {
         _ = function();
@@ -48,7 +48,7 @@ fn linear(comptime n: i32) !void {
     while (i < n) : (i += 1) {
         try nodes.append(i);
     }
-    // Хеш-таблица длины n занимает O(n) памяти
+    // Хеш-таблица из n элементов занимает O(n) памяти
     var map = std.AutoArrayHashMap(i32, []const u8).init(std.heap.page_allocator);
     defer map.deinit();
     var j: i32 = 0;
@@ -60,9 +60,9 @@ fn linear(comptime n: i32) !void {
     _ = nums;
 }
 
-// Линейная сложность (рекурсивная реализация)
+// Линейная сложность (рекурсия)
 fn linearRecur(comptime n: i32) void {
-    std.debug.print("Рекурсия n = {}\n", .{n});
+    std.debug.print("Рекурсивный вызов: n = {}\n", .{n});
     if (n == 1) return;
     linearRecur(n - 1);
 }
@@ -84,15 +84,15 @@ fn quadratic(n: i32) !void {
     }
 }
 
-// Квадратичная сложность (рекурсивная реализация)
+// Квадратичная сложность (рекурсия)
 fn quadraticRecur(comptime n: i32) i32 {
     if (n <= 0) return 0;
     const nums = [_]i32{0} ** n;
-    std.debug.print("В рекурсии n = {} длина nums = {}\n", .{ n, nums.len });
+    std.debug.print("При n = {} длина nums = {}\n", .{ n, nums.len });
     return quadraticRecur(n - 1);
 }
 
-// Экспоненциальная сложность (построение полного двоичного дерева)
+// Экспоненциальная сложность (построение совершенного двоичного дерева)
 fn buildTree(allocator: std.mem.Allocator, n: i32) !?*TreeNode(i32) {
     if (n == 0) return null;
     const root = try allocator.create(TreeNode(i32));
@@ -110,14 +110,14 @@ fn freeTree(allocator: std.mem.Allocator, root: ?*const TreeNode(i32)) void {
     allocator.destroy(root.?);
 }
 
-// Driver Code
+// Основная программа
 pub fn run() !void {
     var gpa = std.heap.DebugAllocator(.{}){};
     defer _ = gpa.deinit();
     const allocator = gpa.allocator();
 
     const n: i32 = 5;
-    // Постоянная сложность
+    // Константная сложность
     constant(n);
     // Линейная сложность
     try linear(n);

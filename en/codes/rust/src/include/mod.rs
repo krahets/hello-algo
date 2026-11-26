@@ -9,7 +9,7 @@ pub mod print_util;
 pub mod tree_node;
 pub mod vertex;
 
-// Re-export from the include module
+// Re-export the items from these modules
 pub use list_node::*;
 pub use print_util::*;
 pub use tree_node::*;

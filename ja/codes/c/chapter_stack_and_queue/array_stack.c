@@ -8,28 +8,28 @@
 
 #define MAX_SIZE 5000
 
-/* 配列で実装したスタック */
+/* 配列を使ったスタック */
 typedef struct {
     int *data;
     int size;
 } ArrayStack;
 
-/* コンストラクタ */
+/* 生成関数 */
 ArrayStack *newArrayStack() {
     ArrayStack *stack = malloc(sizeof(ArrayStack));
-    // 容量の拡張を避けるため、初期容量を大きくする
+    // 容量を拡張せずに済むよう、初めから大きな容量を確保する
     stack->data = malloc(sizeof(int) * MAX_SIZE);
     stack->size = 0;
     return stack;
 }
 
-/* デストラクタ */
+/* 解放関数 */
 void delArrayStack(ArrayStack *stack) {
     free(stack->data);
     free(stack);
 }
 
-/* スタックの長さを取得する */
+/* スタックの要素数を取得する */
 int size(ArrayStack *stack) {
     return stack->size;
 }
@@ -39,7 +39,7 @@ bool isEmpty(ArrayStack *stack) {
     return stack->size == 0;
 }
 
-/* プッシュ */
+/* プッシュする */
 void push(ArrayStack *stack, int num) {
     if (stack->size == MAX_SIZE) {
         printf("スタックが満杯です\n");
@@ -49,7 +49,7 @@ void push(ArrayStack *stack, int num) {
     stack->size++;
 }
 
-/* スタックの先頭要素にアクセスする */
+/* スタックのトップを参照する */
 int peek(ArrayStack *stack) {
     if (stack->size == 0) {
         printf("スタックが空です\n");
@@ -58,14 +58,14 @@ int peek(ArrayStack *stack) {
     return stack->data[stack->size - 1];
 }
 
-/* ポップ */
+/* ポップする */
 int pop(ArrayStack *stack) {
     int val = peek(stack);
     stack->size--;
     return val;
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     /* スタックを初期化する */
     ArrayStack *stack = newArrayStack();
@@ -79,18 +79,18 @@ int main() {
     printf("スタック stack = ");
     printArray(stack->data, stack->size);
 
-    /* スタックの先頭要素にアクセスする */
+    /* スタックのトップを参照する */
     int val = peek(stack);
-    printf("スタックの先頭要素 top = %d\n", val);
+    printf("スタックのトップの要素 top = %d\n", val);
 
     /* 要素をポップする */
     val = pop(stack);
-    printf("ポップした要素 pop = %d 、ポップ後 stack = ", val);
+    printf("ポップした要素 pop = %d 、ポップ後の stack = ", val);
     printArray(stack->data, stack->size);
 
-    /* スタックの長さを取得する */
+    /* スタックの要素数を取得する */
     int size = stack->size;
-    printf("スタックの長さ size = %d\n", size);
+    printf("スタックの要素数 size = %d\n", size);
 
     /* 空かどうかを判定する */
     bool empty = isEmpty(stack);

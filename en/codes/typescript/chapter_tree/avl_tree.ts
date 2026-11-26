@@ -17,22 +17,22 @@ class AVLTree {
 
     /* Get the node height */
     height(node: TreeNode): number {
-        // A null node has height -1; a leaf has height 0
+        // A null node has height -1, and a leaf has height 0
         return node === null ? -1 : node.height;
     }
 
     /* Update the node height */
     private updateHeight(node: TreeNode): void {
-        // The node height equals the height of its taller subtree + 1
+        // Node height is the height of the taller subtree plus 1
         node.height =
             Math.max(this.height(node.left), this.height(node.right)) + 1;
     }
 
     /* Get the balance factor */
     balanceFactor(node: TreeNode): number {
-        // A null node has balance factor 0
+        // A null node has a balance factor of 0
         if (node === null) return 0;
-        // Node balance factor = left subtree height - right subtree height
+        // Balance factor = left subtree height - right subtree height
         return this.height(node.left) - this.height(node.right);
     }
 
@@ -64,7 +64,7 @@ class AVLTree {
         return child;
     }
 
-    /* Perform rotations to restore balance in this subtree */
+    /* Rebalance the subtree by rotating it */
     private rotate(node: TreeNode): TreeNode {
         // Get the balance factor of node
         const balanceFactor = this.balanceFactor(node);
@@ -90,7 +90,7 @@ class AVLTree {
                 return this.leftRotate(node);
             }
         }
-        // The tree is balanced; return without rotating
+        // The tree is balanced, so return without rotating
         return node;
     }
 
@@ -108,24 +108,24 @@ class AVLTree {
         } else if (val > node.val) {
             node.right = this.insertHelper(node.right, val);
         } else {
-            return node; // Return without inserting a duplicate node
+            return node; // Return without inserting a duplicate
         }
         this.updateHeight(node); // Update the node height
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = this.rotate(node);
         // Return the root of the subtree
         return node;
     }
 
-    /* Remove a node */
+    /* Delete a node */
     remove(val: number): void {
         this.root = this.removeHelper(this.root, val);
     }
 
-    /* Remove a node recursively (helper method) */
+    /* Delete a node recursively (helper method) */
     private removeHelper(node: TreeNode, val: number): TreeNode {
         if (node === null) return null;
-        /* 1. Find and remove the node */
+        /* 1. Find the node and delete it */
         if (val < node.val) {
             node.left = this.removeHelper(node.left, val);
         } else if (val > node.val) {
@@ -133,15 +133,15 @@ class AVLTree {
         } else {
             if (node.left === null || node.right === null) {
                 const child = node.left !== null ? node.left : node.right;
-                // Number of children = 0: remove node and return
+                // No children: delete node and return
                 if (child === null) {
                     return null;
                 } else {
-                    // Number of children = 1: remove node directly
+                    // One child: delete node
                     node = child;
                 }
             } else {
-                // Number of children = 2: remove the inorder successor and use its value to replace the current node value
+                // Two children: delete the inorder successor and use it to replace the current node
                 let temp = node.right;
                 while (temp.left !== null) {
                     temp = temp.left;
@@ -151,25 +151,25 @@ class AVLTree {
             }
         }
         this.updateHeight(node); // Update the node height
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = this.rotate(node);
         // Return the root of the subtree
         return node;
     }
 
-    /* Find a node */
+    /* Search for a node */
     search(val: number): TreeNode {
         let cur = this.root;
-        // Search in a loop, stopping if a null reference is reached
+        // Stop the search after passing a leaf
         while (cur !== null) {
             if (cur.val < val) {
-                // The target node lies in the right subtree of cur
+                // The target is in the right subtree of cur
                 cur = cur.right;
             } else if (cur.val > val) {
-                // The target node lies in the left subtree of cur
+                // The target is in the left subtree of cur
                 cur = cur.left;
             } else {
-                // The target node was found; exit the loop
+                // The target was found, so exit the loop
                 break;
             }
         }
@@ -180,13 +180,13 @@ class AVLTree {
 
 function testInsert(tree: AVLTree, val: number): void {
     tree.insert(val);
-    console.log('\nAfter inserting node ' + val + ' the AVL tree is:');
+    console.log('\nInsert node ' + val + ' to obtain this AVL tree:');
     printTree(tree.root);
 }
 
 function testRemove(tree: AVLTree, val: number): void {
     tree.remove(val);
-    console.log('\nAfter removing node ' + val + ' the AVL tree is:');
+    console.log('\nDelete node ' + val + ' to obtain this AVL tree:');
     printTree(tree.root);
 }
 
@@ -194,7 +194,7 @@ function testRemove(tree: AVLTree, val: number): void {
 /* Initialize an empty AVL tree */
 const avlTree = new AVLTree();
 /* Insert a node */
-// Observe how the AVL tree maintains balance after a node is inserted
+// Watch how the AVL tree stays balanced after an insertion
 testInsert(avlTree, 1);
 testInsert(avlTree, 2);
 testInsert(avlTree, 3);
@@ -209,14 +209,14 @@ testInsert(avlTree, 6);
 /* Insert a duplicate node */
 testInsert(avlTree, 7);
 
-/* Remove a node */
-// Observe how the AVL tree maintains balance after a node is removed
-testRemove(avlTree, 8); // Remove a node with 0 children
-testRemove(avlTree, 5); // Remove a node with 1 child
-testRemove(avlTree, 4); // Remove a node with 2 children
+/* Delete a node */
+// Watch how the AVL tree stays balanced after a deletion
+testRemove(avlTree, 8); // Delete a node with no children
+testRemove(avlTree, 5); // Delete a node with one child
+testRemove(avlTree, 4); // Delete a node with two children
 
 /* Look up a node */
 const node = avlTree.search(7);
-console.log('\nFound node object:', node, ', node value = ' + node.val);
+console.log('\nNode found:', node, ', node value = ' + node.val);
 
 export {};

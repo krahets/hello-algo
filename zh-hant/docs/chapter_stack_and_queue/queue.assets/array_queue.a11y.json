@@ -1,0 +1,57 @@
+{
+  "animations": {
+    "array-queue": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "frame_id": "source-67",
+          "id": "step-1"
+        },
+        {
+          "frame_id": "source-68",
+          "id": "step-2"
+        },
+        {
+          "frame_id": "source-69",
+          "id": "step-3"
+        }
+      ]
+    }
+  },
+  "context": [
+    "左側是使用者看到的佇列，右側是垂直排列的陣列，中間標示「底層以陣列實作，對外呈現為佇列」。兩側都從上到下依隊首至隊尾的順序排列。往下移表示索引增大，相當於後文在橫向陣列中所說的「往右移」。"
+  ],
+  "description": [
+    "這三個畫面都沒有跨越陣列末端。圖中以 rear = front + size 表示下次寫入的位置，也就是隊尾的下一格。有效範圍為 [front, rear - 1]。陣列兩端的灰色虛線格和刪節號表示其餘空間。某一格移出有效範圍，並不表示原本的值已經歸零。"
+  ],
+  "frames": [
+    {
+      "announcement": "初始陣列佇列為 [1, 3, 2, 5]，size = 4。front 指向隊首的 1，rear 指向隊尾元素 5 後面的空格。",
+      "book_path": "chapter_stack_and_queue/queue.assets/array_queue_step1.png",
+      "explanation": "初始佇列為 [1, 3, 2, 5]，size = 4。橘色的 front 指向 1，青色的 rear 由 front + 4 算出，指向 5 下方的第一個空格。說明框標示 front 指向隊首，rear 指向隊尾索引加 1 的位置。",
+      "id": "source-67",
+      "key_state": "初始佇列為 [1, 3, 2, 5]，size = 4。front 指向 1，rear = front + size 指向 5 下方的空格。",
+      "title": "初始佇列：確定有效範圍"
+    },
+    {
+      "announcement": "執行 push(4)，在尾端指標 rear 所指的位置寫入 4，再將 size 增至 5。佇列變為 [1, 3, 2, 5, 4]。",
+      "book_path": "chapter_stack_and_queue/queue.assets/array_queue_step2_push.png",
+      "explanation": "執行 push(4)。說明框列出三個步驟：算出 rear、在 rear 處加入元素、將 size 加 1。先以入隊前的 size = 4 算出 5 下方空格的位置，寫入青色的 4，再將 size 增至 5。目前佇列為 [1, 3, 2, 5, 4]，front 仍指向 1。圖中的 rear 停在這次寫入 4 的位置，尚未依新的 size 重新計算。重新計算後，rear 應指向 4 正下方的空格。",
+      "id": "source-68",
+      "key_state": "執行 push(4) 後，佇列為 [1, 3, 2, 5, 4]，size = 5，front 指向 1。圖中的 rear 停在這次寫入 4 的位置。",
+      "title": "將 4 寫入 rear 所指的位置"
+    },
+    {
+      "announcement": "執行 pop()，front 往下移，指向 3，size 減為 4。元素 1 出隊，其餘元素 [3, 2, 5, 4] 都留在原位。",
+      "book_path": "chapter_stack_and_queue/queue.assets/array_queue_step3_pop.png",
+      "explanation": "執行 pop()，取出並回傳原隊首的 1。說明框列出兩個動作：將 front 加 1、size 減 1。front 往下移一格，指向 3，size 從 5 減為 4。目前有效的佇列為 [3, 2, 5, 4]，這些元素仍在原位。原本存放 1 的格子以虛線畫出，表示該格已移出有效範圍。這個畫面沒有標示 rear。",
+      "id": "source-69",
+      "key_state": "pop() 回傳 1。front 往下移一格，指向 3，size = 4，有效的佇列為 [3, 2, 5, 4]。原本存放 1 的格子已移出有效範圍，格內的值沒有歸零。這個畫面沒有標示 rear。",
+      "title": "移動 front，讓隊首的 1 出隊"
+    }
+  ],
+  "result": "入隊只需在 rear 處寫入元素，再將 size 加 1。出隊只需將 front 加 1、size 減 1，省去每次出隊時搬動剩餘元素的工夫。兩者的時間複雜度都是 O(1)。",
+  "schema_version": 2,
+  "summary": "以 front 標記隊首、size 記錄佇列長度。入隊時將元素寫在隊尾的下一格，出隊時移動隊首索引，其餘元素都留在原位。",
+  "title": "以陣列實作佇列的入隊與出隊"
+}

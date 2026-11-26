@@ -6,10 +6,10 @@
 
 #include "../utils/common.hpp"
 
-/* Queue implemented with a linked list */
+/* Queue backed by a linked list */
 class LinkedListQueue {
   private:
-    ListNode *front, *rear; // Head node front and tail node rear
+    ListNode *front, *rear; // front points to the head node and rear to the tail node
     int queSize;
 
   public:
@@ -20,7 +20,7 @@ class LinkedListQueue {
     }
 
     ~LinkedListQueue() {
-        // Traverse the linked list and delete each node to free its memory
+        // Walk the list and delete each node to free its memory
         freeMemoryLinkedList(front);
     }
 
@@ -34,16 +34,16 @@ class LinkedListQueue {
         return queSize == 0;
     }
 
-    /* Enqueue */
+    /* Enqueue an element */
     void push(int num) {
-        // Add num after the tail node
+        // Add a node containing num after the tail
         ListNode *node = new ListNode(num);
-        // If the queue is empty, make both the head and tail point to this node
+        // If the queue is empty, point both the head and tail at the new node
         if (front == nullptr) {
             front = node;
             rear = node;
         }
-        // If the queue is not empty, add this node after the tail node
+        // If the queue has elements, link the new node after the tail
         else {
             rear->next = node;
             rear = node;
@@ -51,26 +51,26 @@ class LinkedListQueue {
         queSize++;
     }
 
-    /* Dequeue */
+    /* Remove and return the front element */
     int pop() {
         int num = peek();
         // Remove the head node
         ListNode *tmp = front;
         front = front->next;
-        // Free memory
+        // Free the allocated memory
         delete tmp;
         queSize--;
         return num;
     }
 
-    /* Access the front element */
+    /* Peek at the front element */
     int peek() {
         if (size() == 0)
             throw out_of_range("Queue is empty");
         return front->val;
     }
 
-    /* Convert the linked list to a vector and return it */
+    /* Return the linked list elements as a vector */
     vector<int> toVector() {
         ListNode *node = front;
         vector<int> res(size());
@@ -93,16 +93,16 @@ int main() {
     queue->push(2);
     queue->push(5);
     queue->push(4);
-    cout << "Queue queue = ";
+    cout << "queue = ";
     printVector(queue->toVector());
 
-    /* Access the front element */
+    /* Peek at the front element */
     int peek = queue->peek();
-    cout << "Front element peek = " << peek << endl;
+    cout << "Front element (peek) = " << peek << endl;
 
     /* Dequeue an element */
     peek = queue->pop();
-    cout << "Dequeued element pop = " << peek << "; after dequeueing, queue = ";
+    cout << "Dequeued element (pop) = " << peek << ", queue after removal = ";
     printVector(queue->toVector());
 
     /* Get the queue size */
@@ -111,9 +111,9 @@ int main() {
 
     /* Check whether the queue is empty */
     bool empty = queue->isEmpty();
-    cout << "Is the queue empty = " << empty << endl;
+    cout << "Queue is empty = " << empty << endl;
 
-    // Free memory
+    // Free the allocated memory
     delete queue;
 
     return 0;

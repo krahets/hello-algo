@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// val の長さは最大 100 と仮定する
+// val の最大長を 100 とする
 #define MAX_SIZE 100
 
 /* キーと値のペア */
@@ -23,13 +23,13 @@ typedef struct Node {
     struct Node *next;
 } Node;
 
-/* チェイン法のハッシュテーブル */
+/* チェイン法によるハッシュ表 */
 typedef struct {
     int size;         // キーと値のペアの数
-    int capacity;     // ハッシュテーブルの容量
-    double loadThres; // 容量の拡張を開始する負荷率のしきい値
+    int capacity;     // ハッシュ表の容量
+    double loadThres; // 表を拡張する負荷率のしきい値
     int extendRatio;  // 容量の拡張倍率
-    Node **buckets;   // バケット配列
+    Node **buckets;   // バケットの配列
 } HashMapChaining;
 
 /* コンストラクタ */
@@ -71,7 +71,7 @@ double loadFactor(HashMapChaining *hashMap) {
     return (double)hashMap->size / (double)hashMap->capacity;
 }
 
-/* 取得操作 */
+/* 検索 */
 char *get(HashMapChaining *hashMap, int key) {
     int index = hashFunc(hashMap, key);
     // バケットを走査し、key が見つかったら対応する val を返す
@@ -82,25 +82,25 @@ char *get(HashMapChaining *hashMap, int key) {
         }
         cur = cur->next;
     }
-    return ""; // key が見つからなかった場合、空文字列を返す
+    return ""; // key が見つからなければ空文字列を返す
 }
 
-/* 追加操作 */
+/* 追加 */
 void put(HashMapChaining *hashMap, int key, const char *val);
 
-/* ハッシュテーブルの容量を拡張する */
+/* ハッシュ表を拡張する */
 void extend(HashMapChaining *hashMap) {
-    // 元のハッシュテーブルを一時保存する
+    // 元のハッシュ表を一時保存する
     int oldCapacity = hashMap->capacity;
     Node **oldBuckets = hashMap->buckets;
-    // 拡張後の新しいハッシュテーブルを初期化する
+    // 拡張後の新しいハッシュ表を初期化する
     hashMap->capacity *= hashMap->extendRatio;
     hashMap->buckets = (Node **)malloc(hashMap->capacity * sizeof(Node *));
     for (int i = 0; i < hashMap->capacity; i++) {
         hashMap->buckets[i] = NULL;
     }
     hashMap->size = 0;
-    // キーと値のペアを元のハッシュテーブルから新しいハッシュテーブルに移す
+    // 元のハッシュ表から新しい表にペアを移す
     for (int i = 0; i < oldCapacity; i++) {
         Node *cur = oldBuckets[i];
         while (cur) {
@@ -116,23 +116,23 @@ void extend(HashMapChaining *hashMap) {
     free(oldBuckets);
 }
 
-/* 追加操作 */
+/* 追加 */
 void put(HashMapChaining *hashMap, int key, const char *val) {
-    // 負荷率がしきい値を超えた場合、容量を拡張する
+    // 負荷率がしきい値を超えたら表を拡張する
     if (loadFactor(hashMap) > hashMap->loadThres) {
         extend(hashMap);
     }
     int index = hashFunc(hashMap, key);
-    // バケットを走査し、指定された key が見つかったら、対応する val を更新して戻る
+    // バケットを走査し、指定の key が見つかったら対応する val を更新して処理を終える
     Node *cur = hashMap->buckets[index];
     while (cur) {
         if (cur->pair->key == key) {
-            strcpy(cur->pair->val, val); // 指定された key が見つかったら、対応する val を更新して戻る
+            strcpy(cur->pair->val, val); // 指定の key が見つかったら対応する val を更新して処理を終える
             return;
         }
         cur = cur->next;
     }
-    // key が存在しない場合、キーと値のペアを連結リストの先頭に追加する
+    // key がなければ連結リストの先頭にペアを追加する
     Pair *newPair = (Pair *)malloc(sizeof(Pair));
     newPair->key = key;
     strcpy(newPair->val, val);
@@ -143,14 +143,14 @@ void put(HashMapChaining *hashMap, int key, const char *val) {
     hashMap->size++;
 }
 
-/* 削除操作 */
+/* 削除 */
 void removeItem(HashMapChaining *hashMap, int key) {
     int index = hashFunc(hashMap, key);
     Node *cur = hashMap->buckets[index];
     Node *pre = NULL;
     while (cur) {
         if (cur->pair->key == key) {
-            // キーと値のペアを削除する
+            // 該当するペアを削除する
             if (pre) {
                 pre->next = cur->next;
             } else {
@@ -167,7 +167,7 @@ void removeItem(HashMapChaining *hashMap, int key) {
     }
 }
 
-/* ハッシュテーブルを表示する */
+/* ハッシュ表を表示する */
 void print(HashMapChaining *hashMap) {
     for (int i = 0; i < hashMap->capacity; i++) {
         Node *cur = hashMap->buckets[i];
@@ -180,33 +180,33 @@ void print(HashMapChaining *hashMap) {
     }
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
-    /* ハッシュテーブルを初期化する */
+    /* ハッシュ表を初期化する */
     HashMapChaining *hashMap = newHashMapChaining();
 
-    /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加する
+    /* 追加 */
+    // ハッシュ表にペア (key, value) を追加する
     put(hashMap, 12836, "小哈");
     put(hashMap, 15937, "小啰");
     put(hashMap, 16750, "小算");
     put(hashMap, 13276, "小法");
     put(hashMap, 10583, "小鸭");
-    printf("\n追加後のハッシュテーブル\nKey -> Value\n");
+    printf("\n追加後のハッシュ表\nKey -> Value\n");
     print(hashMap);
 
-    /* 取得操作 */
-    // ハッシュテーブルにキー key を渡し、値 value を取得する
+    /* 検索 */
+    // ハッシュ表でキー key に対応する値 value を取得する
     char *name = get(hashMap, 13276);
-    printf("\n学生番号 13276 に対応する氏名は %s\n", name);
+    printf("\n学籍番号 13276 に対応する名前は %s\n", name);
 
-    /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除する
+    /* 削除 */
+    // ハッシュ表からペア (key, value) を削除する
     removeItem(hashMap, 12836);
-    printf("\n学生番号 12836 を削除した後のハッシュテーブル\nKey -> Value\n");
+    printf("\n学籍番号 12836 を削除した後のハッシュ表\nKey -> Value\n");
     print(hashMap);
 
-    /* ハッシュテーブルの領域を解放する */
+    /* ハッシュ表のメモリを解放する */
     delHashMapChaining(hashMap);
 
     return 0;

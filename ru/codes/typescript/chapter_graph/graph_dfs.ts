@@ -14,31 +14,31 @@ function dfs(
     res: Vertex[],
     vet: Vertex
 ): void {
-    res.push(vet); // Отметить посещенную вершину
-    visited.add(vet); // Отметить эту вершину как посещенную
-    // Обойти все смежные вершины данной вершины
+    res.push(vet); // Записать посещённую вершину
+    visited.add(vet); // Отметить вершину как посещённую
+    // Перебрать всех соседей этой вершины
     for (const adjVet of graph.adjList.get(vet)) {
         if (visited.has(adjVet)) {
-            continue; // Пропустить уже посещенную вершину
+            continue; // Пропустить посещённые вершины
         }
-        // Рекурсивно обходить смежные вершины
+        // Рекурсивно посетить соседнюю вершину
         dfs(graph, visited, res, adjVet);
     }
 }
 
 /* Обход в глубину */
-// Использовать список смежности для представления графа, чтобы получить все смежные вершины заданной вершины
+// Список смежности позволяет получить всех соседей заданной вершины
 function graphDFS(graph: GraphAdjList, startVet: Vertex): Vertex[] {
-    // Последовательность обхода вершин
+    // Порядок обхода вершин
     const res: Vertex[] = [];
-    // Хеш-множество для хранения уже посещенных вершин
+    // Хеш-множество посещённых вершин
     const visited: Set<Vertex> = new Set();
     dfs(graph, visited, res, startVet);
     return res;
 }
 
-/* Driver Code */
-/* Инициализация неориентированного графа */
+/* Пример использования */
+/* Инициализировать неориентированный граф */
 const v = Vertex.valsToVets([0, 1, 2, 3, 4, 5, 6]);
 const edges = [
     [v[0], v[1]],
@@ -49,10 +49,10 @@ const edges = [
     [v[5], v[6]],
 ];
 const graph = new GraphAdjList(edges);
-console.log('\nПосле инициализации граф имеет вид');
+console.log('\nГраф после инициализации:');
 graph.print();
 
 /* Обход в глубину */
 const res = graphDFS(graph, v[0]);
-console.log('\nПоследовательность вершин при обходе в глубину (DFS)');
+console.log('\nПорядок обхода вершин в глубину (DFS):');
 console.log(Vertex.vetsToVals(res));

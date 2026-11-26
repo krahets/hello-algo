@@ -15,7 +15,7 @@ int main() {
     TreeNode *n3 = new TreeNode(3);
     TreeNode *n4 = new TreeNode(4);
     TreeNode *n5 = new TreeNode(5);
-    // Set up references (pointers) between the nodes
+    // Link the nodes with references (pointers)
     n1->left = n2;
     n1->right = n3;
     n2->left = n4;
@@ -23,17 +23,17 @@ int main() {
     cout << endl << "Initialize the binary tree\n" << endl;
     printTree(n1);
 
-    /* Insert and remove nodes */
+    /* Insert and delete nodes */
     TreeNode *P = new TreeNode(0);
-    // Insert node P between n1 and n2 in n1 -> n2
+    // Insert node P between n1 and n2
     n1->left = P;
     P->left = n2;
     cout << endl << "After inserting node P:\n" << endl;
     printTree(n1);
-    // Remove node P
+    // Delete node P
     n1->left = n2;
     delete P; // Free memory
-    cout << endl << "After removing node P:\n" << endl;
+    cout << endl << "After deleting node P:\n" << endl;
     printTree(n1);
 
     // Free memory

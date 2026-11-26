@@ -2,10 +2,10 @@
 // Created Time: 2023-01-07
 // Author: codingonion (coderonion@gmail.com), CreatorMetaSky (creator_meta_sky@163.com)
 
-//! Zig Version: 0.14.1
-//! Build Command:          zig build
-//! Run Command:            zig build run | zig build run_*
-//! Test Command:           zig build test | zig build test -Dtest-filter=*
+//! Zig 版本：0.14.1
+//! 建置指令：      zig build
+//! 執行指令：      zig build run | zig build run_*
+//! 測試指令：      zig build test | zig build test -Dtest-filter=*
 
 const std = @import("std");
 
@@ -54,7 +54,7 @@ fn buildExeModuleFromChapterDirEntry(
     chapter_dir_entry: std.fs.Dir.Entry,
 ) !*std.Build.Module {
     const zig_file_path = try std.fs.path.join(b.allocator, &[_][]const u8{ chapter_dir_name, chapter_dir_entry.name });
-    const zig_file_name = chapter_dir_entry.name[0 .. chapter_dir_entry.name.len - 4]; // abstract zig file name from xxx.zig
+    const zig_file_name = chapter_dir_entry.name[0 .. chapter_dir_entry.name.len - 4]; // 取出 xxx.zig 的檔名，省略 .zig 副檔名
 
     const exe_mod = b.createModule(.{
         .root_source_file = b.path(zig_file_path),

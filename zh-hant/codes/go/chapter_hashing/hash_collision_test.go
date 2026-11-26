@@ -20,18 +20,18 @@ func TestHashMapChaining(t *testing.T) {
 	hmap.put(16750, "小算")
 	hmap.put(13276, "小法")
 	hmap.put(10583, "小鴨")
-	fmt.Println("\n新增完成後，雜湊表為\nKey -> Value")
+	fmt.Println("\n新增後的雜湊表\nKey -> Value")
 	hmap.print()
 
 	/* 查詢操作 */
-	// 向雜湊表中輸入鍵 key ，得到值 value
+	// 輸入鍵 key，從雜湊表取得對應的值 value
 	name := hmap.get(15937)
-	fmt.Println("\n輸入學號 15937 ，查詢到姓名", name)
+	fmt.Println("\n輸入學號 15937，查得姓名", name)
 
 	/* 刪除操作 */
-	// 在雜湊表中刪除鍵值對 (key, value)
+	// 從雜湊表刪除鍵值對 (key, value)
 	hmap.remove(12836)
-	fmt.Println("\n刪除 12836 後，雜湊表為\nKey -> Value")
+	fmt.Println("\n刪除 12836 後的雜湊表\nKey -> Value")
 	hmap.print()
 }
 
@@ -46,17 +46,17 @@ func TestHashMapOpenAddressing(t *testing.T) {
 	hmap.put(16750, "小算")
 	hmap.put(13276, "小法")
 	hmap.put(10583, "小鴨")
-	fmt.Println("\n新增完成後，雜湊表為\nKey -> Value")
+	fmt.Println("\n新增後的雜湊表\nKey -> Value")
 	hmap.print()
 
 	/* 查詢操作 */
-	// 向雜湊表中輸入鍵 key ，得到值 value
+	// 輸入鍵 key，從雜湊表取得對應的值 value
 	name := hmap.get(13276)
-	fmt.Println("\n輸入學號 13276 ，查詢到姓名 ", name)
+	fmt.Println("\n輸入學號 13276，查得姓名 ", name)
 
 	/* 刪除操作 */
-	// 在雜湊表中刪除鍵值對 (key, value)
+	// 從雜湊表刪除鍵值對 (key, value)
 	hmap.remove(16750)
-	fmt.Println("\n刪除 16750 後，雜湊表為\nKey -> Value")
+	fmt.Println("\n刪除 16750 後的雜湊表\nKey -> Value")
 	hmap.print()
 }

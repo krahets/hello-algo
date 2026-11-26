@@ -1,13 +1,13 @@
 FROM ubuntu:latest
 
-# Use Ubuntu image from Aliyun
+# 使用阿里雲提供的 Ubuntu 套件鏡像站
 RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list && \
     sed -i 's/security.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list && \
     sed -i 's/ports.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
 
 RUN apt-get update && apt-get install -y wget
 
-# Install languages environment
+# 安裝各程式語言的執行環境
 ARG LANGS
 RUN for LANG in $LANGS; do \
         case $LANG in \
@@ -23,7 +23,7 @@ RUN for LANG in $LANGS; do \
                 dpkg -i packages-microsoft-prod.deb && \
                 apt-get update && \
                 apt-get install -y dotnet-sdk-8.0 ;; \
-            # More languages...
+            # 其他程式語言……
             *) \
                 echo "Error: No installation workflow for $LANG" >&2; exit 1 ;; \
         esac \

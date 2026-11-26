@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 階段を上る最小コスト：動的計画法 */
+/* 階段を登る最小コスト：動的計画法 */
 func minCostClimbingStairsDP(cost: [Int]) -> Int {
     let n = cost.count - 1
     if n == 1 || n == 2 {
@@ -22,7 +22,7 @@ func minCostClimbingStairsDP(cost: [Int]) -> Int {
     return dp[n]
 }
 
-/* 階段を上る最小コスト：空間を最適化した動的計画法 */
+/* 階段を登る最小コスト：使用メモリを削減した動的計画法 */
 func minCostClimbingStairsDPComp(cost: [Int]) -> Int {
     let n = cost.count - 1
     if n == 1 || n == 2 {
@@ -37,15 +37,15 @@ func minCostClimbingStairsDPComp(cost: [Int]) -> Int {
 
 @main
 enum MinCostClimbingStairsDP {
-    /* 実行用コード */
+    /* 実行例 */
     static func main() {
         let cost = [0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1]
-        print("入力した階段のコストのリストは \(cost)")
+        print("各段のコストの入力リストは \(cost)")
 
         var res = minCostClimbingStairsDP(cost: cost)
-        print("階段を上り終える最小コストは \(res)")
+        print("階段を登りきる最小コストは \(res)")
 
         res = minCostClimbingStairsDPComp(cost: cost)
-        print("階段を上り終える最小コストは \(res)")
+        print("階段を登りきる最小コストは \(res)")
     }
 }

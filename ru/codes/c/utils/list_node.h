@@ -17,7 +17,7 @@ typedef struct ListNode {
     struct ListNode *next; // Указатель на следующий узел
 } ListNode;
 
-/* Конструктор, инициализирующий новый узел */
+/* Конструктор создаёт и инициализирует узел */
 ListNode *newListNode(int val) {
     ListNode *node;
     node = (ListNode *)malloc(sizeof(ListNode));
@@ -26,7 +26,7 @@ ListNode *newListNode(int val) {
     return node;
 }
 
-/* Десериализовать массив в связный список */
+/* Восстановить связный список из массива */
 ListNode *arrToLinkedList(const int *arr, size_t size) {
     if (size <= 0) {
         return NULL;

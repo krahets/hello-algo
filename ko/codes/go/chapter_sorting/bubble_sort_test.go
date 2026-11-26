@@ -12,9 +12,9 @@ import (
 func TestBubbleSort(t *testing.T) {
 	nums := []int{4, 1, 3, 1, 5, 2}
 	bubbleSort(nums)
-	fmt.Println("버블 정렬을 마친 후 nums = ", nums)
+	fmt.Println("버블 정렬 후 nums = ", nums)
 
 	nums1 := []int{4, 1, 3, 1, 5, 2}
 	bubbleSortWithFlag(nums1)
-	fmt.Println("버블 정렬을 마친 후 nums1 = ", nums1)
+	fmt.Println("버블 정렬 후 nums1 = ", nums1)
 }

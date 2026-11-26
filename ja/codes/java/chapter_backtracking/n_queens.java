@@ -9,10 +9,10 @@ package chapter_backtracking;
 import java.util.*;
 
 public class n_queens {
-    /* バックトラッキング：n クイーン */
+    /* バックトラッキングによる n クイーン問題 */
     public static void backtrack(int row, int n, List<List<String>> state, List<List<List<String>>> res,
             boolean[] cols, boolean[] diags1, boolean[] diags2) {
-        // すべての行への配置が終わったら、解を記録する
+        // すべての行に置いたら解を記録する
         if (row == n) {
             List<List<String>> copyState = new ArrayList<>();
             for (List<String> sRow : state) {
@@ -21,19 +21,19 @@ public class n_queens {
             res.add(copyState);
             return;
         }
-        // すべての列を走査する
+        // すべての列を調べる
         for (int col = 0; col < n; col++) {
-            // このマスに対応する主対角線と副対角線を求める
+            // このマスを通る主対角線と副対角線を求める
             int diag1 = row - col + n - 1;
             int diag2 = row + col;
             // 枝刈り：このマスと同じ列、主対角線、副対角線にクイーンがあってはならない
             if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-                // 試行：このマスにクイーンを配置する
+                // 試行：このマスにクイーンを置く
                 state.get(row).set(col, "Q");
                 cols[col] = diags1[diag1] = diags2[diag2] = true;
-                // 次の行に配置する
+                // 次の行に置く
                 backtrack(row + 1, n, state, res, cols, diags1, diags2);
-                // 復元：このマスを空きマスに戻す
+                // 後戻り：このマスを空きに戻す
                 state.get(row).set(col, "#");
                 cols[col] = diags1[diag1] = diags2[diag2] = false;
             }
@@ -51,9 +51,9 @@ public class n_queens {
             }
             state.add(row);
         }
-        boolean[] cols = new boolean[n]; // 列にクイーンがあるかどうかを記録する
-        boolean[] diags1 = new boolean[2 * n - 1]; // 主対角線にクイーンがあるかどうかを記録する
-        boolean[] diags2 = new boolean[2 * n - 1]; // 副対角線にクイーンがあるかどうかを記録する
+        boolean[] cols = new boolean[n]; // 各列にクイーンがあるか記録する
+        boolean[] diags1 = new boolean[2 * n - 1]; // 各主対角線にクイーンがあるか記録する
+        boolean[] diags2 = new boolean[2 * n - 1]; // 各副対角線にクイーンがあるか記録する
         List<List<List<String>>> res = new ArrayList<>();
 
         backtrack(0, n, state, res, cols, diags1, diags2);
@@ -65,8 +65,8 @@ public class n_queens {
         int n = 4;
         List<List<List<String>>> res = nQueens(n);
 
-        System.out.println("入力した盤面の縦横の長さは " + n);
-        System.out.println("クイーンの配置方法は全部で " + res.size() + " 通り");
+        System.out.println("盤面の一辺の長さ： " + n);
+        System.out.println("クイーンの配置は全部で " + res.size() + " 通り");
         for (List<List<String>> state : res) {
             System.out.println("--------------------");
             for (List<String> row : state) {

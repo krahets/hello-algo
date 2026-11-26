@@ -10,22 +10,22 @@ def recur(n)
   return 1 if n == 1
   # 遞：遞迴呼叫
   res = recur(n - 1)
-  # 迴：返回結果
+  # 迴：回傳結果
   n + res
 end
 
-### 使用迭代模擬遞迴 ###
+### 以迭代模擬遞迴 ###
 def for_loop_recur(n)
-  # 使用一個顯式的堆疊來模擬系統呼叫堆疊
+  # 自行建立堆疊，模擬系統的呼叫堆疊
   stack = []
   res = 0
 
   # 遞：遞迴呼叫
   for i in n.downto(0)
-    # 透過“入堆疊操作”模擬“遞”
+    # 以「推入堆疊」模擬「遞」
     stack << i
   end
-  # 迴：返回結果
+  # 迴：回傳結果
   while !stack.empty?
     res += stack.pop
   end
@@ -34,37 +34,37 @@ def for_loop_recur(n)
   res
 end
 
-### 尾遞迴 ###
+### 尾端遞迴 ###
 def tail_recur(n, res)
   # 終止條件
   return res if n == 0
-  # 尾遞迴呼叫
+  # 尾端遞迴呼叫
   tail_recur(n - 1, res + n)
 end
 
-### 費波那契數列：遞迴 ###
+### 費氏數列：遞迴 ###
 def fib(n)
   # 終止條件 f(1) = 0, f(2) = 1
   return n - 1 if n == 1 || n == 2
   # 遞迴呼叫 f(n) = f(n-1) + f(n-2)
   res = fib(n - 1) + fib(n - 2)
-  # 返回結果 f(n)
+  # 回傳結果 f(n)
   res
 end
 
-### Driver Code ###
+### 主程式 ###
 if __FILE__ == $0
   n = 5
 
   res = recur(n)
-  puts "\n遞迴函式的求和結果 res = #{res}"
+  puts "\n遞迴函式的總和 res = #{res}"
 
   res = for_loop_recur(n)
-  puts "\n使用迭代模擬遞迴求和結果 res = #{res}"
+  puts "\n以迭代模擬遞迴的總和 res = #{res}"
 
   res = tail_recur(n, 0)
-  puts "\n尾遞迴函式的求和結果 res = #{res}"
+  puts "\n尾端遞迴函式總和 res = #{res}"
 
   res = fib(n)
-  puts "\n費波那契數列的第 #{n} 項為 #{res}"
+  puts "\n費氏數列的第 #{n} 項為 #{res}"
 end

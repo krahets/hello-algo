@@ -19,11 +19,11 @@ func TestGraphBFS(t *testing.T) {
 		{vets[2], vets[5]}, {vets[3], vets[4]}, {vets[3], vets[6]}, {vets[4], vets[5]},
 		{vets[4], vets[7]}, {vets[5], vets[8]}, {vets[6], vets[7]}, {vets[7], vets[8]}}
 	graph := newGraphAdjList(edges)
-	fmt.Println("初始化後，圖為:")
+	fmt.Println("初始化後的圖為：")
 	graph.print()
 
 	/* 廣度優先走訪 */
 	res := graphBFS(graph, vets[0])
-	fmt.Println("廣度優先走訪（BFS）頂點序列為:")
+	fmt.Println("廣度優先走訪（BFS）的頂點順序為：")
 	PrintSlice(VetsToVals(res))
 }

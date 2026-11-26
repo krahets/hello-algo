@@ -25,13 +25,13 @@ public class preorder_traversal_i_compact {
     [Test]
     public void Test() {
         TreeNode? root = TreeNode.ListToTree([1, 7, 3, 4, 5, 6, 7]);
-        Console.WriteLine("\n二分木を初期化する");
+        Console.WriteLine("\n二分木を初期化");
         PrintUtil.PrintTree(root);
 
         // 行きがけ順走査
         PreOrder(root);
 
-        Console.WriteLine("\n値が 7 であるすべてのノードを出力する");
+        Console.WriteLine("\n値が 7 のノードをすべて出力");
         PrintUtil.PrintList(res.Select(p => p.val).ToList());
     }
 }

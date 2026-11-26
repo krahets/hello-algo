@@ -22,7 +22,7 @@ if __FILE__ == $0
 
   str = "Hello 算法"
   hash_str = str.hash
-  puts "Hash value of string #{str}: #{hash_str}"
+  puts "String #{str} has hash value #{hash_str}"
 
   arr = [12836, '小哈']
   hash_arr = arr.hash

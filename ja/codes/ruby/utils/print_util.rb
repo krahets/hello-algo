@@ -40,7 +40,7 @@ def show_trunk(p)
 end
 
 ### 二分木を表示する ###
-# この木の表示処理は TECHIE DELIGHT から借用した
+# 木の表示には TECHIE DELIGHT のコードを使用
 # https://www.techiedelight.com/c-program-print-binary-tree/
 def print_tree(root, prev=nil, is_right=false)
   return if root.nil?
@@ -74,7 +74,7 @@ end
 ### ヒープを表示する ###
 def print_heap(heap)
   puts "ヒープの配列表現：#{heap}"
-  puts "ヒープの木構造表現："
+  puts "ヒープの木構造："
   root = arr_to_tree(heap)
   print_tree(root)
 end

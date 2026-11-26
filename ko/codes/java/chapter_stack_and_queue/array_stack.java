@@ -13,16 +13,16 @@ class ArrayStack {
     private ArrayList<Integer> stack;
 
     public ArrayStack() {
-        // 리스트(동적 배열)를 초기화한다
+        // 리스트(동적 배열) 초기화
         stack = new ArrayList<>();
     }
 
-    /* 스택의 길이 반환 */
+    /* 스택의 길이 조회 */
     public int size() {
         return stack.size();
     }
 
-    /* 스택이 비어 있는지 판단 */
+    /* 스택이 비어 있는지 확인 */
     public boolean isEmpty() {
         return size() == 0;
     }
@@ -39,14 +39,14 @@ class ArrayStack {
         return stack.remove(size() - 1);
     }
 
-    /* 스택 맨 위 원소 접근 */
+    /* 스택 맨 위의 원소 조회 */
     public int peek() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return stack.get(size() - 1);
     }
 
-    /* List를 Array로 변환하여 반환 */
+    /* 리스트를 배열로 변환해 반환한다 */
     public Object[] toArray() {
         return stack.toArray();
     }
@@ -65,19 +65,19 @@ public class array_stack {
         stack.push(4);
         System.out.println("스택 stack = " + Arrays.toString(stack.toArray()));
 
-        /* 스택 맨 위 원소 접근 */
+        /* 스택 맨 위의 원소 조회 */
         int peek = stack.peek();
-        System.out.println("스택 맨 위 원소 peek = " + peek);
+        System.out.println("맨 위 원소 peek = " + peek);
 
         /* 스택에서 원소 꺼내기 */
         int pop = stack.pop();
-        System.out.println("스택에서 꺼낸 원소 pop = " + pop + ", 스택에서 꺼낸 후 stack = " + Arrays.toString(stack.toArray()));
+        System.out.println("꺼낸 원소 pop = " + pop + ", 꺼낸 후 stack = " + Arrays.toString(stack.toArray()));
 
-        /* 스택의 길이 반환 */
+        /* 스택의 길이 조회 */
         int size = stack.size();
         System.out.println("스택의 길이 size = " + size);
 
-        /* 비어 있는지 판단 */
+        /* 비어 있는지 확인 */
         boolean isEmpty = stack.isEmpty();
         System.out.println("스택이 비어 있는가 = " + isEmpty);
     }

@@ -4,7 +4,7 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-/* 制約付きの階段の上り方：動的計画法 */
+/* 制約付きの階段の登り方：動的計画法 */
 fn climbing_stairs_constraint_dp(n: usize) -> i32 {
     if n == 1 || n == 2 {
         return 1;
@@ -24,10 +24,10 @@ fn climbing_stairs_constraint_dp(n: usize) -> i32 {
     dp[n][1] + dp[n][2]
 }
 
-/* 実行用コード */
+/* 実行例 */
 pub fn main() {
     let n: usize = 9;
 
     let res = climbing_stairs_constraint_dp(n);
-    println!("{n} 段の階段を上る方法は全部で {res} 通り");
+    println!("全 {n} 段の階段の登り方は {res} 通り");
 }

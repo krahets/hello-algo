@@ -1,0 +1,69 @@
+{
+  "animations": {
+    "bst-search": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "frame_id": "source-118",
+          "id": "step-1"
+        },
+        {
+          "frame_id": "source-119",
+          "id": "step-2"
+        },
+        {
+          "frame_id": "source-120",
+          "id": "step-3"
+        },
+        {
+          "frame_id": "source-121",
+          "id": "step-4"
+        }
+      ]
+    }
+  },
+  "context": [
+    "在二元搜尋樹中，任一節點的左子樹中，所有節點值都小於該節點值，右子樹中所有節點值都大於該節點值。連線箭頭由父節點指向子節點。",
+    "四層的完美二元搜尋樹包含節點 1 至 15。根為 8，左右子節點為 4、12；4 的左右子節點為 2、6；12 的左右子節點為 10、14；2 的子節點為 1、3，6 的為 5、7，10 的為 9、11，14 的為 13、15。",
+    "指標 cur 指向目前正在檢查的節點，以藍色實心圓標示。已走過的搜尋路徑以藍色箭頭和節點外圍的藍色圓環標示。"
+  ],
+  "description": [],
+  "frames": [
+    {
+      "announcement": "開始搜尋 7，先讓 cur 指向根節點 8。",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step1.png",
+      "explanation": "讓指標 cur 一開始指向根節點 8（藍色實心圓）。比較目標值 7 與目前的節點值 8：因為 7 < 8，目標必在左子樹中，下一步要往左下方移到左子節點 4。目前走過的路徑為 8。",
+      "id": "source-118",
+      "key_state": "cur 指向根節點 8。因為目標值 7 < 8，準備移到左子節點 4。",
+      "title": "從根節點 8 開始搜尋"
+    },
+    {
+      "announcement": "因為 7 小於 8，cur 從 8 移到左子節點 4。",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step2.png",
+      "explanation": "因為 7 < 8，執行 cur = cur.left，讓指標沿藍色箭頭從 8 移到左子節點 4。再比較目標值 7 與目前的節點值 4：因為 7 > 4，下一步要進入 4 的右子樹。目前走過的路徑為 8→4。",
+      "id": "source-119",
+      "key_state": "cur 指向節點 4（路徑為 8→4）。因為目標值 7 > 4，準備移到右子節點 6。",
+      "title": "向左進入節點 4"
+    },
+    {
+      "announcement": "因為 7 大於 4，cur 從 4 移到右子節點 6。",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step3.png",
+      "explanation": "因為 7 > 4，執行 cur = cur.right，讓指標沿藍色箭頭從 4 移到右子節點 6。再比較目標值 7 與目前的節點值 6：因為 7 > 6，下一步繼續移向 6 的右子節點。目前走過的路徑為 8→4→6。",
+      "id": "source-120",
+      "key_state": "cur 指向節點 6（路徑為 8→4→6）。因為目標值 7 > 6，準備移到右子節點 7。",
+      "title": "向右進入節點 6"
+    },
+    {
+      "announcement": "因為 7 大於 6，cur 從 6 移到右子節點 7，找到目標，搜尋成功。",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step4.png",
+      "explanation": "因為 7 > 6，執行 cur = cur.right，讓指標沿藍色箭頭從 6 移到右子節點 7。此時 cur 的節點值等於目標值 7，搜尋成功，跳出迴圈並回傳節點 7。目前走過的路徑為 8→4→6→7。",
+      "id": "source-121",
+      "key_state": "cur 指向目標節點 7（路徑為 8→4→6→7），搜尋成功。",
+      "title": "找到節點 7"
+    }
+  ],
+  "result": "指標 cur 沿 8 → 4 → 6 → 7 依序比較四個節點，在第四步找到目標值 7 並回傳該節點。搜尋過程中，樹的連接關係維持不變。",
+  "schema_version": 2,
+  "summary": "在包含值 1 至 15 的二元搜尋樹中搜尋 7，每一步都比較節點值，再選擇左側或右側分支。",
+  "title": "在二元搜尋樹中搜尋節點 7"
+}

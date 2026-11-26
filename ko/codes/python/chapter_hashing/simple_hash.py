@@ -41,18 +41,18 @@ def rot_hash(key: str) -> int:
     return hash % modulus
 
 
-"""실행 코드"""
+"""Driver Code"""
 if __name__ == "__main__":
     key = "Hello 算法"
 
     hash = add_hash(key)
-    print(f"덧셈 해시값은 {hash}이다")
+    print(f"덧셈 해시값: {hash}")
 
     hash = mul_hash(key)
-    print(f"곱셈 해시값은 {hash}이다")
+    print(f"곱셈 해시값: {hash}")
 
     hash = xor_hash(key)
-    print(f"XOR 해시값은 {hash}이다")
+    print(f"XOR 해시값: {hash}")
 
     hash = rot_hash(key)
-    print(f"회전 해시값은 {hash}이다")
+    print(f"회전 해시값: {hash}")

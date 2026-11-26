@@ -1,23 +1,23 @@
 # Merge sort
 
-<u>Merge sort</u> is a divide-and-conquer sorting algorithm with the “division” and “merging” phases shown below.
+<u>Merge sort</u> uses divide and conquer. It has two phases, dividing and merging, as shown below.
 
-1. **Division**: recursively split the array at its midpoint, turning the problem of sorting a long array into problems of sorting shorter arrays.
-2. **Merging**: stop dividing when a subarray has length 1, then repeatedly merge two shorter sorted arrays into one longer sorted array until the process is complete.
+1. **Divide**. Recursively split the array at its midpoint, reducing the problem of sorting a long array to sorting shorter arrays.
+2. **Merge**. When the subarrays have length 1, stop dividing and begin merging. Repeatedly combine two shorter sorted arrays into a longer sorted array until the entire array is sorted.
 
-![The division and merging phases of merge sort](merge_sort.assets/merge_sort_overview.svg)
+![The divide and merge phases of merge sort](merge_sort.assets/merge_sort_overview.svg)
 
-## Algorithm steps
+## How the algorithm works
 
-As shown below, the division phase works from the top down, recursively splitting each array into two subarrays at its midpoint.
+As shown below, the divide phase works from the top down, recursively splitting each array at its midpoint into two subarrays.
 
-1. Calculate the midpoint `mid`, then recursively divide the left subarray, `[left, mid]`, and the right subarray, `[mid + 1, right]`.
-2. Repeat step `1.` recursively until each subarray has length 1.
+1. Find the midpoint `mid` and recursively divide the left subarray (the closed interval `[left, mid]`) and the right subarray (the closed interval `[mid + 1, right]`).
+2. Repeat step `1.` recursively until the subarray has length 1.
 
-The merging phase works from the bottom up, combining the left and right subarrays into a sorted array. Merging begins with subarrays of length 1, so every subarray involved in this phase is already sorted.
+The merge phase works from the bottom up, combining the left and right subarrays into one sorted array. The first merges start with subarrays of length 1, so both inputs to every merge are already sorted.
 
 === "<1>"
-    ![Steps of merge sort](merge_sort.assets/merge_sort_step1.svg)
+    ![Merge sort steps](merge_sort.assets/merge_sort_step1.svg)
 
 === "<2>"
     ![merge_sort_step2](merge_sort.assets/merge_sort_step2.svg)
@@ -48,10 +48,10 @@ The merging phase works from the bottom up, combining the left and right subarra
 
 Merge sort follows the same recursive order as a postorder traversal of a binary tree.
 
-- **Postorder traversal**: recurse into the left subtree, then the right subtree, and finally process the root.
-- **Merge sort**: recurse into the left subarray, then the right subarray, and finally merge them.
+- **Postorder traversal**. Recurse on the left subtree, then the right subtree, and finally process the root.
+- **Merge sort**. Recurse on the left subarray, then the right subarray, and finally merge the two.
 
-The implementation follows. The interval to merge in `nums` is `[left, right]`, while its corresponding interval in `tmp` is `[0, right - left]`.
+The code below implements merge sort. Notice that the range being merged in `nums` is `[left, right]`, while the corresponding range in `tmp` is `[0, right - left]`.
 
 ```src
 [file]{merge_sort}-[class]{}-[func]{merge_sort}
@@ -59,15 +59,15 @@ The implementation follows. The interval to merge in `nums` is `[left, right]`, 
 
 ## Algorithm properties
 
-- **Time complexity: $O(n \log n)$; not adaptive**. Division produces a recursion tree of height $\log n$. Merging performs a total of $n$ operations at each level, giving $O(n \log n)$ overall.
-- **Space complexity: $O(n)$; not in-place**. The recursion depth is $\log n$, requiring $O(\log n)$ space for stack frames. Merging uses an auxiliary array requiring $O(n)$ extra space.
-- **Stable**. Merging preserves the order of equal elements.
+- **Time complexity: $O(n \log n)$, nonadaptive**. Dividing the array produces a recursion tree of height $\log n$. Merging takes a total of $n$ operations per level, giving an overall time complexity of $O(n \log n)$.
+- **Space complexity: $O(n)$, out-of-place**. The recursion depth is $\log n$, so the stack frames take $O(\log n)$ space. Merging requires an auxiliary array that uses $O(n)$ extra space.
+- **Stable**. Merging preserves the relative order of equal elements.
 
-## Sorting linked lists
+## Sorting a linked list
 
-Merge sort has a significant advantage over other sorting algorithms for linked lists: **it can reduce the space complexity of sorting a linked list to $O(1)$**.
+Merge sort has a particular advantage over other algorithms when sorting a linked list: **it can sort the list in $O(1)$ extra space**.
 
-- **Division**: use iteration instead of recursion to divide the list, eliminating the space needed for recursive stack frames.
-- **Merging**: inserting and deleting linked-list nodes requires only changing references or pointers. Merging two short sorted lists into a longer one therefore needs no additional list.
+- **Divide**. We can split the list iteratively, avoiding the stack frames that recursion would require.
+- **Merge**. Inserting or removing nodes only requires changing references (pointers). We can therefore merge two short sorted lists into one longer sorted list without allocating another list.
 
-The implementation is fairly involved. Interested readers can consult further resources for details.
+The implementation details are more involved. Interested readers can explore them further.

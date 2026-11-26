@@ -9,18 +9,18 @@
 #define MAX_SIZE 100
 #define MAX_RES_SIZE 100
 
-// State (subset)
+// State (current subset)
 int state[MAX_SIZE];
 int stateSize = 0;
 
-// Result list (list of subsets)
+// Results (list of subsets)
 int res[MAX_RES_SIZE][MAX_SIZE];
 int resColSizes[MAX_RES_SIZE];
 int resSize = 0;
 
 /* Backtracking: subset sum I */
 void backtrack(int target, int *choices, int choicesSize, int start) {
-    // Record a solution when the remaining target is 0
+    // Record a solution when the subset sums to target
     if (target == 0) {
         for (int i = 0; i < stateSize; ++i) {
             res[resSize][i] = state[i];
@@ -28,20 +28,20 @@ void backtrack(int target, int *choices, int choicesSize, int start) {
         resColSizes[resSize++] = stateSize;
         return;
     }
-    // Iterate over all choices
-    // Pruning 2: iterate from start to avoid generating duplicate subsets
+    // Try each choice
+    // Pruning rule 2: start at start to avoid duplicate subsets
     for (int i = start; i < choicesSize; i++) {
-        // Pruning 1: exit the loop if the choice exceeds the remaining target
-        // The array is sorted, so later elements are at least as large and also exceed the remaining target
+        // Pruning rule 1: break if the subset sum would exceed target
+        // The array is sorted, so later elements are at least as large and would also take the sum over target
         if (target - choices[i] < 0) {
             break;
         }
-        // Try: make a choice and update target and start
+        // Make a choice and update target and start
         state[stateSize] = choices[i];
         stateSize++;
-        // Proceed to the next choice
+        // Make the next choice
         backtrack(target - choices[i], choices, choicesSize, i);
-        // Backtrack: undo the choice and restore the previous state
+        // Backtrack: undo the choice to restore the previous state
         stateSize--;
     }
 }
@@ -54,7 +54,7 @@ int cmp(const void *a, const void *b) {
 /* Solve subset sum I */
 void subsetSumI(int *nums, int numsSize, int target) {
     qsort(nums, numsSize, sizeof(int), cmp); // Sort nums
-    int start = 0;                           // Starting index for iteration
+    int start = 0;                           // Starting index
     backtrack(target, nums, numsSize, start);
 }
 
@@ -69,7 +69,7 @@ int main() {
     printf("Input array nums = ");
     printArray(nums, numsSize);
     printf("target = %d\n", target);
-    printf("All subsets whose sum equals %d, res = \n", target);
+    printf("Subsets that sum to %d: res = \n", target);
     for (int i = 0; i < resSize; ++i) {
         printArray(res[i], resColSizes[i]);
     }

@@ -14,58 +14,58 @@ import heapq
 
 
 def test_push(heap: list, val: int, flag: int = 1):
-    heapq.heappush(heap, flag * val)  # Добавление элемента в кучу
-    print(f"\nПосле добавления элемента {val} в кучу")
+    heapq.heappush(heap, flag * val)  # Вставить элемент в кучу
+    print(f"\nПосле вставки элемента {val}:")
     print_heap([flag * val for val in heap])
 
 
 def test_pop(heap: list, flag: int = 1):
-    val = flag * heapq.heappop(heap)  # Извлечение элемента с вершины кучи
-    print(f"\nПосле извлечения элемента вершины кучи {val}")
+    val = flag * heapq.heappop(heap)  # Извлечь элемент из корня
+    print(f"\nПосле извлечения элемента {val} из корня:")
     print_heap([flag * val for val in heap])
 
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Инициализация минимальной кучи
+    # Инициализировать мин-кучу
     min_heap, flag = [], 1
-    # Инициализация максимальной кучи
+    # Инициализировать макс-кучу
     max_heap, flag = [], -1
 
-    print("\nНиже приведен тестовый пример для max-heap")
-    # Модуль heapq в Python по умолчанию реализует минимальную кучу
-    # Можно помещать в кучу отрицательные элементы, чтобы инвертировать отношение порядка и таким образом реализовать максимальную кучу
-    # В этом примере flag = 1 соответствует минимальной куче, а flag = -1 — максимальной куче
+    print("\nВ этом примере используется макс-куча")
+    # Модуль heapq в Python по умолчанию реализует мин-кучу
+    # Смена знака элементов перед вставкой обращает порядок сравнения и позволяет реализовать макс-кучу
+    # В этом примере flag = 1 задаёт мин-кучу, а flag = -1 — макс-кучу
 
-    # Добавление элемента в кучу
+    # Вставить элемент в кучу
     test_push(max_heap, 1, flag)
     test_push(max_heap, 3, flag)
     test_push(max_heap, 2, flag)
     test_push(max_heap, 5, flag)
     test_push(max_heap, 4, flag)
 
-    # Получение элемента с вершины кучи
+    # Получить элемент в корне
     peek: int = flag * max_heap[0]
-    print(f"\nЭлемент на вершине кучи = {peek}")
+    print(f"\nЭлемент в корне: {peek}")
 
-    # Извлечение элемента с вершины кучи
+    # Извлечь элемент из корня
     test_pop(max_heap, flag)
     test_pop(max_heap, flag)
     test_pop(max_heap, flag)
     test_pop(max_heap, flag)
     test_pop(max_heap, flag)
 
-    # Получение размера кучи
+    # Размер кучи
     size: int = len(max_heap)
-    print(f"\nКоличество элементов в куче = {size}")
+    print(f"\nЧисло элементов в куче: {size}")
 
-    # Проверка, пуста ли куча
+    # Проверить, пуста ли куча
     is_empty: bool = not max_heap
     print(f"\nПуста ли куча: {is_empty}")
 
-    # Создать кучу по входному списку
-    # Временная сложность равна O(n), а не O(nlogn)
+    # Построить кучу по входному списку
+    # Временная сложность — O(n), а не O(nlogn)
     min_heap = [1, 3, 2, 5, 4]
     heapq.heapify(min_heap)
-    print("\nПосле построения min-heap из входного списка")
+    print("\nМин-куча, построенная по входному списку:")
     print_heap(min_heap)

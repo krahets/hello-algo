@@ -24,7 +24,7 @@ def mul_hash(key: str) -> int:
 
 
 def xor_hash(key: str) -> int:
-    """XOR-хеширование"""
+    """Хеширование с помощью XOR"""
     hash = 0
     modulus = 1000000007
     for c in key:
@@ -43,16 +43,16 @@ def rot_hash(key: str) -> int:
 
 """Driver Code"""
 if __name__ == "__main__":
-    key = "Hello Algo"
+    key = "Hello 算法"
 
     hash = add_hash(key)
-    print(f"Хеш-сумма сложением = {hash}")
+    print(f"Аддитивный хеш: {hash}")
 
     hash = mul_hash(key)
-    print(f"Хеш-сумма умножением = {hash}")
+    print(f"Мультипликативный хеш: {hash}")
 
     hash = xor_hash(key)
-    print(f"Хеш-сумма XOR = {hash}")
+    print(f"Хеш на основе XOR: {hash}")
 
     hash = rot_hash(key)
-    print(f"Хеш-сумма с циклическим сдвигом = {hash}")
+    print(f"Хеш с циклическим сдвигом: {hash}")

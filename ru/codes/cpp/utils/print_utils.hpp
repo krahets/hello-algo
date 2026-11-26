@@ -13,7 +13,7 @@
 #include <sstream>
 #include <string>
 
-/* Find an element in a vector */
+/* Найти элемент в векторе */
 template <typename T> int vecFind(const vector<T> &vec, T ele) {
     int j = INT_MAX;
     for (int i = 0; i < vec.size(); i++) {
@@ -24,7 +24,7 @@ template <typename T> int vecFind(const vector<T> &vec, T ele) {
     return j;
 }
 
-/* Concatenate a vector with a delim */
+/* Объединить элементы вектора в строку с разделителем */
 template <typename T> string strJoin(const string &delim, const T &vec) {
     ostringstream s;
     for (const auto &i : vec) {
@@ -36,7 +36,7 @@ template <typename T> string strJoin(const string &delim, const T &vec) {
     return s.str();
 }
 
-/* Repeat a string for n times */
+/* Повторить строку n раз */
 string strRepeat(string str, int n) {
     ostringstream os;
     for (int i = 0; i < n; i++)
@@ -56,7 +56,7 @@ template <typename T> void printArray(T *arr, int n) {
         cout << "]" << endl;
 }
 
-/* Get the Vector String object */
+/* Получить строковое представление вектора */
 template <typename T> string getVectorString(vector<T> &list) {
     return "[" + strJoin(", ", list) + "]";
 }
@@ -105,7 +105,7 @@ void showTrunks(Trunk *p) {
 
 /**
  * Вывести двоичное дерево
- * Этот вывод дерева заимствован из TECHIE DELIGHT
+ * Код для вывода дерева заимствован у TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 void printTree(TreeNode *root, Trunk *prev, bool isRight) {
@@ -146,13 +146,13 @@ void printTree(TreeNode *root) {
 
 /* Вывести стек */
 template <typename T> void printStack(stack<T> stk) {
-    // Reverse the input stack
+    // Развернуть исходный стек
     stack<T> tmp;
     while (!stk.empty()) {
         tmp.push(stk.top());
         stk.pop();
     }
-    // Generate the string to print
+    // Сформировать строку для вывода
     ostringstream s;
     bool flag = true;
     while (!tmp.empty()) {
@@ -168,7 +168,7 @@ template <typename T> void printStack(stack<T> stk) {
 
 /* Вывести очередь */
 template <typename T> void printQueue(queue<T> queue) {
-    // Generate the string to print
+    // Сформировать строку для вывода
     ostringstream s;
     bool flag = true;
     while (!queue.empty()) {
@@ -184,7 +184,7 @@ template <typename T> void printQueue(queue<T> queue) {
 
 /* Вывести двустороннюю очередь */
 template <typename T> void printDeque(deque<T> deque) {
-    // Generate the string to print
+    // Сформировать строку для вывода
     ostringstream s;
     bool flag = true;
     while (!deque.empty()) {
@@ -199,14 +199,14 @@ template <typename T> void printDeque(deque<T> deque) {
 }
 
 /* Вывести хеш-таблицу */
-// Определить параметры шаблона TKey и TValue для указания типов пары ключ-значение
+// Параметры шаблона TKey и TValue задают тип ключа и тип значения в паре
 template <typename TKey, typename TValue> void printHashMap(unordered_map<TKey, TValue> map) {
     for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << '\n';
     }
 }
 
-/* Expose the underlying storage of the priority_queue container */
+/* Открыть доступ к внутреннему контейнеру priority_queue */
 template <typename T, typename S, typename C> S &Container(priority_queue<T, S, C> &pq) {
     struct HackedQueue : private priority_queue<T, S, C> {
         static S &Container(priority_queue<T, S, C> &pq) {
@@ -216,12 +216,12 @@ template <typename T, typename S, typename C> S &Container(priority_queue<T, S, 
     return HackedQueue::Container(pq);
 }
 
-/* Вывести кучу (приоритетную очередь) */
+/* Вывести кучу (очередь с приоритетом) */
 template <typename T, typename S, typename C> void printHeap(priority_queue<T, S, C> &heap) {
     vector<T> vec = Container(heap);
-    cout << "Массивное представление кучи:";
+    cout << "Куча в виде массива: ";
     printVector(vec);
-    cout << "Древовидное представление кучи:" << endl;
+    cout << "Куча в виде дерева:" << endl;
     TreeNode *root = vectorToTree(vec);
     printTree(root);
     freeMemoryTree(root);

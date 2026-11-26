@@ -34,7 +34,7 @@ fun main() {
     res = mutableListOf()
     preOrder(root)
 
-    println("\nOutput all nodes with value 7")
+    println("\nPrint all nodes with value 7")
     val vals = mutableListOf<Int>()
     for (node in res!!) {
         vals.add(node._val)

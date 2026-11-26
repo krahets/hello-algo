@@ -19,7 +19,7 @@ class Trunk {
 };
 
 public class PrintUtil {
-    /* 列印矩陣（Array） */
+    /* 印出矩陣（Array） */
     public static <T> void printMatrix(T[][] matrix) {
         System.out.println("[");
         for (T[] row : matrix) {
@@ -28,7 +28,7 @@ public class PrintUtil {
         System.out.println("]");
     }
 
-    /* 列印矩陣（List） */
+    /* 印出矩陣（List） */
     public static <T> void printMatrix(List<List<T>> matrix) {
         System.out.println("[");
         for (List<T> row : matrix) {
@@ -37,7 +37,7 @@ public class PrintUtil {
         System.out.println("]");
     }
 
-    /* 列印鏈結串列 */
+    /* 印出鏈結串列 */
     public static void printLinkedList(ListNode head) {
         List<String> list = new ArrayList<>();
         while (head != null) {
@@ -47,14 +47,14 @@ public class PrintUtil {
         System.out.println(String.join(" -> ", list));
     }
 
-    /* 列印二元樹 */
+    /* 印出二元樹 */
     public static void printTree(TreeNode root) {
         printTree(root, null, false);
     }
 
     /**
-     * 列印二元樹
-     * This tree printer is borrowed from TECHIE DELIGHT
+     * 印出二元樹
+     * 這段印出樹狀結構的程式碼取自 TECHIE DELIGHT
      * https://www.techiedelight.com/c-program-print-binary-tree/
      */
     public static void printTree(TreeNode root, Trunk prev, boolean isRight) {
@@ -97,19 +97,19 @@ public class PrintUtil {
         System.out.print(p.str);
     }
 
-    /* 列印雜湊表 */
+    /* 印出雜湊表 */
     public static <K, V> void printHashMap(Map<K, V> map) {
         for (Map.Entry<K, V> kv : map.entrySet()) {
             System.out.println(kv.getKey() + " -> " + kv.getValue());
         }
     }
 
-    /* 列印堆積（優先佇列） */
+    /* 印出堆積（優先佇列） */
     public static void printHeap(Queue<Integer> queue) {
         List<Integer> list = new ArrayList<>(queue);
-        System.out.print("堆積的陣列表示：");
+        System.out.print("堆積的陣列表示法：");
         System.out.println(list);
-        System.out.println("堆積的樹狀表示：");
+        System.out.println("堆積的樹狀表示法：");
         TreeNode root = TreeNode.listToTree(list);
         printTree(root);
     }

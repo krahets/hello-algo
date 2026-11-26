@@ -12,12 +12,12 @@ public class insertion_sort {
         // Outer loop: the sorted range is [0, i-1]
         for (int i = 1; i < nums.Length; i++) {
             int bas = nums[i], j = i - 1;
-            // Inner loop: insert bas at the correct position in the sorted range [0, i-1]
+            // Inner loop: insert base at the correct position in the sorted range [0, i-1]
             while (j >= 0 && nums[j] > bas) {
                 nums[j + 1] = nums[j]; // Shift nums[j] one position to the right
                 j--;
             }
-            nums[j + 1] = bas;         // Place bas at the correct position
+            nums[j + 1] = bas;         // Place base at the correct position
         }
     }
 

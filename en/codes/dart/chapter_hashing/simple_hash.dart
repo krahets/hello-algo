@@ -4,7 +4,7 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* Additive hash */
+/* Additive hashing */
 int addHash(String key) {
   int hash = 0;
   final int MODULUS = 1000000007;
@@ -14,7 +14,7 @@ int addHash(String key) {
   return hash;
 }
 
-/* Multiplicative hash */
+/* Multiplicative hashing */
 int mulHash(String key) {
   int hash = 0;
   final int MODULUS = 1000000007;
@@ -24,7 +24,7 @@ int mulHash(String key) {
   return hash;
 }
 
-/* XOR hash */
+/* XOR hashing */
 int xorHash(String key) {
   int hash = 0;
   final int MODULUS = 1000000007;
@@ -34,7 +34,7 @@ int xorHash(String key) {
   return hash & MODULUS;
 }
 
-/* Rotating hash */
+/* Rotation hashing */
 int rotHash(String key) {
   int hash = 0;
   final int MODULUS = 1000000007;
@@ -58,5 +58,5 @@ void main() {
   print("XOR hash value: $hash");
 
   hash = rotHash(key);
-  print("Rotating hash value: $hash");
+  print("Rotation hash value: $hash");
 }

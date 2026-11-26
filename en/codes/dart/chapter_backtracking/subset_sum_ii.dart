@@ -12,39 +12,39 @@ void backtrack(
   int start,
   List<List<int>> res,
 ) {
-  // Record a solution when the subset sum reaches the original target (the remaining target is 0)
+  // Record a solution when the subset sums to target
   if (target == 0) {
     res.add(List.from(state));
     return;
   }
-  // Iterate over all choices
-  // Pruning 2: iterate from start to avoid generating duplicate subsets
-  // Pruning 3: start after the previously chosen index to avoid choosing the same element again
+  // Try each choice
+  // Pruning rule 2: start at start to avoid duplicate subsets
+  // Pruning rule 3: start at start to avoid reusing the same element
   for (int i = start; i < choices.length; i++) {
-    // Pruning 1: exit the loop if this choice exceeds the remaining target
-    // The array is sorted, so later elements are at least as large and also exceed the remaining target
+    // Pruning rule 1: break if the subset sum would exceed target
+    // The array is sorted, so later elements are at least as large and would also take the sum over target
     if (target - choices[i] < 0) {
       break;
     }
-    // Pruning 4: if this element equals its left neighbor at the same search depth, the branch is a duplicate; skip it
+    // Pruning rule 4: skip a value equal to its left neighbor, since its search branch is a duplicate
     if (i > start && choices[i] == choices[i - 1]) {
       continue;
     }
-    // Try: make a choice and update target and start
+    // Make a choice and update target and start
     state.add(choices[i]);
-    // Proceed to the next choice
+    // Make the next choice
     backtrack(state, target - choices[i], choices, i + 1, res);
-    // Backtrack: undo the choice and restore the previous state
+    // Backtrack: undo the choice to restore the previous state
     state.removeLast();
   }
 }
 
 /* Solve subset sum II */
 List<List<int>> subsetSumII(List<int> nums, int target) {
-  List<int> state = []; // State (subset)
+  List<int> state = []; // State (current subset)
   nums.sort(); // Sort nums
-  int start = 0; // Starting index for iteration
-  List<List<int>> res = []; // Result list (list of subsets)
+  int start = 0; // Starting index
+  List<List<int>> res = []; // Results (list of subsets)
   backtrack(state, target, nums, start, res);
   return res;
 }
@@ -57,5 +57,5 @@ void main() {
   List<List<int>> res = subsetSumII(nums, target);
 
   print("Input array nums = $nums, target = $target");
-  print("All subsets with sum $target: res = $res");
+  print("Subsets that sum to $target: res = $res");
 }

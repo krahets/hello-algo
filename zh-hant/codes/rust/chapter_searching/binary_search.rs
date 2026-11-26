@@ -4,58 +4,58 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-/* 二分搜尋（雙閉區間） */
+/* 二分搜尋（閉區間） */
 fn binary_search(nums: &[i32], target: i32) -> i32 {
-    // 初始化雙閉區間 [0, n-1] ，即 i, j 分別指向陣列首元素、尾元素
+    // 將閉區間設為 [0, n-1]，i 和 j 分別指向陣列的首、末元素
     let mut i = 0;
     let mut j = nums.len() as i32 - 1;
-    // 迴圈，當搜尋區間為空時跳出（當 i > j 時為空）
+    // 當搜尋區間為空（i > j）時，結束迴圈
     while i <= j {
         let m = i + (j - i) / 2; // 計算中點索引 m
         if nums[m as usize] < target {
-            // 此情況說明 target 在區間 [m+1, j] 中
+            // 此時 target 若存在，必在區間 [m+1, j] 內
             i = m + 1;
         } else if nums[m as usize] > target {
-            // 此情況說明 target 在區間 [i, m-1] 中
+            // 此時 target 若存在，必在區間 [i, m-1] 內
             j = m - 1;
         } else {
-            // 找到目標元素，返回其索引
+            // 找到目標元素，回傳其索引
             return m;
         }
     }
-    // 未找到目標元素，返回 -1
+    // 找不到目標元素，回傳 -1
     return -1;
 }
 
 /* 二分搜尋（左閉右開區間） */
 fn binary_search_lcro(nums: &[i32], target: i32) -> i32 {
-    // 初始化左閉右開區間 [0, n) ，即 i, j 分別指向陣列首元素、尾元素+1
+    // 將左閉右開區間設為 [0, n)，i 指向陣列的首元素，j 指向末元素的下一個位置
     let mut i = 0;
     let mut j = nums.len() as i32;
-    // 迴圈，當搜尋區間為空時跳出（當 i = j 時為空）
+    // 當搜尋區間為空（i = j）時，結束迴圈
     while i < j {
         let m = i + (j - i) / 2; // 計算中點索引 m
         if nums[m as usize] < target {
-            // 此情況說明 target 在區間 [m+1, j) 中
+            // 此時 target 若存在，必在區間 [m+1, j) 內
             i = m + 1;
         } else if nums[m as usize] > target {
-            // 此情況說明 target 在區間 [i, m) 中
+            // 此時 target 若存在，必在區間 [i, m) 內
             j = m;
         } else {
-            // 找到目標元素，返回其索引
+            // 找到目標元素，回傳其索引
             return m;
         }
     }
-    // 未找到目標元素，返回 -1
+    // 找不到目標元素，回傳 -1
     return -1;
 }
 
-/* Driver Code */
+/* 主程式 */
 pub fn main() {
     let target = 6;
     let nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
 
-    // 二分搜尋（雙閉區間）
+    // 二分搜尋（閉區間）
     let mut index = binary_search(&nums, target);
     println!("目標元素 6 的索引 = {index}");
 

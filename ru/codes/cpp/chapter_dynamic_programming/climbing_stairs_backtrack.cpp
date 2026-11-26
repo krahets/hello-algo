@@ -7,37 +7,37 @@
 
 #include "../utils/common.hpp"
 
-/* Бэктрекинг */
+/* Поиск с возвратом */
 void backtrack(vector<int> &choices, int state, int n, vector<int> &res) {
-    // Когда подъем достигает n-й ступени, число вариантов увеличивается на 1
+    // На ступени n увеличить число способов на 1
     if (state == n)
         res[0]++;
-    // Перебор всех вариантов выбора
+    // Перебрать все варианты
     for (auto &choice : choices) {
-        // Отсечение: нельзя выходить за n-ю ступень
+        // Отсечь шаги за ступень n
         if (state + choice > n)
             continue;
-        // Попытка: сделать выбор и обновить состояние
+        // Сделать выбор и обновить состояние
         backtrack(choices, state + choice, n, res);
-        // Откат
+        // Отменить выбор
     }
 }
 
-/* Подъем по лестнице: бэктрекинг */
+/* Подъём по лестнице: поиск с возвратом */
 int climbingStairsBacktrack(int n) {
     vector<int> choices = {1, 2}; // Можно подняться на 1 или 2 ступени
-    int state = 0;                // Начать подъем с 0-й ступени
-    vector<int> res = {0};        // Использовать res[0] для хранения числа решений
+    int state = 0;                // Начать со ступени 0
+    vector<int> res = {0};        // Хранить число способов в res[0]
     backtrack(choices, state, n, res);
     return res[0];
 }
 
-/* Driver Code */
+/* Основная программа */
 int main() {
     int n = 9;
 
     int res = climbingStairsBacktrack(n);
-    cout << "Количество способов подняться по лестнице из " << n << " ступеней: " << res << " вариантов" << endl;
+    cout << "Для ступени " << n << " результат равен " << res << " (число способов подъёма)." << endl;
 
     return 0;
 }

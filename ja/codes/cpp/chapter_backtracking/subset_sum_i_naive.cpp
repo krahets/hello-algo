@@ -6,38 +6,38 @@
 
 #include "../utils/common.hpp"
 
-/* バックトラッキング：部分集合和 I */
+/* バックトラッキングによる部分和問題 I */
 void backtrack(vector<int> &state, int target, int total, vector<int> &choices, vector<vector<int>> &res) {
-    // 部分集合の和が target と等しくなったら、解を記録する
+    // 部分集合の要素の和が target に等しくなったら解を記録する
     if (total == target) {
         res.push_back(state);
         return;
     }
-    // すべての選択肢を走査する
+    // すべての選択肢を調べる
     for (size_t i = 0; i < choices.size(); i++) {
-        // 枝刈り：部分集合の和が target を超える場合、この選択をスキップする
+        // 枝刈り：部分集合の要素の和が target を超えるなら、その選択を飛ばす
         if (total + choices[i] > target) {
             continue;
         }
-        // 試行：選択を行い、要素の和 total を更新する
+        // 試行：選択して要素の和 total を更新する
         state.push_back(choices[i]);
         // 次の選択に進む
         backtrack(state, target, total + choices[i], choices, res);
-        // 復元：選択を取り消し、以前の状態に戻す
+        // 後戻り：選択を取り消し、元の状態に戻す
         state.pop_back();
     }
 }
 
-/* 部分集合和 I を解く（重複した部分集合を含む） */
+/* 部分和問題 I を解く（重複する部分集合を含む） */
 vector<vector<int>> subsetSumINaive(vector<int> &nums, int target) {
     vector<int> state;       // 状態（部分集合）
-    int total = 0;           // 部分集合和
-    vector<vector<int>> res; // 結果リスト（部分集合のリスト）
+    int total = 0;           // 部分和
+    vector<vector<int>> res; // 結果のリスト（部分集合のリスト）
     backtrack(state, target, total, nums, res);
     return res;
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     vector<int> nums = {3, 4, 5};
     int target = 9;
@@ -47,7 +47,7 @@ int main() {
     cout << "入力配列 nums = ";
     printVector(nums);
     cout << "target = " << target << endl;
-    cout << "和が " << target << " になるすべての部分集合 res = " << endl;
+    cout << "要素の和が " << target << " となるすべての部分集合 res = " << endl;
     printVectorMatrix(res);
 
     return 0;

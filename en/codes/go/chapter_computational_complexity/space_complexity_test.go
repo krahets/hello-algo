@@ -12,15 +12,15 @@ import (
 
 func TestSpaceComplexity(t *testing.T) {
 	n := 5
-	// Constant complexity
+	// Constant space
 	spaceConstant(n)
-	// Linear complexity
+	// Linear space
 	spaceLinear(n)
 	spaceLinearRecur(n)
-	// Quadratic complexity
+	// Quadratic space
 	spaceQuadratic(n)
 	spaceQuadraticRecur(n)
-	// Exponential complexity
+	// Exponential space
 	root := buildTree(n)
 	PrintTree(root)
 }

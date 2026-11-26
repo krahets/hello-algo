@@ -10,7 +10,7 @@
 typedef struct {
     int *nums;       // 用于存储队列元素的数组
     int front;       // 队首指针，指向队首元素
-    int queSize;     // 尾指针，指向队尾 + 1
+    int queSize;     // 双端队列中的元素个数
     int queCapacity; // 队列容量
 } ArrayDeque;
 

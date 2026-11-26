@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* Структура AVL-дерева */
+/* Структура АВЛ-дерева */
 typedef struct {
     TreeNode *root;
 } AVLTree;
@@ -26,7 +26,7 @@ void delAVLTree(AVLTree *tree) {
 
 /* Получить высоту узла */
 int height(TreeNode *node) {
-    // Высота пустого узла равна -1, высота листового узла равна 0
+    // Высота пустого узла равна -1, высота листа равна 0
     if (node != NULL) {
         return node->height;
     }
@@ -37,7 +37,7 @@ int height(TreeNode *node) {
 void updateHeight(TreeNode *node) {
     int lh = height(node->left);
     int rh = height(node->right);
-    // Высота узла равна высоте более высокого поддерева + 1
+    // Высота узла на 1 больше высоты самого высокого поддерева
     if (lh > rh) {
         node->height = lh + 1;
     } else {
@@ -51,67 +51,67 @@ int balanceFactor(TreeNode *node) {
     if (node == NULL) {
         return 0;
     }
-    // Коэффициент баланса узла = высота левого поддерева - высота правого поддерева
+    // Коэффициент баланса узла равен высоте левого поддерева минус высота правого
     return height(node->left) - height(node->right);
 }
 
-/* Операция правого вращения */
+/* Правый поворот */
 TreeNode *rightRotate(TreeNode *node) {
     TreeNode *child, *grandChild;
     child = node->left;
     grandChild = child->right;
-    // Выполнить правое вращение узла node вокруг child
+    // Повернуть node вправо вокруг child
     child->right = node;
     node->left = grandChild;
     // Обновить высоту узла
     updateHeight(node);
     updateHeight(child);
-    // Вернуть корневой узел поддерева после вращения
+    // Вернуть корень поддерева после поворота
     return child;
 }
 
-/* Операция левого вращения */
+/* Левый поворот */
 TreeNode *leftRotate(TreeNode *node) {
     TreeNode *child, *grandChild;
     child = node->right;
     grandChild = child->left;
-    // Выполнить левое вращение узла node вокруг child
+    // Повернуть node влево вокруг child
     child->left = node;
     node->right = grandChild;
     // Обновить высоту узла
     updateHeight(node);
     updateHeight(child);
-    // Вернуть корневой узел поддерева после вращения
+    // Вернуть корень поддерева после поворота
     return child;
 }
 
-/* Выполнить вращение, чтобы снова сбалансировать поддерево */
+/* Выполнить поворот, чтобы восстановить баланс поддерева */
 TreeNode *rotate(TreeNode *node) {
     // Получить коэффициент баланса узла node
     int bf = balanceFactor(node);
-    // Левосторонне перекошенное дерево
+    // Перевес влево
     if (bf > 1) {
         if (balanceFactor(node->left) >= 0) {
-            // Правое вращение
+            // Поворот вправо
             return rightRotate(node);
         } else {
-            // Сначала левое вращение, затем правое
+            // Сначала поворот влево, затем вправо
             node->left = leftRotate(node->left);
             return rightRotate(node);
         }
     }
-    // Правосторонне перекошенное дерево
+    // Перевес вправо
     if (bf < -1) {
         if (balanceFactor(node->right) <= 0) {
-            // Левое вращение
+            // Поворот влево
             return leftRotate(node);
         } else {
-            // Сначала правое вращение, затем левое
+            // Сначала поворот вправо, затем влево
             node->right = rightRotate(node->right);
             return leftRotate(node);
         }
     }
-    // Дерево сбалансировано, вращение не требуется, вернуть сразу
+    // Дерево сбалансировано: завершить вызов без поворота
     return node;
 }
 
@@ -120,20 +120,20 @@ TreeNode *insertHelper(TreeNode *node, int val) {
     if (node == NULL) {
         return newTreeNode(val);
     }
-    /* 1. Найти позицию вставки и вставить узел */
+    /* 1. Найти место вставки и вставить узел */
     if (val < node->val) {
         node->left = insertHelper(node->left, val);
     } else if (val > node->val) {
         node->right = insertHelper(node->right, val);
     } else {
-        // Повторяющийся узел не вставлять, сразу вернуть
+        // Такой узел уже есть: завершить вызов без вставки
         return node;
     }
     // Обновить высоту узла
     updateHeight(node);
-    /* 2. Выполнить вращение, чтобы снова сбалансировать поддерево */
+    /* 2. Восстановить баланс поддерева с помощью поворота */
     node = rotate(node);
-    // Вернуть корневой узел поддерева
+    // Вернуть корень поддерева
     return node;
 }
 
@@ -148,7 +148,7 @@ TreeNode *removeHelper(TreeNode *node, int val) {
     if (node == NULL) {
         return NULL;
     }
-    /* 1. Найти узел и удалить его */
+    /* 1. Найти и удалить узел */
     if (val < node->val) {
         node->left = removeHelper(node->left, val);
     } else if (val > node->val) {
@@ -159,15 +159,15 @@ TreeNode *removeHelper(TreeNode *node, int val) {
             if (node->right != NULL) {
                 child = node->right;
             }
-            // Число дочерних узлов = 0, удалить node и сразу вернуть
+            // Нет потомков: удалить node и завершить вызов
             if (child == NULL) {
                 return NULL;
             } else {
-                // Число дочерних узлов = 1, удалить node напрямую
+                // Один потомок: удалить node
                 node = child;
             }
         } else {
-            // Число дочерних узлов = 2, удалить следующий по симметричному обходу узел и заменить им текущий узел
+            // Два потомка: удалить следующий узел симметричного обхода и заменить им текущий узел
             TreeNode *temp = node->right;
             while (temp->left != NULL) {
                 temp = temp->left;
@@ -179,14 +179,14 @@ TreeNode *removeHelper(TreeNode *node, int val) {
     }
     // Обновить высоту узла
     updateHeight(node);
-    /* 2. Выполнить вращение, чтобы снова сбалансировать поддерево */
+    /* 2. Восстановить баланс поддерева с помощью поворота */
     node = rotate(node);
-    // Вернуть корневой узел поддерева
+    // Вернуть корень поддерева
     return node;
 }
 
 /* Удаление узла */
-// Из-за подключения stdio.h здесь нельзя использовать ключевое слово remove
+// Заголовок stdio.h уже объявляет remove, поэтому здесь это имя использовать нельзя
 void removeItem(AVLTree *tree, int val) {
     TreeNode *root = removeHelper(tree->root, val);
 }
@@ -194,41 +194,41 @@ void removeItem(AVLTree *tree, int val) {
 /* Поиск узла */
 TreeNode *search(AVLTree *tree, int val) {
     TreeNode *cur = tree->root;
-    // Искать в цикле и выйти после прохода за листовой узел
+    // Искать в цикле до выхода за пределы листа
     while (cur != NULL) {
         if (cur->val < val) {
-            // Целевой узел находится в правом поддереве cur
+            // Искомый узел в правом поддереве cur
             cur = cur->right;
         } else if (cur->val > val) {
-            // Целевой узел находится в левом поддереве cur
+            // Искомый узел в левом поддереве cur
             cur = cur->left;
         } else {
-            // Найти целевой узел и выйти из цикла
+            // Узел найден: выйти из цикла
             break;
         }
     }
-    // Найти целевой узел и выйти из цикла
+    // Узел найден: выйти из цикла
     return cur;
 }
 
 void testInsert(AVLTree *tree, int val) {
     insert(tree, val);
-    printf("\nПосле вставки узла %d AVL-дерево имеет вид \n", val);
+    printf("\nАВЛ-дерево после вставки узла %d:\n", val);
     printTree(tree->root);
 }
 
 void testRemove(AVLTree *tree, int val) {
     removeItem(tree, val);
-    printf("\nПосле удаления узла %d AVL-дерево имеет вид \n", val);
+    printf("\nАВЛ-дерево после удаления узла %d:\n", val);
     printTree(tree->root);
 }
 
-/* Driver Code */
+/* Основная программа */
 int main() {
-    /* Инициализация пустого AVL-дерева */
+    /* Инициализация пустого АВЛ-дерева */
     AVLTree *tree = (AVLTree *)newAVLTree();
     /* Вставка узла */
-    // Обратите внимание, как AVL-дерево сохраняет баланс после вставки узла
+    // Проследите, как АВЛ-дерево сохраняет баланс после вставки узла
     testInsert(tree, 1);
     testInsert(tree, 2);
     testInsert(tree, 3);
@@ -244,14 +244,14 @@ int main() {
     testInsert(tree, 7);
 
     /* Удаление узла */
-    // Обратите внимание, как AVL-дерево сохраняет баланс после удаления узла
-    testRemove(tree, 8); // Удаление узла степени 0
-    testRemove(tree, 5); // Удаление узла степени 1
-    testRemove(tree, 4); // Удаление узла степени 2
+    // Проследите, как АВЛ-дерево сохраняет баланс после удаления узла
+    testRemove(tree, 8); // Удаление узла без потомков
+    testRemove(tree, 5); // Удаление узла с одним потомком
+    testRemove(tree, 4); // Удаление узла с двумя потомками
 
     /* Поиск узла */
     TreeNode *node = search(tree, 7);
-    printf("\nНайденный объект узла, значение узла = %d \n", node->val);
+    printf("\nЗначение найденного узла = %d \n", node->val);
 
     // Освободить память
     delAVLTree(tree);

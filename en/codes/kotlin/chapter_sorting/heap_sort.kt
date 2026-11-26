@@ -10,7 +10,7 @@ package chapter_sorting
 fun siftDown(nums: IntArray, n: Int, li: Int) {
     var i = li
     while (true) {
-        // Find the node with the largest value among i, l, and r, and store its index in ma
+        // Let ma be the index of the largest of nodes i, l, and r
         val l = 2 * i + 1
         val r = 2 * i + 2
         var ma = i
@@ -18,7 +18,7 @@ fun siftDown(nums: IntArray, n: Int, li: Int) {
             ma = l
         if (r < n && nums[r] > nums[ma]) 
             ma = r
-        // Stop if node i is largest or both child indices l and r are out of bounds
+        // Stop if i is the largest or both child indices l and r are out of bounds
         if (ma == i) 
             break
         // Swap the two nodes
@@ -32,24 +32,24 @@ fun siftDown(nums: IntArray, n: Int, li: Int) {
 
 /* Heap sort */
 fun heapSort(nums: IntArray) {
-    // Build the heap by sifting down from every non-leaf node
+    // Build the heap by sifting down from each non-leaf node
     for (i in nums.size / 2 - 1 downTo 0) {
         siftDown(nums, nums.size, i)
     }
-    // Extract the largest element from the heap, repeating for n-1 rounds
+    // Extract the maximum from the heap in each of n-1 rounds
     for (i in nums.size - 1 downTo 1) {
-        // Swap the root with the rightmost leaf on the last level (the first and last elements of the current heap)
+        // Swap the root and rightmost leaf (the first and last elements)
         val temp = nums[0]
         nums[0] = nums[i]
         nums[i] = temp
-        // Sift down starting at the root
+        // Sift down from the root
         siftDown(nums, i, 0)
     }
 }
 
-/* Driver code */
+/* Driver Code */
 fun main() {
     val nums = intArrayOf(4, 1, 3, 1, 5, 2)
     heapSort(nums)
-    println("After heap sort: nums = ${nums.contentToString()}")
+    println("After heap sort, nums = ${nums.contentToString()}")
 }

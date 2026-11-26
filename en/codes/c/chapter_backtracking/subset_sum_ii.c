@@ -9,18 +9,18 @@
 #define MAX_SIZE 100
 #define MAX_RES_SIZE 100
 
-// State (subset)
+// State (current subset)
 int state[MAX_SIZE];
 int stateSize = 0;
 
-// Result list (list of subsets)
+// Results (list of subsets)
 int res[MAX_RES_SIZE][MAX_SIZE];
 int resColSizes[MAX_RES_SIZE];
 int resSize = 0;
 
 /* Backtracking: subset sum II */
 void backtrack(int target, int *choices, int choicesSize, int start) {
-    // Record a solution when the remaining target is 0
+    // Record a solution when the subset sums to target
     if (target == 0) {
         for (int i = 0; i < stateSize; i++) {
             res[resSize][i] = state[i];
@@ -28,24 +28,24 @@ void backtrack(int target, int *choices, int choicesSize, int start) {
         resColSizes[resSize++] = stateSize;
         return;
     }
-    // Iterate over all choices
-    // Pruning 2: iterate from start to avoid generating duplicate subsets
-    // Pruning 3: iterate from start to avoid choosing the same element again
+    // Try each choice
+    // Pruning rule 2: start at start to avoid duplicate subsets
+    // Pruning rule 3: start at start to avoid reusing the same element
     for (int i = start; i < choicesSize; i++) {
-        // Pruning 1: skip this choice if it exceeds the remaining target
+        // Pruning rule 1: skip choices that would take the sum over target
         if (target - choices[i] < 0) {
             continue;
         }
-        // Pruning 4: if this element equals its left neighbor at the same search depth, the branch is a duplicate; skip it
+        // Pruning rule 4: skip a value equal to its left neighbor, since its search branch is a duplicate
         if (i > start && choices[i] == choices[i - 1]) {
             continue;
         }
-        // Try: make a choice and update target and start
+        // Make a choice and update target and start
         state[stateSize] = choices[i];
         stateSize++;
-        // Proceed to the next choice
+        // Make the next choice
         backtrack(target - choices[i], choices, choicesSize, i + 1);
-        // Backtrack: undo the choice and restore the previous state
+        // Backtrack: undo the choice to restore the previous state
         stateSize--;
     }
 }
@@ -74,7 +74,7 @@ int main() {
     printf("Input array nums = ");
     printArray(nums, numsSize);
     printf("target = %d\n", target);
-    printf("All subsets whose sum equals %d, res = \n", target);
+    printf("Subsets that sum to %d: res = \n", target);
     for (int i = 0; i < resSize; ++i) {
         printArray(res[i], resColSizes[i]);
     }

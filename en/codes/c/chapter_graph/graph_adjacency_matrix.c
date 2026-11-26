@@ -6,10 +6,10 @@
 
 #include "../utils/common.h"
 
-// Assume at most 100 vertices
+// Assume a maximum of 100 vertices
 #define MAX_SIZE 100
 
-/* Undirected graph structure implemented with an adjacency matrix */
+/* Structure for an undirected graph represented by an adjacency matrix */
 typedef struct {
     int vertices[MAX_SIZE];
     int adjMat[MAX_SIZE][MAX_SIZE];
@@ -39,7 +39,7 @@ void addVertex(GraphAdjMat *graph, int val) {
         fprintf(stderr, "The graph has reached its maximum number of vertices\n");
         return;
     }
-    // Add the vertex at index n and set row n and column n to zero
+    // Add the nth vertex and set row n and column n to zero
     int n = graph->size;
     graph->vertices[n] = val;
     for (int i = 0; i <= n; i++) {
@@ -54,17 +54,17 @@ void removeVertex(GraphAdjMat *graph, int index) {
         fprintf(stderr, "Vertex index out of bounds\n");
         return;
     }
-    // Remove the vertex at index `index` from the vertex list
+    // Remove the vertex at the specified index from the vertex list
     for (int i = index; i < graph->size - 1; i++) {
         graph->vertices[i] = graph->vertices[i + 1];
     }
-    // Remove row `index` from the adjacency matrix
+    // Remove the row at the specified index from the adjacency matrix
     for (int i = index; i < graph->size - 1; i++) {
         for (int j = 0; j < graph->size; j++) {
             graph->adjMat[i][j] = graph->adjMat[i + 1][j];
         }
     }
-    // Remove column `index` from the adjacency matrix
+    // Remove the column at the specified index from the adjacency matrix
     for (int i = 0; i < graph->size; i++) {
         for (int j = index; j < graph->size - 1; j++) {
             graph->adjMat[i][j] = graph->adjMat[i][j + 1];
@@ -74,7 +74,7 @@ void removeVertex(GraphAdjMat *graph, int index) {
 }
 
 /* Add an edge */
-// Parameters i and j are element indices in vertices
+// Parameters i and j are indices into vertices
 void addEdge(GraphAdjMat *graph, int i, int j) {
     if (i < 0 || j < 0 || i >= graph->size || j >= graph->size || i == j) {
         fprintf(stderr, "Edge endpoint indices are out of bounds or equal\n");
@@ -85,7 +85,7 @@ void addEdge(GraphAdjMat *graph, int i, int j) {
 }
 
 /* Remove an edge */
-// Parameters i and j are element indices in vertices
+// Parameters i and j are indices into vertices
 void removeEdge(GraphAdjMat *graph, int i, int j) {
     if (i < 0 || j < 0 || i >= graph->size || j >= graph->size || i == j) {
         fprintf(stderr, "Edge endpoint indices are out of bounds or equal\n");
@@ -107,7 +107,7 @@ void printGraphAdjMat(GraphAdjMat *graph) {
 
 /* Driver code */
 int main() {
-    // Initialize the undirected graph
+    // Initialize an undirected graph
     GraphAdjMat *graph = newGraphAdjMat();
     int vertices[] = {1, 3, 2, 5, 4};
     for (int i = 0; i < 5; i++) {
@@ -143,7 +143,7 @@ int main() {
     printf("\nGraph after removing vertex 3:\n");
     printGraphAdjMat(graph);
 
-    // Free memory
+    // Free the memory
     delGraphAdjMat(graph);
 
     return 0;

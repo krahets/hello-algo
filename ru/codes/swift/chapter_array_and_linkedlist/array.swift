@@ -4,9 +4,9 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Случайный доступ к элементу */
+/* Чтение случайного элемента */
 func randomAccess(nums: [Int]) -> Int {
-    // Случайный выбор числа из диапазона [0, nums.count)
+    // Выбрать случайное число из интервала [0, nums.count)
     let randomIndex = nums.indices.randomElement()!
     // Получить и вернуть случайный элемент
     let randomNum = nums[randomIndex]
@@ -15,29 +15,29 @@ func randomAccess(nums: [Int]) -> Int {
 
 /* Увеличение длины массива */
 func extend(nums: [Int], enlarge: Int) -> [Int] {
-    // Инициализировать массив увеличенной длины
+    // Создать массив увеличенной длины
     var res = Array(repeating: 0, count: nums.count + enlarge)
-    // Скопировать все элементы исходного массива в новый массив
+    // Скопировать все элементы исходного массива в новый
     for i in nums.indices {
         res[i] = nums[i]
     }
-    // Вернуть новый массив после расширения
+    // Вернуть новый массив увеличенной длины
     return res
 }
 
-/* Вставка элемента num в массив по индексу index */
+/* Вставить num в массив по индексу index */
 func insert(nums: inout [Int], num: Int, index: Int) {
-    // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию вправо
+    // Сдвинуть на одну позицию вправо все элементы начиная с index
     for i in stride(from: nums.count - 1, to: index, by: -1) {
         nums[i] = nums[i - 1]
     }
-    // Присвоить num элементу по индексу index
+    // Записать num по индексу index
     nums[index] = num
 }
 
-/* Удаление элемента по индексу index */
+/* Удалить элемент по индексу index */
 func remove(nums: inout [Int], index: Int) {
-    // Сдвинуть все элементы после индекса index на одну позицию влево
+    // Сдвинуть все элементы после index на одну позицию влево
     for i in nums.indices.dropFirst(index).dropLast() {
         nums[i] = nums[i + 1]
     }
@@ -46,15 +46,15 @@ func remove(nums: inout [Int], index: Int) {
 /* Обход массива */
 func traverse(nums: [Int]) {
     var count = 0
-    // Обход массива по индексам
+    // Обойти массив по индексам
     for i in nums.indices {
         count += nums[i]
     }
-    // Непосредственно обходить элементы массива
+    // Перебрать элементы массива напрямую
     for num in nums {
         count += num
     }
-    // Одновременно обходить индексы и элементы данных
+    // Одновременно перебирать индексы и элементы
     for (i, num) in nums.enumerated() {
         count += nums[i]
         count += num
@@ -73,7 +73,7 @@ func find(nums: [Int], target: Int) -> Int {
 
 @main
 enum _Array {
-    /* Driver Code */
+    /* Демонстрационный код */
     static func main() {
         /* Инициализация массива */
         let arr = Array(repeating: 0, count: 5)
@@ -81,11 +81,11 @@ enum _Array {
         var nums = [1, 3, 2, 5, 4]
         print("Массив nums = \(nums)")
 
-        /* Случайный доступ */
+        /* Чтение случайного элемента */
         let randomNum = randomAccess(nums: nums)
-        print("Случайный элемент из nums = \(randomNum)")
+        print("Случайный элемент nums: \(randomNum)")
 
-        /* Расширение длины */
+        /* Увеличение длины */
         nums = extend(nums: nums, enlarge: 3)
         print("После увеличения длины массива до 8 nums = \(nums)")
 
@@ -102,6 +102,6 @@ enum _Array {
 
         /* Поиск элемента */
         let index = find(nums: nums, target: 3)
-        print("Поиск элемента 3 в nums: индекс = \(index)")
+        print("Индекс элемента 3 в nums = \(index)")
     }
 }

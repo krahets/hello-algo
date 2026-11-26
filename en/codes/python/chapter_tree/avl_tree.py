@@ -24,22 +24,22 @@ class AVLTree:
 
     def height(self, node: TreeNode | None) -> int:
         """Get the node height"""
-        # An empty subtree has height -1; a leaf has height 0
+        # A null node has height -1, and a leaf has height 0
         if node is not None:
             return node.height
         return -1
 
     def update_height(self, node: TreeNode | None):
         """Update the node height"""
-        # The node height equals the height of its taller subtree + 1
+        # Node height is the height of the taller subtree plus 1
         node.height = max([self.height(node.left), self.height(node.right)]) + 1
 
     def balance_factor(self, node: TreeNode | None) -> int:
         """Get the balance factor"""
-        # An empty subtree has balance factor 0
+        # A null node has a balance factor of 0
         if node is None:
             return 0
-        # Node balance factor = left subtree height - right subtree height
+        # Balance factor = left subtree height - right subtree height
         return self.height(node.left) - self.height(node.right)
 
     def right_rotate(self, node: TreeNode | None) -> TreeNode | None:
@@ -69,7 +69,7 @@ class AVLTree:
         return child
 
     def rotate(self, node: TreeNode | None) -> TreeNode | None:
-        """Perform rotations to restore balance in this subtree"""
+        """Rebalance the subtree by rotating it"""
         # Get the balance factor of node
         balance_factor = self.balance_factor(node)
         # Left-heavy tree
@@ -90,7 +90,7 @@ class AVLTree:
                 # Rotate right, then left
                 node.right = self.right_rotate(node.right)
                 return self.left_rotate(node)
-        # The tree is balanced; return without rotating
+        # The tree is balanced, so return without rotating
         return node
 
     def insert(self, val):
@@ -107,22 +107,22 @@ class AVLTree:
         elif val > node.val:
             node.right = self.insert_helper(node.right, val)
         else:
-            # Return without inserting a duplicate node
+            # Return without inserting a duplicate
             return node
         # Update the node height
         self.update_height(node)
-        # 2. Perform rotations to restore balance in this subtree
+        # 2. Rebalance the subtree by rotating it
         return self.rotate(node)
 
     def remove(self, val: int):
-        """Remove a node"""
+        """Delete a node"""
         self._root = self.remove_helper(self._root, val)
 
     def remove_helper(self, node: TreeNode | None, val: int) -> TreeNode | None:
-        """Remove a node recursively (helper method)"""
+        """Delete a node recursively (helper method)"""
         if node is None:
             return None
-        # 1. Find and remove the node
+        # 1. Find the node and delete it
         if val < node.val:
             node.left = self.remove_helper(node.left, val)
         elif val > node.val:
@@ -130,14 +130,14 @@ class AVLTree:
         else:
             if node.left is None or node.right is None:
                 child = node.left or node.right
-                # Number of children = 0: remove node and return
+                # No children: delete node and return
                 if child is None:
                     return None
-                # Number of children = 1: remove node directly
+                # One child: delete node
                 else:
                     node = child
             else:
-                # Number of children = 2: remove the inorder successor and use its value to replace the current node value
+                # Two children: delete the inorder successor and use it to replace the current node
                 temp = node.right
                 while temp.left is not None:
                     temp = temp.left
@@ -145,56 +145,56 @@ class AVLTree:
                 node.val = temp.val
         # Update the node height
         self.update_height(node)
-        # 2. Perform rotations to restore balance in this subtree
+        # 2. Rebalance the subtree by rotating it
         return self.rotate(node)
 
     def search(self, val: int) -> TreeNode | None:
-        """Find a node"""
+        """Search for a node"""
         cur = self._root
-        # Search in a loop, stopping if cur becomes None
+        # Stop the search after passing a leaf
         while cur is not None:
-            # If present, the target node lies in the right subtree of cur
+            # The target is in the right subtree of cur
             if cur.val < val:
                 cur = cur.right
-            # If present, the target node lies in the left subtree of cur
+            # The target is in the left subtree of cur
             elif cur.val > val:
                 cur = cur.left
-            # The target node was found; exit the loop
+            # The target was found, so exit the loop
             else:
                 break
-        # Return the target node, or None if it was not found
+        # Return the target node
         return cur
 
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
 
     def test_insert(tree: AVLTree, val: int):
         tree.insert(val)
-        print("\nAVL tree after inserting node {}:".format(val))
+        print("\nAVL tree after inserting {}:".format(val))
         print_tree(tree.get_root())
 
     def test_remove(tree: AVLTree, val: int):
         tree.remove(val)
-        print("\nAVL tree after removing node {}:".format(val))
+        print("\nAVL tree after deleting {}:".format(val))
         print_tree(tree.get_root())
 
     # Initialize an empty AVL tree
     avl_tree = AVLTree()
 
     # Insert a node
-    # Observe how the AVL tree maintains balance after a node is inserted
+    # Watch how the AVL tree stays balanced after an insertion
     for val in [1, 2, 3, 4, 5, 8, 7, 9, 10, 6]:
         test_insert(avl_tree, val)
 
     # Insert a duplicate node
     test_insert(avl_tree, 7)
 
-    # Remove a node
-    # Observe how the AVL tree maintains balance after a node is removed
-    test_remove(avl_tree, 8)  # Remove a node with 0 children
-    test_remove(avl_tree, 5)  # Remove a node with 1 child
-    test_remove(avl_tree, 4)  # Remove a node with 2 children
+    # Delete a node
+    # Watch how the AVL tree stays balanced after a deletion
+    test_remove(avl_tree, 8)  # Delete a node with no children
+    test_remove(avl_tree, 5)  # Delete a node with one child
+    test_remove(avl_tree, 4)  # Delete a node with two children
 
     result_node = avl_tree.search(7)
-    print("\nFound node object: {}, node value = {}".format(result_node, result_node.val))
+    print("\nNode found: {}, node value = {}".format(result_node, result_node.val))

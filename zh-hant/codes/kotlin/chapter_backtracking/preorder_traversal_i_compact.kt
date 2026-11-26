@@ -17,14 +17,14 @@ fun preOrder(root: TreeNode?) {
         return
     }
     if (root._val == 7) {
-        // 記錄解
+        // 記錄此解
         res!!.add(root)
     }
     preOrder(root.left)
     preOrder(root.right)
 }
 
-/* Driver Code */
+/* 主程式 */
 fun main() {
     val root = TreeNode.listToTree(mutableListOf(1, 7, 3, 4, 5, 6, 7))
     println("\n初始化二元樹")

@@ -6,9 +6,9 @@
 
 import 'dart:math';
 
-/* 分割後の積の最大化：貪欲法 */
+/* 整数分割の最大積（貪欲法） */
 int maxProductCutting(int n) {
-  // n <= 3 の場合、必ず 1 を 1 つ切り出す必要がある
+  // n <= 3 の場合は必ず 1 を切り出す
   if (n <= 3) {
     return 1 * (n - 1);
   }
@@ -16,22 +16,22 @@ int maxProductCutting(int n) {
   int a = n ~/ 3;
   int b = n % 3;
   if (b == 1) {
-    // 余りが 1 の場合、1 * 3 の組を 2 * 2 に変換する
+    // 余りが 1 なら、1 * 3 の組を 2 * 2 に置き換える
     return (pow(3, a - 1) * 2 * 2).toInt();
   }
   if (b == 2) {
-    // 余りが 2 の場合、何もしない
+    // 余りが 2 なら、そのままにする
     return (pow(3, a) * 2).toInt();
   }
-  // 余りが 0 の場合、何もしない
+  // 余りが 0 なら、そのままにする
   return pow(3, a).toInt();
 }
 
-/* 実行用コード */
+/* 実行例 */
 void main() {
   int n = 58;
 
-  // 貪欲アルゴリズム
+  // 貪欲法
   int res = maxProductCutting(n);
   print("分割後の積の最大値は $res");
 }

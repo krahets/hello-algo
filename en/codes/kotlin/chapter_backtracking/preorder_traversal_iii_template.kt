@@ -19,7 +19,7 @@ fun recordSolution(state: MutableList<TreeNode?>?, res: MutableList<MutableList<
     res.add(state!!.toMutableList())
 }
 
-/* Check whether the choice is valid in the current state */
+/* Check whether this choice is valid in the current state */
 fun isValid(state: MutableList<TreeNode?>?, choice: TreeNode?): Boolean {
     return choice != null && choice._val != 3
 }
@@ -40,20 +40,20 @@ fun backtrack(
     choices: MutableList<TreeNode?>,
     res: MutableList<MutableList<TreeNode?>?>
 ) {
-    // Check whether this is a solution
+    // Check for a solution
     if (isSolution(state)) {
         // Record the solution
         recordSolution(state, res)
     }
-    // Iterate over all choices
+    // Try each choice
     for (choice in choices) {
         // Prune: check whether the choice is valid
         if (isValid(state, choice)) {
-            // Try: make a choice and update the state
+            // Make a choice and update the state
             makeChoice(state, choice)
-            // Proceed to the next choice
+            // Make the next choice
             backtrack(state, mutableListOf(choice!!.left, choice.right), res)
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             undoChoice(state, choice)
         }
     }
@@ -65,11 +65,11 @@ fun main() {
     println("\nInitialize the binary tree")
     printTree(root)
 
-    // Backtracking algorithm
+    // Backtracking
     val res = mutableListOf<MutableList<TreeNode?>?>()
     backtrack(mutableListOf(), mutableListOf(root), res)
 
-    println("\nOutput all paths from the root to nodes with value 7, requiring that no node on the path has value 3")
+    println("\nPrint all paths from the root to a node with value 7 that avoid nodes with value 3")
     for (path in res) {
         val vals = mutableListOf<Int>()
         for (node in path!!) {

@@ -1,80 +1,80 @@
-# Edit distance problem
+# The edit distance problem
 
-Edit distance, also called Levenshtein distance, is the minimum number of edits needed to transform one string into another. It is commonly used in information retrieval and natural language processing to measure similarity between sequences.
+Edit distance, also called Levenshtein distance, is the fewest edits needed to transform one string into another. It is commonly used in information retrieval and natural language processing to measure the similarity of two sequences.
 
 !!! question
 
     Given two strings $s$ and $t$, return the minimum number of edits needed to transform $s$ into $t$.
     
-    Three edits are allowed: insert a character, delete a character, or replace a character with any other character.
+    You may insert one character, delete one character, or replace one character with any character.
 
-As shown in the figure below, transforming `kitten` into `sitting` takes 3 edits: 2 replacements and 1 insertion. Transforming `hello` into `algo` also takes 3 edits: 2 replacements and 1 deletion.
+As shown below, changing `kitten` to `sitting` takes 3 edits: 2 replacements and 1 insertion. Changing `hello` to `algo` also takes 3 edits: 2 replacements and 1 deletion.
 
-![Examples of edit distance](edit_distance_problem.assets/edit_distance_example.svg)
+![Edit distance examples](edit_distance_problem.assets/edit_distance_example.svg)
 
-**Edit distance fits naturally into a decision tree model**. Strings are nodes, and each decision (an edit) is an edge.
+**A decision tree provides a natural model for edit distance**. Each node is a string, and each edge represents a decision to make one edit.
 
-As shown in the figure below, without restrictions on the edits, each node can have many outgoing edges, one for each possible operation. Thus, many paths can transform `hello` into `algo`.
+As the figure shows, without restrictions each node can have many outgoing edges, one for each possible edit. There are therefore many paths from `hello` to `algo`.
 
-From the decision tree perspective, the goal is to find the shortest path between nodes `hello` and `algo`.
+In the decision tree, our goal is the shortest path from node `hello` to node `algo`.
 
-![Edit distance as a decision tree](edit_distance_problem.assets/edit_distance_decision_tree.svg)
+![Modeling edit distance with a decision tree](edit_distance_problem.assets/edit_distance_decision_tree.svg)
 
-### Dynamic programming approach
+### A dynamic programming approach
 
-**Step 1: Identify each decision, define the state, and establish the $dp$ table**
+**Step 1: Identify the decision at each step and define the state and $dp$ table**
 
-Each decision applies one edit to string $s$.
+At each step, we choose an edit to apply to string $s$.
 
-We want each edit to reduce the problem's size so that we can form subproblems. Let the lengths of $s$ and $t$ be $n$ and $m$. First consider their last characters, $s[n-1]$ and $t[m-1]$.
+To form subproblems, we want each editing decision to reduce the size of the remaining problem. Let $s$ and $t$ have lengths $n$ and $m$, respectively. Consider their final characters $s[n-1]$ and $t[m-1]$.
 
-- If $s[n-1]$ and $t[m-1]$ match, skip them and consider $s[n-2]$ and $t[m-2]$.
-- If $s[n-1]$ and $t[m-1]$ differ, apply an edit to $s$ (insertion, deletion, or replacement) to match the endings, allowing us to move on to a smaller problem.
+- If $s[n-1]$ and $t[m-1]$ match, skip both and move on to $s[n-2]$ and $t[m-2]$.
+- If $s[n-1]$ and $t[m-1]$ differ, we need to edit $s$ (insert, delete, or replace a character) to resolve the mismatch at the end. We can then skip the resolved characters and work on a smaller problem.
 
-Each decision (edit) in $s$ changes the characters still to be matched in $s$ and $t$. The state therefore specifies the $i$-th and $j$-th characters currently under consideration in $s$ and $t$, denoted by $[i, j]$.
+Each editing decision on $s$ changes which characters in $s$ and $t$ remain to be matched. The state therefore identifies the characters currently under consideration in $s$ and $t$ by their positions $i$ and $j$. Write the state as $[i, j]$.
 
-State $[i, j]$ represents the subproblem of finding **the minimum number of edits needed to transform the first $i$ characters of $s$ into the first $j$ characters of $t$**.
+The subproblem for state $[i, j]$ is **the minimum number of edits to change the first $i$ characters of $s$ into the first $j$ characters of $t$**.
 
-This gives a two-dimensional $dp$ table of size $(n+1) \times (m+1)$.
+This gives us a two-dimensional $dp$ table of size $(n+1) \times (m+1)$.
 
-**Step 2: Identify optimal substructure and derive the state transition equation**
+**Step 2: Identify optimal substructure and derive the recurrence**
 
-For subproblem $dp[i, j]$, the final characters are $s[i-1]$ and $t[j-1]$. The three possible edits give the cases shown in the figure below.
+For subproblem $dp[i, j]$, the two prefixes end in $s[i-1]$ and $t[j-1]$. The three possible edits give the cases shown below.
 
-1. Insert $t[j-1]$ after $s[i-1]$, leaving subproblem $dp[i, j-1]$.
-2. Delete $s[i-1]$, leaving subproblem $dp[i-1, j]$.
-3. Replace $s[i-1]$ with $t[j-1]$, leaving subproblem $dp[i-1, j-1]$.
+1. Insert $t[j-1]$ after $s[i-1]$. The remaining subproblem is $dp[i, j-1]$.
+2. Delete $s[i-1]$. The remaining subproblem is $dp[i-1, j]$.
+3. Replace $s[i-1]$ with $t[j-1]$. The remaining subproblem is $dp[i-1, j-1]$.
 
 ![State transitions for edit distance](edit_distance_problem.assets/edit_distance_state_transfer.svg)
 
-The optimal substructure follows: the minimum edit count $dp[i, j]$ is the smallest of $dp[i, j-1]$, $dp[i-1, j]$, and $dp[i-1, j-1]$, plus $1$ for the current edit. The state transition equation is:
+The optimal substructure now follows: the minimum edit count $dp[i, j]$ is the smallest of $dp[i, j-1]$, $dp[i-1, j]$, and $dp[i-1, j-1]$, plus $1$ for the current edit. The recurrence is:
 
 $$
 dp[i, j] = \min(dp[i, j-1], dp[i-1, j], dp[i-1, j-1]) + 1
 $$
 
-When **$s[i-1]$ and $t[j-1]$ match, no edit is needed for the current characters**, and the state transition equation becomes:
+**When $s[i-1]$ and $t[j-1]$ match, the current character needs no edit**. In that case the recurrence is:
 
 $$
 dp[i, j] = dp[i-1, j-1]
 $$
 
-**Step 3: Determine the boundary conditions and evaluation order**
+**Step 3: Determine the boundary conditions and the order of computation**
 
-If both strings are empty, $0$ edits are needed, so $dp[0, 0] = 0$. If $s$ is empty but $t$ is not, the minimum edit count is the length of $t$, giving the first row $dp[0, j] = j$. If $s$ is nonempty but $t$ is empty, the count is the length of $s$, giving the first column $dp[i, 0] = i$.
+When both strings are empty, the edit count is $0$, so $dp[0, 0] = 0$. When $s$ is empty and $t$ is not, the minimum edit count is the length of $t$, giving the first row $dp[0, j] = j$. When $s$ is nonempty and $t$ is empty, the minimum count is the length of $s$, giving the first column $dp[i, 0] = i$.
 
-The solution $dp[i, j]$ depends on entries to its left, above, and upper left, so two nested loops can traverse the $dp$ table in increasing index order.
+The recurrence for $dp[i, j]$ depends on the cells to the left, above, and diagonally above to the left. Two forward loops can therefore fill the entire $dp$ table.
 
-### Code implementation
+### Implementation
 
 ```src
 [file]{edit_distance}-[class]{}-[func]{edit_distance_dp}
 ```
 
-As shown in the figure below, the state transition process resembles that of the knapsack problem: both fill a two-dimensional grid.
+As shown below, state transitions for edit distance closely resemble those for knapsack: both fill a two-dimensional grid.
 
 === "<1>"
-    ![Dynamic programming for edit distance](edit_distance_problem.assets/edit_distance_dp_step1.svg)
+    ![Computing edit distance with dynamic programming](edit_distance_problem.assets/edit_distance_dp_step1.svg)
 
 === "<2>"
     ![edit_distance_dp_step2](edit_distance_problem.assets/edit_distance_dp_step2.svg)
@@ -120,9 +120,9 @@ As shown in the figure below, the state transition process resembles that of the
 
 ### Space optimization
 
-The state $dp[i,j]$ depends on $dp[i-1, j]$ above, $dp[i, j-1]$ to the left, and $dp[i-1, j-1]$ at the upper left. Forward iteration loses $dp[i-1, j-1]$, while backward iteration cannot compute $dp[i, j-1]$ in advance. Neither order alone is sufficient.
+State $dp[i,j]$ depends on $dp[i-1, j]$ above, $dp[i, j-1]$ to the left, and $dp[i-1, j-1]$ at the upper left. With one row of storage, forward traversal loses the upper-left value $dp[i-1, j-1]$, while reverse traversal cannot compute $dp[i, j-1]$ in time. Neither order works on its own.
 
-We can use a variable `leftup` to preserve the upper-left solution $dp[i-1, j-1]$, leaving only the left and upper entries to consider. The situation then matches unbounded knapsack, and forward iteration works. The code is as follows:
+Save the upper-left value $dp[i-1, j-1]$ in a variable `leftup`. That leaves only the left and upper entries to track in the row, just as in unbounded knapsack, so we can traverse forward:
 
 ```src
 [file]{edit_distance}-[class]{}-[func]{edit_distance_dp_comp}

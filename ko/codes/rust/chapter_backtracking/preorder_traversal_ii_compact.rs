@@ -41,7 +41,7 @@ pub fn main() {
     let mut res = Vec::new();
     pre_order(&mut res, &mut path, root.as_ref());
 
-    println!("\n루트 노드에서 노드 7까지의 모든 경로 출력");
+    println!("\n루트에서 값이 7인 노드까지의 모든 경로 출력");
     for path in res {
         let mut vals = Vec::new();
         for node in path {

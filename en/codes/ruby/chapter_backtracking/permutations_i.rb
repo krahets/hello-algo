@@ -6,22 +6,22 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 ### Backtracking: permutations I ###
 def backtrack(state, choices, selected, res)
-  # Record a solution when the state length equals the number of elements
+  # Record a solution when the state contains all the elements
   if state.length == choices.length
     res << state.dup
     return
   end
 
-  # Iterate over all choices
+  # Try each choice
   choices.each_with_index do |choice, i|
-    # Prune: do not choose an element more than once
+    # Prune: skip elements already in use
     unless selected[i]
-      # Try: make a choice and update the state
+      # Make a choice and update the state
       selected[i] = true
       state << choice
-      # Proceed to the next choice
+      # Make the next choice
       backtrack(state, choices, selected, res)
-      # Backtrack: undo the choice and restore the previous state
+      # Backtrack: undo the choice to restore the previous state
       selected[i] = false
       state.pop
     end

@@ -27,7 +27,7 @@ public class simple_hash {
         return (int)hash;
     }
 
-    /* XOR-хеширование */
+    /* Хеширование с помощью XOR */
     int XorHash(string key) {
         int hash = 0;
         const int MODULUS = 1000000007;
@@ -49,18 +49,18 @@ public class simple_hash {
 
     [Test]
     public void Test() {
-        string key = "Hello Algo";
+        string key = "Hello 算法";
 
         int hash = AddHash(key);
-        Console.WriteLine("Хеш-сумма сложением = " + hash);
+        Console.WriteLine("Аддитивный хеш: " + hash);
 
         hash = MulHash(key);
-        Console.WriteLine("Хеш-сумма умножением = " + hash);
+        Console.WriteLine("Мультипликативный хеш: " + hash);
 
         hash = XorHash(key);
-        Console.WriteLine("Хеш-сумма XOR = " + hash);
+        Console.WriteLine("Хеш на основе XOR: " + hash);
 
         hash = RotHash(key);
-        Console.WriteLine("Хеш-сумма с циклическим сдвигом = " + hash);
+        Console.WriteLine("Хеш с циклическим сдвигом: " + hash);
     }
 }

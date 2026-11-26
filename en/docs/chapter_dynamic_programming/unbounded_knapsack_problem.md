@@ -1,36 +1,36 @@
-# Unbounded knapsack problem
+# The unbounded knapsack problem
 
-We will now solve another common knapsack variant, unbounded knapsack, and then examine a special case: coin change.
+In this section, we'll solve another common knapsack problem, unbounded knapsack, and explore a special case: coin change.
 
-## Unbounded knapsack
+## The unbounded knapsack problem
 
 !!! question
 
-    Given $n$ items, where item $i$ has weight $wgt[i-1]$ and value $val[i-1]$, and a knapsack of capacity $cap$, **each item may be chosen repeatedly**. What is the maximum value that fits within the capacity? An example is shown in the figure below.
+    Given $n$ item types, where type $i$ has weight $wgt[i-1]$ and value $val[i-1]$, and a knapsack of capacity $cap$, **you can take multiple copies of each type**. Find the maximum total value you can pack within the capacity limit. The figure below shows an example.
 
 ![Example input for unbounded knapsack](unbounded_knapsack_problem.assets/unbounded_knapsack_example.svg)
 
-### Dynamic programming approach
+### A dynamic programming approach
 
-Unbounded knapsack is very similar to 0-1 knapsack. **The only difference is that there is no limit on how many times an item may be chosen**.
+Unbounded knapsack closely resembles 0-1 knapsack. **The only difference is that a type can be taken any number of times**.
 
-- In 0-1 knapsack, there is only one of each item, so after including item $i$, we can choose only from the first $i-1$ items.
-- In unbounded knapsack, each item has an unlimited supply, so after including item $i$, **we can still choose from the first $i$ items**.
+- In 0-1 knapsack, each item is available once. After packing item $i$, we can choose only from the first $i-1$ items.
+- In unbounded knapsack, each type has an unlimited supply. After packing item $i$, **we can still choose from the first $i$ types**.
 
-For unbounded knapsack, state $[i, c]$ has two cases.
+Under these rules, state $[i, c]$ has two possible transitions.
 
-- **Leave item $i$ out**: As in 0-1 knapsack, the remaining state is $[i-1, c]$.
-- **Put item $i$ in**: Unlike 0-1 knapsack, the remaining state is $[i, c-wgt[i-1]]$.
+- **Skip item $i$**. As in 0-1 knapsack, the remaining state is $[i-1, c]$.
+- **Take item $i$**. Unlike 0-1 knapsack, the remaining state is $[i, c-wgt[i-1]]$.
 
-The state transition equation becomes:
+The recurrence therefore becomes:
 
 $$
 dp[i, c] = \max(dp[i-1, c], dp[i, c - wgt[i-1]] + val[i-1])
 $$
 
-### Code implementation
+### Implementation
 
-Compared with 0-1 knapsack, only one $i-1$ in the transition changes to $i$; the rest of the code is identical:
+Comparing the code for the two problems, just one index in the transition changes from $i-1$ to $i$. The rest is identical:
 
 ```src
 [file]{unbounded_knapsack}-[class]{}-[func]{unbounded_knapsack_dp}
@@ -38,12 +38,12 @@ Compared with 0-1 knapsack, only one $i-1$ in the transition changes to $i$; the
 
 ### Space optimization
 
-The current state depends on states to its left and above, **so after space optimization, each row of the $dp$ table must be processed in forward order**.
+Each state depends on the cells to its left and above it. **After reducing space, traverse each row of the $dp$ table in forward order**.
 
-This is the opposite of 0-1 knapsack. Use the figure below to understand the difference.
+This is the opposite of the order for 0-1 knapsack. The figure below illustrates the difference.
 
 === "<1>"
-    ![Space-optimized dynamic programming for unbounded knapsack](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.svg)
+    ![Solving unbounded knapsack with a space-optimized dp table](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.svg)
 
 === "<2>"
     ![unbounded_knapsack_dp_comp_step2](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.svg)
@@ -60,67 +60,67 @@ This is the opposite of 0-1 knapsack. Use the figure below to understand the dif
 === "<6>"
     ![unbounded_knapsack_dp_comp_step6](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.svg)
 
-The implementation simply removes the first dimension of `dp`:
+To implement this, simply remove the first dimension of the array `dp`:
 
 ```src
 [file]{unbounded_knapsack}-[class]{}-[func]{unbounded_knapsack_dp_comp}
 ```
 
-## Coin change problem
+## The coin change problem
 
-Knapsack represents a broad family of dynamic programming problems, with many variants such as coin change.
+Knapsack represents a large family of dynamic programming problems with many variants, including coin change.
 
 !!! question
 
-    Given $n$ coin denominations, where denomination $i$ has value $coins[i - 1]$, and a target amount $amt$, **each denomination may be used repeatedly**. What is the minimum number of coins needed to make the target? Return $-1$ if it cannot be made. An example is shown in the figure below.
+    Given $n$ coin types, where type $i$ has denomination $coins[i - 1]$, and a target amount $amt$, **each denomination can be used repeatedly**. Find the fewest coins that make the target amount. Return $-1$ if the amount cannot be made. The figure below shows an example.
 
 ![Example input for coin change](unbounded_knapsack_problem.assets/coin_change_example.svg)
 
-### Dynamic programming approach
+### A dynamic programming approach
 
-**Coin change can be viewed as a special case of unbounded knapsack**, with the following connections and differences.
+**Coin change can be viewed as a special case of unbounded knapsack**. The two problems correspond in the following ways and differ in their goals.
 
-- The two problems can be translated into one another: items correspond to coins, item weights to coin denominations, and knapsack capacity to the target amount.
-- The optimization objectives are opposite: unbounded knapsack maximizes item value, while coin change minimizes the number of coins.
-- Unbounded knapsack must stay within a capacity limit, whereas coin change must reach the target amount exactly.
+- We can map one problem to the other: items correspond to coins, item weights to denominations, and knapsack capacity to the target amount.
+- Their objectives point in opposite directions. Unbounded knapsack maximizes item value, while coin change minimizes coin count.
+- Unbounded knapsack asks for a solution within the capacity limit. Coin change requires the target amount exactly.
 
-**Step 1: Identify each decision, define the state, and establish the $dp$ table**
+**Step 1: Identify the decision at each step and define the state and $dp$ table**
 
-State $[i, a]$ represents the subproblem of finding **the minimum number of coins needed to make amount $a$ using the first $i$ denominations**, denoted by $dp[i, a]$.
+The subproblem for state $[i, a]$ is **the fewest coins from the first $i$ types that can make amount $a$**. Write its solution as $dp[i, a]$.
 
-The two-dimensional $dp$ table has size $(n+1) \times (amt+1)$.
+The two-dimensional $dp$ table has dimensions $(n+1) \times (amt+1)$.
 
-**Step 2: Identify optimal substructure and derive the state transition equation**
+**Step 2: Identify optimal substructure and derive the recurrence**
 
-The state transition differs from unbounded knapsack in two ways.
+The recurrence differs from unbounded knapsack in two ways.
 
-- We want a minimum, so replace $\max()$ with $\min()$.
-- We optimize the coin count rather than item value, so choosing a coin adds $+1$.
+- We want a minimum, so replace the operator $\max()$ with $\min()$.
+- We optimize the number of coins rather than item value, so taking a coin contributes $+1$.
 
 $$
 dp[i, a] = \min(dp[i-1, a], dp[i, a - coins[i-1]] + 1)
 $$
 
-**Step 3: Determine the boundary conditions and evaluation order**
+**Step 3: Determine the boundary conditions and the order of computation**
 
-A target amount of $0$ requires $0$ coins, so every entry $dp[i, 0]$ in the first column is $0$.
+For target amount $0$, the minimum number of coins is $0$. Thus all entries $dp[i, 0]$ in the first column equal $0$.
 
-With no coins, **any target amount $> 0$ is impossible**. To let $\min()$ recognize and discard these infeasible solutions, represent them by $+ \infty$: set the first-row entries $dp[0, a]$ to $+ \infty$.
+With no coins, **no target amount $> 0$ can be made**. Such a state has no valid solution. To let $\min()$ ignore invalid candidates, we could represent them by $+ \infty$, setting the first-row entries $dp[0, a]$ for positive amounts to $+ \infty$.
 
-### Code implementation
+### Implementation
 
-Most programming languages do not provide an integer value for $+ \infty$, so the maximum `int` value is used instead. However, the $+ 1$ in the transition may then overflow.
+Most programming languages do not provide an integer value for $+ \infty$. Substituting the largest `int` value can cause overflow in the recurrence's $+ 1$ operation.
 
-Instead, use $amt + 1$ to represent an infeasible solution, since making $amt$ requires at most $amt$ coins. Before returning, check whether $dp[n, amt]$ equals $amt + 1$. If so, return $-1$ to indicate that the target cannot be made. The code is as follows:
+Instead, use $amt + 1$ for an invalid solution: making amount $amt$ can require at most $amt$ coins. Before returning, check whether $dp[n, amt]$ equals $amt + 1$. If it does, return $-1$ to indicate the target is unreachable. Here is the code:
 
 ```src
 [file]{coin_change}-[class]{}-[func]{coin_change_dp}
 ```
 
-The figure below shows dynamic programming for coin change, which closely resembles unbounded knapsack.
+The figure below traces dynamic programming for coin change. It closely resembles unbounded knapsack.
 
 === "<1>"
-    ![Dynamic programming for coin change](unbounded_knapsack_problem.assets/coin_change_dp_step1.svg)
+    ![Solving coin change with dynamic programming](unbounded_knapsack_problem.assets/coin_change_dp_step1.svg)
 
 === "<2>"
     ![coin_change_dp_step2](unbounded_knapsack_problem.assets/coin_change_dp_step2.svg)
@@ -166,33 +166,33 @@ The figure below shows dynamic programming for coin change, which closely resemb
 
 ### Space optimization
 
-Space optimization is the same as for unbounded knapsack:
+Coin change uses the same space optimization as unbounded knapsack:
 
 ```src
 [file]{coin_change}-[class]{}-[func]{coin_change_dp_comp}
 ```
 
-## Coin change problem II
+## Coin change II
 
 !!! question
 
-    Given $n$ coin denominations, where denomination $i$ has value $coins[i - 1]$, and a target amount $amt$, each denomination may be used repeatedly. **How many combinations of coins make the target amount**? An example is shown in the figure below.
+    Given $n$ denominations, where type $i$ has value $coins[i - 1]$, and a target amount $amt$, each denomination can be used repeatedly. **How many coin combinations make the target amount?** The figure below shows an example.
 
 ![Example input for coin change II](unbounded_knapsack_problem.assets/coin_change_ii_example.svg)
 
-### Dynamic programming approach
+### A dynamic programming approach
 
-This time, we count combinations, so the subproblem becomes **the number of combinations that make amount $a$ using the first $i$ denominations**. The $dp$ table remains a two-dimensional matrix of size $(n+1) \times (amt + 1)$.
+Here we count combinations, so the subproblem becomes **the number of combinations of the first $i$ denominations that make amount $a$**. The $dp$ table is still a two-dimensional matrix of size $(n+1) \times (amt + 1)$.
 
-The number of combinations for the current state is the sum of those that exclude the current coin and those that include it. The state transition equation is:
+The number of combinations for a state is the sum of the counts for skipping and taking the current coin. The recurrence is:
 
 $$
 dp[i, a] = dp[i-1, a] + dp[i, a - coins[i-1]]
 $$
 
-A target of $0$ can be made by choosing no coins, so initialize every first-column entry $dp[i, 0]$ to $1$. With no coins, any target $>0$ is impossible, so the first-row entries $dp[0, a]$ are $0$.
+When the target amount is $0$, taking no coins makes it exactly. Initialize all entries $dp[i, 0]$ in the first column to $1$. With no coins, no target amount $>0$ can be made, so all first-row entries $dp[0, a]$ for positive amounts equal $0$.
 
-### Code implementation
+### Implementation
 
 ```src
 [file]{coin_change_ii}-[class]{}-[func]{coin_change_ii_dp}
@@ -200,7 +200,7 @@ A target of $0$ can be made by choosing no coins, so initialize every first-colu
 
 ### Space optimization
 
-The space optimization is the same: remove the coin dimension:
+Use the same space optimization by removing the coin dimension:
 
 ```src
 [file]{coin_change_ii}-[class]{}-[func]{coin_change_ii_dp_comp}

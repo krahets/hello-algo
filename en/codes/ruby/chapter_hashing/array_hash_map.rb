@@ -14,11 +14,11 @@ class Pair
   end
 end
 
-### Hash table implemented with an array ###
+### Array-based hash table ###
 class ArrayHashMap
   ### Constructor ###
   def initialize
-    # Initialize an array containing 100 buckets
+    # Initialize an array with 100 buckets
     @buckets = Array.new(100)
   end
 
@@ -27,7 +27,7 @@ class ArrayHashMap
     index = key % 100
   end
 
-  ### Lookup operation ###
+  ### Look up a value ###
   def get(key)
     index = hash_func(key)
     pair = @buckets[index]
@@ -36,17 +36,17 @@ class ArrayHashMap
     pair.val
   end
 
-  ### Insert operation ###
+  ### Insert a key-value pair ###
   def put(key, val)
     pair = Pair.new(key, val)
     index = hash_func(key)
     @buckets[index] = pair
   end
 
-  ### Remove operation ###
+  ### Remove a key-value pair ###
   def remove(key)
     index = hash_func(key)
-    # Set the bucket to nil to indicate removal
+    # Set the slot to nil to remove the entry
     @buckets[index] = nil
   end
 
@@ -82,39 +82,39 @@ if __FILE__ == $0
   # Initialize the hash table
   hmap = ArrayHashMap.new
 
-  # Insert operation
-  # Insert the key-value pair (key, value) into the hash table
-  hmap.put(12836, "小哈")
-  hmap.put(15937, "小啰")
-  hmap.put(16750, "小算")
-  hmap.put(13276, "小法")
-  hmap.put(10583, "小鸭")
+  # Insert a key-value pair
+  # Insert the pair (key, value) into the hash table
+  hmap.put(12836, "Xiao Ha")
+  hmap.put(15937, "Xiao Luo")
+  hmap.put(16750, "Xiao Suan")
+  hmap.put(13276, "Xiao Fa")
+  hmap.put(10583, "Xiao Ya")
   puts "\nHash table after insertion:\nKey -> Value"
   hmap.print
 
-  # Lookup operation
-  # Look up key in the hash table to obtain value
+  # Look up a value
+  # Look up key in the hash table to get value
   name = hmap.get(15937)
-  puts "\nLook up student ID 15937: name = #{name}"
+  puts "\nName for student ID 15937: #{name}"
 
-  # Remove operation
-  # Remove the key-value pair (key, value) from the hash table
+  # Remove a key-value pair
+  # Remove the pair (key, value) from the hash table
   hmap.remove(10583)
   puts "\nHash table after removing 10583:\nKey -> Value"
   hmap.print
 
-  # Traverse the hash table
-  puts "\nTraverse key-value pairs: Key->Value"
+  # Iterate over the hash table
+  puts "\nIterate over key-value pairs (Key->Value)"
   for pair in hmap.entry_set
     puts "#{pair.key} -> #{pair.val}"
   end
 
-  puts "\nTraverse the keys only"
+  puts "\nIterate over keys only"
   for key in hmap.key_set
     puts key
   end
 
-  puts "\nTraverse values only: Value"
+  puts "\nIterate over values only"
   for val in hmap.value_set
     puts val
   end

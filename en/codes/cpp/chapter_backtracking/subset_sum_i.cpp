@@ -8,34 +8,34 @@
 
 /* Backtracking: subset sum I */
 void backtrack(vector<int> &state, int target, vector<int> &choices, int start, vector<vector<int>> &res) {
-    // Record a solution when the remaining target reaches 0
+    // Record a solution when the subset sums to target
     if (target == 0) {
         res.push_back(state);
         return;
     }
-    // Iterate over all choices
-    // Pruning 2: iterate from start to avoid generating duplicate subsets
+    // Try each choice
+    // Pruning rule 2: start at start to avoid duplicate subsets
     for (int i = start; i < choices.size(); i++) {
-        // Pruning 1: exit the loop if this choice exceeds the remaining target
-        // The array is sorted, so later elements are at least as large and also exceed the remaining target
+        // Pruning rule 1: break if the subset sum would exceed target
+        // The array is sorted, so later elements are at least as large and would also take the sum over target
         if (target - choices[i] < 0) {
             break;
         }
-        // Try: make a choice and update target and start
+        // Make a choice and update target and start
         state.push_back(choices[i]);
-        // Proceed to the next choice
+        // Make the next choice
         backtrack(state, target - choices[i], choices, i, res);
-        // Backtrack: undo the choice and restore the previous state
+        // Backtrack: undo the choice to restore the previous state
         state.pop_back();
     }
 }
 
 /* Solve subset sum I */
 vector<vector<int>> subsetSumI(vector<int> &nums, int target) {
-    vector<int> state;              // State (subset)
+    vector<int> state;              // State (current subset)
     sort(nums.begin(), nums.end()); // Sort nums
-    int start = 0;                  // Starting index for iteration
-    vector<vector<int>> res;        // Result list (list of subsets)
+    int start = 0;                  // Starting index
+    vector<vector<int>> res;        // Results (list of subsets)
     backtrack(state, target, nums, start, res);
     return res;
 }
@@ -50,7 +50,7 @@ int main() {
     cout << "Input array nums = ";
     printVector(nums);
     cout << "target = " << target << endl;
-    cout << "All subsets with sum " << target << " , res = " << endl;
+    cout << "Subsets that sum to " << target << " (res) = " << endl;
     printVectorMatrix(res);
 
     return 0;

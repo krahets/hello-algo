@@ -13,124 +13,124 @@ import (
 )
 
 func TestDeque(t *testing.T) {
-	/* 初始化雙向佇列 */
-	// 在 Go 中，將 list 作為雙向佇列使用
+	/* 初始化雙端佇列 */
+	// 在 Go 中，可用 list 套件的鏈結串列當作雙端佇列
 	deque := list.New()
 
-	/* 元素入列 */
+	/* 將元素加入雙端佇列 */
 	deque.PushBack(2)
 	deque.PushBack(5)
 	deque.PushBack(4)
 	deque.PushFront(3)
 	deque.PushFront(1)
-	fmt.Print("雙向佇列 deque = ")
+	fmt.Print("雙端佇列 deque = ")
 	PrintList(deque)
 
-	/* 訪問元素 */
+	/* 讀取隊首與隊尾元素 */
 	front := deque.Front()
-	fmt.Println("佇列首元素 front =", front.Value)
+	fmt.Println("隊首元素 front =", front.Value)
 	rear := deque.Back()
-	fmt.Println("佇列尾元素 rear =", rear.Value)
+	fmt.Println("隊尾元素 rear =", rear.Value)
 
-	/* 元素出列 */
+	/* 從雙端佇列取出元素 */
 	deque.Remove(front)
-	fmt.Print("佇列首出列元素 front = ", front.Value, "，佇列首出列後 deque = ")
+	fmt.Print("從隊首取出的元素 front = ", front.Value, "，從隊首取出後 deque = ")
 	PrintList(deque)
 	deque.Remove(rear)
-	fmt.Print("佇列尾出列元素 rear = ", rear.Value, "，佇列尾出列後 deque = ")
+	fmt.Print("從隊尾取出的元素 rear = ", rear.Value, "，從隊尾取出後 deque = ")
 	PrintList(deque)
 
-	/* 獲取雙向佇列的長度 */
+	/* 取得雙端佇列長度 */
 	size := deque.Len()
-	fmt.Println("雙向佇列長度 size =", size)
+	fmt.Println("雙端佇列長度 size =", size)
 
-	/* 判斷雙向佇列是否為空 */
+	/* 判斷雙端佇列是否為空 */
 	isEmpty := deque.Len() == 0
-	fmt.Println("雙向佇列是否為空 =", isEmpty)
+	fmt.Println("雙端佇列是否為空 =", isEmpty)
 }
 
 func TestArrayDeque(t *testing.T) {
-	/* 初始化雙向佇列 */
+	/* 初始化雙端佇列 */
 	deque := newArrayDeque(16)
 
-	/* 元素入列 */
+	/* 將元素加入雙端佇列 */
 	deque.pushLast(3)
 	deque.pushLast(2)
 	deque.pushLast(5)
-	fmt.Print("雙向佇列 deque = ")
+	fmt.Print("雙端佇列 deque = ")
 	PrintSlice(deque.toSlice())
 
-	/* 訪問元素 */
+	/* 讀取隊首與隊尾元素 */
 	peekFirst := deque.peekFirst()
-	fmt.Println("佇列首元素 peekFirst =", peekFirst)
+	fmt.Println("隊首元素 peekFirst =", peekFirst)
 	peekLast := deque.peekLast()
-	fmt.Println("佇列尾元素 peekLast =", peekLast)
+	fmt.Println("隊尾元素 peekLast =", peekLast)
 
-	/* 元素入列 */
+	/* 將元素加入雙端佇列 */
 	deque.pushLast(4)
-	fmt.Print("元素 4 佇列尾入列後 deque = ")
+	fmt.Print("將元素 4 加到隊尾後 deque = ")
 	PrintSlice(deque.toSlice())
 	deque.pushFirst(1)
-	fmt.Print("元素 1 佇列首入列後 deque = ")
+	fmt.Print("將元素 1 加到隊首後 deque = ")
 	PrintSlice(deque.toSlice())
 
-	/* 元素出列 */
+	/* 從雙端佇列取出元素 */
 	popFirst := deque.popFirst()
-	fmt.Print("佇列首出列元素 popFirst = ", popFirst, "，佇列首出列後 deque = ")
+	fmt.Print("從隊首取出的元素 popFirst = ", popFirst, "，從隊首取出後 deque = ")
 	PrintSlice(deque.toSlice())
 	popLast := deque.popLast()
-	fmt.Print("佇列尾出列元素 popLast = ", popLast, "，佇列尾出列後 deque = ")
+	fmt.Print("從隊尾取出的元素 popLast = ", popLast, "，從隊尾取出後 deque = ")
 	PrintSlice(deque.toSlice())
 
-	/* 獲取雙向佇列的長度 */
+	/* 取得雙端佇列長度 */
 	size := deque.size()
-	fmt.Println("雙向佇列長度 size =", size)
+	fmt.Println("雙端佇列長度 size =", size)
 
-	/* 判斷雙向佇列是否為空 */
+	/* 判斷雙端佇列是否為空 */
 	isEmpty := deque.isEmpty()
-	fmt.Println("雙向佇列是否為空 =", isEmpty)
+	fmt.Println("雙端佇列是否為空 =", isEmpty)
 }
 
 func TestLinkedListDeque(t *testing.T) {
-	// 初始化佇列
+	// 初始化雙端佇列
 	deque := newLinkedListDeque()
 
-	// 元素入列
+	// 將元素加入雙端佇列
 	deque.pushLast(2)
 	deque.pushLast(5)
 	deque.pushLast(4)
 	deque.pushFirst(3)
 	deque.pushFirst(1)
-	fmt.Print("雙向佇列 deque = ")
+	fmt.Print("雙端佇列 deque = ")
 	PrintList(deque.toList())
 
-	// 訪問佇列首元素
+	// 讀取隊首元素
 	front := deque.peekFirst()
-	fmt.Println("佇列首元素 front =", front)
+	fmt.Println("隊首元素 front =", front)
 	rear := deque.peekLast()
-	fmt.Println("佇列尾元素 rear =", rear)
+	fmt.Println("隊尾元素 rear =", rear)
 
-	// 元素出列
+	// 從雙端佇列取出元素
 	popFirst := deque.popFirst()
-	fmt.Print("佇列首出列元素 popFirst = ", popFirst, "，佇列首出列後 deque = ")
+	fmt.Print("從隊首取出的元素 popFirst = ", popFirst, "，從隊首取出後 deque = ")
 	PrintList(deque.toList())
 	popLast := deque.popLast()
-	fmt.Print("佇列尾出列元素 popLast = ", popLast, "，佇列尾出列後 deque = ")
+	fmt.Print("從隊尾取出的元素 popLast = ", popLast, "，從隊尾取出後 deque = ")
 	PrintList(deque.toList())
 
-	// 獲取隊的長度
+	// 取得雙端佇列長度
 	size := deque.size()
-	fmt.Println("隊的長度 size =", size)
+	fmt.Println("雙端佇列長度 size =", size)
 
-	// 判斷是否為空
+	// 判斷雙端佇列是否為空
 	isEmpty := deque.isEmpty()
-	fmt.Println("隊是否為空 =", isEmpty)
+	fmt.Println("雙端佇列是否為空 =", isEmpty)
 }
 
-// BenchmarkLinkedListDeque 67.92 ns/op in Mac M1 Pro
+// BenchmarkLinkedListDeque 在配備 M1 Pro 的 Mac 上測得 67.92 ns/op
 func BenchmarkLinkedListDeque(b *testing.B) {
 	deque := newLinkedListDeque()
-	// use b.N for looping
+	// 以 b.N 作為迴圈次數
 	for i := 0; i < b.N; i++ {
 		deque.pushLast(777)
 	}

@@ -7,7 +7,7 @@
 /* Очередь на основе кольцевого массива */
 class ArrayQueue {
     private nums: number[]; // Массив для хранения элементов очереди
-    private front: number; // Указатель head, указывающий на первый элемент очереди
+    private front: number; // Индекс первого элемента очереди
     private queSize: number; // Длина очереди
 
     constructor(capacity: number) {
@@ -15,53 +15,53 @@ class ArrayQueue {
         this.front = this.queSize = 0;
     }
 
-    /* Получить вместимость очереди */
+    /* Получить ёмкость очереди */
     get capacity(): number {
         return this.nums.length;
     }
 
-    /* Получение длины очереди */
+    /* Получить длину очереди */
     get size(): number {
         return this.queSize;
     }
 
-    /* Проверка, пуста ли очередь */
+    /* Проверить, пуста ли очередь */
     isEmpty(): boolean {
         return this.queSize === 0;
     }
 
-    /* Поместить в очередь */
+    /* Добавить элемент в очередь */
     push(num: number): void {
         if (this.size === this.capacity) {
             console.log('Очередь заполнена');
             return;
         }
-        // Вычислить указатель хвоста, указывающий на индекс хвоста + 1
-        // С помощью операции взятия по модулю вернуть rear к началу после выхода за конец массива
+        // Вычислить индекс вставки в конец очереди: прибавить 1 к индексу последнего элемента с учётом перехода по кругу
+        // При выходе за конец массива операция взятия остатка возвращает rear в начало
         const rear = (this.front + this.queSize) % this.capacity;
-        // Добавить num в хвост очереди
+        // Добавить num в конец очереди
         this.nums[rear] = num;
         this.queSize++;
     }
 
-    /* Извлечь из очереди */
+    /* Извлечь элемент из очереди */
     pop(): number {
         const num = this.peek();
-        // Указатель head сдвигается на одну позицию назад; если он выходит за конец, то возвращается в начало массива
+        // Сдвинуть индекс начала очереди на одну позицию вперёд. При выходе за конец массива перейти к его началу
         this.front = (this.front + 1) % this.capacity;
         this.queSize--;
         return num;
     }
 
-    /* Доступ к элементу в начале очереди */
+    /* Посмотреть первый элемент очереди */
     peek(): number {
-        if (this.isEmpty()) throw new Error('очередь пуста');
+        if (this.isEmpty()) throw new Error('Очередь пуста');
         return this.nums[this.front];
     }
 
-    /* Вернуть Array */
+    /* Вернуть массив */
     toArray(): number[] {
-        // Преобразовывать только элементы списка в пределах фактической длины
+        // Преобразовать только те элементы, которые сейчас находятся в очереди
         const arr = new Array(this.size);
         for (let i = 0, j = this.front; i < this.size; i++, j++) {
             arr[i] = this.nums[j % this.capacity];
@@ -70,12 +70,12 @@ class ArrayQueue {
     }
 }
 
-/* Driver Code */
-/* Инициализация очереди */
+/* Пример использования */
+/* Инициализировать очередь */
 const capacity = 10;
 const queue = new ArrayQueue(capacity);
 
-/* Добавление элемента в очередь */
+/* Добавить элементы в очередь */
 queue.push(1);
 queue.push(3);
 queue.push(2);
@@ -83,27 +83,27 @@ queue.push(5);
 queue.push(4);
 console.log('Очередь queue =', queue.toArray());
 
-/* Доступ к элементу в начале очереди */
+/* Посмотреть первый элемент очереди */
 const peek = queue.peek();
-console.log('Элемент в начале очереди peek = ' + peek);
+console.log('Первый элемент очереди peek = ' + peek);
 
-/* Извлечение элемента из очереди */
+/* Извлечь элемент из очереди */
 const pop = queue.pop();
-console.log('Извлечен элемент pop = ' + pop + ', очередь после извлечения queue =', queue.toArray());
+console.log('Извлечённый элемент pop = ' + pop + ', после извлечения queue =', queue.toArray());
 
-/* Получение длины очереди */
+/* Получить длину очереди */
 const size = queue.size;
 console.log('Длина очереди size = ' + size);
 
-/* Проверка, пуста ли очередь */
+/* Проверить, пуста ли очередь */
 const isEmpty = queue.isEmpty();
-console.log('Пуста ли очередь = ' + isEmpty);
+console.log('Очередь пуста = ' + isEmpty);
 
-/* Проверка кольцевого массива */
+/* Проверить работу кольцевого массива */
 for (let i = 0; i < 10; i++) {
     queue.push(i);
     queue.pop();
-    console.log('После ' + i + '-го добавления и извлечения queue =', queue.toArray());
+    console.log('В цикле ' + i + ' после добавления и извлечения элемента queue =', queue.toArray());
 }
 
 export {};

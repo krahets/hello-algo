@@ -18,7 +18,7 @@ public class preorder_traversal_i_compact {
             return;
         }
         if (root.val == 7) {
-            // 記錄解
+            // 記錄此解
             res.add(root);
         }
         preOrder(root.left);

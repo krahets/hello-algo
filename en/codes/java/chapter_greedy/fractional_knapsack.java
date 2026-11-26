@@ -21,26 +21,26 @@ class Item {
 }
 
 public class fractional_knapsack {
-    /* Fractional knapsack: greedy algorithm */
+    /* Greedy fractional knapsack */
     static double fractionalKnapsack(int[] wgt, int[] val, int cap) {
-        // Create a list of items, each with two attributes: weight and value
+        // Create a list of items, each with a weight and a value
         Item[] items = new Item[wgt.length];
         for (int i = 0; i < wgt.length; i++) {
             items[i] = new Item(wgt[i], val[i]);
         }
-        // Sort by value per unit weight, item.v / item.w, in descending order
+        // Sort by value per unit of weight, item.v / item.w, in descending order
         Arrays.sort(items, Comparator.comparingDouble(item -> -((double) item.v / item.w)));
-        // Repeatedly make greedy choices
+        // Make greedy choices in a loop
         double res = 0;
         for (Item item : items) {
             if (item.w <= cap) {
-                // If enough capacity remains, put the entire current item in the knapsack
+                // If the whole item fits, put it in the knapsack
                 res += item.v;
                 cap -= item.w;
             } else {
-                // If the remaining capacity is insufficient, put part of the current item in the knapsack
+                // If the whole item does not fit, take a fraction of it
                 res += (double) item.v / item.w * cap;
-                // No capacity remains, so exit the loop
+                // The knapsack is full, so exit the loop
                 break;
             }
         }
@@ -54,6 +54,6 @@ public class fractional_knapsack {
 
         // Greedy algorithm
         double res = fractionalKnapsack(wgt, val, cap);
-        System.out.println("Maximum total item value within the knapsack capacity: " + res);
+        System.out.println("The maximum total value within the weight limit is " + res);
     }
 }

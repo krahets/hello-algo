@@ -6,10 +6,10 @@
 
 #include "../utils/common.h"
 
-// 頂点数は最大 100 と仮定する
+// 頂点数の上限を 100 とする
 #define MAX_SIZE 100
 
-/* 隣接行列で実装した無向グラフの構造体 */
+/* 隣接行列で無向グラフを表す構造体 */
 typedef struct {
     int vertices[MAX_SIZE];
     int adjMat[MAX_SIZE][MAX_SIZE];
@@ -39,7 +39,7 @@ void addVertex(GraphAdjMat *graph, int val) {
         fprintf(stderr, "グラフの頂点数が上限に達しました\n");
         return;
     }
-    // n 番目の頂点を追加し、n 行目と n 列目をゼロにする
+    // n 番目の頂点を追加し、n 番目の行と列を 0 で埋める
     int n = graph->size;
     graph->vertices[n] = val;
     for (int i = 0; i <= n; i++) {
@@ -74,10 +74,10 @@ void removeVertex(GraphAdjMat *graph, int index) {
 }
 
 /* 辺を追加する */
-// 引数 i, j は vertices の要素のインデックスに対応する
+// 引数 i と j は vertices の要素のインデックス
 void addEdge(GraphAdjMat *graph, int i, int j) {
     if (i < 0 || j < 0 || i >= graph->size || j >= graph->size || i == j) {
-        fprintf(stderr, "辺のインデックスが範囲外か、互いに等しい値です\n");
+        fprintf(stderr, "辺の両端のインデックスが範囲外か、同じ値です\n");
         return;
     }
     graph->adjMat[i][j] = 1;
@@ -85,10 +85,10 @@ void addEdge(GraphAdjMat *graph, int i, int j) {
 }
 
 /* 辺を削除する */
-// 引数 i, j は vertices の要素のインデックスに対応する
+// 引数 i と j は vertices の要素のインデックス
 void removeEdge(GraphAdjMat *graph, int i, int j) {
     if (i < 0 || j < 0 || i >= graph->size || j >= graph->size || i == j) {
-        fprintf(stderr, "辺のインデックスが範囲外か、互いに等しい値です\n");
+        fprintf(stderr, "辺の両端のインデックスが範囲外か、同じ値です\n");
         return;
     }
     graph->adjMat[i][j] = 0;
@@ -105,7 +105,7 @@ void printGraphAdjMat(GraphAdjMat *graph) {
     }
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     // 無向グラフを初期化する
     GraphAdjMat *graph = newGraphAdjMat();
@@ -117,30 +117,30 @@ int main() {
     for (int i = 0; i < 6; i++) {
         addEdge(graph, edges[i][0], edges[i][1]);
     }
-    printf("\n初期化後のグラフ\n");
+    printf("\n初期化後のグラフ：\n");
     printGraphAdjMat(graph);
 
     /* 辺を追加する */
-    // 頂点 1, 2 のインデックスはそれぞれ 0, 2
+    // 頂点 1 と 2 のインデックスはそれぞれ 0 と 2
     addEdge(graph, 0, 2);
-    printf("\n辺 1-2 を追加した後のグラフ\n");
+    printf("\n辺 1-2 を追加した後のグラフ：\n");
     printGraphAdjMat(graph);
 
     /* 辺を削除する */
-    // 頂点 1, 3 のインデックスはそれぞれ 0, 1
+    // 頂点 1 と 3 のインデックスはそれぞれ 0 と 1
     removeEdge(graph, 0, 1);
-    printf("\n辺 1-3 を削除した後のグラフ\n");
+    printf("\n辺 1-3 を削除した後のグラフ：\n");
     printGraphAdjMat(graph);
 
     /* 頂点を追加する */
     addVertex(graph, 6);
-    printf("\n頂点 6 を追加した後のグラフ\n");
+    printf("\n頂点 6 を追加した後のグラフ：\n");
     printGraphAdjMat(graph);
 
     /* 頂点を削除する */
     // 頂点 3 のインデックスは 1
     removeVertex(graph, 1);
-    printf("\n頂点 3 を削除した後のグラフ\n");
+    printf("\n頂点 3 を削除した後のグラフ：\n");
     printGraphAdjMat(graph);
 
     // メモリを解放する

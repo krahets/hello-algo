@@ -6,20 +6,20 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 ### Memoized search ###
 def dfs(i, mem)
-  # The values of dp[1] and dp[2] are known; return them
+  # Return the known value for dp[1] or dp[2]
   return i if i == 1 || i == 2
-  # If dp[i] has been recorded, return it directly
+  # Return dp[i] directly if it is cached
   return mem[i] if mem[i] != -1
 
   # dp[i] = dp[i-1] + dp[i-2]
   count = dfs(i - 1, mem) + dfs(i - 2, mem)
-  # Record dp[i]
+  # Cache dp[i]
   mem[i] = count
 end
 
-### Climbing stairs: memoized search ###
+### Climbing stairs with memoized search ###
 def climbing_stairs_dfs_mem(n)
-  # mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
+  # mem[i] stores the number of ways to reach stair i. A value of -1 means no result is cached
   mem = Array.new(n + 1, -1)
   dfs(n, mem)
 end
@@ -29,5 +29,5 @@ if __FILE__ == $0
   n = 9
 
   res = climbing_stairs_dfs_mem(n)
-  puts "Number of ways to climb #{n} stairs: #{res}"
+  puts "Climbing #{n} stairs: #{res} ways"
 end

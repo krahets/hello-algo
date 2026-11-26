@@ -16,11 +16,11 @@ func preOrderII(root *TreeNode, res *[][]*TreeNode, path *[]*TreeNode) {
 	// 嘗試
 	*path = append(*path, root)
 	if root.Val.(int) == 7 {
-		// 記錄解
+		// 記錄此解
 		*res = append(*res, append([]*TreeNode{}, *path...))
 	}
 	preOrderII(root.Left, res, path)
 	preOrderII(root.Right, res, path)
-	// 回退
+	// 回溯
 	*path = (*path)[:len(*path)-1]
 }

@@ -6,22 +6,22 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/print_util'
 
-### Undirected graph class implemented with an adjacency matrix ###
+### Undirected graph represented by an adjacency matrix ###
 class GraphAdjMat
   def initialize(vertices, edges)
     ### Constructor ###
-    # Vertex list: elements are vertex values, and indices are vertex indices
+    # Vertex list: each element holds a vertex value, and its position is the vertex index
     @vertices = []
-    # Adjacency matrix: row and column indices correspond to vertex indices
+    # Adjacency matrix: row and column indices are vertex indices
     @adj_mat = []
     # Add a vertex
     vertices.each { |val| add_vertex(val) }
     # Add an edge
-    # Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+    # The entries in edges are vertex indices, that is, indices into vertices
     edges.each { |e| add_edge(e[0], e[1]) }
   end
 
-  ### Get the number of vertices ###
+  ### Get the vertex count ###
   def size
     @vertices.length
   end
@@ -42,30 +42,30 @@ class GraphAdjMat
   def remove_vertex(index)
     raise IndexError if index >= size
 
-    # Remove the vertex at index `index` from the vertex list
+    # Remove the vertex at the specified index from the vertex list
     @vertices.delete_at(index)
-    # Remove row `index` from the adjacency matrix
+    # Remove the row at the specified index from the adjacency matrix
     @adj_mat.delete_at(index)
-    # Remove column `index` from the adjacency matrix
+    # Remove the column at the specified index from the adjacency matrix
     @adj_mat.each { |row| row.delete_at(index) }
   end
 
   ### Add an edge ###
   def add_edge(i, j)
-    # Parameters i and j are element indices in vertices
-    # Handle out-of-bounds or equal indices
+    # Parameters i and j are indices into vertices
+    # Check for out-of-bounds or equal indices
     if i < 0 || j < 0 || i >= size || j >= size || i == j
       raise IndexError
     end
-    # For an undirected graph, the adjacency matrix is symmetric about its main diagonal: entries (i, j) and (j, i) are equal
+    # An undirected graph has a symmetric adjacency matrix: (i, j) == (j, i)
     @adj_mat[i][j] = 1
     @adj_mat[j][i] = 1
   end
 
   ### Remove an edge ###
   def remove_edge(i, j)
-    # Parameters i and j are element indices in vertices
-    # Handle out-of-bounds or equal indices
+    # Parameters i and j are indices into vertices
+    # Check for out-of-bounds or equal indices
     if i < 0 || j < 0 || i >= size || j >= size || i == j
       raise IndexError
     end
@@ -83,8 +83,8 @@ end
 
 ### Driver code ###
 if __FILE__ == $0
-  # Initialize the undirected graph
-  # Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+  # Initialize an undirected graph
+  # The entries in edges are vertex indices, that is, indices into vertices
   vertices = [1, 3, 2, 5, 4]
   edges = [[0, 1], [0, 3], [1, 2], [2, 3], [2, 4], [3, 4]]
   graph = GraphAdjMat.new(vertices, edges)
@@ -98,7 +98,7 @@ if __FILE__ == $0
   graph.__print__
 
   # Remove an edge
-  # The indices of vertices 1 and 3 are 0 and 1, respectively
+  # Vertices 1 and 3 have indices 0 and 1, respectively
   graph.remove_edge(0, 1)
   puts "\nGraph after removing edge 1-3:"
   graph.__print__

@@ -11,7 +11,7 @@ class ListNode(var _val: Int) {
     var next: ListNode? = null
 
     companion object {
-        /* 將串列反序列化為鏈結串列 */
+        /* 將陣列反序列化為鏈結串列 */
         fun arrToLinkedList(arr: IntArray): ListNode? {
             val dum = ListNode(0)
             var head = dum

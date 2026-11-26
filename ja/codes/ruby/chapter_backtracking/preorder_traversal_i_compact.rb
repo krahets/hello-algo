@@ -18,16 +18,16 @@ def pre_order(root)
   pre_order(root.right)
 end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   root = arr_to_tree([1, 7, 3, 4, 5, 6, 7])
-  puts "\n二分木を初期化する"
+  puts "\n二分木を初期化"
   print_tree(root)
 
   # 行きがけ順走査
   $res = []
   pre_order(root)
 
-  puts "\n値が 7 であるすべてのノードを出力する"
+  puts "\n値が 7 のノードをすべて出力"
   p $res.map { |node| node.val }
 end

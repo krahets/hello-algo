@@ -6,13 +6,13 @@
 
 use hello_algo_rust::include::print_util;
 
-/* Driver Code */
+/* Пример использования */
 pub fn main() {
     // Инициализировать стек
-    // В Rust рекомендуется использовать Vec как стек
+    // В Rust для реализации стека рекомендуется использовать Vec
     let mut stack: Vec<i32> = Vec::new();
 
-    // Помещение элемента в стек
+    // Поместить элементы в стек
     stack.push(1);
     stack.push(3);
     stack.push(2);
@@ -21,20 +21,20 @@ pub fn main() {
     print!("Стек stack = ");
     print_util::print_array(&stack);
 
-    // Доступ к верхнему элементу стека
+    // Посмотреть элемент на вершине стека
     let peek = stack.last().unwrap();
-    print!("\nВерхний элемент peek = {peek}");
+    print!("\nЭлемент на вершине стека peek = {peek}");
 
-    // Извлечение элемента из стека
+    // Снять элемент со стека
     let pop = stack.pop().unwrap();
-    print!("\nИзвлеченный элемент pop = {pop}, stack после извлечения = ");
+    print!("\nСнятый элемент pop = {pop}, после снятия stack = ");
     print_util::print_array(&stack);
 
-    // Получение длины стека
+    // Получить размер стека
     let size = stack.len();
-    print!("\nДлина стека size = {size}");
+    print!("\nРазмер стека size = {size}");
 
-    // Проверка, пуст ли стек
+    // Проверить, пуст ли стек
     let is_empty = stack.is_empty();
-    print!("\nПуст ли стек = {is_empty}");
+    print!("\nСтек пуст = {is_empty}");
 }

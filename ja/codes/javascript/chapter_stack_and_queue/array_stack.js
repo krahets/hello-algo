@@ -4,14 +4,14 @@
  * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
  */
 
-/* 配列で実装したスタック */
+/* 配列を使ったスタック */
 class ArrayStack {
     #stack;
     constructor() {
         this.#stack = [];
     }
 
-    /* スタックの長さを取得する */
+    /* スタックの要素数を取得する */
     get size() {
         return this.#stack.length;
     }
@@ -21,30 +21,30 @@ class ArrayStack {
         return this.#stack.length === 0;
     }
 
-    /* プッシュ */
+    /* プッシュする */
     push(num) {
         this.#stack.push(num);
     }
 
-    /* ポップ */
+    /* ポップする */
     pop() {
         if (this.isEmpty()) throw new Error('スタックが空です');
         return this.#stack.pop();
     }
 
-    /* スタックの先頭要素にアクセスする */
+    /* スタックのトップを参照する */
     top() {
         if (this.isEmpty()) throw new Error('スタックが空です');
         return this.#stack[this.#stack.length - 1];
     }
 
-    /* Array を返す */
+    /* 配列を返す */
     toArray() {
         return this.#stack;
     }
 }
 
-/* 実行用コード */
+/* 実行例 */
 /* スタックを初期化する */
 const stack = new ArrayStack();
 
@@ -57,18 +57,18 @@ stack.push(4);
 console.log('スタック stack = ');
 console.log(stack.toArray());
 
-/* スタックの先頭要素にアクセスする */
+/* スタックのトップを参照する */
 const top = stack.top();
-console.log('スタックの先頭要素 top = ' + top);
+console.log('スタックのトップの要素 top = ' + top);
 
 /* 要素をポップする */
 const pop = stack.pop();
-console.log('ポップした要素 pop = ' + pop + '、ポップ後 stack = ');
+console.log('ポップした要素 pop = ' + pop + '、ポップ後の stack = ');
 console.log(stack.toArray());
 
-/* スタックの長さを取得する */
+/* スタックの要素数を取得する */
 const size = stack.size;
-console.log('スタックの長さ size = ' + size);
+console.log('スタックの要素数 size = ' + size);
 
 /* 空かどうかを判定する */
 const isEmpty = stack.isEmpty();

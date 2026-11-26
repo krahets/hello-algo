@@ -1,29 +1,29 @@
 {
-  "schema_version": 2,
-  "title": "Array representation of a perfect binary tree",
-  "summary": "Store a perfect binary tree in level order in a zero-based array, and locate left and right children with index formulas 2i+1 and 2i+2.",
   "context": [
-    "A 4-level perfect binary tree has 15 nodes with values 1 through 15 in level order (root 1 on level 1, 2 and 3 on level 2, 4 through 7 on level 3, and leaf nodes 8 through 15 on level 4), stored sequentially at array indices 0 through 14. The table below lists every node's index and its left and right child positions."
+    "This perfect binary tree has 15 nodes on 4 levels. In level order, their values run from 1 to 15. Level 1 holds root 1, level 2 holds 2 and 3, level 3 holds 4 through 7, and level 4 holds leaves 8 through 15. The array stores them in that order at indices 0 through 14. The table lists each node's index and the positions of its children."
   ],
   "description": [],
-  "result": "Index formulas replace child pointers, but array bounds must still be checked on access: in this figure, indices 7 through 14 (nodes 8 through 15) are leaf nodes, so their computed child positions 15 through 30 are all out of bounds, indicating no children.",
   "frames": [
     {
-      "id": "source-110",
       "book_path": "chapter_tree/array_representation_of_tree.assets/array_representation_binary_tree.png",
-      "title": "Array representation of a perfect binary tree",
-      "explanation": "Substitute the array index i—not the node value—into the formulas. For example, node 6 is at index 5, so its left and right children are at index 11 (value 12) and index 12 (value 13)."
+      "explanation": "Use the array index i in the formulas. For example, node 6 is at index 5. Its left child is at index 11 (value 12), and its right child is at index 12 (value 13).",
+      "id": "source-110",
+      "title": "Array representation of a perfect binary tree"
     }
   ],
+  "result": "The index formulas can take the place of child pointers, but access still requires a bounds check. Indices 7 through 14 hold leaves (nodes 8 through 15). Their calculated child positions, 15 through 30, are all out of bounds, indicating that these nodes have no children.",
+  "schema_version": 2,
+  "summary": "Store a perfect binary tree in level order in a zero-based array. For a node at index i, use 2i+1 and 2i+2 to locate its left and right children.",
   "tables": [
     {
-      "caption": "Node indices and left and right child positions",
+      "caption": "Node indices and child positions",
       "headers": [
         "Current index",
         "Node value",
-        "Left child: index and value",
-        "Right child: index and value"
+        "Left child (index and value)",
+        "Right child (index and value)"
       ],
+      "row_header": 0,
       "rows": [
         [
           "0",
@@ -115,8 +115,8 @@
           "29: out of bounds, no child",
           "30: out of bounds, no child"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Array representation of a perfect binary tree"
 }

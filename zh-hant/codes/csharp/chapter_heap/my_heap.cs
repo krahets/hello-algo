@@ -6,56 +6,56 @@
 
 namespace hello_algo.chapter_heap;
 
-/* 大頂堆積 */
+/* 最大堆積 */
 class MaxHeap {
-    // 使用串列而非陣列，這樣無須考慮擴容問題
+    // 採用可擴充的串列取代陣列，無須自行處理擴充容量的問題
     List<int> maxHeap;
 
-    /* 建構子，建立空堆積 */
+    /* 建構函式，建立空堆積 */
     public MaxHeap() {
         maxHeap = [];
     }
 
-    /* 建構子，根據輸入串列建堆積 */
+    /* 建構函式，根據輸入串列建立堆積 */
     public MaxHeap(IEnumerable<int> nums) {
-        // 將串列元素原封不動新增進堆積
+        // 將串列元素依原順序全部加入堆積
         maxHeap = new List<int>(nums);
-        // 堆積化除葉節點以外的其他所有節點
+        // 從每個非葉節點向下調整堆積
         var size = Parent(this.Size() - 1);
         for (int i = size; i >= 0; i--) {
             SiftDown(i);
         }
     }
 
-    /* 獲取左子節點的索引 */
+    /* 取得左子節點的索引 */
     int Left(int i) {
         return 2 * i + 1;
     }
 
-    /* 獲取右子節點的索引 */
+    /* 取得右子節點的索引 */
     int Right(int i) {
         return 2 * i + 2;
     }
 
-    /* 獲取父節點的索引 */
+    /* 取得父節點的索引 */
     int Parent(int i) {
-        return (i - 1) / 2; // 向下整除
+        return (i - 1) / 2; // 向下取整的整數除法
     }
 
-    /* 訪問堆積頂元素 */
+    /* 讀取堆積頂端元素 */
     public int Peek() {
         return maxHeap[0];
     }
 
-    /* 元素入堆積 */
+    /* 將元素加入堆積 */
     public void Push(int val) {
         // 新增節點
         maxHeap.Add(val);
-        // 從底至頂堆積化
+        // 由下往上調整堆積
         SiftUp(Size() - 1);
     }
 
-    /* 獲取堆積大小 */
+    /* 取得堆積大小 */
     public int Size() {
         return maxHeap.Count;
     }
@@ -65,51 +65,51 @@ class MaxHeap {
         return Size() == 0;
     }
 
-    /* 從節點 i 開始，從底至頂堆積化 */
+    /* 從節點 i 開始向上調整堆積 */
     void SiftUp(int i) {
         while (true) {
-            // 獲取節點 i 的父節點
+            // 取得節點 i 的父節點
             int p = Parent(i);
-            // 若“越過根節點”或“節點無須修復”，則結束堆積化
+            // 若已越過根節點，或節點已符合堆積性質，就結束調整
             if (p < 0 || maxHeap[i] <= maxHeap[p])
                 break;
-            // 交換兩節點
+            // 交換兩個節點
             Swap(i, p);
-            // 迴圈向上堆積化
+            // 繼續向上調整堆積
             i = p;
         }
     }
 
-    /* 元素出堆積 */
+    /* 從堆積取出元素 */
     public int Pop() {
-        // 判空處理
+        // 檢查堆積是否為空
         if (IsEmpty())
             throw new IndexOutOfRangeException();
-        // 交換根節點與最右葉節點（交換首元素與尾元素）
+        // 交換根節點與最右側的葉節點（即首尾兩個元素）
         Swap(0, Size() - 1);
         // 刪除節點
         int val = maxHeap.Last();
         maxHeap.RemoveAt(Size() - 1);
-        // 從頂至底堆積化
+        // 由上往下調整堆積
         SiftDown(0);
-        // 返回堆積頂元素
+        // 回傳堆積頂端元素
         return val;
     }
 
-    /* 從節點 i 開始，從頂至底堆積化 */
+    /* 從節點 i 開始向下調整堆積 */
     void SiftDown(int i) {
         while (true) {
-            // 判斷節點 i, l, r 中值最大的節點，記為 ma
+            // 找出節點 i、l、r 中值最大的節點，記為 ma
             int l = Left(i), r = Right(i), ma = i;
             if (l < Size() && maxHeap[l] > maxHeap[ma])
                 ma = l;
             if (r < Size() && maxHeap[r] > maxHeap[ma])
                 ma = r;
-            // 若“節點 i 最大”或“越過葉節點”，則結束堆積化
+            // 若節點 i 的值最大，或已越過葉節點，就結束調整
             if (ma == i) break;
-            // 交換兩節點
+            // 交換兩個節點
             Swap(i, ma);
-            // 迴圈向下堆積化
+            // 繼續向下調整堆積
             i = ma;
         }
     }
@@ -119,7 +119,7 @@ class MaxHeap {
         (maxHeap[i], maxHeap[p]) = (maxHeap[p], maxHeap[i]);
     }
 
-    /* 列印堆積（二元樹） */
+    /* 印出堆積（二元樹） */
     public void Print() {
         var queue = new Queue<int>(maxHeap);
         PrintUtil.PrintHeap(queue);
@@ -129,29 +129,29 @@ class MaxHeap {
 public class my_heap {
     [Test]
     public void Test() {
-        /* 初始化大頂堆積 */
+        /* 初始化最大堆積 */
         MaxHeap maxHeap = new([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
-        Console.WriteLine("\n輸入串列並建堆積後");
+        Console.WriteLine("\n用輸入串列建立堆積後");
         maxHeap.Print();
 
-        /* 獲取堆積頂元素 */
+        /* 取得堆積頂端元素 */
         int peek = maxHeap.Peek();
-        Console.WriteLine($"堆積頂元素為 {peek}");
+        Console.WriteLine($"堆積頂端元素為 {peek}");
 
-        /* 元素入堆積 */
+        /* 將元素加入堆積 */
         int val = 7;
         maxHeap.Push(val);
-        Console.WriteLine($"元素 {val} 入堆積後");
+        Console.WriteLine($"將元素 {val} 加入堆積後");
         maxHeap.Print();
 
-        /* 堆積頂元素出堆積 */
+        /* 取出堆積頂端元素 */
         peek = maxHeap.Pop();
-        Console.WriteLine($"堆積頂元素 {peek} 出堆積後");
+        Console.WriteLine($"取出堆積頂端元素 {peek} 後");
         maxHeap.Print();
 
-        /* 獲取堆積大小 */
+        /* 取得堆積大小 */
         int size = maxHeap.Size();
-        Console.WriteLine($"堆積元素數量為 {size}");
+        Console.WriteLine($"堆積中的元素個數為 {size}");
 
         /* 判斷堆積是否為空 */
         bool isEmpty = maxHeap.IsEmpty();

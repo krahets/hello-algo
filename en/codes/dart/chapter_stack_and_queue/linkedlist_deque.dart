@@ -13,10 +13,10 @@ class ListNode {
   ListNode(this.val, {this.next, this.prev});
 }
 
-/* Deque implemented with a doubly linked list */
+/* Deque backed by a doubly linked list */
 class LinkedListDeque {
-  late ListNode? _front; // Head node _front
-  late ListNode? _rear; // Tail node _rear
+  late ListNode? _front; // Head node (_front)
+  late ListNode? _rear; // Tail node (_rear)
   int _queSize = 0; // Deque size
 
   LinkedListDeque() {
@@ -34,93 +34,93 @@ class LinkedListDeque {
     return size() == 0;
   }
 
-  /* Enqueue operation */
+  /* Add an element at either end */
   void push(int _num, bool isFront) {
     final ListNode node = ListNode(_num);
     if (isEmpty()) {
-      // If the linked list is empty, make both _front and _rear point to node
+      // If the list is empty, point both _front and _rear at node
       _front = _rear = node;
     } else if (isFront) {
-      // Enqueue at the front
-      // Add node to the head of the linked list
+      // Add at the front
+      // Link node at the head of the list
       _front!.prev = node;
       node.next = _front;
-      _front = node; // Update the head node
+      _front = node; // Update the head
     } else {
-      // Enqueue at the rear
-      // Add node to the tail of the linked list
+      // Add at the rear
+      // Link node at the tail of the list
       _rear!.next = node;
       node.prev = _rear;
-      _rear = node; // Update the tail node
+      _rear = node; // Update the tail
     }
-    _queSize++; // Update the queue size
+    _queSize++; // Update the deque size
   }
 
-  /* Enqueue at the front */
+  /* Add an element at the front */
   void pushFirst(int _num) {
     push(_num, true);
   }
 
-  /* Enqueue at the rear */
+  /* Add an element at the rear */
   void pushLast(int _num) {
     push(_num, false);
   }
 
-  /* Dequeue operation */
+  /* Remove an element from either end */
   int? pop(bool isFront) {
-    // If the queue is empty, return null immediately
+    // If the deque is empty, return null immediately
     if (isEmpty()) {
       return null;
     }
     final int val;
-    // When the queue size is 1, the head and tail point to the same node
+    // When the deque contains one element, the head and tail point to the same node
     if (_queSize == 1) {
       val = _front!.val;
       _front = null;
       _rear = null;
     }
-    // Dequeue from the front
+    // Remove from the front
     else if (isFront) {
-      val = _front!.val; // Save the head node value
+      val = _front!.val; // Save the head node's value
       // Remove the head node
       ListNode? fNext = _front!.next;
       fNext!.prev = null;
       _front!.next = null;
-      _front = fNext; // Update the head node
-    // Dequeue from the rear
+      _front = fNext; // Update the head
+    // Remove from the rear
     } else {
-      val = _rear!.val; // Save the tail node value
+      val = _rear!.val; // Save the tail node's value
       // Remove the tail node
       ListNode? rPrev = _rear!.prev;
       rPrev!.next = null;
       _rear!.prev = null;
-      _rear = rPrev; // Update the tail node
+      _rear = rPrev; // Update the tail
     }
-    _queSize--; // Update the queue size
+    _queSize--; // Update the deque size
     return val;
   }
 
-  /* Dequeue from the front */
+  /* Remove and return the front element */
   int? popFirst() {
     return pop(true);
   }
 
-  /* Dequeue from the rear */
+  /* Remove and return the rear element */
   int? popLast() {
     return pop(false);
   }
 
-  /* Access the front element */
+  /* Peek at the front element */
   int? peekFirst() {
     return _front?.val;
   }
 
-  /* Access the rear element */
+  /* Peek at the rear element */
   int? peekLast() {
     return _rear?.val;
   }
 
-  /* Return an array for printing */
+  /* Return a List for printing */
   List<int> toArray() {
     ListNode? node = _front;
     final List<int> res = [];
@@ -139,25 +139,25 @@ void main() {
   deque.pushLast(3);
   deque.pushLast(2);
   deque.pushLast(5);
-  print("Deque deque = ${deque.toArray()}");
+  print("deque = ${deque.toArray()}");
 
-  /* Access an element */
+  /* Peek at the front and rear elements */
   int? peekFirst = deque.peekFirst();
-  print("Front element peekFirst = $peekFirst");
+  print("Front element (peekFirst) = $peekFirst");
   int? peekLast = deque.peekLast();
-  print("Rear element peekLast = $peekLast");
+  print("Rear element (peekLast) = $peekLast");
 
-  /* Enqueue elements */
+  /* Add elements to the deque */
   deque.pushLast(4);
-  print("After enqueuing 4 at the rear, deque = ${deque.toArray()}");
+  print("After adding 4 at the rear, deque = ${deque.toArray()}");
   deque.pushFirst(1);
-  print("After enqueuing 1 at the front, deque = ${deque.toArray()}");
+  print("After adding 1 at the front, deque = ${deque.toArray()}");
 
-  /* Dequeue an element */
+  /* Remove elements from both ends */
   int? popLast = deque.popLast();
-  print("Element dequeued from the rear = $popLast; after dequeuing from the rear, deque = ${deque.toArray()}");
+  print("Removed from the rear = $popLast, deque after removal = ${deque.toArray()}");
   int? popFirst = deque.popFirst();
-  print("Element dequeued from the front = $popFirst; after dequeuing from the front, deque = ${deque.toArray()}");
+  print("Removed from the front = $popFirst, deque after removal = ${deque.toArray()}");
 
   /* Get the deque size */
   int size = deque.size();
@@ -165,5 +165,5 @@ void main() {
 
   /* Check whether the deque is empty */
   bool isEmpty = deque.isEmpty();
-  print("Is the deque empty = $isEmpty");
+  print("Deque is empty = $isEmpty");
 }

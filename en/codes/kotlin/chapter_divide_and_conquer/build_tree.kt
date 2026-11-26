@@ -9,7 +9,7 @@ package chapter_divide_and_conquer.build_tree
 import utils.TreeNode
 import utils.printTree
 
-/* Build a binary tree: divide and conquer */
+/* Build a binary tree using divide and conquer */
 fun dfs(
     preorder: IntArray,
     inorderMap: Map<Int?, Int?>,
@@ -19,7 +19,7 @@ fun dfs(
 ): TreeNode? {
     // Stop when the subtree interval is empty
     if (r - l < 0) return null
-    // Initialize the root node
+    // Initialize the root
     val root = TreeNode(preorder[i])
     // Look up m to separate the left and right subtrees
     val m = inorderMap[preorder[i]]!!
@@ -27,13 +27,13 @@ fun dfs(
     root.left = dfs(preorder, inorderMap, i + 1, l, m - 1)
     // Subproblem: build the right subtree
     root.right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r)
-    // Return the root node
+    // Return the root
     return root
 }
 
 /* Build a binary tree */
 fun buildTree(preorder: IntArray, inorder: IntArray): TreeNode? {
-    // Initialize a hash table mapping each element in inorder to its index
+    // Map each inorder value to its index in a hash table
     val inorderMap = HashMap<Int?, Int?>()
     for (i in inorder.indices) {
         inorderMap[inorder[i]] = i
@@ -50,6 +50,6 @@ fun main() {
     println("Inorder traversal = ${inorder.contentToString()}")
 
     val root = buildTree(preorder, inorder)
-    println("The constructed binary tree is:")
+    println("Reconstructed binary tree:")
     printTree(root)
 }

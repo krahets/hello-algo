@@ -8,10 +8,10 @@ package chapter_array_and_linkedlist
 
 /* List class */
 class MyList {
-    private var arr: IntArray = intArrayOf() // Array (stores the list elements)
+    private var arr: IntArray = intArrayOf() // Array that stores the list elements
     private var capacity: Int = 10 // List capacity
     private var size: Int = 0 // List length (current number of elements)
-    private var extendRatio: Int = 2 // Factor by which the list capacity grows each time
+    private var extendRatio: Int = 2 // Factor by which the list capacity grows
 
     /* Constructor */
     init {
@@ -30,7 +30,7 @@ class MyList {
 
     /* Access an element */
     fun get(index: Int): Int {
-        // Throw an exception if the index is out of bounds; the same applies below
+        // Throw an exception if the index is out of bounds, here and below
         if (index < 0 || index >= size)
             throw IndexOutOfBoundsException("Index out of bounds")
         return arr[index]
@@ -43,13 +43,13 @@ class MyList {
         arr[index] = num
     }
 
-    /* Append at the end */
+    /* Append an element */
     fun add(num: Int) {
-        // Grow the capacity when adding an element would exceed it
+        // Increase capacity when the elements would no longer fit
         if (size == capacity())
             extendCapacity()
         arr[size] = num
-        // Update the number of elements
+        // Update the element count
         size++
     }
 
@@ -57,14 +57,14 @@ class MyList {
     fun insert(index: Int, num: Int) {
         if (index < 0 || index >= size)
             throw IndexOutOfBoundsException("Index out of bounds")
-        // Grow the capacity when adding an element would exceed it
+        // Increase capacity when the elements would no longer fit
         if (size == capacity())
             extendCapacity()
-        // Shift all elements at and after index `index` one position to the right
+        // Shift the elements from index onward one position to the right
         for (j in size - 1 downTo index)
             arr[j + 1] = arr[j]
         arr[index] = num
-        // Update the number of elements
+        // Update the element count
         size++
     }
 
@@ -73,18 +73,18 @@ class MyList {
         if (index < 0 || index >= size)
             throw IndexOutOfBoundsException("Index out of bounds")
         val num = arr[index]
-        // Shift all elements after index `index` one position to the left
+        // Shift the elements after index one position to the left
         for (j in index..<size - 1)
             arr[j] = arr[j + 1]
-        // Update the number of elements
+        // Update the element count
         size--
         // Return the removed element
         return num
     }
 
-    /* Grow the list capacity */
+    /* Increase the list capacity */
     fun extendCapacity() {
-        // Create an array extendRatio times as long as the original and copy the original array into it
+        // Create an array extendRatio times as long and copy the original array into it
         arr = arr.copyOf(capacity() * extendRatio)
         // Update the list capacity
         capacity = arr.size
@@ -93,7 +93,7 @@ class MyList {
     /* Convert the list to an array */
     fun toArray(): IntArray {
         val size = size()
-        // Convert only the list elements within the occupied range
+        // Convert only the elements within the current list length
         val arr = IntArray(size)
         for (i in 0..<size) {
             arr[i] = get(i)
@@ -102,17 +102,17 @@ class MyList {
     }
 }
 
-/* Driver code */
+/* Driver Code */
 fun main() {
     /* Initialize the list */
     val nums = MyList()
-    /* Append at the end */
+    /* Append an element */
     nums.add(1)
     nums.add(3)
     nums.add(2)
     nums.add(5)
     nums.add(4)
-    println("List nums = ${nums.toArray().contentToString()}, capacity = ${nums.capacity()}, size = ${nums.size()}")
+    println("List nums = ${nums.toArray().contentToString()}, capacity = ${nums.capacity()}, length = ${nums.size()}")
 
     /* Insert an element in the middle */
     nums.insert(3, 6)
@@ -124,16 +124,16 @@ fun main() {
 
     /* Access an element */
     val num = nums.get(1)
-    println("Accessing the element at index 1 gives num = $num")
+    println("Reading index 1 gives num = $num")
 
     /* Update an element */
     nums.set(1, 0)
-    println("After updating the element at index 1 to 0, nums = ${nums.toArray().contentToString()}")
+    println("After setting the element at index 1 to 0, nums = ${nums.toArray().contentToString()}")
 
     /* Test capacity growth */
     for (i in 0..9) {
-        // When i = 5, the list length would exceed its capacity, triggering capacity growth
+        // At i = 5, the list length would exceed its capacity, so the list grows
         nums.add(i)
     }
-    println("After growing the list, nums = ${nums.toArray().contentToString()}, capacity = ${nums.capacity()}, size = ${nums.size()}")
+    println("After increasing capacity, nums = ${nums.toArray().contentToString()}, capacity = ${nums.capacity()}, length = ${nums.size()}")
 }

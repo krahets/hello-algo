@@ -8,19 +8,19 @@ import '../utils/list_node.dart';
 
 /* 연결 리스트 클래스로 구현한 스택 */
 class LinkedListStack {
-  ListNode? _stackPeek; // 머리 노드를 스택의 맨 위로 사용한다
+  ListNode? _stackPeek; // 첫 노드를 스택의 맨 위로 사용한다
   int _stkSize = 0; // 스택의 길이
 
   LinkedListStack() {
     _stackPeek = null;
   }
 
-  /* 스택의 길이 반환 */
+  /* 스택의 길이 조회 */
   int size() {
     return _stkSize;
   }
 
-  /* 스택이 비어 있는지 판단 */
+  /* 스택이 비어 있는지 확인 */
   bool isEmpty() {
     return _stkSize == 0;
   }
@@ -41,7 +41,7 @@ class LinkedListStack {
     return _num;
   }
 
-  /* 스택 맨 위 원소 접근 */
+  /* 스택 맨 위의 원소 조회 */
   int peek() {
     if (_stackPeek == null) {
       throw Exception("스택이 비어 있다");
@@ -49,7 +49,7 @@ class LinkedListStack {
     return _stackPeek!.val;
   }
 
-  /* 연결 리스트를 List로 변환하여 반환 */
+  /* 연결 리스트를 List로 변환해 반환한다 */
   List<int> toList() {
     ListNode? node = _stackPeek;
     List<int> list = [];
@@ -62,7 +62,7 @@ class LinkedListStack {
   }
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 void main() {
   /* 스택 초기화 */
   final LinkedListStack stack = LinkedListStack();
@@ -75,19 +75,19 @@ void main() {
   stack.push(4);
   print("스택 stack = ${stack.toList()}");
 
-  /* 스택 맨 위 원소 접근 */
+  /* 스택 맨 위의 원소 조회 */
   final int peek = stack.peek();
-  print("스택의 맨 위 원소 peek = $peek");
+  print("맨 위 원소 peek = $peek");
 
   /* 스택에서 원소 꺼내기 */
   final int pop = stack.pop();
-  print("스택에서 꺼낸 원소 pop = $pop , 꺼낸 후 stack = ${stack.toList()}");
+  print("꺼낸 원소 pop = $pop, 꺼낸 후 stack = ${stack.toList()}");
 
-  /* 스택의 길이 반환 */
+  /* 스택의 길이 조회 */
   final int size = stack.size();
   print("스택의 길이 size = $size");
 
-  /* 비어 있는지 판단 */
+  /* 비어 있는지 확인 */
   final bool isEmpty = stack.isEmpty();
   print("스택이 비어 있는가 = $isEmpty");
 }

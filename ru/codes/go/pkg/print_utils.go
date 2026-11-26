@@ -11,20 +11,20 @@ import (
 	"strings"
 )
 
-// PrintSlice: вывести срез
+// PrintSlice выводит срез
 func PrintSlice[T any](nums []T) {
 	fmt.Printf("%v", nums)
 	fmt.Println()
 }
 
-// PrintList: вывести список
+// PrintList выводит список
 func PrintList(list *list.List) {
 	if list.Len() == 0 {
 		fmt.Print("[]\n")
 		return
 	}
 	e := list.Front()
-	// Преобразование к string повлияет на эффективность
+	// Явное приведение к типу string влияет на производительность
 	fmt.Print("[")
 	for e.Next() != nil {
 		fmt.Print(e.Value, " ")
@@ -33,23 +33,23 @@ func PrintList(list *list.List) {
 	fmt.Print(e.Value, "]\n")
 }
 
-// PrintMap: вывести хеш-таблицу
+// PrintMap выводит хеш-таблицу
 func PrintMap[K comparable, V any](m map[K]V) {
 	for key, value := range m {
 		fmt.Println(key, "->", value)
 	}
 }
 
-// PrintHeap: вывести кучу
+// PrintHeap выводит кучу
 func PrintHeap(h []any) {
-	fmt.Printf("Массивное представление кучи:")
+	fmt.Printf("Куча в виде массива: ")
 	fmt.Printf("%v", h)
-	fmt.Printf("\nДревовидное представление кучи:\n")
+	fmt.Printf("\nКуча в виде дерева:\n")
 	root := SliceToTree(h)
 	PrintTree(root)
 }
 
-// PrintLinkedList: вывести связный список
+// PrintLinkedList выводит связный список
 func PrintLinkedList(node *ListNode) {
 	if node == nil {
 		return
@@ -63,13 +63,13 @@ func PrintLinkedList(node *ListNode) {
 	fmt.Println(builder.String())
 }
 
-// PrintTree: вывести двоичное дерево
+// PrintTree выводит двоичное дерево
 func PrintTree(root *TreeNode) {
 	printTreeHelper(root, nil, false)
 }
 
-// printTreeHelper: вывести двоичное дерево
-// Этот вывод дерева заимствован из TECHIE DELIGHT
+// printTreeHelper выводит двоичное дерево
+// Код для вывода дерева заимствован у TECHIE DELIGHT
 // https://www.techiedelight.com/c-program-print-binary-tree/
 func printTreeHelper(root *TreeNode, prev *trunk, isRight bool) {
 	if root == nil {

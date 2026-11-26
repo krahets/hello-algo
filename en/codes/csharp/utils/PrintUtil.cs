@@ -21,7 +21,7 @@ public static class PrintUtil {
         return $"[ {string.Join(", ", list.Select(x => x?.ToString() ?? "null"))} ]";
     }
 
-    /* Print a matrix (array) */
+    /* Print an array-based matrix */
     public static void PrintMatrix<T>(T[][] matrix) {
         Console.WriteLine("[");
         foreach (T[] row in matrix) {
@@ -30,7 +30,7 @@ public static class PrintUtil {
         Console.WriteLine("]");
     }
 
-    /* Print a matrix (list) */
+    /* Print a list-based matrix */
     public static void PrintMatrix<T>(List<List<T>> matrix) {
         Console.WriteLine("[");
         foreach (List<T> row in matrix) {
@@ -51,7 +51,7 @@ public static class PrintUtil {
 
     /**
      * Print a binary tree
-     * This tree printer is borrowed from TECHIE DELIGHT
+     * This tree printer comes from Techie Delight
      * https://www.techiedelight.com/c-program-print-binary-tree/
      */
     public static void PrintTree(TreeNode? root) {
@@ -99,7 +99,7 @@ public static class PrintUtil {
         Console.Write(p.str);
     }
 
-    /* Print the hash table */
+    /* Print a hash table */
     public static void PrintHashMap<K, V>(Dictionary<K, V> map) where K : notnull {
         foreach (var kv in map.Keys) {
             Console.WriteLine(kv.ToString() + " -> " + map[kv]?.ToString());
@@ -108,7 +108,7 @@ public static class PrintUtil {
 
     /* Print a heap */
     public static void PrintHeap(Queue<int> queue) {
-        Console.Write("Array representation of the heap:");
+        Console.Write("Array representation of the heap: ");
         List<int> list = [.. queue];
         Console.WriteLine(string.Join(',', list));
         Console.WriteLine("Tree representation of the heap:");
@@ -119,7 +119,7 @@ public static class PrintUtil {
     /* Print a priority queue */
     public static void PrintHeap(PriorityQueue<int, int> queue) {
         var newQueue = new PriorityQueue<int, int>(queue.UnorderedItems, queue.Comparer);
-        Console.Write("Array representation of the heap:");
+        Console.Write("Array representation of the heap: ");
         List<int> list = [];
         while (newQueue.TryDequeue(out int element, out _)) {
             list.Add(element);

@@ -4,10 +4,10 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* 基於環形陣列實現的佇列 */
+/* 以環狀陣列實作佇列 */
 class ArrayQueue {
-  late List<int> _nums; // 用於儲存佇列元素的陣列
-  late int _front; // 佇列首指標，指向佇列首元素
+  late List<int> _nums; // 存放佇列元素的陣列
+  late int _front; // 隊首索引，記錄隊首元素在陣列中的位置
   late int _queSize; // 佇列長度
 
   ArrayQueue(int capacity) {
@@ -15,12 +15,12 @@ class ArrayQueue {
     _front = _queSize = 0;
   }
 
-  /* 獲取佇列的容量 */
+  /* 取得佇列容量 */
   int capaCity() {
     return _nums.length;
   }
 
-  /* 獲取佇列的長度 */
+  /* 取得佇列長度 */
   int size() {
     return _queSize;
   }
@@ -30,29 +30,29 @@ class ArrayQueue {
     return _queSize == 0;
   }
 
-  /* 入列 */
+  /* 入隊 */
   void push(int _num) {
     if (_queSize == capaCity()) {
       throw Exception("佇列已滿");
     }
-    // 計算佇列尾指標，指向佇列尾索引 + 1
-    // 透過取餘操作實現 rear 越過陣列尾部後回到頭部
+    // 計算下一次從隊尾寫入的位置 rear（隊尾索引 + 1）
+    // 取餘數，讓 rear 超過陣列末端時繞回開頭
     int rear = (_front + _queSize) % capaCity();
-    // 將 _num 新增至佇列尾
+    // 將 _num 加到隊尾
     _nums[rear] = _num;
     _queSize++;
   }
 
-  /* 出列 */
+  /* 出隊 */
   int pop() {
     int _num = peek();
-    // 佇列首指標向後移動一位，若越過尾部，則返回到陣列頭部
+    // 將隊首索引往後移一格，若超過陣列末端就繞回開頭
     _front = (_front + 1) % capaCity();
     _queSize--;
     return _num;
   }
 
-  /* 訪問佇列首元素 */
+  /* 讀取隊首元素 */
   int peek() {
     if (isEmpty()) {
       throw Exception("佇列為空");
@@ -60,9 +60,9 @@ class ArrayQueue {
     return _nums[_front];
   }
 
-  /* 返回 Array */
+  /* 回傳 List */
   List<int> toArray() {
-    // 僅轉換有效長度範圍內的串列元素
+    // 只轉換佇列中實際存放的元素
     final List<int> res = List.filled(_queSize, 0);
     for (int i = 0, j = _front; i < _queSize; i++, j++) {
       res[i] = _nums[j % capaCity()];
@@ -71,13 +71,13 @@ class ArrayQueue {
   }
 }
 
-/* Driver Code */
+/* 範例程式 */
 void main() {
   /* 初始化佇列 */
   final int capacity = 10;
   final ArrayQueue queue = ArrayQueue(capacity);
 
-  /* 元素入列 */
+  /* 將元素加入佇列 */
   queue.push(1);
   queue.push(3);
   queue.push(2);
@@ -85,15 +85,15 @@ void main() {
   queue.push(4);
   print("佇列 queue = ${queue.toArray()}");
 
-  /* 訪問佇列首元素 */
+  /* 讀取隊首元素 */
   final int peek = queue.peek();
-  print("佇列首元素 peek = $peek");
+  print("隊首元素 peek = $peek");
 
-  /* 元素出列 */
+  /* 從佇列取出元素 */
   final int pop = queue.pop();
-  print("出列元素 pop = $pop ，出列後 queue = ${queue.toArray()}");
+  print("出隊元素 pop = $pop ，出隊後 queue = ${queue.toArray()}");
 
-  /* 獲取佇列長度 */
+  /* 取得佇列長度 */
   final int size = queue.size();
   print("佇列長度 size = $size");
 
@@ -101,10 +101,10 @@ void main() {
   final bool isEmpty = queue.isEmpty();
   print("佇列是否為空 = $isEmpty");
 
-  /* 測試環形陣列 */
+  /* 測試環狀陣列 */
   for (int i = 0; i < 10; i++) {
     queue.push(i);
     queue.pop();
-    print("第 $i 輪入列 + 出列後 queue = ${queue.toArray()}");
+    print("第 $i 輪入隊 + 出隊後 queue = ${queue.toArray()}");
   }
 }

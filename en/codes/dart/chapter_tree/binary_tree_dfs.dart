@@ -40,7 +40,7 @@ void postOrder(TreeNode? node) {
 /* Driver code */
 void main() {
   /* Initialize the binary tree */
-  // Use a helper function that builds a binary tree directly from an array
+  // Use a function that builds a binary tree directly from an array
   TreeNode? root = listToTree([1, 2, 3, 4, 5, 6, 7]);
   print("\nInitialize the binary tree\n");
   printTree(root);
@@ -48,15 +48,15 @@ void main() {
   /* Preorder traversal */
   list.clear();
   preOrder(root);
-  print("\nNode sequence from preorder traversal = $list");
+  print("\nNodes in preorder = $list");
 
   /* Inorder traversal */
   list.clear();
   inOrder(root);
-  print("\nNode sequence from inorder traversal = $list");
+  print("\nNodes in inorder = $list");
 
   /* Postorder traversal */
   list.clear();
   postOrder(root);
-  print("\nNode sequence from postorder traversal = $list");
+  print("\nNodes in postorder = $list");
 }

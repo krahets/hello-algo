@@ -8,48 +8,48 @@ package chapter_stack_and_queue
 
 /* Стек на основе массива */
 class ArrayStack {
-    // Инициализация списка (динамического массива)
+    // Инициализировать список (динамический массив)
     private val stack = mutableListOf<Int>()
 
-    /* Получение длины стека */
+    /* Получить размер стека */
     fun size(): Int {
         return stack.size
     }
 
-    /* Проверка, пуст ли стек */
+    /* Проверить, пуст ли стек */
     fun isEmpty(): Boolean {
         return size() == 0
     }
 
-    /* Поместить в стек */
+    /* Поместить элемент в стек */
     fun push(num: Int) {
         stack.add(num)
     }
 
-    /* Извлечь из стека */
+    /* Снять элемент со стека */
     fun pop(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
         return stack.removeAt(size() - 1)
     }
 
-    /* Доступ к верхнему элементу стека */
+    /* Посмотреть элемент на вершине стека */
     fun peek(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
         return stack[size() - 1]
     }
 
-    /* Преобразовать List в Array и вернуть */
+    /* Преобразовать список в массив и вернуть его */
     fun toArray(): Array<Any> {
         return stack.toTypedArray()
     }
 }
 
-/* Driver Code */
+/* Пример использования */
 fun main() {
-    /* Инициализация стека */
+    /* Инициализировать стек */
     val stack = ArrayStack()
 
-    /* Помещение элемента в стек */
+    /* Поместить элементы в стек */
     stack.push(1)
     stack.push(3)
     stack.push(2)
@@ -57,19 +57,19 @@ fun main() {
     stack.push(4)
     println("Стек stack = ${stack.toArray().contentToString()}")
 
-    /* Доступ к верхнему элементу стека */
+    /* Посмотреть элемент на вершине стека */
     val peek = stack.peek()
-    println("Верхний элемент peek = $peek")
+    println("Элемент на вершине стека peek = $peek")
 
-    /* Извлечение элемента из стека */
+    /* Снять элемент со стека */
     val pop = stack.pop()
-    println("Извлеченный элемент pop = $pop, stack после извлечения = ${stack.toArray().contentToString()}")
+    println("Снятый элемент pop = $pop, после снятия stack = ${stack.toArray().contentToString()}")
 
-    /* Получение длины стека */
+    /* Получить размер стека */
     val size = stack.size()
-    println("Длина стека size = $size")
+    println("Размер стека size = $size")
 
-    /* Проверка на пустоту */
+    /* Проверить, пуст ли стек */
     val isEmpty = stack.isEmpty()
-    println("Пуст ли стек = $isEmpty")
+    println("Стек пуст = $isEmpty")
 }

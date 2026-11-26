@@ -6,13 +6,13 @@
 
 @main
 enum Queue {
-    /* Driver Code */
+    /* 範例程式 */
     static func main() {
         /* 初始化佇列 */
-        // Swift 沒有內建的佇列類別，可以把 Array 當作佇列來使用
+        // Swift 沒有內建佇列類別，可以用 Array 當作佇列
         var queue: [Int] = []
 
-        /* 元素入列 */
+        /* 將元素加入佇列 */
         queue.append(1)
         queue.append(3)
         queue.append(2)
@@ -20,16 +20,16 @@ enum Queue {
         queue.append(4)
         print("佇列 queue = \(queue)")
 
-        /* 訪問佇列首元素 */
+        /* 讀取隊首元素 */
         let peek = queue.first!
-        print("佇列首元素 peek = \(peek)")
+        print("隊首元素 peek = \(peek)")
 
-        /* 元素出列 */
-        // 使用 Array 模擬時 removeFirst 的複雜度為 O(n)
+        /* 從佇列取出元素 */
+        // 用 Array 模擬時，removeFirst 的時間複雜度為 O(n)
         let pop = queue.removeFirst()
-        print("出列元素 pop = \(pop)，出列後 queue = \(queue)")
+        print("出隊元素 pop = \(pop)，出隊後 queue = \(queue)")
 
-        /* 獲取佇列的長度 */
+        /* 取得佇列長度 */
         let size = queue.count
         print("佇列長度 size = \(size)")
 

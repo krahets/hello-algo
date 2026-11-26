@@ -9,33 +9,33 @@ package chapter_backtracking;
 import java.util.*;
 
 public class subset_sum_i_naive {
-    /* バックトラッキング：部分集合和 I */
+    /* バックトラッキングによる部分和問題 I */
     static void backtrack(List<Integer> state, int target, int total, int[] choices, List<List<Integer>> res) {
-        // 部分集合の和が target と等しくなったら、解を記録する
+        // 部分集合の要素の和が target に等しくなったら解を記録する
         if (total == target) {
             res.add(new ArrayList<>(state));
             return;
         }
-        // すべての選択肢を走査する
+        // すべての選択肢を調べる
         for (int i = 0; i < choices.length; i++) {
-            // 枝刈り：部分集合の和が target を超える場合、この選択をスキップする
+            // 枝刈り：部分集合の要素の和が target を超えるなら、その選択を飛ばす
             if (total + choices[i] > target) {
                 continue;
             }
-            // 試行：選択を行い、要素の和 total を更新する
+            // 試行：選択して要素の和 total を更新する
             state.add(choices[i]);
             // 次の選択に進む
             backtrack(state, target, total + choices[i], choices, res);
-            // 復元：選択を取り消し、以前の状態に戻す
+            // 後戻り：選択を取り消し、元の状態に戻す
             state.remove(state.size() - 1);
         }
     }
 
-    /* 部分集合和 I を解く（重複した部分集合を含む） */
+    /* 部分和問題 I を解く（重複する部分集合を含む） */
     static List<List<Integer>> subsetSumINaive(int[] nums, int target) {
         List<Integer> state = new ArrayList<>(); // 状態（部分集合）
-        int total = 0; // 部分集合和
-        List<List<Integer>> res = new ArrayList<>(); // 結果リスト（部分集合のリスト）
+        int total = 0; // 部分和
+        List<List<Integer>> res = new ArrayList<>(); // 結果のリスト（部分集合のリスト）
         backtrack(state, target, total, nums, res);
         return res;
     }
@@ -47,7 +47,7 @@ public class subset_sum_i_naive {
         List<List<Integer>> res = subsetSumINaive(nums, target);
 
         System.out.println("入力配列 nums = " + Arrays.toString(nums) + ", target = " + target);
-        System.out.println("和が " + target + " になるすべての部分集合 res = " + res);
-        System.out.println("この方法の出力結果には重複した集合が含まれることに注意");
+        System.out.println("要素の和が " + target + " となるすべての部分集合 res = " + res);
+        System.out.println("この方法の出力には重複する集合が含まれる点に注意");
     }
 }

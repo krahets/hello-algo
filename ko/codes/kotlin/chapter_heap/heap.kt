@@ -11,26 +11,26 @@ import java.util.*
 
 fun testPush(heap: Queue<Int>, _val: Int) {
     heap.offer(_val) // 힙에 원소 삽입
-    print("\n힙에 원소($_val)를 삽입한 후\n")
+    print("\n원소 $_val 삽입 후\n")
     printHeap(heap)
 }
 
 fun testPop(heap: Queue<Int>) {
     val _val = heap.poll() // 힙의 루트 원소 꺼내기
-    print("\n힙의 루트 원소($_val)를 꺼낸 후\n")
+    print("\n루트 원소를 꺼낸 뒤의 힙(꺼낸 값: $_val)\n")
     printHeap(heap)
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 fun main() {
     /* 힙 초기화 */
     // 최소 힙 초기화
     var minHeap = PriorityQueue<Int>()
 
-    // 최대 힙 초기화(lambda 식으로 Comparator를 수정하면 된다)
+    // 최대 힙 초기화(람다 식으로 Comparator를 변경하면 됨)
     val maxHeap = PriorityQueue { a: Int, b: Int -> b - a }
 
-    println("\n다음 테스트 예제는 최대 힙이다")
+    println("\n다음은 최대 힙 테스트 예제다.")
 
     /* 힙에 원소 삽입 */
     testPush(maxHeap, 1)
@@ -39,9 +39,9 @@ fun main() {
     testPush(maxHeap, 5)
     testPush(maxHeap, 4)
 
-    /* 힙의 루트 원소 반환 */
+    /* 힙의 루트 원소 구하기 */
     val peek = maxHeap.peek()
-    print("\n힙의 루트 원소 = $peek\n")
+    print("\n힙의 루트 원소: $peek\n")
 
     /* 힙의 루트 원소 꺼내기 */
     testPop(maxHeap)
@@ -50,17 +50,17 @@ fun main() {
     testPop(maxHeap)
     testPop(maxHeap)
 
-    /* 힙 크기 반환 */
+    /* 힙 크기 구하기 */
     val size = maxHeap.size
-    print("\n힙의 원소 개수 = $size\n")
+    print("\n힙의 원소 수: $size\n")
 
-    /* 힙이 비어 있는지 판단 */
+    /* 힙이 비었는지 확인 */
     val isEmpty = maxHeap.isEmpty()
-    print("\n힙이 비어 있는가: $isEmpty\n")
+    print("\n빈 힙 여부: $isEmpty\n")
 
-    /* 리스트를 입력하여 힙 구성 */
-    // 시간 복잡도는 O(n)이며 O(nlogn)이 아니다
+    /* 입력 리스트로 힙 구성 */
+    // 시간 복잡도는 O(nlogn)이 아니라 O(n)
     minHeap = PriorityQueue(mutableListOf<Int?>(1, 3, 2, 5, 4))
-    println("\n리스트를 입력하여 최소 힙을 구성한 후")
+    println("\n입력 리스트로 만든 최소 힙:")
     printHeap(minHeap)
 }

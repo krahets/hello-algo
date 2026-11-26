@@ -12,18 +12,18 @@ func coinChangeIIDP(coins []int, amt int) int {
 	for i := 0; i <= n; i++ {
 		dp[i] = make([]int, amt+1)
 	}
-	// 初始化首列
+	// 初始化第一欄
 	for i := 0; i <= n; i++ {
 		dp[i][0] = 1
 	}
-	// 狀態轉移：其餘行和列
+	// 狀態轉移：其餘各列與各欄
 	for i := 1; i <= n; i++ {
 		for a := 1; a <= amt; a++ {
 			if coins[i-1] > a {
-				// 若超過目標金額，則不選硬幣 i
+				// 若面額超過目標金額，就不選硬幣 i
 				dp[i][a] = dp[i-1][a]
 			} else {
-				// 不選和選硬幣 i 這兩種方案之和
+				// 將不選與選取硬幣 i 兩種情況的組合數相加
 				dp[i][a] = dp[i-1][a] + dp[i][a-coins[i-1]]
 			}
 		}
@@ -39,13 +39,13 @@ func coinChangeIIDPComp(coins []int, amt int) int {
 	dp[0] = 1
 	// 狀態轉移
 	for i := 1; i <= n; i++ {
-		// 正序走訪
+		// 正向走訪
 		for a := 1; a <= amt; a++ {
 			if coins[i-1] > a {
-				// 若超過目標金額，則不選硬幣 i
+				// 若面額超過目標金額，就不選硬幣 i
 				dp[a] = dp[a]
 			} else {
-				// 不選和選硬幣 i 這兩種方案之和
+				// 將不選與選取硬幣 i 兩種情況的組合數相加
 				dp[a] = dp[a] + dp[a-coins[i-1]]
 			}
 		}

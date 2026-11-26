@@ -20,50 +20,50 @@ int *levelOrder(TreeNode *root, int *size) {
     queue = (TreeNode **)malloc(sizeof(TreeNode *) * MAX_SIZE);
     // キューのポインタ
     front = 0, rear = 0;
-    // 根ノードを追加する
+    // 根をキューに入れる
     queue[rear++] = root;
-    // 走査順序を保存するリストを初期化する
+    // 走査順を記録するリストを初期化する
     /* 補助配列 */
     arr = (int *)malloc(sizeof(int) * MAX_SIZE);
     // 配列のポインタ
     index = 0;
     while (front < rear) {
-        // キューからデキューする
+        // キューの先頭から取り出す
         node = queue[front++];
-        // ノードの値を保存する
+        // ノードの値を記録する
         arr[index++] = node->val;
         if (node->left != NULL) {
-            // 左の子ノードをエンキューする
+            // 左の子をキューに入れる
             queue[rear++] = node->left;
         }
         if (node->right != NULL) {
-            // 右の子ノードをエンキューする
+            // 右の子をキューに入れる
             queue[rear++] = node->right;
         }
     }
-    // 配列の長さの値を更新する
+    // 配列の長さを更新する
     *size = index;
     arr = realloc(arr, sizeof(int) * (*size));
 
-    // 補助配列の領域を解放する
+    // 補助配列のメモリを解放する
     free(queue);
     return arr;
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     /* 二分木を初期化する */
-    // ここでは配列から二分木を直接生成する関数を使う
+    // ここでは配列から直接二分木を作る関数を使う
     int nums[] = {1, 2, 3, 4, 5, 6, 7};
     int size = sizeof(nums) / sizeof(int);
     TreeNode *root = arrayToTree(nums, size);
-    printf("二分木を初期化する\n");
+    printf("二分木を初期化\n");
     printTree(root);
 
     /* レベル順走査 */
     // 配列の長さを渡す必要がある
     int *arr = levelOrder(root, &size);
-    printf("レベル順走査で表示するノードの順序 = ");
+    printf("レベル順に出力したノードの列 = ");
     printArray(arr, size);
 
     // メモリを解放する

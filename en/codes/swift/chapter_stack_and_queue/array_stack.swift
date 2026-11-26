@@ -4,12 +4,12 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Stack implemented with an array */
+/* Array-backed stack */
 class ArrayStack {
     private var stack: [Int]
 
     init() {
-        // Initialize the list (dynamic array)
+        // Initialize the dynamic array
         stack = []
     }
 
@@ -23,12 +23,12 @@ class ArrayStack {
         stack.isEmpty
     }
 
-    /* Push */
+    /* Push an element onto the stack */
     func push(num: Int) {
         stack.append(num)
     }
 
-    /* Pop */
+    /* Remove and return the top element */
     @discardableResult
     func pop() -> Int {
         if isEmpty() {
@@ -37,7 +37,7 @@ class ArrayStack {
         return stack.removeLast()
     }
 
-    /* Access the top element */
+    /* Peek at the top element */
     func peek() -> Int {
         if isEmpty() {
             fatalError("Stack is empty")
@@ -45,7 +45,7 @@ class ArrayStack {
         return stack.last!
     }
 
-    /* Return the stack elements as an array */
+    /* Return the array that backs the stack */
     func toArray() -> [Int] {
         stack
     }
@@ -64,22 +64,22 @@ enum _ArrayStack {
         stack.push(num: 2)
         stack.push(num: 5)
         stack.push(num: 4)
-        print("Stack stack = \(stack.toArray())")
+        print("stack = \(stack.toArray())")
 
-        /* Access the top element */
+        /* Peek at the top element */
         let peek = stack.peek()
-        print("Top element peek = \(peek)")
+        print("Top element (peek) = \(peek)")
 
-        /* Pop an element from the stack */
+        /* Pop the top element */
         let pop = stack.pop()
-        print("Popped element pop = \(pop); after popping, stack = \(stack.toArray())")
+        print("Popped element (pop) = \(pop), stack after the pop = \(stack.toArray())")
 
         /* Get the stack size */
         let size = stack.size()
         print("Stack size = \(size)")
 
-        /* Check whether it is empty */
+        /* Check whether the stack is empty */
         let isEmpty = stack.isEmpty()
-        print("Is the stack empty? \(isEmpty)")
+        print("Stack is empty = \(isEmpty)")
     }
 }

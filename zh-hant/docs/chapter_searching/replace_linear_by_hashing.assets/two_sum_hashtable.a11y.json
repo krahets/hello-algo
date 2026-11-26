@@ -1,0 +1,58 @@
+{
+  "animations": {
+    "two-sum-hash": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "frame_id": "source-235",
+          "id": "step-1"
+        },
+        {
+          "frame_id": "source-236",
+          "id": "step-2"
+        },
+        {
+          "frame_id": "source-237",
+          "id": "step-3"
+        }
+      ]
+    }
+  },
+  "context": [
+    "給定整數陣列 nums = [2, 7, 11, 15]（索引從 0 到 3），目標總和為 target = 13。",
+    "用輔助雜湊表 map 記錄已走訪的元素。鍵（key，圖中標為「元素」）是陣列中的元素值，值（value，圖中標為「索引」）則是該元素在陣列中的索引。這個方法只用一層迴圈，每一輪先查詢互補的數 target − nums[i] 是否已在 map 中。若在表中，立即回傳 [map[target − nums[i]], i]；若不在表中，才將目前的鍵值對 nums[i]: i 寫入 map。"
+  ],
+  "description": [
+    "每一輪都先查詢互補的數，再存入目前的元素。這個順序確保配對的另一個元素一定來自 i 之前的不同索引。三個畫面依序呈現 i = 0、1、2 時的判斷和雜湊表的狀態。請留意，第一步畫出的已是首次插入 2: 0 之後的狀態，並非空表。"
+  ],
+  "frames": [
+    {
+      "announcement": "讀取索引 0 的元素 2。互補的 11 不在雜湊表中，因此將鍵值對 2: 0 存入 map。",
+      "book_path": "chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step1.png",
+      "explanation": "i = 0，指向元素 2。圖右側說明，因為 13 − 2 = 11 不在最初的空表中，所以寫入 2: 0。此時 map = {2: 0}，尚未回傳答案，下一個要檢查的是索引 1 的 7。",
+      "id": "source-235",
+      "key_state": "i = 0（值為 2）：找不到互補的 11，寫入後 map = {2: 0}。",
+      "title": "找不到互補的 11，記下 2"
+    },
+    {
+      "announcement": "讀取索引 1 的元素 7。互補的 6 不在雜湊表中，因此將鍵值對 7: 1 存入 map。",
+      "book_path": "chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step2.png",
+      "explanation": "i = 1，指向元素 7。圖右側說明，因為 13 − 7 = 6 不在 map 中，所以寫入 7: 1。原本表中只有鍵 2，寫入後 map = {2: 0, 7: 1}。尚未回傳答案，下一個要檢查的是索引 2 的 11。",
+      "id": "source-236",
+      "key_state": "i = 1（值為 7）：找不到互補的 6，寫入後 map = {2: 0, 7: 1}。",
+      "title": "找不到互補的 6，記下 7"
+    },
+    {
+      "announcement": "讀取索引 2 的元素 11，在雜湊表中查到互補的 2（索引 0），回傳 [0, 2]。",
+      "book_path": "chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step3.png",
+      "explanation": "i = 2，指向元素 11。圖右側說明，因為 13 − 11 = 2 已在 map 中，且 map[2] = 0，所以回傳索引 [0, 2]。map 仍為 {2: 0, 7: 1}，不將 11 加入表中，也不再處理索引 3 的 15。",
+      "id": "source-237",
+      "key_state": "i = 2（值為 11）：在 map 中查到互補的 2 對應索引 0，直接回傳 [0, 2]。map 仍為 {2: 0, 7: 1}，未加入 11，也不再處理 15。",
+      "title": "找到互補的 2，回傳索引"
+    }
+  ],
+  "result": "若雜湊查詢的平均時間為 O(1)，整體平均時間就是 O(n)，輔助空間為 O(n)。這是以空間換取時間的做法。",
+  "schema_version": 2,
+  "summary": "用雜湊表記錄看過的元素及其索引，先查詢互補的數，再決定是否存入目前的元素。",
+  "title": "用雜湊表求兩數之和"
+}

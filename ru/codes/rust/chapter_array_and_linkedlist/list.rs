@@ -5,7 +5,7 @@
  */
 use hello_algo_rust::include::print_util;
 
-/* Driver Code */
+/* Демонстрационный код */
 fn main() {
     // Инициализация списка
     let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
@@ -18,10 +18,10 @@ fn main() {
 
     // Изменение элемента
     nums[1] = 0;
-    print!("После изменения значения элемента с индексом 1 на 0 nums = ");
+    print!("После записи 0 по индексу 1 nums = ");
     print_util::print_array(&nums);
 
-    // Очистить список
+    // Очистка списка
     nums.clear();
     print!("\nПосле очистки списка nums = ");
     print_util::print_array(&nums);
@@ -45,27 +45,27 @@ fn main() {
     print!("\nПосле удаления элемента по индексу 3 nums = ");
     print_util::print_array(&nums);
 
-    // Обходить список по индексам
+    // Обойти список по индексам
     let mut _count = 0;
     for i in 0..nums.len() {
         _count += nums[i];
     }
-    // Непосредственно обходить элементы списка
+    // Перебрать элементы списка напрямую
     _count = 0;
     for x in &nums {
         _count += x;
     }
 
-    // Объединить два списка
+    // Объединение двух списков
     let mut nums1 = vec![6, 8, 7, 10, 9];
-    nums.append(&mut nums1); // После append (перемещение) nums1 становится пустым!
+    nums.append(&mut nums1); // После append (перемещение) список nums1 пуст!
 
-    // nums.extend(&nums1);   // extend (заимствование), nums1 можно продолжать использовать
-    print!("\nПосле конкатенации списка nums1 к nums nums = ");
+    // nums.extend(&nums1);   // extend заимствует nums1, так что им можно пользоваться и дальше
+    print!("\nПосле добавления nums1 в конец nums получаем nums = ");
     print_util::print_array(&nums);
 
-    // Отсортировать список
+    // Сортировка списка
     nums.sort();
-    print!("\nПосле сортировки списка nums = ");
+    print!("\nПосле сортировки nums = ");
     print_util::print_array(&nums);
 }

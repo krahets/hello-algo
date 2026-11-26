@@ -9,24 +9,24 @@ import (
 )
 
 /* Breadth-first traversal */
-// Represent the graph with an adjacency list to access all neighbors of a given vertex
+// Represent the graph with an adjacency list to look up all neighbors of a given vertex
 func graphBFS(g *graphAdjList, startVet Vertex) []Vertex {
-	// Vertex traversal sequence
+	// Vertex traversal order
 	res := make([]Vertex, 0)
-	// Hash set recording visited vertices
+	// Use a hash set to track visited vertices
 	visited := make(map[Vertex]struct{})
 	visited[startVet] = struct{}{}
-	// Use a queue for BFS, represented here by a slice
+	// Use a slice as the BFS queue
 	queue := make([]Vertex, 0)
 	queue = append(queue, startVet)
-	// Starting from startVet, loop until all reachable vertices have been visited
+	// Starting at vertex vet, loop until all reachable vertices have been visited
 	for len(queue) > 0 {
 		// Dequeue the front vertex
 		vet := queue[0]
 		queue = queue[1:]
 		// Record the visited vertex
 		res = append(res, vet)
-		// Traverse all neighbors of this vertex
+		// Iterate over all neighbors of this vertex
 		for _, adjVet := range g.adjList[vet] {
 			_, isExist := visited[adjVet]
 			// Enqueue only unvisited vertices
@@ -36,6 +36,6 @@ func graphBFS(g *graphAdjList, startVet Vertex) []Vertex {
 			}
 		}
 	}
-	// Return the vertex traversal sequence
+	// Return the vertex traversal order
 	return res
 }

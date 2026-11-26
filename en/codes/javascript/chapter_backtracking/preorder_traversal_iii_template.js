@@ -17,7 +17,7 @@ function recordSolution(state, res) {
     res.push([...state]);
 }
 
-/* Check whether the choice is valid in the current state */
+/* Check whether this choice is valid in the current state */
 function isValid(state, choice) {
     return choice !== null && choice.val !== 3;
 }
@@ -34,20 +34,20 @@ function undoChoice(state) {
 
 /* Backtracking: example 3 */
 function backtrack(state, choices, res) {
-    // Check whether this is a solution
+    // Check for a solution
     if (isSolution(state)) {
         // Record the solution
         recordSolution(state, res);
     }
-    // Iterate over all choices
+    // Try each choice
     for (const choice of choices) {
         // Prune: check whether the choice is valid
         if (isValid(state, choice)) {
-            // Try: make a choice and update the state
+            // Make a choice and update the state
             makeChoice(state, choice);
-            // Proceed to the next choice
+            // Make the next choice
             backtrack(state, [choice.left, choice.right], res);
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             undoChoice(state);
         }
     }
@@ -58,11 +58,11 @@ const root = arrToTree([1, 7, 3, 4, 5, 6, 7]);
 console.log('\nInitialize the binary tree');
 printTree(root);
 
-// Backtracking algorithm
+// Backtracking
 const res = [];
 backtrack([], [root], res);
 
-console.log('\nOutput all paths from the root to nodes with value 7, requiring that no node on the path has value 3');
+console.log('\nPrint all paths from the root to a node with value 7 that avoid nodes with value 3');
 res.forEach((path) => {
     console.log(path.map((node) => node.val));
 });

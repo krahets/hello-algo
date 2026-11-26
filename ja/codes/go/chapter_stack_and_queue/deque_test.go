@@ -17,7 +17,7 @@ func TestDeque(t *testing.T) {
 	// Go では list を両端キューとして使う
 	deque := list.New()
 
-	/* 要素をエンキューする */
+	/* 要素を両端キューに追加する */
 	deque.PushBack(2)
 	deque.PushBack(5)
 	deque.PushBack(4)
@@ -26,23 +26,23 @@ func TestDeque(t *testing.T) {
 	fmt.Print("両端キュー deque = ")
 	PrintList(deque)
 
-	/* 要素にアクセスする */
+	/* 要素を参照する */
 	front := deque.Front()
-	fmt.Println("キューの先頭要素 front =", front.Value)
+	fmt.Println("先頭要素 front =", front.Value)
 	rear := deque.Back()
-	fmt.Println("キューの末尾要素 rear =", rear.Value)
+	fmt.Println("末尾要素 rear =", rear.Value)
 
-	/* 要素をデキューする */
+	/* 両端キューから要素を取り出す */
 	deque.Remove(front)
-	fmt.Print("先頭からデキューした要素 front = ", front.Value, "、先頭からデキューした後 deque = ")
+	fmt.Print("先頭から取り出した要素 front = ", front.Value, "、先頭から取り出した後の deque = ")
 	PrintList(deque)
 	deque.Remove(rear)
-	fmt.Print("末尾からデキューした要素 rear = ", rear.Value, "、末尾からデキューした後 deque = ")
+	fmt.Print("末尾から取り出した要素 rear = ", rear.Value, "、末尾から取り出した後の deque = ")
 	PrintList(deque)
 
-	/* 両端キューの長さを取得する */
+	/* 両端キューの要素数を取得する */
 	size := deque.Len()
-	fmt.Println("両端キューの長さ size =", size)
+	fmt.Println("両端キューの要素数 size =", size)
 
 	/* 両端キューが空かどうかを判定する */
 	isEmpty := deque.Len() == 0
@@ -53,38 +53,38 @@ func TestArrayDeque(t *testing.T) {
 	/* 両端キューを初期化する */
 	deque := newArrayDeque(16)
 
-	/* 要素をエンキューする */
+	/* 要素を両端キューに追加する */
 	deque.pushLast(3)
 	deque.pushLast(2)
 	deque.pushLast(5)
 	fmt.Print("両端キュー deque = ")
 	PrintSlice(deque.toSlice())
 
-	/* 要素にアクセスする */
+	/* 要素を参照する */
 	peekFirst := deque.peekFirst()
-	fmt.Println("キューの先頭要素 peekFirst =", peekFirst)
+	fmt.Println("先頭要素 peekFirst =", peekFirst)
 	peekLast := deque.peekLast()
-	fmt.Println("キューの末尾要素 peekLast =", peekLast)
+	fmt.Println("末尾要素 peekLast =", peekLast)
 
-	/* 要素をエンキューする */
+	/* 要素を両端キューに追加する */
 	deque.pushLast(4)
-	fmt.Print("要素 4 を末尾にエンキューした後 deque = ")
+	fmt.Print("末尾に 4 を追加した後の deque = ")
 	PrintSlice(deque.toSlice())
 	deque.pushFirst(1)
-	fmt.Print("要素 1 を先頭にエンキューした後 deque = ")
+	fmt.Print("先頭に 1 を追加した後の deque = ")
 	PrintSlice(deque.toSlice())
 
-	/* 要素をデキューする */
+	/* 両端キューから要素を取り出す */
 	popFirst := deque.popFirst()
-	fmt.Print("先頭からデキューした要素 popFirst = ", popFirst, "、先頭からデキューした後 deque = ")
+	fmt.Print("先頭から取り出した要素 popFirst = ", popFirst, "、先頭から取り出した後の deque = ")
 	PrintSlice(deque.toSlice())
 	popLast := deque.popLast()
-	fmt.Print("末尾からデキューした要素 popLast = ", popLast, "、末尾からデキューした後 deque = ")
+	fmt.Print("末尾から取り出した要素 popLast = ", popLast, "、末尾から取り出した後の deque = ")
 	PrintSlice(deque.toSlice())
 
-	/* 両端キューの長さを取得する */
+	/* 両端キューの要素数を取得する */
 	size := deque.size()
-	fmt.Println("両端キューの長さ size =", size)
+	fmt.Println("両端キューの要素数 size =", size)
 
 	/* 両端キューが空かどうかを判定する */
 	isEmpty := deque.isEmpty()
@@ -92,10 +92,10 @@ func TestArrayDeque(t *testing.T) {
 }
 
 func TestLinkedListDeque(t *testing.T) {
-	// キューを初期化する
+	// 両端キューを初期化する
 	deque := newLinkedListDeque()
 
-	// 要素をエンキューする
+	// 要素を両端キューに追加する
 	deque.pushLast(2)
 	deque.pushLast(5)
 	deque.pushLast(4)
@@ -104,33 +104,33 @@ func TestLinkedListDeque(t *testing.T) {
 	fmt.Print("両端キュー deque = ")
 	PrintList(deque.toList())
 
-	// キューの先頭要素にアクセス
+	// 両端キューの先頭要素を参照する
 	front := deque.peekFirst()
-	fmt.Println("キューの先頭要素 front =", front)
+	fmt.Println("先頭要素 front =", front)
 	rear := deque.peekLast()
-	fmt.Println("キューの末尾要素 rear =", rear)
+	fmt.Println("末尾要素 rear =", rear)
 
-	// 要素をデキューする
+	// 両端キューから要素を取り出す
 	popFirst := deque.popFirst()
-	fmt.Print("先頭からデキューした要素 popFirst = ", popFirst, "、先頭からデキューした後 deque = ")
+	fmt.Print("先頭から取り出した要素 popFirst = ", popFirst, "、先頭から取り出した後の deque = ")
 	PrintList(deque.toList())
 	popLast := deque.popLast()
-	fmt.Print("末尾からデキューした要素 popLast = ", popLast, "、末尾からデキューした後 deque = ")
+	fmt.Print("末尾から取り出した要素 popLast = ", popLast, "、末尾から取り出した後の deque = ")
 	PrintList(deque.toList())
 
-	// キューの長さを取得する
+	// 両端キューの要素数を取得する
 	size := deque.size()
-	fmt.Println("キューの長さ size =", size)
+	fmt.Println("両端キューの要素数 size =", size)
 
 	// 空かどうかを判定する
 	isEmpty := deque.isEmpty()
-	fmt.Println("キューは空か =", isEmpty)
+	fmt.Println("両端キューは空か =", isEmpty)
 }
 
-// Mac M1 Pro での BenchmarkLinkedListDeque は 67.92 ns/op
+// M1 Pro 搭載の Mac での BenchmarkLinkedListDeque の測定値は 67.92 ns/op
 func BenchmarkLinkedListDeque(b *testing.B) {
 	deque := newLinkedListDeque()
-	// ループには b.N を使う
+	// b.N 回繰り返す
 	for i := 0; i < b.N; i++ {
 		deque.pushLast(777)
 	}

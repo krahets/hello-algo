@@ -6,7 +6,7 @@
 
 void main() {
   /* スタックを初期化する */
-  // Dart には組み込みのスタッククラスがないため、List をスタックとして使える
+  // Dart には組み込みのスタッククラスがないので、List をスタックとして使える
   final List<int> stack = [];
 
   /* 要素をプッシュする */
@@ -17,17 +17,17 @@ void main() {
   stack.add(4);
   print("スタック stack = $stack");
 
-  /* スタックの先頭要素にアクセスする */
+  /* スタックのトップを参照する */
   final int peek = stack.last;
-  print("スタックの先頭要素 peek = $peek");
+  print("スタックのトップの要素 peek = $peek");
 
   /* 要素をポップする */
   final int pop = stack.removeLast();
-  print("ポップした要素 pop = $pop 、ポップ後 stack = $stack");
+  print("ポップした要素 pop = $pop 、ポップ後の stack = $stack");
 
-  /* スタックの長さを取得する */
+  /* スタックの要素数を取得する */
   final int size = stack.length;
-  print("スタックの長さ size = $size");
+  print("スタックの要素数 size = $size");
 
   /* 空かどうかを判定する */
   final bool isEmpty = stack.isEmpty;

@@ -6,19 +6,19 @@
 
 #include "../utils/common.h"
 
-// Предположим, что максимальное число узлов равно 100
+// Допустим, узлов не больше 100
 #define MAX_SIZE 100
 
 /* Структура узла */
 typedef struct AdjListNode {
     Vertex *vertex;           // Вершина
-    struct AdjListNode *next; // Узел-преемник
+    struct AdjListNode *next; // Следующий узел
 } AdjListNode;
 
-/* Класс неориентированного графа на основе списка смежности */
+/* Неориентированный граф на списках смежности */
 typedef struct {
     AdjListNode *heads[MAX_SIZE]; // Массив узлов
-    int size;                     // Количество узлов
+    int size;                     // Число узлов
 } GraphAdjList;
 
 /* Конструктор */
@@ -65,17 +65,17 @@ AdjListNode *findNode(GraphAdjList *graph, Vertex *vet) {
 void addEdgeHelper(AdjListNode *head, Vertex *vet) {
     AdjListNode *node = (AdjListNode *)malloc(sizeof(AdjListNode));
     node->vertex = vet;
-    // Вставка в голову
+    // Вставка в начало списка
     node->next = head->next;
     head->next = node;
 }
 
-/* Добавление ребра */
+/* Добавить ребро */
 void addEdge(GraphAdjList *graph, Vertex *vet1, Vertex *vet2) {
     AdjListNode *head1 = findNode(graph, vet1);
     AdjListNode *head2 = findNode(graph, vet2);
     assert(head1 != NULL && head2 != NULL && head1 != head2);
-    // Добавить ребро vet1 - vet2
+    // Добавить ребро vet1 — vet2
     addEdgeHelper(head1, vet2);
     addEdgeHelper(head2, vet1);
 }
@@ -84,30 +84,30 @@ void addEdge(GraphAdjList *graph, Vertex *vet1, Vertex *vet2) {
 void removeEdgeHelper(AdjListNode *head, Vertex *vet) {
     AdjListNode *pre = head;
     AdjListNode *cur = head->next;
-    // Искать в связном списке узел, соответствующий vet
+    // Найти в списке узел вершины vet
     while (cur != NULL && cur->vertex != vet) {
         pre = cur;
         cur = cur->next;
     }
     if (cur == NULL)
         return;
-    // Удалить из связного списка узел, соответствующий vet
+    // Удалить из списка узел вершины vet
     pre->next = cur->next;
     // Освободить память
     free(cur);
 }
 
-/* Удаление ребра */
+/* Удалить ребро */
 void removeEdge(GraphAdjList *graph, Vertex *vet1, Vertex *vet2) {
     AdjListNode *head1 = findNode(graph, vet1);
     AdjListNode *head2 = findNode(graph, vet2);
     assert(head1 != NULL && head2 != NULL);
-    // Удалить ребро vet1 - vet2
+    // Удалить ребро vet1 — vet2
     removeEdgeHelper(head1, head2->vertex);
     removeEdgeHelper(head2, head1->vertex);
 }
 
-/* Добавление вершины */
+/* Добавить вершину */
 void addVertex(GraphAdjList *graph, Vertex *vet) {
     assert(graph != NULL);
     if (findNode(graph, vet) != NULL)
@@ -116,15 +116,15 @@ void addVertex(GraphAdjList *graph, Vertex *vet) {
     AdjListNode *head = (AdjListNode *)malloc(sizeof(AdjListNode));
     head->vertex = vet;
     head->next = NULL;
-    // Добавить новый список в список смежности
+    // Добавить новый связный список в список смежности
     graph->heads[graph->size++] = head;
 }
 
-/* Удаление вершины */
+/* Удалить вершину */
 void removeVertex(GraphAdjList *graph, Vertex *vet) {
     AdjListNode *node = findNode(graph, vet);
     assert(node != NULL);
-    // Сдвинуть вершины после данной вперед, чтобы заполнить образовавшийся пробел
+    // Сдвинуть следующие вершины к началу, чтобы заполнить свободное место
     int i;
     for (i = 0; i < graph->size; i++) {
         if (graph->heads[i] == node)
@@ -134,7 +134,7 @@ void removeVertex(GraphAdjList *graph, Vertex *vet) {
         graph->heads[j] = graph->heads[j + 1];
     }
     graph->size--;
-    // Обойти списки других вершин и удалить все ребра, содержащие vet
+    // Обойти списки остальных вершин и удалить все рёбра, инцидентные vet
     for (int i = 0; i < graph->size; i++) {
         AdjListNode *cur = graph->heads[i];
         while (cur->next != NULL) {
@@ -147,7 +147,7 @@ void removeVertex(GraphAdjList *graph, Vertex *vet) {
             }
         }
     }
-    // Удалить из списка смежности список, соответствующий вершине vet
+    // Удалить из списка смежности список вершины vet
     while (node != NULL) {
         AdjListNode *next = node->next;
         free(node);

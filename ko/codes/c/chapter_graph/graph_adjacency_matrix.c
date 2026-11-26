@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-// 정점이 최대 100개라고 가정한다
+// 최대 정점 수를 100으로 가정
 #define MAX_SIZE 100
 
 /* 인접 행렬로 구현한 무방향 그래프 구조체 */
@@ -36,10 +36,10 @@ void delGraphAdjMat(GraphAdjMat *graph) {
 /* 정점 추가 */
 void addVertex(GraphAdjMat *graph, int val) {
     if (graph->size == MAX_SIZE) {
-        fprintf(stderr, "그래프의 정점 개수가 최댓값에 도달했다\n");
+        fprintf(stderr, "그래프의 정점 수가 최댓값에 도달함\n");
         return;
     }
-    // n번째 정점을 추가하고 n번째 행과 열을 0으로 설정한다
+    // n번째 정점을 추가하고 n번째 행과 열을 0으로 초기화
     int n = graph->size;
     graph->vertices[n] = val;
     for (int i = 0; i <= n; i++) {
@@ -51,20 +51,20 @@ void addVertex(GraphAdjMat *graph, int val) {
 /* 정점 삭제 */
 void removeVertex(GraphAdjMat *graph, int index) {
     if (index < 0 || index >= graph->size) {
-        fprintf(stderr, "정점 인덱스가 범위를 벗어났다\n");
+        fprintf(stderr, "정점 인덱스가 범위를 벗어남\n");
         return;
     }
-    // 정점 리스트에서 인덱스 index의 정점을 제거한다
+    // 정점 리스트에서 인덱스가 index인 정점 삭제
     for (int i = index; i < graph->size - 1; i++) {
         graph->vertices[i] = graph->vertices[i + 1];
     }
-    // 인접 행렬에서 인덱스 index의 행을 삭제한다
+    // 인접 행렬에서 인덱스가 index인 행 삭제
     for (int i = index; i < graph->size - 1; i++) {
         for (int j = 0; j < graph->size; j++) {
             graph->adjMat[i][j] = graph->adjMat[i + 1][j];
         }
     }
-    // 인접 행렬에서 인덱스 index의 열을 삭제한다
+    // 인접 행렬에서 인덱스가 index인 열 삭제
     for (int i = 0; i < graph->size; i++) {
         for (int j = index; j < graph->size - 1; j++) {
             graph->adjMat[i][j] = graph->adjMat[i][j + 1];
@@ -74,10 +74,10 @@ void removeVertex(GraphAdjMat *graph, int index) {
 }
 
 /* 간선 추가 */
-// 매개변수 i, j는 vertices 원소의 인덱스에 해당한다
+// 매개변수 i, j는 vertices의 원소 인덱스
 void addEdge(GraphAdjMat *graph, int i, int j) {
     if (i < 0 || j < 0 || i >= graph->size || j >= graph->size || i == j) {
-        fprintf(stderr, "간선 인덱스가 범위를 벗어나거나 서로 같다\n");
+        fprintf(stderr, "간선 양 끝의 인덱스가 범위를 벗어나거나 서로 같음\n");
         return;
     }
     graph->adjMat[i][j] = 1;
@@ -85,10 +85,10 @@ void addEdge(GraphAdjMat *graph, int i, int j) {
 }
 
 /* 간선 삭제 */
-// 매개변수 i, j는 vertices 원소의 인덱스에 해당한다
+// 매개변수 i, j는 vertices의 원소 인덱스
 void removeEdge(GraphAdjMat *graph, int i, int j) {
     if (i < 0 || j < 0 || i >= graph->size || j >= graph->size || i == j) {
-        fprintf(stderr, "간선 인덱스가 범위를 벗어나거나 서로 같다\n");
+        fprintf(stderr, "간선 양 끝의 인덱스가 범위를 벗어나거나 서로 같음\n");
         return;
     }
     graph->adjMat[i][j] = 0;
@@ -105,7 +105,7 @@ void printGraphAdjMat(GraphAdjMat *graph) {
     }
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 int main() {
     // 무방향 그래프 초기화
     GraphAdjMat *graph = newGraphAdjMat();
@@ -117,30 +117,30 @@ int main() {
     for (int i = 0; i < 6; i++) {
         addEdge(graph, edges[i][0], edges[i][1]);
     }
-    printf("\n초기화한 그래프:\n");
+    printf("\n초기화한 그래프\n");
     printGraphAdjMat(graph);
 
     /* 간선 추가 */
-    // 정점 1, 2의 인덱스는 각각 0, 2이다
+    // 정점 1과 2의 인덱스는 각각 0과 2
     addEdge(graph, 0, 2);
-    printf("\n간선 1-2를 추가한 후의 그래프:\n");
+    printf("\n간선 1-2를 추가한 그래프\n");
     printGraphAdjMat(graph);
 
     /* 간선 삭제 */
-    // 정점 1, 3의 인덱스는 각각 0, 1이다
+    // 정점 1과 3의 인덱스는 각각 0과 1
     removeEdge(graph, 0, 1);
-    printf("\n간선 1-3을 삭제한 후의 그래프:\n");
+    printf("\n간선 1-3을 삭제한 그래프\n");
     printGraphAdjMat(graph);
 
     /* 정점 추가 */
     addVertex(graph, 6);
-    printf("\n정점 6을 추가한 후의 그래프:\n");
+    printf("\n정점 6을 추가한 그래프\n");
     printGraphAdjMat(graph);
 
     /* 정점 삭제 */
-    // 정점 3의 인덱스는 1이다
+    // 정점 3의 인덱스는 1
     removeVertex(graph, 1);
-    printf("\n정점 3을 삭제한 후의 그래프:\n");
+    printf("\n정점 3을 삭제한 그래프\n");
     printGraphAdjMat(graph);
 
     // 메모리 해제

@@ -7,7 +7,7 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 
-/* 이진 트리 노드 자료형 */
+/* 이진 트리 노드 타입 */
 #[derive(Debug)]
 pub struct TreeNode {
     pub val: i32,
@@ -39,7 +39,7 @@ macro_rules! op_vec {
     };
 }
 
-// 직렬화 인코딩 규칙은 다음을 참고한다:
+// 직렬화 인코딩 규칙은 다음을 참고한다.
 // https://www.hello-algo.com/ko/chapter_tree/array_representation_of_tree/
 // 이진 트리의 배열 표현:
 // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
@@ -55,7 +55,7 @@ macro_rules! op_vec {
 //         \——— 4
 //             \——— 8
 
-/* 리스트를 이진 트리로 역직렬화: 재귀 */
+/* 재귀로 리스트를 이진 트리로 역직렬화 */
 fn vec_to_tree_dfs(arr: &[Option<i32>], i: usize) -> Option<Rc<RefCell<TreeNode>>> {
     if i >= arr.len() || arr[i].is_none() {
         return None;
@@ -71,10 +71,10 @@ pub fn vec_to_tree(arr: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
     vec_to_tree_dfs(&arr, 0)
 }
 
-/* 이진 트리를 리스트로 직렬화: 재귀 */
+/* 재귀로 이진 트리를 리스트로 직렬화 */
 fn tree_to_vec_dfs(root: Option<&Rc<RefCell<TreeNode>>>, i: usize, res: &mut Vec<Option<i32>>) {
     if let Some(root) = root {
-        // 인덱스 i에 접근하려면 크기가 최소 i + 1이어야 한다
+        // 인덱스 i에 접근하려면 크기가 최소 i + 1이어야 한다.
         while res.len() < i + 1 {
             res.push(None);
         }

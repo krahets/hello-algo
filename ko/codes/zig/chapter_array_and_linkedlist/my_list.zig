@@ -13,7 +13,7 @@ const MyList = struct {
     capacity: usize, // 리스트 용량
     allocator: std.mem.Allocator, // 메모리 할당자
 
-    extend_ratio: usize = 2, // 리스트의 용량을 확장할 때마다 적용하는 배수
+    extend_ratio: usize = 2, // 리스트 용량을 늘릴 때마다 적용하는 배수
 
     // 생성자(메모리 할당 및 리스트 초기화)
     pub fn init(allocator: std.mem.Allocator) Self {
@@ -31,7 +31,7 @@ const MyList = struct {
 
     // 맨 뒤에 원소 추가
     pub fn add(self: *Self, item: i32) !void {
-        // 원소 개수가 용량을 초과하면 용량 확장을 수행한다
+        // 원소 수가 용량을 초과하면 용량을 늘린다.
         const newlen = self.items.len + 1;
         try self.ensureTotalCapacity(newlen);
 
@@ -41,30 +41,30 @@ const MyList = struct {
         new_item_ptr.* = item;
     }
 
-    // 리스트 길이(현재 원소 개수) 반환
+    // 리스트 길이(현재 원소 수) 구하기
     pub fn getSize(self: *Self) usize {
         return self.items.len;
     }
 
-    // 리스트 용량 반환
+    // 리스트 용량 구하기
     pub fn getCapacity(self: *Self) usize {
         return self.capacity;
     }
 
     // 원소 접근
     pub fn get(self: *Self, index: usize) i32 {
-        // 인덱스가 범위를 벗어나면 예외를 발생시킨다. 아래에서도 동일하다
+        // 인덱스가 범위를 벗어나면 예외를 던진다. 이하에서도 같다.
         if (index < 0 or index >= self.items.len) {
-            @panic("인덱스가 범위를 벗어났다");
+            @panic("인덱스 범위 초과");
         }
         return self.items[index];
     }
 
     // 원소 갱신
     pub fn set(self: *Self, index: usize, num: i32) void {
-        // 인덱스가 범위를 벗어나면 예외를 발생시킨다. 아래에서도 동일하다
+        // 인덱스가 범위를 벗어나면 예외를 던진다. 이하에서도 같다.
         if (index < 0 or index >= self.items.len) {
-            @panic("인덱스가 범위를 벗어났다");
+            @panic("인덱스 범위 초과");
         }
         self.items[index] = num;
     }
@@ -72,14 +72,14 @@ const MyList = struct {
     // 중간에 원소 삽입
     pub fn insert(self: *Self, index: usize, item: i32) !void {
         if (index < 0 or index >= self.items.len) {
-            @panic("인덱스가 범위를 벗어났다");
+            @panic("인덱스 범위 초과");
         }
 
-        // 원소 개수가 용량을 초과하면 용량 확장을 수행한다
+        // 원소 수가 용량을 초과하면 용량을 늘린다.
         const newlen = self.items.len + 1;
         try self.ensureTotalCapacity(newlen);
 
-        // 인덱스 index와 그 뒤의 원소를 모두 한 칸씩 뒤로 이동한다
+        // 인덱스 index부터 끝까지 원소를 뒤로 한 칸씩 이동
         self.items.len += 1;
         var i = self.items.len - 1;
         while (i >= index) : (i -= 1) {
@@ -91,16 +91,16 @@ const MyList = struct {
     // 원소 삭제
     pub fn remove(self: *Self, index: usize) i32 {
         if (index < 0 or index >= self.getSize()) {
-            @panic("인덱스가 범위를 벗어났다");
+            @panic("인덱스 범위 초과");
         }
-        // 인덱스 index 뒤의 원소를 모두 한 칸씩 앞으로 이동한다
+        // 인덱스 index 다음의 원소를 모두 앞으로 한 칸씩 이동
         const item = self.items[index];
         var i = index;
         while (i < self.items.len - 1) : (i += 1) {
             self.items[i] = self.items[i + 1];
         }
         self.items.len -= 1;
-        // 삭제한 원소를 반환한다
+        // 삭제한 원소 반환
         return item;
     }
 
@@ -109,7 +109,7 @@ const MyList = struct {
         return self.toOwnedSlice(false);
     }
 
-    // 새 슬라이스를 반환하고 리스트 컨테이너를 재설정하거나 비울지 지정한다
+    // 새 슬라이스를 반환하고 리스트 컨테이너를 재설정하거나 비울지 지정
     pub fn toOwnedSlice(self: *Self, clear: bool) ![]i32 {
         const allocator = self.allocator;
         const old_memory = self.allocatedSlice();
@@ -128,7 +128,7 @@ const MyList = struct {
         return new_memory;
     }
 
-    // 리스트 용량 확장
+    // 리스트 용량 늘리기
     fn ensureTotalCapacity(self: *Self, new_capacity: usize) !void {
         if (self.capacity >= new_capacity) return;
         const capcacity = if (self.capacity == 0) 10 else self.capacity;
@@ -158,7 +158,7 @@ const MyList = struct {
     }
 };
 
-// 실행 코드
+// 실행 예제
 pub fn run() !void {
     var gpa = std.heap.DebugAllocator(.{}){};
     defer _ = gpa.deinit();
@@ -166,7 +166,7 @@ pub fn run() !void {
 
     // 리스트 초기화
     var nums = MyList.init(allocator);
-    // 메모리 해제를 지연한다
+    // 메모리 해제 지연
     defer nums.deinit();
 
     // 맨 뒤에 원소 추가
@@ -197,23 +197,23 @@ pub fn run() !void {
 
     // 원소 접근
     const num = nums.get(1);
-    std.debug.print("인덱스 1의 원소에 접근하여 얻은 num = {}\n", .{num});
+    std.debug.print("인덱스 1의 원소를 읽은 결과 num = {}\n", .{num});
 
     // 원소 갱신
     nums.set(1, 0);
     std.debug.print(
-        "인덱스 1의 원소를 0으로 갱신한 후 nums = {}\n",
+        "인덱스 1의 원소를 0으로 바꾼 후 nums = {}\n",
         .{utils.fmt.slice(nums.items)},
     );
 
     // 용량 확장 동작 테스트
     var i: i32 = 0;
     while (i < 10) : (i += 1) {
-        // i = 5일 때 리스트 길이가 용량을 초과하므로 용량 확장이 수행된다
+        // i = 5일 때 리스트 길이가 용량을 초과하게 되어 용량 확장이 일어난다.
         try nums.add(i);
     }
     std.debug.print(
-        "용량을 확장한 후의 리스트 nums = {}, 용량 = {}, 길이 = {}\n",
+        "용량 확장 후 리스트 nums = {}, 용량 = {}, 길이 = {}\n",
         .{
             utils.fmt.slice(nums.items),
             nums.getCapacity(),

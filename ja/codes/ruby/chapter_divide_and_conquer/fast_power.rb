@@ -4,7 +4,7 @@ Created Time: 2026-08-18
 Author: Hello Algo Team
 =end
 
-### 高速べき乗法 ###
+### 繰り返し二乗法 ###
 def fast_pow(x, n)
   return 1 if n == 0
 

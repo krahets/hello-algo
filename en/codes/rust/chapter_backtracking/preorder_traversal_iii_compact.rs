@@ -18,7 +18,7 @@ fn pre_order(
         return;
     }
     if let Some(node) = root {
-        // Try
+        // Try a choice
         path.push(node.clone());
         if node.borrow().val == 7 {
             // Record the solution
@@ -42,7 +42,7 @@ pub fn main() {
     let mut res = Vec::new();
     pre_order(&mut res, &mut path, root.as_ref());
 
-    println!("\nOutput all paths from the root to nodes with value 7 that contain no node with value 3");
+    println!("\nPrint all paths from the root to a node with value 7 that avoid nodes with value 3");
     for path in res {
         let mut vals = Vec::new();
         for node in path {

@@ -4,19 +4,19 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-/* Maximum container capacity: greedy algorithm */
+/* Greedy maximum capacity algorithm */
 fn max_capacity(ht: &[i32]) -> i32 {
-    // Initialize i and j at opposite ends of the array
+    // Start i and j at opposite ends of the array
     let mut i = 0;
     let mut j = ht.len() - 1;
     // The initial maximum capacity is 0
     let mut res = 0;
-    // Repeatedly make greedy choices until the two sides meet
+    // Make greedy choices until the two pointers meet
     while i < j {
         // Update the maximum capacity
         let cap = std::cmp::min(ht[i], ht[j]) * (j - i) as i32;
         res = std::cmp::max(res, cap);
-        // Move the shorter side inward
+        // Move the pointer at the shorter board inward
         if ht[i] < ht[j] {
             i += 1;
         } else {
@@ -32,5 +32,5 @@ fn main() {
 
     // Greedy algorithm
     let res = max_capacity(&ht);
-    println!("Maximum capacity: {}", res);
+    println!("The maximum capacity is {}", res);
 }

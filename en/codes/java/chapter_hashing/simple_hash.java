@@ -7,7 +7,7 @@
 package chapter_hashing;
 
 public class simple_hash {
-    /* Additive hash */
+    /* Additive hashing */
     static int addHash(String key) {
         long hash = 0;
         final int MODULUS = 1000000007;
@@ -17,7 +17,7 @@ public class simple_hash {
         return (int) hash;
     }
 
-    /* Multiplicative hash */
+    /* Multiplicative hashing */
     static int mulHash(String key) {
         long hash = 0;
         final int MODULUS = 1000000007;
@@ -27,7 +27,7 @@ public class simple_hash {
         return (int) hash;
     }
 
-    /* XOR hash */
+    /* XOR hashing */
     static int xorHash(String key) {
         int hash = 0;
         final int MODULUS = 1000000007;
@@ -37,7 +37,7 @@ public class simple_hash {
         return hash & MODULUS;
     }
 
-    /* Rotating hash */
+    /* Rotation hashing */
     static int rotHash(String key) {
         long hash = 0;
         final int MODULUS = 1000000007;
@@ -60,6 +60,6 @@ public class simple_hash {
         System.out.println("XOR hash value: " + hash);
 
         hash = rotHash(key);
-        System.out.println("Rotating hash value: " + hash);
+        System.out.println("Rotation hash value: " + hash);
     }
 }

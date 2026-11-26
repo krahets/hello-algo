@@ -6,15 +6,15 @@
 
 import { Vertex } from '../modules/Vertex';
 
-/* Класс неориентированного графа на основе списка смежности */
+/* Неориентированный граф на списках смежности */
 class GraphAdjList {
-    // Список смежности, где key — вершина, а value — все смежные ей вершины
+    // Список смежности: ключ — вершина, значение — все её соседи
     adjList: Map<Vertex, Vertex[]>;
 
     /* Конструктор */
     constructor(edges: Vertex[][]) {
         this.adjList = new Map();
-        // Добавить все вершины и ребра
+        // Добавить все вершины и рёбра
         for (const edge of edges) {
             this.addVertex(edge[0]);
             this.addVertex(edge[1]);
@@ -27,7 +27,7 @@ class GraphAdjList {
         return this.adjList.size;
     }
 
-    /* Добавление ребра */
+    /* Добавить ребро */
     addEdge(vet1: Vertex, vet2: Vertex): void {
         if (
             !this.adjList.has(vet1) ||
@@ -36,12 +36,12 @@ class GraphAdjList {
         ) {
             throw new Error('Illegal Argument Exception');
         }
-        // Добавить ребро vet1 - vet2
+        // Добавить ребро vet1 — vet2
         this.adjList.get(vet1).push(vet2);
         this.adjList.get(vet2).push(vet1);
     }
 
-    /* Удаление ребра */
+    /* Удалить ребро */
     removeEdge(vet1: Vertex, vet2: Vertex): void {
         if (
             !this.adjList.has(vet1) ||
@@ -51,26 +51,26 @@ class GraphAdjList {
         ) {
             throw new Error('Illegal Argument Exception');
         }
-        // Удалить ребро vet1 - vet2
+        // Удалить ребро vet1 — vet2
         this.adjList.get(vet1).splice(this.adjList.get(vet1).indexOf(vet2), 1);
         this.adjList.get(vet2).splice(this.adjList.get(vet2).indexOf(vet1), 1);
     }
 
-    /* Добавление вершины */
+    /* Добавить вершину */
     addVertex(vet: Vertex): void {
         if (this.adjList.has(vet)) return;
-        // Добавить новый список в список смежности
+        // Добавить новый связный список в список смежности
         this.adjList.set(vet, []);
     }
 
-    /* Удаление вершины */
+    /* Удалить вершину */
     removeVertex(vet: Vertex): void {
         if (!this.adjList.has(vet)) {
             throw new Error('Illegal Argument Exception');
         }
-        // Удалить из списка смежности список, соответствующий вершине vet
+        // Удалить из списка смежности список вершины vet
         this.adjList.delete(vet);
-        // Обойти списки других вершин и удалить все ребра, содержащие vet
+        // Обойти списки остальных вершин и удалить все рёбра, инцидентные vet
         for (const set of this.adjList.values()) {
             const index: number = set.indexOf(vet);
             if (index > -1) {
@@ -92,9 +92,9 @@ class GraphAdjList {
     }
 }
 
-/* Driver Code */
+/* Пример использования */
 if (import.meta.url.endsWith(process.argv[1])) {
-    /* Инициализация неориентированного графа */
+    /* Инициализировать неориентированный граф */
     const v0 = new Vertex(1),
         v1 = new Vertex(3),
         v2 = new Vertex(2),
@@ -109,31 +109,31 @@ if (import.meta.url.endsWith(process.argv[1])) {
         [v3, v4],
     ];
     const graph = new GraphAdjList(edges);
-    console.log('\nПосле инициализации граф имеет вид');
+    console.log('\nГраф после инициализации:');
     graph.print();
 
-    /* Добавление ребра */
-    // Вершины 1 и 2 соответствуют v0 и v2
+    /* Добавить ребро */
+    // Вершинам 1 и 2 соответствуют v0 и v2
     graph.addEdge(v0, v2);
-    console.log('\nПосле добавления ребра 1-2 граф имеет вид');
+    console.log('\nГраф после добавления ребра 1–2:');
     graph.print();
 
-    /* Удаление ребра */
-    // Вершины 1 и 3 соответствуют v0 и v1
+    /* Удалить ребро */
+    // Вершинам 1 и 3 соответствуют v0 и v1
     graph.removeEdge(v0, v1);
-    console.log('\nПосле удаления ребра 1-3 граф имеет вид');
+    console.log('\nГраф после удаления ребра 1–3:');
     graph.print();
 
-    /* Добавление вершины */
+    /* Добавить вершину */
     const v5 = new Vertex(6);
     graph.addVertex(v5);
-    console.log('\nПосле добавления вершины 6 граф имеет вид');
+    console.log('\nГраф после добавления вершины 6:');
     graph.print();
 
-    /* Удаление вершины */
-    // Вершина 3 соответствует v1
+    /* Удалить вершину */
+    // Вершине 3 соответствует v1
     graph.removeVertex(v1);
-    console.log('\nПосле удаления вершины 3 граф имеет вид');
+    console.log('\nГраф после удаления вершины 3:');
     graph.print();
 }
 

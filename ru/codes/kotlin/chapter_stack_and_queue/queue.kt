@@ -8,12 +8,12 @@ package chapter_stack_and_queue
 
 import java.util.*
 
-/* Driver Code */
+/* Пример использования */
 fun main() {
-    /* Инициализация очереди */
+    /* Инициализировать очередь */
     val queue = LinkedList<Int>()
 
-    /* Добавление элемента в очередь */
+    /* Добавить элементы в очередь */
     queue.offer(1)
     queue.offer(3)
     queue.offer(2)
@@ -21,19 +21,19 @@ fun main() {
     queue.offer(4)
     println("Очередь queue = $queue")
 
-    /* Доступ к элементу в начале очереди */
+    /* Посмотреть первый элемент очереди */
     val peek = queue.peek()
-    println("Первый элемент peek = $peek")
+    println("Первый элемент очереди peek = $peek")
 
-    /* Извлечение элемента из очереди */
+    /* Извлечь элемент из очереди */
     val pop = queue.poll()
-    println("Извлеченный элемент pop = $pop, queue после извлечения = $queue")
+    println("Извлечённый элемент pop = $pop, после извлечения queue = $queue")
 
-    /* Получение длины очереди */
+    /* Получить длину очереди */
     val size = queue.size
     println("Длина очереди size = $size")
 
-    /* Проверка, пуста ли очередь */
+    /* Проверить, пуста ли очередь */
     val isEmpty = queue.isEmpty()
-    println("Пуста ли очередь = $isEmpty")
+    println("Очередь пуста = $isEmpty")
 }

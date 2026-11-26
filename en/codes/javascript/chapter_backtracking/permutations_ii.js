@@ -6,23 +6,23 @@
 
 /* Backtracking: permutations II */
 function backtrack(state, choices, selected, res) {
-    // Record a solution when the state length equals the number of elements
+    // Record a solution when the state contains all the elements
     if (state.length === choices.length) {
         res.push([...state]);
         return;
     }
-    // Iterate over all choices
+    // Try each choice
     const duplicated = new Set();
     choices.forEach((choice, i) => {
-        // Prune: do not reuse an element or choose the same value again at this depth
+        // Skip elements already in use and values already tried at this level
         if (!selected[i] && !duplicated.has(choice)) {
-            // Try: make a choice and update the state
-            duplicated.add(choice); // Record the chosen value
+            // Make a choice and update the state
+            duplicated.add(choice); // Track values already tried
             selected[i] = true;
             state.push(choice);
-            // Proceed to the next choice
+            // Make the next choice
             backtrack(state, choices, selected, res);
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             selected[i] = false;
             state.pop();
         }

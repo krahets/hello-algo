@@ -6,13 +6,13 @@
 
 import '../utils/print_util.dart';
 
-/* ヒープを使って配列内の大きいほうから k 個の要素を求める */
+/* ヒープを使って配列の上位 k 個の要素を求める */
 MinHeap topKHeap(List<int> nums, int k) {
   // 最小ヒープを初期化し、配列の先頭 k 個の要素を挿入する
   MinHeap heap = MinHeap(nums.sublist(0, k));
-  // k+1 番目の要素から始め、ヒープの長さを k に保つ
+  // k+1 番目の要素からはヒープのサイズを k に保つ
   for (int i = k; i < nums.length; i++) {
-    // 現在の要素がヒープの先頭要素より大きい場合、先頭要素を取り出し、現在の要素を挿入する
+    // 現在の要素が根の要素より大きければ、根の要素を取り出して現在の要素を挿入する
     if (nums[i] > heap.peek()) {
       heap.pop();
       heap.push(nums[i]);
@@ -21,13 +21,13 @@ MinHeap topKHeap(List<int> nums, int k) {
   return heap;
 }
 
-/* 実行用コード */
+/* 実行例 */
 void main() {
   List<int> nums = [1, 7, 6, 3, 2];
   int k = 3;
 
   MinHeap res = topKHeap(nums, k);
-  print("大きいほうから $k 個の要素は");
+  print("上位 $k 個の要素：");
   res.print();
 }
 
@@ -35,11 +35,11 @@ void main() {
 class MinHeap {
   late List<int> _minHeap;
 
-  /* コンストラクタ：入力リストからヒープを構築する */
+  /* 入力リストからヒープを構築するコンストラクタ */
   MinHeap(List<int> nums) {
     // リストの要素をそのままヒープに追加する
     _minHeap = nums;
-    // 葉ノード以外の全ノードをヒープ化する
+    // 葉以外のすべてのノードをヒープ化する
     for (int i = _parent(size() - 1); i >= 0; i--) {
       siftDown(i);
     }
@@ -50,19 +50,19 @@ class MinHeap {
     return _minHeap;
   }
 
-  /* 左の子のインデックスを取得 */
+  /* 左の子のインデックスを取得する */
   int _left(int i) {
     return 2 * i + 1;
   }
 
-  /* 右の子のインデックスを取得 */
+  /* 右の子のインデックスを取得する */
   int _right(int i) {
     return 2 * i + 2;
   }
 
-  /* 親のインデックスを取得 */
+  /* 親のインデックスを取得する */
   int _parent(int i) {
-    return (i - 1) ~/ 2; // 切り捨て除算
+    return (i - 1) ~/ 2; // 商を 0 方向に丸める
   }
 
   /* 要素を交換する */
@@ -77,73 +77,73 @@ class MinHeap {
     return _minHeap.length;
   }
 
-  /* ヒープが空か判定 */
+  /* ヒープが空か判定する */
   bool isEmpty() {
     return size() == 0;
   }
 
-  /* ヒープの先頭要素にアクセスする */
+  /* ヒープの根の要素を参照する */
   int peek() {
     return _minHeap[0];
   }
 
-  /* ヒープに要素を挿入する */
+  /* 要素をヒープに挿入する */
   void push(int val) {
     // ノードを追加する
     _minHeap.add(val);
-    // 下から上へヒープ化する
+    // 上に向かってヒープ化する
     siftUp(size() - 1);
   }
 
-  /* ノード i から上向きにヒープ化する */
+  /* ノード i から上に向かってヒープ化する */
   void siftUp(int i) {
     while (true) {
-      // ノード i の親ノードを取得する
+      // ノード i の親を取得する
       int p = _parent(i);
-      // 「根ノードを越えた」または「ノードの修復が不要」の場合、ヒープ化を終了する
+      // 根を越えるか、ノードを調整する必要がなくなれば、ヒープ化を終える
       if (p < 0 || _minHeap[i] >= _minHeap[p]) {
         break;
       }
       // 2 つのノードを交換する
       _swap(i, p);
-      // 上向きのヒープ化を繰り返す
+      // 上へのヒープ化を繰り返す
       i = p;
     }
   }
 
-  /* ヒープから要素を取り出す */
+  /* 根の要素をヒープから取り出す */
   int pop() {
-    // 空かどうかを確認する
+    // 空の場合の処理
     if (isEmpty()) throw Exception('ヒープが空です');
-    // 根と最右の葉を交換（先頭要素と末尾要素を交換）
+    // 根と最も右の葉（先頭要素と末尾要素）を交換する
     _swap(0, size() - 1);
     // ノードを削除する
     int val = _minHeap.removeLast();
-    // 上から下へヒープ化する
+    // 下に向かってヒープ化する
     siftDown(0);
-    // ヒープの先頭要素を返す
+    // 根の要素を返す
     return val;
   }
 
-  /* ノード i から下向きにヒープ化する */
+  /* ノード i から下に向かってヒープ化する */
   void siftDown(int i) {
     while (true) {
-      // ノード i, l, r のうち値が最大のノードを求め、ma とする
+      // ノード i、l、r のうち値が最大のものを ma とする
       int l = _left(i);
       int r = _right(i);
       int mi = i;
       if (l < size() && _minHeap[l] < _minHeap[mi]) mi = l;
       if (r < size() && _minHeap[r] < _minHeap[mi]) mi = r;
-      // ノード i が最大か添字 l, r が範囲外なら、ヒープ化は不要なので終了
+      // 親より値の小さい子がなければ終了する
       if (mi == i) break;
       // 2 つのノードを交換する
       _swap(i, mi);
-      // 下向きのヒープ化を繰り返す
+      // 下へのヒープ化を繰り返す
       i = mi;
     }
   }
 
-  /* ヒープ（二分木）を表示する */
+  /* ヒープを二分木として表示する */
   void print() {
     printHeap(_minHeap);
   }

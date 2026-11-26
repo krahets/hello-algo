@@ -54,20 +54,20 @@ func rotHash(key: String) -> Int {
 
 @main
 enum SimpleHash {
-    /* 실행 코드 */
+    /* 실행 예제 */
     static func main() {
         let key = "Hello 算法"
 
         var hash = addHash(key: key)
-        print("덧셈 해시값 = \(hash)")
+        print("덧셈 해시값: \(hash)")
 
         hash = mulHash(key: key)
-        print("곱셈 해시값 = \(hash)")
+        print("곱셈 해시값: \(hash)")
 
         hash = xorHash(key: key)
-        print("XOR 해시값 = \(hash)")
+        print("XOR 해시값: \(hash)")
 
         hash = rotHash(key: key)
-        print("회전 해시값 = \(hash)")
+        print("회전 해시값: \(hash)")
     }
 }

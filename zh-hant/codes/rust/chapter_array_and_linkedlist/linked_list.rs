@@ -16,7 +16,7 @@ pub fn insert<T>(n0: &Rc<RefCell<ListNode<T>>>, P: Rc<RefCell<ListNode<T>>>) {
     n0.borrow_mut().next = Some(P);
 }
 
-/* 刪除鏈結串列的節點 n0 之後的首個節點 */
+/* 刪除鏈結串列中緊接在節點 n0 之後的節點 */
 #[allow(non_snake_case)]
 pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
     // n0 -> P -> n1
@@ -27,7 +27,7 @@ pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
     }
 }
 
-/* 訪問鏈結串列中索引為 index 的節點 */
+/* 存取鏈結串列中索引為 index 的節點 */
 pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Option<Rc<RefCell<ListNode<T>>>> {
     fn dfs<T>(
         head: Option<&Rc<RefCell<ListNode<T>>>>,
@@ -47,7 +47,7 @@ pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Option<Rc<RefCel
     dfs(Some(head).as_ref(), index)
 }
 
-/* 在鏈結串列中查詢值為 target 的首個節點 */
+/* 在鏈結串列中尋找第一個值為 target 的節點 */
 pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T) -> i32 {
     fn find<T: PartialEq>(head: Option<&Rc<RefCell<ListNode<T>>>>, target: T, idx: i32) -> i32 {
         if let Some(node) = head {
@@ -63,7 +63,7 @@ pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T) -> i32 {
     find(Some(head).as_ref(), target, 0)
 }
 
-/* Driver Code */
+/* 範例主程式 */
 fn main() {
     /* 初始化鏈結串列 */
     // 初始化各個節點
@@ -72,12 +72,12 @@ fn main() {
     let n2 = ListNode::new(2);
     let n3 = ListNode::new(5);
     let n4 = ListNode::new(4);
-    // 構建節點之間的引用
+    // 建立節點之間的參照
     n0.borrow_mut().next = Some(n1.clone());
     n1.borrow_mut().next = Some(n2.clone());
     n2.borrow_mut().next = Some(n3.clone());
     n3.borrow_mut().next = Some(n4.clone());
-    print!("初始化的鏈結串列為 ");
+    print!("初始化後的鏈結串列為 ");
     print_util::print_linked_list(&n0);
 
     /* 插入節點 */
@@ -90,11 +90,11 @@ fn main() {
     print!("刪除節點後的鏈結串列為 ");
     print_util::print_linked_list(&n0);
 
-    /* 訪問節點 */
+    /* 存取節點 */
     let node = access(n0.clone(), 3);
-    println!("鏈結串列中索引 3 處的節點的值 = {}", node.unwrap().borrow().val);
+    println!("鏈結串列中索引 3 處的節點值 = {}", node.unwrap().borrow().val);
 
-    /* 查詢節點 */
+    /* 尋找節點 */
     let index = find(n0.clone(), 2);
-    println!("鏈結串列中值為 2 的節點的索引 = {}", index);
+    println!("鏈結串列中值為 2 的節點索引 = {}", index);
 }

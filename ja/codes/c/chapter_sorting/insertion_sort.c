@@ -8,25 +8,25 @@
 
 /* 挿入ソート */
 void insertionSort(int nums[], int size) {
-    // 外側のループ：ソート済み区間は [0, i-1]
+    // 外側のループ：整列済み区間は [0, i-1]
     for (int i = 1; i < size; i++) {
         int base = nums[i], j = i - 1;
-        // 内側のループ：ソート済み区間 [0, i-1] の正しい位置に base を挿入する
+        // 内側のループ：整列済み区間 [0, i-1] の正しい位置に base を挿入
         while (j >= 0 && nums[j] > base) {
-            // nums[j] を右に 1 つずらす
+            // nums[j] を 1 つ右に移動
             nums[j + 1] = nums[j];
             j--;
         }
-        // 正しい位置に base を代入する
+        // 正しい位置に base を代入
         nums[j + 1] = base;
     }
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     int nums[] = {4, 1, 3, 1, 5, 2};
     insertionSort(nums, 6);
-    printf("挿入ソート完了後 nums = ");
+    printf("挿入ソート後の nums = ");
     for (int i = 0; i < 6; i++) {
         printf("%d ", nums[i]);
     }

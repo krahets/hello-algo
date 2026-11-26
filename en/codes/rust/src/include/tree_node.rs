@@ -39,7 +39,7 @@ macro_rules! op_vec {
     };
 }
 
-// For the serialization rules, see:
+// For the serialization format, see:
 // https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/
 // Array representation of the binary tree:
 // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
@@ -55,7 +55,7 @@ macro_rules! op_vec {
 //         \——— 4
 //             \——— 8
 
-/* Deserialize a list into a binary tree: recursion */
+/* Recursively deserialize a vector into a binary tree */
 fn vec_to_tree_dfs(arr: &[Option<i32>], i: usize) -> Option<Rc<RefCell<TreeNode>>> {
     if i >= arr.len() || arr[i].is_none() {
         return None;
@@ -66,12 +66,12 @@ fn vec_to_tree_dfs(arr: &[Option<i32>], i: usize) -> Option<Rc<RefCell<TreeNode>
     Some(root)
 }
 
-/* Deserialize a list into a binary tree */
+/* Deserialize a vector into a binary tree */
 pub fn vec_to_tree(arr: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
     vec_to_tree_dfs(&arr, 0)
 }
 
-/* Serialize a binary tree into a list: recursion */
+/* Recursively serialize a binary tree into a vector */
 fn tree_to_vec_dfs(root: Option<&Rc<RefCell<TreeNode>>>, i: usize, res: &mut Vec<Option<i32>>) {
     if let Some(root) = root {
         // i + 1 is the minimum valid size to access index i
@@ -84,7 +84,7 @@ fn tree_to_vec_dfs(root: Option<&Rc<RefCell<TreeNode>>>, i: usize, res: &mut Vec
     }
 }
 
-/* Serialize a binary tree into a list */
+/* Serialize a binary tree into a vector */
 pub fn tree_to_vec(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Option<i32>> {
     let mut res = vec![];
     tree_to_vec_dfs(root.as_ref(), 0, &mut res);

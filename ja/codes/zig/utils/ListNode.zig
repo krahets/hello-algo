@@ -20,7 +20,7 @@ pub fn ListNode(comptime T: type) type {
     };
 }
 
-// リストをデシリアライズして連結リストにする
+// リストをデシリアライズして連結リストを復元する
 pub fn listToLinkedList(comptime T: type, allocator: std.mem.Allocator, list: std.ArrayList(T)) !?*ListNode(T) {
     var dum = try allocator.create(ListNode(T));
     dum.init(0);
@@ -34,7 +34,7 @@ pub fn listToLinkedList(comptime T: type, allocator: std.mem.Allocator, list: st
     return dum.next;
 }
 
-// 配列をデシリアライズして連結リストにする
+// 配列をデシリアライズして連結リストを復元する
 pub fn arrToLinkedList(comptime T: type, mem_allocator: std.mem.Allocator, arr: []T) !?*ListNode(T) {
     var dum = try mem_allocator.create(ListNode(T));
     dum.init(0);

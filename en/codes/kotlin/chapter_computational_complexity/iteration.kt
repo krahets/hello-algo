@@ -55,20 +55,20 @@ fun nestedForLoop(n: Int): String {
     return res.toString()
 }
 
-/* Driver code */
+/* Driver Code */
 fun main() {
     val n = 5
     var res: Int
 
     res = forLoop(n)
-    println("\nSum from the for loop: res = $res")
+    println("\nfor loop sum: res = $res")
 
     res = whileLoop(n)
-    println("\nSum from the while loop: res = $res")
+    println("\nwhile loop sum: res = $res")
 
     res = whileLoopII(n)
-    println("\nSum from the while loop (two updates): res = $res")
+    println("\nwhile loop sum (two updates): res = $res")
 
     val resStr = nestedForLoop(n)
-    println("\nTraversal result from the nested for loops: $resStr")
+    println("\nNested for loop traversal: $resStr")
 }

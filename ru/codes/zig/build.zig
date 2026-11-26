@@ -2,10 +2,10 @@
 // Created Time: 2023-01-07
 // Author: codingonion (coderonion@gmail.com), CreatorMetaSky (creator_meta_sky@163.com)
 
-//! Zig Version: 0.14.1
-//! Build Command:          zig build
-//! Run Command:            zig build run | zig build run_*
-//! Test Command:           zig build test | zig build test -Dtest-filter=*
+//! Версия Zig: 0.14.1
+//! Команда сборки:         zig build
+//! Команда запуска:        zig build run | zig build run_*
+//! Команда тестирования:   zig build test | zig build test -Dtest-filter=*
 
 const std = @import("std");
 
@@ -54,7 +54,7 @@ fn buildExeModuleFromChapterDirEntry(
     chapter_dir_entry: std.fs.Dir.Entry,
 ) !*std.Build.Module {
     const zig_file_path = try std.fs.path.join(b.allocator, &[_][]const u8{ chapter_dir_name, chapter_dir_entry.name });
-    const zig_file_name = chapter_dir_entry.name[0 .. chapter_dir_entry.name.len - 4]; // abstract zig file name from xxx.zig
+    const zig_file_name = chapter_dir_entry.name[0 .. chapter_dir_entry.name.len - 4]; // Получить имя файла без расширения из строки вида xxx.zig
 
     const exe_mod = b.createModule(.{
         .root_source_file = b.path(zig_file_path),

@@ -18,18 +18,18 @@ func preOrder(root: TreeNode?) {
     // 嘗試
     path.append(root)
     if root.val == 7 {
-        // 記錄解
+        // 記錄此解
         res.append(path)
     }
     preOrder(root: root.left)
     preOrder(root: root.right)
-    // 回退
+    // 回溯
     path.removeLast()
 }
 
 @main
 enum PreorderTraversalIIICompact {
-    /* Driver Code */
+    /* 主程式 */
     static func main() {
         let root = TreeNode.listToTree(arr: [1, 7, 3, 4, 5, 6, 7])
         print("\n初始化二元樹")
@@ -40,7 +40,7 @@ enum PreorderTraversalIIICompact {
         res = []
         preOrder(root: root)
 
-        print("\n輸出所有根節點到節點 7 的路徑，路徑中不包含值為 3 的節點")
+        print("\n輸出從根節點到值為 7 的節點的所有路徑，且路徑中不含值為 3 的節點")
         for path in res {
             var vals: [Int] = []
             for node in path {

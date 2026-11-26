@@ -12,38 +12,38 @@ from binary_search_insertion import binary_search_insertion
 
 
 def binary_search_left_edge(nums: list[int], target: int) -> int:
-    """Find the leftmost occurrence of target using binary search"""
-    # This is equivalent to finding the insertion point of target
+    """Use binary search to find the leftmost occurrence of target"""
+    # Equivalent to finding the insertion point for target
     i = binary_search_insertion(nums, target)
-    # If target was not found, return -1
+    # Target not found. Return -1
     if i == len(nums) or nums[i] != target:
         return -1
-    # Target was found; return index i
+    # Found target. Return index i
     return i
 
 
 def binary_search_right_edge(nums: list[int], target: int) -> int:
-    """Find the rightmost occurrence of target using binary search"""
-    # Reduce the problem to finding the leftmost insertion point of target + 1
+    """Use binary search to find the rightmost occurrence of target"""
+    # Search for the leftmost occurrence of target + 1
     i = binary_search_insertion(nums, target + 1)
-    # j is the candidate rightmost target index; i is the index of the first element greater than target, or len(nums)
+    # j points to the rightmost occurrence of target, and i to the first larger element
     j = i - 1
-    # If target was not found, return -1
+    # Target not found. Return -1
     if j == -1 or nums[j] != target:
         return -1
-    # Target was found; return index j
+    # Found target. Return index j
     return j
 
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
-    # Array containing duplicate elements
+    # Array with duplicates
     nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]
     print(f"\nArray nums = {nums}")
 
     # Find the left and right boundaries using binary search
     for target in [6, 7]:
         index = binary_search_left_edge(nums, target)
-        print(f"Index of the leftmost occurrence of {target}: {index}")
+        print(f"Index of the leftmost occurrence of {target} = {index}")
         index = binary_search_right_edge(nums, target)
-        print(f"Index of the rightmost occurrence of {target}: {index}")
+        print(f"Index of the rightmost occurrence of {target} = {index}")

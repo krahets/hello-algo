@@ -8,7 +8,7 @@ use hello_algo_rust::include::{print_util, TreeNode};
 use std::collections::HashMap;
 use std::{cell::RefCell, rc::Rc};
 
-/* Build a binary tree: divide and conquer */
+/* Build a binary tree using divide and conquer */
 fn dfs(
     preorder: &[i32],
     inorder_map: &HashMap<i32, i32>,
@@ -20,7 +20,7 @@ fn dfs(
     if r - l < 0 {
         return None;
     }
-    // Initialize the root node
+    // Initialize the root
     let root = TreeNode::new(preorder[i as usize]);
     // Look up m to separate the left and right subtrees
     let m = inorder_map.get(&preorder[i as usize]).unwrap();
@@ -28,13 +28,13 @@ fn dfs(
     root.borrow_mut().left = dfs(preorder, inorder_map, i + 1, l, m - 1);
     // Subproblem: build the right subtree
     root.borrow_mut().right = dfs(preorder, inorder_map, i + 1 + m - l, m + 1, r);
-    // Return the root node
+    // Return the root
     Some(root)
 }
 
 /* Build a binary tree */
 fn build_tree(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
-    // Initialize a hash table mapping each element in inorder to its index
+    // Map each inorder value to its index in a hash table
     let mut inorder_map: HashMap<i32, i32> = HashMap::new();
     for i in 0..inorder.len() {
         inorder_map.insert(inorder[i], i as i32);
@@ -51,6 +51,6 @@ fn main() {
     println!("Inorder traversal = {:?}", inorder);
 
     let root = build_tree(&preorder, &inorder);
-    println!("The constructed binary tree is:");
+    println!("Reconstructed binary tree:");
     print_util::print_tree(root.as_ref().unwrap());
 }

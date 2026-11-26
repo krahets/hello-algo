@@ -13,10 +13,10 @@ fn unbounded_knapsack_dp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
     for i in 1..=n {
         for c in 1..=cap {
             if wgt[i - 1] > c as i32 {
-                // 若超過背包容量，則不選物品 i
+                // 若重量超過背包容量，就不選物品 i
                 dp[i][c] = dp[i - 1][c];
             } else {
-                // 不選和選物品 i 這兩種方案的較大值
+                // 取不選與選取物品 i 兩種情況中的較大值
                 dp[i][c] = std::cmp::max(dp[i - 1][c], dp[i][c - wgt[i - 1] as usize] + val[i - 1]);
             }
         }
@@ -33,10 +33,10 @@ fn unbounded_knapsack_dp_comp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
     for i in 1..=n {
         for c in 1..=cap {
             if wgt[i - 1] > c as i32 {
-                // 若超過背包容量，則不選物品 i
+                // 若重量超過背包容量，就不選物品 i
                 dp[c] = dp[c];
             } else {
-                // 不選和選物品 i 這兩種方案的較大值
+                // 取不選與選取物品 i 兩種情況中的較大值
                 dp[c] = std::cmp::max(dp[c], dp[c - wgt[i - 1] as usize] + val[i - 1]);
             }
         }
@@ -44,7 +44,7 @@ fn unbounded_knapsack_dp_comp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
     dp[cap]
 }
 
-/* Driver Code */
+/* 主程式 */
 pub fn main() {
     let wgt = [1, 2, 3];
     let val = [5, 11, 15];
@@ -52,9 +52,9 @@ pub fn main() {
 
     // 動態規劃
     let res = unbounded_knapsack_dp(&wgt, &val, cap);
-    println!("不超過背包容量的最大物品價值為 {res}");
+    println!("在背包容量限制內，物品的最大總價值為 {res}");
 
     // 空間最佳化後的動態規劃
     let res = unbounded_knapsack_dp_comp(&wgt, &val, cap);
-    println!("不超過背包容量的最大物品價值為 {res}");
+    println!("在背包容量限制內，物品的最大總價值為 {res}");
 }

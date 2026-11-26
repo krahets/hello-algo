@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* Driver Code */
+/* 主程式 */
 int main() {
     /* 初始化雜湊表 */
     unordered_map<int, string> map;
@@ -18,18 +18,18 @@ int main() {
     map[16750] = "小算";
     map[13276] = "小法";
     map[10583] = "小鴨";
-    cout << "\n新增完成後，雜湊表為\nKey -> Value" << endl;
+    cout << "\n新增後的雜湊表\nKey -> Value" << endl;
     printHashMap(map);
 
     /* 查詢操作 */
-    // 向雜湊表中輸入鍵 key ，得到值 value
+    // 輸入鍵 key，從雜湊表取得對應的值 value
     string name = map[15937];
-    cout << "\n輸入學號 15937 ，查詢到姓名 " << name << endl;
+    cout << "\n輸入學號 15937，查得姓名 " << name << endl;
 
     /* 刪除操作 */
-    // 在雜湊表中刪除鍵值對 (key, value)
+    // 從雜湊表刪除鍵值對 (key, value)
     map.erase(10583);
-    cout << "\n刪除 10583 後，雜湊表為\nKey -> Value" << endl;
+    cout << "\n刪除 10583 後的雜湊表\nKey -> Value" << endl;
     printHashMap(map);
 
     /* 走訪雜湊表 */

@@ -8,9 +8,9 @@
 
 import 'dart:math';
 
-/* Случайный доступ к элементу */
+/* Чтение случайного элемента */
 int randomAccess(List<int> nums) {
-  // Случайный выбор числа из диапазона [0, nums.length)
+  // Выбрать случайное число из интервала [0, nums.length)
   int randomIndex = Random().nextInt(nums.length);
   // Получить и вернуть случайный элемент
   int randomNum = nums[randomIndex];
@@ -19,46 +19,46 @@ int randomAccess(List<int> nums) {
 
 /* Увеличение длины массива */
 List<int> extend(List<int> nums, int enlarge) {
-  // Инициализировать массив увеличенной длины
+  // Создать массив увеличенной длины
   List<int> res = List.filled(nums.length + enlarge, 0);
-  // Скопировать все элементы исходного массива в новый массив
+  // Скопировать все элементы исходного массива в новый
   for (var i = 0; i < nums.length; i++) {
     res[i] = nums[i];
   }
-  // Вернуть новый массив после расширения
+  // Вернуть новый массив увеличенной длины
   return res;
 }
 
-/* Вставка элемента _num в массив по индексу index */
+/* Вставить _num в массив по индексу index */
 void insert(List<int> nums, int _num, int index) {
-  // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию вправо
+  // Сдвинуть на одну позицию вправо все элементы начиная с index
   for (var i = nums.length - 1; i > index; i--) {
     nums[i] = nums[i - 1];
   }
-  // Присвоить _num элементу по индексу index
+  // Записать _num по индексу index
   nums[index] = _num;
 }
 
-/* Удаление элемента по индексу index */
+/* Удалить элемент по индексу index */
 void remove(List<int> nums, int index) {
-  // Сдвинуть все элементы после индекса index на одну позицию влево
+  // Сдвинуть все элементы после index на одну позицию влево
   for (var i = index; i < nums.length - 1; i++) {
     nums[i] = nums[i + 1];
   }
 }
 
-/* Перебрать элементы массива */
+/* Обход элементов массива */
 void traverse(List<int> nums) {
   int count = 0;
-  // Обход массива по индексам
+  // Обойти массив по индексам
   for (var i = 0; i < nums.length; i++) {
     count += nums[i];
   }
-  // Непосредственно обходить элементы массива
+  // Перебрать элементы массива напрямую
   for (int _num in nums) {
     count += _num;
   }
-  // Перебрать массив методом forEach
+  // Обойти массив методом forEach
   nums.forEach((_num) {
     count += _num;
   });
@@ -72,7 +72,7 @@ int find(List<int> nums, int target) {
   return -1;
 }
 
-/* Driver Code */
+/* Демонстрационный код */
 void main() {
   /* Инициализация массива */
   var arr = List.filled(5, 0);
@@ -80,26 +80,26 @@ void main() {
   List<int> nums = [1, 3, 2, 5, 4];
   print('Массив nums = $nums');
 
-  /* Случайный доступ */
+  /* Чтение случайного элемента */
   int randomNum = randomAccess(nums);
-  print('Случайный элемент из nums = $randomNum');
+  print('Случайный элемент nums: $randomNum');
 
-  /* Расширение длины */
+  /* Увеличение длины */
   nums = extend(nums, 3);
   print('После увеличения длины массива до 8 nums = $nums');
 
   /* Вставка элемента */
   insert(nums, 6, 3);
-  print('После вставки числа 6 по индексу 3 nums = $nums');
+  print("После вставки числа 6 по индексу 3 nums = $nums");
 
   /* Удаление элемента */
   remove(nums, 2);
-  print('После удаления элемента по индексу 2 nums = $nums');
+  print("После удаления элемента по индексу 2 nums = $nums");
 
   /* Обход массива */
   traverse(nums);
 
   /* Поиск элемента */
   int index = find(nums, 3);
-  print('Поиск элемента 3 в nums: индекс = $index');
+  print("Индекс элемента 3 в nums = $index");
 }

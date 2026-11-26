@@ -6,12 +6,12 @@
 
 import utils
 
-/* 基於陣列實現的雜湊表 */
+/* 以陣列實作的雜湊表 */
 class ArrayHashMap {
     private var buckets: [Pair?]
 
     init() {
-        // 初始化陣列，包含 100 個桶
+        // 初始化包含 100 個桶的陣列
         buckets = Array(repeating: nil, count: 100)
     }
 
@@ -38,26 +38,26 @@ class ArrayHashMap {
     /* 刪除操作 */
     func remove(key: Int) {
         let index = hashFunc(key: key)
-        // 置為 nil ，代表刪除
+        // 設為 nil，表示刪除
         buckets[index] = nil
     }
 
-    /* 獲取所有鍵值對 */
+    /* 取得所有鍵值對 */
     func pairSet() -> [Pair] {
         buckets.compactMap { $0 }
     }
 
-    /* 獲取所有鍵 */
+    /* 取得所有鍵 */
     func keySet() -> [Int] {
         buckets.compactMap { $0?.key }
     }
 
-    /* 獲取所有值 */
+    /* 取得所有值 */
     func valueSet() -> [String] {
         buckets.compactMap { $0?.val }
     }
 
-    /* 列印雜湊表 */
+    /* 印出雜湊表 */
     func print() {
         for pair in pairSet() {
             Swift.print("\(pair.key) -> \(pair.val)")
@@ -67,7 +67,7 @@ class ArrayHashMap {
 
 @main
 enum _ArrayHashMap {
-    /* Driver Code */
+    /* 主程式 */
     static func main() {
         /* 初始化雜湊表 */
         let map = ArrayHashMap()
@@ -79,18 +79,18 @@ enum _ArrayHashMap {
         map.put(key: 16750, val: "小算")
         map.put(key: 13276, val: "小法")
         map.put(key: 10583, val: "小鴨")
-        print("\n新增完成後，雜湊表為\nKey -> Value")
+        print("\n新增後的雜湊表\nKey -> Value")
         map.print()
 
         /* 查詢操作 */
-        // 向雜湊表中輸入鍵 key ，得到值 value
+        // 輸入鍵 key，從雜湊表取得對應的值 value
         let name = map.get(key: 15937)!
-        print("\n輸入學號 15937 ，查詢到姓名 \(name)")
+        print("\n輸入學號 15937，查得姓名 \(name)")
 
         /* 刪除操作 */
-        // 在雜湊表中刪除鍵值對 (key, value)
+        // 從雜湊表刪除鍵值對 (key, value)
         map.remove(key: 10583)
-        print("\n刪除 10583 後，雜湊表為\nKey -> Value")
+        print("\n刪除 10583 後的雜湊表\nKey -> Value")
         map.print()
 
         /* 走訪雜湊表 */
@@ -98,11 +98,11 @@ enum _ArrayHashMap {
         for pair in map.pairSet() {
             print("\(pair.key) -> \(pair.val)")
         }
-        print("\n單獨走訪鍵 Key")
+        print("\n只走訪鍵 Key")
         for key in map.keySet() {
             print(key)
         }
-        print("\n單獨走訪值 Value")
+        print("\n只走訪值 Value")
         for val in map.valueSet() {
             print(val)
         }

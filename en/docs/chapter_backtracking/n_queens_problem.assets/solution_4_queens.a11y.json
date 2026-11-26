@@ -1,29 +1,29 @@
 {
-  "schema_version": 2,
-  "title": "Two solutions to the four-queens problem",
-  "summary": "The left and right boards show the two valid solutions to the 4-queens problem.",
   "context": [
-    "The 4-queens problem asks us to place 4 queens on a 4×4 chessboard so that no two queens share a row, column, or diagonal. The boards in the figure have no numeric labels; for reference below, rows from top to bottom and columns from left to right are numbered starting at 1."
+    "Place four queens on a 4×4 chessboard so that no two share a row, column, or diagonal. The original boards have no coordinate labels. Here, rows are numbered from top to bottom and columns from left to right, starting at 1."
   ],
   "description": [
-    "The table below gives the queen's column in each row from top to bottom on the left and right boards; all other squares are empty."
+    "The table gives the queen’s column in each row of the left and right boards, from top to bottom. All other squares are empty."
   ],
   "frames": [
     {
-      "id": "source-363",
       "book_path": "chapter_backtracking/n_queens_problem.assets/solution_4_queens.png",
-      "title": "Two solutions to the four-queens problem",
-      "explanation": "Both arrangements place one queen in every row and one in every column; for any pair of queens, the absolute difference between their row numbers differs from the absolute difference between their column numbers, so no two share a main diagonal or an antidiagonal either. The two boards are left-right mirror images of each other and form the complete solution set for 4 queens."
+      "explanation": "Each arrangement has one queen per row and column. For any two queens, the absolute difference between their row numbers differs from the absolute difference between their column numbers, so they share neither kind of diagonal. The arrangements are mirror images across the vertical axis and constitute all solutions.",
+      "id": "source-363",
+      "title": "The two four-queen solutions"
     }
   ],
+  "schema_version": 2,
+  "summary": "The left and right boards show the two valid solutions to the 4-queens problem.",
   "tables": [
     {
-      "caption": "Queen column in each row from top to bottom (1-based numbering)",
+      "caption": "Queen’s column by row, from top to bottom (numbering starts at 1)",
       "headers": [
         "Row",
-        "Left board column",
-        "Right board column"
+        "Column on left board",
+        "Column on right board"
       ],
+      "row_header": 0,
       "rows": [
         [
           "1",
@@ -45,8 +45,8 @@
           "3",
           "2"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "The two four-queen solutions"
 }

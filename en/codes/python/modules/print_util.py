@@ -40,7 +40,7 @@ def print_tree(
 ):
     """
     Print a binary tree
-    This tree printer is borrowed from TECHIE DELIGHT
+    This tree printer comes from Techie Delight
     https://www.techiedelight.com/c-program-print-binary-tree/
     """
     if root is None:

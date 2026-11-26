@@ -1,29 +1,29 @@
 {
-  "schema_version": 2,
-  "title": "Level-order array omitting intermediate empty slots",
-  "summary": "When empty slots inside a tree are omitted, the compacted level-order array shifts indices out of alignment, allowing the same value sequence to match different tree shapes.",
   "context": [
-    "In the table, \"Original tree position\" refers to the zero-based level-order position when empty slots are kept, with the root at position 0; \"Compacted array index\" refers to the array index after skipping empty slots. Only the original tree below is drawn in the figure.",
-    "The original tree has 10 nodes: root 1 (position 0) has left and right children 2 (position 1) and 3 (position 2); 2 has only left child 4 (position 3); 3 has left and right children 6 (position 5) and 7 (position 6); 4 has left and right children 8 (position 7) and 9 (position 8); 6 has only left child 12 (position 11); 7 has only right child 15 (position 14); and 8, 9, 12, and 15 are leaf nodes. The table below maps compacted array indices 0 through 9 to their original tree positions."
+    "In the table, “Original tree position” is the zero-based level-order position with empty slots preserved. The root is at position 0. “Compacted index” is the array index after empty slots are skipped. The figure shows only the original tree described below.",
+    "The original tree has 10 nodes. Root 1 (position 0) has left child 2 (position 1) and right child 3 (position 2). Node 2 has only a left child, 4 (position 3). Node 3 has left child 6 (position 5) and right child 7 (position 6). Node 4 has left child 8 (position 7) and right child 9 (position 8). Node 6 has only a left child, 12 (position 11), and node 7 has only a right child, 15 (position 14). Nodes 8, 9, 12, and 15 are leaves. The table matches compacted array indices 0 through 9 to the original tree positions."
   ],
   "description": [],
-  "result": "Once intermediate empty slots are omitted, the same level-order value sequence can correspond to differently connected trees. This issue arises only when empty slots occur in the middle; in a complete binary tree, all empty slots lie at the end of level order, so omitting trailing empty slots preserves the index mapping.",
   "frames": [
     {
-      "id": "source-111",
       "book_path": "chapter_tree/array_representation_of_tree.assets/array_representation_without_empty.png",
-      "title": "Level-order array omitting intermediate empty slots",
-      "explanation": "The original tree is missing nodes at positions 4, 9, 10, 12, and 13; skipping empty slots to compact the sequence directly into [1, 2, 3, 4, 6, 7, 8, 9, 12, 15] shifts node 6 forward from original position 5 to compacted index 4. Applying 2i+2 then misidentifies 6 at index 4 as the right child of node 2 at index 1, whereas in the original tree 2 has no right child and 6 is the left child of 3. Deriving a whole tree from the compacted array via the index formulas yields: 1 with left 2 and right 3; 2 with left 4 and right 6; 3 with left 7 and right 8; 4 with left 9 and right 12; 6 with only left 15; and all remaining nodes as leaves. That derived tree has different connections from the original tree despite sharing the same level-order value sequence; it is an analytical comparison and is not drawn separately in the figure."
+      "explanation": "Positions 4, 9, 10, 12, and 13 are missing from the original tree. Skipping them gives the compacted array [1, 2, 3, 4, 6, 7, 8, 9, 12, 15], moving node 6 from original position 5 to compacted index 4. Applying 2i+2 would incorrectly make 6 at index 4 the right child of node 2 at index 1. In the original tree, 2 has no right child and 6 is the left child of 3. Applying the index formulas throughout the compacted array yields a different tree. Node 1 has left child 2 and right child 3, node 2 has left child 4 and right child 6, and node 3 has left child 7 and right child 8. Node 4 has left child 9 and right child 12. Node 6 has only a left child, 15. The remaining nodes are leaves. This tree has different connections but the same level-order sequence of values. It is derived here and is not drawn in the figure.",
+      "id": "source-111",
+      "title": "Level-order array with internal empty slots omitted"
     }
   ],
+  "result": "After internal empty slots are omitted, trees with different connections can have the same level-order sequence of values. This problem arises with internal gaps. In a complete binary tree all empty slots come at the end of the sequence, so omitting them preserves the index mapping.",
+  "schema_version": 2,
+  "summary": "Removing internal empty slots shifts indices in the compacted level-order array. The same sequence of values can then describe different tree shapes.",
   "tables": [
     {
-      "caption": "Correspondence between compacted array indices and original tree positions",
+      "caption": "Compacted array indices and corresponding original tree positions",
       "headers": [
         "Compacted array index",
         "Node value",
         "Original tree position"
       ],
+      "row_header": 0,
       "rows": [
         [
           "0",
@@ -75,8 +75,8 @@
           "15",
           "14"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Level-order array with internal empty slots omitted"
 }

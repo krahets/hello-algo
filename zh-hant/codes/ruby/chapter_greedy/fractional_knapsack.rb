@@ -15,30 +15,30 @@ class Item
   end
 end
 
-### 分數背包：貪婪 ###
+### 分數背包：貪婪法 ###
 def fractional_knapsack(wgt, val, cap)
-  # 建立物品串列，包含兩個屬性：重量，價值
+  # 建立物品清單，每件物品有重量與價值兩項屬性
   items = wgt.each_with_index.map { |w, i| Item.new(w, val[i]) }
-  # 按照單位價值 item.v / item.w 從高到低進行排序
+  # 依單位價值 item.v / item.w 由高到低排序
   items.sort! { |a, b| (b.v.to_f / b.w) <=> (a.v.to_f / a.w) }
-  # 迴圈貪婪選擇
+  # 反覆依貪婪策略選取物品
   res = 0
   for item in items
     if item.w <= cap
-      # 若剩餘容量充足，則將當前物品整個裝進背包
+      # 若剩餘容量足夠，就將目前的物品整件裝入背包
       res += item.v
       cap -= item.w
     else
-      # 若剩餘容量不足，則將當前物品的一部分裝進背包
+      # 若剩餘容量不足，就將目前物品的一部分裝入背包
       res += (item.v.to_f / item.w) * cap
-      # 已無剩餘容量，因此跳出迴圈
+      # 背包已滿，跳出迴圈
       break
     end
   end
   res
 end
 
-### Driver Code ###
+### 主程式 ###
 if __FILE__ == $0
   wgt = [10, 20, 30, 40, 50]
   val = [50, 120, 150, 210, 240]
@@ -47,5 +47,5 @@ if __FILE__ == $0
 
   # 貪婪演算法
   res = fractional_knapsack(wgt, val, cap)
-  puts "不超過背包容量的最大物品價值為 #{res}"
+  puts "在背包容量限制內，物品的最大總價值為 #{res}"
 end

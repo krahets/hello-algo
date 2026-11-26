@@ -6,28 +6,28 @@
 
 #include "../utils/common.hpp"
 
-/* Linear search (array) */
+/* Linear search in an array */
 int linearSearchArray(vector<int> &nums, int target) {
     // Traverse the array
     for (int i = 0; i < nums.size(); i++) {
-        // The target element was found; return its index
+        // Found the target. Return its index
         if (nums[i] == target)
             return i;
     }
-    // The target element was not found; return -1
+    // Target not found. Return -1
     return -1;
 }
 
-/* Linear search (linked list) */
+/* Linear search in a linked list */
 ListNode *linearSearchLinkedList(ListNode *head, int target) {
     // Traverse the linked list
     while (head != nullptr) {
-        // The target node was found; return it
+        // Found the target node. Return it
         if (head->val == target)
             return head;
         head = head->next;
     }
-    // The target node was not found; return nullptr
+    // Target node not found. Return nullptr
     return nullptr;
 }
 
@@ -35,15 +35,15 @@ ListNode *linearSearchLinkedList(ListNode *head, int target) {
 int main() {
     int target = 3;
 
-    /* Perform linear search on the array */
+    /* Run linear search on the array */
     vector<int> nums = {1, 5, 3, 2, 4, 7, 5, 9, 10, 8};
     int index = linearSearchArray(nums, target);
-    cout << "Index of target element 3 = " << index << endl;
+    cout << "Index of target 3 = " << index << endl;
 
-    /* Perform linear search on the linked list */
+    /* Run linear search on the linked list */
     ListNode *head = vecToLinkedList(nums);
     ListNode *node = linearSearchLinkedList(head, target);
-    cout << "The node object corresponding to target value 3 is " << node << endl;
+    cout << "Node object for target value 3 = " << node << endl;
 
     return 0;
 }

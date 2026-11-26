@@ -4,14 +4,14 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
-/* 頂点クラス */
+/* 頂点を表すクラス */
 class Vertex {
     val: number;
     constructor(val: number) {
         this.val = val;
     }
 
-    /* 値のリスト vals を入力し、頂点のリスト vets を返す */
+    /* 値のリスト vals を受け取り、頂点のリスト vets を返す */
     public static valsToVets(vals: number[]): Vertex[] {
         const vets: Vertex[] = [];
         for (let i = 0; i < vals.length; i++) {
@@ -20,7 +20,7 @@ class Vertex {
         return vets;
     }
 
-    /* 頂点のリスト vets を入力し、値のリスト vals を返す */
+    /* 頂点のリスト vets を受け取り、値のリスト vals を返す */
     public static vetsToVals(vets: Vertex[]): number[] {
         const vals: number[] = [];
         for (const vet of vets) {

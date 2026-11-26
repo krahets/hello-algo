@@ -9,7 +9,7 @@ package chapter_dynamic_programming;
 public class climbing_stairs_dfs {
     /* Search */
     public static int dfs(int i) {
-        // The values of dp[1] and dp[2] are known; return them
+        // Return the known value for dp[1] or dp[2]
         if (i == 1 || i == 2)
             return i;
         // dp[i] = dp[i-1] + dp[i-2]
@@ -17,7 +17,7 @@ public class climbing_stairs_dfs {
         return count;
     }
 
-    /* Climbing stairs: search */
+    /* Climbing stairs with search */
     public static int climbingStairsDFS(int n) {
         return dfs(n);
     }
@@ -26,6 +26,6 @@ public class climbing_stairs_dfs {
         int n = 9;
 
         int res = climbingStairsDFS(n);
-        System.out.println(String.format("Number of ways to climb %d stairs: %d", n, res));
+        System.out.println(String.format("Climbing %d stairs: %d ways", n, res));
     }
 }

@@ -35,6 +35,6 @@ void main() {
     final nums = randomNumbers(n);
     int index = findOne(nums);
     print('\n数组 [ 1, 2, ..., n ] 被打乱后 = $nums');
-    print('数字 1 的索引为 + $index');
+    print('数字 1 的索引为 $index');
   }
 }

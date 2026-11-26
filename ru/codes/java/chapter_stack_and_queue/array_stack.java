@@ -13,40 +13,40 @@ class ArrayStack {
     private ArrayList<Integer> stack;
 
     public ArrayStack() {
-        // Инициализация списка (динамического массива)
+        // Инициализировать список (динамический массив)
         stack = new ArrayList<>();
     }
 
-    /* Получение длины стека */
+    /* Получить размер стека */
     public int size() {
         return stack.size();
     }
 
-    /* Проверка, пуст ли стек */
+    /* Проверить, пуст ли стек */
     public boolean isEmpty() {
         return size() == 0;
     }
 
-    /* Поместить в стек */
+    /* Поместить элемент в стек */
     public void push(int num) {
         stack.add(num);
     }
 
-    /* Извлечь из стека */
+    /* Снять элемент со стека */
     public int pop() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return stack.remove(size() - 1);
     }
 
-    /* Доступ к верхнему элементу стека */
+    /* Посмотреть элемент на вершине стека */
     public int peek() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return stack.get(size() - 1);
     }
 
-    /* Преобразовать List в Array и вернуть */
+    /* Преобразовать список в массив и вернуть его */
     public Object[] toArray() {
         return stack.toArray();
     }
@@ -54,10 +54,10 @@ class ArrayStack {
 
 public class array_stack {
     public static void main(String[] args) {
-        /* Инициализация стека */
+        /* Инициализировать стек */
         ArrayStack stack = new ArrayStack();
 
-        /* Помещение элемента в стек */
+        /* Поместить элементы в стек */
         stack.push(1);
         stack.push(3);
         stack.push(2);
@@ -65,20 +65,20 @@ public class array_stack {
         stack.push(4);
         System.out.println("Стек stack = " + Arrays.toString(stack.toArray()));
 
-        /* Доступ к верхнему элементу стека */
+        /* Посмотреть элемент на вершине стека */
         int peek = stack.peek();
-        System.out.println("Верхний элемент peek = " + peek);
+        System.out.println("Элемент на вершине стека peek = " + peek);
 
-        /* Извлечение элемента из стека */
+        /* Снять элемент со стека */
         int pop = stack.pop();
-        System.out.println("Извлеченный элемент pop = " + pop + ", stack после извлечения = " + Arrays.toString(stack.toArray()));
+        System.out.println("Снятый элемент pop = " + pop + ", после снятия stack = " + Arrays.toString(stack.toArray()));
 
-        /* Получение длины стека */
+        /* Получить размер стека */
         int size = stack.size();
-        System.out.println("Длина стека size = " + size);
+        System.out.println("Размер стека size = " + size);
 
-        /* Проверка на пустоту */
+        /* Проверить, пуст ли стек */
         boolean isEmpty = stack.isEmpty();
-        System.out.println("Пуст ли стек = " + isEmpty);
+        System.out.println("Стек пуст = " + isEmpty);
     }
 }

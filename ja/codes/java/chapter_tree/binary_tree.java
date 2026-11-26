@@ -22,7 +22,7 @@ public class binary_tree {
         n1.right = n3;
         n2.left = n4;
         n2.right = n5;
-        System.out.println("\n二分木を初期化する\n");
+        System.out.println("\n二分木を初期化\n");
         PrintUtil.printTree(n1);
 
         /* ノードの挿入と削除 */

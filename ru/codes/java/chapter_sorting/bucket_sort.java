@@ -9,27 +9,27 @@ package chapter_sorting;
 import java.util.*;
 
 public class bucket_sort {
-    /* Сортировка корзинами */
+    /* Блочная сортировка */
     static void bucketSort(float[] nums) {
-        // Инициализировать k = n/2 корзин, предполагая распределение 2 элементов в каждую корзину
+        // Создать k = n/2 блоков в расчёте на два элемента в каждом
         int k = nums.length / 2;
         List<List<Float>> buckets = new ArrayList<>();
         for (int i = 0; i < k; i++) {
             buckets.add(new ArrayList<>());
         }
-        // 1. Распределить элементы массива по корзинам
+        // 1. Распределить элементы массива по блокам
         for (float num : nums) {
-            // Входные данные лежат в диапазоне [0, 1); использовать num * k для отображения в диапазон индексов [0, k-1]
+            // Значения лежат в [0, 1). Умножение num * k даёт индекс в [0, k-1]
             int i = (int) (num * k);
-            // Добавить num в корзину i
+            // Добавить num в блок i
             buckets.get(i).add(num);
         }
-        // 2. Выполнить сортировку внутри каждой корзины
+        // 2. Отсортировать каждый блок
         for (List<Float> bucket : buckets) {
-            // Использовать встроенную функцию сортировки; ее также можно заменить другим алгоритмом сортировки
+            // Используем встроенную сортировку. Её можно заменить другим алгоритмом
             Collections.sort(bucket);
         }
-        // 3. Обойти корзины и объединить результаты
+        // 3. Обойти блоки и объединить результаты
         int i = 0;
         for (List<Float> bucket : buckets) {
             for (float num : bucket) {
@@ -39,9 +39,9 @@ public class bucket_sort {
     }
 
     public static void main(String[] args) {
-        // Пусть входные данные — числа с плавающей точкой из диапазона [0, 1)
+        // Входные данные — числа с плавающей точкой из интервала [0, 1)
         float[] nums = { 0.49f, 0.96f, 0.82f, 0.09f, 0.57f, 0.43f, 0.91f, 0.75f, 0.15f, 0.37f };
         bucketSort(nums);
-        System.out.println("После сортировки корзинами nums = " + Arrays.toString(nums));
+        System.out.println("После блочной сортировки nums = " + Arrays.toString(nums));
     }
 }

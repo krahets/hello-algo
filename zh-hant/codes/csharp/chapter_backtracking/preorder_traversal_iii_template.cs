@@ -7,17 +7,17 @@
 namespace hello_algo.chapter_backtracking;
 
 public class preorder_traversal_iii_template {
-    /* 判斷當前狀態是否為解 */
+    /* 判斷目前的狀態是否為解 */
     bool IsSolution(List<TreeNode> state) {
         return state.Count != 0 && state[^1].val == 7;
     }
 
-    /* 記錄解 */
+    /* 記錄此解 */
     void RecordSolution(List<TreeNode> state, List<List<TreeNode>> res) {
         res.Add(new List<TreeNode>(state));
     }
 
-    /* 判斷在當前狀態下，該選擇是否合法 */
+    /* 判斷這個選擇在目前的狀態下是否合法 */
     bool IsValid(List<TreeNode> state, TreeNode choice) {
         return choice != null && choice.val != 3;
     }
@@ -27,27 +27,27 @@ public class preorder_traversal_iii_template {
         state.Add(choice);
     }
 
-    /* 恢復狀態 */
+    /* 還原狀態 */
     void UndoChoice(List<TreeNode> state, TreeNode choice) {
         state.RemoveAt(state.Count - 1);
     }
 
     /* 回溯演算法：例題三 */
     void Backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res) {
-        // 檢查是否為解
+        // 檢查目前的狀態是否為解
         if (IsSolution(state)) {
-            // 記錄解
+            // 記錄此解
             RecordSolution(state, res);
         }
-        // 走訪所有選擇
+        // 逐一檢查所有選項
         foreach (TreeNode choice in choices) {
             // 剪枝：檢查選擇是否合法
             if (IsValid(state, choice)) {
-                // 嘗試：做出選擇，更新狀態
+                // 嘗試：做出選擇並更新狀態
                 MakeChoice(state, choice);
-                // 進行下一輪選擇
+                // 進入下一輪選擇
                 Backtrack(state, [choice.left!, choice.right!], res);
-                // 回退：撤銷選擇，恢復到之前的狀態
+                // 回溯：撤銷選擇，還原先前的狀態
                 UndoChoice(state, choice);
             }
         }
@@ -64,7 +64,7 @@ public class preorder_traversal_iii_template {
         List<TreeNode> choices = [root!];
         Backtrack([], choices, res);
 
-        Console.WriteLine("\n輸出所有根節點到節點 7 的路徑，要求路徑中不包含值為 3 的節點");
+        Console.WriteLine("\n輸出從根節點到值為 7 的節點的所有路徑，且路徑中不得包含值為 3 的節點");
         foreach (List<TreeNode> path in res) {
             PrintUtil.PrintList(path.Select(p => p.val).ToList());
         }

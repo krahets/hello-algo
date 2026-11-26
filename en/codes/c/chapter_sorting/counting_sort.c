@@ -7,9 +7,9 @@
 #include "../utils/common.h"
 
 /* Counting sort */
-// Simple implementation; cannot be used to sort objects
+// Simple implementation that cannot sort objects
 void countingSortNaive(int nums[], int size) {
-    // 1. Find the maximum array element m
+    // 1. Find the largest array element m
     int m = 0;
     for (int i = 0; i < size; i++) {
         if (nums[i] > m) {
@@ -17,12 +17,12 @@ void countingSortNaive(int nums[], int size) {
         }
     }
     // 2. Count the occurrences of each number
-    // counter[num] is the number of occurrences of num
+    // counter[num] holds the number of occurrences of num
     int *counter = calloc(m + 1, sizeof(int));
     for (int i = 0; i < size; i++) {
         counter[nums[i]]++;
     }
-    // 3. Traverse counter and fill the original array nums with the elements
+    // 3. Traverse counter and write each value back into nums
     int i = 0;
     for (int num = 0; num < m + 1; num++) {
         for (int j = 0; j < counter[num]; j++, i++) {
@@ -34,9 +34,9 @@ void countingSortNaive(int nums[], int size) {
 }
 
 /* Counting sort */
-// Full, stable implementation; can be adapted to sort objects
+// Full implementation that can sort objects and is stable
 void countingSort(int nums[], int size) {
-    // 1. Find the maximum array element m
+    // 1. Find the largest array element m
     int m = 0;
     for (int i = 0; i < size; i++) {
         if (nums[i] > m) {
@@ -44,37 +44,37 @@ void countingSort(int nums[], int size) {
         }
     }
     // 2. Count the occurrences of each number
-    // counter[num] is the number of occurrences of num
+    // counter[num] holds the number of occurrences of num
     int *counter = calloc(m + 1, sizeof(int));
     for (int i = 0; i < size; i++) {
         counter[nums[i]]++;
     }
-    // 3. Compute prefix sums of counter to convert occurrence counts into end positions
-    // That is, counter[num]-1 is the index of the last occurrence of num in res
+    // 3. Compute prefix sums in counter to locate the last position for each value
+    // That is, counter[num]-1 is the last index of num in res
     for (int i = 0; i < m; i++) {
         counter[i + 1] += counter[i];
     }
-    // 4. Traverse nums in reverse and place each element in the result array res
-    // Initialize array res to store the result
+    // 4. Traverse nums backward and place each element in the result array res
+    // Initialize the result array res
     int *res = malloc(sizeof(int) * size);
     for (int i = size - 1; i >= 0; i--) {
         int num = nums[i];
-        res[counter[num] - 1] = num; // Place num at the corresponding index
-        counter[num]--;              // Decrement the prefix sum by 1 to determine where to place the next occurrence of num
+        res[counter[num] - 1] = num; // Place num at its corresponding index
+        counter[num]--;              // Decrement the prefix sum by 1 to find the next index for num
     }
-    // Overwrite the original array nums with the result array res
+    // Copy res back into the original array nums
     memcpy(nums, res, size * sizeof(int));
     // 5. Free memory
     free(res);
     free(counter);
 }
 
-/* Driver code */
+/* Driver Code */
 int main() {
     int nums[] = {1, 0, 1, 2, 0, 4, 0, 2, 2, 4};
     int size = sizeof(nums) / sizeof(int);
     countingSortNaive(nums, size);
-    printf("After counting sort (without support for objects), nums = ");
+    printf("After counting sort (values only), nums = ");
     printArray(nums, size);
 
     int nums1[] = {1, 0, 1, 2, 0, 4, 0, 2, 2, 4};

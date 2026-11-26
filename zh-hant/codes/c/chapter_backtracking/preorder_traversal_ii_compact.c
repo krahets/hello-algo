@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-// 假設路徑和結果長度不超過 100
+// 假設路徑與結果的長度皆不超過 100
 #define MAX_SIZE 100
 #define MAX_RES_SIZE 100
 
@@ -22,7 +22,7 @@ void preOrder(TreeNode *root) {
     // 嘗試
     path[pathSize++] = root;
     if (root->val == 7) {
-        // 記錄解
+        // 記錄此解
         for (int i = 0; i < pathSize; ++i) {
             res[resSize][i] = path[i];
         }
@@ -30,11 +30,11 @@ void preOrder(TreeNode *root) {
     }
     preOrder(root->left);
     preOrder(root->right);
-    // 回退
+    // 回溯
     pathSize--;
 }
 
-/* Driver Code */
+/* 主程式 */
 int main() {
     int arr[] = {1, 7, 3, 4, 5, 6, 7};
     TreeNode *root = arrayToTree(arr, sizeof(arr) / sizeof(arr[0]));
@@ -44,7 +44,7 @@ int main() {
     // 前序走訪
     preOrder(root);
 
-    printf("\n輸出所有根節點到節點 7 的路徑\n");
+    printf("\n輸出從根節點到值為 7 的節點的所有路徑\n");
     for (int i = 0; i < resSize; ++i) {
         int *vals = malloc(MAX_SIZE * sizeof(int));
         int size = 0;

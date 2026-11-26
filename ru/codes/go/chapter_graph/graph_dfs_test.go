@@ -12,7 +12,7 @@ import (
 )
 
 func TestGraphDFS(t *testing.T) {
-	/* Инициализация неориентированного графа */
+	/* Инициализировать неориентированный граф */
 	vets := ValsToVets([]int{0, 1, 2, 3, 4, 5, 6})
 	edges := [][]Vertex{
 		{vets[0], vets[1]}, {vets[0], vets[3]}, {vets[1], vets[2]},
@@ -23,6 +23,6 @@ func TestGraphDFS(t *testing.T) {
 
 	/* Обход в глубину */
 	res := graphDFS(graph, vets[0])
-	fmt.Println("Последовательность вершин при обходе в глубину (DFS):")
+	fmt.Println("Порядок обхода вершин в глубину (DFS):")
 	PrintSlice(VetsToVals(res))
 }

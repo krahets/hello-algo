@@ -6,15 +6,15 @@
 
 import { Vertex } from '../modules/Vertex';
 
-/* 基於鄰接表實現的無向圖類別 */
+/* 以鄰接串列實作的無向圖類別 */
 class GraphAdjList {
-    // 鄰接表，key：頂點，value：該頂點的所有鄰接頂點
+    // 鄰接串列，key 是頂點，value 是該頂點的所有相鄰頂點
     adjList: Map<Vertex, Vertex[]>;
 
-    /* 建構子 */
+    /* 建構式 */
     constructor(edges: Vertex[][]) {
         this.adjList = new Map();
-        // 新增所有頂點和邊
+        // 加入所有頂點和邊
         for (const edge of edges) {
             this.addVertex(edge[0]);
             this.addVertex(edge[1]);
@@ -22,7 +22,7 @@ class GraphAdjList {
         }
     }
 
-    /* 獲取頂點數量 */
+    /* 取得頂點數量 */
     size(): number {
         return this.adjList.size;
     }
@@ -59,7 +59,7 @@ class GraphAdjList {
     /* 新增頂點 */
     addVertex(vet: Vertex): void {
         if (this.adjList.has(vet)) return;
-        // 在鄰接表中新增一個新鏈結串列
+        // 在鄰接串列中新增一條鏈結串列
         this.adjList.set(vet, []);
     }
 
@@ -68,9 +68,9 @@ class GraphAdjList {
         if (!this.adjList.has(vet)) {
             throw new Error('Illegal Argument Exception');
         }
-        // 在鄰接表中刪除頂點 vet 對應的鏈結串列
+        // 從鄰接串列中刪除頂點 vet 對應的鏈結串列
         this.adjList.delete(vet);
-        // 走訪其他頂點的鏈結串列，刪除所有包含 vet 的邊
+        // 走訪其他頂點的鏈結串列，刪除所有以 vet 為端點的邊
         for (const set of this.adjList.values()) {
             const index: number = set.indexOf(vet);
             if (index > -1) {
@@ -79,9 +79,9 @@ class GraphAdjList {
         }
     }
 
-    /* 列印鄰接表 */
+    /* 印出鄰接串列 */
     print(): void {
-        console.log('鄰接表 =');
+        console.log('鄰接串列 =');
         for (const [key, value] of this.adjList.entries()) {
             const tmp = [];
             for (const vertex of value) {
@@ -109,31 +109,31 @@ if (import.meta.url.endsWith(process.argv[1])) {
         [v3, v4],
     ];
     const graph = new GraphAdjList(edges);
-    console.log('\n初始化後，圖為');
+    console.log('\n初始化後的圖為');
     graph.print();
 
     /* 新增邊 */
-    // 頂點 1, 2 即 v0, v2
+    // 頂點 1、2 分別是 v0、v2
     graph.addEdge(v0, v2);
-    console.log('\n新增邊 1-2 後，圖為');
+    console.log('\n新增邊 1-2 後的圖為');
     graph.print();
 
     /* 刪除邊 */
-    // 頂點 1, 3 即 v0, v1
+    // 頂點 1、3 分別是 v0、v1
     graph.removeEdge(v0, v1);
-    console.log('\n刪除邊 1-3 後，圖為');
+    console.log('\n刪除邊 1-3 後的圖為');
     graph.print();
 
     /* 新增頂點 */
     const v5 = new Vertex(6);
     graph.addVertex(v5);
-    console.log('\n新增頂點 6 後，圖為');
+    console.log('\n新增頂點 6 後的圖為');
     graph.print();
 
     /* 刪除頂點 */
-    // 頂點 3 即 v1
+    // 頂點 3 是 v1
     graph.removeVertex(v1);
-    console.log('\n刪除頂點 3 後，圖為');
+    console.log('\n刪除頂點 3 後的圖為');
     graph.print();
 }
 

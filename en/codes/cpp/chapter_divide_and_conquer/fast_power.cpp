@@ -6,7 +6,7 @@
 
 #include <cassert>
 
-/* Fast exponentiation */
+/* Exponentiation by squaring */
 int fastPow(int x, int n) {
     if (n == 0) {
         return 1;

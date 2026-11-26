@@ -9,22 +9,22 @@ import utils
 /* 関数 */
 @discardableResult
 func function() -> Int {
-    // 何らかの処理を実行する
+    // 何らかの処理を行う
     return 0
 }
 
 /* 定数オーダー */
 func constant(n: Int) {
-    // 定数、変数、オブジェクトは O(1) の領域を使用する
+    // 定数・変数・オブジェクトが使う領域は O(1)
     let a = 0
     var b = 0
     let nums = Array(repeating: 0, count: 10000)
     let node = ListNode(x: 0)
-    // ループ内の変数は O(1) の領域を使用する
+    // ループ内の変数が使う領域は O(1)
     for _ in 0 ..< n {
         let c = 0
     }
-    // ループ内の関数は O(1) の領域を使用する
+    // ループ内の関数が使う領域は O(1)
     for _ in 0 ..< n {
         function()
     }
@@ -32,11 +32,11 @@ func constant(n: Int) {
 
 /* 線形オーダー */
 func linear(n: Int) {
-    // 長さ n の配列は O(n) の領域を使用する
+    // 長さ n の配列が使う領域は O(n)
     let nums = Array(repeating: 0, count: n)
-    // 長さ n のリストは O(n) の領域を使用する
+    // 長さ n のリストが使う領域は O(n)
     let nodes = (0 ..< n).map { ListNode(x: $0) }
-    // 長さ n のハッシュテーブルは O(n) の領域を使用する
+    // 長さ n のハッシュテーブルが使う領域は O(n)
     let map = Dictionary(uniqueKeysWithValues: (0 ..< n).map { ($0, "\($0)") })
 }
 
@@ -51,7 +51,7 @@ func linearRecur(n: Int) {
 
 /* 二次オーダー */
 func quadratic(n: Int) {
-    // 二次元リストは O(n^2) の領域を使用する
+    // 二次元リストが使う領域は O(n^2)
     let numList = Array(repeating: Array(repeating: 0, count: n), count: n)
 }
 
@@ -61,13 +61,13 @@ func quadraticRecur(n: Int) -> Int {
     if n <= 0 {
         return 0
     }
-    // 配列 nums の長さは n, n-1, ..., 2, 1
+    // 配列 nums の長さは順に n, n-1, ..., 2, 1
     let nums = Array(repeating: 0, count: n)
-    print("再帰 n = \(n) における nums の長さ = \(nums.count)")
+    print("再帰 n = \(n) での nums の長さ = \(nums.count)")
     return quadraticRecur(n: n - 1)
 }
 
-/* 指数オーダー（パーフェクト二分木の構築） */
+/* 指数オーダー（すべての葉が同じ深さの完全二分木を構築） */
 func buildTree(n: Int) -> TreeNode? {
     if n == 0 {
         return nil
@@ -80,7 +80,7 @@ func buildTree(n: Int) -> TreeNode? {
 
 @main
 enum SpaceComplexity {
-    /* 実行用コード */
+    /* 実行例 */
     static func main() {
         let n = 5
         // 定数オーダー

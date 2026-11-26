@@ -4,13 +4,13 @@
 
 package pkg
 
-// ListNode 鏈結串列節點
+// ListNode 代表鏈結串列的節點
 type ListNode struct {
 	Next *ListNode
 	Val  int
 }
 
-// NewListNode 鏈結串列節點建構子
+// NewListNode 用來建立鏈結串列節點
 func NewListNode(v int) *ListNode {
 	return &ListNode{
 		Next: nil,
@@ -18,9 +18,9 @@ func NewListNode(v int) *ListNode {
 	}
 }
 
-// ArrayToLinkedList 將陣列反序列化為鏈結串列
+// ArrayToLinkedList 將切片反序列化為鏈結串列
 func ArrayToLinkedList(arr []int) *ListNode {
-	// dummy header of linked list
+	// 鏈結串列的虛擬頭節點
 	dummy := NewListNode(0)
 	node := dummy
 	for _, val := range arr {

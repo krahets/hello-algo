@@ -12,22 +12,22 @@ import utils.printTree
 
 /* 関数 */
 fun function(): Int {
-    // 何らかの処理を実行する
+    // 何らかの処理を行う
     return 0
 }
 
 /* 定数オーダー */
 fun constant(n: Int) {
-    // 定数、変数、オブジェクトは O(1) の領域を使用する
+    // 定数・変数・オブジェクトが使う領域は O(1)
     val a = 0
     var b = 0
     val nums = Array(10000) { 0 }
     val node = ListNode(0)
-    // ループ内の変数は O(1) の領域を使用する
+    // ループ内の変数が使う領域は O(1)
     for (i in 0..<n) {
         val c = 0
     }
-    // ループ内の関数は O(1) の領域を使用する
+    // ループ内の関数が使う領域は O(1)
     for (i in 0..<n) {
         function()
     }
@@ -35,14 +35,14 @@ fun constant(n: Int) {
 
 /* 線形オーダー */
 fun linear(n: Int) {
-    // 長さ n の配列は O(n) の領域を使用する
+    // 長さ n の配列が使う領域は O(n)
     val nums = Array(n) { 0 }
-    // 長さ n のリストは O(n) の領域を使用する
+    // 長さ n のリストが使う領域は O(n)
     val nodes = mutableListOf<ListNode>()
     for (i in 0..<n) {
         nodes.add(ListNode(i))
     }
-    // 長さ n のハッシュテーブルは O(n) の領域を使用する
+    // 長さ n のハッシュテーブルが使う領域は O(n)
     val map = mutableMapOf<Int, String>()
     for (i in 0..<n) {
         map[i] = i.toString()
@@ -59,9 +59,9 @@ fun linearRecur(n: Int) {
 
 /* 二次オーダー */
 fun quadratic(n: Int) {
-    // 行列は O(n^2) の領域を使用する
+    // 行列が使う領域は O(n^2)
     val numMatrix = arrayOfNulls<Array<Int>?>(n)
-    // 二次元リストは O(n^2) の領域を使用する
+    // 二次元リストが使う領域は O(n^2)
     val numList = mutableListOf<MutableList<Int>>()
     for (i in 0..<n) {
         val tmp = mutableListOf<Int>()
@@ -76,13 +76,13 @@ fun quadratic(n: Int) {
 tailrec fun quadraticRecur(n: Int): Int {
     if (n <= 0)
         return 0
-    // 配列 nums の長さは n, n-1, ..., 2, 1
+    // 配列 nums の長さは順に n, n-1, ..., 2, 1
     val nums = Array(n) { 0 }
-    println("再帰 n = $n における nums の長さ = ${nums.size}")
+    println("再帰 n = $n での nums の長さ = ${nums.size}")
     return quadraticRecur(n - 1)
 }
 
-/* 指数オーダー（パーフェクト二分木の構築） */
+/* 指数オーダー（すべての葉が同じ深さの完全二分木を構築） */
 fun buildTree(n: Int): TreeNode? {
     if (n == 0)
         return null
@@ -92,7 +92,7 @@ fun buildTree(n: Int): TreeNode? {
     return root
 }
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
     val n = 5
     // 定数オーダー

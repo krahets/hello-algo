@@ -9,7 +9,7 @@ pub mod print_util;
 pub mod tree_node;
 pub mod vertex;
 
-// 取り込めるよう再エクスポートする
+// include モジュールから再エクスポートする
 pub use list_node::*;
 pub use print_util::*;
 pub use tree_node::*;

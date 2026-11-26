@@ -7,7 +7,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-### 배열로 표현한 이진 트리 클래스 ###
+### 배열로 이진 트리를 표현하는 클래스 ###
 class ArrayBinaryTree
   ### 생성자 ###
   def initialize(arr)
@@ -19,30 +19,30 @@ class ArrayBinaryTree
     @tree.length
   end
 
-  ### 인덱스가 i인 노드의 값 반환 ###
+  ### 인덱스가 i인 노드의 값을 구한다 ###
   def val(i)
-    # 인덱스가 범위를 벗어나면 빈칸을 나타내는 nil을 반환한다
+    # 인덱스가 범위를 벗어나면 빈자리를 뜻하는 nil을 반환한다
     return if i < 0 || i >= size
 
     @tree[i]
   end
 
-  ### 인덱스가 i인 노드의 왼쪽 자식 노드 인덱스 반환 ###
+  ### 인덱스가 i인 노드의 왼쪽 자식 인덱스를 구한다 ###
   def left(i)
     2 * i + 1
   end
 
-  ### 인덱스가 i인 노드의 오른쪽 자식 노드 인덱스 반환 ###
+  ### 인덱스가 i인 노드의 오른쪽 자식 인덱스를 구한다 ###
   def right(i)
     2 * i + 2
   end
 
-  ### 인덱스가 i인 노드의 부모 노드 인덱스 반환 ###
+  ### 인덱스가 i인 노드의 부모 인덱스를 구한다 ###
   def parent(i)
     (i - 1) / 2
   end
 
-  ### 레벨 순서 순회 ###
+  ### 레벨 순회 ###
   def level_order
     @res = []
 
@@ -92,33 +92,33 @@ end
 ### 실행 코드 ###
 if __FILE__ == $0
   # 이진 트리 초기화
-  # 여기서는 배열로부터 이진 트리를 바로 생성하는 함수를 사용한다
+  # 배열에서 바로 이진 트리를 만드는 함수를 사용한다
   arr = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
   root = arr_to_tree(arr)
   puts "\n이진 트리 초기화\n\n"
-  puts '이진 트리의 배열 표현:'
+  puts '이진 트리의 배열 표현: '
   pp arr
-  puts '이진 트리의 연결 리스트 표현:'
+  puts '이진 트리의 연결 리스트 표현: '
   print_tree(root)
 
-  # 배열로 표현한 이진 트리 클래스
+  # 배열로 이진 트리를 표현하는 클래스
   abt = ArrayBinaryTree.new(arr)
 
   # 노드 접근
   i = 1
   l, r, _p = abt.left(i), abt.right(i), abt.parent(i)
   puts "\n현재 노드의 인덱스: #{i}, 값: #{abt.val(i).inspect}"
-  puts "왼쪽 자식 노드의 인덱스: #{l}, 값: #{abt.val(l).inspect}"
-  puts "오른쪽 자식 노드의 인덱스: #{r}, 값: #{abt.val(r).inspect}"
+  puts "왼쪽 자식의 인덱스: #{l}, 값: #{abt.val(l).inspect}"
+  puts "오른쪽 자식의 인덱스: #{r}, 값: #{abt.val(r).inspect}"
   puts "부모 노드의 인덱스: #{_p}, 값: #{abt.val(_p).inspect}"
 
   # 트리 순회
   res = abt.level_order
-  puts "\n레벨 순서 순회: #{res}"
+  puts "\n레벨 순회 결과: #{res}"
   res = abt.pre_order
-  puts "전위 순회: #{res}"
+  puts "전위 순회 결과: #{res}"
   res = abt.in_order
-  puts "중위 순회: #{res}"
+  puts "중위 순회 결과: #{res}"
   res = abt.post_order
-  puts "후위 순회: #{res}"
+  puts "후위 순회 결과: #{res}"
 end

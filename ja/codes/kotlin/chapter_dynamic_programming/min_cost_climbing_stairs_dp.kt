@@ -8,7 +8,7 @@ package chapter_dynamic_programming
 
 import kotlin.math.min
 
-/* 階段を上る最小コスト：動的計画法 */
+/* 階段を登る最小コスト：動的計画法 */
 fun minCostClimbingStairsDP(cost: IntArray): Int {
     val n = cost.size - 1
     if (n == 1 || n == 2) return cost[n]
@@ -24,7 +24,7 @@ fun minCostClimbingStairsDP(cost: IntArray): Int {
     return dp[n]
 }
 
-/* 階段を上る最小コスト：空間を最適化した動的計画法 */
+/* 階段を登る最小コスト：使用メモリを削減した動的計画法 */
 fun minCostClimbingStairsDPComp(cost: IntArray): Int {
     val n = cost.size - 1
     if (n == 1 || n == 2) return cost[n]
@@ -38,14 +38,14 @@ fun minCostClimbingStairsDPComp(cost: IntArray): Int {
     return b
 }
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
     val cost = intArrayOf(0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1)
-    println("入力した階段のコストのリストは ${cost.contentToString()}")
+    println("各段のコストの入力リストは ${cost.contentToString()}")
 
     var res = minCostClimbingStairsDP(cost)
-    println("階段を上り終える最小コストは $res")
+    println("階段を登りきる最小コストは $res")
 
     res = minCostClimbingStairsDPComp(cost)
-    println("階段を上り終える最小コストは $res")
+    println("階段を登りきる最小コストは $res")
 }

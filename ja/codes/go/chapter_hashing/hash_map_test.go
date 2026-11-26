@@ -13,43 +13,43 @@ import (
 )
 
 func TestHashMap(t *testing.T) {
-	/* ハッシュテーブルを初期化する */
+	/* ハッシュ表を初期化する */
 	hmap := make(map[int]string)
 
-	/* 追加操作 */
-	// ハッシュテーブルにキーと値のペア (key, value) を追加する
+	/* 追加 */
+	// ハッシュ表にペア (key, value) を追加する
 	hmap[12836] = "小哈"
 	hmap[15937] = "小啰"
 	hmap[16750] = "小算"
 	hmap[13276] = "小法"
 	hmap[10583] = "小鸭"
-	fmt.Println("\n追加後のハッシュテーブル\nKey -> Value")
+	fmt.Println("\n追加後のハッシュ表\nKey -> Value")
 	PrintMap(hmap)
 
-	/* 取得操作 */
-	// ハッシュテーブルにキー key を渡し、値 value を取得する
+	/* 検索 */
+	// ハッシュ表でキー key に対応する値 value を取得する
 	name := hmap[15937]
-	fmt.Println("\n学生番号 15937 に対応する氏名は ", name)
+	fmt.Println("\n学籍番号 15937 に対応する名前は ", name)
 
-	/* 削除操作 */
-	// ハッシュテーブルからキーと値のペア (key, value) を削除する
+	/* 削除 */
+	// ハッシュ表からペア (key, value) を削除する
 	delete(hmap, 10583)
-	fmt.Println("\n10583 を削除した後のハッシュテーブル\nKey -> Value")
+	fmt.Println("\n10583 を削除した後のハッシュ表\nKey -> Value")
 	PrintMap(hmap)
 
-	/* ハッシュテーブルを走査する */
-	// キーと値のペア key->value を走査する
-	fmt.Println("\nキーと値のペア Key->Value を走査する")
+	/* ハッシュ表を走査する */
+	// キーと値のペアを順に表示 key->value
+	fmt.Println("\nキーと値のペアを順に表示 Key->Value")
 	for key, value := range hmap {
 		fmt.Println(key, "->", value)
 	}
-	// キー key だけを走査する
-	fmt.Println("\nキー Key だけを走査する")
+	// キーだけを順に表示 key
+	fmt.Println("\nキーだけを順に表示 Key")
 	for key := range hmap {
 		fmt.Println(key)
 	}
-	// 値 value だけを走査する
-	fmt.Println("\n値 Value だけを走査する")
+	// 値だけを順に表示 value
+	fmt.Println("\n値だけを順に表示 Value")
 	for _, value := range hmap {
 		fmt.Println(value)
 	}
@@ -67,7 +67,7 @@ func TestSimpleHash(t *testing.T) {
 	fmt.Println("乗算ハッシュの値は " + strconv.Itoa(hash))
 
 	hash = xorHash(key)
-	fmt.Println("排他的論理和ハッシュの値は " + strconv.Itoa(hash))
+	fmt.Println("XOR ハッシュの値は " + strconv.Itoa(hash))
 
 	hash = rotHash(key)
 	fmt.Println("回転ハッシュの値は " + strconv.Itoa(hash))

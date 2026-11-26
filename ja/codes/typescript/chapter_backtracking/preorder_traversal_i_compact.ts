@@ -21,16 +21,16 @@ function preOrder(root: TreeNode | null, res: TreeNode[]): void {
     preOrder(root.right, res);
 }
 
-// 実行用コード
+// 実行例
 const root = arrToTree([1, 7, 3, 4, 5, 6, 7]);
-console.log('\n二分木を初期化する');
+console.log('\n二分木を初期化');
 printTree(root);
 
 // 行きがけ順走査
 const res: TreeNode[] = [];
 preOrder(root, res);
 
-console.log('\n値が 7 であるすべてのノードを出力する');
+console.log('\n値が 7 のノードをすべて出力');
 console.log(res.map((node) => node.val));
 
 export {};

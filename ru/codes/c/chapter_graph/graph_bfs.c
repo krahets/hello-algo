@@ -6,7 +6,7 @@
 
 #include "graph_adjacency_list.c"
 
-// Предположим, что максимальное число узлов равно 100
+// Допустим, узлов не больше 100
 #define MAX_SIZE 100
 
 /* Структура очереди узлов */
@@ -22,19 +22,19 @@ Queue *newQueue() {
     return q;
 }
 
-/* Проверка, пуста ли очередь */
+/* Проверить, пуста ли очередь */
 int isEmpty(Queue *q) {
     return q->size == 0;
 }
 
-/* Операция добавления в очередь */
+/* Добавить в очередь */
 void enqueue(Queue *q, Vertex *vet) {
     q->vertices[q->rear] = vet;
     q->rear = (q->rear + 1) % MAX_SIZE;
     q->size++;
 }
 
-/* Операция извлечения из очереди */
+/* Извлечь из очереди */
 Vertex *dequeue(Queue *q) {
     Vertex *vet = q->vertices[q->front];
     q->front = (q->front + 1) % MAX_SIZE;
@@ -42,9 +42,9 @@ Vertex *dequeue(Queue *q) {
     return vet;
 }
 
-/* Проверить, была ли вершина уже посещена */
+/* Проверить, посещена ли вершина */
 int isVisited(Vertex **visited, int size, Vertex *vet) {
-    // Искать узел обходом за O(n) времени
+    // Последовательно найти узел за время O(n)
     for (int i = 0; i < size; i++) {
         if (visited[i] == vet)
             return 1;
@@ -53,23 +53,23 @@ int isVisited(Vertex **visited, int size, Vertex *vet) {
 }
 
 /* Обход в ширину */
-// Использовать список смежности для представления графа, чтобы получить все смежные вершины заданной вершины
+// Список смежности позволяет получить всех соседей заданной вершины
 void graphBFS(GraphAdjList *graph, Vertex *startVet, Vertex **res, int *resSize, Vertex **visited, int *visitedSize) {
-    // Очередь используется для реализации BFS
+    // Очередь для обхода BFS
     Queue *queue = newQueue();
     enqueue(queue, startVet);
     visited[(*visitedSize)++] = startVet;
-    // Начиная с вершины vet, продолжать цикл, пока не будут посещены все вершины
+    // Начать с вершины vet и повторять, пока не будут посещены все вершины
     while (!isEmpty(queue)) {
-        Vertex *vet = dequeue(queue); // Извлечь головную вершину из очереди
-        res[(*resSize)++] = vet;      // Отметить посещенную вершину
-        // Обойти все смежные вершины данной вершины
+        Vertex *vet = dequeue(queue); // Извлечь первую вершину из очереди
+        res[(*resSize)++] = vet;      // Записать посещённую вершину
+        // Перебрать всех соседей этой вершины
         AdjListNode *node = findNode(graph, vet);
         while (node != NULL) {
-            // Пропустить уже посещенную вершину
+            // Пропустить посещённые вершины
             if (!isVisited(visited, *visitedSize, node->vertex)) {
-                enqueue(queue, node->vertex);             // Помещать в очередь только непосещенные вершины
-                visited[(*visitedSize)++] = node->vertex; // Отметить эту вершину как посещенную
+                enqueue(queue, node->vertex);             // Добавить в очередь только непосещённые вершины
+                visited[(*visitedSize)++] = node->vertex; // Отметить вершину как посещённую
             }
             node = node->next;
         }
@@ -78,9 +78,9 @@ void graphBFS(GraphAdjList *graph, Vertex *startVet, Vertex **res, int *resSize,
     free(queue);
 }
 
-/* Driver Code */
+/* Пример использования */
 int main() {
-    // Инициализация неориентированного графа
+    // Инициализировать неориентированный граф
     int vals[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     int size = sizeof(vals) / sizeof(vals[0]);
     Vertex **v = valsToVets(vals, size);
@@ -88,25 +88,25 @@ int main() {
                           {v[3], v[6]}, {v[4], v[5]}, {v[4], v[7]}, {v[5], v[8]}, {v[6], v[7]}, {v[7], v[8]}};
     int egdeSize = sizeof(edges) / sizeof(edges[0]);
     GraphAdjList *graph = newGraphAdjList();
-    // Добавить все вершины и ребра
+    // Добавить все вершины и рёбра
     for (int i = 0; i < size; i++) {
         addVertex(graph, v[i]);
     }
     for (int i = 0; i < egdeSize; i++) {
         addEdge(graph, edges[i][0], edges[i][1]);
     }
-    printf("\nПосле инициализации граф имеет вид\n");
+    printf("\nГраф после инициализации:\n");
     printGraph(graph);
 
     // Обход в ширину
-    // Последовательность обхода вершин
+    // Порядок обхода вершин
     Vertex *res[MAX_SIZE];
     int resSize = 0;
-    // Используется для записи уже посещенных вершин
+    // Для учёта посещённых вершин
     Vertex *visited[MAX_SIZE];
     int visitedSize = 0;
     graphBFS(graph, v[0], res, &resSize, visited, &visitedSize);
-    printf("\nПоследовательность вершин при обходе в ширину (BFS)\n");
+    printf("\nПорядок обхода вершин в ширину (BFS):\n");
     printArray(vetsToVals(res, resSize), resSize);
 
     // Освободить память

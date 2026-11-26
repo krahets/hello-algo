@@ -37,7 +37,7 @@ public class preorder_traversal_iii_compact {
         // 전위 순회
         PreOrder(root);
 
-        Console.WriteLine("\n루트 노드에서 노드 7까지의 모든 경로 출력. 경로에는 값이 3인 노드가 포함되지 않는다");
+        Console.WriteLine("\n루트에서 값이 7인 노드까지 값이 3인 노드를 거치지 않는 모든 경로 출력");
         foreach (List<TreeNode> path in res) {
             PrintUtil.PrintList(path.Select(p => p.val).ToList());
         }

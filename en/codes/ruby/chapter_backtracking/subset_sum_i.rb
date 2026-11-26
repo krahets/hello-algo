@@ -6,32 +6,32 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 ### Backtracking: subset sum I ###
 def backtrack(state, target, choices, start, res)
-  # Record a solution when the remaining target reaches zero
+  # Record a solution when the subset sums to target
   if target.zero?
     res << state.dup
     return
   end
-  # Iterate over all choices
-  # Pruning 2: iterate from start to avoid generating duplicate subsets
+  # Try each choice
+  # Pruning rule 2: start at start to avoid duplicate subsets
   for i in start...choices.length
-    # Pruning 1: exit the loop if this choice would exceed the remaining target
-    # The array is sorted, so later elements are at least as large and would also exceed the remaining target
+    # Pruning rule 1: break if the subset sum would exceed target
+    # The array is sorted, so later elements are at least as large and would also take the sum over target
     break if target - choices[i] < 0
-    # Try: make a choice and update target and start
+    # Make a choice and update target and start
     state << choices[i]
-    # Proceed to the next choice
+    # Make the next choice
     backtrack(state, target - choices[i], choices, i, res)
-    # Backtrack: undo the choice and restore the previous state
+    # Backtrack: undo the choice to restore the previous state
     state.pop
   end
 end
 
 ### Solve subset sum I ###
 def subset_sum_i(nums, target)
-  state = [] # State (subset)
+  state = [] # State (current subset)
   nums.sort! # Sort nums
-  start = 0 # Starting index for iteration
-  res = [] # Result list (list of subsets)
+  start = 0 # Starting index
+  res = [] # Results (list of subsets)
   backtrack(state, target, nums, start, res)
   res
 end
@@ -43,5 +43,5 @@ if __FILE__ == $0
   res = subset_sum_i(nums, target)
 
   puts "Input array = #{nums}, target = #{target}"
-  puts "All subsets with sum #{target}: res = #{res}"
+  puts "Subsets that sum to #{target}: res = #{res}"
 end

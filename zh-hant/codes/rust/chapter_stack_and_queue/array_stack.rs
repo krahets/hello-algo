@@ -6,7 +6,7 @@
 
 use hello_algo_rust::include::print_util;
 
-/* 基於陣列實現的堆疊 */
+/* 以陣列實作堆疊 */
 struct ArrayStack<T> {
     stack: Vec<T>,
 }
@@ -19,7 +19,7 @@ impl<T> ArrayStack<T> {
         }
     }
 
-    /* 獲取堆疊的長度 */
+    /* 取得堆疊長度 */
     fn size(&self) -> usize {
         self.stack.len()
     }
@@ -29,17 +29,17 @@ impl<T> ArrayStack<T> {
         self.size() == 0
     }
 
-    /* 入堆疊 */
+    /* 推入堆疊 */
     fn push(&mut self, num: T) {
         self.stack.push(num);
     }
 
-    /* 出堆疊 */
+    /* 彈出堆疊頂端的元素 */
     fn pop(&mut self) -> Option<T> {
         self.stack.pop()
     }
 
-    /* 訪問堆疊頂元素 */
+    /* 取得堆疊頂端元素的參照 */
     fn peek(&self) -> Option<&T> {
         if self.is_empty() {
             panic!("堆疊為空")
@@ -47,18 +47,18 @@ impl<T> ArrayStack<T> {
         self.stack.last()
     }
 
-    /* 返回 &Vec */
+    /* 回傳 Vec 的參照（&Vec） */
     fn to_array(&self) -> &Vec<T> {
         &self.stack
     }
 }
 
-/* Driver Code */
+/* 範例程式 */
 fn main() {
     // 初始化堆疊
     let mut stack = ArrayStack::<i32>::new();
 
-    // 元素入堆疊
+    // 將元素推入堆疊
     stack.push(1);
     stack.push(3);
     stack.push(2);
@@ -67,20 +67,20 @@ fn main() {
     print!("堆疊 stack = ");
     print_util::print_array(stack.to_array());
 
-    //訪問堆疊頂元素
+    //讀取堆疊頂端的元素
     let peek = stack.peek().unwrap();
-    print!("\n堆疊頂元素 peek = {}", peek);
+    print!("\n堆疊頂端元素 peek = {}", peek);
 
-    // 元素出堆疊
+    // 從堆疊彈出元素
     let pop = stack.pop().unwrap();
-    print!("\n出堆疊元素 pop = {pop}，出堆疊後 stack = ");
+    print!("\n彈出的元素 pop = {pop}，彈出後 stack = ");
     print_util::print_array(stack.to_array());
 
-    // 獲取堆疊的長度
+    // 取得堆疊長度
     let size = stack.size();
-    print!("\n堆疊的長度 size = {size}");
+    print!("\n堆疊長度 size = {size}");
 
-    // 判斷是否為空
+    // 判斷堆疊是否為空
     let is_empty = stack.is_empty();
     print!("\n堆疊是否為空 = {is_empty}");
 }

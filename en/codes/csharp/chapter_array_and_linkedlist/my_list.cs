@@ -8,10 +8,10 @@ namespace hello_algo.chapter_array_and_linkedlist;
 
 /* List class */
 class MyList {
-    private int[] arr;           // Array (stores the list elements)
+    private int[] arr;           // Array that stores the list elements
     private int arrCapacity = 10;    // List capacity
     private int arrSize = 0;         // List length (current number of elements)
-    private readonly int extendRatio = 2;  // Factor by which the list capacity grows each time
+    private readonly int extendRatio = 2;  // Factor by which the list capacity grows
 
     /* Constructor */
     public MyList() {
@@ -30,7 +30,7 @@ class MyList {
 
     /* Access an element */
     public int Get(int index) {
-        // Throw an exception if the index is out of bounds; the same applies below
+        // Throw an exception if the index is out of bounds, here and below
         if (index < 0 || index >= arrSize)
             throw new IndexOutOfRangeException("Index out of bounds");
         return arr[index];
@@ -43,13 +43,13 @@ class MyList {
         arr[index] = num;
     }
 
-    /* Append at the end */
+    /* Append an element */
     public void Add(int num) {
-        // Grow the capacity when adding an element would exceed it
+        // Increase capacity when the elements would no longer fit
         if (arrSize == arrCapacity)
             ExtendCapacity();
         arr[arrSize] = num;
-        // Update the number of elements
+        // Update the element count
         arrSize++;
     }
 
@@ -57,15 +57,15 @@ class MyList {
     public void Insert(int index, int num) {
         if (index < 0 || index >= arrSize)
             throw new IndexOutOfRangeException("Index out of bounds");
-        // Grow the capacity when adding an element would exceed it
+        // Increase capacity when the elements would no longer fit
         if (arrSize == arrCapacity)
             ExtendCapacity();
-        // Shift all elements at and after index `index` one position to the right
+        // Shift the elements from index onward one position to the right
         for (int j = arrSize - 1; j >= index; j--) {
             arr[j + 1] = arr[j];
         }
         arr[index] = num;
-        // Update the number of elements
+        // Update the element count
         arrSize++;
     }
 
@@ -74,17 +74,17 @@ class MyList {
         if (index < 0 || index >= arrSize)
             throw new IndexOutOfRangeException("Index out of bounds");
         int num = arr[index];
-        // Shift all elements after index `index` one position to the left
+        // Shift the elements after index one position to the left
         for (int j = index; j < arrSize - 1; j++) {
             arr[j] = arr[j + 1];
         }
-        // Update the number of elements
+        // Update the element count
         arrSize--;
         // Return the removed element
         return num;
     }
 
-    /* Grow the list capacity */
+    /* Increase the list capacity */
     public void ExtendCapacity() {
         // Create an array of length arrCapacity * extendRatio and copy the original array into it
         Array.Resize(ref arr, arrCapacity * extendRatio);
@@ -94,7 +94,7 @@ class MyList {
 
     /* Convert the list to an array */
     public int[] ToArray() {
-        // Convert only the list elements within the occupied range
+        // Convert only the elements within the current list length
         int[] arr = new int[arrSize];
         for (int i = 0; i < arrSize; i++) {
             arr[i] = Get(i);
@@ -108,37 +108,37 @@ public class my_list {
     public void Test() {
         /* Initialize the list */
         MyList nums = new();
-        /* Append at the end */
+        /* Append an element */
         nums.Add(1);
         nums.Add(3);
         nums.Add(2);
         nums.Add(5);
         nums.Add(4);
         Console.WriteLine("List nums = " + string.Join(",", nums.ToArray()) +
-                           " , capacity = " + nums.Capacity() + " , size = " + nums.Size());
+                           " with capacity = " + nums.Capacity() + " and length = " + nums.Size());
 
         /* Insert an element in the middle */
         nums.Insert(3, 6);
-        Console.WriteLine("Insert the number 6 at index 3, giving nums = " + string.Join(",", nums.ToArray()));
+        Console.WriteLine("After inserting 6 at index 3, nums = " + string.Join(",", nums.ToArray()));
 
         /* Remove an element */
         nums.Remove(3);
-        Console.WriteLine("Remove the element at index 3, giving nums = " + string.Join(",", nums.ToArray()));
+        Console.WriteLine("After removing the element at index 3, nums = " + string.Join(",", nums.ToArray()));
 
         /* Access an element */
         int num = nums.Get(1);
-        Console.WriteLine("Access the element at index 1, giving num = " + num);
+        Console.WriteLine("Reading index 1 gives num = " + num);
 
         /* Update an element */
         nums.Set(1, 0);
-        Console.WriteLine("Update the element at index 1 to 0, giving nums = " + string.Join(",", nums.ToArray()));
+        Console.WriteLine("After setting the element at index 1 to 0, nums = " + string.Join(",", nums.ToArray()));
 
         /* Test capacity growth */
         for (int i = 0; i < 10; i++) {
-            // When i = 5, the list length would exceed its capacity, triggering capacity growth
+            // At i = 5, the list length would exceed its capacity, so the list grows
             nums.Add(i);
         }
-        Console.WriteLine("After expansion, list nums = " + string.Join(",", nums.ToArray()) +
-                           " , capacity = " + nums.Capacity() + " , size = " + nums.Size());
+        Console.WriteLine("After increasing capacity, nums = " + string.Join(",", nums.ToArray()) +
+                           " with capacity = " + nums.Capacity() + " and length = " + nums.Size());
     }
 }

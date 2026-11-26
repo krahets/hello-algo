@@ -6,18 +6,18 @@
 
 import 'dart:math';
 
-/* Maximum container capacity: greedy algorithm */
+/* Greedy maximum capacity algorithm */
 int maxCapacity(List<int> ht) {
-  // Initialize i and j at opposite ends of the array
+  // Start i and j at opposite ends of the array
   int i = 0, j = ht.length - 1;
   // The initial maximum capacity is 0
   int res = 0;
-  // Repeatedly make greedy choices until the two sides meet
+  // Make greedy choices until the two pointers meet
   while (i < j) {
     // Update the maximum capacity
     int cap = min(ht[i], ht[j]) * (j - i);
     res = max(res, cap);
-    // Move the shorter side inward
+    // Move the pointer at the shorter board inward
     if (ht[i] < ht[j]) {
       i++;
     } else {
@@ -33,5 +33,5 @@ void main() {
 
   // Greedy algorithm
   int res = maxCapacity(ht);
-  print("Maximum capacity: $res");
+  print("The maximum capacity is $res");
 }

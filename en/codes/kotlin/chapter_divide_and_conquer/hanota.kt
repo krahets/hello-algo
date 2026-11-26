@@ -14,22 +14,22 @@ fun move(src: MutableList<Int>, tar: MutableList<Int>) {
     tar.add(pan)
 }
 
-/* Solve the Tower of Hanoi problem f(i) */
+/* Solve Tower of Hanoi subproblem f(i) */
 fun dfs(i: Int, src: MutableList<Int>, buf: MutableList<Int>, tar: MutableList<Int>) {
-    // If only one disk in this subproblem remains on src, move it directly to tar
+    // If only one disk remains on src, move it directly to tar
     if (i == 1) {
         move(src, tar)
         return
     }
     // Subproblem f(i-1): move the top i-1 disks from src to buf using tar
     dfs(i - 1, src, tar, buf)
-    // Subproblem f(1): move the remaining disk of this subproblem from src to tar
+    // Subproblem f(1): move the remaining disk from src to tar
     move(src, tar)
     // Subproblem f(i-1): move the top i-1 disks from buf to tar using src
     dfs(i - 1, buf, src, tar)
 }
 
-/* Solve the Tower of Hanoi problem */
+/* Solve the Tower of Hanoi */
 fun solveHanota(A: MutableList<Int>, B: MutableList<Int>, C: MutableList<Int>) {
     val n = A.size
     // Move the top n disks from A to C using B
@@ -38,7 +38,7 @@ fun solveHanota(A: MutableList<Int>, B: MutableList<Int>, C: MutableList<Int>) {
 
 /* Driver code */
 fun main() {
-    // The end of each list represents the top of the peg
+    // The end of the list is the top of the peg
     val A = mutableListOf(5, 4, 3, 2, 1)
     val B = mutableListOf<Int>()
     val C = mutableListOf<Int>()

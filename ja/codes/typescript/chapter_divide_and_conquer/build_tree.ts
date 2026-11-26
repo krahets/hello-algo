@@ -15,23 +15,23 @@ function dfs(
     l: number,
     r: number
 ): TreeNode | null {
-    // 部分木の区間が空の場合、終了する
+    // 部分木の区間が空なら終了する
     if (r - l < 0) return null;
     // 根ノードを初期化する
     const root: TreeNode = new TreeNode(preorder[i]);
-    // m を調べ、左右の部分木に分割する
+    // m を調べて左右の部分木を分ける
     const m = inorderMap.get(preorder[i]);
-    // 部分問題：左部分木の構築
+    // 部分問題：左部分木を構築する
     root.left = dfs(preorder, inorderMap, i + 1, l, m - 1);
-    // 部分問題：右部分木の構築
+    // 部分問題：右部分木を構築する
     root.right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r);
     // 根ノードを返す
     return root;
 }
 
-/* 二分木を構築する */
+/* 二分木の構築 */
 function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
-    // inorder の要素からインデックスへの対応を格納するハッシュテーブルを初期化する
+    // ハッシュ表を初期化し、inorder の各要素に対応するインデックスを格納する
     let inorderMap = new Map<number, number>();
     for (let i = 0; i < inorder.length; i++) {
         inorderMap.set(inorder[i], i);
@@ -40,11 +40,11 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
     return root;
 }
 
-/* 実行用コード */
+/* 実行例 */
 const preorder = [3, 9, 2, 1, 7];
 const inorder = [9, 3, 1, 2, 7];
-console.log('行きがけ順走査 = ' + JSON.stringify(preorder));
-console.log('通りがけ順走査 = ' + JSON.stringify(inorder));
+console.log('行きがけ順 = ' + JSON.stringify(preorder));
+console.log('通りがけ順 = ' + JSON.stringify(inorder));
 const root = buildTree(preorder, inorder);
 console.log('構築した二分木：');
 printTree(root);

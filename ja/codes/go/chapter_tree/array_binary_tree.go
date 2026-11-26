@@ -4,7 +4,7 @@
 
 package chapter_tree
 
-/* 配列で表した二分木クラス */
+/* 二分木を配列で表すクラス */
 type arrayBinaryTree struct {
 	tree []any
 }
@@ -23,24 +23,24 @@ func (abt *arrayBinaryTree) size() int {
 
 /* インデックス i のノードの値を取得する */
 func (abt *arrayBinaryTree) val(i int) any {
-	// インデックスが範囲外の場合、空きを表す null を返す
+	// 範囲外なら空きを示す null を返す
 	if i < 0 || i >= abt.size() {
 		return nil
 	}
 	return abt.tree[i]
 }
 
-/* インデックス i のノードの左の子ノードのインデックスを取得する */
+/* インデックス i のノードの左の子のインデックスを取得する */
 func (abt *arrayBinaryTree) left(i int) int {
 	return 2*i + 1
 }
 
-/* インデックス i のノードの右の子ノードのインデックスを取得する */
+/* インデックス i のノードの右の子のインデックスを取得する */
 func (abt *arrayBinaryTree) right(i int) int {
 	return 2*i + 2
 }
 
-/* インデックス i のノードの親ノードのインデックスを取得する */
+/* インデックス i のノードの親のインデックスを取得する */
 func (abt *arrayBinaryTree) parent(i int) int {
 	return (i - 1) / 2
 }
@@ -48,7 +48,7 @@ func (abt *arrayBinaryTree) parent(i int) int {
 /* レベル順走査 */
 func (abt *arrayBinaryTree) levelOrder() []any {
 	var res []any
-	// 配列をそのまま走査する
+	// 配列を順に走査する
 	for i := 0; i < abt.size(); i++ {
 		if abt.val(i) != nil {
 			res = append(res, abt.val(i))
@@ -59,7 +59,7 @@ func (abt *arrayBinaryTree) levelOrder() []any {
 
 /* 深さ優先走査 */
 func (abt *arrayBinaryTree) dfs(i int, order string, res *[]any) {
-	// 空きの場合、戻る
+	// 空きなら戻る
 	if abt.val(i) == nil {
 		return
 	}

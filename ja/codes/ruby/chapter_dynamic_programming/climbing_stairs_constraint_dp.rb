@@ -4,7 +4,7 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### 制約付きの階段の上り方：動的計画法 ###
+### 制約付きの階段の登り方：動的計画法 ###
 def climbing_stairs_constraint_dp(n)
   return 1 if n == 1 || n == 2
 
@@ -22,10 +22,10 @@ def climbing_stairs_constraint_dp(n)
   dp[n][1] + dp[n][2]
 end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   n = 9
 
   res = climbing_stairs_constraint_dp(n)
-  puts "#{n} 段の階段を上る方法は全部で #{res} 通り"
+  puts "全 #{n} 段の階段の登り方は #{res} 通り"
 end

@@ -10,14 +10,14 @@
 
 using namespace std;
 
-/* 頂点クラス */
+/* 頂点を表すクラス */
 struct Vertex {
     int val;
     Vertex(int x) : val(x) {
     }
 };
 
-/* 値のリスト vals を入力し、頂点のリスト vets を返す */
+/* 値のリスト vals を受け取り、頂点のリスト vets を返す */
 vector<Vertex *> valsToVets(vector<int> vals) {
     vector<Vertex *> vets;
     for (int val : vals) {
@@ -26,7 +26,7 @@ vector<Vertex *> valsToVets(vector<int> vals) {
     return vets;
 }
 
-/* 頂点のリスト vets を入力し、値のリスト vals を返す */
+/* 頂点のリスト vets を受け取り、値のリスト vals を返す */
 vector<int> vetsToVals(vector<Vertex *> vets) {
     vector<int> vals;
     for (Vertex *vet : vets) {

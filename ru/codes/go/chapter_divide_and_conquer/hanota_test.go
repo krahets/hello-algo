@@ -13,7 +13,7 @@ import (
 )
 
 func TestHanota(t *testing.T) {
-	// Хвост списка соответствует вершине столбца
+	// Последний элемент списка соответствует вершине стержня
 	A := list.New()
 	for i := 5; i > 0; i-- {
 		A.PushBack(i)
@@ -30,7 +30,7 @@ func TestHanota(t *testing.T) {
 
 	solveHanota(A, B, C)
 
-	fmt.Println("После завершения перемещения дисков:")
+	fmt.Println("После переноса дисков:")
 	fmt.Print("A = ")
 	PrintList(A)
 	fmt.Print("B = ")

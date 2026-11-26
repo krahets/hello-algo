@@ -6,29 +6,29 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/list_node'
 
-### Driver Code ###
+### Демонстрационный код ###
 if __FILE__ == $0
   num = 3
   hash_num = num.hash
-  puts "Хеш-значение целого числа #{num}: #{hash_num}"
+  puts "Целое число #{num} имеет хеш #{hash_num}"
 
   bol = true
   hash_bol = bol.hash
-  puts "Хеш-значение булева значения #{bol}: #{hash_bol}"
+  puts "Логическое значение #{bol} имеет хеш #{hash_bol}"
 
   dec = 3.14159
   hash_dec = dec.hash
-  puts "Хеш-значение десятичного числа #{dec}: #{hash_dec}"
+  puts "Вещественное число #{dec} имеет хеш #{hash_dec}"
 
-  str = "Hello Algo"
+  str = "Hello 算法"
   hash_str = str.hash
-  puts "Хеш-значение строки #{str}: #{hash_str}"
+  puts "Строка #{str} имеет хеш #{hash_str}"
 
-  arr = [12836, 'Сяо Ха']
+  arr = [12836, '小哈']
   hash_arr = arr.hash
-  puts "Хеш-значение массива #{arr}: #{hash_arr}"
+  puts "Массив #{arr} имеет хеш #{hash_arr}"
 
   obj = ListNode.new(0)
   hash_obj = obj.hash
-  puts "Хеш-значение объекта узла #{obj}: #{hash_obj}"
+  puts "Объект узла #{obj} имеет хеш #{hash_obj}"
 end

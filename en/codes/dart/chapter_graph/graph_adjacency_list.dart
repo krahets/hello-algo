@@ -6,9 +6,9 @@
 
 import '../utils/vertex.dart';
 
-/* Undirected graph class implemented with an adjacency list */
+/* Undirected graph represented by an adjacency list */
 class GraphAdjList {
-  // Adjacency list: key is a vertex, value is the list of all its neighbors
+  // Adjacency list: each vertex maps to its neighbors
   Map<Vertex, List<Vertex>> adjList = {};
 
   /* Constructor */
@@ -20,7 +20,7 @@ class GraphAdjList {
     }
   }
 
-  /* Get the number of vertices */
+  /* Get the vertex count */
   int size() {
     return adjList.length;
   }
@@ -32,7 +32,7 @@ class GraphAdjList {
         vet1 == vet2) {
       throw ArgumentError;
     }
-    // Add edge vet1 - vet2
+    // Add the edge vet1 - vet2
     adjList[vet1]!.add(vet2);
     adjList[vet2]!.add(vet1);
   }
@@ -44,7 +44,7 @@ class GraphAdjList {
         vet1 == vet2) {
       throw ArgumentError;
     }
-    // Remove edge vet1 - vet2
+    // Remove the edge vet1 - vet2
     adjList[vet1]!.remove(vet2);
     adjList[vet2]!.remove(vet1);
   }
@@ -52,7 +52,7 @@ class GraphAdjList {
   /* Add a vertex */
   void addVertex(Vertex vet) {
     if (adjList.containsKey(vet)) return;
-    // Add a new list to the adjacency list
+    // Add a new linked list to the adjacency list
     adjList[vet] = [];
   }
 
@@ -61,9 +61,9 @@ class GraphAdjList {
     if (!adjList.containsKey(vet)) {
       throw ArgumentError;
     }
-    // Remove the list corresponding to vertex vet from the adjacency list
+    // Remove the linked list for vertex vet from the adjacency list
     adjList.remove(vet);
-    // Traverse the lists of the other vertices and remove all edges incident to vet
+    // Traverse the other vertices' lists and remove every edge incident to vet
     adjList.forEach((key, value) {
       value.remove(vet);
     });
@@ -84,7 +84,7 @@ class GraphAdjList {
 
 /* Driver code */
 void main() {
-  /* Initialize the undirected graph */
+  /* Initialize an undirected graph */
   List<Vertex> v = Vertex.valsToVets([1, 3, 2, 5, 4]);
   List<List<Vertex>> edges = [
     [v[0], v[1]],
@@ -99,13 +99,13 @@ void main() {
   graph.printAdjList();
 
   /* Add an edge */
-  // Vertices 1 and 2 are v[0] and v[2]
+  // Vertices 1 and 2 are v[0] and v[2], respectively
   graph.addEdge(v[0], v[2]);
   print("\nGraph after adding edge 1-2:");
   graph.printAdjList();
 
   /* Remove an edge */
-  // Vertices 1 and 3 are v[0] and v[1]
+  // Vertices 1 and 3 are v[0] and v[1], respectively
   graph.removeEdge(v[0], v[1]);
   print("\nGraph after removing edge 1-3:");
   graph.printAdjList();

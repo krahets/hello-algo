@@ -15,7 +15,7 @@ void main() {
   TreeNode n3 = TreeNode(3);
   TreeNode n4 = TreeNode(4);
   TreeNode n5 = TreeNode(5);
-  // Set up references (pointers) between the nodes
+  // Link the nodes with references (pointers)
   n1.left = n2;
   n1.right = n3;
   n2.left = n4;
@@ -23,15 +23,15 @@ void main() {
   print("\nInitialize the binary tree\n");
   printTree(n1);
 
-  /* Insert and remove nodes */
+  /* Insert and delete nodes */
   TreeNode p = TreeNode(0);
   // Insert node p between n1 and n2
   n1.left = p;
   p.left = n2;
   print("\nAfter inserting node P:\n");
   printTree(n1);
-  // Remove node P
+  // Delete node P
   n1.left = n2;
-  print("\nAfter removing node P:\n");
+  print("\nAfter deleting node P:\n");
   printTree(n1);
 }

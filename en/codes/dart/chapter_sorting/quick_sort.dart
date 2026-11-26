@@ -4,16 +4,16 @@
  * Author: what-is-me (whatisme@outlook.jp)
  */
 
-/* Quick sort class */
+/* Quicksort class */
 class QuickSort {
-  /* Swap the elements */
+  /* Swap elements */
   static void _swap(List<int> nums, int i, int j) {
     int tmp = nums[i];
     nums[i] = nums[j];
     nums[j] = tmp;
   }
 
-  /* Two-pointer partitioning */
+  /* Partition with two pointers */
   static int _partition(List<int> nums, int left, int right) {
     // Use nums[left] as the pivot
     int i = left, j = right;
@@ -22,15 +22,15 @@ class QuickSort {
       while (i < j && nums[i] <= nums[left]) i++; // Scan from left to right for the first element larger than the pivot
       _swap(nums, i, j); // Swap these two elements
     }
-    _swap(nums, i, left); // Swap the pivot into the boundary position between the two subarrays
+    _swap(nums, i, left); // Swap the pivot into place between the two subarrays
     return i; // Return the pivot index
   }
 
-  /* Quick sort */
+  /* Quicksort */
   static void quickSort(List<int> nums, int left, int right) {
-    // Stop recursing when the subarray has at most one element
+    // Stop recursing when the subarray has length 1
     if (left >= right) return;
-    // Two-pointer partitioning
+    // Partition with two pointers
     int pivot = _partition(nums, left, right);
     // Recurse on the left and right subarrays
     quickSort(nums, left, pivot - 1);
@@ -38,16 +38,16 @@ class QuickSort {
   }
 }
 
-/* Quick sort class (median pivot optimization) */
+/* Quicksort class with median-of-three pivot selection */
 class QuickSortMedian {
-  /* Swap the elements */
+  /* Swap elements */
   static void _swap(List<int> nums, int i, int j) {
     int tmp = nums[i];
     nums[i] = nums[j];
     nums[j] = tmp;
   }
 
-  /* Select the median of three candidate elements */
+  /* Select the median of three candidates */
   static int _medianThree(List<int> nums, int left, int mid, int right) {
     int l = nums[left], m = nums[mid], r = nums[right];
     if ((l <= m && m <= r) || (r <= m && m <= l))
@@ -57,11 +57,11 @@ class QuickSortMedian {
     return right;
   }
 
-  /* Two-pointer partitioning (median of three) */
+  /* Partition with two pointers (median of three) */
   static int _partition(List<int> nums, int left, int right) {
-    // Select the median of three candidate elements
+    // Select the median of three candidates
     int med = _medianThree(nums, left, (left + right) ~/ 2, right);
-    // Swap the median into the leftmost position of the current subarray
+    // Swap the median into the leftmost position
     _swap(nums, left, med);
     // Use nums[left] as the pivot
     int i = left, j = right;
@@ -70,15 +70,15 @@ class QuickSortMedian {
       while (i < j && nums[i] <= nums[left]) i++; // Scan from left to right for the first element larger than the pivot
       _swap(nums, i, j); // Swap these two elements
     }
-    _swap(nums, i, left); // Swap the pivot into the boundary position between the two subarrays
+    _swap(nums, i, left); // Swap the pivot into place between the two subarrays
     return i; // Return the pivot index
   }
 
-  /* Quick sort */
+  /* Quicksort */
   static void quickSort(List<int> nums, int left, int right) {
-    // Stop recursing when the subarray has at most one element
+    // Stop recursing when the subarray has length 1
     if (left >= right) return;
-    // Two-pointer partitioning
+    // Partition with two pointers
     int pivot = _partition(nums, left, right);
     // Recurse on the left and right subarrays
     quickSort(nums, left, pivot - 1);
@@ -86,16 +86,16 @@ class QuickSortMedian {
   }
 }
 
-/* Quick sort class (recursion depth optimization) */
+/* Quicksort class with reduced recursion depth */
 class QuickSortTailCall {
-  /* Swap the elements */
+  /* Swap elements */
   static void _swap(List<int> nums, int i, int j) {
     int tmp = nums[i];
     nums[i] = nums[j];
     nums[j] = tmp;
   }
 
-  /* Two-pointer partitioning */
+  /* Partition with two pointers */
   static int _partition(List<int> nums, int left, int right) {
     // Use nums[left] as the pivot
     int i = left, j = right;
@@ -104,17 +104,17 @@ class QuickSortTailCall {
       while (i < j && nums[i] <= nums[left]) i++; // Scan from left to right for the first element larger than the pivot
       _swap(nums, i, j); // Swap these two elements
     }
-    _swap(nums, i, left); // Swap the pivot into the boundary position between the two subarrays
+    _swap(nums, i, left); // Swap the pivot into place between the two subarrays
     return i; // Return the pivot index
   }
 
-  /* Quick sort (recursion depth optimization) */
+  /* Quicksort with reduced recursion depth */
   static void quickSort(List<int> nums, int left, int right) {
-    // Stop when the subarray has at most one element
+    // Stop when the subarray has length 1
     while (left < right) {
-      // Perform two-pointer partitioning
+      // Partition with two pointers
       int pivot = _partition(nums, left, right);
-      // Apply quick sort to the shorter of the two subarrays
+      // Apply quicksort to the shorter of the two subarrays
       if (pivot - left < right - pivot) {
         quickSort(nums, left, pivot - 1); // Recursively sort the left subarray
         left = pivot + 1; // The remaining unsorted range is [pivot + 1, right]
@@ -126,20 +126,20 @@ class QuickSortTailCall {
   }
 }
 
-/* Driver code */
+/* Driver Code */
 void main() {
-  /* Quick sort */
+  /* Quicksort */
   List<int> nums = [2, 4, 1, 0, 3, 5];
   QuickSort.quickSort(nums, 0, nums.length - 1);
-  print("After quick sort, nums = $nums");
+  print("After quicksort, nums = $nums");
 
-  /* Quick sort (median pivot optimization) */
+  /* Quicksort with median-of-three pivot selection */
   List<int> nums1 = [2, 4, 1, 0, 3, 5];
   QuickSortMedian.quickSort(nums1, 0, nums1.length - 1);
-  print("After quick sort (median pivot optimization), nums1 = $nums1");
+  print("After median-of-three quicksort, nums1 = $nums1");
 
-  /* Quick sort (recursion depth optimization) */
+  /* Quicksort with reduced recursion depth */
   List<int> nums2 = [2, 4, 1, 0, 3, 5];
   QuickSortTailCall.quickSort(nums2, 0, nums2.length - 1);
-  print("After quick sort (recursion depth optimization), nums2 = $nums2");
+  print("After quicksort with reduced recursion depth, nums2 = $nums2");
 }

@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* 階段の上り方：動的計画法 */
+/* 階段の登り方：動的計画法 */
 int climbingStairsDP(int n) {
     if (n == 1 || n == 2)
         return n;
@@ -24,7 +24,7 @@ int climbingStairsDP(int n) {
     return result;
 }
 
-/* 階段の上り方：空間を最適化した動的計画法 */
+/* 階段の登り方：使用メモリを削減した動的計画法 */
 int climbingStairsDPComp(int n) {
     if (n == 1 || n == 2)
         return n;
@@ -37,15 +37,15 @@ int climbingStairsDPComp(int n) {
     return b;
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     int n = 9;
 
     int res = climbingStairsDP(n);
-    printf("%d 段の階段を上る方法は全部で %d 通り\n", n, res);
+    printf("全 %d 段の階段の登り方は %d 通り\n", n, res);
 
     res = climbingStairsDPComp(n);
-    printf("%d 段の階段を上る方法は全部で %d 通り\n", n, res);
+    printf("全 %d 段の階段の登り方は %d 通り\n", n, res);
 
     return 0;
 }

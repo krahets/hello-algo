@@ -8,10 +8,10 @@ import 'dart:collection';
 
 void main() {
   /* 큐 초기화 */
-  // Dart에서는 일반적으로 덱 클래스 Queue를 큐로 사용한다
+  // Dart에서는 일반적으로 덱 클래스인 Queue를 큐로 사용한다
   final Queue<int> queue = Queue();
 
-  /* 원소 삽입 */
+  /* 큐에 원소 삽입 */
   queue.add(1);
   queue.add(3);
   queue.add(2);
@@ -19,19 +19,19 @@ void main() {
   queue.add(4);
   print("큐 queue = $queue");
 
-  /* 맨 앞 원소 접근 */
+  /* 맨 앞 원소 조회 */
   final int peek = queue.first;
   print("맨 앞 원소 peek = $peek");
 
-  /* 원소 꺼내기 */
+  /* 큐에서 원소 꺼내기 */
   final int pop = queue.removeFirst();
-  print("큐에서 꺼낸 원소 pop = $pop , 꺼낸 후 queue = $queue");
+  print("꺼낸 원소 pop = $pop, 꺼낸 후 queue = $queue");
 
-  /* 큐의 길이 반환 */
+  /* 큐의 길이 조회 */
   final int size = queue.length;
   print("큐의 길이 size = $size");
 
-  /* 큐가 비어 있는지 판단 */
+  /* 큐가 비어 있는지 확인 */
   final bool isEmpty = queue.isEmpty;
   print("큐가 비어 있는가 = $isEmpty");
 }

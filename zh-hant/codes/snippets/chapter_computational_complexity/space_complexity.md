@@ -4,7 +4,7 @@ class Node:
     """類別"""
     def __init__(self, x: int):
         self.val: int = x              # 節點值
-        self.next: Node | None = None  # 指向下一節點的引用
+        self.next: Node | None = None  # 指向下一個節點的參照
 
 def function() -> int:
     """函式"""
@@ -12,10 +12,10 @@ def function() -> int:
     return 0
 
 def algorithm(n) -> int:  # 輸入資料
-    A = 0                 # 暫存資料（常數，一般用大寫字母表示）
+    A = 0                 # 暫存資料（常數，通常用大寫字母表示）
     b = 0                 # 暫存資料（變數）
     node = Node(0)        # 暫存資料（物件）
-    c = function()        # 堆疊幀空間（呼叫函式）
+    c = function()        # 堆疊框架空間（呼叫函式）
     return A + b + c      # 輸出資料
 ```
 
@@ -37,7 +37,7 @@ int algorithm(int n) {        // 輸入資料
     const int a = 0;          // 暫存資料（常數）
     int b = 0;                // 暫存資料（變數）
     Node* node = new Node(0); // 暫存資料（物件）
-    int c = func();           // 堆疊幀空間（呼叫函式）
+    int c = func();           // 堆疊框架空間（呼叫函式）
     return a + b + c;         // 輸出資料
 }
 ```
@@ -60,7 +60,7 @@ int algorithm(int n) {        // 輸入資料
     final int a = 0;          // 暫存資料（常數）
     int b = 0;                // 暫存資料（變數）
     Node node = new Node(0);  // 暫存資料（物件）
-    int c = function();       // 堆疊幀空間（呼叫函式）
+    int c = function();       // 堆疊框架空間（呼叫函式）
     return a + b + c;         // 輸出資料
 }
 ```
@@ -82,7 +82,7 @@ int Algorithm(int n) {        // 輸入資料
     const int a = 0;          // 暫存資料（常數）
     int b = 0;                // 暫存資料（變數）
     Node node = new(0);       // 暫存資料（物件）
-    int c = Function();       // 堆疊幀空間（呼叫函式）
+    int c = Function();       // 堆疊框架空間（呼叫函式）
     return a + b + c;         // 輸出資料
 }
 ```
@@ -109,7 +109,7 @@ func algorithm(n int) int { // 輸入資料
     const a = 0             // 暫存資料（常數）
     b := 0                  // 暫存資料（變數）
     newNode(0)              // 暫存資料（物件）
-    c := function()         // 堆疊幀空間（呼叫函式）
+    c := function()         // 堆疊框架空間（呼叫函式）
     return a + b + c        // 輸出資料
 }
 ```
@@ -135,7 +135,7 @@ func algorithm(n: Int) -> Int { // 輸入資料
     let a = 0             // 暫存資料（常數）
     var b = 0             // 暫存資料（變數）
     let node = Node(x: 0) // 暫存資料（物件）
-    let c = function()    // 堆疊幀空間（呼叫函式）
+    let c = function()    // 堆疊框架空間（呼叫函式）
     return a + b + c      // 輸出資料
 }
 ```
@@ -147,13 +147,13 @@ class Node {
     next;
     constructor(val) {
         this.val = val === undefined ? 0 : val; // 節點值
-        this.next = null;                       // 指向下一節點的引用
+        this.next = null;                       // 指向下一個節點的參照
     }
 }
 
 /* 函式 */
 function constFunc() {
-    // 執行某些操作
+    // 執行操作
     return 0;
 }
 
@@ -161,7 +161,7 @@ function algorithm(n) {       // 輸入資料
     const a = 0;              // 暫存資料（常數）
     let b = 0;                // 暫存資料（變數）
     const node = new Node(0); // 暫存資料（物件）
-    const c = constFunc();    // 堆疊幀空間（呼叫函式）
+    const c = constFunc();    // 堆疊框架空間（呼叫函式）
     return a + b + c;         // 輸出資料
 }
 ```
@@ -173,13 +173,13 @@ class Node {
     next: Node | null;
     constructor(val?: number) {
         this.val = val === undefined ? 0 : val; // 節點值
-        this.next = null;                       // 指向下一節點的引用
+        this.next = null;                       // 指向下一個節點的參照
     }
 }
 
 /* 函式 */
 function constFunc(): number {
-    // 執行某些操作
+    // 執行操作
     return 0;
 }
 
@@ -187,7 +187,7 @@ function algorithm(n: number): number { // 輸入資料
     const a = 0;                        // 暫存資料（常數）
     let b = 0;                          // 暫存資料（變數）
     const node = new Node(0);           // 暫存資料（物件）
-    const c = constFunc();              // 堆疊幀空間（呼叫函式）
+    const c = constFunc();              // 堆疊框架空間（呼叫函式）
     return a + b + c;                   // 輸出資料
 }
 ```
@@ -210,7 +210,7 @@ int algorithm(int n) {  // 輸入資料
   const int a = 0;      // 暫存資料（常數）
   int b = 0;            // 暫存資料（變數）
   Node node = Node(0);  // 暫存資料（物件）
-  int c = function();   // 堆疊幀空間（呼叫函式）
+  int c = function();   // 堆疊框架空間（呼叫函式）
   return a + b + c;     // 輸出資料
 }
 ```
@@ -242,7 +242,7 @@ fn algorithm(n: i32) -> i32 {       // 輸入資料
     const a: i32 = 0;               // 暫存資料（常數）
     let mut b = 0;                  // 暫存資料（變數）
     let node = Node::new(0);        // 暫存資料（物件）
-    let c = function();             // 堆疊幀空間（呼叫函式）
+    let c = function();             // 堆疊框架空間（呼叫函式）
     return a + b + c;               // 輸出資料
 }
 ```
@@ -257,7 +257,7 @@ int func() {
 int algorithm(int n) { // 輸入資料
     const int a = 0;   // 暫存資料（常數）
     int b = 0;         // 暫存資料（變數）
-    int c = func();    // 堆疊幀空間（呼叫函式）
+    int c = func();    // 堆疊框架空間（呼叫函式）
     return a + b + c;  // 輸出資料
 }
 ```
@@ -278,7 +278,7 @@ fun algorithm(n: Int): Int { // 輸入資料
     val a = 0                // 暫存資料（常數）
     var b = 0                // 暫存資料（變數）
     val node = Node(0)       // 暫存資料（物件）
-    val c = function()       // 堆疊幀空間（呼叫函式）
+    val c = function()       // 堆疊框架空間（呼叫函式）
     return a + b + c         // 輸出資料
 }
 ```
@@ -287,7 +287,7 @@ fun algorithm(n: Int): Int { // 輸入資料
 ### 類別 ###
 class Node
     attr_accessor :val      # 節點值
-    attr_accessor :next     # 指向下一節點的引用
+    attr_accessor :next     # 指向下一個節點的參照
 
     def initialize(x)
         @val = x
@@ -305,7 +305,7 @@ def algorithm(n)        # 輸入資料
     a = 0               # 暫存資料（常數）
     b = 0               # 暫存資料（變數）
     node = Node.new(0)  # 暫存資料（物件）
-    c = function        # 堆疊幀空間（呼叫函式）
+    c = function        # 堆疊框架空間（呼叫函式）
     a + b + c           # 輸出資料
 end
 ```
@@ -441,7 +441,7 @@ end
 <!-- [snippet]{loop_vs_recursion_space} -->
 ```python title=""
 def function() -> int:
-    # 執行某些操作
+    # 執行操作
     return 0
 
 def loop(n: int):
@@ -458,7 +458,7 @@ def recur(n: int):
 
 ```cpp title=""
 int func() {
-    // 執行某些操作
+    // 執行操作
     return 0;
 }
 /* 迴圈的空間複雜度為 O(1) */
@@ -476,7 +476,7 @@ void recur(int n) {
 
 ```java title=""
 int function() {
-    // 執行某些操作
+    // 執行操作
     return 0;
 }
 /* 迴圈的空間複雜度為 O(1) */
@@ -494,7 +494,7 @@ void recur(int n) {
 
 ```csharp title=""
 int Function() {
-    // 執行某些操作
+    // 執行操作
     return 0;
 }
 /* 迴圈的空間複雜度為 O(1) */
@@ -512,7 +512,7 @@ int Recur(int n) {
 
 ```go title=""
 func function() int {
-    // 執行某些操作
+    // 執行操作
     return 0
 }
 
@@ -535,7 +535,7 @@ func recur(n int) {
 ```swift title=""
 @discardableResult
 func function() -> Int {
-    // 執行某些操作
+    // 執行操作
     return 0
 }
 
@@ -557,7 +557,7 @@ func recur(n: Int) {
 
 ```javascript title=""
 function constFunc() {
-    // 執行某些操作
+    // 執行操作
     return 0;
 }
 /* 迴圈的空間複雜度為 O(1) */
@@ -575,7 +575,7 @@ function recur(n) {
 
 ```typescript title=""
 function constFunc(): number {
-    // 執行某些操作
+    // 執行操作
     return 0;
 }
 /* 迴圈的空間複雜度為 O(1) */
@@ -593,7 +593,7 @@ function recur(n: number): void {
 
 ```dart title=""
 int function() {
-  // 執行某些操作
+  // 執行操作
   return 0;
 }
 /* 迴圈的空間複雜度為 O(1) */
@@ -611,7 +611,7 @@ void recur(int n) {
 
 ```rust title=""
 fn function() -> i32 {
-    // 執行某些操作
+    // 執行操作
     return 0;
 }
 /* 迴圈的空間複雜度為 O(1) */
@@ -631,7 +631,7 @@ fn recur(n: i32) {
 
 ```c title=""
 int func() {
-    // 執行某些操作
+    // 執行操作
     return 0;
 }
 /* 迴圈的空間複雜度為 O(1) */
@@ -649,7 +649,7 @@ void recur(int n) {
 
 ```kotlin title=""
 fun function(): Int {
-    // 執行某些操作
+    // 執行操作
     return 0
 }
 /* 迴圈的空間複雜度為 O(1) */
@@ -667,7 +667,7 @@ fun recur(n: Int) {
 
 ```ruby title=""
 def function
-    # 執行某些操作
+    # 執行操作
     0
 end
 

@@ -4,7 +4,7 @@
  * Author: Hello Algo Team
  */
 
-/* Итеративное суммирование */
+/* Суммирование в цикле */
 fn sum_iter(n: i32) -> i32 {
     let mut res = 0;
     for i in 1..=n {

@@ -12,11 +12,11 @@ hmap[13276] = "小法"
 hmap[10583] = "小鴨"
 
 # 查詢操作
-# 向雜湊表中輸入鍵 key ，得到值 value
+# 輸入鍵 key，從雜湊表取得對應的值 value
 name: str = hmap[15937]
 
 # 刪除操作
-# 在雜湊表中刪除鍵值對 (key, value)
+# 從雜湊表刪除鍵值對 (key, value)
 hmap.pop(10583)
 ```
 
@@ -33,11 +33,11 @@ map[13276] = "小法";
 map[10583] = "小鴨";
 
 /* 查詢操作 */
-// 向雜湊表中輸入鍵 key ，得到值 value
+// 輸入鍵 key，從雜湊表取得對應的值 value
 string name = map[15937];
 
 /* 刪除操作 */
-// 在雜湊表中刪除鍵值對 (key, value)
+// 從雜湊表刪除鍵值對 (key, value)
 map.erase(10583);
 ```
 
@@ -54,11 +54,11 @@ map.put(13276, "小法");
 map.put(10583, "小鴨");
 
 /* 查詢操作 */
-// 向雜湊表中輸入鍵 key ，得到值 value
+// 輸入鍵 key，從雜湊表取得對應的值 value
 String name = map.get(15937);
 
 /* 刪除操作 */
-// 在雜湊表中刪除鍵值對 (key, value)
+// 從雜湊表刪除鍵值對 (key, value)
 map.remove(10583);
 ```
 
@@ -75,11 +75,11 @@ Dictionary<int, string> map = new() {
 };
 
 /* 查詢操作 */
-// 向雜湊表中輸入鍵 key ，得到值 value
+// 輸入鍵 key，從雜湊表取得對應的值 value
 string name = map[15937];
 
 /* 刪除操作 */
-// 在雜湊表中刪除鍵值對 (key, value)
+// 從雜湊表刪除鍵值對 (key, value)
 map.Remove(10583);
 ```
 
@@ -96,11 +96,11 @@ hmap[13276] = "小法"
 hmap[10583] = "小鴨"
 
 /* 查詢操作 */
-// 向雜湊表中輸入鍵 key ，得到值 value
+// 輸入鍵 key，從雜湊表取得對應的值 value
 name := hmap[15937]
 
 /* 刪除操作 */
-// 在雜湊表中刪除鍵值對 (key, value)
+// 從雜湊表刪除鍵值對 (key, value)
 delete(hmap, 10583)
 ```
 
@@ -117,11 +117,11 @@ map[13276] = "小法"
 map[10583] = "小鴨"
 
 /* 查詢操作 */
-// 向雜湊表中輸入鍵 key ，得到值 value
+// 輸入鍵 key，從雜湊表取得對應的值 value
 let name = map[15937]!
 
 /* 刪除操作 */
-// 在雜湊表中刪除鍵值對 (key, value)
+// 從雜湊表刪除鍵值對 (key, value)
 map.removeValue(forKey: 10583)
 ```
 
@@ -138,11 +138,11 @@ map.set(13276, '小法');
 map.set(10583, '小鴨');
 
 /* 查詢操作 */
-// 向雜湊表中輸入鍵 key ，得到值 value
+// 輸入鍵 key，從雜湊表取得對應的值 value
 let name = map.get(15937);
 
 /* 刪除操作 */
-// 在雜湊表中刪除鍵值對 (key, value)
+// 從雜湊表刪除鍵值對 (key, value)
 map.delete(10583);
 ```
 
@@ -159,11 +159,11 @@ map.set(13276, '小法');
 map.set(10583, '小鴨');
 
 /* 查詢操作 */
-// 向雜湊表中輸入鍵 key ，得到值 value
+// 輸入鍵 key，從雜湊表取得對應的值 value
 let name = map.get(15937);
 
 /* 刪除操作 */
-// 在雜湊表中刪除鍵值對 (key, value)
+// 從雜湊表刪除鍵值對 (key, value)
 map.delete(10583);
 ```
 
@@ -180,11 +180,11 @@ map[13276] = "小法";
 map[10583] = "小鴨";
 
 /* 查詢操作 */
-// 向雜湊表中輸入鍵 key ，得到值 value
+// 輸入鍵 key，從雜湊表取得對應的值 value
 final String? name = map[15937];
 
 /* 刪除操作 */
-// 在雜湊表中刪除鍵值對 (key, value)
+// 從雜湊表刪除鍵值對 (key, value)
 map.remove(10583);
 ```
 
@@ -203,16 +203,16 @@ map.insert(13276, "小法");
 map.insert(10583, "小鴨");
 
 // 查詢操作
-// 向雜湊表中輸入鍵 key ，得到值 value
+// 輸入鍵 key，從雜湊表取得對應的值 value
 let name = map.get(&15937).copied().unwrap();
 
 // 刪除操作
-// 在雜湊表中刪除鍵值對 (key, value)
+// 從雜湊表刪除鍵值對 (key, value)
 _ = map.remove(&10583);
 ```
 
 ```c title="hash_map.c"
-// C 未提供內建雜湊表
+// C 沒有內建的雜湊表
 ```
 
 ```kotlin title="hash_map.kt"
@@ -228,11 +228,11 @@ map[13276] = "小法"
 map[10583] = "小鴨"
 
 /* 查詢操作 */
-// 向雜湊表中輸入鍵 key ，得到值 value
+// 輸入鍵 key，從雜湊表取得對應的值 value
 val name = map[15937]
 
 /* 刪除操作 */
-// 在雜湊表中刪除鍵值對 (key, value)
+// 從雜湊表刪除鍵值對 (key, value)
 map.remove(10583)
 ```
 
@@ -249,16 +249,16 @@ hmap[13276] = "小法"
 hmap[10583] = "小鴨"
 
 # 查詢操作
-# 向雜湊表中輸入鍵 key ，得到值 value
+# 輸入鍵 key，從雜湊表取得對應的值 value
 name = hmap[15937]
 
 # 刪除操作
-# 在雜湊表中刪除鍵值對 (key, value)
+# 從雜湊表刪除鍵值對 (key, value)
 hmap.delete(10583)
 ```
 
 <!-- [tutor]{hash_map_operations_tutor} -->
-https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E6%96%B0%E5%A2%9E%E9%8D%B5%E5%80%BC%E5%B0%8D%20%28key%2C%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%9B%89%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B4%A8%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%90%91%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E8%BC%B8%E5%85%A5%E9%8D%B5%20key%20%EF%BC%8C%E5%BE%97%E5%88%B0%E5%80%BC%20value%0A%20%20%20%20name%20%3D%20hmap%5B15937%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E5%88%AA%E9%99%A4%E9%8D%B5%E5%80%BC%E5%B0%8D%20%28key%2C%20value%29%0A%20%20%20%20hmap.pop%2810583%29&cumulative=false&curInstr=2&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E6%96%B0%E5%A2%9E%E9%8D%B5%E5%80%BC%E5%B0%8D%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%9B%89%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B4%A8%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E7%94%A8%E9%8D%B5%20key%20%E6%9F%A5%E8%A9%A2%E9%9B%9C%E6%B9%8A%E8%A1%A8%EF%BC%8C%E5%8F%96%E5%BE%97%E5%B0%8D%E6%87%89%E7%9A%84%E5%80%BC%20value%0A%20%20%20%20name%20%3D%20hmap%5B15937%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%BE%9E%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E5%88%AA%E9%99%A4%E9%8D%B5%E5%80%BC%E5%B0%8D%20%28key,%20value%29%0A%20%20%20%20hmap.pop%2810583%29&cumulative=false&curInstr=2&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 <!-- [snippet]{hash_map_traversal} -->
 ```python title="hash_map.py"
@@ -267,11 +267,11 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 for key, value in hmap.items():
     print(key, "->", value)
 
-# 單獨走訪鍵 key
+# 只走訪鍵 key
 for key in hmap.keys():
     print(key)
 
-# 單獨走訪值 value
+# 只走訪值 value
 for val in hmap.values():
     print(val)
 ```
@@ -296,12 +296,12 @@ for (Map.Entry<Integer, String> kv : map.entrySet()) {
     System.out.println(kv.getKey() + " -> " + kv.getValue());
 }
 
-// 單獨走訪鍵 key
+// 只走訪鍵 key
 for (int key : map.keySet()) {
     System.out.println(key);
 }
 
-// 單獨走訪值 value
+// 只走訪值 value
 for (String val : map.values()) {
     System.out.println(val);
 }
@@ -314,12 +314,12 @@ foreach (var kv in map) {
     Console.WriteLine(kv.Key + " -> " + kv.Value);
 }
 
-// 單獨走訪鍵 key
+// 只走訪鍵 key
 foreach (int key in map.Keys) {
     Console.WriteLine(key);
 }
 
-// 單獨走訪值 value
+// 只走訪值 value
 foreach (string val in map.Values) {
     Console.WriteLine(val);
 }
@@ -332,12 +332,12 @@ for key, value := range hmap {
     fmt.Println(key, "->", value)
 }
 
-// 單獨走訪鍵 key
+// 只走訪鍵 key
 for key := range hmap {
     fmt.Println(key)
 }
 
-// 單獨走訪值 value
+// 只走訪值 value
 for _, value := range hmap {
     fmt.Println(value)
 }
@@ -350,12 +350,12 @@ for (key, value) in map {
     print("\(key) -> \(value)")
 }
 
-// 單獨走訪鍵 key
+// 只走訪鍵 key
 for key in map.keys {
     print(key)
 }
 
-// 單獨走訪值 value
+// 只走訪值 value
 for value in map.values {
     print(value)
 }
@@ -368,12 +368,12 @@ for (const [k, v] of map.entries()) {
     console.info(k + ' -> ' + v);
 }
 
-// 單獨走訪鍵 key
+// 只走訪鍵 key
 for (const k of map.keys()) {
     console.info(k);
 }
 
-// 單獨走訪值 value
+// 只走訪值 value
 for (const v of map.values()) {
     console.info(v);
 }
@@ -386,12 +386,12 @@ for (const [k, v] of map.entries()) {
     console.info(k + ' -> ' + v);
 }
 
-// 單獨走訪鍵 key
+// 只走訪鍵 key
 for (const k of map.keys()) {
     console.info(k);
 }
 
-// 單獨走訪值 value
+// 只走訪值 value
 for (const v of map.values()) {
     console.info(v);
 }
@@ -402,10 +402,10 @@ for (const v of map.values()) {
 // 走訪鍵值對 key->value
 map.forEach((key, value) => print("$key -> $value"));
 
-// 單獨走訪鍵 key
+// 只走訪鍵 key
 map.keys.forEach((key) => print(key));
 
-// 單獨走訪值 value
+// 只走訪值 value
 map.values.forEach((value) => print(value));
 ```
 
@@ -416,19 +416,19 @@ for (key, value) in &map {
     println!("{key} -> {value}");
 }
 
-// 單獨走訪鍵 key
+// 只走訪鍵 key
 for key in map.keys() {
     println!("{key}");
 }
 
-// 單獨走訪值 value
+// 只走訪值 value
 for value in map.values() {
     println!("{value}");
 }
 ```
 
 ```c title="hash_map.c"
-// C 未提供內建雜湊表
+// C 沒有內建的雜湊表
 ```
 
 ```kotlin title="hash_map.kt"
@@ -438,12 +438,12 @@ for ((key, value) in map) {
     println("$key -> $value")
 }
 
-// 單獨走訪鍵 key
+// 只走訪鍵 key
 for (key in map.keys) {
     println(key)
 }
 
-// 單獨走訪值 value
+// 只走訪值 value
 for (_val in map.values) {
     println(_val)
 }
@@ -454,12 +454,12 @@ for (_val in map.values) {
 # 走訪鍵值對 key->value
 hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
 
-# 單獨走訪鍵 key
+# 只走訪鍵 key
 hmap.keys.each { |key| puts key }
 
-# 單獨走訪值 value
+# 只走訪值 value
 hmap.values.each { |val| puts val }
 ```
 
 <!-- [tutor]{hash_map_traversal_tutor} -->
-https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E6%96%B0%E5%A2%9E%E9%8D%B5%E5%80%BC%E5%B0%8D%20%28key%2C%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%9B%89%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B4%A8%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%B5%B0%E8%A8%AA%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20%23%20%E8%B5%B0%E8%A8%AA%E9%8D%B5%E5%80%BC%E5%B0%8D%20key-%3Evalue%0A%20%20%20%20for%20key%2C%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%2C%20%22-%3E%22%2C%20value%29%0A%20%20%20%20%23%20%E5%96%AE%E7%8D%A8%E8%B5%B0%E8%A8%AA%E9%8D%B5%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20%E5%96%AE%E7%8D%A8%E8%B5%B0%E8%A8%AA%E5%80%BC%20value%0A%20%20%20%20for%20val%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28val%29&cumulative=false&curInstr=8&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E6%96%B0%E5%A2%9E%E9%8D%B5%E5%80%BC%E5%B0%8D%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%9B%89%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B4%A8%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%B5%B0%E8%A8%AA%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20%23%20%E8%B5%B0%E8%A8%AA%E9%8D%B5%E5%80%BC%E5%B0%8D%20key-%3Evalue%0A%20%20%20%20for%20key,%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key,%20%22-%3E%22,%20value%29%0A%20%20%20%20%23%20%E5%8F%AA%E8%B5%B0%E8%A8%AA%E9%8D%B5%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20%E5%8F%AA%E8%B5%B0%E8%A8%AA%E5%80%BC%20value%0A%20%20%20%20for%20val%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28val%29&cumulative=false&curInstr=8&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false

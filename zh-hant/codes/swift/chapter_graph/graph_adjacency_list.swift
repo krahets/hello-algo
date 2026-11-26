@@ -6,15 +6,15 @@
 
 import utils
 
-/* 基於鄰接表實現的無向圖類別 */
+/* 以鄰接串列實作的無向圖類別 */
 public class GraphAdjList {
-    // 鄰接表，key：頂點，value：該頂點的所有鄰接頂點
+    // 鄰接串列，key 是頂點，value 是該頂點的所有相鄰頂點
     public private(set) var adjList: [Vertex: [Vertex]]
 
-    /* 建構子 */
+    /* 建構式 */
     public init(edges: [[Vertex]]) {
         adjList = [:]
-        // 新增所有頂點和邊
+        // 加入所有頂點和邊
         for edge in edges {
             addVertex(vet: edge[0])
             addVertex(vet: edge[1])
@@ -22,7 +22,7 @@ public class GraphAdjList {
         }
     }
 
-    /* 獲取頂點數量 */
+    /* 取得頂點數量 */
     public func size() -> Int {
         adjList.count
     }
@@ -52,7 +52,7 @@ public class GraphAdjList {
         if adjList[vet] != nil {
             return
         }
-        // 在鄰接表中新增一個新鏈結串列
+        // 在鄰接串列中新增一條鏈結串列
         adjList[vet] = []
     }
 
@@ -61,17 +61,17 @@ public class GraphAdjList {
         if adjList[vet] == nil {
             fatalError("參數錯誤")
         }
-        // 在鄰接表中刪除頂點 vet 對應的鏈結串列
+        // 從鄰接串列中刪除頂點 vet 對應的鏈結串列
         adjList.removeValue(forKey: vet)
-        // 走訪其他頂點的鏈結串列，刪除所有包含 vet 的邊
+        // 走訪其他頂點的鏈結串列，刪除所有以 vet 為端點的邊
         for key in adjList.keys {
             adjList[key]?.removeAll { $0 == vet }
         }
     }
 
-    /* 列印鄰接表 */
+    /* 印出鄰接串列 */
     public func print() {
-        Swift.print("鄰接表 =")
+        Swift.print("鄰接串列 =")
         for (vertex, list) in adjList {
             let list = list.map { $0.val }
             Swift.print("\(vertex.val): \(list),")
@@ -89,31 +89,31 @@ enum GraphAdjacencyList {
         let v = Vertex.valsToVets(vals: [1, 3, 2, 5, 4])
         let edges = [[v[0], v[1]], [v[0], v[3]], [v[1], v[2]], [v[2], v[3]], [v[2], v[4]], [v[3], v[4]]]
         let graph = GraphAdjList(edges: edges)
-        print("\n初始化後，圖為")
+        print("\n初始化後的圖為")
         graph.print()
 
         /* 新增邊 */
-        // 頂點 1, 2 即 v[0], v[2]
+        // 頂點 1、2 分別是 v[0]、v[2]
         graph.addEdge(vet1: v[0], vet2: v[2])
-        print("\n新增邊 1-2 後，圖為")
+        print("\n新增邊 1-2 後的圖為")
         graph.print()
 
         /* 刪除邊 */
-        // 頂點 1, 3 即 v[0], v[1]
+        // 頂點 1、3 分別是 v[0]、v[1]
         graph.removeEdge(vet1: v[0], vet2: v[1])
-        print("\n刪除邊 1-3 後，圖為")
+        print("\n刪除邊 1-3 後的圖為")
         graph.print()
 
         /* 新增頂點 */
         let v5 = Vertex(val: 6)
         graph.addVertex(vet: v5)
-        print("\n新增頂點 6 後，圖為")
+        print("\n新增頂點 6 後的圖為")
         graph.print()
 
         /* 刪除頂點 */
-        // 頂點 3 即 v[1]
+        // 頂點 3 是 v[1]
         graph.removeVertex(vet: v[1])
-        print("\n刪除頂點 3 後，圖為")
+        print("\n刪除頂點 3 後的圖為")
         graph.print()
     }
 }

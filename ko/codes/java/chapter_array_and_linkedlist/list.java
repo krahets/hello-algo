@@ -11,18 +11,18 @@ import java.util.*;
 public class list {
     public static void main(String[] args) {
         /* 리스트 초기화 */
-        // 리스트 원소는 int의 래퍼 클래스인 Integer만 사용할 수 있으므로 배열 타입은 int[]가 아닌 Integer[]여야 한다는 점에 유의한다
+        // 리스트 원소로는 int의 래퍼 클래스인 Integer만 쓸 수 있으므로 배열 타입은 int[]이 아닌 Integer[]이어야 한다.
         Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
         List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
         System.out.println("리스트 nums = " + nums);
 
         /* 원소 접근 */
         int num = nums.get(1);
-        System.out.println("인덱스 1의 원소에 접근하여 얻은 num = " + num);
+        System.out.println("인덱스 1의 원소를 읽은 결과 num = " + num);
 
         /* 원소 갱신 */
         nums.set(1, 0);
-        System.out.println("인덱스 1의 원소를 0으로 갱신한 후 nums = " + nums);
+        System.out.println("인덱스 1의 원소를 0으로 바꾼 후 nums = " + nums);
 
         /* 리스트 비우기 */
         nums.clear();
@@ -34,7 +34,7 @@ public class list {
         nums.add(2);
         nums.add(5);
         nums.add(4);
-        System.out.println("원소를 추가한 후 nums = " + nums);
+        System.out.println("원소 추가 후 nums = " + nums);
 
         /* 중간에 원소 삽입 */
         nums.add(3, 6);
@@ -44,23 +44,23 @@ public class list {
         nums.remove(3);
         System.out.println("인덱스 3의 원소를 삭제한 후 nums = " + nums);
 
-        /* 인덱스를 통해 리스트를 순회한다 */
+        /* 인덱스로 리스트 순회 */
         int count = 0;
         for (int i = 0; i < nums.size(); i++) {
             count += nums.get(i);
         }
-        /* 리스트의 원소를 직접 순회한다 */
+        /* 리스트 원소를 직접 순회 */
         for (int x : nums) {
             count += x;
         }
 
-        /* 두 리스트 연결 */
+        /* 두 리스트 이어 붙이기 */
         List<Integer> nums1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
         nums.addAll(nums1);
-        System.out.println("리스트 nums1을 nums 뒤에 연결한 후 nums = " + nums);
+        System.out.println("nums 뒤에 리스트 nums1을 이어 붙인 후 nums = " + nums);
 
         /* 리스트 정렬 */
         Collections.sort(nums);
-        System.out.println("리스트를 정렬한 후 nums = " + nums);
+        System.out.println("리스트 정렬 후 nums = " + nums);
     }
 }

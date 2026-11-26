@@ -20,7 +20,7 @@ func TestMinPathSum(t *testing.T) {
 
 	// 全探索
 	res := minPathSumDFS(grid, n-1, m-1)
-	fmt.Printf("左上から右下までの最小経路和は  %d\n", res)
+	fmt.Printf("左上から右下までの最小経路和は %d\n", res)
 
 	// メモ化探索
 	mem := make([][]int, n)
@@ -31,13 +31,13 @@ func TestMinPathSum(t *testing.T) {
 		}
 	}
 	res = minPathSumDFSMem(grid, mem, n-1, m-1)
-	fmt.Printf("左上から右下までの最小経路和は  %d\n", res)
+	fmt.Printf("左上から右下までの最小経路和は %d\n", res)
 
 	// 動的計画法
 	res = minPathSumDP(grid)
-	fmt.Printf("左上から右下までの最小経路和は  %d\n", res)
+	fmt.Printf("左上から右下までの最小経路和は %d\n", res)
 
-	// 空間を最適化した動的計画法
+	// 使用メモリを削減した動的計画法
 	res = minPathSumDPComp(grid)
-	fmt.Printf("左上から右下までの最小経路和は  %d\n", res)
+	fmt.Printf("左上から右下までの最小経路和は %d\n", res)
 }

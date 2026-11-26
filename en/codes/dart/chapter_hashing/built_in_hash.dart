@@ -10,11 +10,11 @@ import '../chapter_stack_and_queue/linkedlist_deque.dart';
 void main() {
   int _num = 3;
   int hashNum = _num.hashCode;
-  print("Hash value of integer $_num: $hashNum");
+  print("Integer $_num has hash value $hashNum");
 
   bool bol = true;
   int hashBol = bol.hashCode;
-  print("Hash value of boolean $bol: $hashBol");
+  print("Boolean $bol has hash value $hashBol");
 
   double dec = 3.14159;
   int hashDec = dec.hashCode;
@@ -22,7 +22,7 @@ void main() {
 
   String str = "Hello 算法";
   int hashStr = str.hashCode;
-  print("Hash value of string $str: $hashStr");
+  print("String $str has hash value $hashStr");
 
   List arr = [12836, "小哈"];
   int hashArr = arr.hashCode;

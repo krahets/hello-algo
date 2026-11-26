@@ -4,18 +4,18 @@
 
 package chapter_greedy
 
-/* 동전 교환: 탐욕 */
+/* 탐욕 알고리즘으로 거스름돈 만들기 */
 func coinChangeGreedy(coins []int, amt int) int {
-	// coins 리스트가 정렬되어 있다고 가정한다
+	// coins 리스트는 오름차순으로 정렬되어 있다고 가정한다
 	i := len(coins) - 1
 	count := 0
-	// 남은 금액이 없을 때까지 탐욕적 선택을 반복한다
+	// 남은 금액이 없어질 때까지 탐욕 선택을 반복한다
 	for amt > 0 {
-		// 남은 금액보다 작으면서 가장 가까운 금액의 동전을 찾는다
+		// 남은 금액을 넘지 않는 가장 큰 액면가의 동전을 찾는다
 		for i > 0 && coins[i] > amt {
 			i--
 		}
-		// coins[i]를 선택한다
+		// coins[i] 선택
 		amt -= coins[i]
 		count++
 	}

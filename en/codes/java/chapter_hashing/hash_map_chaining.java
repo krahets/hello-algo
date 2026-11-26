@@ -9,12 +9,12 @@ package chapter_hashing;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Hash table with separate chaining */
+/* Hash table with chaining */
 class HashMapChaining {
     int size; // Number of key-value pairs
     int capacity; // Hash table capacity
-    double loadThres; // Load factor threshold that triggers capacity growth
-    int extendRatio; // Capacity growth factor
+    double loadThres; // Load factor threshold for resizing
+    int extendRatio; // Growth factor
     List<List<Pair>> buckets; // Bucket array
 
     /* Constructor */
@@ -39,46 +39,46 @@ class HashMapChaining {
         return (double) size / capacity;
     }
 
-    /* Lookup operation */
+    /* Look up a value */
     String get(int key) {
         int index = hashFunc(key);
         List<Pair> bucket = buckets.get(index);
-        // Traverse the bucket; if key is found, return its corresponding val
+        // Scan the bucket and return the corresponding val if key is found
         for (Pair pair : bucket) {
             if (pair.key == key) {
                 return pair.val;
             }
         }
-        // Return null if key is not found
+        // Return null if key is absent
         return null;
     }
 
-    /* Insert operation */
+    /* Insert a key-value pair */
     void put(int key, String val) {
-        // Grow the capacity when the load factor exceeds the threshold
+        // Expand the table when the load factor exceeds the threshold
         if (loadFactor() > loadThres) {
             extend();
         }
         int index = hashFunc(key);
         List<Pair> bucket = buckets.get(index);
-        // Traverse the bucket; if the specified key is found, update its val and return
+        // Scan the bucket. If the specified key is found, update its val and return
         for (Pair pair : bucket) {
             if (pair.key == key) {
                 pair.val = val;
                 return;
             }
         }
-        // If key is absent, append the key-value pair at the end
+        // If key is absent, append the pair to the end of the list
         Pair pair = new Pair(key, val);
         bucket.add(pair);
         size++;
     }
 
-    /* Remove operation */
+    /* Remove a key-value pair */
     void remove(int key) {
         int index = hashFunc(key);
         List<Pair> bucket = buckets.get(index);
-        // Traverse the bucket and remove the key-value pair
+        // Scan the bucket and remove the pair
         for (Pair pair : bucket) {
             if (pair.key == key) {
                 bucket.remove(pair);
@@ -88,18 +88,18 @@ class HashMapChaining {
         }
     }
 
-    /* Grow the hash table capacity */
+    /* Expand the hash table */
     void extend() {
-        // Keep a reference to the original hash table
+        // Save the original hash table
         List<List<Pair>> bucketsTmp = buckets;
-        // Initialize a new hash table with the expanded capacity
+        // Initialize the larger hash table
         capacity *= extendRatio;
         buckets = new ArrayList<>(capacity);
         for (int i = 0; i < capacity; i++) {
             buckets.add(new ArrayList<>());
         }
         size = 0;
-        // Move the key-value pairs from the original hash table to the new one
+        // Move the key-value pairs from the old table into the new one
         for (List<Pair> bucket : bucketsTmp) {
             for (Pair pair : bucket) {
                 put(pair.key, pair.val);
@@ -124,23 +124,23 @@ public class hash_map_chaining {
         /* Initialize the hash table */
         HashMapChaining map = new HashMapChaining();
 
-        /* Insert operation */
-        // Insert the key-value pair (key, value) into the hash table
-        map.put(12836, "小哈");
-        map.put(15937, "小啰");
-        map.put(16750, "小算");
-        map.put(13276, "小法");
-        map.put(10583, "小鸭");
+        /* Insert a key-value pair */
+        // Insert the pair (key, value) into the hash table
+        map.put(12836, "Xiao Ha");
+        map.put(15937, "Xiao Luo");
+        map.put(16750, "Xiao Suan");
+        map.put(13276, "Xiao Fa");
+        map.put(10583, "Xiao Ya");
         System.out.println("\nHash table after insertion:\nKey -> Value");
         map.print();
 
-        /* Lookup operation */
-        // Look up key in the hash table to obtain value
+        /* Look up a value */
+        // Look up key in the hash table to get value
         String name = map.get(13276);
-        System.out.println("\nLook up student ID 13276 to obtain the name " + name);
+        System.out.println("\nName for student ID 13276: " + name);
 
-        /* Remove operation */
-        // Remove the key-value pair (key, value) from the hash table
+        /* Remove a key-value pair */
+        // Remove the pair (key, value) from the hash table
         map.remove(12836);
         System.out.println("\nHash table after removing 12836:\nKey -> Value");
         map.print();

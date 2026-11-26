@@ -6,15 +6,15 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/list_node'
 
-### Queue implemented with a linked list ###
+### Queue backed by a linked list ###
 class LinkedListQueue
   ### Get the queue size ###
   attr_reader :size
 
   ### Constructor ###
   def initialize
-    @front = nil  # Head node front
-    @rear = nil   # Tail node rear
+    @front = nil  # Head node (@front)
+    @rear = nil   # Tail node (@rear)
     @size = 0
   end
 
@@ -23,16 +23,16 @@ class LinkedListQueue
     @front.nil?
   end
 
-  ### Enqueue ###
+  ### Enqueue an element ###
   def push(num)
-    # Add num after the tail node
+    # Add a node containing num after the tail
     node = ListNode.new(num)
 
-    # If the queue is empty, point both the head and tail to this node
+    # If the queue is empty, point both the head and tail at the new node
     if @front.nil?
       @front = node
       @rear = node
-    # If the queue is not empty, append this node after the tail
+    # If the queue has elements, link the new node after the tail
     else
       @rear.next = node
       @rear = node
@@ -41,7 +41,7 @@ class LinkedListQueue
     @size += 1
   end
 
-  ### Dequeue ###
+  ### Remove and return the front element ###
   def pop
     num = peek
     # Remove the head node
@@ -50,14 +50,14 @@ class LinkedListQueue
     num
   end
 
-  ### Access the front element ###
+  ### Peek at the front element ###
   def peek
     raise IndexError, 'Queue is empty' if is_empty?
 
     @front.val
   end
 
-  ### Convert the linked list to an Array and return it ###
+  ### Return the linked list elements as an array ###
   def to_array
     queue = []
     temp = @front
@@ -80,16 +80,16 @@ if __FILE__ == $0
   queue.push(2)
   queue.push(5)
   queue.push(4)
-  puts "Queue queue = #{queue.to_array}"
+  puts "queue = #{queue.to_array}"
 
-  # Access the front element
+  # Peek at the front element
   peek = queue.peek
-  puts "Front element front = #{peek}"
+  puts "Front element (front) = #{peek}"
 
   # Dequeue an element
   pop_front = queue.pop
-  puts "Dequeued element pop = #{pop_front}"
-  puts "After dequeueing, queue = #{queue.to_array}"
+  puts "Dequeued element (pop) = #{pop_front}"
+  puts "After removal, queue = #{queue.to_array}"
 
   # Get the queue size
   size = queue.size
@@ -97,5 +97,5 @@ if __FILE__ == $0
 
   # Check whether the queue is empty
   is_empty = queue.is_empty?
-  puts "Is the queue empty? #{is_empty}"
+  puts "Queue is empty = #{is_empty}"
 end

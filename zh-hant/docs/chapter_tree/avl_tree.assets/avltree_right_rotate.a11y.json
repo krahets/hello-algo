@@ -1,0 +1,72 @@
+{
+  "animations": {
+    "avl-right-rotation": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "frame_id": "source-130",
+          "id": "step-1"
+        },
+        {
+          "frame_id": "source-131",
+          "id": "step-2"
+        },
+        {
+          "frame_id": "source-132",
+          "id": "step-3"
+        },
+        {
+          "frame_id": "source-133",
+          "id": "step-4"
+        }
+      ]
+    }
+  },
+  "context": [
+    "起初，根節點為 4，左右子節點為 3、5；3 只有左子節點 1，1 只有左子節點 0。0 和 5 為葉節點。",
+    "平衡因子定義為左子樹高度減去右子樹高度。高度以邊數計算，葉節點高度為 0，空子樹高度為 −1。由下往上檢查時，第一個失衡節點是 3，記作 node，其左子節點 1 記作 child。"
+  ],
+  "description": [
+    "本例中 child（1）的右子樹為空。程式先以 grand_child = child.right 保存原本的參照，再設定 child.right = node，最後設定 node.left = grand_child。必須在覆寫前保存原本的參照。"
+  ],
+  "frames": [
+    {
+      "announcement": "由下往上檢查平衡因子，找出第一個失衡節點 3。",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step1.png",
+      "explanation": "起初，根節點 4 左接 3、右接 5；3 只左接 1，1 只左接 0，0 和 5 為葉節點。節點下方標出各自的平衡因子：0 和 5 為 0，1 為 1，3 和 4 為 2。沿左側分支由下往上看，第一個失衡節點是 3，因此先調整以 3 為根的子樹。",
+      "id": "source-130",
+      "key_state": "起初，根節點 4 左接 3、右接 5，3 左接 1，1 左接 0。3 和 4 的平衡因子都是 2，由下往上先處理 3。",
+      "title": "找出第一個失衡節點 3"
+    },
+    {
+      "announcement": "標記失衡子樹的根 node = 3 及其左子節點 child = 1。",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step2.png",
+      "explanation": "標記 node=3、child=1，此時尚未旋轉。根節點 4 仍左接 3、右接 5，3 只左接 1，1 只左接 0。child.right 為空，因此保存的 grand_child 為空，旋轉後 node.left 也應為空。",
+      "id": "source-131",
+      "key_state": "旋轉前，根節點 4 左接 3、右接 5，3 左接 1，1 左接 0。node=3、child=1，child.right 為空。",
+      "title": "標記要旋轉的兩個節點"
+    },
+    {
+      "announcement": "節點 3 成為 1 的右子節點，局部子樹已形成，尚未接回父節點 4。",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step3.png",
+      "explanation": "先保存 child 原本的右子節點參照（為空），再設定 child.right = node 和 node.left = grand_child。此時局部子樹的根 1 左接 0、右接 3，0 和 3 為葉節點。圖中的父節點 4 此時只右接 5，尚未連到新根 1。3 原位置的虛線圓框及從該處指向 1 的虛線邊僅供對照旋轉前的位置，不代表目前的連接關係。整個旋轉尚未完成。",
+      "id": "source-132",
+      "key_state": "局部子樹的根 1 左接 0、右接 3；父節點 4 只右接 5，還未連到新根 1。",
+      "title": "形成以 1 為根的局部子樹"
+    },
+    {
+      "announcement": "讓父節點 4 的左指標指向新根 1，完成右旋，整棵樹恢復平衡。",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step4.png",
+      "explanation": "讓 4.left 指向子樹的新根 1，完成連接。根節點 4 左接 1、右接 5；1 左接 0、右接 3，0、3、5 為葉節點。局部子樹高度下降 1，根節點 4 的平衡因子從 2 變為 1。全樹的中序序列仍為 [0, 1, 3, 4, 5]。",
+      "id": "source-133",
+      "key_state": "接回後，根節點 4 左接 1、右接 5，1 左接 0、右接 3。中序序列為 [0, 1, 3, 4, 5]，整棵樹平衡。",
+      "title": "將子樹的新根接回父節點"
+    }
+  ],
+  "input_tables": [],
+  "result": "局部子樹的高度下降 1，整棵樹恢復 AVL 平衡，二元搜尋樹的大小順序維持不變。",
+  "schema_version": 2,
+  "summary": "對第一個失衡節點右旋，先重新連接局部子樹的父子指標，再將子樹的新根接回上一層的父節點。",
+  "tables": [],
+  "title": "AVL 樹右旋"
+}

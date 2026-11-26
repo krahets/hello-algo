@@ -9,7 +9,7 @@ use hello_algo_rust::include::ListNode;
 use std::collections::hash_map::DefaultHasher;
 use std::hash::{Hash, Hasher};
 
-/* Driver Code */
+/* 主程式 */
 fn main() {
     let num = 3;
     let mut num_hasher = DefaultHasher::new();
@@ -21,7 +21,7 @@ fn main() {
     let mut bol_hasher = DefaultHasher::new();
     bol.hash(&mut bol_hasher);
     let hash_bol = bol_hasher.finish();
-    println!("布林量 {} 的雜湊值為 {}", bol, hash_bol);
+    println!("布林值 {} 的雜湊值為 {}", bol, hash_bol);
 
     let dec: f32 = 3.14159;
     let mut dec_hasher = DefaultHasher::new();
@@ -29,7 +29,7 @@ fn main() {
     let hash_dec = dec_hasher.finish();
     println!("小數 {} 的雜湊值為 {}", dec, hash_dec);
 
-    let str = "Hello 演算法";
+    let str = "Hello 算法";
     let mut str_hasher = DefaultHasher::new();
     str.hash(&mut str_hasher);
     let hash_str = str_hasher.finish();
@@ -45,5 +45,5 @@ fn main() {
     let mut hasher = DefaultHasher::new();
     node.borrow().val.hash(&mut hasher);
     let hash = hasher.finish();
-    println!("節點 {:?} 中節點值的雜湊值為 {}", node, hash);
+    println!("節點 {:?} 中所存值的雜湊值為 {}", node, hash);
 }

@@ -6,12 +6,12 @@
 
 #include "../utils/common.h"
 
-// Предположим, что существует не более 1000 перестановок
+// Предполагаем, что число перестановок не превышает 1000
 #define MAX_SIZE 1000
 
-/* Алгоритм бэктрекинга: все перестановки I */
+/* Поиск с возвратом: перестановки I */
 void backtrack(int *state, int stateSize, int *choices, int choicesSize, bool *selected, int **res, int *resSize) {
-    // Когда длина состояния равна числу элементов, записать решение
+    // Когда длина текущей перестановки равна числу элементов, сохраняем решение
     if (stateSize == choicesSize) {
         res[*resSize] = (int *)malloc(choicesSize * sizeof(int));
         for (int i = 0; i < choicesSize; i++) {
@@ -20,23 +20,23 @@ void backtrack(int *state, int stateSize, int *choices, int choicesSize, bool *s
         (*resSize)++;
         return;
     }
-    // Перебор всех вариантов выбора
+    // Перебираем все варианты
     for (int i = 0; i < choicesSize; i++) {
         int choice = choices[i];
-        // Отсечение: нельзя выбирать один и тот же элемент повторно
+        // Отсечение: нельзя выбирать один элемент дважды
         if (!selected[i]) {
-            // Попытка: сделать выбор и обновить состояние
+            // Пробуем вариант и обновляем состояние
             selected[i] = true;
             state[stateSize] = choice;
-            // Перейти к следующему выбору
+            // Переходим к следующему выбору
             backtrack(state, stateSize + 1, choices, choicesSize, selected, res, resSize);
-            // Откат: отменить выбор и восстановить предыдущее состояние
+            // Возврат: отменяем выбор и восстанавливаем прежнее состояние
             selected[i] = false;
         }
     }
 }
 
-/* Все перестановки I */
+/* Перестановки I */
 int **permutationsI(int *nums, int numsSize, int *returnSize) {
     int *state = (int *)malloc(numsSize * sizeof(int));
     bool *selected = (bool *)malloc(numsSize * sizeof(bool));
@@ -54,7 +54,7 @@ int **permutationsI(int *nums, int numsSize, int *returnSize) {
     return res;
 }
 
-/* Driver Code */
+/* Основная программа */
 int main() {
     int nums[] = {1, 2, 3};
     int numsSize = sizeof(nums) / sizeof(nums[0]);
@@ -62,14 +62,14 @@ int main() {
 
     int **res = permutationsI(nums, numsSize, &returnSize);
 
-    printf("Входной массив nums = ");
+    printf("Исходный массив nums = ");
     printArray(nums, numsSize);
     printf("\nВсе перестановки res = \n");
     for (int i = 0; i < returnSize; i++) {
         printArray(res[i], numsSize);
     }
 
-    // Освободить память
+    // Освобождаем память
     for (int i = 0; i < returnSize; i++) {
         free(res[i]);
     }

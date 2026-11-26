@@ -9,36 +9,36 @@ namespace hello_algo.chapter_stack_and_queue;
 public class deque {
     [Test]
     public void Test() {
-        /* 初始化雙向佇列 */
-        // 在 C# 中，將鏈結串列 LinkedList 看作雙向佇列來使用
+        /* 初始化雙端佇列 */
+        // 在 C# 中，可用鏈結串列 LinkedList 當作雙端佇列
         LinkedList<int> deque = new();
 
-        /* 元素入列 */
-        deque.AddLast(2);   // 新增至佇列尾
+        /* 將元素加入雙端佇列 */
+        deque.AddLast(2);   // 加到隊尾
         deque.AddLast(5);
         deque.AddLast(4);
-        deque.AddFirst(3);  // 新增至佇列首
+        deque.AddFirst(3);  // 加到隊首
         deque.AddFirst(1);
-        Console.WriteLine("雙向佇列 deque = " + string.Join(",", deque));
+        Console.WriteLine("雙端佇列 deque = " + string.Join(",", deque));
 
-        /* 訪問元素 */
-        int? peekFirst = deque.First?.Value;  // 佇列首元素
-        Console.WriteLine("佇列首元素 peekFirst = " + peekFirst);
-        int? peekLast = deque.Last?.Value;    // 佇列尾元素
-        Console.WriteLine("佇列尾元素 peekLast = " + peekLast);
+        /* 讀取隊首與隊尾元素 */
+        int? peekFirst = deque.First?.Value;  // 隊首元素
+        Console.WriteLine("隊首元素 peekFirst = " + peekFirst);
+        int? peekLast = deque.Last?.Value;    // 隊尾元素
+        Console.WriteLine("隊尾元素 peekLast = " + peekLast);
 
-        /* 元素出列 */
-        deque.RemoveFirst();  // 佇列首元素出列
-        Console.WriteLine("佇列首元素出列後 deque = " + string.Join(",", deque));
-        deque.RemoveLast();   // 佇列尾元素出列
-        Console.WriteLine("佇列尾元素出列後 deque = " + string.Join(",", deque));
+        /* 從雙端佇列取出元素 */
+        deque.RemoveFirst();  // 移除隊首元素
+        Console.WriteLine("從隊首移除元素後 deque = " + string.Join(",", deque));
+        deque.RemoveLast();   // 移除隊尾元素
+        Console.WriteLine("從隊尾移除元素後 deque = " + string.Join(",", deque));
 
-        /* 獲取雙向佇列的長度 */
+        /* 取得雙端佇列長度 */
         int size = deque.Count;
-        Console.WriteLine("雙向佇列長度 size = " + size);
+        Console.WriteLine("雙端佇列長度 size = " + size);
 
-        /* 判斷雙向佇列是否為空 */
+        /* 判斷雙端佇列是否為空 */
         bool isEmpty = deque.Count == 0;
-        Console.WriteLine("雙向佇列是否為空 = " + isEmpty);
+        Console.WriteLine("雙端佇列是否為空 = " + isEmpty);
     }
 }

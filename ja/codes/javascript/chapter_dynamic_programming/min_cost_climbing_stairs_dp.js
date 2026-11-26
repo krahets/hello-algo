@@ -4,7 +4,7 @@
  * Author: Gaofer Chou (gaofer-chou@qq.com)
  */
 
-/* 階段を上る最小コスト：動的計画法 */
+/* 階段を登る最小コスト：動的計画法 */
 function minCostClimbingStairsDP(cost) {
     const n = cost.length - 1;
     if (n === 1 || n === 2) {
@@ -22,7 +22,7 @@ function minCostClimbingStairsDP(cost) {
     return dp[n];
 }
 
-/* 階段を上る最小コスト：空間を最適化した動的計画法 */
+/* 階段を登る最小コスト：使用メモリを削減した動的計画法 */
 function minCostClimbingStairsDPComp(cost) {
     const n = cost.length - 1;
     if (n === 1 || n === 2) {
@@ -38,12 +38,12 @@ function minCostClimbingStairsDPComp(cost) {
     return b;
 }
 
-/* 実行用コード */
+/* 実行例 */
 const cost = [0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1];
-console.log('入力した階段のコストのリスト：', cost);
+console.log('各段のコストの入力リスト：', cost);
 
 let res = minCostClimbingStairsDP(cost);
-console.log(`階段を上り終える最小コストは：${res}`);
+console.log(`階段を登りきる最小コスト：${res}`);
 
 res = minCostClimbingStairsDPComp(cost);
-console.log(`階段を上り終える最小コストは：${res}`);
+console.log(`階段を登りきる最小コスト：${res}`);

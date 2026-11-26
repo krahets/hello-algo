@@ -8,7 +8,7 @@ package chapter_hashing
 
 import utils.ListNode
 
-/* Driver Code */
+/* 主程式 */
 fun main() {
     val num = 3
     val hashNum = num.hashCode()
@@ -16,13 +16,13 @@ fun main() {
 
     val bol = true
     val hashBol = bol.hashCode()
-    println("布林量 $bol 的雜湊值為 $hashBol")
+    println("布林值 $bol 的雜湊值為 $hashBol")
 
     val dec = 3.14159
     val hashDec = dec.hashCode()
     println("小數 $dec 的雜湊值為 $hashDec")
 
-    val str = "Hello 演算法"
+    val str = "Hello 算法"
     val hashStr = str.hashCode()
     println("字串 $str 的雜湊值為 $hashStr")
 

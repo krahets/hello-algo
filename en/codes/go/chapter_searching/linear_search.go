@@ -8,29 +8,29 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-/* Linear search (array) */
+/* Linear search in an array */
 func linearSearchArray(nums []int, target int) int {
 	// Traverse the array
 	for i := 0; i < len(nums); i++ {
-		// The target element was found; return its index
+		// Found the target. Return its index
 		if nums[i] == target {
 			return i
 		}
 	}
-	// The target element was not found; return -1
+	// Target not found. Return -1
 	return -1
 }
 
-/* Linear search (linked list) */
+/* Linear search in a linked list */
 func linearSearchLinkedList(node *ListNode, target int) *ListNode {
 	// Traverse the linked list
 	for node != nil {
-		// The target node was found; return it
+		// Found the target node. Return it
 		if node.Val == target {
 			return node
 		}
 		node = node.Next
 	}
-	// The target element was not found; return nil
+	// Target element not found. Return nil
 	return nil
 }

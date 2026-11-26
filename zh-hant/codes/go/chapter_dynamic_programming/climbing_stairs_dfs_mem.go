@@ -6,11 +6,11 @@ package chapter_dynamic_programming
 
 /* 記憶化搜尋 */
 func dfsMem(i int, mem []int) int {
-	// 已知 dp[1] 和 dp[2] ，返回之
+	// 已知 dp[1] 和 dp[2]，直接回傳對應的值
 	if i == 1 || i == 2 {
 		return i
 	}
-	// 若存在記錄 dp[i] ，則直接返回之
+	// 若已有 dp[i] 的紀錄，就直接回傳該值
 	if mem[i] != -1 {
 		return mem[i]
 	}
@@ -23,7 +23,7 @@ func dfsMem(i int, mem []int) int {
 
 /* 爬樓梯：記憶化搜尋 */
 func climbingStairsDFSMem(n int) int {
-	// mem[i] 記錄爬到第 i 階的方案總數，-1 代表無記錄
+	// mem[i] 記錄爬到第 i 階的走法總數，-1 表示尚無紀錄
 	mem := make([]int, n+1)
 	for i := range mem {
 		mem[i] = -1

@@ -10,26 +10,26 @@ import utils.*;
 import java.util.*;
 
 public class build_tree {
-    /* Построить двоичное дерево: разделяй и властвуй */
+    /* Построение двоичного дерева методом «разделяй и властвуй» */
     static TreeNode dfs(int[] preorder, Map<Integer, Integer> inorderMap, int i, int l, int r) {
-        // Завершить при пустом диапазоне поддерева
+        // Если интервал поддерева пуст, завершаем рекурсию
         if (r - l < 0)
             return null;
-        // Инициализировать корневой узел
+        // Создаём корень
         TreeNode root = new TreeNode(preorder[i]);
-        // Найти m, чтобы разделить левое и правое поддеревья
+        // Находим m и разделяем левое и правое поддеревья
         int m = inorderMap.get(preorder[i]);
-        // Подзадача: построить левое поддерево
+        // Подзадача: строим левое поддерево
         root.left = dfs(preorder, inorderMap, i + 1, l, m - 1);
-        // Подзадача: построить правое поддерево
+        // Подзадача: строим правое поддерево
         root.right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r);
-        // Вернуть корневой узел
+        // Возвращаем корень
         return root;
     }
 
-    /* Построить двоичное дерево */
+    /* Построение двоичного дерева */
     static TreeNode buildTree(int[] preorder, int[] inorder) {
-        // Инициализировать хеш-таблицу для хранения соответствия элементов inorder их индексам
+        // Создаём хеш-таблицу индексов элементов inorder
         Map<Integer, Integer> inorderMap = new HashMap<>();
         for (int i = 0; i < inorder.length; i++) {
             inorderMap.put(inorder[i], i);
@@ -41,7 +41,7 @@ public class build_tree {
     public static void main(String[] args) {
         int[] preorder = { 3, 9, 2, 1, 7 };
         int[] inorder = { 9, 3, 1, 2, 7 };
-        System.out.println("Предварительный обход = " + Arrays.toString(preorder));
+        System.out.println("Прямой обход = " + Arrays.toString(preorder));
         System.out.println("Симметричный обход = " + Arrays.toString(inorder));
 
         TreeNode root = buildTree(preorder, inorder);

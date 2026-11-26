@@ -6,15 +6,15 @@
 
 /* 最小経路和：全探索 */
 function minPathSumDFS(grid, i, j) {
-    // 左上のセルなら探索を終了する
+    // 左上のマスに着いたら探索を終了する
     if (i === 0 && j === 0) {
         return grid[0][0];
     }
-    // 行または列のインデックスが範囲外の場合、コスト +∞ を返す
+    // 行または列の添字が範囲外ならコスト +∞ を返す
     if (i < 0 || j < 0) {
         return Infinity;
     }
-    // 左上から (i-1, j) および (i, j-1) までの最小経路コストを計算する
+    // 左上から (i-1, j) と (i, j-1) までの最小経路コストを求める
     const up = minPathSumDFS(grid, i - 1, j);
     const left = minPathSumDFS(grid, i, j - 1);
     // 左上から (i, j) までの最小経路コストを返す
@@ -23,19 +23,19 @@ function minPathSumDFS(grid, i, j) {
 
 /* 最小経路和：メモ化探索 */
 function minPathSumDFSMem(grid, mem, i, j) {
-    // 左上のセルなら探索を終了する
+    // 左上のマスに着いたら探索を終了する
     if (i === 0 && j === 0) {
         return grid[0][0];
     }
-    // 行または列のインデックスが範囲外の場合、コスト +∞ を返す
+    // 行または列の添字が範囲外ならコスト +∞ を返す
     if (i < 0 || j < 0) {
         return Infinity;
     }
-    // 記録済みなら、その値をそのまま返す
+    // 記録済みなら、その値を返す
     if (mem[i][j] !== -1) {
         return mem[i][j];
     }
-    // 左隣と上隣のセルまでの最小経路コスト
+    // 左と上のマスまでの最小経路コスト
     const up = minPathSumDFSMem(grid, mem, i - 1, j);
     const left = minPathSumDFSMem(grid, mem, i, j - 1);
     // 左上から (i, j) までの最小経路コストを記録して返す
@@ -69,7 +69,7 @@ function minPathSumDP(grid) {
     return dp[n - 1][m - 1];
 }
 
-/* 最小経路和：空間を最適化した動的計画法 */
+/* 最小経路和：使用メモリを削減した動的計画法 */
 function minPathSumDPComp(grid) {
     const n = grid.length,
         m = grid[0].length;
@@ -92,7 +92,7 @@ function minPathSumDPComp(grid) {
     return dp[m - 1];
 }
 
-/* 実行用コード */
+/* 実行例 */
 const grid = [
     [1, 3, 1, 5],
     [2, 2, 4, 2],
@@ -116,6 +116,6 @@ console.log(`左上から右下までの最小経路和は ${res}`);
 res = minPathSumDP(grid);
 console.log(`左上から右下までの最小経路和は ${res}`);
 
-// 空間を最適化した動的計画法
+// 使用メモリを削減した動的計画法
 res = minPathSumDPComp(grid);
 console.log(`左上から右下までの最小経路和は ${res}`);

@@ -9,7 +9,7 @@ class Vertex {
   int val;
   Vertex(this.val);
 
-  /* 輸入值串列 vals ，返回頂點串列 vets */
+  /* 傳入數值串列 vals，回傳頂點串列 vets */
   static List<Vertex> valsToVets(List<int> vals) {
     List<Vertex> vets = [];
     for (int i in vals) {
@@ -18,7 +18,7 @@ class Vertex {
     return vets;
   }
 
-  /* 輸入頂點串列 vets ，返回值串列 vals */
+  /* 傳入頂點串列 vets，回傳數值串列 vals */
   static List<int> vetsToVals(List<Vertex> vets) {
     List<int> vals = [];
     for (Vertex vet in vets) {

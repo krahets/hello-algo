@@ -6,48 +6,48 @@
 
 #include "../utils/common.hpp"
 
-/* Хеш-поиск (массив) */
+/* Поиск по хеш-таблице в массиве */
 int hashingSearchArray(unordered_map<int, int> map, int target) {
-    // key хеш-таблицы: целевой элемент, value: индекс
-    // Если такого key нет в хеш-таблице, вернуть -1
+    // Ключ хеш-таблицы — искомый элемент, значение — его индекс
+    // Если ключа в хеш-таблице нет, возвращаем -1
     if (map.find(target) == map.end())
         return -1;
     return map[target];
 }
 
-/* Хеш-поиск (связный список) */
+/* Поиск по хеш-таблице в связном списке */
 ListNode *hashingSearchLinkedList(unordered_map<int, ListNode *> map, int target) {
-    // key хеш-таблицы: значение целевого узла, value: объект узла
-    // Если такого key нет в хеш-таблице, вернуть nullptr
+    // Ключ хеш-таблицы — искомое значение узла, значение таблицы — сам узел
+    // Если ключа в хеш-таблице нет, возвращаем nullptr
     if (map.find(target) == map.end())
         return nullptr;
     return map[target];
 }
 
-/* Driver Code */
+/* Пример использования */
 int main() {
     int target = 3;
 
-    /* Хеш-поиск (массив) */
+    /* Поиск по хеш-таблице в массиве */
     vector<int> nums = {1, 5, 3, 2, 4, 7, 5, 9, 10, 8};
-    // Инициализация хеш-таблицы
+    // Создаём хеш-таблицу
     unordered_map<int, int> map;
     for (int i = 0; i < nums.size(); i++) {
-        map[nums[i]] = i; // key: элемент, value: индекс
+        map[nums[i]] = i; // Ключ — элемент, значение — индекс
     }
     int index = hashingSearchArray(map, target);
-    cout << "Индекс целевого элемента 3 = " << index << endl;
+    cout << "Индекс элемента 3 = " << index << endl;
 
-    /* Хеш-поиск (связный список) */
+    /* Поиск по хеш-таблице в связном списке */
     ListNode *head = vecToLinkedList(nums);
-    // Инициализация хеш-таблицы
+    // Создаём хеш-таблицу
     unordered_map<int, ListNode *> map1;
     while (head != nullptr) {
-        map1[head->val] = head; // key: значение узла, value: узел
+        map1[head->val] = head; // Ключ — значение узла, значение — сам узел
         head = head->next;
     }
     ListNode *node = hashingSearchLinkedList(map1, target);
-    cout << "Объект узла со значением 3 = " << node << endl;
+    cout << "Узел со значением 3: " << node << endl;
 
     return 0;
 }

@@ -21,7 +21,7 @@ void selectionSort(List<int> nums) {
   }
 }
 
-/* Driver code */
+/* Driver Code */
 void main() {
   List<int> nums = [4, 1, 3, 1, 5, 2];
   selectionSort(nums);

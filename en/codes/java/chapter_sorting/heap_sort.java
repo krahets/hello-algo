@@ -12,7 +12,7 @@ public class heap_sort {
     /* Sift down from node i in a heap of size n */
     public static void siftDown(int[] nums, int n, int i) {
         while (true) {
-            // Find the node with the largest value among i, l, and r, and store its index in ma
+            // Let ma be the index of the largest of nodes i, l, and r
             int l = 2 * i + 1;
             int r = 2 * i + 2;
             int ma = i;
@@ -20,7 +20,7 @@ public class heap_sort {
                 ma = l;
             if (r < n && nums[r] > nums[ma])
                 ma = r;
-            // Stop if node i is largest or both child indices l and r are out of bounds
+            // Stop if i is the largest or both child indices l and r are out of bounds
             if (ma == i)
                 break;
             // Swap the two nodes
@@ -34,17 +34,17 @@ public class heap_sort {
 
     /* Heap sort */
     public static void heapSort(int[] nums) {
-        // Build the heap by sifting down from every non-leaf node
+        // Build the heap by sifting down from each non-leaf node
         for (int i = nums.length / 2 - 1; i >= 0; i--) {
             siftDown(nums, nums.length, i);
         }
-        // Extract the largest element from the heap, repeating for n-1 rounds
+        // Extract the maximum from the heap in each of n-1 rounds
         for (int i = nums.length - 1; i > 0; i--) {
-            // Swap the root with the rightmost leaf on the last level (the first and last elements of the current heap)
+            // Swap the root and rightmost leaf (the first and last elements)
             int tmp = nums[0];
             nums[0] = nums[i];
             nums[i] = tmp;
-            // Sift down starting at the root
+            // Sift down from the root
             siftDown(nums, i, 0);
         }
     }

@@ -12,7 +12,7 @@ public class queue {
         /* キューを初期化する */
         Queue<int> queue = new();
 
-        /* 要素をエンキューする */
+        /* 要素をキューに追加する */
         queue.Enqueue(1);
         queue.Enqueue(3);
         queue.Enqueue(2);
@@ -20,19 +20,19 @@ public class queue {
         queue.Enqueue(4);
         Console.WriteLine("キュー queue = " + string.Join(",", queue));
 
-        /* キューの先頭要素にアクセス */
+        /* キューの先頭要素を参照する */
         int peek = queue.Peek();
-        Console.WriteLine("キューの先頭要素 peek = " + peek);
+        Console.WriteLine("先頭要素 peek = " + peek);
 
-        /* 要素をデキューする */
+        /* キューから要素を取り出す */
         int pop = queue.Dequeue();
-        Console.WriteLine("デキューした要素 pop = " + pop + "、デキュー後 queue = " + string.Join(",", queue));
+        Console.WriteLine("デキューした要素 pop = " + pop + "、デキュー後の queue = " + string.Join(",", queue));
 
-        /* キューの長さを取得 */
+        /* キューの要素数を取得する */
         int size = queue.Count;
-        Console.WriteLine("キューの長さ size = " + size);
+        Console.WriteLine("キューの要素数 size = " + size);
 
-        /* キューが空か判定 */
+        /* キューが空かどうかを判定する */
         bool isEmpty = queue.Count == 0;
         Console.WriteLine("キューは空か = " + isEmpty);
     }

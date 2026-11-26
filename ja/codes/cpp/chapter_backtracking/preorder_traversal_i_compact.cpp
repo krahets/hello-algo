@@ -21,16 +21,16 @@ void preOrder(TreeNode *root) {
     preOrder(root->right);
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     TreeNode *root = vectorToTree(vector<int>{1, 7, 3, 4, 5, 6, 7});
-    cout << "\n二分木を初期化する" << endl;
+    cout << "\n二分木を初期化" << endl;
     printTree(root);
 
     // 行きがけ順走査
     preOrder(root);
 
-    cout << "\n値が 7 であるすべてのノードを出力する" << endl;
+    cout << "\n値が 7 のノードをすべて出力" << endl;
     vector<int> vals;
     for (TreeNode *node : res) {
         vals.push_back(node->val);

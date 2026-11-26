@@ -4,46 +4,46 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* Алгоритм бэктрекинга: все перестановки I */
+/* Поиск с возвратом: перестановки I */
 function backtrack(
     state: number[],
     choices: number[],
     selected: boolean[],
     res: number[][]
 ): void {
-    // Когда длина состояния равна числу элементов, записать решение
+    // Когда длина текущей перестановки равна числу элементов, сохраняем решение
     if (state.length === choices.length) {
         res.push([...state]);
         return;
     }
-    // Перебор всех вариантов выбора
+    // Перебираем все варианты
     choices.forEach((choice, i) => {
-        // Отсечение: нельзя выбирать один и тот же элемент повторно
+        // Отсечение: нельзя выбирать один элемент дважды
         if (!selected[i]) {
-            // Попытка: сделать выбор и обновить состояние
+            // Пробуем вариант и обновляем состояние
             selected[i] = true;
             state.push(choice);
-            // Перейти к следующему выбору
+            // Переходим к следующему выбору
             backtrack(state, choices, selected, res);
-            // Откат: отменить выбор и восстановить предыдущее состояние
+            // Возврат: отменяем выбор и восстанавливаем прежнее состояние
             selected[i] = false;
             state.pop();
         }
     });
 }
 
-/* Все перестановки I */
+/* Перестановки I */
 function permutationsI(nums: number[]): number[][] {
     const res: number[][] = [];
     backtrack([], nums, Array(nums.length).fill(false), res);
     return res;
 }
 
-// Driver Code
+// Основная программа
 const nums: number[] = [1, 2, 3];
 const res: number[][] = permutationsI(nums);
 
-console.log(`Входной массив nums = ${JSON.stringify(nums)}`);
+console.log(`Исходный массив nums = ${JSON.stringify(nums)}`);
 console.log(`Все перестановки res = ${JSON.stringify(res)}`);
 
 export {};

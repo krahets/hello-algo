@@ -4,7 +4,7 @@
  * Author: yuan0221 (yl1452491917@gmail.com)
  */
 
-/* Additive hash */
+/* Additive hashing */
 function addHash(key: string): number {
     let hash = 0;
     const MODULUS = 1000000007;
@@ -14,7 +14,7 @@ function addHash(key: string): number {
     return hash;
 }
 
-/* Multiplicative hash */
+/* Multiplicative hashing */
 function mulHash(key: string): number {
     let hash = 0;
     const MODULUS = 1000000007;
@@ -24,7 +24,7 @@ function mulHash(key: string): number {
     return hash;
 }
 
-/* XOR hash */
+/* XOR hashing */
 function xorHash(key: string): number {
     let hash = 0;
     const MODULUS = 1000000007;
@@ -34,7 +34,7 @@ function xorHash(key: string): number {
     return hash % MODULUS;
 }
 
-/* Rotating hash */
+/* Rotation hashing */
 function rotHash(key: string): number {
     let hash = 0;
     const MODULUS = 1000000007;
@@ -57,4 +57,4 @@ hash = xorHash(key);
 console.log('XOR hash value: ' + hash);
 
 hash = rotHash(key);
-console.log('Rotating hash value: ' + hash);
+console.log('Rotation hash value: ' + hash);

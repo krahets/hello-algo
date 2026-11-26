@@ -22,10 +22,10 @@ fun coinChangeDP(coins: IntArray, amt: Int): Int {
     for (i in 1..n) {
         for (a in 1..amt) {
             if (coins[i - 1] > a) {
-                // 目標金額を超える場合、硬貨 i を選ばない
+                // 目標金額を超える場合は硬貨 i を使わない
                 dp[i][a] = dp[i - 1][a]
             } else {
-                // 硬貨 i を選ばない場合と選ぶ場合の小さいほうの値
+                // 硬貨 i を使う場合と使わない場合の小さい方を取る
                 dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1)
             }
         }
@@ -33,7 +33,7 @@ fun coinChangeDP(coins: IntArray, amt: Int): Int {
     return if (dp[n][amt] != MAX) dp[n][amt] else -1
 }
 
-/* 硬貨の両替：空間を最適化した動的計画法 */
+/* 硬貨の両替：使用メモリを削減した動的計画法 */
 fun coinChangeDPComp(coins: IntArray, amt: Int): Int {
     val n = coins.size
     val MAX = amt + 1
@@ -45,10 +45,10 @@ fun coinChangeDPComp(coins: IntArray, amt: Int): Int {
     for (i in 1..n) {
         for (a in 1..amt) {
             if (coins[i - 1] > a) {
-                // 目標金額を超える場合、硬貨 i を選ばない
+                // 目標金額を超える場合は硬貨 i を使わない
                 dp[a] = dp[a]
             } else {
-                // 硬貨 i を選ばない場合と選ぶ場合の小さいほうの値
+                // 硬貨 i を使う場合と使わない場合の小さい方を取る
                 dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1)
             }
         }
@@ -56,16 +56,16 @@ fun coinChangeDPComp(coins: IntArray, amt: Int): Int {
     return if (dp[amt] != MAX) dp[amt] else -1
 }
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
     val coins = intArrayOf(1, 2, 5)
     val amt = 4
 
     // 動的計画法
     var res = coinChangeDP(coins, amt)
-    println("目標金額にするために必要な硬貨の最小枚数は $res")
+    println("目標金額を作るのに必要な硬貨の最少枚数は $res")
 
-    // 空間を最適化した動的計画法
+    // 使用メモリを削減した動的計画法
     res = coinChangeDPComp(coins, amt)
-    println("目標金額にするために必要な硬貨の最小枚数は $res")
+    println("目標金額を作るのに必要な硬貨の最少枚数は $res")
 }

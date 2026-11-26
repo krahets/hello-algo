@@ -6,7 +6,7 @@
 
 /* Driver code */
 /* Initialize the stack */
-// JavaScript has no built-in stack class; an Array can be used as a stack
+// JavaScript has no built-in stack class, so use an Array as a stack
 const stack = [];
 
 /* Push elements onto the stack */
@@ -15,21 +15,21 @@ stack.push(3);
 stack.push(2);
 stack.push(5);
 stack.push(4);
-console.log('Stack stack =', stack);
+console.log('stack =', stack);
 
-/* Access the top element */
+/* Peek at the top element */
 const peek = stack[stack.length - 1];
-console.log('Top element peek =', peek);
+console.log('Top element (peek) =', peek);
 
-/* Pop an element from the stack */
+/* Pop the top element */
 const pop = stack.pop();
-console.log('Popped element pop =', pop);
-console.log('After popping, stack =', stack);
+console.log('Popped element (pop) =', pop);
+console.log('After the pop, stack =', stack);
 
 /* Get the stack size */
 const size = stack.length;
 console.log('Stack size =', size);
 
-/* Check whether it is empty */
+/* Check whether the stack is empty */
 const isEmpty = stack.length === 0;
-console.log('Is the stack empty =', isEmpty);
+console.log('Stack is empty =', isEmpty);

@@ -39,13 +39,13 @@ public class ListNode(int x) {
 ```
 
 ```go title=""
-// ListNode represents a linked list node.
+// ListNode represents a linked list node
 type ListNode struct {
     Val  int       // Node value
     Next *ListNode // Pointer to the next node
 }
 
-// NewListNode constructs a linked list node.
+// NewListNode constructs a linked list node
 func NewListNode(v int) *ListNode {
     return &ListNode{
         Val:  v,
@@ -125,7 +125,7 @@ typedef struct ListNode {
     struct ListNode *next; // Pointer to the next node
 } ListNode;
 
-/* Constructor: initialize a new node */
+/* Constructor that initializes a new node */
 ListNode *newListNode(int val) {
     ListNode *node;
     node = (ListNode *)malloc(sizeof(ListNode));
@@ -158,13 +158,13 @@ end
 <!-- [snippet]{init_linked_list} -->
 ```python title="linked_list.py"
 # Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4
-# Initialize the individual nodes
+# Initialize the nodes
 n0 = ListNode(1)
 n1 = ListNode(3)
 n2 = ListNode(2)
 n3 = ListNode(5)
 n4 = ListNode(4)
-# Set up references between the nodes
+# Link the nodes together
 n0.next = n1
 n1.next = n2
 n2.next = n3
@@ -173,13 +173,13 @@ n3.next = n4
 
 ```cpp title="linked_list.cpp"
 /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-// Initialize the individual nodes
+// Initialize the nodes
 ListNode *n0 = new ListNode(1);
 ListNode *n1 = new ListNode(3);
 ListNode *n2 = new ListNode(2);
 ListNode *n3 = new ListNode(5);
 ListNode *n4 = new ListNode(4);
-// Set up references between the nodes
+// Link the nodes together
 n0->next = n1;
 n1->next = n2;
 n2->next = n3;
@@ -188,13 +188,13 @@ n3->next = n4;
 
 ```java title="linked_list.java"
 /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-// Initialize the individual nodes
+// Initialize the nodes
 ListNode n0 = new ListNode(1);
 ListNode n1 = new ListNode(3);
 ListNode n2 = new ListNode(2);
 ListNode n3 = new ListNode(5);
 ListNode n4 = new ListNode(4);
-// Set up references between the nodes
+// Link the nodes together
 n0.next = n1;
 n1.next = n2;
 n2.next = n3;
@@ -203,13 +203,13 @@ n3.next = n4;
 
 ```csharp title="linked_list.cs"
 // Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4
-// Initialize the individual nodes
+// Initialize the nodes
 ListNode n0 = new(1);
 ListNode n1 = new(3);
 ListNode n2 = new(2);
 ListNode n3 = new(5);
 ListNode n4 = new(4);
-// Set up references between the nodes
+// Link the nodes together
 n0.next = n1;
 n1.next = n2;
 n2.next = n3;
@@ -218,14 +218,14 @@ n3.next = n4;
 
 ```go title="linked_list.go"
 /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-// Initialize the individual nodes
+// Initialize the nodes
 n0 := NewListNode(1)
 n1 := NewListNode(3)
 n2 := NewListNode(2)
 n3 := NewListNode(5)
 n4 := NewListNode(4)
 
-// Set up references between the nodes
+// Link the nodes together
 n0.Next = n1
 n1.Next = n2
 n2.Next = n3
@@ -234,13 +234,13 @@ n3.Next = n4
 
 ```swift title="linked_list.swift"
 /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-// Initialize the individual nodes
+// Initialize the nodes
 let n0 = ListNode(x: 1)
 let n1 = ListNode(x: 3)
 let n2 = ListNode(x: 2)
 let n3 = ListNode(x: 5)
 let n4 = ListNode(x: 4)
-// Set up references between the nodes
+// Link the nodes together
 n0.next = n1
 n1.next = n2
 n2.next = n3
@@ -249,13 +249,13 @@ n3.next = n4
 
 ```javascript title="linked_list.js"
 /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-// Initialize the individual nodes
+// Initialize the nodes
 const n0 = new ListNode(1);
 const n1 = new ListNode(3);
 const n2 = new ListNode(2);
 const n3 = new ListNode(5);
 const n4 = new ListNode(4);
-// Set up references between the nodes
+// Link the nodes together
 n0.next = n1;
 n1.next = n2;
 n2.next = n3;
@@ -264,13 +264,13 @@ n3.next = n4;
 
 ```typescript title="linked_list.ts"
 /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-// Initialize the individual nodes
+// Initialize the nodes
 const n0 = new ListNode(1);
 const n1 = new ListNode(3);
 const n2 = new ListNode(2);
 const n3 = new ListNode(5);
 const n4 = new ListNode(4);
-// Set up references between the nodes
+// Link the nodes together
 n0.next = n1;
 n1.next = n2;
 n2.next = n3;
@@ -279,13 +279,13 @@ n3.next = n4;
 
 ```dart title="linked_list.dart"
 // Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4
-// Initialize the individual nodes
+// Initialize the nodes
 ListNode n0 = ListNode(1);
 ListNode n1 = ListNode(3);
 ListNode n2 = ListNode(2);
 ListNode n3 = ListNode(5);
 ListNode n4 = ListNode(4);
-// Set up references between the nodes
+// Link the nodes together
 n0.next = n1;
 n1.next = n2;
 n2.next = n3;
@@ -294,14 +294,14 @@ n3.next = n4;
 
 ```rust title="linked_list.rs"
 /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-// Initialize the individual nodes
+// Initialize the nodes
 let n0 = ListNode::new(1);
 let n1 = ListNode::new(3);
 let n2 = ListNode::new(2);
 let n3 = ListNode::new(5);
 let n4 = ListNode::new(4);
 
-// Set up references between the nodes
+// Link the nodes together
 n0.borrow_mut().next = Some(n1.clone());
 n1.borrow_mut().next = Some(n2.clone());
 n2.borrow_mut().next = Some(n3.clone());
@@ -310,13 +310,13 @@ n3.borrow_mut().next = Some(n4.clone());
 
 ```c title="linked_list.c"
 /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-// Initialize the individual nodes
+// Initialize the nodes
 ListNode *n0 = newListNode(1);
 ListNode *n1 = newListNode(3);
 ListNode *n2 = newListNode(2);
 ListNode *n3 = newListNode(5);
 ListNode *n4 = newListNode(4);
-// Set up references between the nodes
+// Link the nodes together
 n0->next = n1;
 n1->next = n2;
 n2->next = n3;
@@ -325,14 +325,14 @@ n3->next = n4;
 
 ```kotlin title="linked_list.kt"
 /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-// Initialize the individual nodes
+// Initialize the nodes
 val n0 = ListNode(1)
 val n1 = ListNode(3)
 val n2 = ListNode(2)
 val n3 = ListNode(5)
 val n4 = ListNode(4)
 
-// Set up references between the nodes
+// Link the nodes together
 n0.next = n1
 n1.next = n2
 n2.next = n3
@@ -341,13 +341,13 @@ n3.next = n4
 
 ```ruby title="linked_list.rb"
 # Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4
-# Initialize the individual nodes
+# Initialize the nodes
 n0 = ListNode.new(1)
 n1 = ListNode.new(3)
 n2 = ListNode.new(2)
 n3 = ListNode.new(5)
 n4 = ListNode.new(4)
-# Set up references between the nodes
+# Link the nodes together
 n0.next = n1
 n1.next = n2
 n2.next = n3
@@ -355,7 +355,7 @@ n3.next = n4
 ```
 
 <!-- [tutor]{init_linked_list_tutor} -->
-https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20successor%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20linked%20list%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%0A%20%20%20%20%23%20Initialize%20the%20nodes%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20Link%20the%20nodes%20with%20references%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20linked%20list%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%0A%20%20%20%20%23%20Initialize%20each%20node%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20Link%20each%20node%20to%20the%20next%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 <!-- [snippet]{doubly_list_node_class} -->
 ```python title=""
@@ -407,11 +407,11 @@ public class ListNode(int val) {
 /* Doubly linked list node structure */
 type DoublyListNode struct {
     Val  int             // Node value
-    Next *DoublyListNode // Pointer to the successor
-    Prev *DoublyListNode // Pointer to the predecessor
+    Next *DoublyListNode // Pointer to the next node
+    Prev *DoublyListNode // Pointer to the previous node
 }
 
-// Initialize a node with NewDoublyListNode
+// NewDoublyListNode initializes a node
 func NewDoublyListNode(val int) *DoublyListNode {
     return &DoublyListNode{
         Val:  val,
@@ -518,7 +518,7 @@ DoublyListNode *newDoublyListNode(int num) {
 ```kotlin title=""
 /* Doubly linked list node */
 class ListNode(
-    var _val: Int // The node value is stored in _val
+    var _val: Int // Node value
 ) {
     var next: ListNode? = null // Reference to the next node
     var prev: ListNode? = null // Reference to the previous node

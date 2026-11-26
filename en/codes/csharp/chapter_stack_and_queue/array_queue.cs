@@ -6,10 +6,10 @@
 
 namespace hello_algo.chapter_stack_and_queue;
 
-/* Queue implemented with a circular array */
+/* Queue backed by a circular array */
 class ArrayQueue {
     int[] nums;  // Array that stores the queue elements
-    int front;   // Front pointer, pointing to the first element
+    int front;   // Index of the front element
     int queSize; // Queue size
 
     public ArrayQueue(int capacity) {
@@ -32,39 +32,39 @@ class ArrayQueue {
         return queSize == 0;
     }
 
-    /* Enqueue */
+    /* Enqueue an element */
     public void Push(int num) {
         if (queSize == Capacity()) {
             Console.WriteLine("Queue is full");
             return;
         }
-        // Calculate the rear pointer, which points one position past the last element
-        // Use modulo to wrap rear to the beginning when it passes the end of the array
+        // Compute the index one slot past the rear element
+        // Use the remainder to wrap rear back to the start of the array
         int rear = (front + queSize) % Capacity();
-        // Add num to the rear
+        // Add num at the rear
         nums[rear] = num;
         queSize++;
     }
 
-    /* Dequeue */
+    /* Remove and return the front element */
     public int Pop() {
         int num = Peek();
-        // Advance the front pointer by one position, wrapping to the beginning if it passes the end
+        // Advance the front index by one, wrapping to the start if it passes the end
         front = (front + 1) % Capacity();
         queSize--;
         return num;
     }
 
-    /* Access the front element */
+    /* Peek at the front element */
     public int Peek() {
         if (IsEmpty())
             throw new Exception();
         return nums[front];
     }
 
-    /* Return an array */
+    /* Return the queue elements as an array */
     public int[] ToArray() {
-        // Copy only the elements within the occupied range
+        // Copy only the elements currently in the queue
         int[] res = new int[queSize];
         for (int i = 0, j = front; i < queSize; i++, j++) {
             res[i] = nums[j % this.Capacity()];
@@ -86,15 +86,15 @@ public class array_queue {
         queue.Push(2);
         queue.Push(5);
         queue.Push(4);
-        Console.WriteLine("Queue queue = " + string.Join(",", queue.ToArray()));
+        Console.WriteLine("queue = " + string.Join(",", queue.ToArray()));
 
-        /* Access the front element */
+        /* Peek at the front element */
         int peek = queue.Peek();
-        Console.WriteLine("Front element peek = " + peek);
+        Console.WriteLine("Front element (peek) = " + peek);
 
         /* Dequeue an element */
         int pop = queue.Pop();
-        Console.WriteLine("Dequeued element pop = " + pop + ", after dequeuing, queue = " + string.Join(",", queue.ToArray()));
+        Console.WriteLine("Dequeued element (pop) = " + pop + ", queue after removal = " + string.Join(",", queue.ToArray()));
 
         /* Get the queue size */
         int size = queue.Size();
@@ -102,13 +102,13 @@ public class array_queue {
 
         /* Check whether the queue is empty */
         bool isEmpty = queue.IsEmpty();
-        Console.WriteLine("Is the queue empty = " + isEmpty);
+        Console.WriteLine("Queue is empty = " + isEmpty);
 
         /* Test the circular array */
         for (int i = 0; i < 10; i++) {
             queue.Push(i);
             queue.Pop();
-            Console.WriteLine("After round " + i + " of enqueue + dequeue, queue = " + string.Join(",", queue.ToArray()));
+            Console.WriteLine("After round " + i + " of enqueueing and dequeueing, queue = " + string.Join(",", queue.ToArray()));
         }
     }
 }

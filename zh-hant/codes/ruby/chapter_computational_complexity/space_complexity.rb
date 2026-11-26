@@ -10,36 +10,36 @@ require_relative '../utils/print_util'
 
 ### 函式 ###
 def function
-  # 執行某些操作
+  # 執行操作
   0
 end
 
 ### 常數階 ###
 def constant(n)
-  # 常數、變數、物件佔用 O(1) 空間
+  # 常數、變數、物件占用 O(1) 空間
   a = 0
   nums = [0] * 10000
   node = ListNode.new
 
-  # 迴圈中的變數佔用 O(1) 空間
+  # 迴圈內變數占用 O(1) 空間
   (0...n).each { c = 0 }
-  # 迴圈中的函式佔用 O(1) 空間
+  # 迴圈呼叫函式占用 O(1) 空間
   (0...n).each { function }
 end
 
 ### 線性階 ###
 def linear(n)
-  # 長度為 n 的串列佔用 O(n) 空間
+  # 長度為 n 的串列占用 O(n) 空間
   nums = Array.new(n, 0)
 
-  # 長度為 n 的雜湊表佔用 O(n) 空間
+  # 長度為 n 的雜湊表占用 O(n) 空間
   hmap = {}
   for i in 0...n
     hmap[i] = i.to_s
   end
 end
 
-### 線性階（遞迴實現）###
+### 線性階（遞迴實作）###
 def linear_recur(n)
   puts "遞迴 n = #{n}"
   return if n == 1
@@ -48,11 +48,11 @@ end
 
 ### 平方階 ###
 def quadratic(n)
-  # 二維串列佔用 O(n^2) 空間
+  # 二維串列占用 O(n^2) 空間
   Array.new(n) { Array.new(n, 0) }
 end
 
-### 平方階（遞迴實現）###
+### 平方階（遞迴實作）###
 def quadratic_recur(n)
   return 0 unless n > 0
 
@@ -61,7 +61,7 @@ def quadratic_recur(n)
   quadratic_recur(n - 1)
 end
 
-### 指數階（建立滿二元樹）###
+### 指數階（建完美二元樹）###
 def build_tree(n)
   return if n == 0
 
@@ -71,7 +71,7 @@ def build_tree(n)
   end
 end
 
-### Driver Code ###
+### 主程式 ###
 if __FILE__ == $0
   n = 5
 

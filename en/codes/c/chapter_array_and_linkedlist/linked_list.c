@@ -13,8 +13,8 @@ void insert(ListNode *n0, ListNode *P) {
     n0->next = P;
 }
 
-/* Remove the first node after node n0 in the linked list */
-// Note: stdio.h already declares a function named remove
+/* Remove the node immediately after n0 in the linked list */
+// Note: stdio.h already uses the name remove
 void removeItem(ListNode *n0) {
     if (!n0->next)
         return;
@@ -26,7 +26,7 @@ void removeItem(ListNode *n0) {
     free(P);
 }
 
-/* Access the node at index `index` in the linked list */
+/* Access the linked list node at the specified index */
 ListNode *access(ListNode *head, int index) {
     for (int i = 0; i < index; i++) {
         if (head == NULL)
@@ -48,16 +48,16 @@ int find(ListNode *head, int target) {
     return -1;
 }
 
-/* Driver code */
+/* Driver Code */
 int main() {
     /* Initialize the linked list */
-    // Initialize the individual nodes
+    // Initialize the nodes
     ListNode *n0 = newListNode(1);
     ListNode *n1 = newListNode(3);
     ListNode *n2 = newListNode(2);
     ListNode *n3 = newListNode(5);
     ListNode *n4 = newListNode(4);
-    // Set up references between the nodes
+    // Link the nodes together
     n0->next = n1;
     n1->next = n2;
     n2->next = n3;
@@ -67,21 +67,21 @@ int main() {
 
     /* Insert a node */
     insert(n0, newListNode(0));
-    printf("Linked list after inserting a node:\r\n");
+    printf("Linked list after insertion:\r\n");
     printLinkedList(n0);
 
     /* Remove a node */
     removeItem(n0);
-    printf("Linked list after removing a node:\r\n");
+    printf("Linked list after removal:\r\n");
     printLinkedList(n0);
 
     /* Access a node */
     ListNode *node = access(n0, 3);
-    printf("Value of the linked list node at index 3 = %d\r\n", node->val);
+    printf("Value of the node at index 3 = %d\r\n", node->val);
 
     /* Find a node */
     int index = find(n0, 2);
-    printf("Index of the linked list node with value 2 = %d\r\n", index);
+    printf("Index of the node with value 2 = %d\r\n", index);
 
     // Free memory
     freeMemoryLinkedList(n0);

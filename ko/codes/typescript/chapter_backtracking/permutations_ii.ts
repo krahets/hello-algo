@@ -4,7 +4,7 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* 백트래킹 알고리즘: 모든 순열 II */
+/* 백트래킹: 순열 II */
 function backtrack(
     state: number[],
     choices: number[],
@@ -19,22 +19,22 @@ function backtrack(
     // 모든 선택지를 순회한다
     const duplicated = new Set();
     choices.forEach((choice, i) => {
-        // 가지치기: 원소를 중복하여 선택할 수 없으며, 값이 같은 원소도 중복하여 선택할 수 없다
+        // 가지치기: 이미 선택한 원소를 다시 고르거나 같은 층에서 값이 같은 원소를 다시 고르지 않는다
         if (!selected[i] && !duplicated.has(choice)) {
-            // 시도: 선택하고 상태를 갱신한다
+            // 시도: 하나를 선택하고 상태를 갱신한다
             duplicated.add(choice); // 선택한 원소의 값을 기록한다
             selected[i] = true;
             state.push(choice);
             // 다음 선택을 진행한다
             backtrack(state, choices, selected, res);
-            // 되돌리기: 선택을 취소하고 이전 상태로 되돌린다
+            // 되돌리기: 선택을 취소하고 이전 상태를 복원한다
             selected[i] = false;
             state.pop();
         }
     });
 }
 
-/* 모든 순열 II */
+/* 순열 II */
 function permutationsII(nums: number[]): number[][] {
     const res: number[][] = [];
     backtrack([], nums, Array(nums.length).fill(false), res);

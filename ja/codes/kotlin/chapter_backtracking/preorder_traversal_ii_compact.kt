@@ -25,14 +25,14 @@ fun preOrder(root: TreeNode?) {
     }
     preOrder(root.left)
     preOrder(root.right)
-    // 復元
+    // 後戻り
     path!!.removeAt(path!!.size - 1)
 }
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
     val root = TreeNode.listToTree(mutableListOf(1, 7, 3, 4, 5, 6, 7))
-    println("\n二分木を初期化する")
+    println("\n二分木を初期化")
     printTree(root)
 
     // 行きがけ順走査
@@ -40,7 +40,7 @@ fun main() {
     res = mutableListOf()
     preOrder(root)
 
-    println("\n根ノードからノード 7 までのすべての経路を出力する")
+    println("\n根から値が 7 のノードまでの経路をすべて出力")
     for (path in res!!) {
         val _vals = mutableListOf<Int>()
         for (node in path) {

@@ -4,16 +4,16 @@ class TreeNode:
     """이진 트리 노드 클래스"""
     def __init__(self, val: int):
         self.val: int = val                # 노드 값
-        self.left: TreeNode | None = None  # 왼쪽 자식 노드 참조
-        self.right: TreeNode | None = None # 오른쪽 자식 노드 참조
+        self.left: TreeNode | None = None  # 왼쪽 자식 참조
+        self.right: TreeNode | None = None # 오른쪽 자식 참조
 ```
 
 ```cpp title=""
 /* 이진 트리 노드 구조체 */
 struct TreeNode {
     int val;          // 노드 값
-    TreeNode *left;   // 왼쪽 자식 노드 포인터
-    TreeNode *right;  // 오른쪽 자식 노드 포인터
+    TreeNode *left;   // 왼쪽 자식 포인터
+    TreeNode *right;  // 오른쪽 자식 포인터
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
 ```
@@ -22,8 +22,8 @@ struct TreeNode {
 /* 이진 트리 노드 클래스 */
 class TreeNode {
     int val;         // 노드 값
-    TreeNode left;   // 왼쪽 자식 노드 참조
-    TreeNode right;  // 오른쪽 자식 노드 참조
+    TreeNode left;   // 왼쪽 자식 참조
+    TreeNode right;  // 오른쪽 자식 참조
     TreeNode(int x) { val = x; }
 }
 ```
@@ -32,8 +32,8 @@ class TreeNode {
 /* 이진 트리 노드 클래스 */
 class TreeNode(int? x) {
     public int? val = x;    // 노드 값
-    public TreeNode? left;  // 왼쪽 자식 노드 참조
-    public TreeNode? right; // 오른쪽 자식 노드 참조
+    public TreeNode? left;  // 왼쪽 자식 참조
+    public TreeNode? right; // 오른쪽 자식 참조
 }
 ```
 
@@ -47,8 +47,8 @@ type TreeNode struct {
 /* 생성자 */
 func NewTreeNode(v int) *TreeNode {
     return &TreeNode{
-        Left:  nil, // 왼쪽 자식 노드 포인터
-        Right: nil, // 오른쪽 자식 노드 포인터
+        Left:  nil, // 왼쪽 자식 포인터
+        Right: nil, // 오른쪽 자식 포인터
         Val:   v,   // 노드 값
     }
 }
@@ -58,8 +58,8 @@ func NewTreeNode(v int) *TreeNode {
 /* 이진 트리 노드 클래스 */
 class TreeNode {
     var val: Int // 노드 값
-    var left: TreeNode? // 왼쪽 자식 노드 참조
-    var right: TreeNode? // 오른쪽 자식 노드 참조
+    var left: TreeNode? // 왼쪽 자식 참조
+    var right: TreeNode? // 오른쪽 자식 참조
 
     init(x: Int) {
         val = x
@@ -71,8 +71,8 @@ class TreeNode {
 /* 이진 트리 노드 클래스 */
 class TreeNode {
     val; // 노드 값
-    left; // 왼쪽 자식 노드 포인터
-    right; // 오른쪽 자식 노드 포인터
+    left; // 왼쪽 자식 포인터
+    right; // 오른쪽 자식 포인터
     constructor(val, left, right) {
         this.val = val === undefined ? 0 : val;
         this.left = left === undefined ? null : left;
@@ -90,8 +90,8 @@ class TreeNode {
 
     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
         this.val = val === undefined ? 0 : val; // 노드 값
-        this.left = left === undefined ? null : left; // 왼쪽 자식 노드 참조
-        this.right = right === undefined ? null : right; // 오른쪽 자식 노드 참조
+        this.left = left === undefined ? null : left; // 왼쪽 자식 참조
+        this.right = right === undefined ? null : right; // 오른쪽 자식 참조
     }
 }
 ```
@@ -100,8 +100,8 @@ class TreeNode {
 /* 이진 트리 노드 클래스 */
 class TreeNode {
   int val;         // 노드 값
-  TreeNode? left;  // 왼쪽 자식 노드 참조
-  TreeNode? right; // 오른쪽 자식 노드 참조
+  TreeNode? left;  // 왼쪽 자식 참조
+  TreeNode? right; // 오른쪽 자식 참조
   TreeNode(this.val, [this.left, this.right]);
 }
 ```
@@ -113,8 +113,8 @@ use std::cell::RefCell;
 /* 이진 트리 노드 구조체 */
 struct TreeNode {
     val: i32,                               // 노드 값
-    left: Option<Rc<RefCell<TreeNode>>>,    // 왼쪽 자식 노드 참조
-    right: Option<Rc<RefCell<TreeNode>>>,   // 오른쪽 자식 노드 참조
+    left: Option<Rc<RefCell<TreeNode>>>,    // 왼쪽 자식 참조
+    right: Option<Rc<RefCell<TreeNode>>>,   // 오른쪽 자식 참조
 }
 
 impl TreeNode {
@@ -133,8 +133,8 @@ impl TreeNode {
 /* 이진 트리 노드 구조체 */
 typedef struct TreeNode {
     int val;                // 노드 값
-    struct TreeNode *left;  // 왼쪽 자식 노드 포인터
-    struct TreeNode *right; // 오른쪽 자식 노드 포인터
+    struct TreeNode *left;  // 왼쪽 자식 포인터
+    struct TreeNode *right; // 오른쪽 자식 포인터
 } TreeNode;
 
 /* 생성자 */
@@ -152,8 +152,8 @@ TreeNode *newTreeNode(int val) {
 ```kotlin title=""
 /* 이진 트리 노드 클래스 */
 class TreeNode(val _val: Int) {  // 노드 값
-    var left: TreeNode? = null   // 왼쪽 자식 노드 참조
-    var right: TreeNode? = null  // 오른쪽 자식 노드 참조
+    var left: TreeNode? = null   // 왼쪽 자식 참조
+    var right: TreeNode? = null  // 오른쪽 자식 참조
 }
 ```
 
@@ -161,8 +161,8 @@ class TreeNode(val _val: Int) {  // 노드 값
 ### 이진 트리 노드 클래스 ###
 class TreeNode
   attr_accessor :val    # 노드 값
-  attr_accessor :left   # 왼쪽 자식 노드 참조
-  attr_accessor :right  # 오른쪽 자식 노드 참조
+  attr_accessor :left   # 왼쪽 자식 참조
+  attr_accessor :right  # 오른쪽 자식 참조
 
   def initialize(val)
     @val = val
@@ -179,7 +179,7 @@ n2 = TreeNode(val=2)
 n3 = TreeNode(val=3)
 n4 = TreeNode(val=4)
 n5 = TreeNode(val=5)
-# 노드 사이의 참조(포인터)를 설정한다
+# 노드 사이의 참조(포인터)를 연결한다
 n1.left = n2
 n1.right = n3
 n2.left = n4
@@ -194,7 +194,7 @@ TreeNode *n2 = new TreeNode(2);
 TreeNode *n3 = new TreeNode(3);
 TreeNode *n4 = new TreeNode(4);
 TreeNode *n5 = new TreeNode(5);
-// 노드 사이의 참조(포인터)를 설정한다
+// 노드 사이의 참조(포인터)를 연결한다
 n1->left = n2;
 n1->right = n3;
 n2->left = n4;
@@ -209,7 +209,7 @@ TreeNode n2 = new TreeNode(2);
 TreeNode n3 = new TreeNode(3);
 TreeNode n4 = new TreeNode(4);
 TreeNode n5 = new TreeNode(5);
-// 노드 사이의 참조(포인터)를 설정한다
+// 노드 사이의 참조(포인터)를 연결한다
 n1.left = n2;
 n1.right = n3;
 n2.left = n4;
@@ -224,7 +224,7 @@ TreeNode n2 = new(2);
 TreeNode n3 = new(3);
 TreeNode n4 = new(4);
 TreeNode n5 = new(5);
-// 노드 사이의 참조(포인터)를 설정한다
+// 노드 사이의 참조(포인터)를 연결한다
 n1.left = n2;
 n1.right = n3;
 n2.left = n4;
@@ -239,7 +239,7 @@ n2 := NewTreeNode(2)
 n3 := NewTreeNode(3)
 n4 := NewTreeNode(4)
 n5 := NewTreeNode(5)
-// 노드 사이의 참조(포인터)를 설정한다
+// 노드 사이의 참조(포인터)를 연결한다
 n1.Left = n2
 n1.Right = n3
 n2.Left = n4
@@ -254,7 +254,7 @@ let n2 = TreeNode(x: 2)
 let n3 = TreeNode(x: 3)
 let n4 = TreeNode(x: 4)
 let n5 = TreeNode(x: 5)
-// 노드 사이의 참조(포인터)를 설정한다
+// 노드 사이의 참조(포인터)를 연결한다
 n1.left = n2
 n1.right = n3
 n2.left = n4
@@ -269,7 +269,7 @@ let n1 = new TreeNode(1),
     n3 = new TreeNode(3),
     n4 = new TreeNode(4),
     n5 = new TreeNode(5);
-// 노드 사이의 참조(포인터)를 설정한다
+// 노드 사이의 참조(포인터)를 연결한다
 n1.left = n2;
 n1.right = n3;
 n2.left = n4;
@@ -284,7 +284,7 @@ let n1 = new TreeNode(1),
     n3 = new TreeNode(3),
     n4 = new TreeNode(4),
     n5 = new TreeNode(5);
-// 노드 사이의 참조(포인터)를 설정한다
+// 노드 사이의 참조(포인터)를 연결한다
 n1.left = n2;
 n1.right = n3;
 n2.left = n4;
@@ -299,7 +299,7 @@ TreeNode n2 = TreeNode(2);
 TreeNode n3 = TreeNode(3);
 TreeNode n4 = TreeNode(4);
 TreeNode n5 = TreeNode(5);
-// 노드 사이의 참조(포인터)를 설정한다
+// 노드 사이의 참조(포인터)를 연결한다
 n1.left = n2;
 n1.right = n3;
 n2.left = n4;
@@ -314,7 +314,7 @@ let n2 = TreeNode::new(2);
 let n3 = TreeNode::new(3);
 let n4 = TreeNode::new(4);
 let n5 = TreeNode::new(5);
-// 노드 사이의 참조(포인터)를 설정한다
+// 노드 사이의 참조(포인터)를 연결한다
 n1.borrow_mut().left = Some(Rc::clone(&n2));
 n1.borrow_mut().right = Some(Rc::clone(&n3));
 n2.borrow_mut().left = Some(Rc::clone(&n4));
@@ -329,7 +329,7 @@ TreeNode *n2 = newTreeNode(2);
 TreeNode *n3 = newTreeNode(3);
 TreeNode *n4 = newTreeNode(4);
 TreeNode *n5 = newTreeNode(5);
-// 노드 사이의 참조(포인터)를 설정한다
+// 노드 사이의 참조(포인터)를 연결한다
 n1->left = n2;
 n1->right = n3;
 n2->left = n4;
@@ -344,7 +344,7 @@ val n2 = TreeNode(2)
 val n3 = TreeNode(3)
 val n4 = TreeNode(4)
 val n5 = TreeNode(5)
-// 노드 사이의 참조(포인터)를 설정한다
+// 노드 사이의 참조(포인터)를 연결한다
 n1.left = n2
 n1.right = n3
 n2.left = n4
@@ -359,7 +359,7 @@ n2 = TreeNode.new(2)
 n3 = TreeNode.new(3)
 n4 = TreeNode.new(4)
 n5 = TreeNode.new(5)
-# 노드 사이의 참조(포인터)를 설정한다
+# 노드 사이의 참조(포인터)를 연결한다
 n1.left = n2
 n1.right = n3
 n2.left = n4
@@ -367,7 +367,7 @@ n2.right = n5
 ```
 
 <!-- [tutor]{init_binary_tree_tutor} -->
-https://pythontutor.com/render.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%EC%9D%B4%EC%A7%84%20%ED%8A%B8%EB%A6%AC%20%EB%85%B8%EB%93%9C%20%ED%81%B4%EB%9E%98%EC%8A%A4%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%92%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%EC%99%BC%EC%AA%BD%20%EC%9E%90%EC%8B%9D%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%EC%98%A4%EB%A5%B8%EC%AA%BD%20%EC%9E%90%EC%8B%9D%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EC%9D%B4%EC%A7%84%20%ED%8A%B8%EB%A6%AC%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EC%82%AC%EC%9D%B4%EC%9D%98%20%EC%B0%B8%EC%A1%B0%28%ED%8F%AC%EC%9D%B8%ED%84%B0%29%20%EC%97%B0%EA%B2%B0%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%EC%9D%B4%EC%A7%84%20%ED%8A%B8%EB%A6%AC%EC%9D%98%20%EB%85%B8%EB%93%9C%20%ED%81%B4%EB%9E%98%EC%8A%A4%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%92%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%EC%99%BC%EC%AA%BD%20%EC%9E%90%EC%8B%9D%20%EB%85%B8%EB%93%9C%EC%97%90%20%EB%8C%80%ED%95%9C%20%EC%B0%B8%EC%A1%B0%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%EC%98%A4%EB%A5%B8%EC%AA%BD%20%EC%9E%90%EC%8B%9D%20%EB%85%B8%EB%93%9C%EC%97%90%20%EB%8C%80%ED%95%9C%20%EC%B0%B8%EC%A1%B0%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EC%9D%B4%EC%A7%84%20%ED%8A%B8%EB%A6%AC%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%EC%B0%B8%EC%A1%B0%28%ED%8F%AC%EC%9D%B8%ED%84%B0%29%EB%A1%9C%20%EB%85%B8%EB%93%9C%20%EC%97%B0%EA%B2%B0%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 <!-- [snippet]{insert_remove_node} -->
 ```python title="binary_tree.py"
@@ -376,7 +376,7 @@ P = TreeNode(0)
 # n1 -> n2 사이에 노드 P를 삽입한다
 n1.left = P
 P.left = n2
-# 노드 P를 삭제한다
+# 노드 P 삭제
 n1.left = n2
 ```
 
@@ -386,7 +386,7 @@ TreeNode *P = new TreeNode(0);
 // n1 -> n2 사이에 노드 P를 삽입한다
 n1->left = P;
 P->left = n2;
-// 노드 P를 삭제한다
+// 노드 P 삭제
 n1->left = n2;
 delete P; // 메모리 해제
 ```
@@ -397,7 +397,7 @@ TreeNode P = new TreeNode(0);
 // n1 -> n2 사이에 노드 P를 삽입한다
 n1.left = P;
 P.left = n2;
-// 노드 P를 삭제한다
+// 노드 P 삭제
 n1.left = n2;
 ```
 
@@ -407,7 +407,7 @@ TreeNode P = new(0);
 // n1 -> n2 사이에 노드 P를 삽입한다
 n1.left = P;
 P.left = n2;
-// 노드 P를 삭제한다
+// 노드 P 삭제
 n1.left = n2;
 ```
 
@@ -417,7 +417,7 @@ n1.left = n2;
 p := NewTreeNode(0)
 n1.Left = p
 p.Left = n2
-// 노드 P를 삭제한다
+// 노드 P 삭제
 n1.Left = n2
 ```
 
@@ -427,7 +427,7 @@ let P = TreeNode(x: 0)
 // n1 -> n2 사이에 노드 P를 삽입한다
 n1.left = P
 P.left = n2
-// 노드 P를 삭제한다
+// 노드 P 삭제
 n1.left = n2
 ```
 
@@ -437,7 +437,7 @@ const P = new TreeNode(0);
 // n1 -> n2 사이에 노드 P를 삽입한다
 n1.left = P;
 P.left = n2;
-// 노드 P를 삭제한다
+// 노드 P 삭제
 n1.left = n2;
 ```
 
@@ -447,7 +447,7 @@ const P = new TreeNode(0);
 // n1 -> n2 사이에 노드 P를 삽입한다
 n1.left = P;
 P.left = n2;
-// 노드 P를 삭제한다
+// 노드 P 삭제
 n1.left = n2;
 ```
 
@@ -457,7 +457,7 @@ TreeNode p = TreeNode(0);
 // n1 -> n2 사이에 노드 P를 삽입한다
 n1.left = p;
 p.left = n2;
-// 노드 P를 삭제한다
+// 노드 P 삭제
 n1.left = n2;
 ```
 
@@ -467,7 +467,7 @@ let p = TreeNode::new(0);
 // n1 -> n2 사이에 노드 P를 삽입한다
 p.borrow_mut().left = Some(Rc::clone(&n2));
 n1.borrow_mut().left = Some(Rc::clone(&p));
-// 노드 P를 삭제한다
+// 노드 P 삭제
 drop(p);
 n1.borrow_mut().left = Some(Rc::clone(&n2));
 ```
@@ -478,7 +478,7 @@ TreeNode *P = newTreeNode(0);
 // n1 -> n2 사이에 노드 P를 삽입한다
 n1->left = P;
 P->left = n2;
-// 노드 P를 삭제한다
+// 노드 P 삭제
 n1->left = n2;
 // 메모리 해제
 free(P);
@@ -490,7 +490,7 @@ val P = TreeNode(0)
 // n1 -> n2 사이에 노드 P를 삽입한다
 n1.left = P
 P.left = n2
-// 노드 P를 삭제한다
+// 노드 P 삭제
 n1.left = n2
 ```
 
@@ -505,4 +505,4 @@ n1.left = n2
 ```
 
 <!-- [tutor]{insert_remove_node_tutor} -->
-https://pythontutor.com/render.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%EC%9D%B4%EC%A7%84%20%ED%8A%B8%EB%A6%AC%20%EB%85%B8%EB%93%9C%20%ED%81%B4%EB%9E%98%EC%8A%A4%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%92%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%EC%99%BC%EC%AA%BD%20%EC%9E%90%EC%8B%9D%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%EC%98%A4%EB%A5%B8%EC%AA%BD%20%EC%9E%90%EC%8B%9D%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EC%9D%B4%EC%A7%84%20%ED%8A%B8%EB%A6%AC%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EC%82%AC%EC%9D%B4%EC%9D%98%20%EC%B0%B8%EC%A1%B0%28%ED%8F%AC%EC%9D%B8%ED%84%B0%29%20%EC%97%B0%EA%B2%B0%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5%0A%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EC%82%BD%EC%9E%85%EA%B3%BC%20%EC%82%AD%EC%A0%9C%0A%20%20%20%20P%20%3D%20TreeNode%280%29%0A%20%20%20%20%23%20n1%20-%3E%20n2%20%EC%82%AC%EC%9D%B4%EC%97%90%20%EB%85%B8%EB%93%9C%20P%20%EC%82%BD%EC%9E%85%0A%20%20%20%20n1.left%20%3D%20P%0A%20%20%20%20P.left%20%3D%20n2%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20P%20%EC%82%AD%EC%A0%9C%0A%20%20%20%20n1.left%20%3D%20n2&cumulative=false&curInstr=37&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%EC%9D%B4%EC%A7%84%20%ED%8A%B8%EB%A6%AC%EC%9D%98%20%EB%85%B8%EB%93%9C%20%ED%81%B4%EB%9E%98%EC%8A%A4%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%92%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%EC%99%BC%EC%AA%BD%20%EC%9E%90%EC%8B%9D%20%EB%85%B8%EB%93%9C%EC%97%90%20%EB%8C%80%ED%95%9C%20%EC%B0%B8%EC%A1%B0%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%EC%98%A4%EB%A5%B8%EC%AA%BD%20%EC%9E%90%EC%8B%9D%20%EB%85%B8%EB%93%9C%EC%97%90%20%EB%8C%80%ED%95%9C%20%EC%B0%B8%EC%A1%B0%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EC%9D%B4%EC%A7%84%20%ED%8A%B8%EB%A6%AC%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%EC%B0%B8%EC%A1%B0%28%ED%8F%AC%EC%9D%B8%ED%84%B0%29%EB%A1%9C%20%EB%85%B8%EB%93%9C%20%EC%97%B0%EA%B2%B0%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5%0A%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EC%82%BD%EC%9E%85%EA%B3%BC%20%EC%82%AD%EC%A0%9C%0A%20%20%20%20P%20%3D%20TreeNode%280%29%0A%20%20%20%20%23%20n1%20-%3E%20n2%EC%97%90%EC%84%9C%20%EB%91%90%20%EB%85%B8%EB%93%9C%20%EC%82%AC%EC%9D%B4%EC%97%90%20%EB%85%B8%EB%93%9C%20P%20%EC%82%BD%EC%9E%85%0A%20%20%20%20n1.left%20%3D%20P%0A%20%20%20%20P.left%20%3D%20n2%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20P%20%EC%82%AD%EC%A0%9C%0A%20%20%20%20n1.left%20%3D%20n2&cumulative=false&curInstr=37&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false

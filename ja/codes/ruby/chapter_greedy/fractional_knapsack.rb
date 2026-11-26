@@ -15,37 +15,37 @@ class Item
   end
 end
 
-### 分割可能ナップサック問題：貪欲法 ###
+### 分割可能ナップサック（貪欲法） ###
 def fractional_knapsack(wgt, val, cap)
-  # 重さと価値の 2 つの属性を持つ品物のリストを作成する
+  # 重さと価値の 2 つの属性を持つ品物のリストを作る
   items = wgt.each_with_index.map { |w, i| Item.new(w, val[i]) }
-  # 単位重さ当たりの価値 item.v / item.w の降順にソートする
+  # 単位重量あたりの価値 item.v / item.w の降順にソートする
   items.sort! { |a, b| (b.v.to_f / b.w) <=> (a.v.to_f / a.w) }
-  # 貪欲な選択を繰り返す
+  # 貪欲選択を繰り返す
   res = 0
   for item in items
     if item.w <= cap
-      # 残り容量が十分なら、現在の品物を丸ごとナップサックに入れる
+      # 残り容量が十分なら、現在の品物を丸ごと入れる
       res += item.v
       cap -= item.w
     else
-      # 残り容量が不足している場合、現在の品物の一部をナップサックに入れる
+      # 残り容量が足りなければ、現在の品物の一部を入れる
       res += (item.v.to_f / item.w) * cap
-      # 残り容量がないため、ループを終了する
+      # 残り容量がないためループを抜ける
       break
     end
   end
   res
 end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   wgt = [10, 20, 30, 40, 50]
   val = [50, 120, 150, 210, 240]
   cap = 50
   n = wgt.length
 
-  # 貪欲アルゴリズム
+  # 貪欲法
   res = fractional_knapsack(wgt, val, cap)
-  puts "ナップサックの容量を超えない品物の最大価値は #{res}"
+  puts "容量内で得られる品物の合計価値の最大値は #{res}"
 end

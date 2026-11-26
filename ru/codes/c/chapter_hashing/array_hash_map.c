@@ -9,13 +9,13 @@
 /* Размер хеш-таблицы по умолчанию */
 #define MAX_SIZE 100
 
-/* Пара ключ-значение int->string */
+/* Пара «ключ — значение» типа int->string */
 typedef struct {
     int key;
     char *val;
 } Pair;
 
-/* Набор пар ключ-значение */
+/* Набор пар «ключ — значение» */
 typedef struct {
     void *set;
     int len;
@@ -52,7 +52,7 @@ int hashFunc(int key) {
     return index;
 }
 
-/* Операция поиска */
+/* Поиск */
 const char *get(const ArrayHashMap *hmap, const int key) {
     int index = hashFunc(key);
     const Pair *Pair = hmap->buckets[index];
@@ -61,7 +61,7 @@ const char *get(const ArrayHashMap *hmap, const int key) {
     return Pair->val;
 }
 
-/* Операция добавления */
+/* Вставка */
 void put(ArrayHashMap *hmap, const int key, const char *val) {
     Pair *pair = malloc(sizeof(Pair));
     pair->key = key;
@@ -72,7 +72,7 @@ void put(ArrayHashMap *hmap, const int key, const char *val) {
     hmap->buckets[index] = pair;
 }
 
-/* Операция удаления */
+/* Удаление */
 void removeItem(ArrayHashMap *hmap, const int key) {
     int index = hashFunc(key);
     free(hmap->buckets[index]->val);
@@ -80,12 +80,12 @@ void removeItem(ArrayHashMap *hmap, const int key) {
     hmap->buckets[index] = NULL;
 }
 
-/* Получить все пары ключ-значение */
+/* Получить все пары «ключ — значение» */
 void pairSet(ArrayHashMap *hmap, MapSet *set) {
     Pair *entries;
     int i = 0, index = 0;
     int total = 0;
-    /* Подсчитать число действительных пар ключ-значение */
+    /* Подсчитать число действующих пар */
     for (i = 0; i < MAX_SIZE; i++) {
         if (hmap->buckets[i] != NULL) {
             total++;
@@ -109,7 +109,7 @@ void keySet(ArrayHashMap *hmap, MapSet *set) {
     int *keys;
     int i = 0, index = 0;
     int total = 0;
-    /* Подсчитать число действительных пар ключ-значение */
+    /* Подсчитать число действующих пар */
     for (i = 0; i < MAX_SIZE; i++) {
         if (hmap->buckets[i] != NULL) {
             total++;
@@ -131,7 +131,7 @@ void valueSet(ArrayHashMap *hmap, MapSet *set) {
     char **vals;
     int i = 0, index = 0;
     int total = 0;
-    /* Подсчитать число действительных пар ключ-значение */
+    /* Подсчитать число действующих пар */
     for (i = 0; i < MAX_SIZE; i++) {
         if (hmap->buckets[i] != NULL) {
             total++;
@@ -160,43 +160,43 @@ void print(ArrayHashMap *hmap) {
     free(set.set);
 }
 
-/* Driver Code */
+/* Демонстрационный код */
 int main() {
-    /* Инициализация хеш-таблицы */
+    /* Создать хеш-таблицу */
     ArrayHashMap *hmap = newArrayHashMap();
 
-    /* Операция добавления */
-    // Добавить пару (key, value) в хеш-таблицу
+    /* Вставка */
+    // Добавить в таблицу пару (key, value)
     put(hmap, 12836, "Сяо Ха");
     put(hmap, 15937, "Сяо Ло");
     put(hmap, 16750, "Сяо Суань");
     put(hmap, 13276, "Сяо Фа");
     put(hmap, 10583, "Сяо Я");
-    printf("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение\n");
+    printf("\nХеш-таблица после вставки:\nКлюч -> Значение\n");
     print(hmap);
 
-    /* Операция поиска */
-    // Ввести в хеш-таблицу ключ key и получить значение value
+    /* Поиск */
+    // Получить из таблицы значение value по ключу key
     const char *name = get(hmap, 15937);
-    printf("\nДля студенческого номера 15937 найдено имя %s\n", name);
+    printf("\nИмя студента с номером 15937: %s\n", name);
 
-    /* Операция удаления */
-    // Удалить пару (key, value) из хеш-таблицы
+    /* Удаление */
+    // Удалить из таблицы пару (key, value)
     removeItem(hmap, 10583);
-    printf("\nПосле удаления 10583 хеш-таблица имеет вид\nКлюч -> Значение\n");
+    printf("\nХеш-таблица после удаления 10583:\nКлюч -> Значение\n");
     print(hmap);
 
     /* Обход хеш-таблицы */
     int i;
 
-    printf("\nОтдельный обход пар ключ-значение\n");
+    printf("\nОбход пар «ключ -> значение»\n");
     print(hmap);
 
     MapSet set;
 
     keySet(hmap, &set);
     int *keys = (int *)set.set;
-    printf("\nОтдельный обход ключей\n");
+    printf("\nОбход только ключей\n");
     for (i = 0; i < set.len; i++) {
         printf("%d\n", keys[i]);
     }
@@ -204,7 +204,7 @@ int main() {
 
     valueSet(hmap, &set);
     char **vals = (char **)set.set;
-    printf("\nОбход только значений Value\n");
+    printf("\nОбход только значений\n");
     for (i = 0; i < set.len; i++) {
         printf("%s\n", vals[i]);
     }

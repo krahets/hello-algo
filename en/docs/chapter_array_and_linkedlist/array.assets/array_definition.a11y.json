@@ -1,20 +1,19 @@
 {
-  "schema_version": 2,
-  "title": "Array elements, indices, and memory addresses",
-  "summary": "An array locates elements using 0-based indices, storing all elements contiguously in memory in equal-sized slots.",
   "context": [],
   "description": [
-    "The left side lists the array, indices, and memory addresses; in the second row of the grid on the right, 5 contiguous green cells represent the memory allocated to the array, while the remaining light gray cells represent free memory."
+    "The left side lists the array, indices, and memory addresses. In the grid on the right, five consecutive green cells in the second row show the space allocated to the array. The other cells, in light gray, show available space."
   ],
-  "result": "An index is an element's ordinal position in the array, the element value is the data stored at that position, and the memory address is the starting number of its storage unit; the three are distinct concepts.",
   "frames": [
     {
-      "id": "source-46",
       "book_path": "chapter_array_and_linkedlist/array.assets/array_definition.png",
-      "title": "Array elements, indices, and memory addresses",
-      "explanation": "In this example, each element occupies 4 bytes, so the starting addresses of adjacent elements always differ by 4. The leading 0 in an address only pads the width and does not indicate octal notation."
+      "explanation": "Each element in this example occupies 4 bytes, so adjacent elements have starting addresses exactly 4 apart. Leading zeros align the addresses to the same width and do not indicate octal notation.",
+      "id": "source-46",
+      "title": "Array elements, indices, and addresses"
     }
   ],
+  "result": "The index gives an element's position in the array, the value is the data stored there, and the memory address identifies the start of its storage.",
+  "schema_version": 2,
+  "summary": "An array uses indices starting at 0 to locate its elements. The elements occupy consecutive, equally sized regions of memory.",
   "tables": [
     {
       "caption": "Positions and memory addresses of the five elements",
@@ -23,6 +22,7 @@
         "Element value",
         "Starting memory address"
       ],
+      "row_header": 0,
       "rows": [
         [
           "0",
@@ -49,8 +49,8 @@
           "4",
           "16"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Array elements, indices, and addresses"
 }

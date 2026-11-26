@@ -7,18 +7,18 @@
 namespace hello_algo.chapter_searching;
 
 public class hashing_search {
-    /* Hash-based search (array) */
+    /* Hash lookup in an array */
     int HashingSearchArray(Dictionary<int, int> map, int target) {
-        // Hash table key: target element; value: index
-        // Return -1 if the hash table does not contain this key
+        // Hash table key: target element, value: index
+        // Return -1 if the key is absent
         return map.GetValueOrDefault(target, -1);
     }
 
-    /* Hash-based search (linked list) */
+    /* Hash lookup in a linked list */
     ListNode? HashingSearchLinkedList(Dictionary<int, ListNode> map, int target) {
 
-        // Hash table key: target node value; value: node object
-        // Return null if the hash table does not contain this key
+        // Hash table key: target node value, value: node object
+        // Return null if the key is absent
         return map.GetValueOrDefault(target);
     }
 
@@ -26,25 +26,25 @@ public class hashing_search {
     public void Test() {
         int target = 3;
 
-        /* Hash-based search (array) */
+        /* Hash lookup in an array */
         int[] nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
         // Initialize the hash table
         Dictionary<int, int> map = [];
         for (int i = 0; i < nums.Length; i++) {
-            map[nums[i]] = i;  // key: element; value: index
+            map[nums[i]] = i;  // key: element, value: index
         }
         int index = HashingSearchArray(map, target);
-        Console.WriteLine("Index of target element 3 = " + index);
+        Console.WriteLine("Index of target 3 = " + index);
 
-        /* Hash-based search (linked list) */
+        /* Hash lookup in a linked list */
         ListNode? head = ListNode.ArrToLinkedList(nums);
         // Initialize the hash table
         Dictionary<int, ListNode> map1 = [];
         while (head != null) {
-            map1[head.val] = head;  // key: node value; value: node
+            map1[head.val] = head;  // key: node value, value: node
             head = head.next;
         }
         ListNode? node = HashingSearchLinkedList(map1, target);
-        Console.WriteLine("The node object corresponding to target value 3 is " + node);
+        Console.WriteLine("Node object for target value 3 = " + node);
     }
 }

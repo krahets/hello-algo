@@ -17,23 +17,23 @@ public class TreeNode {
         height = 0
     }
 
-    // Правила кодирования сериализации см.:
-    // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-    // Представление двоичного дерева массивом:
+    // Правила кодирования при сериализации описаны здесь:
+    // https://www.hello-algo.com/ru/chapter_tree/array_representation_of_tree/
+    // Двоичное дерево в виде массива:
     // [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
-    // Представление двоичного дерева связным списком:
-    // /——— 15
-    // /——— 7
-    // /——— 3
-    // |    \——— 6
-    // |        \——— 12
+    // Двоичное дерево в виде связанных узлов:
+    //             /——— 15
+    //         /——— 7
+    //     /——— 3
+    //    |    \——— 6
+    //    |        \——— 12
     // ——— 1
-    // \——— 2
-    // |    /——— 9
-    // \——— 4
-    // \——— 8
+    //     \——— 2
+    //        |    /——— 9
+    //         \——— 4
+    //             \——— 8
 
-    /* Десериализовать список в двоичное дерево: рекурсия */
+    /* Рекурсивно восстановить двоичное дерево из списка */
     private static func listToTreeDFS(arr: [Int?], i: Int) -> TreeNode? {
         if i < 0 || i >= arr.count || arr[i] == nil {
             return nil
@@ -44,12 +44,12 @@ public class TreeNode {
         return root
     }
 
-    /* Десериализовать список в двоичное дерево */
+    /* Восстановить двоичное дерево из списка */
     public static func listToTree(arr: [Int?]) -> TreeNode? {
         listToTreeDFS(arr: arr, i: 0)
     }
 
-    /* Сериализовать двоичное дерево в список: рекурсия */
+    /* Рекурсивно сериализовать двоичное дерево в список */
     private static func treeToListDFS(root: TreeNode?, i: Int, res: inout [Int?]) {
         if root == nil {
             return

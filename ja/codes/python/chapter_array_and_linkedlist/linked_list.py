@@ -19,7 +19,7 @@ def insert(n0: ListNode, P: ListNode):
 
 
 def remove(n0: ListNode):
-    """連結リストのノード n0 の直後のノードを削除する"""
+    """連結リストのノード n0 の直後にあるノードを削除する"""
     if not n0.next:
         return
     # n0 -> P -> n1
@@ -38,7 +38,7 @@ def access(head: ListNode, index: int) -> ListNode | None:
 
 
 def find(head: ListNode, target: int) -> int:
-    """連結リストから値が target である最初のノードを探索する"""
+    """連結リストから値が target の最初のノードを探す"""
     index = 0
     while head:
         if head.val == target:
@@ -48,7 +48,7 @@ def find(head: ListNode, target: int) -> int:
     return -1
 
 
-"""実行用コード"""
+"""Driver Code"""
 if __name__ == "__main__":
     # 連結リストを初期化する
     # 各ノードを初期化する
@@ -62,24 +62,24 @@ if __name__ == "__main__":
     n1.next = n2
     n2.next = n3
     n3.next = n4
-    print("初期化した連結リスト")
+    print("初期化した連結リスト：")
     print_linked_list(n0)
 
     # ノードを挿入する
     p = ListNode(0)
     insert(n0, p)
-    print("ノードを挿入した後の連結リスト")
+    print("ノード挿入後の連結リスト：")
     print_linked_list(n0)
 
     # ノードを削除する
     remove(n0)
-    print("ノードを削除した後の連結リスト")
+    print("ノード削除後の連結リスト：")
     print_linked_list(n0)
 
     # ノードにアクセスする
     node: ListNode = access(n0, 3)
     print("連結リストのインデックス 3 にあるノードの値 = {}".format(node.val))
 
-    # ノードを探索する
+    # ノードを探す
     index: int = find(n0, 2)
-    print("連結リスト内で値が 2 であるノードのインデックス = {}".format(index))
+    print("連結リストで値が 2 のノードのインデックス = {}".format(index))

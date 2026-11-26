@@ -4,7 +4,7 @@ Created Time: 2024-03-18
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### 連結リストのノードクラス ###
+### 連結リストのノードを表すクラス ###
 class ListNode
   attr_accessor :val  # ノードの値
   attr_accessor :next # 次のノードへの参照
@@ -15,7 +15,7 @@ class ListNode
   end
 end
 
-### リストをデシリアライズして連結リストにする ###
+### リストをデシリアライズして連結リストを復元する ###
 def arr_to_linked_list(arr)
   head = current = ListNode.new(arr[0])
 
@@ -27,7 +27,7 @@ def arr_to_linked_list(arr)
   head
 end
 
-### 連結リストをシリアライズしてリストにする ###
+### 連結リストをリストにシリアライズする ###
 def linked_list_to_arr(head)
   arr = []
 

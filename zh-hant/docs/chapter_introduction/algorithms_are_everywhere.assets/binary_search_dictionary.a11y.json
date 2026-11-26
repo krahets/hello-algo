@@ -1,0 +1,78 @@
+{
+  "animations": {
+    "dictionary-search": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "frame_id": "source-10",
+          "id": "step-1"
+        },
+        {
+          "frame_id": "source-11",
+          "id": "step-2"
+        },
+        {
+          "frame_id": "source-12",
+          "id": "step-3"
+        },
+        {
+          "frame_id": "source-13",
+          "id": "step-4"
+        },
+        {
+          "frame_id": "source-14",
+          "id": "step-5"
+        }
+      ]
+    }
+  },
+  "context": [],
+  "description": [
+    "每個畫面都由左至右排列 a 到 z 共 26 個字母方塊。綠色表示仍在搜尋範圍內，青色標出目標 r，淺灰色表示已排除。第 2 到第 5 個畫面中，標示「頁數的一半處」的箭頭由下往上指向目前翻到的字母。"
+  ],
+  "frames": [
+    {
+      "announcement": "我們要找的是拼音以 r 開頭的字。初始搜尋範圍涵蓋依序排列的 a 到 z 全部 26 個字母。",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step1.png",
+      "explanation": "一開始還沒翻頁，搜尋範圍涵蓋 a 到 z 全部 26 個字母。目標字母 r 為青色，其餘 25 個字母為綠色。",
+      "id": "source-10",
+      "key_state": "第 1 步的初始狀態：搜尋範圍是 a 到 z 的所有字母，目標是找出拼音以 r 開頭的字。",
+      "title": "第 1 步：確認查字目標與初始範圍"
+    },
+    {
+      "announcement": "翻到字典頁數約一半處，看到拼音首字母 m。因為 r 排在 m 後面，便排除前半部的 a 到 m，搜尋範圍縮小為 n 到 z。",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step2.png",
+      "explanation": "第一次翻到全書頁數約一半處，箭頭指向 m。因為 r 排在 m 後面，便排除 a 到 m，這些字母變為淺灰色。剩下的 n 到 z 保持彩色，目標 r 為青色。",
+      "id": "source-11",
+      "key_state": "第 2 步：翻到頁數約一半處，看到 m。因為 r 排在 m 後面，排除 a 到 m，剩餘範圍是 n 到 z。",
+      "title": "第 2 步：翻到中間的字母 m，排除前半部"
+    },
+    {
+      "announcement": "翻到剩餘頁數的一半處，看到拼音首字母 t。因為 r 排在 t 前面，排除後半部的 t 到 z，搜尋範圍縮小為 n 到 s。",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step3.png",
+      "explanation": "翻到剩餘範圍 n 到 z 的中間，箭頭指向 t。因為 r 排在 t 前面，排除 t 到 z。此時左側的 a 到 m、右側的 t 到 z 都為淺灰色，只有 n 到 s 保持彩色，其中 r 為青色。",
+      "id": "source-12",
+      "key_state": "翻到剩餘範圍 n 到 z 的中間，看到 t。因為 r 排在 t 前面，排除 t 到 z。目前範圍是 n 到 s，左側的 a 到 m 和右側的 t 到 z 都已排除。",
+      "title": "第 3 步：翻到剩餘範圍中間的字母 t，排除後半部"
+    },
+    {
+      "announcement": "翻到剩餘頁數的一半處，看到拼音首字母 p。因為 r 排在 p 後面，排除前半部的 n 到 p，搜尋範圍僅剩 q、r、s。",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step4.png",
+      "explanation": "翻到剩餘範圍 n 到 s 的中間，箭頭指向 p。因為 r 排在 p 後面，排除 n 到 p。此時左側的 a 到 p、右側的 t 到 z 都為淺灰色，只有 q、r、s 保持彩色：q、s 為綠色，r 為青色。",
+      "id": "source-13",
+      "key_state": "翻到剩餘範圍 n 到 s 的中間，看到 p。因為 r 排在 p 後面，排除 n 到 p。目前僅剩 q、r、s，左側的 a 到 p 和右側的 t 到 z 都已排除。",
+      "title": "第 4 步：翻到剩餘範圍中間的字母 p，再次排除前半部"
+    },
+    {
+      "announcement": "翻到剩餘範圍 q、r、s 的中間，正好看到目標首字母 r，查字典的任務完成。",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step5.png",
+      "explanation": "翻到剩下的 q、r、s 中間，箭頭指向目標 r。找到了拼音以 r 開頭的字，任務完成。這是第 5 步，也是第 4 次翻頁。畫面仍以綠色標示 q、s，以青色標示 r，表示這次翻頁前的範圍；a 到 p 和 t 到 z 仍為淺灰色。",
+      "id": "source-14",
+      "key_state": "第 5 步完成搜尋：翻到剩餘範圍 q、r、s 的中間，找到目標字母 r。",
+      "title": "第 5 步：翻到中間的字母 r，完成搜尋"
+    }
+  ],
+  "schema_version": 2,
+  "summary": "在依拼音字母順序排列的字典中，找出任意一個拼音以 r 開頭的字。全圖共有 5 個畫面：第 1 步說明初始範圍，第 2 到第 5 步各翻一次頁。",
+  "title": "用二分搜尋法查字典"
+}

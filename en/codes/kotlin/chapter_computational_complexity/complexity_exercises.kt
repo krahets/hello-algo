@@ -6,7 +6,7 @@
 
 package chapter_computational_complexity.complexity_exercises
 
-/* Sum using iteration */
+/* Iterative sum */
 fun sumIter(n: Int): Int {
     var res = 0
     for (i in 1..n) {
@@ -15,7 +15,7 @@ fun sumIter(n: Int): Int {
     return res
 }
 
-/* Sum using recursion */
+/* Recursive sum */
 fun sumRecur(n: Int): Int {
     if (n == 1) {
         return 1

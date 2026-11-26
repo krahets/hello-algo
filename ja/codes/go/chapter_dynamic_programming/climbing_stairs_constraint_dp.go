@@ -4,7 +4,7 @@
 
 package chapter_dynamic_programming
 
-/* 制約付きの階段の上り方：動的計画法 */
+/* 制約付きの階段の登り方：動的計画法 */
 func climbingStairsConstraintDP(n int) int {
 	if n == 1 || n == 2 {
 		return 1

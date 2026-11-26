@@ -19,7 +19,7 @@ class Trunk {
 };
 
 public class PrintUtil {
-    /* Print a matrix (array) */
+    /* Print an array-based matrix */
     public static <T> void printMatrix(T[][] matrix) {
         System.out.println("[");
         for (T[] row : matrix) {
@@ -28,7 +28,7 @@ public class PrintUtil {
         System.out.println("]");
     }
 
-    /* Print a matrix (list) */
+    /* Print a list-based matrix */
     public static <T> void printMatrix(List<List<T>> matrix) {
         System.out.println("[");
         for (List<T> row : matrix) {
@@ -54,7 +54,7 @@ public class PrintUtil {
 
     /**
      * Print a binary tree
-     * This tree printer is borrowed from TECHIE DELIGHT
+     * This tree printer comes from Techie Delight
      * https://www.techiedelight.com/c-program-print-binary-tree/
      */
     public static void printTree(TreeNode root, Trunk prev, boolean isRight) {
@@ -97,7 +97,7 @@ public class PrintUtil {
         System.out.print(p.str);
     }
 
-    /* Print the hash table */
+    /* Print a hash table */
     public static <K, V> void printHashMap(Map<K, V> map) {
         for (Map.Entry<K, V> kv : map.entrySet()) {
             System.out.println(kv.getKey() + " -> " + kv.getValue());
@@ -107,7 +107,7 @@ public class PrintUtil {
     /* Print a heap (priority queue) */
     public static void printHeap(Queue<Integer> queue) {
         List<Integer> list = new ArrayList<>(queue);
-        System.out.print("Array representation of the heap:");
+        System.out.print("Array representation of the heap: ");
         System.out.println(list);
         System.out.println("Tree representation of the heap:");
         TreeNode root = TreeNode.listToTree(list);

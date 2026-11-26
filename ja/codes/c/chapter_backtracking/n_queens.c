@@ -8,10 +8,10 @@
 
 #define MAX_SIZE 100
 
-/* バックトラッキング：n クイーン */
+/* バックトラッキングによる n クイーン問題 */
 void backtrack(int row, int n, char state[MAX_SIZE][MAX_SIZE], char ***res, int *resSize, bool cols[MAX_SIZE],
                bool diags1[2 * MAX_SIZE - 1], bool diags2[2 * MAX_SIZE - 1]) {
-    // すべての行への配置が終わったら、解を記録する
+    // すべての行に置いたら解を記録する
     if (row == n) {
         res[*resSize] = (char **)malloc(sizeof(char *) * n);
         for (int i = 0; i < n; ++i) {
@@ -21,19 +21,19 @@ void backtrack(int row, int n, char state[MAX_SIZE][MAX_SIZE], char ***res, int 
         (*resSize)++;
         return;
     }
-    // すべての列を走査する
+    // すべての列を調べる
     for (int col = 0; col < n; col++) {
-        // このマスに対応する主対角線と副対角線を求める
+        // このマスを通る主対角線と副対角線を求める
         int diag1 = row - col + n - 1;
         int diag2 = row + col;
         // 枝刈り：このマスと同じ列、主対角線、副対角線にクイーンがあってはならない
         if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-            // 試行：このマスにクイーンを配置する
+            // 試行：このマスにクイーンを置く
             state[row][col] = 'Q';
             cols[col] = diags1[diag1] = diags2[diag2] = true;
-            // 次の行に配置する
+            // 次の行に置く
             backtrack(row + 1, n, state, res, resSize, cols, diags1, diags2);
-            // 復元：このマスを空きマスに戻す
+            // 後戻り：このマスを空きに戻す
             state[row][col] = '#';
             cols[col] = diags1[diag1] = diags2[diag2] = false;
         }
@@ -50,9 +50,9 @@ char ***nQueens(int n, int *returnSize) {
         }
         state[i][n] = '\0';
     }
-    bool cols[MAX_SIZE] = {false};           // 列にクイーンがあるかどうかを記録する
-    bool diags1[2 * MAX_SIZE - 1] = {false}; // 主対角線にクイーンがあるかどうかを記録する
-    bool diags2[2 * MAX_SIZE - 1] = {false}; // 副対角線にクイーンがあるかどうかを記録する
+    bool cols[MAX_SIZE] = {false};           // 各列にクイーンがあるか記録する
+    bool diags1[2 * MAX_SIZE - 1] = {false}; // 各主対角線にクイーンがあるか記録する
+    bool diags2[2 * MAX_SIZE - 1] = {false}; // 各副対角線にクイーンがあるか記録する
 
     char ***res = (char ***)malloc(sizeof(char **) * MAX_SIZE);
     *returnSize = 0;
@@ -60,14 +60,14 @@ char ***nQueens(int n, int *returnSize) {
     return res;
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     int n = 4;
     int returnSize;
     char ***res = nQueens(n, &returnSize);
 
-    printf("入力した盤面の縦横の長さは%d\n", n);
-    printf("クイーンの配置方法は全部で %d 通り\n", returnSize);
+    printf("盤面の一辺の長さ：%d\n", n);
+    printf("クイーンの配置は全部で %d 通り\n", returnSize);
     for (int i = 0; i < returnSize; ++i) {
         for (int j = 0; j < n; ++j) {
             printf("[");

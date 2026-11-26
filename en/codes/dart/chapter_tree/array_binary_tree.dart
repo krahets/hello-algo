@@ -7,38 +7,38 @@
 import '../utils/print_util.dart';
 import '../utils/tree_node.dart';
 
-/* Binary tree class using an array representation */
+/* Array-based binary tree class */
 class ArrayBinaryTree {
   late List<int?> _tree;
 
   /* Constructor */
   ArrayBinaryTree(this._tree);
 
-  /* Array length, including empty positions */
+  /* List capacity */
   int size() {
     return _tree.length;
   }
 
   /* Get the value of the node at index i */
   int? val(int i) {
-    // If the index is out of bounds, return null to indicate an empty position
+    // If the index is out of bounds, return null to indicate an empty slot
     if (i < 0 || i >= size()) {
       return null;
     }
     return _tree[i];
   }
 
-  /* Get the left child index of the node at index i */
+  /* Get the index of the left child of the node at index i */
   int? left(int i) {
     return 2 * i + 1;
   }
 
-  /* Get the right child index of the node at index i */
+  /* Get the index of the right child of the node at index i */
   int? right(int i) {
     return 2 * i + 2;
   }
 
-  /* Get the parent index of the node at index i */
+  /* Get the index of the parent of the node at index i */
   int? parent(int i) {
     return (i - 1) ~/ 2;
   }
@@ -56,7 +56,7 @@ class ArrayBinaryTree {
 
   /* Depth-first traversal */
   void dfs(int i, String order, List<int?> res) {
-    // Return if this position is empty
+    // Return if the slot is empty
     if (val(i) == null) {
       return;
     }
@@ -101,7 +101,7 @@ class ArrayBinaryTree {
 /* Driver code */
 void main() {
   // Initialize the binary tree
-  // Use a helper function that builds a binary tree directly from an array
+  // Use a function that builds a binary tree directly from an array
   List<int?> arr = [
     1,
     2,
@@ -122,12 +122,12 @@ void main() {
 
   TreeNode? root = listToTree(arr);
   print("\nInitialize the binary tree\n");
-  print("Array representation of the binary tree:");
+  print("Array representation of the binary tree: ");
   print(arr);
-  print("Linked representation of the binary tree:");
+  print("Linked representation of the binary tree: ");
   printTree(root);
 
-  // Binary tree class using an array representation
+  // Array-based binary tree class
   ArrayBinaryTree abt = ArrayBinaryTree(arr);
 
   // Access a node
@@ -135,10 +135,10 @@ void main() {
   int? l = abt.left(i);
   int? r = abt.right(i);
   int? p = abt.parent(i);
-  print("\nCurrent node: index = $i, value = ${abt.val(i)}");
-  print("Left child: index = $l, value = ${(l == null ? "null" : abt.val(l))}");
-  print("Right child: index = $r, value = ${(r == null ? "null" : abt.val(r))}");
-  print("Parent: index = $p, value = ${(p == null ? "null" : abt.val(p))}");
+  print("\nCurrent node: index $i, value ${abt.val(i)}");
+  print("Left child: index $l, value ${(l == null ? "null" : abt.val(l))}");
+  print("Right child: index $r, value ${(r == null ? "null" : abt.val(r))}");
+  print("Parent: index $p, value ${(p == null ? "null" : abt.val(p))}");
 
   // Traverse the tree
   List<int?> res = abt.levelOrder();

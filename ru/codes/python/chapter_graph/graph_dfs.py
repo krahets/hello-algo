@@ -14,22 +14,22 @@ from graph_adjacency_list import GraphAdjList
 
 def dfs(graph: GraphAdjList, visited: set[Vertex], res: list[Vertex], vet: Vertex):
     """Вспомогательная функция обхода в глубину"""
-    res.append(vet)  # Отметить посещенную вершину
-    visited.add(vet)  # Отметить эту вершину как посещенную
-    # Обойти все смежные вершины данной вершины
+    res.append(vet)  # Записать посещённую вершину
+    visited.add(vet)  # Отметить вершину как посещённую
+    # Перебрать всех соседей этой вершины
     for adjVet in graph.adj_list[vet]:
         if adjVet in visited:
-            continue  # Пропустить уже посещенную вершину
-        # Рекурсивно обходить смежные вершины
+            continue  # Пропустить посещённые вершины
+        # Рекурсивно посетить соседнюю вершину
         dfs(graph, visited, res, adjVet)
 
 
 def graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
     """Обход в глубину"""
-    # Использовать список смежности для представления графа, чтобы получать все смежные вершины заданной вершины
-    # Последовательность обхода вершин
+    # Список смежности позволяет получить всех соседей заданной вершины
+    # Порядок обхода вершин
     res = []
-    # Хеш-множество для хранения уже посещенных вершин
+    # Хеш-множество посещённых вершин
     visited = set[Vertex]()
     dfs(graph, visited, res, start_vet)
     return res
@@ -37,7 +37,7 @@ def graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Инициализация неориентированного графа
+    # Инициализировать неориентированный граф
     v = vals_to_vets([0, 1, 2, 3, 4, 5, 6])
     edges = [
         [v[0], v[1]],
@@ -48,10 +48,10 @@ if __name__ == "__main__":
         [v[5], v[6]],
     ]
     graph = GraphAdjList(edges)
-    print("\nГраф после инициализации")
+    print("\nГраф после инициализации:")
     graph.print()
 
     # Обход в глубину
     res = graph_dfs(graph, v[0])
-    print("\nПоследовательность вершин при обходе в глубину (DFS)")
+    print("\nПорядок обхода вершин в глубину (DFS):")
     print(vets_to_vals(res))

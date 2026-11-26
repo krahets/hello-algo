@@ -8,23 +8,23 @@ package chapter_dynamic_programming
 
 import kotlin.math.min
 
-/* 爬樓梯最小代價：動態規劃 */
+/* 爬樓梯的最低成本：動態規劃 */
 fun minCostClimbingStairsDP(cost: IntArray): Int {
     val n = cost.size - 1
     if (n == 1 || n == 2) return cost[n]
-    // 初始化 dp 表，用於儲存子問題的解
+    // 初始化 dp 表，用來儲存子問題的解
     val dp = IntArray(n + 1)
-    // 初始狀態：預設最小子問題的解
+    // 初始狀態：設定最小子問題的解
     dp[1] = cost[1]
     dp[2] = cost[2]
-    // 狀態轉移：從較小子問題逐步求解較大子問題
+    // 狀態轉移：從較小的子問題逐步求出較大子問題的解
     for (i in 3..n) {
         dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i]
     }
     return dp[n]
 }
 
-/* 爬樓梯最小代價：空間最佳化後的動態規劃 */
+/* 爬樓梯的最低成本：空間最佳化後的動態規劃 */
 fun minCostClimbingStairsDPComp(cost: IntArray): Int {
     val n = cost.size - 1
     if (n == 1 || n == 2) return cost[n]
@@ -38,14 +38,14 @@ fun minCostClimbingStairsDPComp(cost: IntArray): Int {
     return b
 }
 
-/* Driver Code */
+/* 主程式 */
 fun main() {
     val cost = intArrayOf(0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1)
-    println("輸入樓梯的代價串列為 ${cost.contentToString()}")
+    println("輸入的各階樓梯成本為 ${cost.contentToString()}")
 
     var res = minCostClimbingStairsDP(cost)
-    println("爬完樓梯的最低代價為 $res")
+    println("爬完樓梯的最低成本為 $res")
 
     res = minCostClimbingStairsDPComp(cost)
-    println("爬完樓梯的最低代價為 $res")
+    println("爬完樓梯的最低成本為 $res")
 }

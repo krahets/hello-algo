@@ -8,19 +8,19 @@ Author: krahets (krahets@163.com)
 def selection_sort(nums: list[int]):
     """선택 정렬"""
     n = len(nums)
-    # 바깥쪽 반복문: 정렬되지 않은 구간은 [i, n-1]이다
+    # 바깥 루프: 미정렬 구간은 [i, n-1]
     for i in range(n - 1):
-        # 안쪽 반복문: 정렬되지 않은 구간의 최솟값을 찾는다
+        # 안쪽 루프: 미정렬 구간에서 최솟값 찾기
         k = i
         for j in range(i + 1, n):
             if nums[j] < nums[k]:
-                k = j  # 최솟값의 인덱스를 기록한다
-        # 이 최솟값과 정렬되지 않은 구간의 첫 원소를 교환한다
+                k = j  # 최솟값의 인덱스 기록
+        # 최솟값과 미정렬 구간의 첫 원소 교환
         nums[i], nums[k] = nums[k], nums[i]
 
 
-"""실행 코드"""
+"""Driver Code"""
 if __name__ == "__main__":
     nums = [4, 1, 3, 1, 5, 2]
     selection_sort(nums)
-    print("선택 정렬을 마친 후 nums =", nums)
+    print("선택 정렬 후 nums =", nums)

@@ -6,7 +6,7 @@ Author: krahets (krahets@163.com)
 
 
 def climbing_stairs_constraint_dp(n: int) -> int:
-    """制約付きの階段の上り方：動的計画法"""
+    """制約付きの階段の登り方：動的計画法"""
     if n == 1 or n == 2:
         return 1
     # 部分問題の解を格納する dp テーブルを初期化する
@@ -21,9 +21,9 @@ def climbing_stairs_constraint_dp(n: int) -> int:
     return dp[n][1] + dp[n][2]
 
 
-"""実行用コード"""
+"""Driver Code"""
 if __name__ == "__main__":
     n = 9
 
     res = climbing_stairs_constraint_dp(n)
-    print(f"{n} 段の階段を上る方法は全部で {res} 通り")
+    print(f"全 {n} 段の階段の登り方は {res} 通り")

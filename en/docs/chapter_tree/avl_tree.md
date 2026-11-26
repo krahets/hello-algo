@@ -1,38 +1,38 @@
 # AVL trees *
 
-The binary-search-tree section explained that repeated insertions and deletions can make a tree degenerate into a linked list. All operations then degrade from $O(\log n)$ to $O(n)$ time.
+As we saw in the section on binary search trees, repeated insertions and deletions can turn a binary search tree into a linked list. When that happens, the time complexity of each operation worsens from $O(\log n)$ to $O(n)$.
 
-In the example below, just two deletions turn the binary search tree into a linked list.
+In the figure below, just two deletions turn the binary search tree into a linked list.
 
-![An AVL-tree example degenerating after deletions](avl_tree.assets/avltree_degradation_from_removing_node.svg)
+![An AVL tree degenerates after node deletions](avl_tree.assets/avltree_degradation_from_removing_node.svg)
 
-Likewise, inserting two nodes into the perfect binary tree below makes it heavily skewed to the left, degrading lookup performance.
+Similarly, inserting two nodes into the perfect binary tree below makes it lean heavily to the left, worsening the time complexity of search.
 
-![An AVL-tree example degenerating after insertions](avl_tree.assets/avltree_degradation_from_inserting_node.svg)
+![An AVL tree degenerates after node insertions](avl_tree.assets/avltree_degradation_from_inserting_node.svg)
 
-In 1962, G. M. Adelson-Velsky and E. M. Landis introduced the <u>AVL tree</u> in their paper “An algorithm for the organization of information.” They described operations that prevent degeneration through repeated insertions and deletions, keeping the time complexity of operations at $O(\log n)$. AVL trees therefore maintain efficient data operations when insertions, deletions, lookups, and updates are frequent, making them valuable in practice.
+In 1962, G. M. Adelson-Velsky and E. M. Landis introduced the <u>AVL tree</u> in their paper “An algorithm for the organization of information.” They described operations that prevent the tree from degenerating under repeated insertions and deletions, keeping its operations at $O(\log n)$ time. This makes AVL trees useful when data must be inserted, deleted, searched, and updated frequently.
 
 ## AVL tree terminology
 
-An AVL tree is both a binary search tree and a balanced binary tree, satisfying the properties of both. It is therefore a <u>balanced binary search tree</u>.
+An AVL tree is both a binary search tree and a balanced binary tree. It satisfies all the properties of both, making it a <u>balanced binary search tree</u>.
 
 ### Node height
 
-AVL operations need node heights, so add a `height` variable to the node class:
+AVL operations need the heights of nodes, so we add a `height` variable to the node class:
 
 ```snippet
 avl_tree_node
 ```
 
-A node's height is the distance to its farthest leaf, measured in edges. A leaf has height $0$, while a missing node has height $-1$. We create two helper functions to retrieve and update a node's height:
+A node's height is the distance to its farthest leaf, measured in edges. A leaf has height $0$, and a null node has height $-1$. We will define two helper functions, one to get a node's height and one to update it:
 
 ```src
 [file]{avl_tree}-[class]{avl_tree}-[func]{update_height}
 ```
 
-### Balance factor
+### Node balance factor
 
-A node's <u>balance factor</u> is its left subtree's height minus its right subtree's height. A missing node has balance factor $0$. Wrap this calculation in a function for convenient use:
+A node's <u>balance factor</u> is the height of its left subtree minus the height of its right subtree. We define the balance factor of a null node to be $0$. For convenience, we put this calculation in a function too:
 
 ```src
 [file]{avl_tree}-[class]{avl_tree}-[func]{balance_factor}
@@ -40,20 +40,20 @@ A node's <u>balance factor</u> is its left subtree's height minus its right subt
 
 !!! tip
 
-    If a node's balance factor is $f$, every node in an AVL tree satisfies $-1 \le f \le 1$.
+    If $f$ denotes the balance factor, every node in an AVL tree satisfies $-1 \le f \le 1$.
 
 ## AVL tree rotations
 
-The defining operation of an AVL tree is rotation, which restores balance without changing the inorder traversal sequence. **A rotation preserves the binary-search-tree property while restoring the balanced-tree property**.
+The defining operation of an AVL tree is the rotation. It restores balance at a node without changing the inorder sequence of the tree. In other words, **rotation preserves the binary search tree property while bringing the tree back into balance**.
 
-A node whose balance factor has absolute value $> 1$ is “unbalanced.” Depending on the imbalance, we use one of four rotations: right, left, right-then-left, or left-then-right. Let us examine them in detail.
+A node is unbalanced if the absolute value of its balance factor is $> 1$. Depending on the shape of the imbalance, we use one of four rotations: right, left, right-left, or left-right. Let's look at each in turn.
 
-### Right rotation
+### Rotate right
 
-In the figure below, balance factors appear beneath the nodes. Viewed from the bottom up, node 3 is the first unbalanced node. Focus on the subtree rooted there, naming its root `node` and its left child `child`. A right rotation restores balance while preserving the binary-search-tree property.
+In the figure below, each node's balance factor appears beneath it. Working from the bottom up, node 3 is the first unbalanced node. Focus on the subtree rooted there. Call that node `node` and its left child `child`, and perform a right rotation. The subtree regains balance and still satisfies the binary search tree property.
 
 === "<1>"
-    ![Steps of a right rotation](avl_tree.assets/avltree_right_rotate_step1.svg)
+    ![Steps in a right rotation](avl_tree.assets/avltree_right_rotate_step1.svg)
 
 === "<2>"
     ![avltree_right_rotate_step2](avl_tree.assets/avltree_right_rotate_step2.svg)
@@ -64,62 +64,62 @@ In the figure below, balance factors appear beneath the nodes. Viewed from the b
 === "<4>"
     ![avltree_right_rotate_step4](avl_tree.assets/avltree_right_rotate_step4.svg)
 
-If `child` has a right child, denoted by `grand_child`, add one step to the rotation: make `grand_child` the left child of `node`, as shown below.
+As shown below, if `child` has a right child (called `grand_child`), the right rotation needs one more step: make `grand_child` the left child of `node`.
 
-![A right rotation with grand_child](avl_tree.assets/avltree_right_rotate_with_grandchild.svg)
+![Right rotation with grand_child](avl_tree.assets/avltree_right_rotate_with_grandchild.svg)
 
-“Rotating right” is a visual description; the implementation updates node pointers:
+“Rotate right” describes what the movement looks like. To implement it, we update node pointers as follows:
 
 ```src
 [file]{avl_tree}-[class]{avl_tree}-[func]{right_rotate}
 ```
 
-### Left rotation
+### Rotate left
 
-For the mirror image of the unbalanced tree above, perform a left rotation, as shown below.
+The mirror image of the unbalanced tree above calls for a left rotation, as shown below.
 
-![A left rotation](avl_tree.assets/avltree_left_rotate.svg)
+![Left rotation](avl_tree.assets/avltree_left_rotate.svg)
 
-Similarly, if `child` has a left child, denoted by `grand_child`, make it the right child of `node` during the rotation.
+Similarly, if `child` has a left child (called `grand_child`), the left rotation needs one more step: make `grand_child` the right child of `node`, as shown below.
 
-![A left rotation with grand_child](avl_tree.assets/avltree_left_rotate_with_grandchild.svg)
+![Left rotation with grand_child](avl_tree.assets/avltree_left_rotate_with_grandchild.svg)
 
-**Right and left rotations are mirror images, as are the imbalances they resolve**. To obtain left-rotation code, exchange every `left` and `right` in the right-rotation implementation:
+**Right and left rotations are mirror images of each other, as are the imbalances they correct**. To obtain the code for a left rotation, replace each `left` in the right rotation code with `right` and each `right` with `left`:
 
 ```src
 [file]{avl_tree}-[class]{avl_tree}-[func]{left_rotate}
 ```
 
-### Left-then-right rotation
+### Rotate left, then right
 
-For unbalanced node 3 below, neither a left nor a right rotation alone restores balance. First rotate `child` to the left, then rotate `node` to the right.
+For unbalanced node 3 in the figure below, neither a single left rotation nor a single right rotation will balance the subtree. First rotate `child` to the left, then rotate `node` to the right.
 
-![A left-then-right rotation](avl_tree.assets/avltree_left_right_rotate.svg)
+![Left rotation followed by right rotation](avl_tree.assets/avltree_left_right_rotate.svg)
 
-### Right-then-left rotation
+### Rotate right, then left
 
-For the mirror-image case below, first rotate `child` to the right, then rotate `node` to the left.
+In the mirror image of the preceding case, shown below, first rotate `child` to the right, then rotate `node` to the left.
 
-![A right-then-left rotation](avl_tree.assets/avltree_right_left_rotate.svg)
+![Right rotation followed by left rotation](avl_tree.assets/avltree_right_left_rotate.svg)
 
 ### Choosing a rotation
 
-The four cases below correspond to the examples above and require, respectively, right, left-then-right, right-then-left, and left rotations.
+The four imbalances below correspond to the examples above. From left to right, they require a right rotation, a left-right rotation, a right-left rotation, and a left rotation.
 
-![The four AVL rotation cases](avl_tree.assets/avltree_rotation_cases.svg)
+![Four rotation cases in an AVL tree](avl_tree.assets/avltree_rotation_cases.svg)
 
-As the table below shows, the signs of the unbalanced node's balance factor and that of the child on its taller side determine the case.
+As the table shows, we can identify the case by checking the balance factor of the unbalanced node and the sign of the balance factor of its child on the taller side.
 
-<p align="center"> Table <id> &nbsp; Conditions for choosing a rotation </p>
+<p align="center"> Table <id> &nbsp; Conditions for choosing among the four rotations </p>
 
-| Unbalanced node's balance factor | Child's balance factor | Rotation |
+| Balance factor of the unbalanced node | Balance factor of the child | Rotation to use |
 | ------------------ | ---------------- | ---------------- |
-| $> 1$ (left-heavy)   | $\geq 0$         | Right             |
-| $> 1$ (left-heavy)   | $<0$             | Left, then right     |
-| $< -1$ (right-heavy)  | $\leq 0$         | Left             |
-| $< -1$ (right-heavy)  | $>0$             | Right, then left     |
+| $> 1$ (left-heavy tree)   | $\geq 0$         | Rotate right             |
+| $> 1$ (left-heavy tree)   | $<0$             | Rotate left, then right     |
+| $< -1$ (right-heavy tree)  | $\leq 0$         | Rotate left             |
+| $< -1$ (right-heavy tree)  | $>0$             | Rotate right, then left     |
 
-Wrap the rotation logic in one function. **It can then handle every imbalance and restore the affected node's balance**. The code is as follows:
+For convenience, we put the rotation logic in a function. **This function handles each kind of imbalance and restores balance at the affected node**. Here is the code:
 
 ```src
 [file]{avl_tree}-[class]{avl_tree}-[func]{rotate}
@@ -127,28 +127,28 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
 
 ## Common AVL tree operations
 
-### Inserting a node
+### Insert a node
 
-Insertion largely follows the binary-search-tree procedure. The difference is that inserting a node may unbalance nodes along the path to the root. **Starting at the inserted node, work upward and perform rotations to restore balance at every affected node**:
+Inserting a node into an AVL tree works much like inserting one into a binary search tree. The difference is that after insertion, nodes along the path from the new node to the root may be unbalanced. **Starting at the new node, we work upward and apply rotations to rebalance every affected node**. Here is the code:
 
 ```src
 [file]{avl_tree}-[class]{avl_tree}-[func]{insert_helper}
 ```
 
-### Deleting a node
+### Delete a node
 
-Similarly, extend binary-search-tree deletion with rotations from the bottom up to restore balance at every affected node:
+Similarly, we extend binary search tree deletion by applying rotations from the bottom up to rebalance every affected node. Here is the code:
 
 ```src
 [file]{avl_tree}-[class]{avl_tree}-[func]{remove_helper}
 ```
 
-### Finding a node
+### Search for a node
 
-Lookup is identical to binary-search-tree lookup, so we will not repeat it here.
+Searching an AVL tree works exactly like searching a binary search tree.
 
-## Typical applications
+## Typical applications of AVL trees
 
-- Organizing and storing large datasets, particularly when lookups are frequent and insertions and deletions are less frequent.
-- Building database indexing systems.
-- Red-black trees are another common kind of balanced binary search tree. Their balance requirements are looser than those of AVL trees, so insertion and deletion need fewer rotations and are more efficient on average.
+- Organizing and storing large amounts of data when searches are frequent and insertions and deletions are infrequent.
+- Building database indexes.
+- A red-black tree is another common balanced binary search tree. It has looser balance requirements than an AVL tree, needs fewer rotations for insertions and deletions, and on average performs those operations more efficiently.

@@ -14,7 +14,7 @@ pub fn TreeNode(comptime T: type) type {
         left: ?*Self = null, // Pointer to the left child
         right: ?*Self = null, // Pointer to the right child
 
-        // Initialize a tree node with the specified value
+        // Initialize a tree node with the given value
         pub fn init(self: *Self, x: i32) void {
             self.val = x;
             self.height = 0;

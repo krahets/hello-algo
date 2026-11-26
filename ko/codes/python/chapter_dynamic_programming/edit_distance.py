@@ -16,19 +16,19 @@ def edit_distance_dfs(s: str, t: str, i: int, j: int) -> int:
     # t가 비어 있으면 s의 길이를 반환한다
     if j == 0:
         return i
-    # 두 문자가 같으면 두 문자를 바로 건너뛴다
+    # 두 문자가 같으면 둘 다 건너뛴다
     if s[i - 1] == t[j - 1]:
         return edit_distance_dfs(s, t, i - 1, j - 1)
-    # 최소 편집 횟수 = 삽입, 삭제, 교체 세 연산에 대한 최소 편집 횟수 + 1
+    # 최소 편집 횟수 = 삽입, 삭제, 교체 후 남은 편집 횟수의 최솟값 + 1
     insert = edit_distance_dfs(s, t, i, j - 1)
     delete = edit_distance_dfs(s, t, i - 1, j)
     replace = edit_distance_dfs(s, t, i - 1, j - 1)
-    # 최소 편집 횟수를 반환한다
+    # 최소 편집 횟수 반환
     return min(insert, delete, replace) + 1
 
 
 def edit_distance_dfs_mem(s: str, t: str, mem: list[list[int]], i: int, j: int) -> int:
-    """편집 거리: 메모이제이션을 이용한 탐색"""
+    """편집 거리: 메모이제이션 탐색"""
     # s와 t가 모두 비어 있으면 0을 반환한다
     if i == 0 and j == 0:
         return 0
@@ -38,13 +38,13 @@ def edit_distance_dfs_mem(s: str, t: str, mem: list[list[int]], i: int, j: int) 
     # t가 비어 있으면 s의 길이를 반환한다
     if j == 0:
         return i
-    # 기록이 이미 있으면 해당 값을 바로 반환한다
+    # 기록이 있으면 바로 반환한다
     if mem[i][j] != -1:
         return mem[i][j]
-    # 두 문자가 같으면 두 문자를 바로 건너뛴다
+    # 두 문자가 같으면 둘 다 건너뛴다
     if s[i - 1] == t[j - 1]:
         return edit_distance_dfs_mem(s, t, mem, i - 1, j - 1)
-    # 최소 편집 횟수 = 삽입, 삭제, 교체 세 연산에 대한 최소 편집 횟수 + 1
+    # 최소 편집 횟수 = 삽입, 삭제, 교체 후 남은 편집 횟수의 최솟값 + 1
     insert = edit_distance_dfs_mem(s, t, mem, i, j - 1)
     delete = edit_distance_dfs_mem(s, t, mem, i - 1, j)
     replace = edit_distance_dfs_mem(s, t, mem, i - 1, j - 1)
@@ -57,7 +57,7 @@ def edit_distance_dp(s: str, t: str) -> int:
     """편집 거리: 동적 계획법"""
     n, m = len(s), len(t)
     dp = [[0] * (m + 1) for _ in range(n + 1)]
-    # 상태 전이: 첫 번째 행과 첫 번째 열
+    # 상태 전이: 첫 행과 첫 열
     for i in range(1, n + 1):
         dp[i][0] = i
     for j in range(1, m + 1):
@@ -66,40 +66,40 @@ def edit_distance_dp(s: str, t: str) -> int:
     for i in range(1, n + 1):
         for j in range(1, m + 1):
             if s[i - 1] == t[j - 1]:
-                # 두 문자가 같으면 두 문자를 바로 건너뛴다
+                # 두 문자가 같으면 둘 다 건너뛴다
                 dp[i][j] = dp[i - 1][j - 1]
             else:
-                # 최소 편집 횟수 = 삽입, 삭제, 교체 세 연산에 대한 최소 편집 횟수 + 1
+                # 최소 편집 횟수 = 삽입, 삭제, 교체 후 남은 편집 횟수의 최솟값 + 1
                 dp[i][j] = min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]) + 1
     return dp[n][m]
 
 
 def edit_distance_dp_comp(s: str, t: str) -> int:
-    """편집 거리: 공간을 최적화한 동적 계획법"""
+    """편집 거리: 공간 최적화 동적 계획법"""
     n, m = len(s), len(t)
     dp = [0] * (m + 1)
-    # 상태 전이: 첫 번째 행
+    # 상태 전이: 첫 행
     for j in range(1, m + 1):
         dp[j] = j
     # 상태 전이: 나머지 행
     for i in range(1, n + 1):
-        # 상태 전이: 첫 번째 열
-        leftup = dp[0]  # dp[i-1, j-1]을 임시로 저장한다
+        # 상태 전이: 첫 열
+        leftup = dp[0]  # dp[i-1, j-1] 임시 저장
         dp[0] += 1
         # 상태 전이: 나머지 열
         for j in range(1, m + 1):
             temp = dp[j]
             if s[i - 1] == t[j - 1]:
-                # 두 문자가 같으면 두 문자를 바로 건너뛴다
+                # 두 문자가 같으면 둘 다 건너뛴다
                 dp[j] = leftup
             else:
-                # 최소 편집 횟수 = 삽입, 삭제, 교체 세 연산에 대한 최소 편집 횟수 + 1
+                # 최소 편집 횟수 = 삽입, 삭제, 교체 후 남은 편집 횟수의 최솟값 + 1
                 dp[j] = min(dp[j - 1], dp[j], leftup) + 1
-            leftup = temp  # 다음 반복의 dp[i-1, j-1]로 갱신한다
+            leftup = temp  # 다음 반복에서 쓸 dp[i-1, j-1] 값으로 갱신한다
     return dp[m]
 
 
-"""실행 코드"""
+"""Driver Code"""
 if __name__ == "__main__":
     s = "bag"
     t = "pack"
@@ -107,17 +107,17 @@ if __name__ == "__main__":
 
     # 완전 탐색
     res = edit_distance_dfs(s, t, n, m)
-    print(f"{s} → {t} 변경에 필요한 최소 편집 횟수: {res}")
+    print(f"문자열 {s}에서 {t}까지 최소 편집 횟수는 {res}회")
 
-    # 메모이제이션을 이용한 탐색
+    # 메모이제이션 탐색
     mem = [[-1] * (m + 1) for _ in range(n + 1)]
     res = edit_distance_dfs_mem(s, t, mem, n, m)
-    print(f"{s} → {t} 변경에 필요한 최소 편집 횟수: {res}")
+    print(f"문자열 {s}에서 {t}까지 최소 편집 횟수는 {res}회")
 
     # 동적 계획법
     res = edit_distance_dp(s, t)
-    print(f"{s} → {t} 변경에 필요한 최소 편집 횟수: {res}")
+    print(f"문자열 {s}에서 {t}까지 최소 편집 횟수는 {res}회")
 
-    # 공간을 최적화한 동적 계획법
+    # 공간 최적화 동적 계획법
     res = edit_distance_dp_comp(s, t)
-    print(f"{s} → {t} 변경에 필요한 최소 편집 횟수: {res}")
+    print(f"문자열 {s}에서 {t}까지 최소 편집 횟수는 {res}회")

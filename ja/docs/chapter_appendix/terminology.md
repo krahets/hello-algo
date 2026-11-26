@@ -1,8 +1,8 @@
 # 用語集
 
-下表に、本書に登場する重要な用語を示します。英語の文献を読む際に役立つよう、各用語の英語名も覚えておくことをおすすめします。
+本書に登場する主な用語を下の表にまとめました。英語の文献を読むときに役立つので、それぞれの用語を英語で何と呼ぶかも覚えておきましょう。
 
-<p align="center"> 表 <id> &nbsp; データ構造とアルゴリズムの重要用語 </p>
+<p align="center"> 表 <id> &nbsp; データ構造とアルゴリズムの主な用語 </p>
 
 | English                        | 日本語       |
 | ------------------------------ | -------------- |
@@ -13,7 +13,7 @@
 | function                       | 関数           |
 | method                         | メソッド           |
 | variable                       | 変数           |
-| asymptotic complexity analysis | 漸近計算量解析 |
+| asymptotic complexity analysis | 計算量の漸近解析 |
 | time complexity                | 時間計算量     |
 | space complexity               | 空間計算量     |
 | loop                           | ループ           |
@@ -22,10 +22,10 @@
 | tail recursion                 | 末尾再帰         |
 | recursion tree                 | 再帰木         |
 | big-$O$ notation               | ビッグ $O$ 記法    |
-| asymptotic upper bound         | 漸近上界       |
+| asymptotic upper bound         | 漸近的上界       |
 | sign-magnitude                 | 符号絶対値表現           |
-| 1’s complement                 | 1 の補数表現           |
-| 2’s complement                 | 2 の補数表現           |
+| 1’s complement                 | 1 の補数           |
+| 2’s complement                 | 2 の補数           |
 | array                          | 配列           |
 | index                          | インデックス           |
 | linked list                    | 連結リスト           |
@@ -35,26 +35,26 @@
 | list                           | リスト           |
 | dynamic array                  | 動的配列       |
 | hard disk                      | ハードディスク           |
-| random-access memory (RAM)     | メモリ           |
-| cache memory                   | キャッシュ           |
+| random-access memory (RAM)     | 主記憶           |
+| cache memory                   | キャッシュメモリ           |
 | cache miss                     | キャッシュミス     |
 | cache hit rate                 | キャッシュヒット率     |
 | stack                          | スタック             |
-| top of the stack               | スタックの先頭           |
+| top of the stack               | スタックのトップ           |
 | bottom of the stack            | スタックの底           |
 | queue                          | キュー           |
 | double-ended queue             | 両端キュー       |
 | front of the queue             | キューの先頭           |
 | rear of the queue              | キューの末尾           |
-| hash table                     | ハッシュテーブル         |
-| hash set                       | ハッシュ集合       |
+| hash table                     | ハッシュ表（ハッシュテーブル）         |
+| hash set                       | ハッシュ集合（ハッシュセット）       |
 | bucket                         | バケット             |
 | hash function                  | ハッシュ関数       |
 | hash collision                 | ハッシュ衝突       |
 | load factor                    | 負荷率       |
 | separate chaining              | チェイン法       |
 | open addressing                | オープンアドレス法       |
-| linear probing                 | 線形探索法       |
+| linear probing                 | 線形探索法（線形プロービング）       |
 | lazy deletion                  | 遅延削除         |
 | binary tree                    | 二分木         |
 | tree node                      | 木のノード         |
@@ -70,9 +70,9 @@
 | degree                         | 次数             |
 | height                         | 高さ           |
 | depth                          | 深さ           |
-| perfect binary tree            | パーフェクト二分木     |
+| perfect binary tree            | 完璧二分木（パーフェクト二分木）     |
 | complete binary tree           | 完全二分木     |
-| full binary tree               | 全二分木     |
+| full binary tree               | 正二分木     |
 | balanced binary tree           | 平衡二分木     |
 | binary search tree             | 二分探索木     |
 | AVL tree                       | AVL 木         |
@@ -90,7 +90,7 @@
 | min heap                       | 最小ヒープ         |
 | priority queue                 | 優先度付きキュー       |
 | heapify                        | ヒープ化           |
-| top-$k$ problem                | Top-$k$ 問題   |
+| top-$k$ problem                | Top-k 問題   |
 | graph                          | グラフ             |
 | vertex                         | 頂点           |
 | undirected graph               | 無向グラフ         |
@@ -116,21 +116,21 @@
 | merge sort                     | マージソート       |
 | heap sort                      | ヒープソート         |
 | bucket sort                    | バケットソート         |
-| counting sort                  | カウントソート       |
+| counting sort                  | カウントソート（計数ソート）       |
 | radix sort                     | 基数ソート       |
-| divide and conquer             | 分割統治           |
+| divide and conquer             | 分割統治法           |
 | hanota problem                 | ハノイの塔の問題     |
-| backtracking algorithm         | バックトラッキングアルゴリズム       |
+| backtracking algorithm         | バックトラッキング法       |
 | constraint                     | 制約           |
 | solution                       | 解             |
 | state                          | 状態           |
 | pruning                        | 枝刈り           |
-| permutations problem           | 順列列挙問題     |
-| subset-sum problem             | 部分集合和問題     |
+| permutations problem           | 全順列の列挙問題     |
+| subset-sum problem             | 部分和問題     |
 | $n$-queens problem             | $n$ クイーン問題   |
 | dynamic programming            | 動的計画法       |
 | initial state                  | 初期状態       |
 | state-transition equation      | 状態遷移式   |
 | knapsack problem               | ナップサック問題       |
 | edit distance problem          | 編集距離問題   |
-| greedy algorithm               | 貪欲アルゴリズム       |
+| greedy algorithm               | 貪欲法       |

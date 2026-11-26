@@ -6,12 +6,12 @@
 
 #include "../utils/common.hpp"
 
-/* Driver Code */
+/* 範例程式 */
 int main() {
     /* 初始化佇列 */
     queue<int> queue;
 
-    /* 元素入列 */
+    /* 將元素加入佇列 */
     queue.push(1);
     queue.push(3);
     queue.push(2);
@@ -20,16 +20,16 @@ int main() {
     cout << "佇列 queue = ";
     printQueue(queue);
 
-    /* 訪問佇列首元素 */
+    /* 讀取隊首元素 */
     int front = queue.front();
-    cout << "佇列首元素 front = " << front << endl;
+    cout << "隊首元素 front = " << front << endl;
 
-    /* 元素出列 */
+    /* 從佇列移除元素 */
     queue.pop();
-    cout << "出列元素 front = " << front << "，出列後 queue = ";
+    cout << "出隊元素 front = " << front << "，出隊後 queue = ";
     printQueue(queue);
 
-    /* 獲取佇列的長度 */
+    /* 取得佇列長度 */
     int size = queue.size();
     cout << "佇列長度 size = " << size << endl;
 

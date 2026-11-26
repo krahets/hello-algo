@@ -10,30 +10,30 @@ import java.util.*;
 import utils.*;
 
 public class graph_bfs {
-    /* 幅優先走査 */
-    // 指定した頂点に隣接する全頂点を取得しやすいように、グラフを隣接リストで表す
+    /* 幅優先探索 */
+    // 指定した頂点の隣接頂点をすべて取得できるよう、グラフを隣接リストで表す
     static List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet) {
-        // 頂点の走査順序
+        // 頂点の訪問順
         List<Vertex> res = new ArrayList<>();
         // 訪問済みの頂点を記録するハッシュ集合
         Set<Vertex> visited = new HashSet<>();
         visited.add(startVet);
-        // BFS の実装にキューを使う
+        // BFS にキューを使う
         Queue<Vertex> que = new LinkedList<>();
         que.offer(startVet);
-        // 頂点 vet を始点として、すべての頂点を訪問するまで繰り返す
+        // 頂点 vet から開始し、すべての頂点を訪問するまで繰り返す
         while (!que.isEmpty()) {
-            Vertex vet = que.poll(); // キューの先頭の頂点をデキューする
+            Vertex vet = que.poll(); // キューの先頭から頂点を取り出す
             res.add(vet);            // 訪問した頂点を記録する
-            // この頂点に隣接する全頂点を走査する
+            // この頂点の隣接頂点をすべて調べる
             for (Vertex adjVet : graph.adjList.get(vet)) {
                 if (visited.contains(adjVet))
-                    continue;        // 訪問済みの頂点をスキップする
-                que.offer(adjVet);   // 未訪問の頂点だけをエンキューする
+                    continue;        // 訪問済みの頂点を飛ばす
+                que.offer(adjVet);   // 未訪問の頂点だけをキューに追加する
                 visited.add(adjVet); // この頂点を訪問済みにする
             }
         }
-        // 頂点の走査順序を返す
+        // 頂点を訪問順に返す
         return res;
     }
 
@@ -44,12 +44,12 @@ public class graph_bfs {
                              { v[2], v[5] }, { v[3], v[4] }, { v[3], v[6] }, { v[4], v[5] },
                              { v[4], v[7] }, { v[5], v[8] }, { v[6], v[7] }, { v[7], v[8] } };
         GraphAdjList graph = new GraphAdjList(edges);
-        System.out.println("\n初期化後のグラフ");
+        System.out.println("\n初期化後のグラフ：");
         graph.print();
 
-        /* 幅優先走査 */
+        /* 幅優先探索 */
         List<Vertex> res = graphBFS(graph, v[0]);
-        System.out.println("\n幅優先走査（BFS）の頂点の順序");
+        System.out.println("\n幅優先探索（BFS）での頂点の訪問順：");
         System.out.println(Vertex.vetsToVals(res));
     }
 }

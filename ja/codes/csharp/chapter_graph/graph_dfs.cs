@@ -7,24 +7,24 @@
 namespace hello_algo.chapter_graph;
 
 public class graph_dfs {
-    /* 深さ優先走査の補助関数 */
+    /* 深さ優先探索の補助関数 */
     void DFS(GraphAdjList graph, HashSet<Vertex> visited, List<Vertex> res, Vertex vet) {
         res.Add(vet);     // 訪問した頂点を記録する
         visited.Add(vet); // この頂点を訪問済みにする
-        // この頂点に隣接する全頂点を走査する
+        // この頂点の隣接頂点をすべて調べる
         foreach (Vertex adjVet in graph.adjList[vet]) {
             if (visited.Contains(adjVet)) {
-                continue; // 訪問済みの頂点をスキップする                             
+                continue; // 訪問済みの頂点を飛ばす                             
             }
-            // 隣接する頂点を再帰的に訪問する
+            // 隣接頂点を再帰的に訪問する
             DFS(graph, visited, res, adjVet);
         }
     }
 
-    /* 深さ優先走査 */
-    // 指定した頂点に隣接する全頂点を取得しやすいように、グラフを隣接リストで表す
+    /* 深さ優先探索 */
+    // 指定した頂点の隣接頂点をすべて取得できるよう、グラフを隣接リストで表す
     List<Vertex> GraphDFS(GraphAdjList graph, Vertex startVet) {
-        // 頂点の走査順序
+        // 頂点の訪問順
         List<Vertex> res = [];
         // 訪問済みの頂点を記録するハッシュ集合
         HashSet<Vertex> visited = [];
@@ -43,12 +43,12 @@ public class graph_dfs {
         ];
 
         GraphAdjList graph = new(edges);
-        Console.WriteLine("\n初期化後のグラフ");
+        Console.WriteLine("\n初期化後のグラフ：");
         graph.Print();
 
-        /* 深さ優先走査 */
+        /* 深さ優先探索 */
         List<Vertex> res = GraphDFS(graph, v[0]);
-        Console.WriteLine("\n深さ優先走査（DFS）の頂点の順序");
+        Console.WriteLine("\n深さ優先探索（DFS）での頂点の訪問順：");
         Console.WriteLine(string.Join(" ", Vertex.VetsToVals(res)));
     }
 }

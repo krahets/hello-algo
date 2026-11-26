@@ -4,8 +4,8 @@ services:
     build:
       context: .
       args:
-        # Choose which language environments to install
-        # Separate language names with spaces
+        # List the languages to install, separated by spaces
+        # Set the languages to be installed, separated by spaces
         LANGS: "python cpp java csharp"
     image: hello-algo-code
     container_name: hello-algo-code

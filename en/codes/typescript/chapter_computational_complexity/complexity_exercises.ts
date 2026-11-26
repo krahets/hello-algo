@@ -4,7 +4,7 @@
  * Author: Hello Algo Team
  */
 
-/* Sum using iteration */
+/* Iterative sum */
 function sumIter(n: number): number {
     let res = 0;
     for (let i = 1; i <= n; i++) {
@@ -13,7 +13,7 @@ function sumIter(n: number): number {
     return res;
 }
 
-/* Sum using recursion */
+/* Recursive sum */
 function sumRecur(n: number): number {
     if (n === 1) {
         return 1;
@@ -59,7 +59,7 @@ if (
     logarithmicLoop(4) !== 1 ||
     logarithmicLoop(5) !== 1
 ) {
-    throw new Error('Complexity exercise check failed');
+    throw new Error('complexity exercise check failed');
 }
 
 export {};

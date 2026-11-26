@@ -46,7 +46,7 @@ int rotHash(string key) {
     return (int)hash;
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 int main() {
     string key = "Hello 算法";
 

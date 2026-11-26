@@ -15,12 +15,12 @@ int myMin(int a, int b) {
 int coinChangeDP(int coins[], int amt, int coinsSize) {
     int n = coinsSize;
     int MAX = amt + 1;
-    // dp 테이블을 초기화한다
+    // dp 테이블 초기화
     int **dp = malloc((n + 1) * sizeof(int *));
     for (int i = 0; i <= n; i++) {
         dp[i] = calloc(amt + 1, sizeof(int));
     }
-    // 상태 전이: 첫 번째 행과 첫 번째 열
+    // 상태 전이: 첫 행과 첫 열
     for (int a = 1; a <= amt; a++) {
         dp[0][a] = MAX;
     }
@@ -28,10 +28,10 @@ int coinChangeDP(int coins[], int amt, int coinsSize) {
     for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // 목표 금액을 초과하면 동전 i를 선택하지 않는다
+                // 목표 금액을 넘으면 동전 i를 선택하지 않는다
                 dp[i][a] = dp[i - 1][a];
             } else {
-                // 동전 i를 선택하지 않는 경우와 선택하는 경우 중 더 작은 값
+                // 동전 i를 선택하지 않을 때와 선택할 때 중 작은 값
                 dp[i][a] = myMin(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
             }
         }
@@ -45,11 +45,11 @@ int coinChangeDP(int coins[], int amt, int coinsSize) {
     return res;
 }
 
-/* 동전 교환: 공간을 최적화한 동적 계획법 */
+/* 동전 교환: 공간 최적화 동적 계획법 */
 int coinChangeDPComp(int coins[], int amt, int coinsSize) {
     int n = coinsSize;
     int MAX = amt + 1;
-    // dp 테이블을 초기화한다
+    // dp 테이블 초기화
     int *dp = malloc((amt + 1) * sizeof(int));
     for (int j = 1; j <= amt; j++) {
         dp[j] = MAX;
@@ -60,10 +60,10 @@ int coinChangeDPComp(int coins[], int amt, int coinsSize) {
     for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // 목표 금액을 초과하면 동전 i를 선택하지 않는다
+                // 목표 금액을 넘으면 동전 i를 선택하지 않는다
                 dp[a] = dp[a];
             } else {
-                // 동전 i를 선택하지 않는 경우와 선택하는 경우 중 더 작은 값
+                // 동전 i를 선택하지 않을 때와 선택할 때 중 작은 값
                 dp[a] = myMin(dp[a], dp[a - coins[i - 1]] + 1);
             }
         }
@@ -74,7 +74,7 @@ int coinChangeDPComp(int coins[], int amt, int coinsSize) {
     return res;
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 int main() {
     int coins[] = {1, 2, 5};
     int coinsSize = sizeof(coins) / sizeof(coins[0]);
@@ -82,11 +82,11 @@ int main() {
 
     // 동적 계획법
     int res = coinChangeDP(coins, amt, coinsSize);
-    printf("목표 금액을 만드는 데 필요한 최소 동전 개수는 %d이다\n", res);
+    printf("목표 금액을 만드는 데 필요한 최소 동전 수: %d\n", res);
 
-    // 공간을 최적화한 동적 계획법
+    // 공간 최적화 동적 계획법
     res = coinChangeDPComp(coins, amt, coinsSize);
-    printf("목표 금액을 만드는 데 필요한 최소 동전 개수는 %d이다\n", res);
+    printf("목표 금액을 만드는 데 필요한 최소 동전 수: %d\n", res);
 
     return 0;
 }

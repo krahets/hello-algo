@@ -9,11 +9,11 @@ from collections import deque
 """Driver Code"""
 if __name__ == "__main__":
     # 初始化佇列
-    # 在 Python 中，我們一般將雙向佇列類別 deque 看作佇列使用
-    # 雖然 queue.Queue() 是純正的佇列類別，但不太好用
+    # 在 Python 中，通常用雙端佇列類別 deque 當作一般佇列
+    # 雖然 queue.Queue() 能建立專用佇列類別的實例，但用起來較不方便
     que: deque[int] = deque()
 
-    # 元素入列
+    # 將元素加入佇列
     que.append(1)
     que.append(3)
     que.append(2)
@@ -21,16 +21,16 @@ if __name__ == "__main__":
     que.append(4)
     print("佇列 que =", que)
 
-    # 訪問佇列首元素
+    # 讀取隊首元素
     front: int = que[0]
-    print("佇列首元素 front =", front)
+    print("隊首元素 front =", front)
 
-    # 元素出列
+    # 從佇列取出元素
     pop: int = que.popleft()
-    print("出列元素 pop =", pop)
-    print("出列後 que =", que)
+    print("出隊元素 pop =", pop)
+    print("出隊後 que =", que)
 
-    # 獲取佇列的長度
+    # 取得佇列長度
     size: int = len(que)
     print("佇列長度 size =", size)
 

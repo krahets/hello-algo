@@ -8,7 +8,7 @@ package chapter_graph
 
 import utils.Vertex
 
-/* Depth-first traversal helper function */
+/* Helper for depth-first traversal */
 fun dfs(
     graph: GraphAdjList,
     visited: MutableSet<Vertex?>,
@@ -16,22 +16,22 @@ fun dfs(
     vet: Vertex?
 ) {
     res.add(vet)     // Record the visited vertex
-    visited.add(vet) // Mark this vertex as visited
-    // Traverse all neighbors of this vertex
+    visited.add(vet) // Mark the vertex as visited
+    // Iterate over all neighbors of this vertex
     for (adjVet in graph.adjList[vet]!!) {
         if (visited.contains(adjVet))
-            continue  // Skip vertices that have already been visited
-        // Recursively visit the neighboring vertex
+            continue  // Skip visited vertices
+        // Visit neighbors recursively
         dfs(graph, visited, res, adjVet)
     }
 }
 
 /* Depth-first traversal */
-// Represent the graph with an adjacency list to access all neighbors of a given vertex
+// Represent the graph with an adjacency list to look up all neighbors of a given vertex
 fun graphDFS(graph: GraphAdjList, startVet: Vertex?): MutableList<Vertex?> {
-    // Vertex traversal sequence
+    // Vertex traversal order
     val res = mutableListOf<Vertex?>()
-    // Hash set recording visited vertices
+    // Use a hash set to track visited vertices
     val visited = HashSet<Vertex?>()
     dfs(graph, visited, res, startVet)
     return res
@@ -39,7 +39,7 @@ fun graphDFS(graph: GraphAdjList, startVet: Vertex?): MutableList<Vertex?> {
 
 /* Driver code */
 fun main() {
-    /* Initialize the undirected graph */
+    /* Initialize an undirected graph */
     val v = Vertex.valsToVets(intArrayOf(0, 1, 2, 3, 4, 5, 6))
     val edges = arrayOf(
         arrayOf(v[0], v[1]),
@@ -55,6 +55,6 @@ fun main() {
 
     /* Depth-first traversal */
     val res = graphDFS(graph, v[0])
-    println("\nVertex sequence from depth-first traversal (DFS):")
+    println("\nDepth-first search (DFS) visits the vertices in this order:")
     println(Vertex.vetsToVals(res))
 }

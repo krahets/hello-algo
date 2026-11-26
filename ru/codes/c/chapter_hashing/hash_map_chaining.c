@@ -8,10 +8,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Предположить, что максимальная длина val равна 100
+// Предполагаем, что длина val не превышает 100
 #define MAX_SIZE 100
 
-/* Пара ключ-значение */
+/* Пара «ключ — значение» */
 typedef struct {
     int key;
     char val[MAX_SIZE];
@@ -25,10 +25,10 @@ typedef struct Node {
 
 /* Хеш-таблица с цепочками */
 typedef struct {
-    int size;         // Число пар ключ-значение
-    int capacity;     // Вместимость хеш-таблицы
-    double loadThres; // Порог коэффициента загрузки для запуска расширения
-    int extendRatio;  // Коэффициент расширения
+    int size;         // Число пар «ключ — значение»
+    int capacity;     // Ёмкость хеш-таблицы
+    double loadThres; // Порог коэффициента заполнения для расширения
+    int extendRatio;  // Во сколько раз увеличивается ёмкость
     Node **buckets;   // Массив корзин
 } HashMapChaining;
 
@@ -66,15 +66,15 @@ int hashFunc(HashMapChaining *hashMap, int key) {
     return key % hashMap->capacity;
 }
 
-/* Коэффициент загрузки */
+/* Коэффициент заполнения */
 double loadFactor(HashMapChaining *hashMap) {
     return (double)hashMap->size / (double)hashMap->capacity;
 }
 
-/* Операция поиска */
+/* Поиск */
 char *get(HashMapChaining *hashMap, int key) {
     int index = hashFunc(hashMap, key);
-    // Обойти корзину; если найден key, вернуть соответствующее val
+    // Обойти корзину и при совпадении ключа key вернуть соответствующее значение val
     Node *cur = hashMap->buckets[index];
     while (cur) {
         if (cur->pair->key == key) {
@@ -82,10 +82,10 @@ char *get(HashMapChaining *hashMap, int key) {
         }
         cur = cur->next;
     }
-    return ""; // Если key не найден, вернуть пустую строку
+    return ""; // Если ключ key не найден, вернуть пустую строку
 }
 
-/* Операция добавления */
+/* Вставка */
 void put(HashMapChaining *hashMap, int key, const char *val);
 
 /* Расширить хеш-таблицу */
@@ -93,14 +93,14 @@ void extend(HashMapChaining *hashMap) {
     // Временно сохранить исходную хеш-таблицу
     int oldCapacity = hashMap->capacity;
     Node **oldBuckets = hashMap->buckets;
-    // Инициализация новой хеш-таблицы после расширения
+    // Создать новую таблицу увеличенной ёмкости
     hashMap->capacity *= hashMap->extendRatio;
     hashMap->buckets = (Node **)malloc(hashMap->capacity * sizeof(Node *));
     for (int i = 0; i < hashMap->capacity; i++) {
         hashMap->buckets[i] = NULL;
     }
     hashMap->size = 0;
-    // Перенести пары ключ-значение из исходной хеш-таблицы в новую
+    // Перенести пары из исходной таблицы в новую
     for (int i = 0; i < oldCapacity; i++) {
         Node *cur = oldBuckets[i];
         while (cur) {
@@ -116,23 +116,23 @@ void extend(HashMapChaining *hashMap) {
     free(oldBuckets);
 }
 
-/* Операция добавления */
+/* Вставка */
 void put(HashMapChaining *hashMap, int key, const char *val) {
-    // Когда коэффициент загрузки превышает порог, выполнить расширение
+    // Расширить таблицу, если коэффициент заполнения превысил порог
     if (loadFactor(hashMap) > hashMap->loadThres) {
         extend(hashMap);
     }
     int index = hashFunc(hashMap, key);
-    // Обойти корзину; если встретился указанный key, обновить соответствующее val и вернуть
+    // Обойти корзину. Если найден ключ key, обновить val и завершить операцию
     Node *cur = hashMap->buckets[index];
     while (cur) {
         if (cur->pair->key == key) {
-            strcpy(cur->pair->val, val); // Если встретился указанный key, обновить соответствующий val и вернуть
+            strcpy(cur->pair->val, val); // Если найден ключ key, обновить val и завершить операцию
             return;
         }
         cur = cur->next;
     }
-    // Если такого key нет, добавить пару ключ-значение в голову связного списка
+    // Если ключа key нет, добавить пару в начало списка
     Pair *newPair = (Pair *)malloc(sizeof(Pair));
     newPair->key = key;
     strcpy(newPair->val, val);
@@ -143,14 +143,14 @@ void put(HashMapChaining *hashMap, int key, const char *val) {
     hashMap->size++;
 }
 
-/* Операция удаления */
+/* Удаление */
 void removeItem(HashMapChaining *hashMap, int key) {
     int index = hashFunc(hashMap, key);
     Node *cur = hashMap->buckets[index];
     Node *pre = NULL;
     while (cur) {
         if (cur->pair->key == key) {
-            // Удалить из него пару ключ-значение
+            // Удалить из списка пару «ключ — значение»
             if (pre) {
                 pre->next = cur->next;
             } else {
@@ -180,30 +180,30 @@ void print(HashMapChaining *hashMap) {
     }
 }
 
-/* Driver Code */
+/* Демонстрационный код */
 int main() {
-    /* Инициализация хеш-таблицы */
+    /* Создать хеш-таблицу */
     HashMapChaining *hashMap = newHashMapChaining();
 
-    /* Операция добавления */
-    // Добавить пару (key, value) в хеш-таблицу
+    /* Вставка */
+    // Добавить в таблицу пару (key, value)
     put(hashMap, 12836, "Сяо Ха");
     put(hashMap, 15937, "Сяо Ло");
     put(hashMap, 16750, "Сяо Суань");
     put(hashMap, 13276, "Сяо Фа");
     put(hashMap, 10583, "Сяо Я");
-    printf("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение\n");
+    printf("\nХеш-таблица после вставки:\nКлюч -> Значение\n");
     print(hashMap);
 
-    /* Операция поиска */
-    // Ввести в хеш-таблицу ключ key и получить значение value
+    /* Поиск */
+    // Получить из таблицы значение value по ключу key
     char *name = get(hashMap, 13276);
-    printf("\nДля студенческого номера 13276 найдено имя %s\n", name);
+    printf("\nИмя студента с номером 13276: %s\n", name);
 
-    /* Операция удаления */
-    // Удалить пару (key, value) из хеш-таблицы
+    /* Удаление */
+    // Удалить из таблицы пару (key, value)
     removeItem(hashMap, 12836);
-    printf("\nПосле удаления студенческого номера 12836 хеш-таблица имеет вид\nКлюч -> Значение\n");
+    printf("\nХеш-таблица после удаления студента с номером 12836:\nКлюч -> Значение\n");
     print(hashMap);
 
     /* Освободить память хеш-таблицы */

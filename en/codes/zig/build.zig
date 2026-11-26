@@ -2,10 +2,10 @@
 // Created Time: 2023-01-07
 // Author: codingonion (coderonion@gmail.com), CreatorMetaSky (creator_meta_sky@163.com)
 
-//! Zig Version: 0.14.1
-//! Build Command:          zig build
-//! Run Command:            zig build run | zig build run_*
-//! Test Command:           zig build test | zig build test -Dtest-filter=*
+//! Zig version: 0.14.1
+//! Build command:          zig build
+//! Run command:            zig build run | zig build run_*
+//! Test command:           zig build test | zig build test -Dtest-filter=*
 
 const std = @import("std");
 
@@ -54,7 +54,7 @@ fn buildExeModuleFromChapterDirEntry(
     chapter_dir_entry: std.fs.Dir.Entry,
 ) !*std.Build.Module {
     const zig_file_path = try std.fs.path.join(b.allocator, &[_][]const u8{ chapter_dir_name, chapter_dir_entry.name });
-    const zig_file_name = chapter_dir_entry.name[0 .. chapter_dir_entry.name.len - 4]; // Extract the base name from xxx.zig
+    const zig_file_name = chapter_dir_entry.name[0 .. chapter_dir_entry.name.len - 4]; // Extract the file name without the .zig extension
 
     const exe_mod = b.createModule(.{
         .root_source_file = b.path(zig_file_path),
@@ -113,7 +113,7 @@ fn buildMainExeModule(
         run_cmd.addArgs(args);
     }
 
-    const run_step = b.step("run", "Run all enabled Hello Algo Zig examples");
+    const run_step = b.step("run", "Run all hello algo zig");
     run_step.dependOn(&run_cmd.step);
 }
 

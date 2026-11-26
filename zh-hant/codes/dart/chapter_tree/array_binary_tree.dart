@@ -7,38 +7,38 @@
 import '../utils/print_util.dart';
 import '../utils/tree_node.dart';
 
-/* 陣列表示下的二元樹類別 */
+/* 以陣列表示二元樹的類別 */
 class ArrayBinaryTree {
   late List<int?> _tree;
 
-  /* 建構子 */
+  /* 建構方法 */
   ArrayBinaryTree(this._tree);
 
-  /* 串列容量 */
+  /* 串列長度 */
   int size() {
     return _tree.length;
   }
 
-  /* 獲取索引為 i 節點的值 */
+  /* 取得索引 i 處的節點值 */
   int? val(int i) {
-    // 若索引越界，則返回 null ，代表空位
+    // 若索引超出範圍，回傳 null 表示空位
     if (i < 0 || i >= size()) {
       return null;
     }
     return _tree[i];
   }
 
-  /* 獲取索引為 i 節點的左子節點的索引 */
+  /* 取得索引 i 處節點的左子節點索引 */
   int? left(int i) {
     return 2 * i + 1;
   }
 
-  /* 獲取索引為 i 節點的右子節點的索引 */
+  /* 取得索引 i 處節點的右子節點索引 */
   int? right(int i) {
     return 2 * i + 2;
   }
 
-  /* 獲取索引為 i 節點的父節點的索引 */
+  /* 取得索引 i 處節點的父節點索引 */
   int? parent(int i) {
     return (i - 1) ~/ 2;
   }
@@ -56,7 +56,7 @@ class ArrayBinaryTree {
 
   /* 深度優先走訪 */
   void dfs(int i, String order, List<int?> res) {
-    // 若為空位，則返回
+    // 若為空位，直接返回
     if (val(i) == null) {
       return;
     }
@@ -98,10 +98,10 @@ class ArrayBinaryTree {
   }
 }
 
-/* Driver Code */
+/* 主程式 */
 void main() {
   // 初始化二元樹
-  // 這裡藉助了一個從陣列直接生成二元樹的函式
+  // 這裡使用能從陣列直接建立二元樹的函式
   List<int?> arr = [
     1,
     2,
@@ -122,31 +122,31 @@ void main() {
 
   TreeNode? root = listToTree(arr);
   print("\n初始化二元樹\n");
-  print("二元樹的陣列表示：");
+  print("二元樹的陣列表示法：");
   print(arr);
-  print("二元樹的鏈結串列表示：");
+  print("二元樹的鏈結串列表示法：");
   printTree(root);
 
-  // 陣列表示下的二元樹類別
+  // 以陣列表示二元樹的類別
   ArrayBinaryTree abt = ArrayBinaryTree(arr);
 
-  // 訪問節點
+  // 存取節點
   int i = 1;
   int? l = abt.left(i);
   int? r = abt.right(i);
   int? p = abt.parent(i);
-  print("\n當前節點的索引為 $i ，值為 ${abt.val(i)}");
-  print("其左子節點的索引為 $l ，值為 ${(l == null ? "null" : abt.val(l))}");
-  print("其右子節點的索引為 $r ，值為 ${(r == null ? "null" : abt.val(r))}");
-  print("其父節點的索引為 $p ，值為 ${(p == null ? "null" : abt.val(p))}");
+  print("\n目前節點的索引為 $i，值為 ${abt.val(i)}");
+  print("其左子節點的索引為 $l，值為 ${(l == null ? "null" : abt.val(l))}");
+  print("其右子節點的索引為 $r，值為 ${(r == null ? "null" : abt.val(r))}");
+  print("其父節點的索引為 $p，值為 ${(p == null ? "null" : abt.val(p))}");
 
   // 走訪樹
   List<int?> res = abt.levelOrder();
-  print("\n層序走訪為：$res");
+  print("\n層序走訪的結果：$res");
   res = abt.preOrder();
-  print("前序走訪為 $res");
+  print("前序走訪的結果為 $res");
   res = abt.inOrder();
-  print("中序走訪為 $res");
+  print("中序走訪的結果為 $res");
   res = abt.postOrder();
-  print("後序走訪為 $res");
+  print("後序走訪的結果為 $res");
 }

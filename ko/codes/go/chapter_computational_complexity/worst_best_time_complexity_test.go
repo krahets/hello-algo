@@ -15,6 +15,6 @@ func TestWorstBestTimeComplexity(t *testing.T) {
 		nums := randomNumbers(n)
 		index := findOne(nums)
 		fmt.Println("\n배열 [ 1, 2, ..., n ]을 섞은 결과 =", nums)
-		fmt.Println("숫자 1의 인덱스", index)
+		fmt.Println("숫자 1의 인덱스 =", index)
 	}
 }

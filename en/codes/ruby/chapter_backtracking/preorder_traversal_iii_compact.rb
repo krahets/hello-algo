@@ -12,7 +12,7 @@ def pre_order(root)
   # Prune
   return if !root || root.val == 3
 
-  # Try
+  # Try a choice
   $path.append(root)
 
   # Record the solution
@@ -35,7 +35,7 @@ if __FILE__ == $0
   $path, $res = [], []
   pre_order(root)
 
-  puts "\nOutput all paths from the root to nodes with value 7 that contain no node with value 3"
+  puts "\nPrint all paths from the root to a node with value 7 that avoid nodes with value 3"
   for path in $res
     p path.map { |node| node.val }
   end

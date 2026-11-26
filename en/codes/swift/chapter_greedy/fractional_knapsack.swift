@@ -15,24 +15,24 @@ class Item {
     }
 }
 
-/* Fractional knapsack: greedy algorithm */
+/* Greedy fractional knapsack */
 func fractionalKnapsack(wgt: [Int], val: [Int], cap: Int) -> Double {
-    // Create a list of items, each with two attributes: weight and value
+    // Create a list of items, each with a weight and a value
     var items = zip(wgt, val).map { Item(w: $0, v: $1) }
-    // Sort by value per unit weight, item.v / item.w, in descending order
+    // Sort by value per unit of weight, item.v / item.w, in descending order
     items.sort { -(Double($0.v) / Double($0.w)) < -(Double($1.v) / Double($1.w)) }
-    // Repeatedly make greedy choices
+    // Make greedy choices in a loop
     var res = 0.0
     var cap = cap
     for item in items {
         if item.w <= cap {
-            // If enough capacity remains, put the entire current item in the knapsack
+            // If the whole item fits, put it in the knapsack
             res += Double(item.v)
             cap -= item.w
         } else {
-            // If the remaining capacity is insufficient, put part of the current item in the knapsack
+            // If the whole item does not fit, take a fraction of it
             res += Double(item.v) / Double(item.w) * Double(cap)
-            // No capacity remains, so exit the loop
+            // The knapsack is full, so exit the loop
             break
         }
     }
@@ -52,6 +52,6 @@ enum FractionalKnapsack {
 
         // Greedy algorithm
         let res = fractionalKnapsack(wgt: wgt, val: val, cap: cap)
-        print("Maximum total item value within the knapsack capacity: \(res)")
+        print("The maximum total value within the weight limit is \(res)")
     }
 }

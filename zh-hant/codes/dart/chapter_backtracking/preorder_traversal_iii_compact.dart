@@ -20,16 +20,16 @@ void preOrder(
   // 嘗試
   path.add(root);
   if (root.val == 7) {
-    // 記錄解
+    // 記錄此解
     res.add(List.from(path));
   }
   preOrder(root.left, path, res);
   preOrder(root.right, path, res);
-  // 回退
+  // 回溯
   path.removeLast();
 }
 
-/* Driver Code */
+/* 主程式 */
 void main() {
   TreeNode? root = listToTree([1, 7, 3, 4, 5, 6, 7]);
   print("\n初始化二元樹");
@@ -40,7 +40,7 @@ void main() {
   List<List<TreeNode>> res = [];
   preOrder(root, path, res);
 
-  print("\n輸出所有根節點到節點 7 的路徑");
+  print("\n輸出從根節點到值為 7 的節點的所有路徑");
   for (List<TreeNode> vals in res) {
     print(List.generate(vals.length, (i) => vals[i].val));
   }

@@ -11,7 +11,7 @@ class Vertex {
         this.val = val;
     }
 
-    /* 輸入值串列 vals ，返回頂點串列 vets */
+    /* 傳入數值陣列 vals，回傳頂點陣列 vets */
     public static valsToVets(vals: number[]): Vertex[] {
         const vets: Vertex[] = [];
         for (let i = 0; i < vals.length; i++) {
@@ -20,7 +20,7 @@ class Vertex {
         return vets;
     }
 
-    /* 輸入頂點串列 vets ，返回值串列 vals */
+    /* 傳入頂點陣列 vets，回傳數值陣列 vals */
     public static vetsToVals(vets: Vertex[]): number[] {
         const vals: number[] = [];
         for (const vet of vets) {

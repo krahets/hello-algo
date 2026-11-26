@@ -13,7 +13,7 @@ import (
 
 func TestHashingSearch(t *testing.T) {
 	target := 3
-	/* 雜湊查詢（陣列） */
+	/* 雜湊搜尋（陣列） */
 	nums := []int{1, 5, 3, 2, 4, 7, 5, 9, 10, 8}
 	// 初始化雜湊表
 	m := make(map[int]int)
@@ -23,7 +23,7 @@ func TestHashingSearch(t *testing.T) {
 	index := hashingSearchArray(m, target)
 	fmt.Println("目標元素 3 的索引 = ", index)
 
-	/* 雜湊查詢（鏈結串列） */
+	/* 雜湊搜尋（鏈結串列） */
 	head := ArrayToLinkedList(nums)
 	// 初始化雜湊表
 	m1 := make(map[int]*ListNode)
@@ -32,5 +32,5 @@ func TestHashingSearch(t *testing.T) {
 		head = head.Next
 	}
 	node := hashingSearchLinkedList(m1, target)
-	fmt.Println("目標節點值 3 的對應節點物件為 ", node)
+	fmt.Println("目標值 3 對應的節點物件為 ", node)
 }

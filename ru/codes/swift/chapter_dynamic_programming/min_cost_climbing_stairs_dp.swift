@@ -4,25 +4,25 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Минимальная стоимость подъема по лестнице: динамическое программирование */
+/* Минимальная стоимость подъёма: динамическое программирование */
 func minCostClimbingStairsDP(cost: [Int]) -> Int {
     let n = cost.count - 1
     if n == 1 || n == 2 {
         return cost[n]
     }
-    // Инициализация таблицы dp для хранения решений подзадач
+    // Создать таблицу dp для решений подзадач
     var dp = Array(repeating: 0, count: n + 1)
-    // Начальное состояние: заранее задать решения наименьших подзадач
+    // Начальные состояния: задать решения простейших подзадач
     dp[1] = cost[1]
     dp[2] = cost[2]
-    // Переход состояний: постепенное решение больших подзадач через меньшие
+    // Переход: решать подзадачи от меньших к большим
     for i in 3 ... n {
         dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i]
     }
     return dp[n]
 }
 
-/* Минимальная стоимость подъема по лестнице: динамическое программирование с оптимизацией памяти */
+/* Минимальная стоимость подъёма: динамическое программирование с экономией памяти */
 func minCostClimbingStairsDPComp(cost: [Int]) -> Int {
     let n = cost.count - 1
     if n == 1 || n == 2 {
@@ -37,15 +37,15 @@ func minCostClimbingStairsDPComp(cost: [Int]) -> Int {
 
 @main
 enum MinCostClimbingStairsDP {
-    /* Driver Code */
+    /* Основная программа */
     static func main() {
         let cost = [0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1]
-        print("Список стоимостей ступеней = \(cost)")
+        print("Стоимость ступеней: \(cost)")
 
         var res = minCostClimbingStairsDP(cost: cost)
-        print("Минимальная стоимость подъема по лестнице = \(res)")
+        print("Минимальная стоимость подъёма: \(res)")
 
         res = minCostClimbingStairsDPComp(cost: cost)
-        print("Минимальная стоимость подъема по лестнице = \(res)")
+        print("Минимальная стоимость подъёма: \(res)")
     }
 }

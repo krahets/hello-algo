@@ -6,43 +6,43 @@
 
 use hello_algo_rust::include::print_util;
 
-/* 要素 num の第 k 桁を取得する。exp = 10^(k-1) とする */
+/* 要素 num の下から k 桁目を取得。ここで exp = 10^(k-1) */
 fn digit(num: i32, exp: i32) -> usize {
-    // k ではなく exp を渡すことで、ここで高コストのべき乗計算を繰り返すのを避ける
+    // k ではなく exp を渡し、負荷の高いべき乗計算の繰り返しを避ける
     return ((num / exp) % 10) as usize;
 }
 
-/* カウントソート（nums の第 k 桁に基づくソート） */
+/* カウントソート（nums の下から k 桁目でソート） */
 fn counting_sort_digit(nums: &mut [i32], exp: i32) {
-    // 十進数の各桁の範囲は 0~9 なので、長さ 10 のバケット配列が必要
+    // 十進数の各桁は 0～9 なので、長さ 10 のバケット配列を用意
     let mut counter = [0; 10];
     let n = nums.len();
-    // 0~9 の各数字の出現回数を数える
+    // 0～9 の各数字の出現回数を数える
     for i in 0..n {
-        let d = digit(nums[i], exp); // nums[i] の第 k 桁を取得し、d とする
+        let d = digit(nums[i], exp); // nums[i] の下から k 桁目を d とする
         counter[d] += 1; // 数字 d の出現回数を数える
     }
-    // 累積和を求め、「出現回数」を「配列のインデックス」に変換する
+    // 累積和を求め、出現回数を配列のインデックスに対応する値に変換
     for i in 1..10 {
         counter[i] += counter[i - 1];
     }
-    // 逆順に走査し、バケット内の集計結果に基づいて各要素を res に入れる
+    // 配列を逆順に走査し、バケットの集計値を使って各要素を res に書き込む
     let mut res = vec![0; n];
     for i in (0..n).rev() {
         let d = digit(nums[i], exp);
-        let j = counter[d] - 1; // 配列内での d のインデックス j を取得する
-        res[j] = nums[i]; // 現在の要素をインデックス j に入れる
+        let j = counter[d] - 1; // 配列内での d のインデックス j を求める
+        res[j] = nums[i]; // 現在の要素をインデックス j に書き込む
         counter[d] -= 1; // d の個数を 1 減らす
     }
-    // 結果で元の配列 nums を上書きする
+    // 結果で元の配列 nums を上書き
     nums.copy_from_slice(&res);
 }
 
 /* 基数ソート */
 fn radix_sort(nums: &mut [i32]) {
-    // 最大桁数を判定するため、配列の最大要素を取得する
+    // 配列の最大値から最大桁数を求める
     let m = *nums.into_iter().max().unwrap();
-    // 下位の桁から上位の桁へ順に走査する
+    // 下位桁から上位桁へ順に走査
     let mut exp = 1;
     while exp <= m {
         counting_sort_digit(nums, exp);
@@ -50,7 +50,7 @@ fn radix_sort(nums: &mut [i32]) {
     }
 }
 
-/* 実行用コード */
+/* 実行例 */
 fn main() {
     // 基数ソート
     let mut nums = [
@@ -58,6 +58,6 @@ fn main() {
         63832996,
     ];
     radix_sort(&mut nums);
-    print!("基数ソート完了後 nums = ");
+    print!("基数ソート後の nums = ");
     print_util::print_array(&nums);
 }

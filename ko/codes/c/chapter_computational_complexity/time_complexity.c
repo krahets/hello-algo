@@ -35,7 +35,7 @@ int arrayTraversal(int *nums, int n) {
     return count;
 }
 
-/* 제곱 차수 */
+/* 이차 차수 */
 int quadratic(int n) {
     int count = 0;
     // 반복 횟수는 데이터 크기 n의 제곱에 비례한다
@@ -47,30 +47,30 @@ int quadratic(int n) {
     return count;
 }
 
-/* 제곱 차수(버블 정렬) */
+/* 이차 차수(버블 정렬) */
 int bubbleSort(int *nums, int n) {
     int count = 0; // 카운터
-    // 바깥쪽 반복문: 정렬되지 않은 구간은 [0, i]이다
+    // 바깥 반복문: 정렬되지 않은 구간은 [0, i]이다
     for (int i = n - 1; i > 0; i--) {
-        // 안쪽 반복문: 정렬되지 않은 구간 [0, i]의 최댓값을 교환하여 이 구간의 맨 오른쪽으로 옮긴다
+        // 안쪽 반복문: 정렬되지 않은 구간 [0, i]에서 가장 큰 원소를 교환을 통해 맨 오른쪽으로 보낸다
         for (int j = 0; j < i; j++) {
             if (nums[j] > nums[j + 1]) {
-                // nums[j]와 nums[j + 1]을 교환한다
+                // nums[j]와 nums[j + 1]의 값을 맞바꾼다
                 int tmp = nums[j];
                 nums[j] = nums[j + 1];
                 nums[j + 1] = tmp;
-                count += 3; // 원소 교환에는 단위 연산 3회가 포함된다
+                count += 3; // 두 원소를 교환하는 데는 기본 연산 3회가 필요하다
             }
         }
     }
     return count;
 }
 
-/* 지수 차수(반복문 구현) */
+/* 지수 차수(반복 구현) */
 int exponential(int n) {
     int count = 0;
     int bas = 1;
-    // 세포가 매번 둘로 나뉘어 수열 1, 2, 4, 8, ..., 2^(n-1)을 이룬다
+    // 세포가 매번 둘로 분열하여 그 수가 1, 2, 4, 8, ..., 2^(n-1)이 된다
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < bas; j++) {
             count++;
@@ -88,7 +88,7 @@ int expRecur(int n) {
     return expRecur(n - 1) + expRecur(n - 1) + 1;
 }
 
-/* 로그 차수(반복문 구현) */
+/* 로그 차수(반복 구현) */
 int logarithmic(int n) {
     int count = 0;
     while (n > 1) {
@@ -127,47 +127,47 @@ int factorialRecur(int n) {
     return count;
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 int main(int argc, char *argv[]) {
-    // n을 바꾸어 실행하면서 각 복잡도에서 연산 횟수가 어떻게 변하는지 살펴볼 수 있다
+    // n을 바꿔 실행하며 복잡도에 따라 연산 횟수가 어떻게 변하는지 살펴보자
     int n = 8;
-    printf("입력 데이터 크기 n = %d\n", n);
+    printf("입력 크기 n = %d\n", n);
 
     int count = constant(n);
-    printf("상수 차수의 연산 횟수 = %d\n", count);
+    printf("상수 차수 연산 횟수 = %d\n", count);
 
     count = linear(n);
-    printf("선형 차수의 연산 횟수 = %d\n", count);
-    // 힙 메모리를 할당한다(원소 개수가 n이고 원소 타입이 int인 1차원 가변 길이 배열을 생성한다)
+    printf("선형 차수 연산 횟수 = %d\n", count);
+    // 힙 메모리 할당(int형 원소 n개로 이루어진 가변 길이 1차원 배열 생성)
     int *nums = (int *)malloc(n * sizeof(int));
     count = arrayTraversal(nums, n);
-    printf("선형 차수(배열 순회)의 연산 횟수 = %d\n", count);
+    printf("선형 차수(배열 순회) 연산 횟수 = %d\n", count);
 
     count = quadratic(n);
-    printf("제곱 차수의 연산 횟수 = %d\n", count);
+    printf("이차 차수 연산 횟수 = %d\n", count);
     for (int i = 0; i < n; i++) {
         nums[i] = n - i; // [n,n-1,...,2,1]
     }
     count = bubbleSort(nums, n);
-    printf("제곱 차수(버블 정렬)의 연산 횟수 = %d\n", count);
+    printf("이차 차수(버블 정렬) 연산 횟수 = %d\n", count);
 
     count = exponential(n);
-    printf("지수 차수(반복문 구현)의 연산 횟수 = %d\n", count);
+    printf("지수 차수(반복 구현) 연산 횟수 = %d\n", count);
     count = expRecur(n);
-    printf("지수 차수(재귀 구현)의 연산 횟수 = %d\n", count);
+    printf("지수 차수(재귀 구현) 연산 횟수 = %d\n", count);
 
     count = logarithmic(n);
-    printf("로그 차수(반복문 구현)의 연산 횟수 = %d\n", count);
+    printf("로그 차수(반복 구현) 연산 횟수 = %d\n", count);
     count = logRecur(n);
-    printf("로그 차수(재귀 구현)의 연산 횟수 = %d\n", count);
+    printf("로그 차수(재귀 구현) 연산 횟수 = %d\n", count);
 
     count = linearLogRecur(n);
-    printf("선형 로그 차수(재귀 구현)의 연산 횟수 = %d\n", count);
+    printf("선형 로그 차수(재귀 구현) 연산 횟수 = %d\n", count);
 
     count = factorialRecur(n);
-    printf("팩토리얼 차수(재귀 구현)의 연산 횟수 = %d\n", count);
+    printf("팩토리얼 차수(재귀 구현) 연산 횟수 = %d\n", count);
 
-    // 힙 메모리를 해제한다
+    // 힙 메모리 해제
     if (nums != NULL) {
         free(nums);
         nums = NULL;

@@ -4,39 +4,39 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Driver Code ###
+### Пример использования ###
 if __FILE__ == $0
-  # Инициализировать двустороннюю очередь
-  # В Ruby нет встроенной двусторонней очереди, поэтому Array можно использовать как двустороннюю очередь
+  # Инициализировать дек
+  # В Ruby нет встроенного дека, поэтому его приходится реализовывать с помощью Array
   deque = []
 
-  # Элемент помещается в очередь
+  # Добавить элементы в дек
   deque << 2
   deque << 5
   deque << 4
-  # Обратите внимание: поскольку используется массив, временная сложность метода Array#unshift равна O(n)
+  # Поскольку Array — массив, временная сложность метода Array#unshift составляет O(n)
   deque.unshift(3)
   deque.unshift(1)
-  puts "Двусторонняя очередь deque = #{deque}"
+  puts "Дек deque = #{deque}"
 
-  # Доступ к элементу
+  # Посмотреть первый и последний элементы
   peek_first = deque.first
-  puts "Первый элемент peek_first = #{peek_first}"
+  puts "Первый элемент дека peek_first = #{peek_first}"
   peek_last = deque.last
-  puts "Последний элемент peek_last = #{peek_last}"
+  puts "Последний элемент дека peek_last = #{peek_last}"
 
-  # Элемент извлекается из очереди
-  # Обратите внимание: поскольку используется массив, временная сложность метода Array#shift равна O(n)
+  # Извлечь элементы из дека
+  # Поскольку Array — массив, временная сложность метода Array#shift составляет O(n)
   pop_front = deque.shift
-  puts "Извлечен элемент из головы pop_front = #{pop_front}, deque после извлечения из головы = #{deque}"
+  puts "Извлечённый первый элемент pop_front = #{pop_front}, после извлечения deque = #{deque}"
   pop_back = deque.pop
-  puts "Извлечен элемент из хвоста pop_back = #{pop_back}, deque после извлечения из хвоста = #{deque}"
+  puts "Извлечённый последний элемент pop_back = #{pop_back}, после извлечения deque = #{deque}"
 
-  # Получение длины двусторонней очереди
+  # Получить длину дека
   size = deque.length
-  puts "Длина двусторонней очереди size = #{size}"
+  puts "Длина дека size = #{size}"
 
-  # Проверка, пуста ли двусторонняя очередь
+  # Проверить, пуст ли дек
   is_empty = size.zero?
-  puts "Пуста ли двусторонняя очередь = #{is_empty}"
+  puts "Дек пуст = #{is_empty}"
 end

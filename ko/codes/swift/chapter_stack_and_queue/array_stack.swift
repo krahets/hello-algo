@@ -9,16 +9,16 @@ class ArrayStack {
     private var stack: [Int]
 
     init() {
-        // 리스트(동적 배열)를 초기화한다
+        // 리스트(동적 배열) 초기화
         stack = []
     }
 
-    /* 스택의 길이 반환 */
+    /* 스택의 길이 조회 */
     func size() -> Int {
         stack.count
     }
 
-    /* 스택이 비어 있는지 판단 */
+    /* 스택이 비어 있는지 확인 */
     func isEmpty() -> Bool {
         stack.isEmpty
     }
@@ -37,7 +37,7 @@ class ArrayStack {
         return stack.removeLast()
     }
 
-    /* 스택 맨 위 원소 접근 */
+    /* 스택 맨 위의 원소 조회 */
     func peek() -> Int {
         if isEmpty() {
             fatalError("스택이 비어 있다")
@@ -45,7 +45,7 @@ class ArrayStack {
         return stack.last!
     }
 
-    /* List를 Array로 변환하여 반환 */
+    /* 리스트를 배열로 변환해 반환한다 */
     func toArray() -> [Int] {
         stack
     }
@@ -53,7 +53,7 @@ class ArrayStack {
 
 @main
 enum _ArrayStack {
-    /* 실행 코드 */
+    /* 실행 예제 */
     static func main() {
         /* 스택 초기화 */
         let stack = ArrayStack()
@@ -66,19 +66,19 @@ enum _ArrayStack {
         stack.push(num: 4)
         print("스택 stack = \(stack.toArray())")
 
-        /* 스택 맨 위 원소 접근 */
+        /* 스택 맨 위의 원소 조회 */
         let peek = stack.peek()
-        print("스택의 맨 위 원소 peek = \(peek)")
+        print("맨 위 원소 peek = \(peek)")
 
         /* 스택에서 원소 꺼내기 */
         let pop = stack.pop()
-        print("스택에서 꺼낸 원소 pop = \(pop), 꺼낸 후 stack = \(stack.toArray())")
+        print("꺼낸 원소 pop = \(pop), 꺼낸 후 stack = \(stack.toArray())")
 
-        /* 스택의 길이 반환 */
+        /* 스택의 길이 조회 */
         let size = stack.size()
         print("스택의 길이 size = \(size)")
 
-        /* 비어 있는지 판단 */
+        /* 비어 있는지 확인 */
         let isEmpty = stack.isEmpty()
         print("스택이 비어 있는가 = \(isEmpty)")
     }

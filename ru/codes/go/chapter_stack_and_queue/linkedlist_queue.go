@@ -10,23 +10,23 @@ import (
 
 /* Очередь на основе связного списка */
 type linkedListQueue struct {
-	// Использовать встроенный пакет list для реализации очереди
+	// Реализовать очередь с помощью стандартного пакета list
 	data *list.List
 }
 
-/* Инициализация очереди */
+/* Инициализировать очередь */
 func newLinkedListQueue() *linkedListQueue {
 	return &linkedListQueue{
 		data: list.New(),
 	}
 }
 
-/* Поместить в очередь */
+/* Добавить элемент в очередь */
 func (s *linkedListQueue) push(value any) {
 	s.data.PushBack(value)
 }
 
-/* Извлечь из очереди */
+/* Извлечь элемент из очереди */
 func (s *linkedListQueue) pop() any {
 	if s.isEmpty() {
 		return nil
@@ -36,7 +36,7 @@ func (s *linkedListQueue) pop() any {
 	return e.Value
 }
 
-/* Доступ к элементу в начале очереди */
+/* Посмотреть первый элемент очереди */
 func (s *linkedListQueue) peek() any {
 	if s.isEmpty() {
 		return nil
@@ -45,17 +45,17 @@ func (s *linkedListQueue) peek() any {
 	return e.Value
 }
 
-/* Получение длины очереди */
+/* Получить длину очереди */
 func (s *linkedListQueue) size() int {
 	return s.data.Len()
 }
 
-/* Проверка, пуста ли очередь */
+/* Проверить, пуста ли очередь */
 func (s *linkedListQueue) isEmpty() bool {
 	return s.data.Len() == 0
 }
 
-/* Получить List для вывода */
+/* Получить список для вывода */
 func (s *linkedListQueue) toList() *list.List {
 	return s.data
 }

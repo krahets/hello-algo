@@ -15,7 +15,7 @@ func insertNode(n0 *ListNode, P *ListNode) {
 	n0.Next = P
 }
 
-/* 連結リストのノード n0 の直後のノードを削除する */
+/* 連結リストのノード n0 の直後にあるノードを削除する */
 func removeItem(n0 *ListNode) {
 	if n0.Next == nil {
 		return
@@ -37,7 +37,7 @@ func access(head *ListNode, index int) *ListNode {
 	return head
 }
 
-/* 連結リストから値が target である最初のノードを探索する */
+/* 連結リストから値が target の最初のノードを探す */
 func findNode(head *ListNode, target int) int {
 	index := 0
 	for head != nil {

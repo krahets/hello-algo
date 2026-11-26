@@ -8,16 +8,16 @@ package chapter_stack_and_queue
 
 /* 연결 리스트로 구현한 스택 */
 class LinkedListStack(
-    private var stackPeek: ListNode? = null, // 머리 노드를 스택의 맨 위로 사용한다
+    private var stackPeek: ListNode? = null, // 첫 노드를 스택의 맨 위로 사용한다
     private var stkSize: Int = 0 // 스택의 길이
 ) {
 
-    /* 스택의 길이 반환 */
+    /* 스택의 길이 조회 */
     fun size(): Int {
         return stkSize
     }
 
-    /* 스택이 비어 있는지 판단 */
+    /* 스택이 비어 있는지 확인 */
     fun isEmpty(): Boolean {
         return size() == 0
     }
@@ -38,13 +38,13 @@ class LinkedListStack(
         return num
     }
 
-    /* 스택 맨 위 원소 접근 */
+    /* 스택 맨 위의 원소 조회 */
     fun peek(): Int? {
         if (isEmpty()) throw IndexOutOfBoundsException()
         return stackPeek?._val
     }
 
-    /* List를 Array로 변환하여 반환 */
+    /* 연결 리스트를 배열로 변환해 반환한다 */
     fun toArray(): IntArray {
         var node = stackPeek
         val res = IntArray(size())
@@ -56,7 +56,7 @@ class LinkedListStack(
     }
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 fun main() {
     /* 스택 초기화 */
     val stack = LinkedListStack()
@@ -69,19 +69,19 @@ fun main() {
     stack.push(4)
     println("스택 stack = ${stack.toArray().contentToString()}")
 
-    /* 스택 맨 위 원소 접근 */
+    /* 스택 맨 위의 원소 조회 */
     val peek = stack.peek()!!
-    println("스택의 맨 위 원소 peek = $peek")
+    println("맨 위 원소 peek = $peek")
 
     /* 스택에서 원소 꺼내기 */
     val pop = stack.pop()!!
-    println("스택에서 꺼낸 원소 pop = $pop, 꺼낸 후 stack = ${stack.toArray().contentToString()}")
+    println("꺼낸 원소 pop = $pop, 꺼낸 후 stack = ${stack.toArray().contentToString()}")
 
-    /* 스택의 길이 반환 */
+    /* 스택의 길이 조회 */
     val size = stack.size()
     println("스택의 길이 size = $size")
 
-    /* 비어 있는지 판단 */
+    /* 비어 있는지 확인 */
     val isEmpty = stack.isEmpty()
     println("스택이 비어 있는가 = $isEmpty")
 }

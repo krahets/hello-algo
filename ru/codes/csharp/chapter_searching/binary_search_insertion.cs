@@ -7,37 +7,37 @@
 namespace hello_algo.chapter_searching;
 
 public class binary_search_insertion {
-    /* Двоичный поиск точки вставки (без повторяющихся элементов) */
+    /* Двоичный поиск позиции вставки без повторов */
     public static int BinarySearchInsertionSimple(int[] nums, int target) {
-        int i = 0, j = nums.Length - 1; // Инициализировать замкнутый интервал [0, n-1]
+        int i = 0, j = nums.Length - 1; // Задаём замкнутый интервал [0, n-1]
         while (i <= j) {
-            int m = i + (j - i) / 2; // Вычислить индекс середины m
+            int m = i + (j - i) / 2; // Вычисляем индекс середины m
             if (nums[m] < target) {
-                i = m + 1; // target находится в интервале [m+1, j]
+                i = m + 1; // Ищем target в интервале [m+1, j]
             } else if (nums[m] > target) {
-                j = m - 1; // target находится в интервале [i, m-1]
+                j = m - 1; // Ищем target в интервале [i, m-1]
             } else {
-                return m; // target найден, возвращается точка вставки m
+                return m; // Значение target найдено, возвращаем позицию вставки m
             }
         }
-        // target не найден, вернуть точку вставки i
+        // Значение target не найдено, возвращаем позицию вставки i
         return i;
     }
 
-    /* Двоичный поиск точки вставки (с повторяющимися элементами) */
+    /* Двоичный поиск позиции вставки при наличии повторов */
     public static int BinarySearchInsertion(int[] nums, int target) {
-        int i = 0, j = nums.Length - 1; // Инициализировать замкнутый интервал [0, n-1]
+        int i = 0, j = nums.Length - 1; // Задаём замкнутый интервал [0, n-1]
         while (i <= j) {
-            int m = i + (j - i) / 2; // Вычислить индекс середины m
+            int m = i + (j - i) / 2; // Вычисляем индекс середины m
             if (nums[m] < target) {
-                i = m + 1; // target находится в интервале [m+1, j]
+                i = m + 1; // Ищем target в интервале [m+1, j]
             } else if (nums[m] > target) {
-                j = m - 1; // target находится в интервале [i, m-1]
+                j = m - 1; // Ищем target в интервале [i, m-1]
             } else {
-                j = m - 1; // Самый правый элемент, меньший target, находится в интервале [i, m-1]
+                j = m - 1; // В интервале [i, m-1] ищем последний элемент, меньший target
             }
         }
-        // Вернуть точку вставки i
+        // Возвращаем позицию вставки i
         return i;
     }
 
@@ -46,19 +46,19 @@ public class binary_search_insertion {
         // Массив без повторяющихся элементов
         int[] nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
         Console.WriteLine("\nМассив nums = " + nums.PrintList());
-        // Двоичный поиск точки вставки
+        // Двоичный поиск позиции вставки
         foreach (int target in new int[] { 6, 9 }) {
             int index = BinarySearchInsertionSimple(nums, target);
-            Console.WriteLine("Индекс позиции вставки элемента " + target + " равен " + index);
+            Console.WriteLine("Позиция вставки элемента " + target + " равна " + index);
         }
 
         // Массив с повторяющимися элементами
         nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
         Console.WriteLine("\nМассив nums = " + nums.PrintList());
-        // Двоичный поиск точки вставки
+        // Двоичный поиск позиции вставки
         foreach (int target in new int[] { 2, 6, 20 }) {
             int index = BinarySearchInsertion(nums, target);
-            Console.WriteLine("Индекс позиции вставки элемента " + target + " равен " + index);
+            Console.WriteLine("Позиция вставки элемента " + target + " равна " + index);
         }
     }
 }

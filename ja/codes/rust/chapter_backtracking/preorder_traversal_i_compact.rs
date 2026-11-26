@@ -22,17 +22,17 @@ fn pre_order(res: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<&Rc<RefCell<Tree
     }
 }
 
-/* 実行用コード */
+/* 実行例 */
 pub fn main() {
     let root = vec_to_tree([1, 7, 3, 4, 5, 6, 7].map(|x| Some(x)).to_vec());
-    println!("二分木を初期化する");
+    println!("二分木を初期化");
     print_util::print_tree(root.as_ref().unwrap());
 
     // 行きがけ順走査
     let mut res = Vec::new();
     pre_order(&mut res, root.as_ref());
 
-    println!("\n値が 7 であるすべてのノードを出力する");
+    println!("\n値が 7 のノードをすべて出力");
     let mut vals = Vec::new();
     for node in res {
         vals.push(node.borrow().val)

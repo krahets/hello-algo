@@ -8,31 +8,31 @@ package chapter_stack_and_queue
 
 /* Очередь на основе связного списка */
 class LinkedListQueue(
-    // Головной узел front, хвостовой узел rear
+    // front — первый узел, rear — последний
     private var front: ListNode? = null,
     private var rear: ListNode? = null,
     private var queSize: Int = 0
 ) {
 
-    /* Получение длины очереди */
+    /* Получить длину очереди */
     fun size(): Int {
         return queSize
     }
 
-    /* Проверка, пуста ли очередь */
+    /* Проверить, пуста ли очередь */
     fun isEmpty(): Boolean {
         return size() == 0
     }
 
-    /* Поместить в очередь */
+    /* Добавить элемент в очередь */
     fun push(num: Int) {
-        // Добавить num после хвостового узла
+        // Добавить узел со значением num после последнего узла
         val node = ListNode(num)
-        // Если очередь пуста, сделать так, чтобы и head, и tail указывали на этот узел
+        // Если очередь пуста, установить ссылки на первый и последний узлы так, чтобы обе указывали на новый узел
         if (front == null) {
             front = node
             rear = node
-            // Если очередь не пуста, добавить этот узел после хвостового узла
+            // Если очередь непуста, добавить новый узел после последнего
         } else {
             rear?.next = node
             rear = node
@@ -40,22 +40,22 @@ class LinkedListQueue(
         queSize++
     }
 
-    /* Извлечь из очереди */
+    /* Извлечь элемент из очереди */
     fun pop(): Int {
         val num = peek()
-        // Удалить головной узел
+        // Удалить первый узел
         front = front?.next
         queSize--
         return num
     }
 
-    /* Доступ к элементу в начале очереди */
+    /* Посмотреть первый элемент очереди */
     fun peek(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
         return front!!._val
     }
 
-    /* Преобразовать связный список в Array и вернуть */
+    /* Преобразовать связный список в массив и вернуть его */
     fun toArray(): IntArray {
         var node = front
         val res = IntArray(size())
@@ -67,12 +67,12 @@ class LinkedListQueue(
     }
 }
 
-/* Driver Code */
+/* Пример использования */
 fun main() {
-    /* Инициализация очереди */
+    /* Инициализировать очередь */
     val queue = LinkedListQueue()
 
-    /* Добавление элемента в очередь */
+    /* Добавить элементы в очередь */
     queue.push(1)
     queue.push(3)
     queue.push(2)
@@ -80,19 +80,19 @@ fun main() {
     queue.push(4)
     println("Очередь queue = ${queue.toArray().contentToString()}")
 
-    /* Доступ к элементу в начале очереди */
+    /* Посмотреть первый элемент очереди */
     val peek = queue.peek()
-    println("Первый элемент peek = $peek")
+    println("Первый элемент очереди peek = $peek")
 
-    /* Извлечение элемента из очереди */
+    /* Извлечь элемент из очереди */
     val pop = queue.pop()
-    println("Извлеченный элемент pop = $pop, queue после извлечения = ${queue.toArray().contentToString()}")
+    println("Извлечённый элемент pop = $pop, после извлечения queue = ${queue.toArray().contentToString()}")
 
-    /* Получение длины очереди */
+    /* Получить длину очереди */
     val size = queue.size()
     println("Длина очереди size = $size")
 
-    /* Проверка, пуста ли очередь */
+    /* Проверить, пуста ли очередь */
     val isEmpty = queue.isEmpty()
-    println("Пуста ли очередь = $isEmpty")
+    println("Очередь пуста = $isEmpty")
 }

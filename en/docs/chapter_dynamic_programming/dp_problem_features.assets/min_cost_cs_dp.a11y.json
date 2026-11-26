@@ -1,32 +1,32 @@
 {
-  "schema_version": 2,
-  "title": "State transitions for minimum climbing cost",
-  "summary": "Each state takes the smaller cumulative minimum cost of its two predecessors and adds cost[i], the cost of the current step.",
   "context": [
-    "Each move climbs 1 or 2 steps, cost[i] is the nonnegative cost paid upon landing on step i, and starting on the ground is free. Let dp[i] denote the minimum cumulative cost to reach step i."
+    "Each move climbs 1 or 2 stairs. Landing on stair i incurs a nonnegative cost cost[i]. Starting on the ground is free. Let dp[i] be the minimum total cost to reach stair i."
   ],
   "description": [
-    "Green blocks dp[1] through dp[9] run horizontally from left to right; odd-indexed cost labels sit above and even-indexed ones sit below, pointing into their respective dp blocks. States dp[1] and dp[2] receive only their own cost arrows; starting at dp[3], brackets and min markers combine the two preceding states into the next state, with a plus sign beside the incoming cost arrow for paying the current step's cost. Below the diagram appear the initial states and general recurrence dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i] without concrete cost numbers.",
-    "The final move onto step i must come from either step i - 1 or step i - 2. Because landing on step i pays cost[i] regardless of predecessor, compare predecessor costs dp[i - 1] and dp[i - 2] to pick the smaller cumulative cost and then add cost[i].",
-    "From the ground one can step directly onto step 1 or step 2, giving dp[1] = cost[1]. Because cost[1] is nonnegative, passing through step 1 on the way to step 2 can never cost less than stepping straight onto step 2, so dp[2] = cost[2]. The table below lists steps 1 through 9 individually for lookup; the \"Ground\" origin and \"no worse than via step 1\" notes are supplied from the problem rules rather than a separate ground node drawn in the figure."
+    "Green boxes from dp[1] through dp[9] run left to right. Costs for odd-numbered stairs appear above and those for even-numbered stairs below, with arrows pointing to the corresponding dp boxes. Cost arrows lead directly to dp[1] and dp[2]. Starting at dp[3], a bracket labeled min links the two adjacent predecessors to the next state. A plus sign beside the current cost arrow adds the cost of landing here. Below are the initial states and the general transition dp[i] = min(dp[i-1], dp[i-2]) + cost[i]. No numerical costs are given.",
+    "The last move to stair i must start at stair i-1 or i-2. Either way we pay cost[i] for the current stair. Compare the cumulative costs dp[i-1] and dp[i-2], take the lower one, and add cost[i].",
+    "From the ground we can reach stair 1 or 2 directly, so dp[1] = cost[1]. Since cost[1] is nonnegative, reaching stair 2 via stair 1 cannot be cheaper than going directly. Thus dp[2] = cost[2]. The table lists the relationships for stairs 1 through 9 by state. The ground as the starting point and the explanation that going directly costs no more than going via stair 1 follow from the rules. The diagram has no separate ground node."
   ],
   "frames": [
     {
-      "id": "source-373",
       "book_path": "chapter_dynamic_programming/dp_problem_features.assets/min_cost_cs_dp.png",
-      "title": "State transitions for minimum climbing cost",
-      "explanation": "Evaluating sequentially up to the target step yields the minimum cumulative cost in that step's dp entry."
+      "explanation": "Once we reach the target stair in this calculation, its dp value gives the minimum total cost.",
+      "id": "source-373",
+      "title": "State transition for minimum cost"
     }
   ],
+  "schema_version": 2,
+  "summary": "For each state, take the smaller of the previous two minimum cumulative costs and add the cost of the current stair, cost[i].",
   "tables": [
     {
-      "caption": "Initial values and predecessor comparisons",
+      "caption": "Base cases and comparisons of the two predecessors",
       "headers": [
         "State",
-        "Initial source or compared predecessors",
-        "Cost paid at step",
-        "Formula"
+        "Source of initial value or predecessors to compare",
+        "Cost of this stair",
+        "Calculation"
       ],
+      "row_header": 0,
       "rows": [
         [
           "dp[1]",
@@ -36,7 +36,7 @@
         ],
         [
           "dp[2]",
-          "Two-step jump directly from ground (no worse than via step 1)",
+          "Directly from the ground (costs no more than going via stair 1)",
           "cost[2]",
           "dp[2] = cost[2]"
         ],
@@ -82,8 +82,8 @@
           "cost[9]",
           "min(dp[8], dp[7]) + cost[9]"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "State transition for minimum cost"
 }

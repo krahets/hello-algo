@@ -16,7 +16,7 @@ public class binary_tree {
         TreeNode n3 = new(3);
         TreeNode n4 = new(4);
         TreeNode n5 = new(5);
-        // 노드 사이의 참조(포인터)를 설정한다
+        // 노드 사이의 참조(포인터)를 연결한다
         n1.left = n2;
         n1.right = n3;
         n2.left = n4;
@@ -29,11 +29,11 @@ public class binary_tree {
         // n1 -> n2 사이에 노드 P를 삽입한다
         n1.left = P;
         P.left = n2;
-        Console.WriteLine("\n노드 P를 삽입한 후\n");
+        Console.WriteLine("\n노드 P 삽입 후\n");
         PrintUtil.PrintTree(n1);
-        // 노드 P를 삭제한다
+        // 노드 P 삭제
         n1.left = n2;
-        Console.WriteLine("\n노드 P를 삭제한 후\n");
+        Console.WriteLine("\n노드 P 삭제 후\n");
         PrintUtil.PrintTree(n1);
     }
 }

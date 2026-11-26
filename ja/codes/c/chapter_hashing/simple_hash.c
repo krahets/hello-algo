@@ -26,7 +26,7 @@ int mulHash(char *key) {
     return (int)hash;
 }
 
-/* 排他的論理和ハッシュ */
+/* XOR ハッシュ */
 int xorHash(char *key) {
     int hash = 0;
     const int MODULUS = 1000000007;
@@ -48,7 +48,7 @@ int rotHash(char *key) {
     return (int)hash;
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     char *key = "Hello 算法";
 
@@ -59,7 +59,7 @@ int main() {
     printf("乗算ハッシュの値は %d\n", hash);
 
     hash = xorHash(key);
-    printf("排他的論理和ハッシュの値は %d\n", hash);
+    printf("XOR ハッシュの値は %d\n", hash);
 
     hash = rotHash(key);
     printf("回転ハッシュの値は %d\n", hash);

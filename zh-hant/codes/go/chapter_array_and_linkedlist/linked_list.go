@@ -15,7 +15,7 @@ func insertNode(n0 *ListNode, P *ListNode) {
 	n0.Next = P
 }
 
-/* 刪除鏈結串列的節點 n0 之後的首個節點 */
+/* 刪除鏈結串列中緊接在節點 n0 之後的節點 */
 func removeItem(n0 *ListNode) {
 	if n0.Next == nil {
 		return
@@ -26,7 +26,7 @@ func removeItem(n0 *ListNode) {
 	n0.Next = n1
 }
 
-/* 訪問鏈結串列中索引為 index 的節點 */
+/* 存取鏈結串列中索引為 index 的節點 */
 func access(head *ListNode, index int) *ListNode {
 	for i := 0; i < index; i++ {
 		if head == nil {
@@ -37,7 +37,7 @@ func access(head *ListNode, index int) *ListNode {
 	return head
 }
 
-/* 在鏈結串列中查詢值為 target 的首個節點 */
+/* 在鏈結串列中尋找第一個值為 target 的節點 */
 func findNode(head *ListNode, target int) int {
 	index := 0
 	for head != nil {

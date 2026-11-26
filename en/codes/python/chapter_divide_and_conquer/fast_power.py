@@ -6,7 +6,7 @@ Author: Hello Algo Team
 
 
 def fast_pow(x: int, n: int) -> int:
-    """Fast exponentiation"""
+    """Exponentiation by squaring"""
     if n == 0:
         return 1
     half = fast_pow(x, n // 2)

@@ -9,16 +9,16 @@ package chapter_stack_and_queue;
 import java.util.*;
 import utils.*;
 
-/* 基於鏈結串列實現的堆疊 */
+/* 以鏈結串列實作堆疊 */
 class LinkedListStack {
-    private ListNode stackPeek; // 將頭節點作為堆疊頂
-    private int stkSize = 0; // 堆疊的長度
+    private ListNode stackPeek; // 以首節點作為堆疊頂端
+    private int stkSize = 0; // 堆疊長度
 
     public LinkedListStack() {
         stackPeek = null;
     }
 
-    /* 獲取堆疊的長度 */
+    /* 取得堆疊長度 */
     public int size() {
         return stkSize;
     }
@@ -28,7 +28,7 @@ class LinkedListStack {
         return size() == 0;
     }
 
-    /* 入堆疊 */
+    /* 推入堆疊 */
     public void push(int num) {
         ListNode node = new ListNode(num);
         node.next = stackPeek;
@@ -36,7 +36,7 @@ class LinkedListStack {
         stkSize++;
     }
 
-    /* 出堆疊 */
+    /* 彈出堆疊頂端的元素 */
     public int pop() {
         int num = peek();
         stackPeek = stackPeek.next;
@@ -44,14 +44,14 @@ class LinkedListStack {
         return num;
     }
 
-    /* 訪問堆疊頂元素 */
+    /* 讀取堆疊頂端的元素 */
     public int peek() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return stackPeek.val;
     }
 
-    /* 將 List 轉化為 Array 並返回 */
+    /* 將鏈結串列轉成陣列並回傳 */
     public int[] toArray() {
         ListNode node = stackPeek;
         int[] res = new int[size()];
@@ -68,7 +68,7 @@ public class linkedlist_stack {
         /* 初始化堆疊 */
         LinkedListStack stack = new LinkedListStack();
 
-        /* 元素入堆疊 */
+        /* 將元素推入堆疊 */
         stack.push(1);
         stack.push(3);
         stack.push(2);
@@ -76,19 +76,19 @@ public class linkedlist_stack {
         stack.push(4);
         System.out.println("堆疊 stack = " + Arrays.toString(stack.toArray()));
 
-        /* 訪問堆疊頂元素 */
+        /* 讀取堆疊頂端的元素 */
         int peek = stack.peek();
-        System.out.println("堆疊頂元素 peek = " + peek);
+        System.out.println("堆疊頂端元素 peek = " + peek);
 
-        /* 元素出堆疊 */
+        /* 從堆疊彈出元素 */
         int pop = stack.pop();
-        System.out.println("出堆疊元素 pop = " + pop + "，出堆疊後 stack = " + Arrays.toString(stack.toArray()));
+        System.out.println("彈出的元素 pop = " + pop + "，彈出後 stack = " + Arrays.toString(stack.toArray()));
 
-        /* 獲取堆疊的長度 */
+        /* 取得堆疊長度 */
         int size = stack.size();
-        System.out.println("堆疊的長度 size = " + size);
+        System.out.println("堆疊長度 size = " + size);
 
-        /* 判斷是否為空 */
+        /* 判斷堆疊是否為空 */
         boolean isEmpty = stack.isEmpty();
         System.out.println("堆疊是否為空 = " + isEmpty);
     }

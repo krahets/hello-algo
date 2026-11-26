@@ -11,12 +11,12 @@ class Pair {
   Pair(this.key, this.val);
 }
 
-/* 配列で実装したハッシュテーブル */
+/* 配列で実装したハッシュ表 */
 class ArrayHashMap {
   late List<Pair?> _buckets;
 
   ArrayHashMap() {
-    // 100 個のバケットを含む配列を初期化する
+    // 100 個のバケットを持つ配列を初期化する
     _buckets = List.filled(100, null);
   }
 
@@ -26,7 +26,7 @@ class ArrayHashMap {
     return index;
   }
 
-  /* 取得操作 */
+  /* 検索 */
   String? get(int key) {
     final int index = _hashFunc(key);
     final Pair? pair = _buckets[index];
@@ -36,14 +36,14 @@ class ArrayHashMap {
     return pair.val;
   }
 
-  /* 追加操作 */
+  /* 追加 */
   void put(int key, String val) {
     final Pair pair = Pair(key, val);
     final int index = _hashFunc(key);
     _buckets[index] = pair;
   }
 
-  /* 削除操作 */
+  /* 削除 */
   void remove(int key) {
     final int index = _hashFunc(key);
     _buckets[index] = null;
@@ -82,7 +82,7 @@ class ArrayHashMap {
     return valueSet;
   }
 
-  /* ハッシュテーブルを表示する */
+  /* ハッシュ表を表示する */
   void printHashMap() {
     for (final Pair kv in pairSet()) {
       print("${kv.key} -> ${kv.val}");
@@ -90,37 +90,37 @@ class ArrayHashMap {
   }
 }
 
-/* 実行用コード */
+/* 実行例 */
 void main() {
-  /* ハッシュテーブルを初期化する */
+  /* ハッシュ表を初期化する */
   final ArrayHashMap map = ArrayHashMap();
 
-  /* 追加操作 */
-  // ハッシュテーブルにキーと値のペア (key, value) を追加する
+  /* 追加 */
+  // ハッシュ表にペア (key, value) を追加する
   map.put(12836, "小哈");
   map.put(15937, "小啰");
   map.put(16750, "小算");
   map.put(13276, "小法");
   map.put(10583, "小鸭");
-  print("\n追加後のハッシュテーブル\nKey -> Value");
+  print("\n追加後のハッシュ表\nKey -> Value");
   map.printHashMap();
 
-  /* 取得操作 */
-  // ハッシュテーブルにキー key を渡し、値 value を取得する
+  /* 検索 */
+  // ハッシュ表でキー key に対応する値 value を取得する
   String? name = map.get(15937);
-  print("\n学生番号 15937 に対応する氏名は $name");
+  print("\n学籍番号 15937 に対応する名前は $name");
 
-  /* 削除操作 */
-  // ハッシュテーブルからキーと値のペア (key, value) を削除する
+  /* 削除 */
+  // ハッシュ表からペア (key, value) を削除する
   map.remove(10583);
-  print("\n10583 を削除した後のハッシュテーブル\nKey -> Value");
+  print("\n10583 を削除した後のハッシュ表\nKey -> Value");
   map.printHashMap();
 
-  /* ハッシュテーブルを走査する */
-  print("\nキーと値のペア Key->Value を走査する");
+  /* ハッシュ表を走査する */
+  print("\nキーと値のペアを順に表示 Key->Value");
   map.pairSet().forEach((kv) => print("${kv.key} -> ${kv.val}"));
-  print("\nキー Key だけを走査する");
+  print("\nキーだけを順に表示 Key");
   map.keySet().forEach((key) => print("$key"));
-  print("\n値 Value だけを走査する");
+  print("\n値だけを順に表示 Value");
   map.values().forEach((val) => print("$val"));
 }

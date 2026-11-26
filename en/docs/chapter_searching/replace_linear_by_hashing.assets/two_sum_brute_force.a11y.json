@@ -1,31 +1,31 @@
 {
-  "schema_version": 2,
-  "title": "Brute-force enumeration for two sum",
-  "summary": "Represent all pairs of distinct array positions with an upper-triangular table.",
   "context": [
-    "The input consists of the integer array nums = [2, 7, 11, 15] (indexed from 0 to 3) and the target sum target = 13.",
-    "The problem asks for two distinct array positions whose elements sum to target and returns their indices (the element at a single position cannot be used twice). The brute-force approach runs two nested loops with outer index i and inner index j (j > i), checking each pair's sum in turn."
+    "The integer array is nums = [2, 7, 11, 15], with indices 0 through 3. The target sum is target = 13.",
+    "Find two distinct positions whose elements sum to target and return their indices. The same position cannot be used twice. The brute-force method checks pairs with nested loops, using i as the outer index and j as the inner index, where j > i."
   ],
   "description": [
-    "In the lower part of the figure, a four-by-four matrix lists 2, 7, 11, and 15 as both row and column headers and fills in only the six candidate sums in the upper-triangular region above the main diagonal—excluding both pairing an element with itself on the main diagonal and duplicate reversed pairs in the lower-left region. The table below takes its elements and candidate sums from the matrix; index pairs come from 0-based positions in the input, and pair expressions combine row and column headers.",
-    "At the intersection of row 0 (element 2) and column 2 (element 11), cell 13 is highlighted in violet-blue text. Following the code's left-to-right enumeration order, once the outer loop fixes i = 0 (element 2), the inner loop first computes 2 + 7 = 9 and immediately next computes 2 + 11 = 13, hitting the target and returning [0, 2] right away; the remaining candidate sums are drawn only to show the complete combination space, not because evaluation continues after a match."
+    "The four-by-four matrix at the bottom has row and column headers 2, 7, 11, and 15. Its six candidate sums appear only above the main diagonal. This excludes pairing a position with itself on the diagonal and repeating a pair in reverse order below it. The elements and candidate sums in the table come from the matrix. Each index pair uses the elements' zero-based positions in the input, and each addition combines its row and column headers.",
+    "The cell at row 0 (element 2) and column 2 (element 11) highlights 13 in blue-violet. The code checks pairs from left to right. With i = 0 (element 2) fixed, the inner loop first computes 2 + 7 = 9, then 2 + 11 = 13. This matches the target, so the code immediately returns [0, 2]. The figure includes the other sums to show all possible pairs. The code does not compute the remaining sums after a match."
   ],
   "frames": [
     {
-      "id": "source-234",
       "book_path": "chapter_searching/replace_linear_by_hashing.assets/two_sum_brute_force.png",
-      "title": "Brute-force enumeration for two sum",
-      "explanation": "The two nested loops take O(n²) time and O(1) auxiliary space, trading time for space."
+      "explanation": "The nested loops take O(n²) time and use O(1) auxiliary space, trading time for space.",
+      "id": "source-234",
+      "title": "Finding two numbers with a target sum by brute force"
     }
   ],
+  "schema_version": 2,
+  "summary": "The upper triangle of a table represents every pair of distinct array positions.",
   "tables": [
     {
-      "caption": "Six pairs at distinct positions in the figure",
+      "caption": "Six pairs of distinct positions in the figure",
       "headers": [
         "Index pair",
         "Element pair",
         "Sum"
       ],
+      "row_header": 0,
       "rows": [
         [
           "0, 1",
@@ -35,7 +35,7 @@
         [
           "0, 2",
           "2 + 11",
-          "13, target matched"
+          "13, matches the target"
         ],
         [
           "0, 3",
@@ -57,8 +57,8 @@
           "11 + 15",
           "26"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Finding two numbers with a target sum by brute force"
 }

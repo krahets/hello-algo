@@ -17,7 +17,7 @@ type node struct {
 	next *node
 }
 
-/* Создать структуру node */
+/* Создать структуру node  */
 func newNode(val int) *node {
 	return &node{val: val}
 }
@@ -28,19 +28,19 @@ func function() int {
 	return 0
 }
 
-/* Постоянная сложность */
+/* Константная сложность */
 func spaceConstant(n int) {
 	// Константы, переменные и объекты занимают O(1) памяти
 	const a = 0
 	b := 0
 	nums := make([]int, 10000)
 	node := newNode(0)
-	// Переменные в цикле занимают O(1) памяти
+	// Переменные цикла занимают O(1) памяти
 	var c int
 	for i := 0; i < n; i++ {
 		c = 0
 	}
-	// Функции в цикле занимают O(1) памяти
+	// Вызовы функции в цикле требуют O(1) памяти
 	for i := 0; i < n; i++ {
 		function()
 	}
@@ -59,16 +59,16 @@ func spaceLinear(n int) {
 	for i := 0; i < n; i++ {
 		nodes = append(nodes, newNode(i))
 	}
-	// Хеш-таблица длины n занимает O(n) памяти
+	// Хеш-таблица из n элементов занимает O(n) памяти
 	m := make(map[int]string, n)
 	for i := 0; i < n; i++ {
 		m[i] = strconv.Itoa(i)
 	}
 }
 
-/* Линейная сложность (рекурсивная реализация) */
+/* Линейная сложность (рекурсия) */
 func spaceLinearRecur(n int) {
-	fmt.Println("Рекурсия n =", n)
+	fmt.Println("Рекурсивный вызов: n =", n)
 	if n == 1 {
 		return
 	}
@@ -84,17 +84,17 @@ func spaceQuadratic(n int) {
 	}
 }
 
-/* Квадратичная сложность (рекурсивная реализация) */
+/* Квадратичная сложность (рекурсия) */
 func spaceQuadraticRecur(n int) int {
 	if n <= 0 {
 		return 0
 	}
 	nums := make([]int, n)
-	fmt.Printf("В рекурсии n = %d, длина nums = %d\n", n, len(nums))
+	fmt.Printf("При n = %d длина nums = %d \n", n, len(nums))
 	return spaceQuadraticRecur(n - 1)
 }
 
-/* Экспоненциальная сложность (построение полного двоичного дерева) */
+/* Экспоненциальная сложность (построение совершенного двоичного дерева) */
 func buildTree(n int) *TreeNode {
 	if n == 0 {
 		return nil

@@ -32,7 +32,7 @@ pub fn main() {
     let mut res = Vec::new();
     pre_order(&mut res, root.as_ref());
 
-    println!("\nOutput all nodes with value 7");
+    println!("\nPrint all nodes with value 7");
     let mut vals = Vec::new();
     for node in res {
         vals.push(node.borrow().val)

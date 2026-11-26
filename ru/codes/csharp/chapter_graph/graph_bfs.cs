@@ -8,35 +8,35 @@ namespace hello_algo.chapter_graph;
 
 public class graph_bfs {
     /* Обход в ширину */
-    // Использовать список смежности для представления графа, чтобы получить все смежные вершины заданной вершины
+    // Список смежности позволяет получить всех соседей заданной вершины
     List<Vertex> GraphBFS(GraphAdjList graph, Vertex startVet) {
-        // Последовательность обхода вершин
+        // Порядок обхода вершин
         List<Vertex> res = [];
-        // Хеш-множество для хранения уже посещенных вершин
+        // Хеш-множество посещённых вершин
         HashSet<Vertex> visited = [startVet];
-        // Очередь используется для реализации BFS
+        // Очередь для обхода BFS
         Queue<Vertex> que = new();
         que.Enqueue(startVet);
-        // Начиная с вершины vet, продолжать цикл, пока не будут посещены все вершины
+        // Начать с вершины vet и повторять, пока не будут посещены все вершины
         while (que.Count > 0) {
-            Vertex vet = que.Dequeue(); // Извлечь головную вершину из очереди
-            res.Add(vet);               // Отметить посещенную вершину
+            Vertex vet = que.Dequeue(); // Извлечь первую вершину из очереди
+            res.Add(vet);               // Записать посещённую вершину
             foreach (Vertex adjVet in graph.adjList[vet]) {
                 if (visited.Contains(adjVet)) {
-                    continue;          // Пропустить уже посещенную вершину
+                    continue;          // Пропустить посещённые вершины
                 }
-                que.Enqueue(adjVet);   // Помещать в очередь только непосещенные вершины
-                visited.Add(adjVet);   // Отметить эту вершину как посещенную
+                que.Enqueue(adjVet);   // Добавить в очередь только непосещённые вершины
+                visited.Add(adjVet);   // Отметить вершину как посещённую
             }
         }
 
-        // Вернуть последовательность обхода вершин
+        // Вернуть порядок обхода вершин
         return res;
     }
 
     [Test]
     public void Test() {
-        /* Инициализация неориентированного графа */
+        /* Инициализировать неориентированный граф */
         Vertex[] v = Vertex.ValsToVets([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
         Vertex[][] edges =
         [
@@ -47,12 +47,12 @@ public class graph_bfs {
         ];
 
         GraphAdjList graph = new(edges);
-        Console.WriteLine("\nГраф после инициализации");
+        Console.WriteLine("\nГраф после инициализации:");
         graph.Print();
 
         /* Обход в ширину */
         List<Vertex> res = GraphBFS(graph, v[0]);
-        Console.WriteLine("\nПоследовательность вершин при обходе в ширину (BFS)");
+        Console.WriteLine("\nПорядок обхода вершин в ширину (BFS):");
         Console.WriteLine(string.Join(" ", Vertex.VetsToVals(res)));
     }
 }

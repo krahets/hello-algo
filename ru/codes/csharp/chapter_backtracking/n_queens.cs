@@ -7,10 +7,10 @@
 namespace hello_algo.chapter_backtracking;
 
 public class n_queens {
-    /* Алгоритм бэктрекинга: n ферзей */
+    /* Поиск с возвратом: задача о n ферзях */
     void Backtrack(int row, int n, List<List<string>> state, List<List<List<string>>> res,
             bool[] cols, bool[] diags1, bool[] diags2) {
-        // Когда все строки уже обработаны, записать решение
+        // Когда ферзи расставлены во всех строках, сохраняем решение
         if (row == n) {
             List<List<string>> copyState = [];
             foreach (List<string> sRow in state) {
@@ -19,28 +19,28 @@ public class n_queens {
             res.Add(copyState);
             return;
         }
-        // Обойти все столбцы
+        // Перебираем все столбцы
         for (int col = 0; col < n; col++) {
-            // Вычислить главную и побочную диагонали, соответствующие этой клетке
+            // Вычисляем индексы прямой и обратной диагоналей клетки
             int diag1 = row - col + n - 1;
             int diag2 = row + col;
-            // Отсечение: в столбце, главной диагонали и побочной диагонали этой клетки не должно быть ферзей
+            // Отсечение: в столбце и на обеих диагоналях клетки не должно быть ферзей
             if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-                // Попытка: поставить ферзя в эту клетку
+                // Пробуем поставить ферзя на эту клетку
                 state[row][col] = "Q";
                 cols[col] = diags1[diag1] = diags2[diag2] = true;
-                // Перейти к размещению следующей строки
+                // Переходим к следующей строке
                 Backtrack(row + 1, n, state, res, cols, diags1, diags2);
-                // Откат: восстановить эту клетку как пустую
+                // Возврат: освобождаем клетку
                 state[row][col] = "#";
                 cols[col] = diags1[diag1] = diags2[diag2] = false;
             }
         }
     }
 
-    /* Решить задачу о n ферзях */
+    /* Решение задачи о n ферзях */
     List<List<List<string>>> NQueens(int n) {
-        // Инициализировать доску размера n*n, где 'Q' обозначает ферзя, а '#' — пустую клетку
+        // Создаём доску n*n, где 'Q' обозначает ферзя, а '#' — пустую клетку
         List<List<string>> state = [];
         for (int i = 0; i < n; i++) {
             List<string> row = [];
@@ -49,9 +49,9 @@ public class n_queens {
             }
             state.Add(row);
         }
-        bool[] cols = new bool[n]; // Отмечать, есть ли ферзь в столбце
-        bool[] diags1 = new bool[2 * n - 1]; // Отмечать наличие ферзя на главной диагонали
-        bool[] diags2 = new bool[2 * n - 1]; // Отмечать наличие ферзя на побочной диагонали
+        bool[] cols = new bool[n]; // Отмечаем столбцы, занятые ферзями
+        bool[] diags1 = new bool[2 * n - 1]; // Отмечаем прямые диагонали, занятые ферзями
+        bool[] diags2 = new bool[2 * n - 1]; // Отмечаем обратные диагонали, занятые ферзями
         List<List<List<string>>> res = [];
 
         Backtrack(0, n, state, res, cols, diags1, diags2);
@@ -64,8 +64,8 @@ public class n_queens {
         int n = 4;
         List<List<List<string>>> res = NQueens(n);
 
-        Console.WriteLine("Размер входной доски = " + n);
-        Console.WriteLine("Количество способов расстановки ферзей: " + res.Count);
+        Console.WriteLine("Длина стороны доски: " + n);
+        Console.WriteLine("Число расстановок ферзей равно " + res.Count + " для заданной доски.");
         foreach (List<List<string>> state in res) {
             Console.WriteLine("--------------------");
             foreach (List<string> row in state) {

@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Additive hash */
+/* Additive hashing */
 func addHash(key: String) -> Int {
     var hash = 0
     let MODULUS = 1_000_000_007
@@ -16,7 +16,7 @@ func addHash(key: String) -> Int {
     return hash
 }
 
-/* Multiplicative hash */
+/* Multiplicative hashing */
 func mulHash(key: String) -> Int {
     var hash = 0
     let MODULUS = 1_000_000_007
@@ -28,7 +28,7 @@ func mulHash(key: String) -> Int {
     return hash
 }
 
-/* XOR hash */
+/* XOR hashing */
 func xorHash(key: String) -> Int {
     var hash = 0
     let MODULUS = 1_000_000_007
@@ -40,7 +40,7 @@ func xorHash(key: String) -> Int {
     return hash & MODULUS
 }
 
-/* Rotating hash */
+/* Rotation hashing */
 func rotHash(key: String) -> Int {
     var hash = 0
     let MODULUS = 1_000_000_007
@@ -68,6 +68,6 @@ enum SimpleHash {
         print("XOR hash value: \(hash)")
 
         hash = rotHash(key: key)
-        print("Rotating hash value: \(hash)")
+        print("Rotation hash value: \(hash)")
     }
 }

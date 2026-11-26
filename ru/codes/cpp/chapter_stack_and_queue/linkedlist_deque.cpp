@@ -9,26 +9,26 @@
 /* Узел двусвязного списка */
 struct DoublyListNode {
     int val;              // Значение узла
-    DoublyListNode *next; // Указатель на узел-преемник
-    DoublyListNode *prev; // Указатель на узел-предшественник
+    DoublyListNode *next; // Указатель на следующий узел
+    DoublyListNode *prev; // Указатель на предыдущий узел
     DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {
     }
 };
 
-/* Двусторонняя очередь на основе двусвязного списка */
+/* Двусторонняя очередь (дек) на основе двусвязного списка */
 class LinkedListDeque {
   private:
-    DoublyListNode *front, *rear; // Головной узел front, хвостовой узел rear
-    int queSize = 0;              // Длина двусторонней очереди
+    DoublyListNode *front, *rear; // front — первый узел, rear — последний
+    int queSize = 0;              // Длина дека
 
   public:
     /* Конструктор */
     LinkedListDeque() : front(nullptr), rear(nullptr) {
     }
 
-    /* Метод-деструктор */
+    /* Деструктор */
     ~LinkedListDeque() {
-        // Обходить связный список, удалять узлы и освобождать память
+        // Пройти по связному списку и удалить узлы, освободив память
         DoublyListNode *pre, *cur = front;
         while (cur != nullptr) {
             pre = cur;
@@ -37,108 +37,108 @@ class LinkedListDeque {
         }
     }
 
-    /* Получение длины двусторонней очереди */
+    /* Получить длину дека */
     int size() {
         return queSize;
     }
 
-    /* Проверка, пуста ли двусторонняя очередь */
+    /* Проверить, пуст ли дек */
     bool isEmpty() {
         return size() == 0;
     }
 
-    /* Операция добавления в очередь */
+    /* Добавить элемент в дек */
     void push(int num, bool isFront) {
         DoublyListNode *node = new DoublyListNode(num);
-        // Если связный список пуст, сделать так, чтобы и front, и rear указывали на node
+        // Если связный список пуст, присвоить обоим указателям, front и rear, значение node
         if (isEmpty())
             front = rear = node;
-        // Операция добавления в голову очереди
+        // Добавить элемент в начало дека
         else if (isFront) {
-            // Добавить node в голову списка
+            // Добавить node в начало связного списка
             front->prev = node;
             node->next = front;
-            front = node; // Обновить головной узел
-        // Операция добавления в хвост очереди
+            front = node; // Обновить ссылку на первый узел
+        // Добавить элемент в конец дека
         } else {
-            // Добавить node в хвост списка
+            // Добавить node в конец связного списка
             rear->next = node;
             node->prev = rear;
-            rear = node; // Обновить хвостовой узел
+            rear = node; // Обновить ссылку на последний узел
         }
-        queSize++; // Обновить длину очереди
+        queSize++; // Обновить длину дека
     }
 
-    /* Добавление в голову очереди */
+    /* Добавить элемент в начало дека */
     void pushFirst(int num) {
         push(num, true);
     }
 
-    /* Добавление в хвост очереди */
+    /* Добавить элемент в конец дека */
     void pushLast(int num) {
         push(num, false);
     }
 
-    /* Операция извлечения из очереди */
+    /* Извлечь элемент из дека */
     int pop(bool isFront) {
         if (isEmpty())
-            throw out_of_range("очередь пуста");
+            throw out_of_range("Дек пуст");
         int val;
-        // Если в очереди один элемент, начало и конец указывают на один узел
+        // Если длина дека равна 1, ссылки на первый и последний узлы указывают на один и тот же узел
         if (queSize == 1) {
             val = front->val;
-            delete front; // Оба указателя указывают на один узел, поэтому достаточно освободить его один раз
+            delete front; // Оба указателя ссылаются на один узел, поэтому достаточно освободить его один раз
             front = nullptr;
             rear = nullptr;
         }
-        // Операция извлечения из головы очереди
+        // Извлечь элемент из начала дека
         else if (isFront) {
-            val = front->val; // Временно сохранить значение головного узла
-            // Удалить головной узел
+            val = front->val; // Временно сохранить значение первого узла
+            // Удалить первый узел
             DoublyListNode *fNext = front->next;
             fNext->prev = nullptr;
             front->next = nullptr;
             delete front;
-            front = fNext; // Обновить головной узел
-        // Операция извлечения из хвоста очереди
+            front = fNext; // Обновить ссылку на первый узел
+        // Извлечь элемент из конца дека
         } else {
-            val = rear->val; // Временно сохранить значение хвостового узла
-            // Удалить хвостовой узел
+            val = rear->val; // Временно сохранить значение последнего узла
+            // Удалить последний узел
             DoublyListNode *rPrev = rear->prev;
             rPrev->next = nullptr;
             rear->prev = nullptr;
             delete rear;
-            rear = rPrev; // Обновить хвостовой узел
+            rear = rPrev; // Обновить ссылку на последний узел
         }
-        queSize--; // Обновить длину очереди
+        queSize--; // Обновить длину дека
         return val;
     }
 
-    /* Извлечение из головы очереди */
+    /* Извлечь элемент из начала дека */
     int popFirst() {
         return pop(true);
     }
 
-    /* Извлечение из хвоста очереди */
+    /* Извлечь элемент из конца дека */
     int popLast() {
         return pop(false);
     }
 
-    /* Доступ к элементу в начале очереди */
+    /* Посмотреть первый элемент дека */
     int peekFirst() {
         if (isEmpty())
-            throw out_of_range("двусторонняя очередь пуста");
+            throw out_of_range("Дек пуст");
         return front->val;
     }
 
-    /* Доступ к элементу в конце очереди */
+    /* Посмотреть последний элемент дека */
     int peekLast() {
         if (isEmpty())
-            throw out_of_range("двусторонняя очередь пуста");
+            throw out_of_range("Дек пуст");
         return rear->val;
     }
 
-    /* Вернуть массив для вывода */
+    /* Вернуть динамический массив для вывода */
     vector<int> toVector() {
         DoublyListNode *node = front;
         vector<int> res(size());
@@ -150,45 +150,45 @@ class LinkedListDeque {
     }
 };
 
-/* Driver Code */
+/* Пример использования */
 int main() {
-    /* Инициализация двусторонней очереди */
+    /* Инициализировать дек */
     LinkedListDeque *deque = new LinkedListDeque();
     deque->pushLast(3);
     deque->pushLast(2);
     deque->pushLast(5);
-    cout << "Двусторонняя очередь deque = ";
+    cout << "Дек deque = ";
     printVector(deque->toVector());
 
-    /* Доступ к элементу */
+    /* Посмотреть первый и последний элементы */
     int peekFirst = deque->peekFirst();
-    cout << "Первый элемент peekFirst = " << peekFirst << endl;
+    cout << "Первый элемент дека peekFirst = " << peekFirst << endl;
     int peekLast = deque->peekLast();
-    cout << "Последний элемент peekLast = " << peekLast << endl;
+    cout << "Последний элемент дека peekLast = " << peekLast << endl;
 
-    /* Добавление элемента в очередь */
+    /* Добавить элементы в дек */
     deque->pushLast(4);
-    cout << "После добавления элемента 4 в хвост deque =";
+    cout << "После добавления 4 в конец дека deque =";
     printVector(deque->toVector());
     deque->pushFirst(1);
-    cout << "После добавления элемента 1 в голову deque = ";
+    cout << "После добавления 1 в начало дека deque = ";
     printVector(deque->toVector());
 
-    /* Извлечение элемента из очереди */
+    /* Извлечь элементы из дека */
     int popLast = deque->popLast();
-    cout << "Извлеченный из хвоста элемент = " << popLast << ", deque после извлечения из хвоста = ";
+    cout << "Извлечённый последний элемент = " << popLast << ", после извлечения из конца deque = ";
     printVector(deque->toVector());
     int popFirst = deque->popFirst();
-    cout << "Извлеченный из головы элемент = " << popFirst << ", deque после извлечения из головы = ";
+    cout << "Извлечённый первый элемент = " << popFirst << ", после извлечения из начала deque = ";
     printVector(deque->toVector());
 
-    /* Получение длины двусторонней очереди */
+    /* Получить длину дека */
     int size = deque->size();
-    cout << "Длина двусторонней очереди size = " << size << endl;
+    cout << "Длина дека size = " << size << endl;
 
-    /* Проверка, пуста ли двусторонняя очередь */
+    /* Проверить, пуст ли дек */
     bool isEmpty = deque->isEmpty();
-    cout << "Пуста ли двусторонняя очередь = " << boolalpha << isEmpty << endl;
+    cout << "Дек пуст = " << boolalpha << isEmpty << endl;
 
     // Освободить память
     delete deque;

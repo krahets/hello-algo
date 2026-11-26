@@ -6,9 +6,9 @@
 
 package chapter_stack_and_queue
 
-/* Queue implemented with a linked list */
+/* Queue backed by a linked list */
 class LinkedListQueue(
-    // Head node front and tail node rear
+    // front points to the head node and rear to the tail node
     private var front: ListNode? = null,
     private var rear: ListNode? = null,
     private var queSize: Int = 0
@@ -24,15 +24,15 @@ class LinkedListQueue(
         return size() == 0
     }
 
-    /* Enqueue */
+    /* Enqueue an element */
     fun push(num: Int) {
-        // Add num after the tail node
+        // Add a node containing num after the tail
         val node = ListNode(num)
-        // If the queue is empty, make both the head and tail point to this node
+        // If the queue is empty, point both the head and tail at the new node
         if (front == null) {
             front = node
             rear = node
-            // If the queue is not empty, add this node after the tail node
+            // If the queue has elements, link the new node after the tail
         } else {
             rear?.next = node
             rear = node
@@ -40,7 +40,7 @@ class LinkedListQueue(
         queSize++
     }
 
-    /* Dequeue */
+    /* Remove and return the front element */
     fun pop(): Int {
         val num = peek()
         // Remove the head node
@@ -49,13 +49,13 @@ class LinkedListQueue(
         return num
     }
 
-    /* Access the front element */
+    /* Peek at the front element */
     fun peek(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
         return front!!._val
     }
 
-    /* Convert the linked list to an array and return it */
+    /* Return the linked list elements as an array */
     fun toArray(): IntArray {
         var node = front
         val res = IntArray(size())
@@ -78,15 +78,15 @@ fun main() {
     queue.push(2)
     queue.push(5)
     queue.push(4)
-    println("Queue queue = ${queue.toArray().contentToString()}")
+    println("queue = ${queue.toArray().contentToString()}")
 
-    /* Access the front element */
+    /* Peek at the front element */
     val peek = queue.peek()
-    println("Front element: peek = $peek")
+    println("Front element (peek) = $peek")
 
     /* Dequeue an element */
     val pop = queue.pop()
-    println("Dequeued element: pop = $pop; queue after removal = ${queue.toArray().contentToString()}")
+    println("Dequeued element (pop) = $pop, queue after removal = ${queue.toArray().contentToString()}")
 
     /* Get the queue size */
     val size = queue.size()
@@ -94,5 +94,5 @@ fun main() {
 
     /* Check whether the queue is empty */
     val isEmpty = queue.isEmpty()
-    println("Is the queue empty? $isEmpty")
+    println("Queue is empty = $isEmpty")
 }

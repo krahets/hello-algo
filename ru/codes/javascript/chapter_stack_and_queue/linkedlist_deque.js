@@ -6,8 +6,8 @@
 
 /* Узел двусвязного списка */
 class ListNode {
-    prev; // Ссылка на узел-предшественник (указатель)
-    next; // Ссылка на узел-преемник (указатель)
+    prev; // Ссылка (указатель) на предыдущий узел
+    next; // Ссылка (указатель) на следующий узел
     val; // Значение узла
 
     constructor(val) {
@@ -17,11 +17,11 @@ class ListNode {
     }
 }
 
-/* Двусторонняя очередь на основе двусвязного списка */
+/* Двусторонняя очередь (дек) на основе двусвязного списка */
 class LinkedListDeque {
-    #front; // Головной узел front
-    #rear; // Хвостовой узел rear
-    #queSize; // Длина двусторонней очереди
+    #front; // Первый узел front
+    #rear; // Последний узел rear
+    #queSize; // Длина дека
 
     constructor() {
         this.#front = null;
@@ -29,103 +29,103 @@ class LinkedListDeque {
         this.#queSize = 0;
     }
 
-    /* Операция добавления в хвост очереди */
+    /* Добавить элемент в конец дека */
     pushLast(val) {
         const node = new ListNode(val);
-        // Если связный список пуст, сделать так, чтобы и front, и rear указывали на node
+        // Если связный список пуст, установить front и rear так, чтобы они указывали на node
         if (this.#queSize === 0) {
             this.#front = node;
             this.#rear = node;
         } else {
-            // Добавить node в хвост списка
+            // Добавить node в конец связного списка
             this.#rear.next = node;
             node.prev = this.#rear;
-            this.#rear = node; // Обновить хвостовой узел
+            this.#rear = node; // Обновить ссылку на последний узел
         }
         this.#queSize++;
     }
 
-    /* Операция добавления в голову очереди */
+    /* Добавить элемент в начало дека */
     pushFirst(val) {
         const node = new ListNode(val);
-        // Если связный список пуст, сделать так, чтобы и front, и rear указывали на node
+        // Если связный список пуст, установить front и rear так, чтобы они указывали на node
         if (this.#queSize === 0) {
             this.#front = node;
             this.#rear = node;
         } else {
-            // Добавить node в голову списка
+            // Добавить node в начало связного списка
             this.#front.prev = node;
             node.next = this.#front;
-            this.#front = node; // Обновить головной узел
+            this.#front = node; // Обновить ссылку на первый узел
         }
         this.#queSize++;
     }
 
-    /* Операция извлечения из хвоста очереди */
+    /* Извлечь элемент из конца дека */
     popLast() {
         if (this.#queSize === 0) {
             return null;
         }
-        const value = this.#rear.val; // Сохранить значение хвостового узла
-        // Если в очереди один элемент, начало и конец указывают на один узел
+        const value = this.#rear.val; // Сохранить значение последнего узла
+        // Если длина дека равна 1, ссылки на первый и последний узлы указывают на один и тот же узел
         if (this.#queSize === 1) {
             this.#front = null;
             this.#rear = null;
         }
-        // Удалить хвостовой узел
+        // Удалить последний узел
         else {
             let temp = this.#rear.prev;
             temp.next = null;
             this.#rear.prev = null;
-            this.#rear = temp; // Обновить хвостовой узел
+            this.#rear = temp; // Обновить ссылку на последний узел
         }
         this.#queSize--;
         return value;
     }
 
-    /* Операция извлечения из головы очереди */
+    /* Извлечь элемент из начала дека */
     popFirst() {
         if (this.#queSize === 0) {
             return null;
         }
-        const value = this.#front.val; // Сохранение значения головного узла
-        // Если в очереди один элемент, начало и конец указывают на один узел
+        const value = this.#front.val; // Сохранить значение первого узла
+        // Если длина дека равна 1, ссылки на первый и последний узлы указывают на один и тот же узел
         if (this.#queSize === 1) {
             this.#front = null;
             this.#rear = null;
         }
-        // Удалить головной узел
+        // Удалить первый узел
         else {
             let temp = this.#front.next;
             temp.prev = null;
             this.#front.next = null;
-            this.#front = temp; // Обновить головной узел
+            this.#front = temp; // Обновить ссылку на первый узел
         }
         this.#queSize--;
         return value;
     }
 
-    /* Доступ к элементу в конце очереди */
+    /* Посмотреть последний элемент дека */
     peekLast() {
         return this.#queSize === 0 ? null : this.#rear.val;
     }
 
-    /* Доступ к элементу в начале очереди */
+    /* Посмотреть первый элемент дека */
     peekFirst() {
         return this.#queSize === 0 ? null : this.#front.val;
     }
 
-    /* Получение длины двусторонней очереди */
+    /* Получить длину дека */
     size() {
         return this.#queSize;
     }
 
-    /* Проверка, пуста ли двусторонняя очередь */
+    /* Проверить, пуст ли дек */
     isEmpty() {
         return this.#queSize === 0;
     }
 
-    /* Вывести двустороннюю очередь */
+    /* Вывести дек */
     print() {
         const arr = [];
         let temp = this.#front;
@@ -137,41 +137,41 @@ class LinkedListDeque {
     }
 }
 
-/* Driver Code */
-/* Инициализация двусторонней очереди */
+/* Пример использования */
+/* Инициализировать дек */
 const linkedListDeque = new LinkedListDeque();
 linkedListDeque.pushLast(3);
 linkedListDeque.pushLast(2);
 linkedListDeque.pushLast(5);
-console.log('Двусторонняя очередь linkedListDeque = ');
+console.log('Дек linkedListDeque = ');
 linkedListDeque.print();
 
-/* Доступ к элементу */
+/* Посмотреть первый и последний элементы */
 const peekFirst = linkedListDeque.peekFirst();
-console.log('Первый элемент peekFirst = ' + peekFirst);
+console.log('Первый элемент дека peekFirst = ' + peekFirst);
 const peekLast = linkedListDeque.peekLast();
-console.log('Последний элемент peekLast = ' + peekLast);
+console.log('Последний элемент дека peekLast = ' + peekLast);
 
-/* Добавление элемента в очередь */
+/* Добавить элементы в дек */
 linkedListDeque.pushLast(4);
-console.log('После добавления элемента 4 в хвост linkedListDeque = ');
+console.log('После добавления 4 в конец дека linkedListDeque = ');
 linkedListDeque.print();
 linkedListDeque.pushFirst(1);
-console.log('После добавления элемента 1 в голову linkedListDeque = ');
+console.log('После добавления 1 в начало дека linkedListDeque = ');
 linkedListDeque.print();
 
-/* Извлечение элемента из очереди */
+/* Извлечь элементы из дека */
 const popLast = linkedListDeque.popLast();
-console.log('Извлеченный из хвоста элемент = ' + popLast + ', linkedListDeque после извлечения из хвоста = ');
+console.log('Извлечённый последний элемент = ' + popLast + ', после извлечения из конца linkedListDeque = ');
 linkedListDeque.print();
 const popFirst = linkedListDeque.popFirst();
-console.log('Извлеченный из головы элемент = ' + popFirst + ', linkedListDeque после извлечения из головы = ');
+console.log('Извлечённый первый элемент = ' + popFirst + ', после извлечения из начала linkedListDeque = ');
 linkedListDeque.print();
 
-/* Получение длины двусторонней очереди */
+/* Получить длину дека */
 const size = linkedListDeque.size();
-console.log('Длина двусторонней очереди size = ' + size);
+console.log('Длина дека size = ' + size);
 
-/* Проверка, пуста ли двусторонняя очередь */
+/* Проверить, пуст ли дек */
 const isEmpty = linkedListDeque.isEmpty();
-console.log('Пуста ли двусторонняя очередь = ' + isEmpty);
+console.log('Дек пуст = ' + isEmpty);

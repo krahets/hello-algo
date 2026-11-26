@@ -19,7 +19,7 @@ type arrayHashMap struct {
 
 /* 해시 테이블 초기화 */
 func newArrayHashMap() *arrayHashMap {
-	// 버킷 100개를 포함하는 배열을 초기화한다
+	// 버킷 100개로 배열 초기화
 	buckets := make([]*pair, 100)
 	return &arrayHashMap{buckets: buckets}
 }
@@ -30,7 +30,7 @@ func (a *arrayHashMap) hashFunc(key int) int {
 	return index
 }
 
-/* 조회 연산 */
+/* 조회 */
 func (a *arrayHashMap) get(key int) string {
 	index := a.hashFunc(key)
 	pair := a.buckets[index]
@@ -40,21 +40,21 @@ func (a *arrayHashMap) get(key int) string {
 	return pair.val
 }
 
-/* 추가 연산 */
+/* 추가 */
 func (a *arrayHashMap) put(key int, val string) {
 	pair := &pair{key: key, val: val}
 	index := a.hashFunc(key)
 	a.buckets[index] = pair
 }
 
-/* 삭제 연산 */
+/* 삭제 */
 func (a *arrayHashMap) remove(key int) {
 	index := a.hashFunc(key)
-	// nil로 설정하여 삭제를 나타낸다
+	// nil로 설정하여 삭제를 나타냄
 	a.buckets[index] = nil
 }
 
-/* 모든 키-값 쌍 반환 */
+/* 모든 키-값 쌍 가져오기 */
 func (a *arrayHashMap) pairSet() []*pair {
 	var pairs []*pair
 	for _, pair := range a.buckets {
@@ -65,7 +65,7 @@ func (a *arrayHashMap) pairSet() []*pair {
 	return pairs
 }
 
-/* 모든 키 반환 */
+/* 모든 키 가져오기 */
 func (a *arrayHashMap) keySet() []int {
 	var keys []int
 	for _, pair := range a.buckets {
@@ -76,7 +76,7 @@ func (a *arrayHashMap) keySet() []int {
 	return keys
 }
 
-/* 모든 값 반환 */
+/* 모든 값 가져오기 */
 func (a *arrayHashMap) valueSet() []string {
 	var values []string
 	for _, pair := range a.buckets {

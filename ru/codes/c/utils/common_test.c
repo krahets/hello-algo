@@ -18,10 +18,10 @@ void testTreeNode() {
     int size = sizeof(nums) / sizeof(int);
     TreeNode *root = arrayToTree(nums, size);
 
-    // print tree
+    // Вывести дерево
     printTree(root);
 
-    // tree to arr
+    // Преобразовать дерево в массив
     int *arr = treeToArray(root, &size);
     printArray(arr, size);
 }

@@ -1,0 +1,83 @@
+{
+  "animations": {
+    "array-deque": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "frame_id": "source-76",
+          "id": "step-1"
+        },
+        {
+          "frame_id": "source-77",
+          "id": "step-2"
+        },
+        {
+          "frame_id": "source-78",
+          "id": "step-3"
+        },
+        {
+          "frame_id": "source-79",
+          "id": "step-4"
+        },
+        {
+          "frame_id": "source-80",
+          "id": "step-5"
+        }
+      ]
+    }
+  },
+  "context": [
+    "左側是雙端佇列，右側是底層的環狀陣列，兩側都垂直排列，由上到下是隊首到隊尾。front 是隊首索引，size 是有效長度。往上移一格表示索引減 1，對應程式碼註解中的「往左移」。往下移一格則表示索引加 1。",
+    "下次從隊尾寫入的位置由 rear = (front + size) % capacity 算出。圖中簡寫為 rear = front + size，沒有畫出跨越邊界再繞回的情形，也沒有標出實際容量和索引值。"
+  ],
+  "description": [
+    "入隊前必須還有空位，出隊前佇列不可為空。各個有效元素的索引為 (front + i) % capacity，其中 i 從 0 到 size - 1。從隊首入隊時，將 front 更新為 (front - 1 + capacity) % capacity。",
+    "原有的 3、2、5 始終留在原來的陣列位置。灰色虛線格表示該格在有效範圍外。出隊後，格子改以虛線畫出，並不表示程式已將格內的值歸零。新加入隊尾的 4 是青色，新加入隊首的 1 是橘色。"
+  ],
+  "frames": [
+    {
+      "announcement": "初始有效佇列為 [3, 2, 5]，front 指向 3，size = 3，rear 指向 5 後面的第一個空格。",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step1.png",
+      "explanation": "初始有效佇列為 [3, 2, 5]，front 指向 3，size = 3。rear 由 front + size 算出，指向 5 下方的第一個空格。陣列上下兩端還畫有空格和刪節號。",
+      "id": "source-76",
+      "key_state": "有效佇列為 [3, 2, 5]，front 指向 3，size = 3，rear 指向 5 下方的空格。",
+      "title": "初始雙端佇列"
+    },
+    {
+      "announcement": "在入隊前算出的 rear 位置寫入 4，將 size 增至 4。圖中的 rear 箭頭停在這次寫入 4 的位置。",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step2_push_last.png",
+      "explanation": "執行 push_last(4)。先用入隊前的 front 和 size = 3 算出 rear，在該空格寫入 4，再將 size 增至 4。目前佇列為 [3, 2, 5, 4]，front 仍指向 3。圖中的 rear 箭頭停在這次寫入 4 的位置。若用新的 size 重新計算，隊尾的下一格應在 4 的正下方。",
+      "id": "source-77",
+      "key_state": "front 指向 3，size = 4，有效佇列為 [3, 2, 5, 4]。圖中的 rear 標示這次寫入 4 的位置。",
+      "title": "從隊尾加入 4"
+    },
+    {
+      "announcement": "將 front 往上移一格，在該處寫入 1，再將 size 增至 5。其餘元素的位置不變。",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step3_push_first.png",
+      "explanation": "執行 push_first(1)。將 front 往上移一格，指向 3 上方的空格，寫入 1，再將 size 從 4 增至 5。目前佇列為 [1, 3, 2, 5, 4]，front 指向新的隊首 1，其餘元素都留在原位。這個畫面沒有標示 rear。",
+      "id": "source-78",
+      "key_state": "front 指向 1，size = 5，有效佇列為 [1, 3, 2, 5, 4]。",
+      "title": "從隊首加入 1"
+    },
+    {
+      "announcement": "讀取並回傳隊尾的 4，將 size 減為 4。原隊尾所在的格子已移出有效範圍。",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step4_pop_last.png",
+      "explanation": "執行 pop_last()，讀取並回傳隊尾的 4，將 size 從 5 減為 4。目前佇列為 [1, 3, 2, 5]，front 仍指向 1。原本存放 4 的格子改以虛線畫出，表示該格已移出有效範圍。這個畫面沒有標示 rear。",
+      "id": "source-79",
+      "key_state": "front 指向 1，size = 4，有效佇列為 [1, 3, 2, 5]，回傳 4。",
+      "title": "從隊尾取出 4"
+    },
+    {
+      "announcement": "讀取並回傳隊首的 1，將 front 往下移一格，重新指向 3，再將 size 減為 3。",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step5_pop_first.png",
+      "explanation": "執行 pop_first()，讀取並回傳隊首的 1。將 front 往下移一格，重新指向 3，同時將 size 從 4 減為 3。佇列恢復為 [3, 2, 5]，原本存放 1 的格子已移出有效範圍。這個畫面沒有標示 rear。",
+      "id": "source-80",
+      "key_state": "front 指向 3，size = 3，有效佇列為 [3, 2, 5]，回傳 1。",
+      "title": "從隊首取出 1"
+    }
+  ],
+  "result": "從任一端入隊或出隊，都只需修改端點的陣列格、front 或 size，中間的元素無須搬動。這些操作的時間複雜度都是 O(1)。",
+  "schema_version": 2,
+  "summary": "透過移動隊首索引和記錄有效長度，就能在兩端操作，無須搬動中間的元素。",
+  "title": "以環狀陣列實作雙端佇列"
+}

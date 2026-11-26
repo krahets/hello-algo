@@ -12,8 +12,8 @@ use std::rc::Rc;
 /* Doubly linked list node */
 pub struct ListNode<T> {
     pub val: T,                                 // Node value
-    pub next: Option<Rc<RefCell<ListNode<T>>>>, // Pointer to the next node
-    pub prev: Option<Rc<RefCell<ListNode<T>>>>, // Pointer to the previous node
+    pub next: Option<Rc<RefCell<ListNode<T>>>>, // Shared pointer to the next node
+    pub prev: Option<Rc<RefCell<ListNode<T>>>>, // Shared pointer to the previous node
 }
 
 impl<T> ListNode<T> {
@@ -26,11 +26,11 @@ impl<T> ListNode<T> {
     }
 }
 
-/* Deque implemented with a doubly linked list */
+/* Deque backed by a doubly linked list */
 #[allow(dead_code)]
 pub struct LinkedListDeque<T> {
-    front: Option<Rc<RefCell<ListNode<T>>>>, // Head node front
-    rear: Option<Rc<RefCell<ListNode<T>>>>,  // Tail node rear
+    front: Option<Rc<RefCell<ListNode<T>>>>, // Head node (front)
+    rear: Option<Rc<RefCell<ListNode<T>>>>,  // Tail node (rear)
     que_size: usize,                         // Deque size
 }
 
@@ -53,67 +53,67 @@ impl<T: Copy> LinkedListDeque<T> {
         return self.que_size == 0;
     }
 
-    /* Enqueue operation */
+    /* Add an element at either end */
     fn push(&mut self, num: T, is_front: bool) {
         let node = ListNode::new(num);
-        // Enqueue at the front
+        // Add at the front
         if is_front {
             match self.front.take() {
-                // If the linked list is empty, make both front and rear point to node
+                // If the list is empty, point both front and rear at node
                 None => {
                     self.rear = Some(node.clone());
                     self.front = Some(node);
                 }
-                // Add node to the head of the linked list
+                // Link node at the head of the list
                 Some(old_front) => {
                     old_front.borrow_mut().prev = Some(node.clone());
                     node.borrow_mut().next = Some(old_front);
-                    self.front = Some(node); // Update the head node
+                    self.front = Some(node); // Update the head
                 }
             }
         }
-        // Enqueue at the rear
+        // Add at the rear
         else {
             match self.rear.take() {
-                // If the linked list is empty, make both front and rear point to node
+                // If the list is empty, point both front and rear at node
                 None => {
                     self.front = Some(node.clone());
                     self.rear = Some(node);
                 }
-                // Add node to the tail of the linked list
+                // Link node at the tail of the list
                 Some(old_rear) => {
                     old_rear.borrow_mut().next = Some(node.clone());
                     node.borrow_mut().prev = Some(old_rear);
-                    self.rear = Some(node); // Update the tail node
+                    self.rear = Some(node); // Update the tail
                 }
             }
         }
         self.que_size += 1; // Update the deque size
     }
 
-    /* Enqueue at the front */
+    /* Add an element at the front */
     pub fn push_first(&mut self, num: T) {
         self.push(num, true);
     }
 
-    /* Enqueue at the rear */
+    /* Add an element at the rear */
     pub fn push_last(&mut self, num: T) {
         self.push(num, false);
     }
 
-    /* Dequeue operation */
+    /* Remove an element from either end */
     fn pop(&mut self, is_front: bool) -> Option<T> {
         // If the deque is empty, return None immediately
         if self.is_empty() {
             return None;
         };
-        // Dequeue from the front
+        // Remove from the front
         if is_front {
             self.front.take().map(|old_front| {
                 match old_front.borrow_mut().next.take() {
                     Some(new_front) => {
                         new_front.borrow_mut().prev.take();
-                        self.front = Some(new_front); // Update the head node
+                        self.front = Some(new_front); // Update the head
                     }
                     None => {
                         self.rear.take();
@@ -123,13 +123,13 @@ impl<T: Copy> LinkedListDeque<T> {
                 old_front.borrow().val
             })
         }
-        // Dequeue from the rear
+        // Remove from the rear
         else {
             self.rear.take().map(|old_rear| {
                 match old_rear.borrow_mut().prev.take() {
                     Some(new_rear) => {
                         new_rear.borrow_mut().next.take();
-                        self.rear = Some(new_rear); // Update the tail node
+                        self.rear = Some(new_rear); // Update the tail
                     }
                     None => {
                         self.front.take();
@@ -141,22 +141,22 @@ impl<T: Copy> LinkedListDeque<T> {
         }
     }
 
-    /* Dequeue from the front */
+    /* Remove and return the front element */
     pub fn pop_first(&mut self) -> Option<T> {
         return self.pop(true);
     }
 
-    /* Dequeue from the rear */
+    /* Remove and return the rear element */
     pub fn pop_last(&mut self) -> Option<T> {
         return self.pop(false);
     }
 
-    /* Access the front element */
+    /* Get a reference to the front node */
     pub fn peek_first(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
         self.front.as_ref()
     }
 
-    /* Access the rear element */
+    /* Get a reference to the rear node */
     pub fn peek_last(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
         self.rear.as_ref()
     }
@@ -183,29 +183,29 @@ fn main() {
     deque.push_last(3);
     deque.push_last(2);
     deque.push_last(5);
-    print!("Deque deque = ");
+    print!("deque = ");
     print_util::print_array(&deque.to_array(deque.peek_first()));
 
-    /* Access an element */
+    /* Peek at the front and rear elements */
     let peek_first = deque.peek_first().unwrap().borrow().val;
-    print!("\nFront element peek_first = {}", peek_first);
+    print!("\nFront element (peek_first) = {}", peek_first);
     let peek_last = deque.peek_last().unwrap().borrow().val;
-    print!("\nRear element peek_last = {}", peek_last);
+    print!("\nRear element (peek_last) = {}", peek_last);
 
-    /* Enqueue elements */
+    /* Add elements to the deque */
     deque.push_last(4);
-    print!("\nAfter enqueuing element 4 at the rear, deque = ");
+    print!("\nAfter adding 4 at the rear, deque = ");
     print_util::print_array(&deque.to_array(deque.peek_first()));
     deque.push_first(1);
-    print!("\nAfter enqueuing element 1 at the front, deque = ");
+    print!("\nAfter adding 1 at the front, deque = ");
     print_util::print_array(&deque.to_array(deque.peek_first()));
 
-    /* Dequeue an element */
+    /* Remove elements from both ends */
     let pop_last = deque.pop_last().unwrap();
-    print!("\nElement removed from the rear = {}; after removal, deque = ", pop_last);
+    print!("\nRemoved from the rear = {}, deque after removal = ", pop_last);
     print_util::print_array(&deque.to_array(deque.peek_first()));
     let pop_first = deque.pop_first().unwrap();
-    print!("\nElement removed from the front = {}; after removal, deque = ", pop_first);
+    print!("\nRemoved from the front = {}, deque after removal = ", pop_first);
     print_util::print_array(&deque.to_array(deque.peek_first()));
 
     /* Get the deque size */
@@ -214,5 +214,5 @@ fn main() {
 
     /* Check whether the deque is empty */
     let is_empty = deque.is_empty();
-    print!("\nIs the deque empty? {}", is_empty);
+    print!("\nDeque is empty = {}", is_empty);
 }

@@ -20,6 +20,6 @@ func TestBuildTree(t *testing.T) {
 	PrintSlice(inorder)
 
 	root := buildTree(preorder, inorder)
-	fmt.Println("構建的二元樹為：")
+	fmt.Println("建構出的二元樹為：")
 	PrintTree(root)
 }

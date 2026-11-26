@@ -6,11 +6,11 @@
 
 #include "../utils/common.hpp"
 
-/* Queue implemented with a circular array */
+/* Queue backed by a circular array */
 class ArrayQueue {
   private:
     int *nums;       // Array that stores the queue elements
-    int front;       // Front index, identifying the first element
+    int front;       // Index of the front element
     int queSize;     // Queue size
     int queCapacity; // Queue capacity
 
@@ -41,39 +41,39 @@ class ArrayQueue {
         return size() == 0;
     }
 
-    /* Enqueue */
+    /* Enqueue an element */
     void push(int num) {
         if (queSize == queCapacity) {
             cout << "Queue is full" << endl;
             return;
         }
-        // Calculate the rear index, one position past the last element
-        // Use modulo to wrap rear to the beginning when it passes the end of the array
+        // Compute the index one slot past the rear element
+        // Use the remainder to wrap rear back to the start of the array
         int rear = (front + queSize) % queCapacity;
-        // Add num to the rear
+        // Add num at the rear
         nums[rear] = num;
         queSize++;
     }
 
-    /* Dequeue */
+    /* Remove and return the front element */
     int pop() {
         int num = peek();
-        // Advance the front index by one position, wrapping to the beginning if it passes the end
+        // Advance the front index by one, wrapping to the start if it passes the end
         front = (front + 1) % queCapacity;
         queSize--;
         return num;
     }
 
-    /* Access the front element */
+    /* Peek at the front element */
     int peek() {
         if (isEmpty())
             throw out_of_range("Queue is empty");
         return nums[front];
     }
 
-    /* Convert the array to a vector and return it */
+    /* Return the array elements as a vector */
     vector<int> toVector() {
-        // Copy only the elements in the occupied range
+        // Copy only the elements currently in the queue
         vector<int> arr(queSize);
         for (int i = 0, j = front; i < queSize; i++, j++) {
             arr[i] = nums[j % queCapacity];
@@ -94,16 +94,16 @@ int main() {
     queue->push(2);
     queue->push(5);
     queue->push(4);
-    cout << "Queue queue = ";
+    cout << "queue = ";
     printVector(queue->toVector());
 
-    /* Access the front element */
+    /* Peek at the front element */
     int peek = queue->peek();
-    cout << "Front element peek = " << peek << endl;
+    cout << "Front element (peek) = " << peek << endl;
 
     /* Dequeue an element */
     peek = queue->pop();
-    cout << "Dequeued element pop = " << peek << "; after dequeueing, queue = ";
+    cout << "Dequeued element (pop) = " << peek << ", queue after removal = ";
     printVector(queue->toVector());
 
     /* Get the queue size */
@@ -112,17 +112,17 @@ int main() {
 
     /* Check whether the queue is empty */
     bool empty = queue->isEmpty();
-    cout << "Is the queue empty = " << empty << endl;
+    cout << "Queue is empty = " << empty << endl;
 
     /* Test the circular array */
     for (int i = 0; i < 10; i++) {
         queue->push(i);
         queue->pop();
-        cout << "After round " << i << " of enqueue + dequeue, queue = ";
+        cout << "After round " << i << " of enqueueing and dequeueing, queue = ";
         printVector(queue->toVector());
     }
 
-    // Free memory
+    // Free the allocated memory
     delete queue;
 
     return 0;

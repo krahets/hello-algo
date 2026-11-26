@@ -6,14 +6,14 @@
 
 package chapter_computational_complexity.worst_best_time_complexity
 
-/* 要素が { 1, 2, ..., n } で、順序をシャッフルした配列を生成する */
+/* { 1, 2, ..., n } の要素をランダムに並べた配列を生成 */
 fun randomNumbers(n: Int): Array<Int?> {
     val nums = IntArray(n)
-    // 配列 nums = { 1, 2, 3, ..., n } を生成する
+    // 配列 nums = { 1, 2, 3, ..., n } を生成
     for (i in 0..<n) {
         nums[i] = i + 1
     }
-    // 配列の要素をランダムに並べ替える
+    // 配列の要素をシャッフル
     nums.shuffle()
     val res = arrayOfNulls<Int>(n)
     for (i in 0..<n) {
@@ -22,24 +22,24 @@ fun randomNumbers(n: Int): Array<Int?> {
     return res
 }
 
-/* 配列 nums 内で数値 1 のインデックスを探索する */
+/* 配列 nums で数値 1 のインデックスを探す */
 fun findOne(nums: Array<Int?>): Int {
     for (i in nums.indices) {
-        // 要素 1 が配列の先頭にある場合、最良時間計算量 O(1) となる
-        // 要素 1 が配列の末尾にある場合、最悪時間計算量 O(n) となる
+        // 1 が配列の先頭にあるとき、最良時間計算量 O(1) となる
+        // 1 が配列の末尾にあるとき、最悪時間計算量 O(n) となる
         if (nums[i] == 1)
             return i
     }
     return -1
 }
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
     for (i in 0..9) {
         val n = 100
         val nums = randomNumbers(n)
         val index = findOne(nums)
-        println("\n配列 [ 1, 2, ..., n ] をシャッフルした結果 = ${nums.contentToString()}")
+        println("\n配列 [ 1, 2, ..., n ] のシャッフル結果 = ${nums.contentToString()}")
         println("数値 1 のインデックスは $index")
     }
 }

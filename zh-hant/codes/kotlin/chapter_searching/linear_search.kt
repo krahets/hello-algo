@@ -8,43 +8,43 @@ package chapter_searching
 
 import utils.ListNode
 
-/* 線性查詢（陣列） */
+/* 循序搜尋（陣列） */
 fun linearSearchArray(nums: IntArray, target: Int): Int {
     // 走訪陣列
     for (i in nums.indices) {
-        // 找到目標元素，返回其索引
+        // 找到目標元素，回傳其索引
         if (nums[i] == target)
             return i
     }
-    // 未找到目標元素，返回 -1
+    // 找不到目標元素，回傳 -1
     return -1
 }
 
-/* 線性查詢（鏈結串列） */
+/* 循序搜尋（鏈結串列） */
 fun linearSearchLinkedList(h: ListNode?, target: Int): ListNode? {
     // 走訪鏈結串列
     var head = h
     while (head != null) {
-        // 找到目標節點，返回之
+        // 找到目標節點，回傳該節點
         if (head._val == target)
             return head
         head = head.next
     }
-    // 未找到目標節點，返回 null
+    // 找不到目標節點，回傳 null
     return null
 }
 
-/* Driver Code */
+/* 主程式 */
 fun main() {
     val target = 3
 
-    /* 在陣列中執行線性查詢 */
+    /* 在陣列中執行循序搜尋 */
     val nums = intArrayOf(1, 5, 3, 2, 4, 7, 5, 9, 10, 8)
     val index = linearSearchArray(nums, target)
     println("目標元素 3 的索引 = $index")
 
-    /* 在鏈結串列中執行線性查詢 */
+    /* 在鏈結串列中執行循序搜尋 */
     val head = ListNode.arrToLinkedList(nums)
     val node = linearSearchLinkedList(head, target)
-    println("目標節點值 3 的對應節點物件為 $node")
+    println("目標值 3 對應的節點物件為 $node")
 }

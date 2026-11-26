@@ -8,7 +8,7 @@
 
 /* Поиск */
 int dfs(int i) {
-    // dp[1] и dp[2] уже известны, вернуть их
+    // Для dp[1] и dp[2] вернуть известные значения
     if (i == 1 || i == 2)
         return i;
     // dp[i] = dp[i-1] + dp[i-2]
@@ -16,17 +16,17 @@ int dfs(int i) {
     return count;
 }
 
-/* Подъем по лестнице: поиск */
+/* Подъём по лестнице: поиск */
 int climbingStairsDFS(int n) {
     return dfs(n);
 }
 
-/* Driver Code */
+/* Основная программа */
 int main() {
     int n = 9;
 
     int res = climbingStairsDFS(n);
-    printf("Количество способов подняться по лестнице из %d ступеней: %d\n", n, res);
+    printf("Число способов подняться на лестницу из %d ступеней: %d\n", n, res);
 
     return 0;
 }

@@ -27,7 +27,7 @@ public class simple_hash {
         return (int) hash;
     }
 
-    /* 排他的論理和ハッシュ */
+    /* XOR ハッシュ */
     static int xorHash(String key) {
         int hash = 0;
         final int MODULUS = 1000000007;
@@ -57,7 +57,7 @@ public class simple_hash {
         System.out.println("乗算ハッシュの値は " + hash);
 
         hash = xorHash(key);
-        System.out.println("排他的論理和ハッシュの値は " + hash);
+        System.out.println("XOR ハッシュの値は " + hash);
 
         hash = rotHash(key);
         System.out.println("回転ハッシュの値は " + hash);

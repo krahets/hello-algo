@@ -10,7 +10,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
 from modules import ListNode
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
     num = 3
     hash_num = hash(num)
@@ -26,7 +26,7 @@ if __name__ == "__main__":
 
     str = "Hello 算法"
     hash_str = hash(str)
-    print(f"Hash value of string {str}: {hash_str}")
+    print(f"String {str} has hash value {hash_str}")
 
     tup = (12836, "小哈")
     hash_tup = hash(tup)

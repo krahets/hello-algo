@@ -25,7 +25,7 @@ impl<T> ListNode<T> {
         T: Copy + Clone,
     {
         let mut head = None;
-        // Insert in reverse order
+        // Insert the elements in reverse order
         for item in array.iter().rev() {
             let node = Rc::new(RefCell::new(ListNode {
                 val: *item,
@@ -36,7 +36,7 @@ impl<T> ListNode<T> {
         head
     }
 
-    /* Convert the linked list to a hash map */
+    /* Convert the linked list to a hash table */
     pub fn linked_list_to_hashmap(
         linked_list: Option<Rc<RefCell<ListNode<T>>>>,
     ) -> HashMap<T, Rc<RefCell<ListNode<T>>>>

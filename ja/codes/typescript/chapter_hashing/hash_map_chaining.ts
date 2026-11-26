@@ -14,13 +14,13 @@ class Pair {
     }
 }
 
-/* チェイン法のハッシュテーブル */
+/* チェイン法によるハッシュ表 */
 class HashMapChaining {
     #size: number; // キーと値のペアの数
-    #capacity: number; // ハッシュテーブルの容量
-    #loadThres: number; // 容量の拡張を開始する負荷率のしきい値
+    #capacity: number; // ハッシュ表の容量
+    #loadThres: number; // 表を拡張する負荷率のしきい値
     #extendRatio: number; // 容量の拡張倍率
-    #buckets: Pair[][]; // バケット配列
+    #buckets: Pair[][]; // バケットの配列
 
     /* コンストラクタ */
     constructor() {
@@ -41,7 +41,7 @@ class HashMapChaining {
         return this.#size / this.#capacity;
     }
 
-    /* 取得操作 */
+    /* 検索 */
     get(key: number): string | null {
         const index = this.#hashFunc(key);
         const bucket = this.#buckets[index];
@@ -51,36 +51,36 @@ class HashMapChaining {
                 return pair.val;
             }
         }
-        // key が見つからなかった場合、null を返す
+        // key が見つからなければ null を返す
         return null;
     }
 
-    /* 追加操作 */
+    /* 追加 */
     put(key: number, val: string): void {
-        // 負荷率がしきい値を超えた場合、容量を拡張する
+        // 負荷率がしきい値を超えたら表を拡張する
         if (this.#loadFactor() > this.#loadThres) {
             this.#extend();
         }
         const index = this.#hashFunc(key);
         const bucket = this.#buckets[index];
-        // バケットを走査し、指定された key が見つかったら、対応する val を更新して戻る
+        // バケットを走査し、指定の key が見つかったら対応する val を更新して処理を終える
         for (const pair of bucket) {
             if (pair.key === key) {
                 pair.val = val;
                 return;
             }
         }
-        // key が存在しない場合、キーと値のペアを末尾に追加する
+        // key がなければ末尾にペアを追加する
         const pair = new Pair(key, val);
         bucket.push(pair);
         this.#size++;
     }
 
-    /* 削除操作 */
+    /* 削除 */
     remove(key: number): void {
         const index = this.#hashFunc(key);
         let bucket = this.#buckets[index];
-        // バケットを走査し、キーと値のペアを削除する
+        // バケットを走査し、該当するペアを削除する
         for (let i = 0; i < bucket.length; i++) {
             if (bucket[i].key === key) {
                 bucket.splice(i, 1);
@@ -90,15 +90,15 @@ class HashMapChaining {
         }
     }
 
-    /* ハッシュテーブルの容量を拡張する */
+    /* ハッシュ表を拡張する */
     #extend(): void {
-        // 元のハッシュテーブルを一時保存する
+        // 元のハッシュ表を一時保存する
         const bucketsTmp = this.#buckets;
-        // 拡張後の新しいハッシュテーブルを初期化する
+        // 拡張後の新しいハッシュ表を初期化する
         this.#capacity *= this.#extendRatio;
         this.#buckets = new Array(this.#capacity).fill(null).map((x) => []);
         this.#size = 0;
-        // キーと値のペアを元のハッシュテーブルから新しいハッシュテーブルに移す
+        // 元のハッシュ表から新しい表にペアを移す
         for (const bucket of bucketsTmp) {
             for (const pair of bucket) {
                 this.put(pair.key, pair.val);
@@ -106,7 +106,7 @@ class HashMapChaining {
         }
     }
 
-    /* ハッシュテーブルを表示する */
+    /* ハッシュ表を表示する */
     print(): void {
         for (const bucket of this.#buckets) {
             let res = [];
@@ -118,29 +118,29 @@ class HashMapChaining {
     }
 }
 
-/* 実行用コード */
-/* ハッシュテーブルを初期化する */
+/* 実行例 */
+/* ハッシュ表を初期化する */
 const map = new HashMapChaining();
 
-/* 追加操作 */
-// ハッシュテーブルにキーと値のペア (key, value) を追加する
+/* 追加 */
+// ハッシュ表にペア (key, value) を追加する
 map.put(12836, '小哈');
 map.put(15937, '小啰');
 map.put(16750, '小算');
 map.put(13276, '小法');
 map.put(10583, '小鸭');
-console.log('\n追加後のハッシュテーブル\nKey -> Value');
+console.log('\n追加後のハッシュ表\nKey -> Value');
 map.print();
 
-/* 取得操作 */
-// ハッシュテーブルにキー key を渡し、値 value を取得する
+/* 検索 */
+// ハッシュ表でキー key に対応する値 value を取得する
 const name = map.get(13276);
-console.log('\n学生番号 13276 に対応する氏名は ' + name);
+console.log('\n学籍番号 13276 に対応する名前は ' + name);
 
-/* 削除操作 */
-// ハッシュテーブルからキーと値のペア (key, value) を削除する
+/* 削除 */
+// ハッシュ表からペア (key, value) を削除する
 map.remove(12836);
-console.log('\n12836 を削除した後のハッシュテーブル\nKey -> Value');
+console.log('\n12836 を削除した後のハッシュ表\nKey -> Value');
 map.print();
 
 export {};

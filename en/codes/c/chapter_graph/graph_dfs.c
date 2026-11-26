@@ -6,12 +6,12 @@
 
 #include "graph_adjacency_list.c"
 
-// Assume at most 100 vertices
+// Assume a maximum of 100 nodes
 #define MAX_SIZE 100
 
 /* Check whether a vertex has been visited */
 int isVisited(Vertex **res, int size, Vertex *vet) {
-    // Search for the vertex with a linear scan in O(n) time
+    // Scan for the node in O(n) time
     for (int i = 0; i < size; i++) {
         if (res[i] == vet) {
             return 1;
@@ -20,16 +20,16 @@ int isVisited(Vertex **res, int size, Vertex *vet) {
     return 0;
 }
 
-/* Depth-first traversal helper function */
+/* Helper for depth-first traversal */
 void dfs(GraphAdjList *graph, Vertex **res, int *resSize, Vertex *vet) {
     // Record the visited vertex
     res[(*resSize)++] = vet;
-    // Traverse all neighbors of this vertex
+    // Iterate over all neighbors of this vertex
     AdjListNode *node = findNode(graph, vet);
     while (node != NULL) {
-        // Skip vertices that have already been visited
+        // Skip visited vertices
         if (!isVisited(res, *resSize, node->vertex)) {
-            // Recursively visit the neighboring vertex
+            // Visit neighbors recursively
             dfs(graph, res, resSize, node->vertex);
         }
         node = node->next;
@@ -37,14 +37,14 @@ void dfs(GraphAdjList *graph, Vertex **res, int *resSize, Vertex *vet) {
 }
 
 /* Depth-first traversal */
-// Represent the graph with an adjacency list to access all neighbors of a given vertex
+// Represent the graph with an adjacency list to look up all neighbors of a given vertex
 void graphDFS(GraphAdjList *graph, Vertex *startVet, Vertex **res, int *resSize) {
     dfs(graph, res, resSize, startVet);
 }
 
 /* Driver code */
 int main() {
-    // Initialize the undirected graph
+    // Initialize an undirected graph
     int vals[] = {0, 1, 2, 3, 4, 5, 6};
     int size = sizeof(vals) / sizeof(vals[0]);
     Vertex **v = valsToVets(vals, size);
@@ -65,10 +65,10 @@ int main() {
     Vertex *res[MAX_SIZE];
     int resSize = 0;
     graphDFS(graph, v[0], res, &resSize);
-    printf("\nVertex sequence from depth-first traversal (DFS):\n");
+    printf("\nDepth-first search (DFS) visits the vertices in this order:\n");
     printArray(vetsToVals(res, resSize), resSize);
 
-    // Free memory
+    // Free the memory
     delGraphAdjList(graph);
     free(v);
     return 0;

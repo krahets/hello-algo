@@ -9,7 +9,7 @@ package chapter_tree
 import utils.TreeNode
 import utils.printTree
 
-/* 配列で表した二分木クラス */
+/* 二分木を配列で表すクラス */
 class ArrayBinaryTree(private val tree: MutableList<Int?>) {
     /* リストの容量 */
     fun size(): Int {
@@ -18,22 +18,22 @@ class ArrayBinaryTree(private val tree: MutableList<Int?>) {
 
     /* インデックス i のノードの値を取得する */
     fun _val(i: Int): Int? {
-        // インデックスが範囲外の場合、空きを表す null を返す
+        // 範囲外なら空きを示す null を返す
         if (i < 0 || i >= size()) return null
         return tree[i]
     }
 
-    /* インデックス i のノードの左の子ノードのインデックスを取得する */
+    /* インデックス i のノードの左の子のインデックスを取得する */
     fun left(i: Int): Int {
         return 2 * i + 1
     }
 
-    /* インデックス i のノードの右の子ノードのインデックスを取得する */
+    /* インデックス i のノードの右の子のインデックスを取得する */
     fun right(i: Int): Int {
         return 2 * i + 2
     }
 
-    /* インデックス i のノードの親ノードのインデックスを取得する */
+    /* インデックス i のノードの親のインデックスを取得する */
     fun parent(i: Int): Int {
         return (i - 1) / 2
     }
@@ -41,7 +41,7 @@ class ArrayBinaryTree(private val tree: MutableList<Int?>) {
     /* レベル順走査 */
     fun levelOrder(): MutableList<Int?> {
         val res = mutableListOf<Int?>()
-        // 配列をそのまま走査する
+        // 配列を順に走査する
         for (i in 0..<size()) {
             if (_val(i) != null)
                 res.add(_val(i))
@@ -51,7 +51,7 @@ class ArrayBinaryTree(private val tree: MutableList<Int?>) {
 
     /* 深さ優先走査 */
     fun dfs(i: Int, order: String, res: MutableList<Int?>) {
-        // 空きの場合、戻る
+        // 空きなら戻る
         if (_val(i) == null)
             return
         // 行きがけ順走査
@@ -89,39 +89,39 @@ class ArrayBinaryTree(private val tree: MutableList<Int?>) {
     }
 }
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
     // 二分木を初期化する
-    // ここではリストから二分木を直接生成する関数を使う
+    // ここではリストから直接二分木を作る関数を使う
     val arr = mutableListOf(1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15)
 
     val root = TreeNode.listToTree(arr)
-    println("\n二分木を初期化する\n")
+    println("\n二分木を初期化\n")
     println("二分木の配列表現：")
     println(arr)
-    println("二分木の連結リスト表現：")
+    println("二分木の連結表現：")
     printTree(root)
 
-    // 配列で表した二分木クラス
+    // 二分木を配列で表すクラス
     val abt = ArrayBinaryTree(arr)
 
-    // ノードにアクセスする
+    // ノードへのアクセス
     val i = 1
     val l = abt.left(i)
     val r = abt.right(i)
     val p = abt.parent(i)
-    println("現在のノードのインデックスは $i 、値は ${abt._val(i)}")
-    println("左の子ノードのインデックスは $l 、値は ${abt._val(l)}")
-    println("右の子ノードのインデックスは $r 、値は ${abt._val(r)}")
-    println("親ノードのインデックスは $p 、値は ${abt._val(p)}")
+    println("現在のノードのインデックスは $i、値は ${abt._val(i)}")
+    println("左の子のインデックスは $l、値は ${abt._val(l)}")
+    println("右の子のインデックスは $r、値は ${abt._val(r)}")
+    println("親のインデックスは $p、値は ${abt._val(p)}")
 
     // 木を走査する
     var res = abt.levelOrder()
-    println("\nレベル順走査：$res")
+    println("\nレベル順：$res")
     res = abt.preOrder()
-    println("行きがけ順走査：$res")
+    println("行きがけ順：$res")
     res = abt.inOrder()
-    println("通りがけ順走査：$res")
+    println("通りがけ順：$res")
     res = abt.postOrder()
-    println("帰りがけ順走査：$res")
+    println("帰りがけ順：$res")
 }

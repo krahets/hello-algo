@@ -4,9 +4,9 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 方法一：暴力列舉 */
+/* 方法一：窮舉法 */
 func twoSumBruteForce(nums: [Int], target: Int) -> [Int] {
-    // 兩層迴圈，時間複雜度為 O(n^2)
+    // 使用兩層迴圈，時間複雜度為 O(n^2)
     for i in nums.indices.dropLast() {
         for j in nums.indices.dropFirst(i + 1) {
             if nums[i] + nums[j] == target {
@@ -17,11 +17,11 @@ func twoSumBruteForce(nums: [Int], target: Int) -> [Int] {
     return [0]
 }
 
-/* 方法二：輔助雜湊表 */
+/* 方法二：使用輔助雜湊表 */
 func twoSumHashTable(nums: [Int], target: Int) -> [Int] {
-    // 輔助雜湊表，空間複雜度為 O(n)
+    // 使用輔助雜湊表，空間複雜度為 O(n)
     var dic: [Int: Int] = [:]
-    // 單層迴圈，時間複雜度為 O(n)
+    // 使用單層迴圈，時間複雜度為 O(n)
     for i in nums.indices {
         if let j = dic[target - nums[i]] {
             return [j, i]
@@ -33,12 +33,12 @@ func twoSumHashTable(nums: [Int], target: Int) -> [Int] {
 
 @main
 enum LeetcodeTwoSum {
-    /* Driver Code */
+    /* 主程式 */
     static func main() {
-        // ======= Test Case =======
+        // ======= 測試案例 =======
         let nums = [2, 7, 11, 15]
         let target = 13
-        // ====== Driver Code ======
+        // ====== 主程式 ======
         // 方法一
         var res = twoSumBruteForce(nums: nums, target: target)
         print("方法一 res = \(res)")

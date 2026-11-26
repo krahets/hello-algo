@@ -1,26 +1,26 @@
 # Stacks
 
-A <u>stack</u> is a linear data structure that follows a last-in, first-out rule.
+A <u>stack</u> is a linear data structure that follows the last-in, first-out rule.
 
-Think of a stack of plates on a table. If we can move only one plate at a time, reaching the bottom plate requires removing all the plates above it first. Replace the plates with elements such as integers, characters, or objects, and we have a stack.
+Imagine a stack of plates on a table. If you can move only one plate at a time, to reach the bottom plate you must first remove each plate above it in turn. Replace the plates with elements such as integers, characters, or objects, and you have a stack.
 
-As shown below, the upper end is the “top” of the stack and the lower end is the “bottom.” Adding an element to the top is called “pushing,” and removing the top element is called “popping.”
+As shown below, the two ends are called the top and the bottom of the stack. Adding an element to the top is called pushing, and removing the top element is called popping.
 
-![The last-in, first-out rule of a stack](stack.assets/stack_operations.svg)
+![The last-in, first-out rule for stacks](stack.assets/stack_operations.svg)
 
 ## Common stack operations
 
-The table below lists common operations. Actual method names depend on the programming language; here we use the familiar names `push()`, `pop()`, and `peek()`.
+The table below lists common stack operations. Method names depend on the programming language. Here we use the familiar names `push()`, `pop()`, and `peek()`.
 
-<p align="center"> Table <id> &nbsp; Efficiency of stack operations </p>
+<p align="center"> Table <id> &nbsp; Time complexity of stack operations </p>
 
 | Method     | Description                   | Time complexity |
 | -------- | ---------------------- | ---------- |
 | `push()` | Push an element onto the top | $O(1)$     |
-| `pop()`  | Remove the top element           | $O(1)$     |
+| `pop()`  | Pop the top element           | $O(1)$     |
 | `peek()` | Access the top element           | $O(1)$     |
 
-We can usually use a language's built-in stack class. If no dedicated class is provided, use an array or linked list as a stack and avoid operations unrelated to stack behavior.
+You can usually use the stack class your programming language provides. If the language has no dedicated stack class, you can use an array or a linked list as a stack and simply ignore operations that fall outside the stack interface.
 
 ```snippet
 stack_operations
@@ -32,18 +32,18 @@ stack_operations
 
 ## Implementing a stack
 
-To understand how a stack works more deeply, let us implement a stack class ourselves.
+To see how a stack works, let’s implement a stack class ourselves.
 
-A stack follows last-in, first-out order, so elements can be added or removed only at the top. Arrays and linked lists allow insertion and deletion at arbitrary positions, **so a stack can be viewed as a restricted array or linked list**. By hiding irrelevant operations, we make its public behavior conform to the stack's rules.
+The last-in, first-out rule allows us to add or remove elements only at the top. Arrays and linked lists allow insertion and removal at any position, so **we can think of a stack as a restricted array or linked list**. By hiding the operations a stack does not use, we can give the array or linked list the behavior of a stack.
 
-### Implementation with a linked list
+### Linked list implementation
 
-When implementing a stack with a linked list, treat the head as the top and the tail as the bottom.
+In a linked-list stack, we can use the head node as the top and the tail node as the bottom.
 
-As shown below, pushing simply inserts a node at the head, an operation called “head insertion.” Popping removes the head node.
+To push, insert the element at the head of the list, as shown below. This is called head insertion. To pop, simply remove the head node.
 
 === "<1>"
-    ![Push and pop in a linked-list stack](stack.assets/linkedlist_stack_step1.svg)
+    ![Pushing and popping with a linked list](stack.assets/linkedlist_stack_step1.svg)
 
 === "<2>"
     ![linkedlist_stack_push](stack.assets/linkedlist_stack_step2_push.svg)
@@ -51,18 +51,18 @@ As shown below, pushing simply inserts a node at the head, an operation called �
 === "<3>"
     ![linkedlist_stack_pop](stack.assets/linkedlist_stack_step3_pop.svg)
 
-Here is an implementation using a linked list:
+The following code implements a stack with a linked list:
 
 ```src
 [file]{linkedlist_stack}-[class]{linked_list_stack}-[func]{}
 ```
 
-### Implementation with an array
+### Array implementation
 
-For an array-based stack, use the end of the array as the top. As shown below, pushing and popping correspond to adding and removing the last element, both taking $O(1)$ time.
+In an array-based stack, we can use the end of the array as the top. As shown below, a push adds an element at the end, and a pop removes the last element. Both take $O(1)$ time.
 
 === "<1>"
-    ![Push and pop in an array-based stack](stack.assets/array_stack_step1.svg)
+    ![Pushing and popping with an array](stack.assets/array_stack_step1.svg)
 
 === "<2>"
     ![array_stack_push](stack.assets/array_stack_step2_push.svg)
@@ -70,38 +70,38 @@ For an array-based stack, use the end of the array as the top. As shown below, p
 === "<3>"
     ![array_stack_pop](stack.assets/array_stack_step3_pop.svg)
 
-Since elements may keep arriving, use a dynamic array so that resizing is handled for us. An implementation follows:
+As more and more elements are pushed, the stack may outgrow its array. A dynamic array handles resizing for us, as in the following example:
 
 ```src
 [file]{array_stack}-[class]{array_stack}-[func]{}
 ```
 
-## Comparing the implementations
+## Comparing the two implementations
 
 **Supported operations**
 
-Both implementations support all stack operations. An array also allows random access, but that is outside the stack abstraction and is generally not used.
+Both implementations support every operation in the definition of a stack. An array also supports random access, but that falls outside the stack interface and is generally unused here.
 
 **Time efficiency**
 
-In an array-based stack, pushes and pops operate in preallocated contiguous memory, giving good cache locality and high efficiency. However, a push that exceeds the array's capacity triggers expansion, making that particular push an $O(n)$ operation.
+In an array-based stack, pushes and pops use preallocated, contiguous memory. This gives them good cache locality and makes them fast. However, pushing an element beyond the array’s capacity triggers a resize, so that particular push takes $O(n)$ time.
 
-A linked list grows flexibly and avoids the slowdown associated with array expansion. However, pushing requires creating a node object and updating pointers, so it is relatively slower. If the element is already a node object, the creation step can be skipped to improve efficiency.
+A linked list grows one node at a time and avoids the slowdown of resizing an array. However, a push needs to initialize a node object and update pointers, which makes it comparatively slow. If the element being pushed is already a node object, we can skip initialization and make the push faster.
 
-For elements of primitive types such as `int` or `double`, we can therefore draw the following conclusions.
+For pushes and pops involving primitive types such as `int` or `double`, we can draw the following conclusions.
 
-- An array-based stack slows down when expansion is triggered, but expansion is infrequent, so average efficiency is higher.
-- A linked-list stack provides more consistent performance.
+- An array-based stack slows down when it resizes, but resizing is infrequent, so its operations are faster on average.
+- A linked-list stack offers more consistent operation times.
 
 **Space efficiency**
 
-When a dynamic array is initialized, its initial capacity may exceed actual needs. Expansion typically multiplies the capacity by a fixed factor, such as 2, which may again leave excess space. **An array-based stack can therefore waste some space**.
+When a list is initialized, the system allocates an initial capacity that may exceed what the list actually needs. Later, it typically grows by a fixed factor, for example by doubling, which can again leave capacity unused. As a result, **an array-based stack may waste some space**.
 
-However, linked-list nodes also store pointers, **so each node occupies relatively more space**.
+A linked list node, however, also needs to store a pointer, so **each node takes up more space than an array element**.
 
-We cannot say universally which implementation uses less memory; the answer depends on the situation.
+Which implementation uses less memory depends on the circumstances.
 
-## Typical applications
+## Common uses of stacks
 
-- **Browser back and forward navigation, and software undo and redo**. When a new web page is opened, the browser pushes the previous page onto a stack. Going back pops that page. Supporting both back and forward requires two stacks working together.
-- **Program memory management**. Each function call adds a stack frame containing the function's context. During recursion, frames are pushed as calls descend and popped as they return.
+- **Back and forward in a browser, undo and redo in software**. Whenever you open a new page, the browser pushes the previous page onto a stack. Going back pops that page off the stack so you can return to it. In this approach, supporting both back and forward requires two stacks working together.
+- **Program memory management**. Each time a function is called, the system pushes a stack frame that records the function’s context. In a recursive function, the system pushes a frame for each successive call and pops the frames as the calls return.

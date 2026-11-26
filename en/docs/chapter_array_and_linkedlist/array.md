@@ -1,14 +1,14 @@
 # Arrays
 
-An <u>array</u> is a linear data structure that stores elements of the same type in contiguous memory. An element's position in the array is its <u>index</u>. The figure below shows the main concepts and storage layout.
+An <u>array</u> is a linear data structure that stores elements of the same type in contiguous memory. An element's position in the array is its <u>index</u>. The figure below shows how the elements are indexed and stored.
 
-![Array definition and storage layout](array.assets/array_definition.svg)
+![An array and its memory layout](array.assets/array_definition.svg)
 
 ## Common array operations
 
 ### Initializing an array
 
-We can initialize an array with or without explicit values. When values are not specified, most programming languages initialize the elements to $0$:
+Depending on what we need, we can create an array with or without specifying initial values. When no initial values are supplied, most programming languages initialize the elements to $0$:
 
 ```snippet
 init_array
@@ -20,13 +20,13 @@ init_array
 
 ### Accessing an element
 
-Because array elements occupy contiguous memory, their addresses are easy to calculate. Given the array's address (the address of its first element) and an index, the formula in the figure below gives the element's address, allowing direct access.
+Because array elements occupy contiguous memory, their addresses are easy to calculate. Given the base address of the array (the address of its first element) and the index of an element, we can use the formula below to calculate that element's address and access it directly.
 
-![Calculating an array element's memory address](array.assets/array_memory_location_calculation.svg)
+![Calculating the memory address of an array element](array.assets/array_memory_location_calculation.svg)
 
-The first element has index $0$, which may seem unintuitive because counting from $1$ feels more natural. However, **an index essentially describes an offset from the starting memory address**. The first element's offset is $0$, so index $0$ makes sense.
+In the figure, the first element has index $0$. That may seem surprising if counting from $1$ feels more natural. The address formula explains why: **an index is essentially an offset from the base address, measured in elements**. The first element's offset is $0$, so its index is naturally $0$.
 
-Array access is very efficient: any element can be accessed directly in $O(1)$ time.
+Array access is efficient. We can access any element at random in $O(1)$ time.
 
 ```src
 [file]{array}-[class]{}-[func]{random_access}
@@ -34,11 +34,11 @@ Array access is very efficient: any element can be accessed directly in $O(1)$ t
 
 ### Inserting an element
 
-Array elements sit next to one another, with no room between them for more data. As shown in the figure below, inserting into the middle requires shifting every element at or after the insertion point one position toward the end, then assigning the new element at the desired index.
+Array elements sit right next to one another in memory, with no room between them for additional data. To insert an element in the middle, shift the elements from the insertion point onward one position to the right, then write the new element at the desired index, as shown below.
 
 ![Inserting an element into an array](array.assets/array_insert_element.svg)
 
-Because an array's length is fixed, inserting an element causes the last element to be lost. We will discuss the solution in the section on lists.
+Because the array has a fixed length, inserting an element this way necessarily “loses” the element previously in its last slot. We will discuss a solution in the section on lists.
 
 ```src
 [file]{array}-[class]{}-[func]{insert}
@@ -46,25 +46,25 @@ Because an array's length is fixed, inserting an element causes the last element
 
 ### Removing an element
 
-Similarly, as shown in the figure below, removing the element at index $i$ requires shifting every element after $i$ one position toward the beginning.
+Similarly, to remove the element at index $i$, shift every element after $i$ one position to the left, as shown below.
 
 ![Removing an element from an array](array.assets/array_remove_element.svg)
 
-After removal, the old final entry is no longer meaningful, so we do not need to change it explicitly.
+After removal, the value left in the last slot is no longer meaningful, so there is no need to change it explicitly.
 
 ```src
 [file]{array}-[class]{}-[func]{remove}
 ```
 
-Overall, inserting and removing array elements have these drawbacks.
+Insertion and removal in an array have the following drawbacks.
 
-- **High time complexity**: Both operations take $O(n)$ time on average, where $n$ is the array length.
-- **Lost elements**: Since the length is fixed, insertion loses any element pushed beyond the array's bounds.
-- **Wasted memory**: We can allocate a longer array and use only its beginning, so any final entries lost during insertion are unused. However, this leaves some memory wasted.
+- **High time complexity.** Insertion and removal both take $O(n)$ time on average, where $n$ is the array length.
+- **Loss of elements.** Because an array's length is fixed, insertion loses any element shifted beyond its bounds.
+- **Wasted memory.** We can allocate a longer array and use only its first few slots. Then any trailing values lost during insertion are insignificant, but the unused slots waste memory.
 
 ### Traversing an array
 
-Most programming languages let us traverse an array either by index or by visiting its elements directly:
+Most programming languages let us traverse an array by index or iterate directly over its elements:
 
 ```src
 [file]{array}-[class]{}-[func]{traverse}
@@ -72,44 +72,44 @@ Most programming languages let us traverse an array either by index or by visiti
 
 ### Finding an element
 
-To find a specified element, traverse the array and compare each value with the target. Return the index when a match is found.
+To find a given element, traverse the array and compare each value to the target. When a value matches, report its index.
 
-Because an array is a linear data structure, this is called linear search.
+Because an array is a linear data structure, this search is called a linear search.
 
 ```src
 [file]{array}-[class]{}-[func]{find}
 ```
 
-### Expanding an array
+### Growing an array
 
-In a complex system, a program cannot ensure that memory immediately after an array is available, so extending it in place is unsafe. Therefore, in most programming languages, **an array's length is fixed**.
+In a complex system, a program can rarely guarantee that the memory immediately after an array is available, so it cannot safely extend the array in place. In most programming languages, **an array has a fixed length**.
 
-To expand an array, create a larger one and copy every element into it. This takes $O(n)$ time and can be expensive for a large array. The code is as follows:
+To grow an array, create a larger one and copy the original elements into it in order. This takes $O(n)$ time and can be slow for very large arrays. Here is the code:
 
 ```src
 [file]{array}-[class]{}-[func]{extend}
 ```
 
-## Strengths and limitations of arrays
+## Advantages and limitations of arrays
 
-An array stores elements of one type in contiguous memory. These known properties give the system opportunities to optimize operations.
+An array's elements occupy contiguous memory and have the same type. Knowing these properties in advance lets the system optimize operations on the data.
 
-- **Space efficiency**: Data occupies a contiguous block with no extra structural overhead.
-- **Random access**: Any element can be accessed in $O(1)$ time.
-- **Cache locality**: Accessing an element loads not only that element but also nearby data into the cache, speeding up later operations.
+- **Space efficiency.** An array allocates a contiguous block of memory for its data, without extra structural overhead.
+- **Random access.** An array provides access to any element in $O(1)$ time.
+- **Cache locality.** When the computer accesses an array element, it also caches nearby data. Later operations on those elements can run faster by using the cache.
 
 Contiguous storage also has limitations.
 
-- **Slow insertion and deletion**: With many elements, these operations require substantial shifting.
-- **Fixed length**: Once initialized, an array cannot change length; expansion requires copying all data into a new array.
-- **Wasted space**: Any allocated space beyond actual needs is unused.
+- **Costly insertion and removal.** When an array holds many elements, inserting or removing one can require shifting many others.
+- **Fixed length.** An array's length is fixed at initialization. Growing it requires copying all its data into a new array, which is expensive.
+- **Wasted space.** If an array is larger than needed, the extra space goes unused.
 
-## Typical applications of arrays
+## Common uses of arrays
 
-Arrays are fundamental, widely used data structures. They appear throughout algorithms and underpin more complex structures.
+Arrays are a fundamental, widely used data structure. Many algorithms operate on them, and many more complex data structures are built from them.
 
-- **Random access**: To draw random samples, store data in an array and generate random indices to select elements.
-- **Sorting and searching**: Arrays are the most common structures for these algorithms. Quick sort, merge sort, and binary search operate primarily on arrays.
-- **Lookup tables**: An array can provide fast access to an element or a mapping. For example, a character-to-ASCII mapping can use a character's ASCII value as an index and store its corresponding element there.
-- **Machine learning**: Neural networks make extensive use of linear algebra on vectors, matrices, and tensors, all built from arrays. Arrays are the most common data structure in neural network programming.
-- **Implementing data structures**: Arrays can implement stacks, queues, hash tables, heaps, graphs, and more. A graph's adjacency matrix, for example, is a two-dimensional array.
+- **Random access.** To draw random samples, store the data in an array and generate a sequence of random indices to select the samples.
+- **Sorting and searching.** Arrays are the most common data structure for sorting and searching. Quicksort, merge sort, and binary search, for example, operate primarily on arrays.
+- **Lookup tables.** An array can serve as a lookup table when we need to find an element or its associated value quickly. For example, to map characters to ASCII codes, use the character's ASCII value as the index and store the associated element at that position.
+- **Machine learning.** Neural networks rely heavily on linear algebra operations involving vectors, matrices, and tensors, all of which are represented as arrays. Arrays are the most widely used data structure in neural network programming.
+- **Implementing data structures.** Arrays can implement stacks, queues, hash tables, heaps, graphs, and more. For example, the adjacency matrix of a graph is a two-dimensional array.

@@ -6,14 +6,14 @@
 
 import utils
 
-/* Вставка узла P в связный список после узла n0 */
+/* Вставить узел P после узла n0 */
 func insert(n0: ListNode, P: ListNode) {
     let n1 = n0.next
     P.next = n1
     n0.next = P
 }
 
-/* Удаление первого узла после узла n0 из связного списка */
+/* Удалить первый узел, следующий за n0 */
 func remove(n0: ListNode) {
     if n0.next == nil {
         return
@@ -24,7 +24,7 @@ func remove(n0: ListNode) {
     n0.next = n1
 }
 
-/* Доступ к узлу с индексом index в связном списке */
+/* Получить узел списка по индексу index */
 func access(head: ListNode, index: Int) -> ListNode? {
     var head: ListNode? = head
     for _ in 0 ..< index {
@@ -36,7 +36,7 @@ func access(head: ListNode, index: Int) -> ListNode? {
     return head
 }
 
-/* Поиск первого узла со значением target в связном списке */
+/* Найти первый узел списка со значением target */
 func find(head: ListNode, target: Int) -> Int {
     var head: ListNode? = head
     var index = 0
@@ -52,39 +52,39 @@ func find(head: ListNode, target: Int) -> Int {
 
 @main
 enum LinkedList {
-    /* Driver Code */
+    /* Демонстрационный код */
     static func main() {
         /* Инициализация связного списка */
-        // Инициализация всех узлов
+        // Инициализировать узлы
         let n0 = ListNode(x: 1)
         let n1 = ListNode(x: 3)
         let n2 = ListNode(x: 2)
         let n3 = ListNode(x: 5)
         let n4 = ListNode(x: 4)
-        // Построить ссылки между узлами
+        // Связать узлы ссылками
         n0.next = n1
         n1.next = n2
         n2.next = n3
         n3.next = n4
-        print("Исходный связный список")
+        print("Исходный связный список:")
         PrintUtil.printLinkedList(head: n0)
 
         /* Вставка узла */
         insert(n0: n0, P: ListNode(x: 0))
-        print("Связный список после вставки узла")
+        print("Связный список после вставки:")
         PrintUtil.printLinkedList(head: n0)
 
         /* Удаление узла */
         remove(n0: n0)
-        print("Связный список после удаления узла")
+        print("Связный список после удаления:")
         PrintUtil.printLinkedList(head: n0)
 
         /* Доступ к узлу */
         let node = access(head: n0, index: 3)
-        print("Значение узла по индексу 3 в связном списке = \(node!.val)")
+        print("Значение узла по индексу 3 = \(node!.val)")
 
         /* Поиск узла */
         let index = find(head: n0, target: 2)
-        print("Индекс узла со значением 2 в связном списке = \(index)")
+        print("Индекс узла со значением 2 = \(index)")
     }
 }

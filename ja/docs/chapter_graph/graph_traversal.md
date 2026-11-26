@@ -1,140 +1,140 @@
-# グラフの走査
+# グラフの探索
 
-木は「一対多」の関係を表しますが、グラフは自由度が高く、任意の「多対多」の関係を表せます。そのため、木はグラフの特殊な場合と考えられます。当然、**木の走査も、グラフの走査の特殊な場合です**。
+木が表すのは「一対多」の関係ですが、グラフにはさらに自由度があり、任意の「多対多」の関係を表せます。このため木はグラフの特殊な場合と見なせます。同じように、**木の探索もグラフの探索の特殊な場合です**。
 
-グラフも木も、走査には探索アルゴリズムを使います。グラフの走査方法も、<u>幅優先走査</u>と<u>深さ優先走査</u>の二つに分けられます。
+グラフでも木でも、すべての頂点を訪問するには探索アルゴリズムを使います。グラフの探索も、<u>幅優先探索</u>と<u>深さ優先探索</u>の 2 種類に分けられます。
 
-## 幅優先走査
+## 幅優先探索
 
-**幅優先走査は、あるノードから始め、距離の近い頂点から優先して訪問し、層ごとに外側へ広がっていく走査方法です**。下図のように、左上の頂点から始めて、その頂点に隣接するすべての頂点を訪問します。続いて次の頂点に隣接するすべての頂点を訪問し、これをすべての頂点に到達するまで繰り返します。
+**幅優先探索では、ある頂点から出発し、常に始点に近い頂点を優先して訪問しながら、外側へ 1 層ずつ探索範囲を広げます**。下図では左上の頂点から出発し、まずその隣接頂点をすべて調べ、次の頂点についても隣接頂点をすべて調べます。これを全頂点の訪問が終わるまで繰り返します。
 
-![グラフの幅優先走査](graph_traversal.assets/graph_bfs.svg)
+![グラフの幅優先探索](graph_traversal.assets/graph_bfs.svg)
 
 ### アルゴリズムの実装
 
-BFS は通常、次のコードのようにキューで実装します。キューの「先入れ先出し」という性質は、BFS の「近いところから遠いところへ」という考え方に合っています。
+BFS は通常、次のコードのようにキューを使って実装します。先に入ったものが先に出るキューの「先入れ先出し」という性質は、BFS で近い頂点から遠い頂点へと訪問する考え方に対応します。
 
-1. 走査を始める頂点 `startVet` をキューに入れ、ループを開始します。
-2. 各反復で、キューの先頭の頂点を取り出して訪問を記録し、その頂点に隣接するすべての頂点をキューの末尾に入れます。
-3. 手順 `2.` を繰り返し、すべての頂点を訪問したら終了します。
+1. 探索の始点 `startVet` をキューに入れ、ループを開始します。
+2. 各反復ではキューの先頭から頂点を取り出して訪問を記録し、その頂点の隣接頂点をすべてキューの末尾に追加します。
+3. 全頂点の訪問が終わるまで、手順 `2.` を繰り返します。
 
-同じ頂点を繰り返し訪問しないよう、ハッシュ集合 `visited` に訪問済みのノードを記録します。
+同じ頂点を繰り返し訪問しないように、ハッシュ集合 `visited` を使って訪問済みの頂点を記録します。
 
 !!! tip
 
-    ハッシュ集合は、`key` だけを保存し、`value` を保存しないハッシュテーブルと考えられます。`key` の追加・削除・検索・更新を時間計算量 $O(1)$ で行えます。`key` が重複しない性質を活かし、データの重複除去などによく使われます。
+    ハッシュ集合は、`key` だけを格納して `value` をもたないハッシュテーブルと考えられます。`key` の追加、削除、検索、更新を $O(1)$ の時間計算量で行えます。`key` が重複しない性質を生かし、データの重複を取り除くときなどに使います。
 
 ```src
 [file]{graph_bfs}-[class]{}-[func]{graph_bfs}
 ```
 
-コードだけでは抽象的なので、下図と照らし合わせると理解が深まります。
+コードだけでは動作を思い描きにくいので、下図と照らし合わせてみましょう。
 
 === "<1>"
-    ![グラフの幅優先走査の手順](graph_traversal.assets/graph_bfs_step1.svg)
+    ![グラフの幅優先探索の手順](graph_traversal.assets/graph_bfs_step1.svg)
 
 === "<2>"
-    ![グラフの幅優先走査：手順 2](graph_traversal.assets/graph_bfs_step2.svg)
+    ![graph_bfs_step2](graph_traversal.assets/graph_bfs_step2.svg)
 
 === "<3>"
-    ![グラフの幅優先走査：手順 3](graph_traversal.assets/graph_bfs_step3.svg)
+    ![graph_bfs_step3](graph_traversal.assets/graph_bfs_step3.svg)
 
 === "<4>"
-    ![グラフの幅優先走査：手順 4](graph_traversal.assets/graph_bfs_step4.svg)
+    ![graph_bfs_step4](graph_traversal.assets/graph_bfs_step4.svg)
 
 === "<5>"
-    ![グラフの幅優先走査：手順 5](graph_traversal.assets/graph_bfs_step5.svg)
+    ![graph_bfs_step5](graph_traversal.assets/graph_bfs_step5.svg)
 
 === "<6>"
-    ![グラフの幅優先走査：手順 6](graph_traversal.assets/graph_bfs_step6.svg)
+    ![graph_bfs_step6](graph_traversal.assets/graph_bfs_step6.svg)
 
 === "<7>"
-    ![グラフの幅優先走査：手順 7](graph_traversal.assets/graph_bfs_step7.svg)
+    ![graph_bfs_step7](graph_traversal.assets/graph_bfs_step7.svg)
 
 === "<8>"
-    ![グラフの幅優先走査：手順 8](graph_traversal.assets/graph_bfs_step8.svg)
+    ![graph_bfs_step8](graph_traversal.assets/graph_bfs_step8.svg)
 
 === "<9>"
-    ![グラフの幅優先走査：手順 9](graph_traversal.assets/graph_bfs_step9.svg)
+    ![graph_bfs_step9](graph_traversal.assets/graph_bfs_step9.svg)
 
 === "<10>"
-    ![グラフの幅優先走査：手順 10](graph_traversal.assets/graph_bfs_step10.svg)
+    ![graph_bfs_step10](graph_traversal.assets/graph_bfs_step10.svg)
 
 === "<11>"
-    ![グラフの幅優先走査：手順 11](graph_traversal.assets/graph_bfs_step11.svg)
+    ![graph_bfs_step11](graph_traversal.assets/graph_bfs_step11.svg)
 
-!!! question "幅優先走査の順序は一意ですか？"
+!!! question "幅優先探索の訪問順は一意ですか。"
 
-    一意ではありません。幅優先走査で必要なのは「近いところから遠いところへ」という順序だけで、**同じ距離にある複数の頂点は、どの順に訪問してもかまいません**。上図では、頂点 $1$ と $3$ の訪問順を入れ替えられますし、頂点 $2$、$4$、$6$ も任意の順に訪問できます。
+    一意ではありません。幅優先探索で必要なのは、始点から近い順に訪問することだけで、**同じ距離にある頂点同士の訪問順は任意に入れ替えられます**。上図では、頂点 $1$ と $3$ の訪問順を交換でき、頂点 $2$、$4$、$6$ の訪問順も自由に入れ替えられます。
 
-### 計算量の解析
+### 計算量の分析
 
-**時間計算量**：すべての頂点を 1 回ずつキューに入れて取り出すため、$O(|V|)$ 時間かかります。隣接する頂点を走査する際は、無向グラフなので、すべての辺を $2$ 回ずつ調べ、$O(2|E|)$ 時間かかります。全体では $O(|V| + |E|)$ 時間です。
+**時間計算量**：各頂点をキューに 1 回ずつ入れて取り出すのに $O(|V|)$ 時間かかります。隣接頂点を調べるとき、無向グラフではすべての辺を $2$ 回ずつ調べるので、$O(2|E|)$ 時間かかります。全体の所要時間は $O(|V| + |E|)$ です。
 
-**空間計算量**：リスト `res`、ハッシュ集合 `visited`、キュー `que` が保持する頂点数は最大 $|V|$ なので、$O(|V|)$ の空間を使います。
+**空間計算量**：リスト `res`、ハッシュ集合 `visited`、キュー `que` に入る頂点数はいずれも最大 $|V|$ なので、使用する空間は $O(|V|)$ です。
 
-## 深さ優先走査
+## 深さ優先探索
 
-**深さ優先走査は、まず進めるところまで進み、行き止まりになったら引き返す走査方法です**。下図のように、左上の頂点から出発し、現在の頂点に隣接する頂点の一つを訪問して、行き止まりまで進んだら戻ります。別の方向でも同じように進んで戻る操作を繰り返し、すべての頂点を走査します。
+**深さ優先探索では、まず進めるところまで進み、行き止まりに来たら引き返します**。下図では左上の頂点から出発し、現在の頂点の隣接頂点を 1 つ選んで進みます。行き止まりで戻り、また進めるところまで進んで戻る操作を、すべての頂点を訪問するまで繰り返します。
 
-![グラフの深さ優先走査](graph_traversal.assets/graph_dfs.svg)
+![グラフの深さ優先探索](graph_traversal.assets/graph_dfs.svg)
 
 ### アルゴリズムの実装
 
-この「行き止まりまで進んでから戻る」というアルゴリズムの形は、通常、再帰で実装します。幅優先走査と同様に、深さ優先走査でもハッシュ集合 `visited` に訪問済みの頂点を記録し、重複して訪問するのを防ぎます。
+この「行き止まりまで進んで戻る」という手順は通常、再帰で実装します。幅優先探索と同様に、深さ優先探索でもハッシュ集合 `visited` に訪問済みの頂点を記録し、重複する訪問を避けます。
 
 ```src
 [file]{graph_dfs}-[class]{}-[func]{graph_dfs}
 ```
 
-深さ優先走査のアルゴリズムの流れを下図に示します。
+深さ優先探索の流れを下図に示します。
 
-- **直線の破線は、下へ進む再帰呼び出しを表し**、新しい再帰メソッドを呼び出して、新しい頂点を訪問することを示します。
-- **曲線の破線は、上へ戻る動きを表し**、再帰メソッドから戻り、そのメソッドを呼び出した位置に復帰することを示します。
+- **直線の破線は再帰を 1 段深めること**を表し、新しい再帰呼び出しで次の頂点を訪問します。
+- **曲線の破線は呼び出し元に戻ること**を表します。現在の再帰呼び出しが終了し、その呼び出しを行った箇所に戻ります。
 
-理解を深めるため、下図とコードを照らし合わせ、各再帰メソッドがいつ呼ばれ、いつ戻るかを含めた DFS 全体の流れを、頭の中でたどるか、紙に描いてみてください。
+下図とコードを見比べながら、DFS の過程全体を頭の中で、あるいは紙に描いてたどってみましょう。各再帰呼び出しがいつ始まり、いつ戻るかにも注目してください。
 
 === "<1>"
-    ![グラフの深さ優先走査の手順](graph_traversal.assets/graph_dfs_step1.svg)
+    ![グラフの深さ優先探索の手順](graph_traversal.assets/graph_dfs_step1.svg)
 
 === "<2>"
-    ![グラフの深さ優先走査：手順 2](graph_traversal.assets/graph_dfs_step2.svg)
+    ![graph_dfs_step2](graph_traversal.assets/graph_dfs_step2.svg)
 
 === "<3>"
-    ![グラフの深さ優先走査：手順 3](graph_traversal.assets/graph_dfs_step3.svg)
+    ![graph_dfs_step3](graph_traversal.assets/graph_dfs_step3.svg)
 
 === "<4>"
-    ![グラフの深さ優先走査：手順 4](graph_traversal.assets/graph_dfs_step4.svg)
+    ![graph_dfs_step4](graph_traversal.assets/graph_dfs_step4.svg)
 
 === "<5>"
-    ![グラフの深さ優先走査：手順 5](graph_traversal.assets/graph_dfs_step5.svg)
+    ![graph_dfs_step5](graph_traversal.assets/graph_dfs_step5.svg)
 
 === "<6>"
-    ![グラフの深さ優先走査：手順 6](graph_traversal.assets/graph_dfs_step6.svg)
+    ![graph_dfs_step6](graph_traversal.assets/graph_dfs_step6.svg)
 
 === "<7>"
-    ![グラフの深さ優先走査：手順 7](graph_traversal.assets/graph_dfs_step7.svg)
+    ![graph_dfs_step7](graph_traversal.assets/graph_dfs_step7.svg)
 
 === "<8>"
-    ![グラフの深さ優先走査：手順 8](graph_traversal.assets/graph_dfs_step8.svg)
+    ![graph_dfs_step8](graph_traversal.assets/graph_dfs_step8.svg)
 
 === "<9>"
-    ![グラフの深さ優先走査：手順 9](graph_traversal.assets/graph_dfs_step9.svg)
+    ![graph_dfs_step9](graph_traversal.assets/graph_dfs_step9.svg)
 
 === "<10>"
-    ![グラフの深さ優先走査：手順 10](graph_traversal.assets/graph_dfs_step10.svg)
+    ![graph_dfs_step10](graph_traversal.assets/graph_dfs_step10.svg)
 
 === "<11>"
-    ![グラフの深さ優先走査：手順 11](graph_traversal.assets/graph_dfs_step11.svg)
+    ![graph_dfs_step11](graph_traversal.assets/graph_dfs_step11.svg)
 
-!!! question "深さ優先走査の順序は一意ですか？"
+!!! question "深さ優先探索の訪問順は一意ですか。"
 
-    幅優先走査と同様に、深さ優先走査の順序も一意ではありません。ある頂点からどの方向を先に探索してもよく、隣接する頂点の順序を任意に入れ替えても、深さ優先走査であることは変わりません。
+    幅優先探索と同様に、深さ優先探索の訪問順も一意ではありません。ある頂点から次にどの方向を探索してもよく、隣接頂点を調べる順序を入れ替えても深さ優先探索です。
     
-    木の走査を例にすると、「根 $\rightarrow$ 左 $\rightarrow$ 右」「左 $\rightarrow$ 根 $\rightarrow$ 右」「左 $\rightarrow$ 右 $\rightarrow$ 根」は、それぞれ行きがけ順、通りがけ順、帰りがけ順の走査です。訪問の優先順位は異なりますが、いずれも深さ優先走査です。
+    木の探索を例にすると、「根 $\rightarrow$ 左 $\rightarrow$ 右」「左 $\rightarrow$ 根 $\rightarrow$ 右」「左 $\rightarrow$ 右 $\rightarrow$ 根」は、それぞれ行きがけ順、通りがけ順、帰りがけ順に対応します。どこを先に訪問するかは違っても、3 つとも深さ優先探索です。
 
-### 計算量の解析
+### 計算量の分析
 
-**時間計算量**：すべての頂点を $1$ 回ずつ訪問するのに $O(|V|)$ 時間、すべての辺を $2$ 回ずつ調べるのに $O(2|E|)$ 時間かかります。全体では $O(|V| + |E|)$ 時間です。
+**時間計算量**：各頂点を $1$ 回ずつ訪問するのに $O(|V|)$ 時間、各辺を $2$ 回ずつ調べるのに $O(2|E|)$ 時間かかります。全体の所要時間は $O(|V| + |E|)$ です。
 
-**空間計算量**：リスト `res` とハッシュ集合 `visited` の頂点数は最大 $|V|$、再帰の深さも最大 $|V|$ なので、$O(|V|)$ の空間を使います。
+**空間計算量**：リスト `res` とハッシュ集合 `visited` の頂点数はいずれも最大 $|V|$ で、再帰の深さは最大 $|V|$ なので、使用する空間は $O(|V|)$ です。

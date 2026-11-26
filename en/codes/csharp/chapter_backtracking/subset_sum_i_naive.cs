@@ -9,31 +9,31 @@ namespace hello_algo.chapter_backtracking;
 public class subset_sum_i_naive {
     /* Backtracking: subset sum I */
     void Backtrack(List<int> state, int target, int total, int[] choices, List<List<int>> res) {
-        // Record a solution when the subset sum equals target
+        // Record a solution when the subset sums to target
         if (total == target) {
             res.Add(new List<int>(state));
             return;
         }
-        // Iterate over all choices
+        // Try each choice
         for (int i = 0; i < choices.Length; i++) {
-            // Prune: skip this choice if the subset sum would exceed target
+            // Prune: skip choices that would take the subset sum over target
             if (total + choices[i] > target) {
                 continue;
             }
-            // Try: make a choice and update the sum total
+            // Make a choice and update the running sum total
             state.Add(choices[i]);
-            // Proceed to the next choice
+            // Make the next choice
             Backtrack(state, target, total + choices[i], choices, res);
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             state.RemoveAt(state.Count - 1);
         }
     }
 
-    /* Solve subset sum I (with duplicate subsets) */
+    /* Solve subset sum I (including duplicate subsets) */
     List<List<int>> SubsetSumINaive(int[] nums, int target) {
-        List<int> state = []; // State (subset)
+        List<int> state = []; // State (current subset)
         int total = 0; // Subset sum
-        List<List<int>> res = []; // Result list (list of subsets)
+        List<List<int>> res = []; // Results (list of subsets)
         Backtrack(state, target, total, nums, res);
         return res;
     }
@@ -44,10 +44,10 @@ public class subset_sum_i_naive {
         int target = 9;
         List<List<int>> res = SubsetSumINaive(nums, target);
         Console.WriteLine("Input array nums = " + string.Join(", ", nums) + ", target = " + target);
-        Console.WriteLine("All subsets with sum " + target + " : res = ");
+        Console.WriteLine("Subsets that sum to " + target + " (res) = ");
         foreach (var subset in res) {
             PrintUtil.PrintList(subset);
         }
-        Console.WriteLine("Note that this method produces duplicate subsets");
+        Console.WriteLine("This method returns duplicate subsets");
     }
 }

@@ -9,7 +9,7 @@ use hello_algo_rust::include::ListNode;
 use std::collections::hash_map::DefaultHasher;
 use std::hash::{Hash, Hasher};
 
-/* 실행 코드 */
+/* 실행 예제 */
 fn main() {
     let num = 3;
     let mut num_hasher = DefaultHasher::new();
@@ -21,19 +21,19 @@ fn main() {
     let mut bol_hasher = DefaultHasher::new();
     bol.hash(&mut bol_hasher);
     let hash_bol = bol_hasher.finish();
-    println!("불리언 값 {} → 해시값: {}", bol, hash_bol);
+    println!("불리언 {} → 해시값: {}", bol, hash_bol);
 
     let dec: f32 = 3.14159;
     let mut dec_hasher = DefaultHasher::new();
     dec.to_bits().hash(&mut dec_hasher);
     let hash_dec = dec_hasher.finish();
-    println!("소수 {} → 해시값: {}", dec, hash_dec);
+    println!("실수 {} → 해시값: {}", dec, hash_dec);
 
     let str = "Hello 算法";
     let mut str_hasher = DefaultHasher::new();
     str.hash(&mut str_hasher);
     let hash_str = str_hasher.finish();
-    println!("문자열 {}의 해시값: {}", str, hash_str);
+    println!("문자열 {} → 해시값: {}", str, hash_str);
 
     let arr = (&12836, &"小哈");
     let mut tup_hasher = DefaultHasher::new();
@@ -45,5 +45,5 @@ fn main() {
     let mut hasher = DefaultHasher::new();
     node.borrow().val.hash(&mut hasher);
     let hash = hasher.finish();
-    println!("노드 {:?}의 값 → 해시값: {}", node, hash);
+    println!("노드 {:?}에 저장된 값의 해시값: {}", node, hash);
 }

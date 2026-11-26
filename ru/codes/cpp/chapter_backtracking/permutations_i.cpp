@@ -6,31 +6,31 @@
 
 #include "../utils/common.hpp"
 
-/* Алгоритм бэктрекинга: все перестановки I */
+/* Поиск с возвратом: перестановки I */
 void backtrack(vector<int> &state, const vector<int> &choices, vector<bool> &selected, vector<vector<int>> &res) {
-    // Когда длина состояния равна числу элементов, записать решение
+    // Когда длина текущей перестановки равна числу элементов, сохраняем решение
     if (state.size() == choices.size()) {
         res.push_back(state);
         return;
     }
-    // Перебор всех вариантов выбора
+    // Перебираем все варианты
     for (int i = 0; i < choices.size(); i++) {
         int choice = choices[i];
-        // Отсечение: нельзя выбирать один и тот же элемент повторно
+        // Отсечение: нельзя выбирать один элемент дважды
         if (!selected[i]) {
-            // Попытка: сделать выбор и обновить состояние
+            // Пробуем вариант и обновляем состояние
             selected[i] = true;
             state.push_back(choice);
-            // Перейти к следующему выбору
+            // Переходим к следующему выбору
             backtrack(state, choices, selected, res);
-            // Откат: отменить выбор и восстановить предыдущее состояние
+            // Возврат: отменяем выбор и восстанавливаем прежнее состояние
             selected[i] = false;
             state.pop_back();
         }
     }
 }
 
-/* Все перестановки I */
+/* Перестановки I */
 vector<vector<int>> permutationsI(vector<int> nums) {
     vector<int> state;
     vector<bool> selected(nums.size(), false);
@@ -39,13 +39,13 @@ vector<vector<int>> permutationsI(vector<int> nums) {
     return res;
 }
 
-/* Driver Code */
+/* Основная программа */
 int main() {
     vector<int> nums = {1, 2, 3};
 
     vector<vector<int>> res = permutationsI(nums);
 
-    cout << "Входной массив nums = ";
+    cout << "Исходный массив nums = ";
     printVector(nums);
     cout << "Все перестановки res = ";
     printVectorMatrix(res);

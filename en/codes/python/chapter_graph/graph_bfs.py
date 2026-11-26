@@ -15,30 +15,30 @@ from graph_adjacency_list import GraphAdjList
 
 def graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
     """Breadth-first traversal"""
-    # Represent the graph with an adjacency list to access all neighbors of a given vertex
-    # Vertex traversal sequence
+    # Represent the graph with an adjacency list to look up all neighbors of a given vertex
+    # Vertex traversal order
     res = []
-    # Hash set recording visited vertices
+    # Use a hash set to track visited vertices
     visited = set[Vertex]([start_vet])
-    # Use a queue to implement BFS
+    # Use a queue for BFS
     que = deque[Vertex]([start_vet])
-    # Starting from start_vet, loop until all reachable vertices have been visited
+    # Starting at vertex vet, loop until all reachable vertices have been visited
     while len(que) > 0:
         vet = que.popleft()  # Dequeue the front vertex
         res.append(vet)  # Record the visited vertex
-        # Traverse all neighbors of this vertex
+        # Iterate over all neighbors of this vertex
         for adj_vet in graph.adj_list[vet]:
             if adj_vet in visited:
-                continue  # Skip vertices that have already been visited
+                continue  # Skip visited vertices
             que.append(adj_vet)  # Enqueue only unvisited vertices
-            visited.add(adj_vet)  # Mark this vertex as visited
-    # Return the vertex traversal sequence
+            visited.add(adj_vet)  # Mark the vertex as visited
+    # Return the vertex traversal order
     return res
 
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
-    # Initialize the undirected graph
+    # Initialize an undirected graph
     v = vals_to_vets([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
     edges = [
         [v[0], v[1]],
@@ -60,5 +60,5 @@ if __name__ == "__main__":
 
     # Breadth-first traversal
     res = graph_bfs(graph, v[0])
-    print("\nVertex sequence from breadth-first traversal (BFS):")
+    print("\nBreadth-first search (BFS) visits the vertices in this order:")
     print(vets_to_vals(res))

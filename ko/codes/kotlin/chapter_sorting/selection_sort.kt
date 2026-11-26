@@ -9,22 +9,22 @@ package chapter_sorting
 /* 선택 정렬 */
 fun selectionSort(nums: IntArray) {
     val n = nums.size
-    // 바깥쪽 반복문: 정렬되지 않은 구간은 [i, n-1]이다
+    // 바깥 루프: 미정렬 구간은 [i, n-1]
     for (i in 0..<n - 1) {
         var k = i
-        // 안쪽 반복문: 정렬되지 않은 구간의 최솟값을 찾는다
+        // 안쪽 루프: 미정렬 구간에서 최솟값 찾기
         for (j in i + 1..<n) {
             if (nums[j] < nums[k])
-                k = j // 최솟값의 인덱스를 기록한다
+                k = j // 최솟값의 인덱스 기록
         }
-        // 이 최솟값과 정렬되지 않은 구간의 첫 원소를 교환한다
+        // 최솟값과 미정렬 구간의 첫 원소 교환
         val temp = nums[i]
         nums[i] = nums[k]
         nums[k] = temp
     }
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 fun main() {
     val nums = intArrayOf(4, 1, 3, 1, 5, 2)
     selectionSort(nums)

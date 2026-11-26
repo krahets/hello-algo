@@ -6,42 +6,42 @@
 
 const { ListNode, arrToLinkedList } = require('../modules/ListNode');
 
-/* Linear search (array) */
+/* Linear search in an array */
 function linearSearchArray(nums, target) {
     // Traverse the array
     for (let i = 0; i < nums.length; i++) {
-        // The target element was found; return its index
+        // Found the target. Return its index
         if (nums[i] === target) {
             return i;
         }
     }
-    // The target element was not found; return -1
+    // Target not found. Return -1
     return -1;
 }
 
-/* Linear search (linked list)*/
+/* Linear search in a linked list*/
 function linearSearchLinkedList(head, target) {
     // Traverse the linked list
     while (head) {
-        // The target node was found; return it
+        // Found the target node. Return it
         if (head.val === target) {
             return head;
         }
         head = head.next;
     }
-    // Target node not found; return null
+    // Target node not found. Return null
     return null;
 }
 
 /* Driver code */
 const target = 3;
 
-/* Perform linear search on the array */
+/* Run linear search on the array */
 const nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
 const index = linearSearchArray(nums, target);
-console.log('Index of target element 3 = ' + index);
+console.log('Index of target 3 = ' + index);
 
-/* Perform linear search on the linked list */
+/* Run linear search on the linked list */
 const head = arrToLinkedList(nums);
 const node = linearSearchLinkedList(head, target);
-console.log('The node object corresponding to target value 3 is ', node);
+console.log('Node object for target value 3 = ', node);

@@ -1,0 +1,51 @@
+{
+  "context": [
+    "n 是正整數。每次呼叫 quadratic_recur(k) 時，若 k > 0，便建立長度為 k 的 nums，再以 k−1 呼叫下一層。圖中省略了最後一次不配置陣列的呼叫 quadratic_recur(0)，將終止與回傳簡化畫在參數為 1 的那一列。程式碼實際上是在參數為 0 時直接回傳。"
+  ],
+  "description": [
+    "圖中由左至右有三欄：「陣列 nums 的長度」、「向下『遞』」與「向上『迴』」。同一列的陣列長度與函式呼叫以線相連。標示「遞迴深度 n」的大括號涵蓋配置陣列的 n 層，中間的呼叫以省略號表示。在參數為 1 的那一列，標示「達到遞迴終止條件」的箭頭指向右欄，各層的 return 0 以向上的箭頭連接。"
+  ],
+  "frames": [
+    {
+      "book_path": "chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_quadratic.png",
+      "explanation": "上層等候下層回傳時，仍會保留自己的區域陣列。圖的底部將陣列長度相加：1 + 2 + … + (n−1) + n = n(n+1)/2，箭頭指向平方階 O(n²)。程式執行到最深處時，還有一個參數為 0 的堆疊框架，但不會多配置陣列。呼叫堆疊的 O(n) 成本不會改變這些陣列所決定的 O(n²) 空間峰值。",
+      "id": "source-36",
+      "title": "各層遞迴保留的陣列合計占用平方階空間"
+    }
+  ],
+  "schema_version": 2,
+  "summary": "每層遞迴還保留一個區域陣列。要計算空間峰值，必須把所有尚未回傳的層級所保留的陣列長度加總。",
+  "tables": [
+    {
+      "caption": "各層呼叫保留的陣列",
+      "headers": [
+        "呼叫",
+        "nums 的長度"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "quadratic_recur(n)",
+          "n"
+        ],
+        [
+          "quadratic_recur(n−1)",
+          "n−1"
+        ],
+        [
+          "中間的呼叫",
+          "省略"
+        ],
+        [
+          "quadratic_recur(2)",
+          "2"
+        ],
+        [
+          "quadratic_recur(1)",
+          "1"
+        ]
+      ]
+    }
+  ],
+  "title": "各層遞迴保留的陣列合計占用平方階空間"
+}

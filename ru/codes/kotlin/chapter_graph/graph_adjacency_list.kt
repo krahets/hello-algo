@@ -8,14 +8,14 @@ package chapter_graph
 
 import utils.Vertex
 
-/* Класс неориентированного графа на основе списка смежности */
+/* Неориентированный граф на списках смежности */
 class GraphAdjList(edges: Array<Array<Vertex?>>) {
-    // Список смежности, где key — вершина, а value — все смежные ей вершины
+    // Список смежности: ключ — вершина, значение — все её соседи
     val adjList = HashMap<Vertex, MutableList<Vertex>>()
 
     /* Конструктор */
     init {
-        // Добавить все вершины и ребра
+        // Добавить все вершины и рёбра
         for (edge in edges) {
             addVertex(edge[0]!!)
             addVertex(edge[1]!!)
@@ -28,39 +28,39 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
         return adjList.size
     }
 
-    /* Добавление ребра */
+    /* Добавить ребро */
     fun addEdge(vet1: Vertex, vet2: Vertex) {
         if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
             throw IllegalArgumentException()
-        // Добавить ребро vet1 - vet2
+        // Добавить ребро vet1 — vet2
         adjList[vet1]?.add(vet2)
         adjList[vet2]?.add(vet1)
     }
 
-    /* Удаление ребра */
+    /* Удалить ребро */
     fun removeEdge(vet1: Vertex, vet2: Vertex) {
         if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
             throw IllegalArgumentException()
-        // Удалить ребро vet1 - vet2
+        // Удалить ребро vet1 — vet2
         adjList[vet1]?.remove(vet2)
         adjList[vet2]?.remove(vet1)
     }
 
-    /* Добавление вершины */
+    /* Добавить вершину */
     fun addVertex(vet: Vertex) {
         if (adjList.containsKey(vet))
             return
-        // Добавить новый список в список смежности
+        // Добавить новый связный список в список смежности
         adjList[vet] = mutableListOf()
     }
 
-    /* Удаление вершины */
+    /* Удалить вершину */
     fun removeVertex(vet: Vertex) {
         if (!adjList.containsKey(vet))
             throw IllegalArgumentException()
-        // Удалить из списка смежности список, соответствующий вершине vet
+        // Удалить из списка смежности список вершины vet
         adjList.remove(vet)
-        // Обойти списки других вершин и удалить все ребра, содержащие vet
+        // Обойти списки остальных вершин и удалить все рёбра, инцидентные vet
         for (list in adjList.values) {
             list.remove(vet)
         }
@@ -79,9 +79,9 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
     }
 }
 
-/* Driver Code */
+/* Пример использования */
 fun main() {
-    /* Инициализация неориентированного графа */
+    /* Инициализировать неориентированный граф */
     val v = Vertex.valsToVets(intArrayOf(1, 3, 2, 5, 4))
     val edges = arrayOf(
         arrayOf(v[0], v[1]),
@@ -92,30 +92,30 @@ fun main() {
         arrayOf(v[3], v[4])
     )
     val graph = GraphAdjList(edges)
-    println("\nГраф после инициализации")
+    println("\nГраф после инициализации:")
     graph.print()
 
-    /* Добавление ребра */
-    // Вершины 1 и 2 соответствуют v[0] и v[2]
+    /* Добавить ребро */
+    // Вершинам 1 и 2 соответствуют v[0] и v[2]
     graph.addEdge(v[0]!!, v[2]!!)
-    println("\nГраф после добавления ребра 1-2")
+    println("\nГраф после добавления ребра 1–2:")
     graph.print()
 
-    /* Удаление ребра */
-    // Вершины 1 и 3 соответствуют v[0] и v[1]
+    /* Удалить ребро */
+    // Вершинам 1 и 3 соответствуют v[0] и v[1]
     graph.removeEdge(v[0]!!, v[1]!!)
-    println("\nГраф после удаления ребра 1-3")
+    println("\nГраф после удаления ребра 1–3:")
     graph.print()
 
-    /* Добавление вершины */
+    /* Добавить вершину */
     val v5 = Vertex(6)
     graph.addVertex(v5)
-    println("\nГраф после добавления вершины 6")
+    println("\nГраф после добавления вершины 6:")
     graph.print()
 
-    /* Удаление вершины */
-    // Вершина 3 соответствует v[1]
+    /* Удалить вершину */
+    // Вершине 3 соответствует v[1]
     graph.removeVertex(v[1]!!)
-    println("\nГраф после удаления вершины 3")
+    println("\nГраф после удаления вершины 3:")
     graph.print()
 }

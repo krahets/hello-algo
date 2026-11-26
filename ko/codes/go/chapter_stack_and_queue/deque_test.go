@@ -17,7 +17,7 @@ func TestDeque(t *testing.T) {
 	// Go에서는 list를 덱으로 사용한다
 	deque := list.New()
 
-	/* 원소 삽입 */
+	/* 덱에 원소 삽입 */
 	deque.PushBack(2)
 	deque.PushBack(5)
 	deque.PushBack(4)
@@ -26,13 +26,13 @@ func TestDeque(t *testing.T) {
 	fmt.Print("덱 deque = ")
 	PrintList(deque)
 
-	/* 원소 접근 */
+	/* 원소 조회 */
 	front := deque.Front()
 	fmt.Println("맨 앞 원소 front =", front.Value)
 	rear := deque.Back()
 	fmt.Println("맨 뒤 원소 rear =", rear.Value)
 
-	/* 원소 꺼내기 */
+	/* 덱에서 원소 꺼내기 */
 	deque.Remove(front)
 	fmt.Print("맨 앞에서 꺼낸 원소 front = ", front.Value, ", 맨 앞에서 꺼낸 후 deque = ")
 	PrintList(deque)
@@ -40,11 +40,11 @@ func TestDeque(t *testing.T) {
 	fmt.Print("맨 뒤에서 꺼낸 원소 rear = ", rear.Value, ", 맨 뒤에서 꺼낸 후 deque = ")
 	PrintList(deque)
 
-	/* 덱의 길이 반환 */
+	/* 덱의 길이 조회 */
 	size := deque.Len()
-	fmt.Println("덱 길이 size =", size)
+	fmt.Println("덱의 길이 size =", size)
 
-	/* 덱이 비어 있는지 판단 */
+	/* 덱이 비어 있는지 확인 */
 	isEmpty := deque.Len() == 0
 	fmt.Println("덱이 비어 있는가 =", isEmpty)
 }
@@ -53,28 +53,28 @@ func TestArrayDeque(t *testing.T) {
 	/* 덱 초기화 */
 	deque := newArrayDeque(16)
 
-	/* 원소 삽입 */
+	/* 덱에 원소 삽입 */
 	deque.pushLast(3)
 	deque.pushLast(2)
 	deque.pushLast(5)
 	fmt.Print("덱 deque = ")
 	PrintSlice(deque.toSlice())
 
-	/* 원소 접근 */
+	/* 원소 조회 */
 	peekFirst := deque.peekFirst()
 	fmt.Println("맨 앞 원소 peekFirst =", peekFirst)
 	peekLast := deque.peekLast()
 	fmt.Println("맨 뒤 원소 peekLast =", peekLast)
 
-	/* 원소 삽입 */
+	/* 덱에 원소 삽입 */
 	deque.pushLast(4)
-	fmt.Print("원소 4를 맨 뒤에 삽입한 후 deque = ")
+	fmt.Print("맨 뒤에 원소 4를 삽입한 후 deque = ")
 	PrintSlice(deque.toSlice())
 	deque.pushFirst(1)
-	fmt.Print("원소 1을 맨 앞에 삽입한 후 deque = ")
+	fmt.Print("맨 앞에 원소 1을 삽입한 후 deque = ")
 	PrintSlice(deque.toSlice())
 
-	/* 원소 꺼내기 */
+	/* 덱에서 원소 꺼내기 */
 	popFirst := deque.popFirst()
 	fmt.Print("맨 앞에서 꺼낸 원소 popFirst = ", popFirst, ", 맨 앞에서 꺼낸 후 deque = ")
 	PrintSlice(deque.toSlice())
@@ -82,20 +82,20 @@ func TestArrayDeque(t *testing.T) {
 	fmt.Print("맨 뒤에서 꺼낸 원소 popLast = ", popLast, ", 맨 뒤에서 꺼낸 후 deque = ")
 	PrintSlice(deque.toSlice())
 
-	/* 덱의 길이 반환 */
+	/* 덱의 길이 조회 */
 	size := deque.size()
-	fmt.Println("덱 길이 size =", size)
+	fmt.Println("덱의 길이 size =", size)
 
-	/* 덱이 비어 있는지 판단 */
+	/* 덱이 비어 있는지 확인 */
 	isEmpty := deque.isEmpty()
 	fmt.Println("덱이 비어 있는가 =", isEmpty)
 }
 
 func TestLinkedListDeque(t *testing.T) {
-	// 큐 초기화
+	// 덱 초기화
 	deque := newLinkedListDeque()
 
-	// 원소 삽입
+	// 덱에 원소 삽입
 	deque.pushLast(2)
 	deque.pushLast(5)
 	deque.pushLast(4)
@@ -104,13 +104,13 @@ func TestLinkedListDeque(t *testing.T) {
 	fmt.Print("덱 deque = ")
 	PrintList(deque.toList())
 
-	// 맨 앞 원소 접근
+	// 맨 앞 원소 조회
 	front := deque.peekFirst()
 	fmt.Println("맨 앞 원소 front =", front)
 	rear := deque.peekLast()
 	fmt.Println("맨 뒤 원소 rear =", rear)
 
-	// 원소 꺼내기
+	// 덱에서 원소 꺼내기
 	popFirst := deque.popFirst()
 	fmt.Print("맨 앞에서 꺼낸 원소 popFirst = ", popFirst, ", 맨 앞에서 꺼낸 후 deque = ")
 	PrintList(deque.toList())
@@ -118,19 +118,19 @@ func TestLinkedListDeque(t *testing.T) {
 	fmt.Print("맨 뒤에서 꺼낸 원소 popLast = ", popLast, ", 맨 뒤에서 꺼낸 후 deque = ")
 	PrintList(deque.toList())
 
-	// 큐의 길이 반환
+	// 덱의 길이 조회
 	size := deque.size()
-	fmt.Println("큐 길이 size =", size)
+	fmt.Println("덱의 길이 size =", size)
 
-	// 비어 있는지 판단
+	// 비어 있는지 확인
 	isEmpty := deque.isEmpty()
-	fmt.Println("큐가 비어 있는가 =", isEmpty)
+	fmt.Println("덱이 비어 있는가 =", isEmpty)
 }
 
-// BenchmarkLinkedListDeque: Mac M1 Pro에서 67.92 ns/op
+// M1 Pro를 탑재한 Mac에서 측정한 BenchmarkLinkedListDeque의 연산 시간은 67.92 ns/op이다
 func BenchmarkLinkedListDeque(b *testing.B) {
 	deque := newLinkedListDeque()
-	// b.N을 반복 횟수로 사용한다
+	// 반복 횟수로 b.N을 사용한다
 	for i := 0; i < b.N; i++ {
 		deque.pushLast(777)
 	}

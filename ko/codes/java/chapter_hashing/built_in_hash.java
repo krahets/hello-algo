@@ -17,11 +17,11 @@ public class built_in_hash {
 
         boolean bol = true;
         int hashBol = Boolean.hashCode(bol);
-        System.out.println("불리언 값 " + bol + " → 해시값: " + hashBol);
+        System.out.println("불리언 " + bol + " → 해시값: " + hashBol);
 
         double dec = 3.14159;
         int hashDec = Double.hashCode(dec);
-        System.out.println("소수 " + dec + " → 해시값: " + hashDec);
+        System.out.println("실수 " + dec + " → 해시값: " + hashDec);
 
         String str = "Hello 算法";
         int hashStr = str.hashCode();

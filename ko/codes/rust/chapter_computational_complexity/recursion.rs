@@ -10,25 +10,25 @@ fn recur(n: i32) -> i32 {
     if n == 1 {
         return 1;
     }
-    // 내려가기: 재귀 호출
+    // 내려가는 단계: 재귀 호출
     let res = recur(n - 1);
-    // 돌아오기: 결과 반환
+    // 돌아오는 단계: 결과 반환
     n + res
 }
 
-/* 반복으로 재귀 구현 */
+/* 반복으로 재귀 구현하기 */
 fn for_loop_recur(n: i32) -> i32 {
-    // 명시적인 스택을 사용하여 시스템 호출 스택을 모방한다
+    // 명시적인 스택으로 시스템 호출 스택을 모방한다
     let mut stack = Vec::new();
     let mut res = 0;
-    // 내려가기: 재귀 호출
+    // 내려가는 단계: 재귀 호출
     for i in (1..=n).rev() {
-        // 스택에 삽입하여 내려가는 과정을 모방한다
+        // 스택에 값을 넣어 재귀 호출 단계를 재현한다
         stack.push(i);
     }
-    // 돌아오기: 결과 반환
+    // 돌아오는 단계: 결과 반환
     while !stack.is_empty() {
-        // 스택에서 꺼내어 돌아오는 과정을 모방한다
+        // 스택에서 값을 꺼내 반환 단계를 재현한다
         res += stack.pop().unwrap();
     }
     // res = 1+2+3+...+n
@@ -45,19 +45,19 @@ fn tail_recur(n: i32, res: i32) -> i32 {
     tail_recur(n - 1, res + n)
 }
 
-/* 피보나치 수열: 재귀 */
+/* 재귀로 피보나치 수 구하기 */
 fn fib(n: i32) -> i32 {
-    // 종료 조건 f(1) = 0, f(2) = 1
+    // 종료 조건: f(1) = 0, f(2) = 1
     if n == 1 || n == 2 {
         return n - 1;
     }
-    // 재귀 호출 f(n) = f(n-1) + f(n-2)
+    // 재귀 호출: f(n) = f(n-1) + f(n-2)
     let res = fib(n - 1) + fib(n - 2);
-    // 결과를 반환한다
+    // 결과 반환
     res
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 fn main() {
     let n = 5;
     let mut res;
@@ -66,11 +66,11 @@ fn main() {
     println!("\n재귀 함수로 구한 합 res = {res}");
 
     res = for_loop_recur(n);
-    println!("\n반복으로 재귀를 구현하여 구한 합 res = {res}");
+    println!("\n반복으로 재귀를 구현해 구한 합 res = {res}");
 
     res = tail_recur(n, 0);
     println!("\n꼬리 재귀 함수로 구한 합 res = {res}");
 
     res = fib(n);
-    println!("\n피보나치 수열의 {n}번째 항은 {res}이다");
+    println!("\n피보나치 수열의 {n}번째 항 = {res}");
 }

@@ -9,7 +9,7 @@ import (
 	"testing"
 )
 
-/* 실행 코드 */
+/* 실행 예제 */
 func TestMyList(t *testing.T) {
 	/* 리스트 초기화 */
 	nums := newMyList()
@@ -31,16 +31,16 @@ func TestMyList(t *testing.T) {
 
 	/* 원소 접근 */
 	num := nums.get(1)
-	fmt.Printf("인덱스 1의 원소에 접근하여 얻은 num = %v\n", num)
+	fmt.Printf("인덱스 1의 원소를 읽은 결과 num = %v\n", num)
 
 	/* 원소 갱신 */
 	nums.set(0, 1)
-	fmt.Printf("인덱스 1의 원소를 0으로 갱신한 후 nums = %v\n", nums.toArray())
+	fmt.Printf("인덱스 1의 원소를 0으로 바꾼 후 nums = %v\n", nums.toArray())
 
 	/* 용량 확장 동작 테스트 */
 	for i := 0; i < 10; i++ {
-		// i = 5일 때 리스트 길이가 용량을 초과하므로 용량 확장이 수행된다
+		// i = 5일 때 리스트 길이가 용량을 초과하게 되어 용량 확장이 일어난다.
 		nums.add(i)
 	}
-	fmt.Printf("용량을 늘린 후 리스트 nums = %v, 용량 = %v, 길이 = %v\n", nums.toArray(), nums.capacity(), nums.size())
+	fmt.Printf("용량 확장 후 리스트 nums = %v, 용량 = %v, 길이 = %v\n", nums.toArray(), nums.capacity(), nums.size())
 }

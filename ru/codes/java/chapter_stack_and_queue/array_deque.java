@@ -8,11 +8,11 @@ package chapter_stack_and_queue;
 
 import java.util.*;
 
-/* Двусторонняя очередь на основе кольцевого массива */
+/* Двусторонняя очередь (дек) на основе кольцевого массива */
 class ArrayDeque {
-    private int[] nums; // Массив для хранения элементов двусторонней очереди
-    private int front; // Указатель head, указывающий на первый элемент очереди
-    private int queSize; // Длина двусторонней очереди
+    private int[] nums; // Массив для хранения элементов дека
+    private int front; // Индекс первого элемента дека
+    private int queSize; // Длина дека
 
     /* Конструктор */
     public ArrayDeque(int capacity) {
@@ -20,91 +20,91 @@ class ArrayDeque {
         front = queSize = 0;
     }
 
-    /* Получить вместимость двусторонней очереди */
+    /* Получить ёмкость дека */
     public int capacity() {
         return nums.length;
     }
 
-    /* Получение длины двусторонней очереди */
+    /* Получить длину дека */
     public int size() {
         return queSize;
     }
 
-    /* Проверка, пуста ли двусторонняя очередь */
+    /* Проверить, пуст ли дек */
     public boolean isEmpty() {
         return queSize == 0;
     }
 
     /* Вычислить индекс в кольцевом массиве */
     private int index(int i) {
-        // С помощью операции взятия по модулю соединить начало и конец массива
-        // Когда i выходит за конец массива, он возвращается в начало
-        // Когда i выходит за начало массива, он возвращается в конец
+        // Операция взятия остатка связывает конец массива с его началом
+        // Если индекс i выходит за конец массива, отсчёт продолжается с начала
+        // Если индекс i выходит за начало массива, отсчёт продолжается с конца
         return (i + capacity()) % capacity();
     }
 
-    /* Добавление в голову очереди */
+    /* Добавить элемент в начало дека */
     public void pushFirst(int num) {
         if (queSize == capacity()) {
-            System.out.println("Двусторонняя очередь заполнена");
+            System.out.println("Дек заполнен");
             return;
         }
-        // Указатель головы сдвигается на одну позицию влево
-        // С помощью операции взятия по модулю front после выхода за начало массива возвращается в хвост
+        // Сдвинуть индекс начала дека на одну позицию влево
+        // При выходе за начало массива операция взятия остатка возвращает front в конец
         front = index(front - 1);
-        // Добавить num в голову очереди
+        // Добавить num в начало дека
         nums[front] = num;
         queSize++;
     }
 
-    /* Добавление в хвост очереди */
+    /* Добавить элемент в конец дека */
     public void pushLast(int num) {
         if (queSize == capacity()) {
-            System.out.println("Двусторонняя очередь заполнена");
+            System.out.println("Дек заполнен");
             return;
         }
-        // Вычислить указатель хвоста, указывающий на индекс хвоста + 1
+        // Вычислить индекс вставки в конец дека: прибавить 1 к индексу последнего элемента с учётом перехода по кругу
         int rear = index(front + queSize);
-        // Добавить num в хвост очереди
+        // Добавить num в конец дека
         nums[rear] = num;
         queSize++;
     }
 
-    /* Извлечение из головы очереди */
+    /* Извлечь элемент из начала дека */
     public int popFirst() {
         int num = peekFirst();
-        // Указатель головы сдвигается на одну позицию назад
+        // Сдвинуть индекс начала дека на одну позицию вперёд
         front = index(front + 1);
         queSize--;
         return num;
     }
 
-    /* Извлечение из хвоста очереди */
+    /* Извлечь элемент из конца дека */
     public int popLast() {
         int num = peekLast();
         queSize--;
         return num;
     }
 
-    /* Доступ к элементу в начале очереди */
+    /* Посмотреть первый элемент дека */
     public int peekFirst() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return nums[front];
     }
 
-    /* Доступ к элементу в конце очереди */
+    /* Посмотреть последний элемент дека */
     public int peekLast() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
-        // Вычислить индекс хвостового элемента
+        // Вычислить индекс последнего элемента
         int last = index(front + queSize - 1);
         return nums[last];
     }
 
     /* Вернуть массив для вывода */
     public int[] toArray() {
-        // Преобразовывать только элементы списка в пределах фактической длины
+        // Преобразовать только те элементы, которые сейчас находятся в деке
         int[] res = new int[queSize];
         for (int i = 0, j = front; i < queSize; i++, j++) {
             res[i] = nums[index(j)];
@@ -115,37 +115,37 @@ class ArrayDeque {
 
 public class array_deque {
     public static void main(String[] args) {
-        /* Инициализация двусторонней очереди */
+        /* Инициализировать дек */
         ArrayDeque deque = new ArrayDeque(10);
         deque.pushLast(3);
         deque.pushLast(2);
         deque.pushLast(5);
-        System.out.println("Двусторонняя очередь deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("Дек deque = " + Arrays.toString(deque.toArray()));
 
-        /* Доступ к элементу */
+        /* Посмотреть первый и последний элементы */
         int peekFirst = deque.peekFirst();
-        System.out.println("Первый элемент peekFirst = " + peekFirst);
+        System.out.println("Первый элемент дека peekFirst = " + peekFirst);
         int peekLast = deque.peekLast();
-        System.out.println("Последний элемент peekLast = " + peekLast);
+        System.out.println("Последний элемент дека peekLast = " + peekLast);
 
-        /* Добавление элемента в очередь */
+        /* Добавить элементы в дек */
         deque.pushLast(4);
-        System.out.println("После добавления элемента 4 в хвост deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("После добавления 4 в конец дека deque = " + Arrays.toString(deque.toArray()));
         deque.pushFirst(1);
-        System.out.println("После добавления элемента 1 в голову deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("После добавления 1 в начало дека deque = " + Arrays.toString(deque.toArray()));
 
-        /* Извлечение элемента из очереди */
+        /* Извлечь элементы из дека */
         int popLast = deque.popLast();
-        System.out.println("Извлеченный из хвоста элемент = " + popLast + ", deque после извлечения из хвоста = " + Arrays.toString(deque.toArray()));
+        System.out.println("Извлечённый последний элемент = " + popLast + ", после извлечения из конца deque = " + Arrays.toString(deque.toArray()));
         int popFirst = deque.popFirst();
-        System.out.println("Извлеченный из головы элемент = " + popFirst + ", deque после извлечения из головы = " + Arrays.toString(deque.toArray()));
+        System.out.println("Извлечённый первый элемент = " + popFirst + ", после извлечения из начала deque = " + Arrays.toString(deque.toArray()));
 
-        /* Получение длины двусторонней очереди */
+        /* Получить длину дека */
         int size = deque.size();
-        System.out.println("Длина двусторонней очереди size = " + size);
+        System.out.println("Длина дека size = " + size);
 
-        /* Проверка, пуста ли двусторонняя очередь */
+        /* Проверить, пуст ли дек */
         boolean isEmpty = deque.isEmpty();
-        System.out.println("Пуста ли двусторонняя очередь = " + isEmpty);
+        System.out.println("Дек пуст = " + isEmpty);
     }
 }

@@ -86,7 +86,7 @@ pub fn TreeFormatter(comptime T: type) type {
             try printTree(self.root, null, false, writer);
         }
 
-        // 列印二元樹
+        // 印出二元樹
         fn printTree(root: ?*const TreeNode(T), prev: ?*Trunk, isRight: bool, writer: anytype) !void {
             if (root == null) {
                 return;
@@ -118,8 +118,8 @@ pub fn TreeFormatter(comptime T: type) type {
             try printTree(root.?.left, &trunk, false, writer);
         }
 
-        // 列印二元樹
-        // This tree printer is borrowed from TECHIE DELIGHT
+        // 印出二元樹
+        // 這段印出樹狀結構的程式碼取自 TECHIE DELIGHT
         // https://www.techiedelight.com/c-program-print-binary-tree/
         const Trunk = struct {
             prev: ?*Trunk = null,

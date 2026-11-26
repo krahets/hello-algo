@@ -8,7 +8,7 @@ package chapter_hashing
 
 import utils.ListNode
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
     val num = 3
     val hashNum = num.hashCode()
@@ -20,7 +20,7 @@ fun main() {
 
     val dec = 3.14159
     val hashDec = dec.hashCode()
-    println("小数 $dec のハッシュ値は $hashDec")
+    println("浮動小数点数 $dec のハッシュ値は $hashDec")
 
     val str = "Hello 算法"
     val hashStr = str.hashCode()

@@ -40,7 +40,7 @@ public class preorder_traversal_ii_compact {
         res = new ArrayList<>();
         preOrder(root);
 
-        System.out.println("\n루트 노드에서 노드 7까지의 모든 경로 출력");
+        System.out.println("\n루트에서 값이 7인 노드까지의 모든 경로 출력");
         for (List<TreeNode> path : res) {
             List<Integer> vals = new ArrayList<>();
             for (TreeNode node : path) {

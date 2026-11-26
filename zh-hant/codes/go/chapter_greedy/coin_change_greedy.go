@@ -4,22 +4,22 @@
 
 package chapter_greedy
 
-/* 零錢兌換：貪婪 */
+/* 零錢兌換：貪婪法 */
 func coinChangeGreedy(coins []int, amt int) int {
-	// 假設 coins 串列有序
+	// 假設硬幣清單 coins 已依面額遞增排序
 	i := len(coins) - 1
 	count := 0
-	// 迴圈進行貪婪選擇，直到無剩餘金額
+	// 反覆依貪婪策略選取硬幣，直到剩餘金額為零
 	for amt > 0 {
-		// 找到小於且最接近剩餘金額的硬幣
+		// 找出不超過剩餘金額的最大面額
 		for i > 0 && coins[i] > amt {
 			i--
 		}
-		// 選擇 coins[i]
+		// 選取 coins[i]
 		amt -= coins[i]
 		count++
 	}
-	// 若未找到可行方案，則返回 -1
+	// 若找不到可行解，則回傳 -1
 	if amt != 0 {
 		return -1
 	}

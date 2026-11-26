@@ -1,0 +1,211 @@
+{
+  "animations": {
+    "max-capacity-greedy": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "frame_id": "source-470",
+          "id": "step-1"
+        },
+        {
+          "frame_id": "source-471",
+          "id": "step-2"
+        },
+        {
+          "frame_id": "source-472",
+          "id": "step-3"
+        },
+        {
+          "frame_id": "source-473",
+          "id": "step-4"
+        },
+        {
+          "frame_id": "source-474",
+          "id": "step-5"
+        },
+        {
+          "frame_id": "source-475",
+          "id": "step-6"
+        },
+        {
+          "frame_id": "source-476",
+          "id": "step-7"
+        },
+        {
+          "frame_id": "source-477",
+          "id": "step-8"
+        },
+        {
+          "frame_id": "source-478",
+          "id": "step-9"
+        }
+      ]
+    }
+  },
+  "context": [
+    "給定高度陣列 ht = [3, 8, 5, 2, 7, 7, 3, 4]（索引從 0 到 7），容器容量為 cap[i, j] = min(ht[i], ht[j]) × (j - i)。",
+    "雙指標貪婪演算法先將左指標設為 i = 0、右指標設為 j = 7，並以 res = 0 記錄起始最大容量。只要 i < j，就先計算目前容量 cap，再以 res = max(res, cap) 更新整體最大值。接著比較左右兩塊隔板的高度，將較矮一側的指標往內移一格，直到 i 與 j 相遇才結束迴圈。"
+  ],
+  "description": [
+    "這組圖共分 9 步。選中的隔板上方以藍綠色標記 i 和藍色標記 j 標出左右指標的位置，兩塊隔板也以對應的顏色標出。第 2 到第 8 步中，兩塊隔板之間以淺藍色塗出目前的容器，圖下方列出這一輪計算容量 cap 及更新已知最大值 res 的算式。",
+    "第 1 步只做初始化，第 2 到第 8 步共計算 7 次容量，第 9 步兩個指標相遇，迴圈結束。因此播放器的步驟編號和計算容量的次數不同。步驟清單後的「最大容量第 2 到第 8 步：容量計算與歷來最大值」表依步驟整理數值。指標位置、cap 和 res 都標在圖上，隔板高度則是依座標軸讀出的。"
+  ],
+  "frames": [
+    {
+      "announcement": "將兩個指標分別設在陣列兩端 i = 0、j = 7，最大容量的起始值為 res = 0。",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step1.png",
+      "explanation": "將左指標設為 i = 0（指向左端高 3 的隔板），右指標設為 j = 7（指向右端高 4 的隔板），並將最大容量的起始值設為 res = 0。此時尚未開始第一輪盛水容量計算，圖上也還沒畫出盛水區域。",
+      "id": "source-470",
+      "key_state": "起始狀態：i = 0（高 3），j = 7（高 4），歷來最大值 res = 0，尚未計算目前容量。",
+      "title": "在兩端設定指標的起始位置"
+    },
+    {
+      "announcement": "計算兩端隔板圍出的容量：左板高 3、右板高 4，左板較矮。cap = 21，res 更新為 21。",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step2.png",
+      "explanation": "第一次計算時，先看陣列兩端的狀態 [0, 7]：左板高 ht[0] = 3，右板高 ht[7] = 4，寬度為 7 - 0 = 7，因此目前容量 cap = min(3, 4) × 7 = 21。最大容量更新為 res = max(0, 21) = 21。由於高 3 的左板比高 4 的右板矮，下一步要將左側矮板的指標 i 向右移。",
+      "id": "source-471",
+      "key_state": "i = 0（高 3），j = 7（高 4），左板較矮。寬 7，水高 3，目前容量 cap = 21，歷來最大值 res = 21。",
+      "title": "計算容器 [0, 7] 的容量"
+    },
+    {
+      "announcement": "左指標從 0 右移到 1。左板高 8、右板高 4，右板較矮。cap = 24，res 更新為 24。",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step3.png",
+      "explanation": "上一輪左板較矮，因此將左指標 i 從 0 右移到 1，得到狀態 [1, 7]。左板高 ht[1] = 8，右板高 ht[7] = 4，寬度為 7 - 1 = 6，目前容量 cap = min(8, 4) × 6 = 24。最大容量更新為 res = max(21, 24) = 24。現在高 4 的右板比高 8 的左板矮，下一步改將右指標 j 向左移。",
+      "id": "source-472",
+      "key_state": "i = 1（高 8），j = 7（高 4），右板較矮。寬 6，水高 4，目前容量 cap = 24，歷來最大值 res = 24。",
+      "title": "將矮板的指標右移到 i = 1"
+    },
+    {
+      "announcement": "右指標從 7 左移到 6。左板高 8、右板高 3，右板較矮。cap = 15，res 維持 24。",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step4.png",
+      "explanation": "上一輪高 4 的右板比高 8 的左板矮，因此將右指標 j 從 7 左移到 6，得到狀態 [1, 6]。左板高 8，右板高 ht[6] = 3，寬度為 6 - 1 = 5，目前容量 cap = min(8, 3) × 5 = 15。與歷來最大值比較後，res = max(24, 15) = 24，維持不變。",
+      "id": "source-473",
+      "key_state": "i = 1（高 8），j = 6（高 3），右板較矮。寬 5，水高 3，目前容量 cap = 15，歷來最大值 res = 24。",
+      "title": "將矮板的指標左移到 j = 6"
+    },
+    {
+      "announcement": "右指標從 6 左移到 5。左板高 8、右板高 7，右板較矮。cap = 28，res 更新為 28。",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step5.png",
+      "explanation": "上一輪高 3 的右板比高 8 的左板矮，因此將右指標 j 從 6 左移到 5，得到狀態 [1, 5]。左板高 8，右板高 ht[5] = 7，寬度為 5 - 1 = 4，目前容量 cap = min(8, 7) × 4 = 28。歷來最大值更新為 res = max(24, 28) = 28。",
+      "id": "source-474",
+      "key_state": "i = 1（高 8），j = 5（高 7），右板較矮。寬 4，水高 7，目前容量 cap = 28，歷來最大值 res = 28。",
+      "title": "將矮板的指標左移到 j = 5"
+    },
+    {
+      "announcement": "右指標從 5 左移到 4。左板高 8、右板高 7，右板較矮。cap = 21，res 維持 28。",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step6.png",
+      "explanation": "上一輪高 7 的右板比高 8 的左板矮，因此將右指標 j 從 5 左移到 4，得到狀態 [1, 4]。左板高 8，右板高 ht[4] = 7，寬度為 4 - 1 = 3，目前容量 cap = min(8, 7) × 3 = 21。歷來最大值 res = max(28, 21) = 28，維持不變。",
+      "id": "source-475",
+      "key_state": "i = 1（高 8），j = 4（高 7），右板較矮。寬 3，水高 7，目前容量 cap = 21，歷來最大值 res = 28。",
+      "title": "將矮板的指標左移到 j = 4"
+    },
+    {
+      "announcement": "右指標從 4 左移到 3。左板高 8、右板高 2，右板較矮。cap = 4，res 維持 28。",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step7.png",
+      "explanation": "上一輪高 7 的右板比高 8 的左板矮，因此將右指標 j 從 4 左移到 3，得到狀態 [1, 3]。左板高 8，右板高 ht[3] = 2，寬度為 3 - 1 = 2，目前容量 cap = min(8, 2) × 2 = 4。歷來最大值 res = max(28, 4) = 28，維持不變。",
+      "id": "source-476",
+      "key_state": "i = 1（高 8），j = 3（高 2），右板較矮。寬 2，水高 2，目前容量 cap = 4，歷來最大值 res = 28。",
+      "title": "將矮板的指標左移到 j = 3"
+    },
+    {
+      "announcement": "右指標從 3 左移到 2。左板高 8、右板高 5，右板較矮。cap = 5，res 維持 28。",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step8.png",
+      "explanation": "上一輪高 2 的右板比高 8 的左板矮，因此將右指標 j 從 3 左移到 2，得到狀態 [1, 2]。左板高 8，右板高 ht[2] = 5，寬度為 2 - 1 = 1，目前容量 cap = min(8, 5) × 1 = 5。歷來最大值 res = max(28, 5) = 28，維持不變。",
+      "id": "source-477",
+      "key_state": "i = 1（高 8），j = 2（高 5），右板較矮。寬 1，水高 5，目前容量 cap = 5，歷來最大值 res = 28。",
+      "title": "將矮板的指標左移到 j = 2"
+    },
+    {
+      "announcement": "右指標左移到索引 1，與左指標相遇，跳出迴圈並回傳最大容量 28。",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step9.png",
+      "explanation": "第 8 步中，左板高 8，右板高 5。右板較矮，因此將右指標 j 從索引 2 向左移到索引 1，與左指標 i 相遇。圖中，藍綠色的 i 和藍色的 j 並列在索引 1 的隔板上方，橫軸上的刻度 2 已恢復為一般刻度的深灰色。此時 i < j 不成立，演算法結束迴圈，直接回傳最大容量 res = 28。",
+      "id": "source-478",
+      "key_state": "兩個指標在 i = j = 1 相遇，跳出貪婪選擇的迴圈，回傳最大容量 res = 28。",
+      "title": "兩個指標相遇，回傳最大容量"
+    }
+  ],
+  "input_tables": [],
+  "schema_version": 2,
+  "summary": "兩個指標從兩端出發，每次將較矮隔板的指標往內移。每一輪都計算目前容量，記下迄今的最大值，最後回傳 28。",
+  "tables": [
+    {
+      "caption": "最大容量第 2 到第 8 步：容量計算與歷來最大值",
+      "headers": [
+        "圖解步驟",
+        "i",
+        "j",
+        "左板高度",
+        "右板高度",
+        "目前容量 cap",
+        "已知最大值 res"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "第 2 步",
+          "0",
+          "7",
+          "3",
+          "4",
+          "21",
+          "21"
+        ],
+        [
+          "第 3 步",
+          "1",
+          "7",
+          "8",
+          "4",
+          "24",
+          "24"
+        ],
+        [
+          "第 4 步",
+          "1",
+          "6",
+          "8",
+          "3",
+          "15",
+          "24"
+        ],
+        [
+          "第 5 步",
+          "1",
+          "5",
+          "8",
+          "7",
+          "28",
+          "28"
+        ],
+        [
+          "第 6 步",
+          "1",
+          "4",
+          "8",
+          "7",
+          "21",
+          "28"
+        ],
+        [
+          "第 7 步",
+          "1",
+          "3",
+          "8",
+          "2",
+          "4",
+          "28"
+        ],
+        [
+          "第 8 步",
+          "1",
+          "2",
+          "8",
+          "5",
+          "5",
+          "28"
+        ]
+      ]
+    }
+  ],
+  "title": "最大容量：雙指標貪婪法"
+}

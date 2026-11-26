@@ -20,7 +20,7 @@ if __name__ == "__main__":
     n3 = TreeNode(val=3)
     n4 = TreeNode(val=4)
     n5 = TreeNode(val=5)
-    # Построить связи между узлами (указатели)
+    # Связать узлы ссылками (указателями)
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -30,12 +30,12 @@ if __name__ == "__main__":
 
     # Вставка и удаление узлов
     P = TreeNode(0)
-    # Вставить узел P между n1 -> n2
+    # Вставить узел P между n1 и n2
     n1.left = P
     P.left = n2
-    print("\nПосле вставки узла P\n")
+    print("\nПосле вставки узла P:\n")
     print_tree(n1)
     # Удаление узла
     n1.left = n2
-    print("\nПосле удаления узла P\n")
+    print("\nПосле удаления узла P:\n")
     print_tree(n1)

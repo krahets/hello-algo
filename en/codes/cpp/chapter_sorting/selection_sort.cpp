@@ -22,7 +22,7 @@ void selectionSort(vector<int> &nums) {
     }
 }
 
-/* Driver code */
+/* Driver Code */
 int main() {
     vector<int> nums = {4, 1, 3, 1, 5, 2};
     selectionSort(nums);

@@ -7,16 +7,16 @@ Author: krahets (krahets@163.com)
 
 def knapsack_dfs(wgt: list[int], val: list[int], i: int, c: int) -> int:
     """0-1 背包：暴力搜尋"""
-    # 若已選完所有物品或背包無剩餘容量，則返回價值 0
+    # 若已考慮所有物品，或背包沒有剩餘容量，就回傳價值 0
     if i == 0 or c == 0:
         return 0
-    # 若超過背包容量，則只能選擇不放入背包
+    # 若重量超過背包容量，就只能選擇不放入
     if wgt[i - 1] > c:
         return knapsack_dfs(wgt, val, i - 1, c)
-    # 計算不放入和放入物品 i 的最大價值
+    # 分別計算不放入與放入物品 i 可取得的最大價值
     no = knapsack_dfs(wgt, val, i - 1, c)
     yes = knapsack_dfs(wgt, val, i - 1, c - wgt[i - 1]) + val[i - 1]
-    # 返回兩種方案中價值更大的那一個
+    # 回傳兩種選法中較大的價值
     return max(no, yes)
 
 
@@ -24,19 +24,19 @@ def knapsack_dfs_mem(
     wgt: list[int], val: list[int], mem: list[list[int]], i: int, c: int
 ) -> int:
     """0-1 背包：記憶化搜尋"""
-    # 若已選完所有物品或背包無剩餘容量，則返回價值 0
+    # 若已考慮所有物品，或背包沒有剩餘容量，就回傳價值 0
     if i == 0 or c == 0:
         return 0
-    # 若已有記錄，則直接返回
+    # 若已有紀錄，直接回傳該值
     if mem[i][c] != -1:
         return mem[i][c]
-    # 若超過背包容量，則只能選擇不放入背包
+    # 若重量超過背包容量，就只能選擇不放入
     if wgt[i - 1] > c:
         return knapsack_dfs_mem(wgt, val, mem, i - 1, c)
-    # 計算不放入和放入物品 i 的最大價值
+    # 分別計算不放入與放入物品 i 可取得的最大價值
     no = knapsack_dfs_mem(wgt, val, mem, i - 1, c)
     yes = knapsack_dfs_mem(wgt, val, mem, i - 1, c - wgt[i - 1]) + val[i - 1]
-    # 記錄並返回兩種方案中價值更大的那一個
+    # 記錄並回傳兩種選法中較大的價值
     mem[i][c] = max(no, yes)
     return mem[i][c]
 
@@ -50,10 +50,10 @@ def knapsack_dp(wgt: list[int], val: list[int], cap: int) -> int:
     for i in range(1, n + 1):
         for c in range(1, cap + 1):
             if wgt[i - 1] > c:
-                # 若超過背包容量，則不選物品 i
+                # 若重量超過背包容量，就不選物品 i
                 dp[i][c] = dp[i - 1][c]
             else:
-                # 不選和選物品 i 這兩種方案的較大值
+                # 取不選與選取物品 i 兩種情況中的較大值
                 dp[i][c] = max(dp[i - 1][c], dp[i - 1][c - wgt[i - 1]] + val[i - 1])
     return dp[n][cap]
 
@@ -65,13 +65,13 @@ def knapsack_dp_comp(wgt: list[int], val: list[int], cap: int) -> int:
     dp = [0] * (cap + 1)
     # 狀態轉移
     for i in range(1, n + 1):
-        # 倒序走訪
+        # 反向走訪
         for c in range(cap, 0, -1):
             if wgt[i - 1] > c:
-                # 若超過背包容量，則不選物品 i
+                # 若重量超過背包容量，就不選物品 i
                 dp[c] = dp[c]
             else:
-                # 不選和選物品 i 這兩種方案的較大值
+                # 取不選與選取物品 i 兩種情況中的較大值
                 dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1])
     return dp[cap]
 
@@ -85,17 +85,17 @@ if __name__ == "__main__":
 
     # 暴力搜尋
     res = knapsack_dfs(wgt, val, n, cap)
-    print(f"不超過背包容量的最大物品價值為 {res}")
+    print(f"在背包容量限制內，物品的最大總價值為 {res}")
 
     # 記憶化搜尋
     mem = [[-1] * (cap + 1) for _ in range(n + 1)]
     res = knapsack_dfs_mem(wgt, val, mem, n, cap)
-    print(f"不超過背包容量的最大物品價值為 {res}")
+    print(f"在背包容量限制內，物品的最大總價值為 {res}")
 
     # 動態規劃
     res = knapsack_dp(wgt, val, cap)
-    print(f"不超過背包容量的最大物品價值為 {res}")
+    print(f"在背包容量限制內，物品的最大總價值為 {res}")
 
     # 空間最佳化後的動態規劃
     res = knapsack_dp_comp(wgt, val, cap)
-    print(f"不超過背包容量的最大物品價值為 {res}")
+    print(f"在背包容量限制內，物品的最大總價值為 {res}")

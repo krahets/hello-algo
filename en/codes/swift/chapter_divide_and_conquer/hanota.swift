@@ -12,26 +12,26 @@ func move(src: inout [Int], tar: inout [Int]) {
     tar.append(pan)
 }
 
-/* Solve the Tower of Hanoi problem f(i) */
+/* Solve Tower of Hanoi subproblem f(i) */
 func dfs(i: Int, src: inout [Int], buf: inout [Int], tar: inout [Int]) {
-    // If only one disk in this subproblem remains on src, move it directly to tar
+    // If only one disk remains on src, move it directly to tar
     if i == 1 {
         move(src: &src, tar: &tar)
         return
     }
     // Subproblem f(i-1): move the top i-1 disks from src to buf using tar
     dfs(i: i - 1, src: &src, buf: &tar, tar: &buf)
-    // Subproblem f(1): move the remaining disk of this subproblem from src to tar
+    // Subproblem f(1): move the remaining disk from src to tar
     move(src: &src, tar: &tar)
     // Subproblem f(i-1): move the top i-1 disks from buf to tar using src
     dfs(i: i - 1, src: &buf, buf: &src, tar: &tar)
 }
 
-/* Solve the Tower of Hanoi problem */
+/* Solve the Tower of Hanoi */
 func solveHanota(A: inout [Int], B: inout [Int], C: inout [Int]) {
     let n = A.count
-    // The end of each list represents the top of the peg
-    // Move the top n disks from A to C using B
+    // The end of the list is the top of the peg
+    // Move the top n disks from src to C using B
     dfs(i: n, src: &A, buf: &B, tar: &C)
 }
 
@@ -39,7 +39,7 @@ func solveHanota(A: inout [Int], B: inout [Int], C: inout [Int]) {
 enum Hanota {
     /* Driver code */
     static func main() {
-        // The end of each list represents the top of the peg
+        // The end of the list is the top of the peg
         var A = [5, 4, 3, 2, 1]
         var B: [Int] = []
         var C: [Int] = []

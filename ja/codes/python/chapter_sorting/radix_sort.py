@@ -6,51 +6,51 @@ Author: krahets (krahets@163.com)
 
 
 def digit(num: int, exp: int) -> int:
-    """要素 num の第 k 桁を取得する。exp = 10^(k-1) とする"""
-    # k ではなく exp を渡すことで、ここで高コストのべき乗計算を繰り返すのを避ける
+    """要素 num の下から k 桁目を取得。ここで exp = 10^(k-1)"""
+    # k ではなく exp を渡し、負荷の高いべき乗計算の繰り返しを避ける
     return (num // exp) % 10
 
 
 def counting_sort_digit(nums: list[int], exp: int):
-    """カウントソート（nums の第 k 桁に基づくソート）"""
-    # 十進数の各桁の範囲は 0~9 なので、長さ 10 のバケット配列が必要
+    """カウントソート（nums の下から k 桁目でソート）"""
+    # 十進数の各桁は 0～9 なので、長さ 10 のバケット配列を用意
     counter = [0] * 10
     n = len(nums)
-    # 0~9 の各数字の出現回数を数える
+    # 0～9 の各数字の出現回数を数える
     for i in range(n):
-        d = digit(nums[i], exp)  # nums[i] の第 k 桁を取得し、d とする
+        d = digit(nums[i], exp)  # nums[i] の下から k 桁目を d とする
         counter[d] += 1  # 数字 d の出現回数を数える
-    # 累積和を求め、「出現回数」を「配列のインデックス」に変換する
+    # 累積和を求め、出現回数を配列のインデックスに対応する値に変換
     for i in range(1, 10):
         counter[i] += counter[i - 1]
-    # 逆順に走査し、バケット内の集計結果に基づいて各要素を res に入れる
+    # 配列を逆順に走査し、バケットの集計値を使って各要素を res に書き込む
     res = [0] * n
     for i in range(n - 1, -1, -1):
         d = digit(nums[i], exp)
-        j = counter[d] - 1  # 配列内での d のインデックス j を取得する
-        res[j] = nums[i]  # 現在の要素をインデックス j に入れる
+        j = counter[d] - 1  # 配列内での d のインデックス j を求める
+        res[j] = nums[i]  # 現在の要素をインデックス j に書き込む
         counter[d] -= 1  # d の個数を 1 減らす
-    # 結果で元の配列 nums を上書きする
+    # 結果で元の配列 nums を上書き
     for i in range(n):
         nums[i] = res[i]
 
 
 def radix_sort(nums: list[int]):
     """基数ソート"""
-    # 最大桁数を判定するため、配列の最大要素を取得する
+    # 配列の最大値から最大桁数を求める
     m = max(nums)
-    # 下位の桁から上位の桁へ順に走査する
+    # 下位桁から上位桁へ順に走査
     exp = 1
     while exp <= m:
-        # 配列の要素の第 k 桁に対してカウントソートを行う
+        # 配列要素の下から k 桁目にカウントソートを適用
         # k = 1 -> exp = 1
         # k = 2 -> exp = 10
-        # つまり exp = 10^(k-1)
+        # すなわち exp = 10^(k-1)
         counting_sort_digit(nums, exp)
         exp *= 10
 
 
-"""実行用コード"""
+"""Driver Code"""
 if __name__ == "__main__":
     # 基数ソート
     nums = [
@@ -66,4 +66,4 @@ if __name__ == "__main__":
         63832996,
     ]
     radix_sort(nums)
-    print("基数ソート完了後 nums =", nums)
+    print("基数ソート後の nums =", nums)

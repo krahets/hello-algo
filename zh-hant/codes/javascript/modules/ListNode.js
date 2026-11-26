@@ -7,14 +7,14 @@
 /* 鏈結串列節點 */
 class ListNode {
     val; // 節點值
-    next; // 指向下一節點的引用（指標）
+    next; // 指向下一個節點的參照（指標）
     constructor(val, next) {
         this.val = val === undefined ? 0 : val;
         this.next = next === undefined ? null : next;
     }
 }
 
-/* 將串列反序列化為鏈結串列 */
+/* 將陣列反序列化為鏈結串列 */
 function arrToLinkedList(arr) {
     const dum = new ListNode(0);
     let head = dum;

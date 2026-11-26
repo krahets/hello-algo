@@ -14,26 +14,26 @@ import heapq
 
 
 def top_k_heap(nums: list[int], k: int) -> list[int]:
-    """ヒープを使って配列内の大きいほうから k 個の要素を求める"""
+    """ヒープを使って配列の上位 k 個の要素を求める"""
     # 最小ヒープを初期化する
     heap = []
-    # 配列の先頭 k 個の要素をヒープに挿入する
+    # 配列の先頭 k 個の要素をヒープに入れる
     for i in range(k):
         heapq.heappush(heap, nums[i])
-    # k+1 番目の要素から始め、ヒープの長さを k に保つ
+    # k+1 番目の要素からはヒープのサイズを k に保つ
     for i in range(k, len(nums)):
-        # 現在の要素がヒープの先頭要素より大きい場合、先頭要素を取り出し、現在の要素を挿入する
+        # 現在の要素が根の要素より大きければ、根の要素を取り出して現在の要素を挿入する
         if nums[i] > heap[0]:
             heapq.heappop(heap)
             heapq.heappush(heap, nums[i])
     return heap
 
 
-"""実行用コード"""
+"""Driver Code"""
 if __name__ == "__main__":
     nums = [1, 7, 6, 3, 2]
     k = 3
 
     res = top_k_heap(nums, k)
-    print(f"大きいほうから {k} 個の要素は")
+    print(f"上位 {k} 個の要素：")
     print_heap(res)

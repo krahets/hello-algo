@@ -6,11 +6,11 @@
 
 namespace hello_algo.chapter_stack_and_queue;
 
-/* 基於環形陣列實現的雙向佇列 */
+/* 以環狀陣列實作雙端佇列 */
 public class ArrayDeque {
-    int[] nums;  // 用於儲存雙向佇列元素的陣列
-    int front;   // 佇列首指標，指向佇列首元素
-    int queSize; // 雙向佇列長度
+    int[] nums;  // 存放雙端佇列元素的陣列
+    int front;   // 隊首索引，記錄隊首元素在陣列中的位置
+    int queSize; // 雙端佇列長度
 
     /* 建構子 */
     public ArrayDeque(int capacity) {
@@ -18,73 +18,73 @@ public class ArrayDeque {
         front = queSize = 0;
     }
 
-    /* 獲取雙向佇列的容量 */
+    /* 取得雙端佇列容量 */
     int Capacity() {
         return nums.Length;
     }
 
-    /* 獲取雙向佇列的長度 */
+    /* 取得雙端佇列長度 */
     public int Size() {
         return queSize;
     }
 
-    /* 判斷雙向佇列是否為空 */
+    /* 判斷雙端佇列是否為空 */
     public bool IsEmpty() {
         return queSize == 0;
     }
 
-    /* 計算環形陣列索引 */
+    /* 計算環狀陣列的索引 */
     int Index(int i) {
-        // 透過取餘操作實現陣列首尾相連
-        // 當 i 越過陣列尾部後，回到頭部
-        // 當 i 越過陣列頭部後，回到尾部
+        // 取餘數，讓陣列的首尾相接
+        // 當 i 超過陣列末端時，繞回開頭
+        // 當 i 越過陣列開頭時，繞回末端
         return (i + Capacity()) % Capacity();
     }
 
-    /* 佇列首入列 */
+    /* 從隊首加入元素 */
     public void PushFirst(int num) {
         if (queSize == Capacity()) {
-            Console.WriteLine("雙向佇列已滿");
+            Console.WriteLine("雙端佇列已滿");
             return;
         }
-        // 佇列首指標向左移動一位
-        // 透過取餘操作實現 front 越過陣列頭部後回到尾部
+        // 將隊首索引往左移一格
+        // 取餘數，讓 front 越過陣列開頭時繞回末端
         front = Index(front - 1);
-        // 將 num 新增至佇列首
+        // 將 num 加到隊首
         nums[front] = num;
         queSize++;
     }
 
-    /* 佇列尾入列 */
+    /* 從隊尾加入元素 */
     public void PushLast(int num) {
         if (queSize == Capacity()) {
-            Console.WriteLine("雙向佇列已滿");
+            Console.WriteLine("雙端佇列已滿");
             return;
         }
-        // 計算佇列尾指標，指向佇列尾索引 + 1
+        // 計算下一次從隊尾寫入的位置 rear（隊尾索引 + 1）
         int rear = Index(front + queSize);
-        // 將 num 新增至佇列尾
+        // 將 num 加到隊尾
         nums[rear] = num;
         queSize++;
     }
 
-    /* 佇列首出列 */
+    /* 從隊首取出元素 */
     public int PopFirst() {
         int num = PeekFirst();
-        // 佇列首指標向後移動一位
+        // 將隊首索引往後移一格
         front = Index(front + 1);
         queSize--;
         return num;
     }
 
-    /* 佇列尾出列 */
+    /* 從隊尾取出元素 */
     public int PopLast() {
         int num = PeekLast();
         queSize--;
         return num;
     }
 
-    /* 訪問佇列首元素 */
+    /* 讀取隊首元素 */
     public int PeekFirst() {
         if (IsEmpty()) {
             throw new InvalidOperationException();
@@ -92,19 +92,19 @@ public class ArrayDeque {
         return nums[front];
     }
 
-    /* 訪問佇列尾元素 */
+    /* 讀取隊尾元素 */
     public int PeekLast() {
         if (IsEmpty()) {
             throw new InvalidOperationException();
         }
-        // 計算尾元素索引
+        // 計算隊尾元素的索引
         int last = Index(front + queSize - 1);
         return nums[last];
     }
 
-    /* 返回陣列用於列印 */
+    /* 回傳陣列以便輸出 */
     public int[] ToArray() {
-        // 僅轉換有效長度範圍內的串列元素
+        // 只轉換雙端佇列中實際存放的元素
         int[] res = new int[queSize];
         for (int i = 0, j = front; i < queSize; i++, j++) {
             res[i] = nums[Index(j)];
@@ -116,37 +116,37 @@ public class ArrayDeque {
 public class array_deque {
     [Test]
     public void Test() {
-        /* 初始化雙向佇列 */
+        /* 初始化雙端佇列 */
         ArrayDeque deque = new(10);
         deque.PushLast(3);
         deque.PushLast(2);
         deque.PushLast(5);
-        Console.WriteLine("雙向佇列 deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("雙端佇列 deque = " + string.Join(" ", deque.ToArray()));
 
-        /* 訪問元素 */
+        /* 讀取隊首與隊尾元素 */
         int peekFirst = deque.PeekFirst();
-        Console.WriteLine("佇列首元素 peekFirst = " + peekFirst);
+        Console.WriteLine("隊首元素 peekFirst = " + peekFirst);
         int peekLast = deque.PeekLast();
-        Console.WriteLine("佇列尾元素 peekLast = " + peekLast);
+        Console.WriteLine("隊尾元素 peekLast = " + peekLast);
 
-        /* 元素入列 */
+        /* 將元素加入雙端佇列 */
         deque.PushLast(4);
-        Console.WriteLine("元素 4 佇列尾入列後 deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("將元素 4 加到隊尾後 deque = " + string.Join(" ", deque.ToArray()));
         deque.PushFirst(1);
-        Console.WriteLine("元素 1 佇列首入列後 deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("將元素 1 加到隊首後 deque = " + string.Join(" ", deque.ToArray()));
 
-        /* 元素出列 */
+        /* 從雙端佇列取出元素 */
         int popLast = deque.PopLast();
-        Console.WriteLine("佇列尾出列元素 = " + popLast + "，佇列尾出列後 deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("從隊尾取出的元素 = " + popLast + "，從隊尾取出後 deque = " + string.Join(" ", deque.ToArray()));
         int popFirst = deque.PopFirst();
-        Console.WriteLine("佇列首出列元素 = " + popFirst + "，佇列首出列後 deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("從隊首取出的元素 = " + popFirst + "，從隊首取出後 deque = " + string.Join(" ", deque.ToArray()));
 
-        /* 獲取雙向佇列的長度 */
+        /* 取得雙端佇列長度 */
         int size = deque.Size();
-        Console.WriteLine("雙向佇列長度 size = " + size);
+        Console.WriteLine("雙端佇列長度 size = " + size);
 
-        /* 判斷雙向佇列是否為空 */
+        /* 判斷雙端佇列是否為空 */
         bool isEmpty = deque.IsEmpty();
-        Console.WriteLine("雙向佇列是否為空 = " + isEmpty);
+        Console.WriteLine("雙端佇列是否為空 = " + isEmpty);
     }
 }

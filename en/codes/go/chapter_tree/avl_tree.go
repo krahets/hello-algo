@@ -18,7 +18,7 @@ func newAVLTree() *aVLTree {
 
 /* Get the node height */
 func (t *aVLTree) height(node *TreeNode) int {
-	// A nil node has height -1; a leaf has height 0
+	// A null node has height -1, and a leaf has height 0
 	if node != nil {
 		return node.Height
 	}
@@ -29,7 +29,7 @@ func (t *aVLTree) height(node *TreeNode) int {
 func (t *aVLTree) updateHeight(node *TreeNode) {
 	lh := t.height(node.Left)
 	rh := t.height(node.Right)
-	// The node height equals the height of its taller subtree + 1
+	// Node height is the height of the taller subtree plus 1
 	if lh > rh {
 		node.Height = lh + 1
 	} else {
@@ -39,11 +39,11 @@ func (t *aVLTree) updateHeight(node *TreeNode) {
 
 /* Get the balance factor */
 func (t *aVLTree) balanceFactor(node *TreeNode) int {
-	// A nil node has balance factor 0
+	// A null node has a balance factor of 0
 	if node == nil {
 		return 0
 	}
-	// Node balance factor = left subtree height - right subtree height
+	// Balance factor = left subtree height - right subtree height
 	return t.height(node.Left) - t.height(node.Right)
 }
 
@@ -75,10 +75,10 @@ func (t *aVLTree) leftRotate(node *TreeNode) *TreeNode {
 	return child
 }
 
-/* Perform rotations to restore balance in this subtree */
+/* Rebalance the subtree by rotating it */
 func (t *aVLTree) rotate(node *TreeNode) *TreeNode {
 	// Get the balance factor of node
-	// Go favors short local variable names; bf holds the result of t.balanceFactor(node)
+	// Go favors short variable names. Here bf stands for t.balanceFactor.
 	bf := t.balanceFactor(node)
 	// Left-heavy tree
 	if bf > 1 {
@@ -102,7 +102,7 @@ func (t *aVLTree) rotate(node *TreeNode) *TreeNode {
 			return t.leftRotate(node)
 		}
 	}
-	// The tree is balanced; return without rotating
+	// The tree is balanced, so return without rotating
 	return node
 }
 
@@ -122,28 +122,28 @@ func (t *aVLTree) insertHelper(node *TreeNode, val int) *TreeNode {
 	} else if val > node.Val.(int) {
 		node.Right = t.insertHelper(node.Right, val)
 	} else {
-		// Return without inserting a duplicate node
+		// Return without inserting a duplicate
 		return node
 	}
 	// Update the node height
 	t.updateHeight(node)
-	/* 2. Perform rotations to restore balance in this subtree */
+	/* 2. Rebalance the subtree by rotating it */
 	node = t.rotate(node)
-	// Return the subtree root
+	// Return the root of the subtree
 	return node
 }
 
-/* Remove a node */
+/* Delete a node */
 func (t *aVLTree) remove(val int) {
 	t.root = t.removeHelper(t.root, val)
 }
 
-/* Remove a node recursively (helper function) */
+/* Delete a node recursively (helper function) */
 func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 	if node == nil {
 		return nil
 	}
-	/* 1. Find and remove the node */
+	/* 1. Find the node and delete it */
 	if val < node.Val.(int) {
 		node.Left = t.removeHelper(node.Left, val)
 	} else if val > node.Val.(int) {
@@ -155,14 +155,14 @@ func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 				child = node.Right
 			}
 			if child == nil {
-				// Number of children = 0: remove node and return
+				// No children: delete node and return
 				return nil
 			} else {
-				// Number of children = 1: remove node directly
+				// One child: delete node
 				node = child
 			}
 		} else {
-			// Number of children = 2: remove the inorder successor and use its value to replace the current node value
+			// Two children: delete the inorder successor and use it to replace the current node
 			temp := node.Right
 			for temp.Left != nil {
 				temp = temp.Left
@@ -173,28 +173,28 @@ func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 	}
 	// Update the node height
 	t.updateHeight(node)
-	/* 2. Perform rotations to restore balance in this subtree */
+	/* 2. Rebalance the subtree by rotating it */
 	node = t.rotate(node)
-	// Return the subtree root
+	// Return the root of the subtree
 	return node
 }
 
-/* Find a node */
+/* Search for a node */
 func (t *aVLTree) search(val int) *TreeNode {
 	cur := t.root
-	// Continue searching while the current node is not nil
+	// Stop the search after passing a leaf
 	for cur != nil {
 		if cur.Val.(int) < val {
-			// If the target node exists, it lies in the right subtree of cur
+			// The target is in the right subtree of cur
 			cur = cur.Right
 		} else if cur.Val.(int) > val {
-			// If the target node exists, it lies in the left subtree of cur
+			// The target is in the left subtree of cur
 			cur = cur.Left
 		} else {
-			// The target node was found; exit the loop
+			// The target was found, so exit the loop
 			break
 		}
 	}
-	// Return the target node, or nil if it was not found
+	// Return the target node
 	return cur
 }

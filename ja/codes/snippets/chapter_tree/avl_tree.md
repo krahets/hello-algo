@@ -1,7 +1,7 @@
 <!-- [snippet]{avl_tree_node} -->
 ```python title=""
 class TreeNode:
-    """AVL 木のノードクラス"""
+    """AVL 木のノードのクラス"""
     def __init__(self, val: int):
         self.val: int = val                 # ノードの値
         self.height: int = 0                # ノードの高さ
@@ -10,7 +10,7 @@ class TreeNode:
 ```
 
 ```cpp title=""
-/* AVL 木のノードクラス */
+/* AVL 木のノードのクラス */
 struct TreeNode {
     int val{};          // ノードの値
     int height = 0;     // ノードの高さ
@@ -22,7 +22,7 @@ struct TreeNode {
 ```
 
 ```java title=""
-/* AVL 木のノードクラス */
+/* AVL 木のノードのクラス */
 class TreeNode {
     public int val;        // ノードの値
     public int height;     // ノードの高さ
@@ -33,7 +33,7 @@ class TreeNode {
 ```
 
 ```csharp title=""
-/* AVL 木のノードクラス */
+/* AVL 木のノードのクラス */
 class TreeNode(int? x) {
     public int? val = x;    // ノードの値
     public int height;      // ノードの高さ
@@ -43,7 +43,7 @@ class TreeNode(int? x) {
 ```
 
 ```go title=""
-/* AVL 木のノード構造体 */
+/* AVL 木のノードの構造体 */
 type TreeNode struct {
     Val    int       // ノードの値
     Height int       // ノードの高さ
@@ -53,7 +53,7 @@ type TreeNode struct {
 ```
 
 ```swift title=""
-/* AVL 木のノードクラス */
+/* AVL 木のノードのクラス */
 class TreeNode {
     var val: Int // ノードの値
     var height: Int // ノードの高さ
@@ -68,7 +68,7 @@ class TreeNode {
 ```
 
 ```javascript title=""
-/* AVL 木のノードクラス */
+/* AVL 木のノードのクラス */
 class TreeNode {
     val; // ノードの値
     height; //ノードの高さ
@@ -84,7 +84,7 @@ class TreeNode {
 ```
 
 ```typescript title=""
-/* AVL 木のノードクラス */
+/* AVL 木のノードのクラス */
 class TreeNode {
     val: number;            // ノードの値
     height: number;         // ノードの高さ
@@ -100,7 +100,7 @@ class TreeNode {
 ```
 
 ```dart title=""
-/* AVL 木のノードクラス */
+/* AVL 木のノードのクラス */
 class TreeNode {
   int val;         // ノードの値
   int height;      // ノードの高さ
@@ -114,7 +114,7 @@ class TreeNode {
 use std::rc::Rc;
 use std::cell::RefCell;
 
-/* AVL 木のノード構造体 */
+/* AVL 木のノードの構造体 */
 struct TreeNode {
     val: i32,                               // ノードの値
     height: i32,                            // ノードの高さ
@@ -136,7 +136,7 @@ impl TreeNode {
 ```
 
 ```c title=""
-/* AVL 木のノード構造体 */
+/* AVL 木のノードの構造体 */
 typedef struct TreeNode {
     int val;
     int height;
@@ -158,7 +158,7 @@ TreeNode *newTreeNode(int val) {
 ```
 
 ```kotlin title=""
-/* AVL 木のノードクラス */
+/* AVL 木のノードのクラス */
 class TreeNode(val _val: Int) {  // ノードの値
     var height: Int = 0          // ノードの高さ
     var left: TreeNode? = null   // 左の子
@@ -167,7 +167,7 @@ class TreeNode(val _val: Int) {  // ノードの値
 ```
 
 ```ruby title=""
-### AVL 木のノードクラス ###
+### AVL 木のノードのクラス ###
 class TreeNode
   attr_accessor :val    # ノードの値
   attr_accessor :height # ノードの高さ

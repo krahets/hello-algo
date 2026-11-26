@@ -10,12 +10,12 @@ import (
 )
 
 func TestTwoSum(t *testing.T) {
-	// ======= Test Case =======
+	// ======= 測試案例 =======
 	nums := []int{2, 7, 11, 15}
 	target := 13
 
-	// ====== Driver Code ======
-	// 方法一：暴力解法
+	// ====== 主程式 ======
+	// 方法一：窮舉法
 	res := twoSumBruteForce(nums, target)
 	fmt.Println("方法一 res =", res)
 	// 方法二：雜湊表

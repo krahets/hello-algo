@@ -15,7 +15,7 @@ fn main() {
     let n3 = TreeNode::new(3);
     let n4 = TreeNode::new(4);
     let n5 = TreeNode::new(5);
-    // 노드 사이의 참조(포인터)를 설정한다
+    // 노드 사이의 참조(포인터)를 연결한다
     n1.borrow_mut().left = Some(Rc::clone(&n2));
     n1.borrow_mut().right = Some(Rc::clone(&n3));
     n2.borrow_mut().left = Some(Rc::clone(&n4));
@@ -28,11 +28,11 @@ fn main() {
     // n1 -> n2 사이에 노드 P를 삽입한다
     p.borrow_mut().left = Some(Rc::clone(&n2));
     n1.borrow_mut().left = Some(Rc::clone(&p));
-    println!("\n노드 P를 삽입한 후\n");
+    println!("\n노드 P 삽입 후\n");
     print_util::print_tree(&n1);
-    // 노드 P를 삭제한다
+    // 노드 P 삭제
     drop(p);
     n1.borrow_mut().left = Some(Rc::clone(&n2));
-    println!("\n노드 P를 삭제한 후\n");
+    println!("\n노드 P 삭제 후\n");
     print_util::print_tree(&n1);
 }

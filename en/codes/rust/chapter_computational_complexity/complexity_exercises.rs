@@ -4,7 +4,7 @@
  * Author: Hello Algo Team
  */
 
-/* Sum using iteration */
+/* Iterative sum */
 fn sum_iter(n: i32) -> i32 {
     let mut res = 0;
     for i in 1..=n {
@@ -13,7 +13,7 @@ fn sum_iter(n: i32) -> i32 {
     res
 }
 
-/* Sum using recursion */
+/* Recursive sum */
 fn sum_recur(n: i32) -> i32 {
     if n == 1 {
         return 1;

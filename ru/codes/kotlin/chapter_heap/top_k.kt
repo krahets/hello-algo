@@ -11,15 +11,15 @@ import java.util.*
 
 /* Найти k наибольших элементов массива с помощью кучи */
 fun topKHeap(nums: IntArray, k: Int): Queue<Int> {
-    // Инициализация минимальной кучи
+    // Инициализировать мин-кучу
     val heap = PriorityQueue<Int>()
-    // Поместить первые k элементов массива в кучу
+    // Добавить в кучу первые k элементов массива
     for (i in 0..<k) {
         heap.offer(nums[i])
     }
-    // Начиная с элемента k+1, поддерживать длину кучи равной k
+    // Начиная с (k+1)-го элемента, поддерживать размер кучи равным k
     for (i in k..<nums.size) {
-        // Если текущий элемент больше элемента на вершине кучи, извлечь вершину кучи и добавить текущий элемент в кучу
+        // Если текущий элемент больше корня, извлечь корень и вставить текущий элемент
         if (nums[i] > heap.peek()) {
             heap.poll()
             heap.offer(nums[i])
@@ -28,11 +28,11 @@ fun topKHeap(nums: IntArray, k: Int): Queue<Int> {
     return heap
 }
 
-/* Driver Code */
+/* Пример использования */
 fun main() {
     val nums = intArrayOf(1, 7, 6, 3, 2)
     val k = 3
     val res = topKHeap(nums, k)
-    println("Наибольшие $k элементов")
+    println("Наибольшие элементы (всего $k):")
     printHeap(res)
 }

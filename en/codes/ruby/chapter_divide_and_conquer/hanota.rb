@@ -12,9 +12,9 @@ def move(src, tar)
   tar << pan
 end
 
-### Solve the Tower of Hanoi problem f(i) ###
+### Solve Tower of Hanoi subproblem f(i) ###
 def dfs(i, src, buf, tar)
-  # If only one disk remains to be moved from src, move it directly to tar
+  # If only one disk remains on src, move it directly to tar
   if i == 1
     move(src, tar)
     return
@@ -22,13 +22,13 @@ def dfs(i, src, buf, tar)
 
   # Subproblem f(i-1): move the top i-1 disks from src to buf using tar
   dfs(i - 1, src, tar, buf)
-  # Subproblem f(1): move the remaining disk in the current subproblem from src to tar
+  # Subproblem f(1): move the remaining disk from src to tar
   move(src, tar)
   # Subproblem f(i-1): move the top i-1 disks from buf to tar using src
   dfs(i - 1, buf, src, tar)
 end
 
-### Solve the Tower of Hanoi problem ###
+### Solve the Tower of Hanoi ###
 def solve_hanota(_A, _B, _C)
   n = _A.length
   # Move the top n disks from A to C using B
@@ -37,7 +37,7 @@ end
 
 ### Driver code ###
 if __FILE__ == $0
-  # The end of each list represents the top of the peg
+  # The end of the list is the top of the peg
   A = [5, 4, 3, 2, 1]
   B = []
   C = []

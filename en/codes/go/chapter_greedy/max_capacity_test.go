@@ -14,5 +14,5 @@ func TestMaxCapacity(t *testing.T) {
 
 	// Greedy algorithm
 	res := maxCapacity(ht)
-	fmt.Println("Maximum container capacity:", res)
+	fmt.Println("The maximum capacity is", res)
 }

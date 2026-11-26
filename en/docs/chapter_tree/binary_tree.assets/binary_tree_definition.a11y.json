@@ -1,21 +1,30 @@
 {
-  "schema_version": 2,
-  "title": "Nodes and subtrees of a binary tree",
-  "summary": "The root and its branches illustrate the difference between a direct child node and a whole subtree containing that node and all its descendants.",
   "context": [
-    "This perfect binary tree has 4 levels and 15 nodes, rooted at 1. Values run from 1 to 15 level by level, left to right. Nodes 8 through 15 are leaves with no children. The table lists left and right children for the 7 non-leaf nodes, 1 through 7."
+    "This four-level perfect binary tree has 15 nodes. The root is 1, and the values run from 1 through 15 level by level, left to right. Nodes 8 through 15 on the bottom level are leaves with no children. The table lists the left and right child links for the seven non-leaf nodes, 1 through 7."
   ],
   "description": [
-    "An orange area encloses the left subtree of root 1 and a blue area its right subtree. Each area includes the corresponding subtree root and all its descendants."
+    "The orange region encloses the left subtree of root 1, and the blue region encloses its right subtree. Each region includes its own root and all its descendants."
   ],
+  "frames": [
+    {
+      "book_path": "chapter_tree/binary_tree.assets/binary_tree_definition.png",
+      "explanation": "Relative to root 1, the directly connected left child is the single node 2, and the right child is the single node 3. The left subtree is the entire tree rooted at 2, with 7 nodes: 2, 4, 5, 8, 9, 10, and 11. The right subtree is rooted at 3 and also has 7 nodes: 3, 6, 7, 12, 13, 14, and 15. Each subtree includes its root and all its descendants, extending beyond the child alone in this example.",
+      "id": "source-89",
+      "title": "Nodes and subtrees of a binary tree"
+    }
+  ],
+  "result": "Parent-child and subtree relationships depend on the reference node. Node 1 is the parent of 2 and 3, and 2 is the parent of 4 and 5. The “Parent” label on root 1 describes its relationship to 2 and 3. The root itself has no parent.",
+  "schema_version": 2,
+  "summary": "The root and its left and right branches illustrate the difference between one directly connected child and the subtree containing that child and all its descendants.",
   "tables": [
     {
       "caption": "Left and right children of every non-leaf node in the figure",
       "headers": [
-        "Parent node",
+        "Parent",
         "Left child",
         "Right child"
       ],
+      "row_header": 0,
       "rows": [
         [
           "1",
@@ -52,17 +61,8 @@
           "14",
           "15"
         ]
-      ],
-      "row_header": 0
+      ]
     }
   ],
-  "result": "Parent, child, and subtree are relative to the node being considered. Node 1 is the parent of 2 and 3, and 2 is the parent of 4 and 5. The figure labels root 1 “Parent node” because it is the parent of 2 and 3. The root itself has no parent.",
-  "frames": [
-    {
-      "id": "source-89",
-      "book_path": "chapter_tree/binary_tree.assets/binary_tree_definition.png",
-      "title": "Nodes and subtrees of a binary tree",
-      "explanation": "For root 1 the left child is the single node 2 and the right child the single node 3. The left subtree rooted at 2 contains 7 nodes: 2, 4, 5, 8, 9, 10, and 11. The right subtree rooted at 3 also contains 7: 3, 6, 7, 12, 13, 14, and 15. A subtree includes its root and all descendants, extending beyond the direct child in this example."
-    }
-  ]
+  "title": "Nodes and subtrees of a binary tree"
 }

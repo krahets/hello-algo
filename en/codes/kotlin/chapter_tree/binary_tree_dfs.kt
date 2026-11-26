@@ -42,7 +42,7 @@ fun postOrder(root: TreeNode?) {
 /* Driver code */
 fun main() {
     /* Initialize the binary tree */
-    // Use a helper function that builds a binary tree directly from a list
+    // Use a function that builds a binary tree directly from a list
     val root = TreeNode.listToTree(mutableListOf(1, 2, 3, 4, 5, 6, 7))
     println("\nInitialize the binary tree\n")
     printTree(root)
@@ -50,15 +50,15 @@ fun main() {
     /* Preorder traversal */
     list.clear()
     preOrder(root)
-    println("\nNode sequence from preorder traversal = $list")
+    println("\nNodes in preorder = $list")
 
     /* Inorder traversal */
     list.clear()
     inOrder(root)
-    println("\nNode sequence from inorder traversal = $list")
+    println("\nNodes in inorder = $list")
 
     /* Postorder traversal */
     list.clear()
     postOrder(root)
-    println("\nNode sequence from postorder traversal = $list")
+    println("\nNodes in postorder = $list")
 }

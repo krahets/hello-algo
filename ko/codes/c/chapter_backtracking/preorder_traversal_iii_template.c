@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-// 경로와 결과의 길이가 100을 넘지 않는다고 가정
+// 경로와 결과의 길이는 각각 100 이하라고 가정한다
 #define MAX_SIZE 100
 #define MAX_RES_SIZE 100
 
@@ -14,7 +14,7 @@ TreeNode *path[MAX_SIZE];
 TreeNode *res[MAX_RES_SIZE][MAX_SIZE];
 int pathSize = 0, resSize = 0;
 
-/* 현재 상태가 해인지 판단 */
+/* 현재 상태가 해인지 확인한다 */
 bool isSolution(void) {
     return pathSize > 0 && path[pathSize - 1]->val == 7;
 }
@@ -27,22 +27,22 @@ void recordSolution(void) {
     resSize++;
 }
 
-/* 현재 상태에서 해당 선택이 유효한지 판단 */
+/* 현재 상태에서 이 선택이 유효한지 확인한다 */
 bool isValid(TreeNode *choice) {
     return choice != NULL && choice->val != 3;
 }
 
-/* 상태 갱신 */
+/* 상태를 갱신한다 */
 void makeChoice(TreeNode *choice) {
     path[pathSize++] = choice;
 }
 
-/* 상태 복원 */
+/* 상태를 복원한다 */
 void undoChoice(void) {
     pathSize--;
 }
 
-/* 백트래킹 알고리즘: 예제 3 */
+/* 백트래킹: 예제 3 */
 void backtrack(TreeNode *choices[2]) {
     // 해인지 확인한다
     if (isSolution()) {
@@ -54,12 +54,12 @@ void backtrack(TreeNode *choices[2]) {
         TreeNode *choice = choices[i];
         // 가지치기: 선택이 유효한지 확인한다
         if (isValid(choice)) {
-            // 시도: 선택하고 상태를 갱신한다
+            // 시도: 하나를 선택하고 상태를 갱신한다
             makeChoice(choice);
             // 다음 선택을 진행한다
             TreeNode *nextChoices[2] = {choice->left, choice->right};
             backtrack(nextChoices);
-            // 되돌리기: 선택을 취소하고 이전 상태로 되돌린다
+            // 되돌리기: 선택을 취소하고 이전 상태를 복원한다
             undoChoice();
         }
     }
@@ -76,7 +76,7 @@ int main() {
     TreeNode *choices[2] = {root, NULL};
     backtrack(choices);
 
-    printf("\n값이 3인 노드를 포함하지 않는, 루트 노드에서 노드 7까지의 모든 경로 출력\n");
+    printf("\n루트에서 값이 7인 노드까지 값이 3인 노드를 거치지 않는 모든 경로 출력\n");
     for (int i = 0; i < resSize; ++i) {
         int *vals = malloc(MAX_SIZE * sizeof(int));
         int size = 0;
@@ -87,7 +87,7 @@ int main() {
         free(vals);
     }
 
-    // 메모리 해제
+    // 메모리를 해제한다
     freeMemoryTree(root);
     return 0;
 }

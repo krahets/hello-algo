@@ -6,7 +6,7 @@
 
 use hello_algo_rust::include::print_util;
 
-/* Stack implemented with an array */
+/* Array-backed stack */
 struct ArrayStack<T> {
     stack: Vec<T>,
 }
@@ -29,17 +29,17 @@ impl<T> ArrayStack<T> {
         self.size() == 0
     }
 
-    /* Push */
+    /* Push an element onto the stack */
     fn push(&mut self, num: T) {
         self.stack.push(num);
     }
 
-    /* Pop */
+    /* Remove and return the top element */
     fn pop(&mut self) -> Option<T> {
         self.stack.pop()
     }
 
-    /* Access the top element */
+    /* Get a reference to the top element */
     fn peek(&self) -> Option<&T> {
         if self.is_empty() {
             panic!("Stack is empty")
@@ -47,7 +47,7 @@ impl<T> ArrayStack<T> {
         self.stack.last()
     }
 
-    /* Return a reference to the vector */
+    /* Return a reference to the backing Vec */
     fn to_array(&self) -> &Vec<T> {
         &self.stack
     }
@@ -64,23 +64,23 @@ fn main() {
     stack.push(2);
     stack.push(5);
     stack.push(4);
-    print!("Stack stack = ");
+    print!("stack = ");
     print_util::print_array(stack.to_array());
 
-    //Access the top element
+    //Peek at the top element
     let peek = stack.peek().unwrap();
-    print!("\nTop element peek = {}", peek);
+    print!("\nTop element (peek) = {}", peek);
 
-    // Pop an element from the stack
+    // Pop the top element
     let pop = stack.pop().unwrap();
-    print!("\nPopped element pop = {pop}; after popping, stack = ");
+    print!("\nPopped element (pop) = {pop}, stack after the pop = ");
     print_util::print_array(stack.to_array());
 
     // Get the stack size
     let size = stack.size();
     print!("\nStack size = {size}");
 
-    // Check whether it is empty
+    // Check whether the stack is empty
     let is_empty = stack.is_empty();
-    print!("\nIs the stack empty? {is_empty}");
+    print!("\nStack is empty = {is_empty}");
 }

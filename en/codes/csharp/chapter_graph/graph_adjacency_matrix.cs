@@ -6,10 +6,10 @@
 
 namespace hello_algo.chapter_graph;
 
-/* Undirected graph class implemented with an adjacency matrix */
+/* Undirected graph represented by an adjacency matrix */
 class GraphAdjMat {
-    List<int> vertices;     // Vertex list: elements are vertex values, and indices are vertex indices
-    List<List<int>> adjMat; // Adjacency matrix: row and column indices correspond to vertex indices
+    List<int> vertices;     // Vertex list: each element holds a vertex value, and its position is the vertex index
+    List<List<int>> adjMat; // Adjacency matrix: row and column indices are vertex indices
 
     /* Constructor */
     public GraphAdjMat(int[] vertices, int[][] edges) {
@@ -20,13 +20,13 @@ class GraphAdjMat {
             AddVertex(val);
         }
         // Add an edge
-        // Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+        // The entries in edges are vertex indices, that is, indices into vertices
         foreach (int[] e in edges) {
             AddEdge(e[0], e[1]);
         }
     }
 
-    /* Get the number of vertices */
+    /* Get the vertex count */
     int Size() {
         return vertices.Count;
     }
@@ -52,31 +52,31 @@ class GraphAdjMat {
     public void RemoveVertex(int index) {
         if (index >= Size())
             throw new IndexOutOfRangeException();
-        // Remove the vertex at index `index` from the vertex list
+        // Remove the vertex at the specified index from the vertex list
         vertices.RemoveAt(index);
-        // Remove row `index` from the adjacency matrix
+        // Remove the row at the specified index from the adjacency matrix
         adjMat.RemoveAt(index);
-        // Remove column `index` from the adjacency matrix
+        // Remove the column at the specified index from the adjacency matrix
         foreach (List<int> row in adjMat) {
             row.RemoveAt(index);
         }
     }
 
     /* Add an edge */
-    // Parameters i and j are element indices in vertices
+    // Parameters i and j are indices into vertices
     public void AddEdge(int i, int j) {
-        // Handle out-of-bounds or equal indices
+        // Check for out-of-bounds or equal indices
         if (i < 0 || j < 0 || i >= Size() || j >= Size() || i == j)
             throw new IndexOutOfRangeException();
-        // For an undirected graph, the adjacency matrix is symmetric about its main diagonal: entries (i, j) and (j, i) are equal
+        // An undirected graph has a symmetric adjacency matrix: (i, j) == (j, i)
         adjMat[i][j] = 1;
         adjMat[j][i] = 1;
     }
 
     /* Remove an edge */
-    // Parameters i and j are element indices in vertices
+    // Parameters i and j are indices into vertices
     public void RemoveEdge(int i, int j) {
-        // Handle out-of-bounds or equal indices
+        // Check for out-of-bounds or equal indices
         if (i < 0 || j < 0 || i >= Size() || j >= Size() || i == j)
             throw new IndexOutOfRangeException();
         adjMat[i][j] = 0;
@@ -95,8 +95,8 @@ class GraphAdjMat {
 public class graph_adjacency_matrix {
     [Test]
     public void Test() {
-        /* Initialize the undirected graph */
-        // Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+        /* Initialize an undirected graph */
+        // The entries in edges are vertex indices, that is, indices into vertices
         int[] vertices = [1, 3, 2, 5, 4];
         int[][] edges = 
         [

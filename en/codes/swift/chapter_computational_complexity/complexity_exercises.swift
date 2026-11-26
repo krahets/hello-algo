@@ -4,7 +4,7 @@
  Author: Hello Algo Team
  */
 
-/* Sum using iteration */
+/* Iterative sum */
 func sumIter(n: Int) -> Int {
     var res = 0
     for i in 1 ... n {
@@ -13,7 +13,7 @@ func sumIter(n: Int) -> Int {
     return res
 }
 
-/* Sum using recursion */
+/* Recursive sum */
 func sumRecur(n: Int) -> Int {
     if n == 1 {
         return 1

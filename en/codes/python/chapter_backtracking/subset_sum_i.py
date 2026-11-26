@@ -9,40 +9,40 @@ def backtrack(
     state: list[int], target: int, choices: list[int], start: int, res: list[list[int]]
 ):
     """Backtracking: subset sum I"""
-    # Record a solution when the remaining target is zero
+    # Record a solution when the subset sums to target
     if target == 0:
         res.append(list(state))
         return
-    # Iterate over all choices
-    # Pruning 2: iterate from start to avoid generating duplicate subsets
+    # Try each choice
+    # Pruning rule 2: start at start to avoid duplicate subsets
     for i in range(start, len(choices)):
-        # Pruning 1: exit the loop if this choice exceeds the remaining target
-        # The array is sorted, so later elements are at least as large and also exceed the remaining target
+        # Pruning rule 1: break if the subset sum would exceed target
+        # The array is sorted, so later elements are at least as large and would also take the sum over target
         if target - choices[i] < 0:
             break
-        # Try: make a choice and update target and start
+        # Make a choice and update target and start
         state.append(choices[i])
-        # Proceed to the next choice
+        # Make the next choice
         backtrack(state, target - choices[i], choices, i, res)
-        # Backtrack: undo the choice and restore the previous state
+        # Backtrack: undo the choice to restore the previous state
         state.pop()
 
 
 def subset_sum_i(nums: list[int], target: int) -> list[list[int]]:
     """Solve subset sum I"""
-    state = []  # State (subset)
+    state = []  # State (current subset)
     nums.sort()  # Sort nums
-    start = 0  # Starting index for iteration
-    res = []  # Result list (list of subsets)
+    start = 0  # Starting index
+    res = []  # Results (list of subsets)
     backtrack(state, target, nums, start, res)
     return res
 
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
     nums = [3, 4, 5]
     target = 9
     res = subset_sum_i(nums, target)
 
     print(f"Input array nums = {nums}, target = {target}")
-    print(f"All subsets with sum {target}: res = {res}")
+    print(f"Subsets that sum to {target}: res = {res}")

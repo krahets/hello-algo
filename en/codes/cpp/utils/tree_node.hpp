@@ -23,7 +23,7 @@ struct TreeNode {
     }
 };
 
-// For the serialization rules, see:
+// For the serialization format, see:
 // https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/
 // Array representation of the binary tree:
 // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
@@ -39,7 +39,7 @@ struct TreeNode {
 //         \——— 4
 //             \——— 8
 
-/* Deserialize a list into a binary tree: recursion */
+/* Recursively deserialize a vector into a binary tree */
 TreeNode *vectorToTreeDFS(vector<int> &arr, int i) {
     if (i < 0 || i >= arr.size() || arr[i] == INT_MAX) {
         return nullptr;
@@ -50,12 +50,12 @@ TreeNode *vectorToTreeDFS(vector<int> &arr, int i) {
     return root;
 }
 
-/* Deserialize a list into a binary tree */
+/* Deserialize a vector into a binary tree */
 TreeNode *vectorToTree(vector<int> arr) {
     return vectorToTreeDFS(arr, 0);
 }
 
-/* Serialize a binary tree into a list: recursion */
+/* Recursively serialize a binary tree into a vector */
 void treeToVecorDFS(TreeNode *root, int i, vector<int> &res) {
     if (root == nullptr)
         return;
@@ -67,14 +67,14 @@ void treeToVecorDFS(TreeNode *root, int i, vector<int> &res) {
     treeToVecorDFS(root->right, 2 * i + 2, res);
 }
 
-/* Serialize a binary tree into a list */
+/* Serialize a binary tree into a vector */
 vector<int> treeToVecor(TreeNode *root) {
     vector<int> res;
     treeToVecorDFS(root, 0, res);
     return res;
 }
 
-/* Free the binary tree memory */
+/* Free the memory allocated to the binary tree */
 void freeMemoryTree(TreeNode *root) {
     if (root == nullptr)
         return;

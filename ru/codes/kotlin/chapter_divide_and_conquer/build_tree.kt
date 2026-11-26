@@ -9,7 +9,7 @@ package chapter_divide_and_conquer.build_tree
 import utils.TreeNode
 import utils.printTree
 
-/* Построить двоичное дерево: разделяй и властвуй */
+/* Построение двоичного дерева методом «разделяй и властвуй» */
 fun dfs(
     preorder: IntArray,
     inorderMap: Map<Int?, Int?>,
@@ -17,23 +17,23 @@ fun dfs(
     l: Int,
     r: Int
 ): TreeNode? {
-    // Завершить при пустом диапазоне поддерева
+    // Если интервал поддерева пуст, завершаем рекурсию
     if (r - l < 0) return null
-    // Инициализировать корневой узел
+    // Создаём корень
     val root = TreeNode(preorder[i])
-    // Найти m, чтобы разделить левое и правое поддеревья
+    // Находим m и разделяем левое и правое поддеревья
     val m = inorderMap[preorder[i]]!!
-    // Подзадача: построить левое поддерево
+    // Подзадача: строим левое поддерево
     root.left = dfs(preorder, inorderMap, i + 1, l, m - 1)
-    // Подзадача: построить правое поддерево
+    // Подзадача: строим правое поддерево
     root.right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r)
-    // Вернуть корневой узел
+    // Возвращаем корень
     return root
 }
 
-/* Построить двоичное дерево */
+/* Построение двоичного дерева */
 fun buildTree(preorder: IntArray, inorder: IntArray): TreeNode? {
-    // Инициализировать хеш-таблицу для хранения соответствия элементов inorder их индексам
+    // Создаём хеш-таблицу индексов элементов inorder
     val inorderMap = HashMap<Int?, Int?>()
     for (i in inorder.indices) {
         inorderMap[inorder[i]] = i
@@ -42,11 +42,11 @@ fun buildTree(preorder: IntArray, inorder: IntArray): TreeNode? {
     return root
 }
 
-/* Driver Code */
+/* Основная программа */
 fun main() {
     val preorder = intArrayOf(3, 9, 2, 1, 7)
     val inorder = intArrayOf(9, 3, 1, 2, 7)
-    println("Предварительный обход = ${preorder.contentToString()}")
+    println("Прямой обход = ${preorder.contentToString()}")
     println("Симметричный обход = ${inorder.contentToString()}")
 
     val root = buildTree(preorder, inorder)

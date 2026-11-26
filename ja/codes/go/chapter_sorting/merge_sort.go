@@ -4,14 +4,14 @@
 
 package chapter_sorting
 
-/* 左部分配列と右部分配列をマージする */
+/* 左右の部分配列をマージ */
 func merge(nums []int, left, mid, right int) {
-	// 左部分配列の区間は [left, mid]、右部分配列の区間は [mid+1, right]
-	// マージ後の結果を格納する一時配列 tmp を作成する
+	// 左の部分配列は [left, mid]、右の部分配列は [mid+1, right]
+	// マージ結果を格納する一時配列 tmp を作成
 	tmp := make([]int, right-left+1)
-	// 左部分配列と右部分配列の開始インデックスを初期化する
+	// 左右の部分配列の開始インデックスを初期化
 	i, j, k := left, mid+1, 0
-	// 左右両方の部分配列に要素が残っている間、比較して小さいほうの要素を一時配列にコピーする
+	// 両方の部分配列に要素が残っている間、値を比較し、小さいほうを一時配列にコピー
 	for i <= mid && j <= right {
 		if nums[i] <= nums[j] {
 			tmp[k] = nums[i]
@@ -22,7 +22,7 @@ func merge(nums []int, left, mid, right int) {
 		}
 		k++
 	}
-	// 左部分配列と右部分配列の残りの要素を一時配列にコピーする
+	// 左右の部分配列に残った要素を一時配列にコピー
 	for i <= mid {
 		tmp[k] = nums[i]
 		i++
@@ -33,7 +33,7 @@ func merge(nums []int, left, mid, right int) {
 		j++
 		k++
 	}
-	// 一時配列 tmp の要素を元の配列 nums の対応する区間にコピーし戻す
+	// 一時配列 tmp の要素を元の配列 nums の対応区間に書き戻す
 	for k := 0; k < len(tmp); k++ {
 		nums[left+k] = tmp[k]
 	}

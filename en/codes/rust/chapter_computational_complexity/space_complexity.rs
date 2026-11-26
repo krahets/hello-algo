@@ -15,56 +15,56 @@ fn function() -> i32 {
     return 0;
 }
 
-/* Constant complexity */
+/* Constant space */
 #[allow(unused)]
 fn constant(n: i32) {
-    // Constants, variables, and objects occupy O(1) space
+    // Constants, variables, and objects use O(1) space
     const A: i32 = 0;
     let b = 0;
     let nums = vec![0; 10000];
     let node = ListNode::new(0);
-    // Variables in the loop occupy O(1) space
+    // Variables in the loop use O(1) space
     for i in 0..n {
         let c = 0;
     }
-    // Function calls in the loop occupy O(1) space
+    // Function calls in the loop use O(1) space
     for i in 0..n {
         function();
     }
 }
 
-/* Linear complexity */
+/* Linear space */
 #[allow(unused)]
 fn linear(n: i32) {
     // An array of length n uses O(n) space
     let mut nums = vec![0; n as usize];
-    // A list of length n occupies O(n) space
+    // A list of length n uses O(n) space
     let mut nodes = Vec::new();
     for i in 0..n {
         nodes.push(ListNode::new(i))
     }
-    // A hash table with n entries occupies O(n) space
+    // A hash table with n entries uses O(n) space
     let mut map = HashMap::new();
     for i in 0..n {
         map.insert(i, i.to_string());
     }
 }
 
-/* Linear complexity (recursive implementation) */
+/* Linear space (recursive) */
 fn linear_recur(n: i32) {
-    println!("Recursive call n = {}", n);
+    println!("Recursive call: n = {}", n);
     if n == 1 {
         return;
     };
     linear_recur(n - 1);
 }
 
-/* Quadratic complexity */
+/* Quadratic space */
 #[allow(unused)]
 fn quadratic(n: i32) {
-    // The matrix uses O(n^2) space
+    // A matrix uses O(n^2) space
     let num_matrix = vec![vec![0; n as usize]; n as usize];
-    // The two-dimensional list occupies O(n^2) space
+    // A two-dimensional list uses O(n^2) space
     let mut num_list = Vec::new();
     for i in 0..n {
         let mut tmp = Vec::new();
@@ -75,18 +75,18 @@ fn quadratic(n: i32) {
     }
 }
 
-/* Quadratic complexity (recursive implementation) */
+/* Quadratic space (recursive) */
 fn quadratic_recur(n: i32) -> i32 {
     if n <= 0 {
         return 0;
     };
-    // The lengths of array nums are n, n-1, ..., 2, 1
+    // The successive lengths of nums are n, n-1, ..., 2, 1
     let nums = vec![0; n as usize];
-    println!("In recursive call n = {}, nums has length {}", n, nums.len());
+    println!("Recursive call: n = {}, length of nums = {}", n, nums.len());
     return quadratic_recur(n - 1);
 }
 
-/* Exponential complexity (building a perfect binary tree) */
+/* Exponential space (build a perfect binary tree) */
 fn build_tree(n: i32) -> Option<Rc<RefCell<TreeNode>>> {
     if n == 0 {
         return None;
@@ -97,18 +97,18 @@ fn build_tree(n: i32) -> Option<Rc<RefCell<TreeNode>>> {
     return Some(root);
 }
 
-/* Driver code */
+/* Driver Code */
 fn main() {
     let n = 5;
-    // Constant complexity
+    // Constant space
     constant(n);
-    // Linear complexity
+    // Linear space
     linear(n);
     linear_recur(n);
-    // Quadratic complexity
+    // Quadratic space
     quadratic(n);
     quadratic_recur(n);
-    // Exponential complexity
+    // Exponential space
     let root = build_tree(n);
     print_util::print_tree(&root.unwrap());
 }

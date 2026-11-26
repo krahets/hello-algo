@@ -6,42 +6,42 @@
 
 #include "../utils/common.hpp"
 
-/* Access an element at a random index */
+/* Access a random element */
 int randomAccess(int *nums, int size) {
-    // Choose a random number in [0, size)
+    // Pick a random index in [0, size)
     int randomIndex = rand() % size;
-    // Get and return the randomly selected element
+    // Get and return the element at that index
     int randomNum = nums[randomIndex];
     return randomNum;
 }
 
-/* Extend the array length */
+/* Extend the array */
 int *extend(int *nums, int size, int enlarge) {
-    // Initialize an array with the extended length
+    // Initialize an array with the new length
     int *res = new int[size + enlarge]{};
-    // Copy all elements from the original array to the new array
+    // Copy all elements from the original array into the new array
     for (int i = 0; i < size; i++) {
         res[i] = nums[i];
     }
     // Free memory
     delete[] nums;
-    // Return the new, extended array
+    // Return the new, longer array
     return res;
 }
 
-/* Insert element num at index `index` in the array */
+/* Insert num at the specified array index */
 void insert(int *nums, int size, int num, int index) {
-    // Shift all elements at and after index `index` one position to the right
+    // Shift the elements from index onward one position to the right
     for (int i = size - 1; i > index; i--) {
         nums[i] = nums[i - 1];
     }
-    // Assign num to the element at index `index`
+    // Store num at the specified index
     nums[index] = num;
 }
 
-/* Remove the element at index `index` */
+/* Remove the element at the specified index */
 void remove(int *nums, int size, int index) {
-    // Shift all elements after index `index` one position to the left
+    // Shift all elements after index one position to the left
     for (int i = index; i < size - 1; i++) {
         nums[i] = nums[i + 1];
     }
@@ -56,7 +56,7 @@ void traverse(int *nums, int size) {
     }
 }
 
-/* Find a specified element in the array */
+/* Find a given element in the array */
 int find(int *nums, int size, int target) {
     for (int i = 0; i < size; i++) {
         if (nums[i] == target)
@@ -65,7 +65,7 @@ int find(int *nums, int size, int target) {
     return -1;
 }
 
-/* Driver code */
+/* Driver Code */
 int main() {
     /* Initialize the array */
     int size = 5;
@@ -79,23 +79,23 @@ int main() {
 
     /* Random access */
     int randomNum = randomAccess(nums, size);
-    cout << "Randomly selected element from nums: " << randomNum << endl;
+    cout << "Random element from nums: " << randomNum << endl;
 
-    /* Extend the length */
+    /* Extend the array */
     int enlarge = 3;
     nums = extend(nums, size, enlarge);
     size += enlarge;
-    cout << "Extend the array length to 8, giving nums = ";
+    cout << "After extending the array to length 8, nums = ";
     printArray(nums, size);
 
     /* Insert an element */
     insert(nums, size, 6, 3);
-    cout << "Insert the number 6 at index 3, giving nums = ";
+    cout << "After inserting 6 at index 3, nums = ";
     printArray(nums, size);
 
     /* Remove an element */
     remove(nums, size, 2);
-    cout << "Remove the element at index 2, giving nums = ";
+    cout << "After removing the element at index 2, nums = ";
     printArray(nums, size);
 
     /* Traverse the array */
@@ -103,7 +103,7 @@ int main() {
 
     /* Find an element */
     int index = find(nums, size, 3);
-    cout << "Find element 3 in nums, giving index = " << index << endl;
+    cout << "Index of 3 in nums = " << index << endl;
 
     // Free memory
     delete[] arr;

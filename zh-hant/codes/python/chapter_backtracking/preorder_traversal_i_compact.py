@@ -16,7 +16,7 @@ def pre_order(root: TreeNode):
     if root is None:
         return
     if root.val == 7:
-        # 記錄解
+        # 記錄此解
         res.append(root)
     pre_order(root.left)
     pre_order(root.right)

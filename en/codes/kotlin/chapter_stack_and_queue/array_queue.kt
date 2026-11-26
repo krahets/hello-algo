@@ -6,10 +6,10 @@
 
 package chapter_stack_and_queue
 
-/* Queue implemented with a circular array */
+/* Queue backed by a circular array */
 class ArrayQueue(capacity: Int) {
     private val nums: IntArray = IntArray(capacity) // Array that stores the queue elements
-    private var front: Int = 0 // Front pointer, pointing to the first element
+    private var front: Int = 0 // Index of the front element
     private var queSize: Int = 0 // Queue size
 
     /* Get the queue capacity */
@@ -27,38 +27,38 @@ class ArrayQueue(capacity: Int) {
         return queSize == 0
     }
 
-    /* Enqueue */
+    /* Enqueue an element */
     fun push(num: Int) {
         if (queSize == capacity()) {
             println("Queue is full")
             return
         }
-        // Calculate the rear pointer, which points one position past the last element
-        // Use modulo to wrap rear to the beginning when it passes the end of the array
+        // Compute the index one slot past the rear element
+        // Use the remainder to wrap rear back to the start of the array
         val rear = (front + queSize) % capacity()
-        // Add num to the rear
+        // Add num at the rear
         nums[rear] = num
         queSize++
     }
 
-    /* Dequeue */
+    /* Remove and return the front element */
     fun pop(): Int {
         val num = peek()
-        // Advance the front pointer by one position, wrapping to the beginning if it passes the end
+        // Advance the front index by one, wrapping to the start if it passes the end
         front = (front + 1) % capacity()
         queSize--
         return num
     }
 
-    /* Access the front element */
+    /* Peek at the front element */
     fun peek(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
         return nums[front]
     }
 
-    /* Return an array */
+    /* Return the queue elements as an array */
     fun toArray(): IntArray {
-        // Copy only the elements within the occupied range
+        // Copy only the elements currently in the queue
         val res = IntArray(queSize)
         var i = 0
         var j = front
@@ -83,15 +83,15 @@ fun main() {
     queue.push(2)
     queue.push(5)
     queue.push(4)
-    println("Queue queue = ${queue.toArray().contentToString()}")
+    println("queue = ${queue.toArray().contentToString()}")
 
-    /* Access the front element */
+    /* Peek at the front element */
     val peek = queue.peek()
-    println("Front element: peek = $peek")
+    println("Front element (peek) = $peek")
 
     /* Dequeue an element */
     val pop = queue.pop()
-    println("Dequeued element: pop = ${pop}; queue after removal = ${queue.toArray().contentToString()}")
+    println("Dequeued element (pop) = ${pop}, queue after removal = ${queue.toArray().contentToString()}")
 
     /* Get the queue size */
     val size = queue.size()
@@ -99,12 +99,12 @@ fun main() {
 
     /* Check whether the queue is empty */
     val isEmpty = queue.isEmpty()
-    println("Is the queue empty? $isEmpty")
+    println("Queue is empty = $isEmpty")
 
     /* Test the circular array */
     for (i in 0..9) {
         queue.push(i)
         queue.pop()
-        println("After round $i of enqueue + dequeue, queue = ${queue.toArray().contentToString()}")
+        println("After enqueue/dequeue round $i, queue = ${queue.toArray().contentToString()}")
     }
 }

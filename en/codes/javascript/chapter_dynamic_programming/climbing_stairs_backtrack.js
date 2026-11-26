@@ -6,24 +6,24 @@
 
 /* Backtracking */
 function backtrack(choices, state, n, res) {
-    // When step n is reached, increase the number of ways by 1
+    // Count one more way when we reach stair n
     if (state === n) res.set(0, res.get(0) + 1);
     // Iterate over all choices
     for (const choice of choices) {
-        // Prune: do not go beyond step n
+        // Prune moves that would overshoot stair n
         if (state + choice > n) continue;
-        // Try: make a choice and update the state
+        // Try a choice and update the state
         backtrack(choices, state + choice, n, res);
-        // Backtrack
+        // Undo the choice
     }
 }
 
-/* Climbing stairs: backtracking */
+/* Climbing stairs with backtracking */
 function climbingStairsBacktrack(n) {
-    const choices = [1, 2]; // Choose to climb 1 or 2 steps
-    const state = 0; // Start climbing from step 0
+    const choices = [1, 2]; // Each move can climb 1 or 2 stairs
+    const state = 0; // Start at stair 0
     const res = new Map();
-    res.set(0, 0); // Store the number of ways at key 0 in res
+    res.set(0, 0); // Store the number of ways in res[0]
     backtrack(choices, state, n, res);
     return res.get(0);
 }
@@ -31,4 +31,4 @@ function climbingStairsBacktrack(n) {
 /* Driver code */
 const n = 9;
 const res = climbingStairsBacktrack(n);
-console.log(`Number of ways to climb ${n} stairs: ${res}`);
+console.log(`Climbing ${n} stairs: ${res} ways`);

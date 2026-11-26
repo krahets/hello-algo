@@ -6,7 +6,7 @@
 
 package utils
 
-/* 二分木のノードクラス */
+/* 二分木のノードを表すクラス */
 /* コンストラクタ */
 class TreeNode(
     var _val: Int // ノードの値
@@ -15,11 +15,11 @@ class TreeNode(
     var left: TreeNode? = null // 左の子ノードへの参照
     var right: TreeNode? = null // 右の子ノードへの参照
 
-    // シリアライズの符号化規則は次を参照：
+    // シリアライズ時の符号化規則は以下を参照
     // https://www.hello-algo.com/ja/chapter_tree/array_representation_of_tree/
     // 二分木の配列表現：
     // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
-    // 二分木の連結リスト表現：
+    // 二分木の連結表現：
     //             /——— 15
     //         /——— 7
     //     /——— 3
@@ -31,7 +31,7 @@ class TreeNode(
     //         \——— 4
     //             \——— 8
 
-    /* リストから二分木へデシリアライズ：再帰 */
+    /* リストをデシリアライズして二分木を復元する（再帰） */
     companion object {
         private fun listToTreeDFS(arr: MutableList<Int?>, i: Int): TreeNode? {
             if (i < 0 || i >= arr.size || arr[i] == null) {
@@ -43,12 +43,12 @@ class TreeNode(
             return root
         }
 
-        /* リストから二分木へデシリアライズ */
+        /* リストをデシリアライズして二分木を復元する */
         fun listToTree(arr: MutableList<Int?>): TreeNode? {
             return listToTreeDFS(arr, 0)
         }
 
-        /* 二分木をシリアライズしてリストにする：再帰 */
+        /* 二分木をリストにシリアライズする（再帰） */
         private fun treeToListDFS(root: TreeNode?, i: Int, res: MutableList<Int?>) {
             if (root == null) return
             while (i >= res.size) {
@@ -59,7 +59,7 @@ class TreeNode(
             treeToListDFS(root.right, 2 * i + 2, res)
         }
 
-        /* 二分木をシリアライズしてリストにする */
+        /* 二分木をリストにシリアライズする */
         fun treeToList(root: TreeNode?): MutableList<Int?> {
             val res = mutableListOf<Int?>()
             treeToListDFS(root, 0, res)

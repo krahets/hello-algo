@@ -4,16 +4,16 @@
 
 package chapter_sorting
 
-// Quick sort
+// Quicksort
 type quickSort struct{}
 
-// Quick sort (median pivot optimization)
+// Quicksort with median-of-three pivot selection
 type quickSortMedian struct{}
 
-// Quick sort (recursion depth optimization)
+// Quicksort with reduced recursion depth
 type quickSortTailCall struct{}
 
-/* Two-pointer partitioning */
+/* Partition with two pointers */
 func (q *quickSort) partition(nums []int, left, right int) int {
 	// Use nums[left] as the pivot
 	i, j := left, right
@@ -24,28 +24,28 @@ func (q *quickSort) partition(nums []int, left, right int) int {
 		for i < j && nums[i] <= nums[left] {
 			i++ // Scan from left to right for the first element larger than the pivot
 		}
-		// Swap the elements
+		// Swap elements
 		nums[i], nums[j] = nums[j], nums[i]
 	}
-	// Swap the pivot into the boundary position between the two subarrays
+	// Swap the pivot into place between the two subarrays
 	nums[i], nums[left] = nums[left], nums[i]
 	return i // Return the pivot index
 }
 
-/* Quick sort */
+/* Quicksort */
 func (q *quickSort) quickSort(nums []int, left, right int) {
-	// Stop recursing when the subarray has at most one element
+	// Stop recursing when the subarray has length 1
 	if left >= right {
 		return
 	}
-	// Two-pointer partitioning
+	// Partition with two pointers
 	pivot := q.partition(nums, left, right)
 	// Recurse on the left and right subarrays
 	q.quickSort(nums, left, pivot-1)
 	q.quickSort(nums, pivot+1, right)
 }
 
-/* Select the median of three candidate elements */
+/* Select the median of three candidates */
 func (q *quickSortMedian) medianThree(nums []int, left, mid, right int) int {
 	l, m, r := nums[left], nums[mid], nums[right]
 	if (l <= m && m <= r) || (r <= m && m <= l) {
@@ -57,11 +57,11 @@ func (q *quickSortMedian) medianThree(nums []int, left, mid, right int) int {
 	return right
 }
 
-/* Two-pointer partitioning (median of three)*/
+/* Partition with two pointers (median of three)*/
 func (q *quickSortMedian) partition(nums []int, left, right int) int {
-	// Select the median of the left, middle, and right elements as the pivot
+	// Use nums[left] as the pivot
 	med := q.medianThree(nums, left, (left+right)/2, right)
-	// Swap the median into the leftmost position of the current subarray
+	// Swap the median into the leftmost position
 	nums[left], nums[med] = nums[med], nums[left]
 	// Use nums[left] as the pivot
 	i, j := left, right
@@ -72,28 +72,28 @@ func (q *quickSortMedian) partition(nums []int, left, right int) int {
 		for i < j && nums[i] <= nums[left] {
 			i++ //Scan from left to right for the first element larger than the pivot
 		}
-		//Swap the elements
+		//Swap elements
 		nums[i], nums[j] = nums[j], nums[i]
 	}
-	//Swap the pivot into the boundary position between the two subarrays
+	//Swap the pivot into place between the two subarrays
 	nums[i], nums[left] = nums[left], nums[i]
 	return i //Return the pivot index
 }
 
-/* Quick sort */
+/* Quicksort */
 func (q *quickSortMedian) quickSort(nums []int, left, right int) {
-	// Stop recursing when the subarray has at most one element
+	// Stop recursing when the subarray has length 1
 	if left >= right {
 		return
 	}
-	// Two-pointer partitioning
+	// Partition with two pointers
 	pivot := q.partition(nums, left, right)
 	// Recurse on the left and right subarrays
 	q.quickSort(nums, left, pivot-1)
 	q.quickSort(nums, pivot+1, right)
 }
 
-/* Two-pointer partitioning */
+/* Partition with two pointers */
 func (q *quickSortTailCall) partition(nums []int, left, right int) int {
 	// Use nums[left] as the pivot
 	i, j := left, right
@@ -104,21 +104,21 @@ func (q *quickSortTailCall) partition(nums []int, left, right int) int {
 		for i < j && nums[i] <= nums[left] {
 			i++ // Scan from left to right for the first element larger than the pivot
 		}
-		// Swap the elements
+		// Swap elements
 		nums[i], nums[j] = nums[j], nums[i]
 	}
-	// Swap the pivot into the boundary position between the two subarrays
+	// Swap the pivot into place between the two subarrays
 	nums[i], nums[left] = nums[left], nums[i]
 	return i // Return the pivot index
 }
 
-/* Quick sort (recursion depth optimization)*/
+/* Quicksort with reduced recursion depth*/
 func (q *quickSortTailCall) quickSort(nums []int, left, right int) {
-	// Stop when the subarray has at most one element
+	// Stop when the subarray has length 1
 	for left < right {
-		// Perform two-pointer partitioning
+		// Partition with two pointers
 		pivot := q.partition(nums, left, right)
-		// Apply quick sort to the shorter of the two subarrays
+		// Apply quicksort to the shorter of the two subarrays
 		if pivot-left < right-pivot {
 			q.quickSort(nums, left, pivot-1) // Recursively sort the left subarray
 			left = pivot + 1                 // The remaining unsorted range is [pivot + 1, right]

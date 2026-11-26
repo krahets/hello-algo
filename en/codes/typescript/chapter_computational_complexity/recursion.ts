@@ -8,25 +8,25 @@
 function recur(n: number): number {
     // Base case
     if (n === 1) return 1;
-    // Recurse: make a recursive call
+    // Descend: make a recursive call
     const res = recur(n - 1);
     // Unwind: return the result
     return n + res;
 }
 
-/* Simulate recursion using iteration */
+/* Simulate recursion with iteration */
 function forLoopRecur(n: number): number {
-    // Use an explicit stack to simulate the system call stack 
+    // Use an explicit stack to simulate the call stack 
     const stack: number[] = [];
     let res: number = 0;
-    // Recurse: make a recursive call
+    // Descend: make a recursive call
     for (let i = n; i > 0; i--) {
-        // Simulate recursive calls by pushing onto the stack
+        // Push to simulate descending
         stack.push(i);
     }
     // Unwind: return the result
     while (stack.length) {
-        // Simulate unwinding by popping from the stack
+        // Pop to simulate unwinding
         res += stack.pop();
     }
     // res = 1+2+3+...+n
@@ -37,11 +37,11 @@ function forLoopRecur(n: number): number {
 function tailRecur(n: number, res: number): number {
     // Base case
     if (n === 0) return res;
-    // Tail-recursive call
+    // Tail call
     return tailRecur(n - 1, res + n);
 }
 
-/* Fibonacci sequence: recursion */
+/* Fibonacci sequence using recursion */
 function fib(n: number): number {
     // Base cases: f(1) = 0, f(2) = 1
     if (n === 1 || n === 2) return n - 1;
@@ -51,18 +51,18 @@ function fib(n: number): number {
     return res;
 }
 
-/* Driver code */
+/* Driver Code */
 const n = 5;
 let res: number;
 
 res = recur(n);
-console.log(`Sum from the recursive function: res = ${res}`);
+console.log(`Recursive sum: res = ${res}`);
 
 res = forLoopRecur(n);
-console.log(`Sum from simulating recursion with iteration: res = ${res}`);
+console.log(`Sum using simulated recursion: res = ${res}`);
 
 res = tailRecur(n, 0);
-console.log(`Sum from the tail-recursive function: res = ${res}`);
+console.log(`Tail-recursive sum: res = ${res}`);
 
 res = fib(n);
 console.log(`Fibonacci term ${n} is ${res}`);

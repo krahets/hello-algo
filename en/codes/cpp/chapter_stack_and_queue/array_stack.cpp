@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* Stack implemented with an array */
+/* Array-backed stack */
 class ArrayStack {
   private:
     vector<int> stack;
@@ -22,26 +22,26 @@ class ArrayStack {
         return stack.size() == 0;
     }
 
-    /* Push */
+    /* Push an element onto the stack */
     void push(int num) {
         stack.push_back(num);
     }
 
-    /* Pop */
+    /* Remove and return the top element */
     int pop() {
         int num = top();
         stack.pop_back();
         return num;
     }
 
-    /* Access the top element */
+    /* Peek at the top element */
     int top() {
         if (isEmpty())
             throw out_of_range("Stack is empty");
         return stack.back();
     }
 
-    /* Return a vector */
+    /* Return a copy of the backing vector */
     vector<int> toVector() {
         return stack;
     }
@@ -58,27 +58,27 @@ int main() {
     stack->push(2);
     stack->push(5);
     stack->push(4);
-    cout << "Stack stack = ";
+    cout << "stack = ";
     printVector(stack->toVector());
 
-    /* Access the top element */
+    /* Peek at the top element */
     int top = stack->top();
-    cout << "Top element top = " << top << endl;
+    cout << "Top element (top) = " << top << endl;
 
-    /* Pop an element from the stack */
+    /* Pop the top element */
     top = stack->pop();
-    cout << "Popped element pop = " << top << "; after popping, stack = ";
+    cout << "Popped element (pop) = " << top << ", stack after the pop = ";
     printVector(stack->toVector());
 
     /* Get the stack size */
     int size = stack->size();
     cout << "Stack size = " << size << endl;
 
-    /* Check whether it is empty */
+    /* Check whether the stack is empty */
     bool empty = stack->isEmpty();
-    cout << "Is the stack empty = " << empty << endl;
+    cout << "Stack is empty = " << empty << endl;
 
-    // Free memory
+    // Free the allocated memory
     delete stack;
 
     return 0;

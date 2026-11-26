@@ -6,9 +6,9 @@
 
 import '../utils/vertex.dart';
 
-/* 隣接リストで実装した無向グラフクラス */
+/* 隣接リストで無向グラフを表すクラス */
 class GraphAdjList {
-  // 隣接リスト。key：頂点、value：その頂点に隣接する全頂点
+  // 隣接リスト。key は頂点、value はその頂点の全隣接頂点
   Map<Vertex, List<Vertex>> adjList = {};
 
   /* コンストラクタ */
@@ -61,9 +61,9 @@ class GraphAdjList {
     if (!adjList.containsKey(vet)) {
       throw ArgumentError;
     }
-    // 隣接リストから頂点 vet に対応する連結リストを削除する
+    // 隣接リストから頂点 vet の連結リストを削除する
     adjList.remove(vet);
-    // 他の頂点の連結リストを走査し、vet を含むすべての辺を削除する
+    // 他の頂点の連結リストをたどり、vet を端点とする辺をすべて削除する
     adjList.forEach((key, value) {
       value.remove(vet);
     });
@@ -82,7 +82,7 @@ class GraphAdjList {
   }
 }
 
-/* 実行用コード */
+/* 実行例 */
 void main() {
   /* 無向グラフを初期化する */
   List<Vertex> v = Vertex.valsToVets([1, 3, 2, 5, 4]);
@@ -95,30 +95,30 @@ void main() {
     [v[3], v[4]],
   ];
   GraphAdjList graph = GraphAdjList(edges);
-  print("\n初期化後のグラフ");
+  print("\n初期化後のグラフ：");
   graph.printAdjList();
 
   /* 辺を追加する */
-  // 頂点 1, 2 は v[0], v[2] に対応する
+  // 頂点 1 と 2 はそれぞれ v[0] と v[2]
   graph.addEdge(v[0], v[2]);
-  print("\n辺 1-2 を追加した後のグラフ");
+  print("\n辺 1-2 を追加した後のグラフ：");
   graph.printAdjList();
 
   /* 辺を削除する */
-  // 頂点 1, 3 は v[0], v[1] に対応する
+  // 頂点 1 と 3 はそれぞれ v[0] と v[1]
   graph.removeEdge(v[0], v[1]);
-  print("\n辺 1-3 を削除した後のグラフ");
+  print("\n辺 1-3 を削除した後のグラフ：");
   graph.printAdjList();
 
   /* 頂点を追加する */
   Vertex v5 = Vertex(6);
   graph.addVertex(v5);
-  print("\n頂点 6 を追加した後のグラフ");
+  print("\n頂点 6 を追加した後のグラフ：");
   graph.printAdjList();
 
   /* 頂点を削除する */
-  // 頂点 3 は v[1] に対応する
+  // 頂点 3 は v[1]
   graph.removeVertex(v[1]);
-  print("\n頂点 3 を削除した後のグラフ");
+  print("\n頂点 3 を削除した後のグラフ：");
   graph.printAdjList();
 }

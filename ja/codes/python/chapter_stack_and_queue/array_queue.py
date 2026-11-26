@@ -6,47 +6,47 @@ Author: Peng Chen (pengchzn@gmail.com)
 
 
 class ArrayQueue:
-    """循環配列で実装したキュー"""
+    """循環配列を使ったキュー"""
 
     def __init__(self, size: int):
-        """コンストラクタ"""
+        """初期化メソッド"""
         self._nums: list[int] = [0] * size  # キューの要素を格納する配列
-        self._front: int = 0  # キューの先頭要素を指す先頭ポインタ
-        self._size: int = 0  # キューの長さ
+        self._front: int = 0  # キューの先頭要素を指すインデックス
+        self._size: int = 0  # キューの要素数
 
     def capacity(self) -> int:
         """キューの容量を取得する"""
         return len(self._nums)
 
     def size(self) -> int:
-        """キューの長さを取得"""
+        """キューの要素数を取得する"""
         return self._size
 
     def is_empty(self) -> bool:
-        """キューが空か判定"""
+        """キューが空かどうかを判定する"""
         return self._size == 0
 
     def push(self, num: int):
-        """エンキュー"""
+        """エンキューする"""
         if self._size == self.capacity():
             raise IndexError("キューが満杯です")
-        # 末尾のインデックス + 1 を指す末尾ポインタを計算する
-        # 剰余演算で、rear が配列末尾を越えたら先頭へ戻る
+        # キューの末尾要素の次の位置を示すインデックスを求める
+        # 剰余を使い、rear が配列の末尾を越えたら先頭に戻るようにする
         rear: int = (self._front + self._size) % self.capacity()
         # num をキューの末尾に追加する
         self._nums[rear] = num
         self._size += 1
 
     def pop(self) -> int:
-        """デキュー"""
+        """デキューする"""
         num: int = self.peek()
-        # 先頭ポインタを後ろに 1 つ移動し、末尾を越えたら配列の先頭に戻す
+        # 先頭のインデックスを 1 つ進め、配列の末尾を越えたら先頭に戻す
         self._front = (self._front + 1) % self.capacity()
         self._size -= 1
         return num
 
     def peek(self) -> int:
-        """キューの先頭要素にアクセス"""
+        """キューの先頭要素を参照する"""
         if self.is_empty():
             raise IndexError("キューが空です")
         return self._nums[self._front]
@@ -61,12 +61,12 @@ class ArrayQueue:
         return res
 
 
-"""実行用コード"""
+"""Driver Code"""
 if __name__ == "__main__":
     # キューを初期化する
     queue = ArrayQueue(10)
 
-    # 要素をエンキューする
+    # 要素をキューに追加する
     queue.push(1)
     queue.push(3)
     queue.push(2)
@@ -74,25 +74,25 @@ if __name__ == "__main__":
     queue.push(4)
     print("キュー queue =", queue.to_list())
 
-    # キューの先頭要素にアクセス
+    # キューの先頭要素を参照する
     peek: int = queue.peek()
-    print("キューの先頭要素 peek =", peek)
+    print("先頭要素 peek =", peek)
 
-    # 要素をデキューする
+    # キューから要素を取り出す
     pop: int = queue.pop()
     print("デキューした要素 pop =", pop)
-    print("デキュー後 queue =", queue.to_list())
+    print("デキュー後の queue =", queue.to_list())
 
-    # キューの長さを取得
+    # キューの要素数を取得する
     size: int = queue.size()
-    print("キューの長さ size =", size)
+    print("キューの要素数 size =", size)
 
-    # キューが空か判定
+    # キューが空かどうかを判定する
     is_empty: bool = queue.is_empty()
     print("キューは空か =", is_empty)
 
-    # 循環配列をテストする
+    # 循環配列の動作を確認する
     for i in range(10):
         queue.push(i)
         queue.pop()
-        print("第", i, "回のエンキューとデキューの後 queue = ", queue.to_list())
+        print("第", i, "回のエンキューとデキューを終えた後の queue = ", queue.to_list())

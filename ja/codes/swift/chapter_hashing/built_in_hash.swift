@@ -8,7 +8,7 @@ import utils
 
 @main
 enum BuiltInHash {
-    /* 実行用コード */
+    /* 実行例 */
     static func main() {
         let num = 3
         let hashNum = num.hashValue
@@ -20,7 +20,7 @@ enum BuiltInHash {
 
         let dec = 3.14159
         let hashDec = dec.hashValue
-        print("小数 \(dec) のハッシュ値は \(hashDec)")
+        print("浮動小数点数 \(dec) のハッシュ値は \(hashDec)")
 
         let str = "Hello 算法"
         let hashStr = str.hashValue

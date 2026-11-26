@@ -11,7 +11,7 @@ int myMin(int a, int b) {
     return a < b ? a : b;
 }
 
-/* 階段を上る最小コスト：動的計画法 */
+/* 階段を登る最小コスト：動的計画法 */
 int minCostClimbingStairsDP(int cost[], int costSize) {
     int n = costSize - 1;
     if (n == 1 || n == 2)
@@ -31,7 +31,7 @@ int minCostClimbingStairsDP(int cost[], int costSize) {
     return res;
 }
 
-/* 階段を上る最小コスト：空間を最適化した動的計画法 */
+/* 階段を登る最小コスト：使用メモリを削減した動的計画法 */
 int minCostClimbingStairsDPComp(int cost[], int costSize) {
     int n = costSize - 1;
     if (n == 1 || n == 2)
@@ -45,18 +45,18 @@ int minCostClimbingStairsDPComp(int cost[], int costSize) {
     return b;
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     int cost[] = {0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1};
     int costSize = sizeof(cost) / sizeof(cost[0]);
-    printf("入力した階段のコストのリスト：");
+    printf("各段のコストの入力リスト：");
     printArray(cost, costSize);
 
     int res = minCostClimbingStairsDP(cost, costSize);
-    printf("階段を上り終える最小コストは %d\n", res);
+    printf("階段を登りきる最小コストは %d\n", res);
 
     res = minCostClimbingStairsDPComp(cost, costSize);
-    printf("階段を上り終える最小コストは %d\n", res);
+    printf("階段を登りきる最小コストは %d\n", res);
 
     return 0;
 }

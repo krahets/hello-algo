@@ -6,57 +6,57 @@ package chapter_dynamic_programming
 
 /* 編集距離：全探索 */
 func editDistanceDFS(s string, t string, i int, j int) int {
-	// s と t がともに空の場合、0 を返す
+	// s と t がともに空なら 0 を返す
 	if i == 0 && j == 0 {
 		return 0
 	}
-	// s が空の場合、t の長さを返す
+	// s が空なら t の長さを返す
 	if i == 0 {
 		return j
 	}
-	// t が空の場合、s の長さを返す
+	// t が空なら s の長さを返す
 	if j == 0 {
 		return i
 	}
-	// 2 つの文字が等しい場合、その 2 文字をスキップする
+	// 2 文字が等しければ、両方とも読み飛ばす
 	if s[i-1] == t[j-1] {
 		return editDistanceDFS(s, t, i-1, j-1)
 	}
-	// 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+	// 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
 	insert := editDistanceDFS(s, t, i, j-1)
 	deleted := editDistanceDFS(s, t, i-1, j)
 	replace := editDistanceDFS(s, t, i-1, j-1)
-	// 最小編集回数を返す
+	// 最少編集回数を返す
 	return MinInt(MinInt(insert, deleted), replace) + 1
 }
 
 /* 編集距離：メモ化探索 */
 func editDistanceDFSMem(s string, t string, mem [][]int, i int, j int) int {
-	// s と t がともに空の場合、0 を返す
+	// s と t がともに空なら 0 を返す
 	if i == 0 && j == 0 {
 		return 0
 	}
-	// s が空の場合、t の長さを返す
+	// s が空なら t の長さを返す
 	if i == 0 {
 		return j
 	}
-	// t が空の場合、s の長さを返す
+	// t が空なら s の長さを返す
 	if j == 0 {
 		return i
 	}
-	// 記録済みなら、その値をそのまま返す
+	// 記録済みなら、その値を返す
 	if mem[i][j] != -1 {
 		return mem[i][j]
 	}
-	// 2 つの文字が等しい場合、その 2 文字をスキップする
+	// 2 文字が等しければ、両方とも読み飛ばす
 	if s[i-1] == t[j-1] {
 		return editDistanceDFSMem(s, t, mem, i-1, j-1)
 	}
-	// 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+	// 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
 	insert := editDistanceDFSMem(s, t, mem, i, j-1)
 	deleted := editDistanceDFSMem(s, t, mem, i-1, j)
 	replace := editDistanceDFSMem(s, t, mem, i-1, j-1)
-	// 最小編集回数を記録して返す
+	// 最少編集回数を記録して返す
 	mem[i][j] = MinInt(MinInt(insert, deleted), replace) + 1
 	return mem[i][j]
 }
@@ -80,10 +80,10 @@ func editDistanceDP(s string, t string) int {
 	for i := 1; i <= n; i++ {
 		for j := 1; j <= m; j++ {
 			if s[i-1] == t[j-1] {
-				// 2 つの文字が等しい場合、その 2 文字をスキップする
+				// 2 文字が等しければ、両方とも読み飛ばす
 				dp[i][j] = dp[i-1][j-1]
 			} else {
-				// 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+				// 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
 				dp[i][j] = MinInt(MinInt(dp[i][j-1], dp[i-1][j]), dp[i-1][j-1]) + 1
 			}
 		}
@@ -91,7 +91,7 @@ func editDistanceDP(s string, t string) int {
 	return dp[n][m]
 }
 
-/* 編集距離：空間を最適化した動的計画法 */
+/* 編集距離：使用メモリを削減した動的計画法 */
 func editDistanceDPComp(s string, t string) int {
 	n := len(s)
 	m := len(t)
@@ -109,13 +109,13 @@ func editDistanceDPComp(s string, t string) int {
 		for j := 1; j <= m; j++ {
 			temp := dp[j]
 			if s[i-1] == t[j-1] {
-				// 2 つの文字が等しい場合、その 2 文字をスキップする
+				// 2 文字が等しければ、両方とも読み飛ばす
 				dp[j] = leftUp
 			} else {
-				// 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+				// 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
 				dp[j] = MinInt(MinInt(dp[j-1], dp[j]), leftUp) + 1
 			}
-			leftUp = temp // 次の反復の dp[i-1, j-1] に更新する
+			leftUp = temp // 次の反復で使う dp[i-1, j-1] に更新する
 		}
 	}
 	return dp[m]

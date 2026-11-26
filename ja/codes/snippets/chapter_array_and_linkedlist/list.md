@@ -19,7 +19,7 @@ vector<int> nums = {1, 3, 2, 5, 4};
 /* リストを初期化する */
 // 初期値なし
 List<Integer> emptyNums = new ArrayList<>();
-// 初期値あり（リストの要素には int のラッパークラス Integer しか使えないため、配列の型は int[] ではなく Integer[] にする必要があることに注意）
+// 初期値あり（配列の型は Integer[] を使う。int[] は使えない。リストの要素にできるのは int のラッパークラス Integer だからである）
 Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
 List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
 ```
@@ -102,7 +102,7 @@ nums = [1, 3, 2, 5, 4]
 ```
 
 <!-- [tutor]{init_list_tutor} -->
-https://pythontutor.com/render.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E5%80%A4%E3%81%AA%E3%81%97%0A%20%20%20%20empty_nums%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E5%80%A4%E3%81%82%E3%82%8A%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&cumulative=false&curInstr=4&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E5%80%A4%E3%81%AA%E3%81%97%0A%20%20%20%20empty_nums%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E5%80%A4%E3%81%82%E3%82%8A%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D&cumulative=false&curInstr=4&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 <!-- [snippet]{access_element} -->
 ```python title="list.py"
@@ -206,7 +206,7 @@ nums[1] = 0 # インデックス 1 の要素を 0 に更新する
 ```
 
 <!-- [tutor]{access_element_tutor} -->
-https://pythontutor.com/render.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20%20%20%20x%20%3D%20nums%5B1%5D%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%201%20%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E6%9B%B4%E6%96%B0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%201%20%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%200%20%E3%81%AB%E6%9B%B4%E6%96%B0&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20%20%20%20x%20%3D%20nums%5B1%5D%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%201%20%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E6%9B%B4%E6%96%B0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%201%20%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%200%20%E3%81%AB%E6%9B%B4%E6%96%B0&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 <!-- [snippet]{insert_remove_element} -->
 ```python title="list.py"
@@ -221,7 +221,7 @@ nums.append(5)
 nums.append(4)
 
 # 途中に要素を挿入する
-nums.insert(3, 6)  # インデックス 3 に数値 6 を挿入する
+nums.insert(3, 6)  # インデックス 3 に 6 を挿入する
 
 # 要素を削除する
 nums.pop(3)  # インデックス 3 の要素を削除する
@@ -239,7 +239,7 @@ nums.push_back(5);
 nums.push_back(4);
 
 /* 途中に要素を挿入する */
-nums.insert(nums.begin() + 3, 6); // インデックス 3 に数値 6 を挿入する
+nums.insert(nums.begin() + 3, 6); // インデックス 3 に 6 を挿入する
 
 /* 要素を削除する */
 nums.erase(nums.begin() + 3); // インデックス 3 の要素を削除する
@@ -257,7 +257,7 @@ nums.add(5);
 nums.add(4);
 
 /* 途中に要素を挿入する */
-nums.add(3, 6); // インデックス 3 に数値 6 を挿入する
+nums.add(3, 6); // インデックス 3 に 6 を挿入する
 
 /* 要素を削除する */
 nums.remove(3); // インデックス 3 の要素を削除する
@@ -275,7 +275,7 @@ nums.Add(5);
 nums.Add(4);
 
 /* 途中に要素を挿入する */
-nums.Insert(3, 6); // インデックス 3 に数値 6 を挿入する
+nums.Insert(3, 6); // インデックス 3 に 6 を挿入する
 
 /* 要素を削除する */
 nums.RemoveAt(3); // インデックス 3 の要素を削除する
@@ -293,7 +293,7 @@ nums = append(nums, 5)
 nums = append(nums, 4)
 
 /* 途中に要素を挿入する */
-nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // インデックス 3 に数値 6 を挿入する
+nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // インデックス 3 に 6 を挿入する
 
 /* 要素を削除する */
 nums = append(nums[:3], nums[4:]...) // インデックス 3 の要素を削除する
@@ -311,7 +311,7 @@ nums.append(5)
 nums.append(4)
 
 /* 途中に要素を挿入する */
-nums.insert(6, at: 3) // インデックス 3 に数値 6 を挿入する
+nums.insert(6, at: 3) // インデックス 3 に 6 を挿入する
 
 /* 要素を削除する */
 nums.remove(at: 3) // インデックス 3 の要素を削除する
@@ -329,7 +329,7 @@ nums.push(5);
 nums.push(4);
 
 /* 途中に要素を挿入する */
-nums.splice(3, 0, 6); // インデックス 3 に数値 6 を挿入する
+nums.splice(3, 0, 6); // インデックス 3 に 6 を挿入する
 
 /* 要素を削除する */
 nums.splice(3, 1); // インデックス 3 の要素を削除する
@@ -347,7 +347,7 @@ nums.push(5);
 nums.push(4);
 
 /* 途中に要素を挿入する */
-nums.splice(3, 0, 6); // インデックス 3 に数値 6 を挿入する
+nums.splice(3, 0, 6); // インデックス 3 に 6 を挿入する
 
 /* 要素を削除する */
 nums.splice(3, 1); // インデックス 3 の要素を削除する
@@ -365,7 +365,7 @@ nums.add(5);
 nums.add(4);
 
 /* 途中に要素を挿入する */
-nums.insert(3, 6); // インデックス 3 に数値 6 を挿入する
+nums.insert(3, 6); // インデックス 3 に 6 を挿入する
 
 /* 要素を削除する */
 nums.removeAt(3); // インデックス 3 の要素を削除する
@@ -383,7 +383,7 @@ nums.push(5);
 nums.push(4);
 
 // 途中に要素を挿入する
-nums.insert(3, 6); // インデックス 3 に数値 6 を挿入する
+nums.insert(3, 6); // インデックス 3 に 6 を挿入する
 
 // 要素を削除する
 nums.remove(3); // インデックス 3 の要素を削除する
@@ -405,7 +405,7 @@ nums.add(5)
 nums.add(4)
 
 /* 途中に要素を挿入する */
-nums.add(3, 6) // インデックス 3 に数値 6 を挿入する
+nums.add(3, 6) // インデックス 3 に 6 を挿入する
 
 /* 要素を削除する */
 nums.removeAt(3) // インデックス 3 の要素を削除する
@@ -423,14 +423,14 @@ nums << 5
 nums << 4
 
 # 途中に要素を挿入する
-nums.insert(3, 6) # インデックス 3 に数値 6 を挿入する
+nums.insert(3, 6) # インデックス 3 に 6 を挿入する
 
 # 要素を削除する
 nums.delete_at(3) # インデックス 3 の要素を削除する
 ```
 
 <!-- [tutor]{insert_remove_element_tutor} -->
-https://pythontutor.com/render.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E5%80%A4%E3%81%82%E3%82%8A%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E7%A9%BA%E3%81%AB%E3%81%99%E3%82%8B%0A%20%20%20%20nums.clear()%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9C%AB%E5%B0%BE%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E8%BF%BD%E5%8A%A0%0A%20%20%20%20nums.append(1)%0A%20%20%20%20nums.append(3)%0A%20%20%20%20nums.append(2)%0A%20%20%20%20nums.append(5)%0A%20%20%20%20nums.append(4)%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%80%94%E4%B8%AD%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%BF%E5%85%A5%0A%20%20%20%20nums.insert(3%2C%206)%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%203%20%E3%81%AB%E6%95%B0%E5%80%A4%206%20%E3%82%92%E6%8C%BF%E5%85%A5%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4%0A%20%20%20%20nums.pop(3)%20%20%20%20%20%20%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%203%20%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E5%80%A4%E3%81%82%E3%82%8A%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E7%A9%BA%E3%81%AB%E3%81%99%E3%82%8B%0A%20%20%20%20nums.clear%28%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9C%AB%E5%B0%BE%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E8%BF%BD%E5%8A%A0%0A%20%20%20%20nums.append%281%29%0A%20%20%20%20nums.append%283%29%0A%20%20%20%20nums.append%282%29%0A%20%20%20%20nums.append%285%29%0A%20%20%20%20nums.append%284%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%80%94%E4%B8%AD%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%BF%E5%85%A5%0A%20%20%20%20nums.insert%283,%206%29%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%203%20%E3%81%AB%E6%95%B0%E5%80%A4%206%20%E3%82%92%E6%8C%BF%E5%85%A5%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4%0A%20%20%20%20nums.pop%283%29%20%20%20%20%20%20%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%203%20%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 <!-- [snippet]{iterate_list} -->
 ```python title="list.py"
@@ -601,68 +601,68 @@ end
 ```
 
 <!-- [tutor]{iterate_list_tutor} -->
-https://pythontutor.com/render.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E8%B5%B0%E6%9F%BB%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20i%20in%20range(len(nums))%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20nums%5Bi%5D%0A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E7%9B%B4%E6%8E%A5%E8%B5%B0%E6%9F%BB%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20num&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E9%A0%86%E3%81%AB%E3%81%9F%E3%81%A9%E3%82%8B%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20nums%5Bi%5D%0A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%81%8B%E3%82%89%E5%90%84%E8%A6%81%E7%B4%A0%E3%82%92%E7%9B%B4%E6%8E%A5%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%99%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20num&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 <!-- [snippet]{concat_list} -->
 ```python title="list.py"
 # 2 つのリストを連結する
 nums1 = [6, 8, 7, 10, 9]
-nums += nums1  # リスト nums の後ろに nums1 を連結する
+nums += nums1  # リスト nums1 を nums の末尾に連結する
 ```
 
 ```cpp title="list.cpp"
 /* 2 つのリストを連結する */
 vector<int> nums1 = {6, 8, 7, 10, 9};
-// リスト nums の後ろに nums1 を連結する
+// リスト nums1 を nums の末尾に連結する
 nums.insert(nums.end(), nums1.begin(), nums1.end());
 ```
 
 ```java title="list.java"
 /* 2 つのリストを連結する */
 List<Integer> nums1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
-nums.addAll(nums1); // リスト nums の後ろに nums1 を連結する
+nums.addAll(nums1); // リスト nums1 を nums の末尾に連結する
 ```
 
 ```csharp title="list.cs"
 /* 2 つのリストを連結する */
 List<int> nums1 = [6, 8, 7, 10, 9];
-nums.AddRange(nums1); // リスト nums の後ろに nums1 を連結する
+nums.AddRange(nums1); // リスト nums1 を nums の末尾に連結する
 ```
 
 ```go title="list_test.go"
 /* 2 つのリストを連結する */
 nums1 := []int{6, 8, 7, 10, 9}
-nums = append(nums, nums1...) // リスト nums の後ろに nums1 を連結する
+nums = append(nums, nums1...) // リスト nums1 を nums の末尾に連結する
 ```
 
 ```swift title="list.swift"
 /* 2 つのリストを連結する */
 let nums1 = [6, 8, 7, 10, 9]
-nums.append(contentsOf: nums1) // リスト nums の後ろに nums1 を連結する
+nums.append(contentsOf: nums1) // リスト nums1 を nums の末尾に連結する
 ```
 
 ```javascript title="list.js"
 /* 2 つのリストを連結する */
 const nums1 = [6, 8, 7, 10, 9];
-nums.push(...nums1); // リスト nums の後ろに nums1 を連結する
+nums.push(...nums1); // リスト nums1 を nums の末尾に連結する
 ```
 
 ```typescript title="list.ts"
 /* 2 つのリストを連結する */
 const nums1: number[] = [6, 8, 7, 10, 9];
-nums.push(...nums1); // リスト nums の後ろに nums1 を連結する
+nums.push(...nums1); // リスト nums1 を nums の末尾に連結する
 ```
 
 ```dart title="list.dart"
 /* 2 つのリストを連結する */
 List<int> nums1 = [6, 8, 7, 10, 9];
-nums.addAll(nums1); // リスト nums の後ろに nums1 を連結する
+nums.addAll(nums1); // リスト nums1 を nums の末尾に連結する
 ```
 
 ```rust title="list.rs"
 // 2 つのリストを連結する
 let mut nums1 = vec![6, 8, 7, 10, 9];
-nums.append(&mut nums1); // append は nums1 の要素をムーブするため、その後 nums1 は空になる
+nums.append(&mut nums1); // append は nums1 の要素を移動するので、操作後の nums1 は空になる
 ```
 
 ```c title="list.c"
@@ -672,7 +672,7 @@ nums.append(&mut nums1); // append は nums1 の要素をムーブするため�
 ```kotlin title="list.kt"
 /* 2 つのリストを連結する */
 val nums1 = mutableListOf(6, 8, 7, 10, 9)
-nums.addAll(nums1) // リスト nums の後ろに nums1 を連結する
+nums.addAll(nums1) // リスト nums1 を nums の末尾に連結する
 ```
 
 ```ruby title="list.rb"
@@ -682,7 +682,7 @@ nums += nums1
 ```
 
 <!-- [tutor]{concat_list_tutor} -->
-https://pythontutor.com/render.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E4%BA%8C%E3%81%A4%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E9%80%A3%E7%B5%90%0A%20%20%20%20nums1%20%3D%20%5B6%2C%208%2C%207%2C%2010%2C%209%5D%0A%20%20%20%20nums%20%2B%3D%20nums1%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%20nums1%20%E3%82%92%20nums%20%E3%81%AE%E5%BE%8C%E3%82%8D%E3%81%AB%E9%80%A3%E7%B5%90&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%202%20%E3%81%A4%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E9%80%A3%E7%B5%90%0A%20%20%20%20nums1%20%3D%20%5B6,%208,%207,%2010,%209%5D%0A%20%20%20%20nums%20%2B%3D%20nums1%20%20%23%20nums%20%E3%81%AE%E6%9C%AB%E5%B0%BE%E3%81%AB%E3%83%AA%E3%82%B9%E3%83%88%20nums1%20%E3%82%92%E9%80%A3%E7%B5%90&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 <!-- [snippet]{sort_list} -->
 ```python title="list.py"
@@ -750,4 +750,4 @@ nums = nums.sort { |a, b| a <=> b } # ソート後、リストの要素は昇順
 ```
 
 <!-- [tutor]{sort_list_tutor} -->
-https://pythontutor.com/render.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E3%82%BD%E3%83%BC%E3%83%88%0A%20%20%20%20nums.sort()%20%20%23%20%E3%82%BD%E3%83%BC%E3%83%88%E5%BE%8C%E3%81%AF%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%8C%E6%98%87%E9%A0%86%E3%81%AB%E4%B8%A6%E3%81%B6&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E3%82%BD%E3%83%BC%E3%83%88%0A%20%20%20%20nums.sort%28%29%20%20%23%20%E3%82%BD%E3%83%BC%E3%83%88%E3%81%99%E3%82%8B%E3%81%A8%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%8C%E5%B0%8F%E3%81%95%E3%81%84%E9%A0%86%E3%81%AB%E4%B8%A6%E3%81%B6&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false

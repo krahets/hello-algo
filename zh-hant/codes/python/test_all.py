@@ -6,11 +6,11 @@ env = os.environ.copy()
 env["PYTHONIOENCODING"] = "utf-8"
 
 if __name__ == "__main__":
-    # find source code files
+    # 尋找原始碼檔案
     src_paths = sorted(glob.glob("chapter_*/*.py"))
     errors = []
 
-    # run python code
+    # 執行 Python 程式碼
     for src_path in src_paths:
         process = subprocess.Popen(
             ["python", src_path],
@@ -20,9 +20,9 @@ if __name__ == "__main__":
             env=env,
             encoding='utf-8'
         )
-        # Wait for the process to complete, and get the output and error messages
+        # 等待行程結束，再取得輸出和錯誤訊息
         stdout, stderr = process.communicate()
-        # Check the exit status
+        # 檢查結束狀態
         exit_status = process.returncode
         if exit_status != 0:
             errors.append(stderr)

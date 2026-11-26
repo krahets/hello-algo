@@ -4,7 +4,7 @@
 
 package chapter_computational_complexity
 
-/* Sum using iteration */
+/* Iterative sum */
 func sumIter(n int) int {
 	res := 0
 	for i := 1; i <= n; i++ {
@@ -13,7 +13,7 @@ func sumIter(n int) int {
 	return res
 }
 
-/* Sum using recursion */
+/* Recursive sum */
 func sumRecur(n int) int {
 	if n == 1 {
 		return 1

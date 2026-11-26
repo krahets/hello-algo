@@ -13,36 +13,36 @@ import (
 
 func TestLinkedList(t *testing.T) {
 	/* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-	// Initialize the individual nodes
+	// Initialize the nodes
 	n0 := NewListNode(1)
 	n1 := NewListNode(3)
 	n2 := NewListNode(2)
 	n3 := NewListNode(5)
 	n4 := NewListNode(4)
 
-	// Set up references between the nodes
+	// Link the nodes together
 	n0.Next = n1
 	n1.Next = n2
 	n2.Next = n3
 	n3.Next = n4
-	fmt.Println("The initialized linked list is")
+	fmt.Println("Initial linked list:")
 	PrintLinkedList(n0)
 
 	/* Insert a node */
 	insertNode(n0, NewListNode(0))
-	fmt.Println("The linked list after inserting a node is")
+	fmt.Println("Linked list after insertion:")
 	PrintLinkedList(n0)
 
 	/* Remove a node */
 	removeItem(n0)
-	fmt.Println("The linked list after removing a node is")
+	fmt.Println("Linked list after removal:")
 	PrintLinkedList(n0)
 
 	/* Access a node */
 	node := access(n0, 3)
-	fmt.Println("Value of the node at index 3 in the linked list =", node)
+	fmt.Println("Value of the node at index 3 =", node)
 
 	/* Find a node */
 	index := findNode(n0, 2)
-	fmt.Println("Index of the node with value 2 in the linked list =", index)
+	fmt.Println("Index of the node with value 2 =", index)
 }

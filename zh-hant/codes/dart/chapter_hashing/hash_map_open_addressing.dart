@@ -6,16 +6,16 @@
 
 import 'array_hash_map.dart';
 
-/* 開放定址雜湊表 */
+/* 採用開放定址法的雜湊表 */
 class HashMapOpenAddressing {
   late int _size; // 鍵值對數量
   int _capacity = 4; // 雜湊表容量
-  double _loadThres = 2.0 / 3.0; // 觸發擴容的負載因子閾值
-  int _extendRatio = 2; // 擴容倍數
+  double _loadThres = 2.0 / 3.0; // 觸發容量擴充的負載因子門檻
+  int _extendRatio = 2; // 容量擴充倍數
   late List<Pair?> _buckets; // 桶陣列
   Pair _TOMBSTONE = Pair(-1, "-1"); // 刪除標記
 
-  /* 建構子 */
+  /* 建構方法 */
   HashMapOpenAddressing() {
     _size = 0;
     _buckets = List.generate(_capacity, (index) => null);
@@ -31,82 +31,82 @@ class HashMapOpenAddressing {
     return _size / _capacity;
   }
 
-  /* 搜尋 key 對應的桶索引 */
+  /* 尋找 key 對應的桶索引 */
   int findBucket(int key) {
     int index = hashFunc(key);
     int firstTombstone = -1;
     for (int i = 0; i < _capacity; i++) {
       final bucket = _buckets[index];
       if (bucket == null) break;
-      // 記錄遇到的首個刪除標記
+      // 記錄遇到的第一個刪除標記
       if (identical(bucket, _TOMBSTONE)) {
         if (firstTombstone == -1) firstTombstone = index;
       } else if (bucket.key == key) {
-        // 若之前遇到了刪除標記，則將鍵值對移動至該索引處
+        // 若先前遇過刪除標記，將鍵值對移到該標記所在的索引位置
         if (firstTombstone != -1) {
           _buckets[firstTombstone] = bucket;
           _buckets[index] = _TOMBSTONE;
-          return firstTombstone; // 返回移動後的桶索引
+          return firstTombstone; // 回傳移動後的桶索引
         }
-        return index; // 返回桶索引
+        return index; // 回傳桶索引
       }
-      // 計算桶索引，越過尾部則返回頭部
+      // 計算桶索引，超過陣列尾端就回到開頭
       index = (index + 1) % _capacity;
     }
-    // 若 key 不存在，則返回新增點的索引
+    // 若 key 不存在，回傳可插入位置的索引
     return firstTombstone == -1 ? index : firstTombstone;
   }
 
   /* 查詢操作 */
   String? get(int key) {
-    // 搜尋 key 對應的桶索引
+    // 尋找 key 對應的桶索引
     int index = findBucket(key);
-    // 若找到鍵值對，則返回對應 val
+    // 若找到鍵值對，回傳對應的 val
     if (_buckets[index] != null && _buckets[index] != _TOMBSTONE) {
       return _buckets[index]!.val;
     }
-    // 若鍵值對不存在，則返回 null
+    // 若鍵值對不存在，回傳 null
     return null;
   }
 
   /* 新增操作 */
   void put(int key, String val) {
-    // 當負載因子超過閾值時，執行擴容
+    // 當負載因子超過門檻時，擴充容量
     if (loadFactor() > _loadThres) {
       extend();
     }
-    // 搜尋 key 對應的桶索引
+    // 尋找 key 對應的桶索引
     int index = findBucket(key);
-    // 若找到鍵值對，則覆蓋 val 並返回
+    // 若找到鍵值對，覆寫 val 並結束操作
     if (_buckets[index] != null && _buckets[index] != _TOMBSTONE) {
       _buckets[index]!.val = val;
       return;
     }
-    // 若鍵值對不存在，則新增該鍵值對
+    // 若鍵值對不存在，新增該鍵值對
     _buckets[index] = new Pair(key, val);
     _size++;
   }
 
   /* 刪除操作 */
   void remove(int key) {
-    // 搜尋 key 對應的桶索引
+    // 尋找 key 對應的桶索引
     int index = findBucket(key);
-    // 若找到鍵值對，則用刪除標記覆蓋它
+    // 若找到鍵值對，以刪除標記取代它
     if (_buckets[index] != null && _buckets[index] != _TOMBSTONE) {
       _buckets[index] = _TOMBSTONE;
       _size--;
     }
   }
 
-  /* 擴容雜湊表 */
+  /* 擴充雜湊表容量 */
   void extend() {
-    // 暫存原雜湊表
+    // 暫存原本的雜湊表
     List<Pair?> bucketsTmp = _buckets;
-    // 初始化擴容後的新雜湊表
+    // 初始化擴充後的新雜湊表
     _capacity *= _extendRatio;
     _buckets = List.generate(_capacity, (index) => null);
     _size = 0;
-    // 將鍵值對從原雜湊表搬運至新雜湊表
+    // 將鍵值對從原本的雜湊表移到新表
     for (Pair? pair in bucketsTmp) {
       if (pair != null && pair != _TOMBSTONE) {
         put(pair.key, pair.val);
@@ -114,7 +114,7 @@ class HashMapOpenAddressing {
     }
   }
 
-  /* 列印雜湊表 */
+  /* 印出雜湊表 */
   void printHashMap() {
     for (Pair? pair in _buckets) {
       if (pair == null) {
@@ -128,7 +128,7 @@ class HashMapOpenAddressing {
   }
 }
 
-/* Driver Code */
+/* 主程式 */
 void main() {
   /* 初始化雜湊表 */
   HashMapOpenAddressing map = HashMapOpenAddressing();
@@ -140,17 +140,17 @@ void main() {
   map.put(16750, "小算");
   map.put(13276, "小法");
   map.put(10583, "小鴨");
-  print("\n新增完成後，雜湊表為\nKey -> Value");
+  print("\n新增後的雜湊表\nKey -> Value");
   map.printHashMap();
 
   /* 查詢操作 */
-  // 向雜湊表中輸入鍵 key ，得到值 value
+  // 輸入鍵 key，從雜湊表取得對應的值 value
   String? name = map.get(13276);
-  print("\n輸入學號 13276 ，查詢到姓名 $name");
+  print("\n輸入學號 13276，查得姓名 $name");
 
   /* 刪除操作 */
-  // 在雜湊表中刪除鍵值對 (key, value)
+  // 從雜湊表刪除鍵值對 (key, value)
   map.remove(16750);
-  print("\n刪除 16750 後，雜湊表為\nKey -> Value");
+  print("\n刪除 16750 後的雜湊表\nKey -> Value");
   map.printHashMap();
 }

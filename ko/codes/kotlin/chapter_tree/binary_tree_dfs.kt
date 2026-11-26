@@ -9,13 +9,13 @@ package chapter_tree
 import utils.TreeNode
 import utils.printTree
 
-// 순회 순서를 저장할 리스트를 초기화한다
+// 순회 결과를 저장할 리스트를 초기화한다
 var list = mutableListOf<Int>()
 
 /* 전위 순회 */
 fun preOrder(root: TreeNode?) {
     if (root == null) return
-    // 방문 우선순위: 루트 노드 -> 왼쪽 서브트리 -> 오른쪽 서브트리
+    // 방문 순서: 루트 노드 -> 왼쪽 서브트리 -> 오른쪽 서브트리
     list.add(root._val)
     preOrder(root.left)
     preOrder(root.right)
@@ -24,7 +24,7 @@ fun preOrder(root: TreeNode?) {
 /* 중위 순회 */
 fun inOrder(root: TreeNode?) {
     if (root == null) return
-    // 방문 우선순위: 왼쪽 서브트리 -> 루트 노드 -> 오른쪽 서브트리
+    // 방문 순서: 왼쪽 서브트리 -> 루트 노드 -> 오른쪽 서브트리
     inOrder(root.left)
     list.add(root._val)
     inOrder(root.right)
@@ -33,7 +33,7 @@ fun inOrder(root: TreeNode?) {
 /* 후위 순회 */
 fun postOrder(root: TreeNode?) {
     if (root == null) return
-    // 방문 우선순위: 왼쪽 서브트리 -> 오른쪽 서브트리 -> 루트 노드
+    // 방문 순서: 왼쪽 서브트리 -> 오른쪽 서브트리 -> 루트 노드
     postOrder(root.left)
     postOrder(root.right)
     list.add(root._val)
@@ -42,7 +42,7 @@ fun postOrder(root: TreeNode?) {
 /* 실행 코드 */
 fun main() {
     /* 이진 트리 초기화 */
-    // 여기서는 리스트로 이진 트리를 바로 생성하는 함수를 사용한다
+    // 리스트에서 바로 이진 트리를 만드는 함수를 사용한다
     val root = TreeNode.listToTree(mutableListOf(1, 2, 3, 4, 5, 6, 7))
     println("\n이진 트리 초기화\n")
     printTree(root)
@@ -50,15 +50,15 @@ fun main() {
     /* 전위 순회 */
     list.clear()
     preOrder(root)
-    println("\n전위 순회의 노드 출력 순서 = $list")
+    println("\n전위 순회로 출력한 노드 순서 = $list")
 
     /* 중위 순회 */
     list.clear()
     inOrder(root)
-    println("\n중위 순회의 노드 출력 순서 = $list")
+    println("\n중위 순회로 출력한 노드 순서 = $list")
 
     /* 후위 순회 */
     list.clear()
     postOrder(root)
-    println("\n후위 순회의 노드 출력 순서 = $list")
+    println("\n후위 순회로 출력한 노드 순서 = $list")
 }

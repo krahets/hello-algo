@@ -15,25 +15,25 @@ TreeNode? dfs(
   int l,
   int r,
 ) {
-  // 部分木の区間が空の場合、終了する
+  // 部分木の区間が空なら終了する
   if (r - l < 0) {
     return null;
   }
   // 根ノードを初期化する
   TreeNode? root = TreeNode(preorder[i]);
-  // m を調べ、左右の部分木に分割する
+  // m を調べて左右の部分木を分ける
   int m = inorderMap[preorder[i]]!;
-  // 部分問題：左部分木の構築
+  // 部分問題：左部分木を構築する
   root.left = dfs(preorder, inorderMap, i + 1, l, m - 1);
-  // 部分問題：右部分木の構築
+  // 部分問題：右部分木を構築する
   root.right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r);
   // 根ノードを返す
   return root;
 }
 
-/* 二分木を構築する */
+/* 二分木の構築 */
 TreeNode? buildTree(List<int> preorder, List<int> inorder) {
-  // inorder の要素からインデックスへの対応を格納するハッシュテーブルを初期化する
+  // ハッシュ表を初期化し、inorder の各要素に対応するインデックスを格納する
   Map<int, int> inorderMap = {};
   for (int i = 0; i < inorder.length; i++) {
     inorderMap[inorder[i]] = i;
@@ -42,12 +42,12 @@ TreeNode? buildTree(List<int> preorder, List<int> inorder) {
   return root;
 }
 
-/* 実行用コード */
+/* 実行例 */
 void main() {
   List<int> preorder = [3, 9, 2, 1, 7];
   List<int> inorder = [9, 3, 1, 2, 7];
-  print("行きがけ順走査 = $preorder");
-  print("通りがけ順走査 = $inorder");
+  print("行きがけ順 = $preorder");
+  print("通りがけ順 = $inorder");
 
   TreeNode? root = buildTree(preorder, inorder);
   print("構築した二分木：");

@@ -4,16 +4,16 @@
  * Author: WSL0809 (wslzzy@outlook.com)
  */
 
-/* 基於環形陣列實現的佇列 */
+/* 以環狀陣列實作佇列 */
 struct ArrayQueue<T> {
-    nums: Vec<T>,      // 用於儲存佇列元素的陣列
-    front: i32,        // 佇列首指標，指向佇列首元素
+    nums: Vec<T>,      // 存放佇列元素的陣列
+    front: i32,        // 隊首索引，記錄隊首元素在陣列中的位置
     que_size: i32,     // 佇列長度
     que_capacity: i32, // 佇列容量
 }
 
 impl<T: Copy + Default> ArrayQueue<T> {
-    /* 建構子 */
+    /* 建立新實例 */
     fn new(capacity: i32) -> ArrayQueue<T> {
         ArrayQueue {
             nums: vec![T::default(); capacity as usize],
@@ -23,12 +23,12 @@ impl<T: Copy + Default> ArrayQueue<T> {
         }
     }
 
-    /* 獲取佇列的容量 */
+    /* 取得佇列容量 */
     fn capacity(&self) -> i32 {
         self.que_capacity
     }
 
-    /* 獲取佇列的長度 */
+    /* 取得佇列長度 */
     fn size(&self) -> i32 {
         self.que_size
     }
@@ -38,30 +38,30 @@ impl<T: Copy + Default> ArrayQueue<T> {
         self.que_size == 0
     }
 
-    /* 入列 */
+    /* 入隊 */
     fn push(&mut self, num: T) {
         if self.que_size == self.capacity() {
             println!("佇列已滿");
             return;
         }
-        // 計算佇列尾指標，指向佇列尾索引 + 1
-        // 透過取餘操作實現 rear 越過陣列尾部後回到頭部
+        // 計算下一次從隊尾寫入的位置 rear（隊尾索引 + 1）
+        // 取餘數，讓 rear 超過陣列末端時繞回開頭
         let rear = (self.front + self.que_size) % self.que_capacity;
-        // 將 num 新增至佇列尾
+        // 將 num 加到隊尾
         self.nums[rear as usize] = num;
         self.que_size += 1;
     }
 
-    /* 出列 */
+    /* 出隊 */
     fn pop(&mut self) -> T {
         let num = self.peek();
-        // 佇列首指標向後移動一位，若越過尾部，則返回到陣列頭部
+        // 將隊首索引往後移一格，若超過陣列末端就繞回開頭
         self.front = (self.front + 1) % self.que_capacity;
         self.que_size -= 1;
         num
     }
 
-    /* 訪問佇列首元素 */
+    /* 讀取隊首元素 */
     fn peek(&self) -> T {
         if self.is_empty() {
             panic!("index out of bounds");
@@ -69,7 +69,7 @@ impl<T: Copy + Default> ArrayQueue<T> {
         self.nums[self.front as usize]
     }
 
-    /* 返回陣列 */
+    /* 回傳 Vec */
     fn to_vector(&self) -> Vec<T> {
         let cap = self.que_capacity;
         let mut j = self.front;
@@ -82,13 +82,13 @@ impl<T: Copy + Default> ArrayQueue<T> {
     }
 }
 
-/* Driver Code */
+/* 範例程式 */
 fn main() {
     /* 初始化佇列 */
     let capacity = 10;
     let mut queue = ArrayQueue::new(capacity);
 
-    /* 元素入列 */
+    /* 將元素加入佇列 */
     queue.push(1);
     queue.push(3);
     queue.push(2);
@@ -96,19 +96,19 @@ fn main() {
     queue.push(4);
     println!("佇列 queue = {:?}", queue.to_vector());
 
-    /* 訪問佇列首元素 */
+    /* 讀取隊首元素 */
     let peek = queue.peek();
-    println!("佇列首元素 peek = {}", peek);
+    println!("隊首元素 peek = {}", peek);
 
-    /* 元素出列 */
+    /* 從佇列取出元素 */
     let pop = queue.pop();
     println!(
-        "出列元素 pop = {:?},出列後 queue = {:?}",
+        "出隊元素 pop = {:?}，出隊後 queue = {:?}",
         pop,
         queue.to_vector()
     );
 
-    /* 獲取佇列的長度 */
+    /* 取得佇列長度 */
     let size = queue.size();
     println!("佇列長度 size = {}", size);
 
@@ -116,10 +116,10 @@ fn main() {
     let is_empty = queue.is_empty();
     println!("佇列是否為空 = {}", is_empty);
 
-    /* 測試環形陣列 */
+    /* 測試環狀陣列 */
     for i in 0..10 {
         queue.push(i);
         queue.pop();
-        println!("第 {:?} 輪入列 + 出列後 queue = {:?}", i, queue.to_vector());
+        println!("第 {:?} 輪入隊 + 出隊後 queue = {:?}", i, queue.to_vector());
     }
 }

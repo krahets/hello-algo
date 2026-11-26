@@ -9,7 +9,7 @@ package chapter_computational_complexity;
 import java.util.*;
 
 public class worst_best_time_complexity {
-    /* Создать массив с элементами { 1, 2, ..., n } в случайном порядке */
+    /* Создать массив из чисел { 1, 2, ..., n } в случайном порядке */
     static int[] randomNumbers(int n) {
         Integer[] nums = new Integer[n];
         // Создать массив nums = { 1, 2, 3, ..., n }
@@ -29,22 +29,22 @@ public class worst_best_time_complexity {
     /* Найти индекс числа 1 в массиве nums */
     static int findOne(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
-            // Когда элемент 1 находится в начале массива, достигается лучшая временная сложность O(1)
-            // Когда элемент 1 находится в конце массива, достигается худшая временная сложность O(n)
+            // Если 1 стоит в начале массива, сложность минимальна: O(1)
+            // Если 1 стоит в конце массива, сложность максимальна: O(n)
             if (nums[i] == 1)
                 return i;
         }
         return -1;
     }
 
-    /* Driver Code */
+    /* Основная программа */
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
             int n = 100;
             int[] nums = randomNumbers(n);
             int index = findOne(nums);
-            System.out.println("\nМассив [1, 2, ..., n] после перемешивания = " + Arrays.toString(nums));
-            System.out.println("Индекс числа 1 = " + index);
+            System.out.println("\nМассив [ 1, 2, ..., n ] после перемешивания = " + Arrays.toString(nums));
+            System.out.println("Индекс числа 1: " + index);
         }
     }
 }

@@ -4,43 +4,43 @@
 
 package chapter_searching
 
-/* Find an insertion point using binary search (no duplicates) */
+/* Binary search for an insertion point (no duplicates) */
 func binarySearchInsertionSimple(nums []int, target int) int {
 	// Initialize the closed interval [0, n-1]
 	i, j := 0, len(nums)-1
 	for i <= j {
-		// Calculate the midpoint index m
+		// Compute the midpoint index m
 		m := i + (j-i)/2
 		if nums[m] < target {
-			// Target must be in [m+1, j] if it exists
+			// Any match must lie in [m+1, j]
 			i = m + 1
 		} else if nums[m] > target {
-			// Target must be in [i, m-1] if it exists
+			// Any match must lie in [i, m-1]
 			j = m - 1
 		} else {
-			// Target was found; return insertion point m
+			// Found target. Return insertion point m
 			return m
 		}
 	}
-	// Target was not found; return insertion point i
+	// Target not found. Return insertion point i
 	return i
 }
 
-/* Find an insertion point using binary search (with duplicates) */
+/* Binary search for an insertion point (duplicates allowed) */
 func binarySearchInsertion(nums []int, target int) int {
 	// Initialize the closed interval [0, n-1]
 	i, j := 0, len(nums)-1
 	for i <= j {
-		// Calculate the midpoint index m
+		// Compute the midpoint index m
 		m := i + (j-i)/2
 		if nums[m] < target {
-			// Target must be in [m+1, j] if it exists
+			// Any match must lie in [m+1, j]
 			i = m + 1
 		} else if nums[m] > target {
-			// Target must be in [i, m-1] if it exists
+			// Any match must lie in [i, m-1]
 			j = m - 1
 		} else {
-			// Continue in [i, m-1] to find the rightmost element smaller than target
+			// Look in [i, m-1] for the rightmost element less than target
 			j = m - 1
 		}
 	}

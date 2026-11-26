@@ -39,13 +39,13 @@ public class ListNode(int x) {
 ```
 
 ```go title=""
-// ListNode: 연결 리스트 노드
+// ListNode 연결 리스트 노드
 type ListNode struct {
     Val  int       // 노드 값
     Next *ListNode // 다음 노드 포인터
 }
 
-// NewListNode: 연결 리스트 노드 생성자
+// 연결 리스트 노드 생성자 NewListNode
 func NewListNode(v int) *ListNode {
     return &ListNode{
         Val:  v,
@@ -125,7 +125,7 @@ typedef struct ListNode {
     struct ListNode *next; // 다음 노드를 가리키는 포인터
 } ListNode;
 
-/* 생성자: 새 노드를 초기화한다 */
+/* 새 노드를 초기화하는 생성자 */
 ListNode *newListNode(int val) {
     ListNode *node;
     node = (ListNode *)malloc(sizeof(ListNode));
@@ -158,13 +158,13 @@ end
 <!-- [snippet]{init_linked_list} -->
 ```python title="linked_list.py"
 # 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화
-# 각 노드를 초기화한다
+# 각 노드 초기화
 n0 = ListNode(1)
 n1 = ListNode(3)
 n2 = ListNode(2)
 n3 = ListNode(5)
 n4 = ListNode(4)
-# 노드 사이의 참조를 설정한다
+# 노드 사이의 참조 연결
 n0.next = n1
 n1.next = n2
 n2.next = n3
@@ -173,13 +173,13 @@ n3.next = n4
 
 ```cpp title="linked_list.cpp"
 /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드를 초기화한다
+// 각 노드 초기화
 ListNode *n0 = new ListNode(1);
 ListNode *n1 = new ListNode(3);
 ListNode *n2 = new ListNode(2);
 ListNode *n3 = new ListNode(5);
 ListNode *n4 = new ListNode(4);
-// 노드 사이의 참조를 설정한다
+// 노드 사이의 참조 연결
 n0->next = n1;
 n1->next = n2;
 n2->next = n3;
@@ -188,13 +188,13 @@ n3->next = n4;
 
 ```java title="linked_list.java"
 /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드를 초기화한다
+// 각 노드 초기화
 ListNode n0 = new ListNode(1);
 ListNode n1 = new ListNode(3);
 ListNode n2 = new ListNode(2);
 ListNode n3 = new ListNode(5);
 ListNode n4 = new ListNode(4);
-// 노드 사이의 참조를 설정한다
+// 노드 사이의 참조 연결
 n0.next = n1;
 n1.next = n2;
 n2.next = n3;
@@ -203,13 +203,13 @@ n3.next = n4;
 
 ```csharp title="linked_list.cs"
 // 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화
-// 각 노드를 초기화한다
+// 각 노드 초기화
 ListNode n0 = new(1);
 ListNode n1 = new(3);
 ListNode n2 = new(2);
 ListNode n3 = new(5);
 ListNode n4 = new(4);
-// 노드 사이의 참조를 설정한다
+// 노드 사이의 참조 연결
 n0.next = n1;
 n1.next = n2;
 n2.next = n3;
@@ -218,14 +218,14 @@ n3.next = n4;
 
 ```go title="linked_list.go"
 /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드를 초기화한다
+// 각 노드 초기화
 n0 := NewListNode(1)
 n1 := NewListNode(3)
 n2 := NewListNode(2)
 n3 := NewListNode(5)
 n4 := NewListNode(4)
 
-// 노드 사이의 참조를 설정한다
+// 노드 사이의 참조 연결
 n0.Next = n1
 n1.Next = n2
 n2.Next = n3
@@ -234,13 +234,13 @@ n3.Next = n4
 
 ```swift title="linked_list.swift"
 /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드를 초기화한다
+// 각 노드 초기화
 let n0 = ListNode(x: 1)
 let n1 = ListNode(x: 3)
 let n2 = ListNode(x: 2)
 let n3 = ListNode(x: 5)
 let n4 = ListNode(x: 4)
-// 노드 사이의 참조를 설정한다
+// 노드 사이의 참조 연결
 n0.next = n1
 n1.next = n2
 n2.next = n3
@@ -249,13 +249,13 @@ n3.next = n4
 
 ```javascript title="linked_list.js"
 /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드를 초기화한다
+// 각 노드 초기화
 const n0 = new ListNode(1);
 const n1 = new ListNode(3);
 const n2 = new ListNode(2);
 const n3 = new ListNode(5);
 const n4 = new ListNode(4);
-// 노드 사이의 참조를 설정한다
+// 노드 사이의 참조 연결
 n0.next = n1;
 n1.next = n2;
 n2.next = n3;
@@ -264,13 +264,13 @@ n3.next = n4;
 
 ```typescript title="linked_list.ts"
 /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드를 초기화한다
+// 각 노드 초기화
 const n0 = new ListNode(1);
 const n1 = new ListNode(3);
 const n2 = new ListNode(2);
 const n3 = new ListNode(5);
 const n4 = new ListNode(4);
-// 노드 사이의 참조를 설정한다
+// 노드 사이의 참조 연결
 n0.next = n1;
 n1.next = n2;
 n2.next = n3;
@@ -279,13 +279,13 @@ n3.next = n4;
 
 ```dart title="linked_list.dart"
 // 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화
-// 각 노드를 초기화한다
+// 각 노드 초기화
 ListNode n0 = ListNode(1);
 ListNode n1 = ListNode(3);
 ListNode n2 = ListNode(2);
 ListNode n3 = ListNode(5);
 ListNode n4 = ListNode(4);
-// 노드 사이의 참조를 설정한다
+// 노드 사이의 참조 연결
 n0.next = n1;
 n1.next = n2;
 n2.next = n3;
@@ -294,14 +294,14 @@ n3.next = n4;
 
 ```rust title="linked_list.rs"
 /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드를 초기화한다
+// 각 노드 초기화
 let n0 = ListNode::new(1);
 let n1 = ListNode::new(3);
 let n2 = ListNode::new(2);
 let n3 = ListNode::new(5);
 let n4 = ListNode::new(4);
 
-// 노드 사이의 참조를 설정한다
+// 노드 사이의 참조 연결
 n0.borrow_mut().next = Some(n1.clone());
 n1.borrow_mut().next = Some(n2.clone());
 n2.borrow_mut().next = Some(n3.clone());
@@ -310,13 +310,13 @@ n3.borrow_mut().next = Some(n4.clone());
 
 ```c title="linked_list.c"
 /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드를 초기화한다
+// 각 노드 초기화
 ListNode *n0 = newListNode(1);
 ListNode *n1 = newListNode(3);
 ListNode *n2 = newListNode(2);
 ListNode *n3 = newListNode(5);
 ListNode *n4 = newListNode(4);
-// 노드 사이의 참조를 설정한다
+// 노드 사이의 참조 연결
 n0->next = n1;
 n1->next = n2;
 n2->next = n3;
@@ -325,14 +325,14 @@ n3->next = n4;
 
 ```kotlin title="linked_list.kt"
 /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드를 초기화한다
+// 각 노드 초기화
 val n0 = ListNode(1)
 val n1 = ListNode(3)
 val n2 = ListNode(2)
 val n3 = ListNode(5)
 val n4 = ListNode(4)
 
-// 노드 사이의 참조를 설정한다
+// 노드 사이의 참조 연결
 n0.next = n1
 n1.next = n2
 n2.next = n3
@@ -341,13 +341,13 @@ n3.next = n4
 
 ```ruby title="linked_list.rb"
 # 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화
-# 각 노드를 초기화한다
+# 각 노드 초기화
 n0 = ListNode.new(1)
 n1 = ListNode.new(3)
 n2 = ListNode.new(2)
 n3 = ListNode.new(5)
 n4 = ListNode.new(4)
-# 노드 사이의 참조를 설정한다
+# 노드 사이의 참조 연결
 n0.next = n1
 n1.next = n2
 n2.next = n3
@@ -355,7 +355,7 @@ n3.next = n4
 ```
 
 <!-- [tutor]{init_linked_list_tutor} -->
-https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%EC%97%B0%EA%B2%B0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EB%85%B8%EB%93%9C%20%ED%81%B4%EB%9E%98%EC%8A%A4%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%92%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%ED%9B%84%EC%86%8D%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EC%97%B0%EA%B2%B0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20%23%20%EA%B0%81%20%EB%85%B8%EB%93%9C%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EC%82%AC%EC%9D%B4%EC%9D%98%20%EC%B0%B8%EC%A1%B0%20%EC%84%A4%EC%A0%95%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%EC%97%B0%EA%B2%B0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%9D%98%20%EB%85%B8%EB%93%9C%20%ED%81%B4%EB%9E%98%EC%8A%A4%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%92%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%EB%8B%A4%EC%9D%8C%20%EB%85%B8%EB%93%9C%EC%97%90%20%EB%8C%80%ED%95%9C%20%EC%B0%B8%EC%A1%B0%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EC%97%B0%EA%B2%B0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20%23%20%EA%B0%81%20%EB%85%B8%EB%93%9C%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%EC%B0%B8%EC%A1%B0%EB%A1%9C%20%EB%85%B8%EB%93%9C%20%EC%97%B0%EA%B2%B0%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 <!-- [snippet]{doubly_list_node_class} -->
 ```python title=""
@@ -407,8 +407,8 @@ public class ListNode(int val) {
 /* 이중 연결 리스트 노드 구조체 */
 type DoublyListNode struct {
     Val  int             // 노드 값
-    Next *DoublyListNode // 후속 노드를 가리키는 포인터
-    Prev *DoublyListNode // 선행 노드를 가리키는 포인터
+    Next *DoublyListNode // 다음 노드 포인터
+    Prev *DoublyListNode // 이전 노드 포인터
 }
 
 // NewDoublyListNode 초기화

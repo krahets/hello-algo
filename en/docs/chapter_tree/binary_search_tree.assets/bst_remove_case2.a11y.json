@@ -1,59 +1,45 @@
 {
-  "schema_version": 2,
-  "title": "Delete a node with one child from a binary search tree",
-  "summary": "To delete a node of degree 1, redirect its parent’s reference to the target’s only child.",
-  "context": [
-    "Delete node 2 from a tree rooted at 8 containing values 2 through 15. The starting tree is the result of deleting node 1 in Figure 7-19. Node 2 has only a right child, 3. Two panels with a degree-1 check show the tree before and after deletion. The table compares their links. “Removed” means the node is no longer in the tree."
-  ],
-  "description": [],
-  "result": "The remaining values 3 through 15 preserve search tree order. The operation redirects a link: the original node 3 becomes the left child of 4. It does not overwrite the value in node 2.",
-  "frames": [
-    {
-      "id": "source-123",
-      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case2.png",
-      "title": "Delete a node with one child from a binary search tree",
-      "explanation": "Follow 8 → 4 → 2 to find cur = 2 with parent pre = 4. Node 2 has no left child and one right child 3, so its degree is 1. Clearing 4.left as for a leaf would make node 3 unreachable from the root. Instead, pre.left = cur.right makes 4.left point to 3."
-    }
-  ],
   "animations": {
     "bst-remove-one-child": {
       "kind": "prose",
       "prose": {
-        "title": "Delete a node with one child from a binary search tree",
-        "summary": "To delete a node of degree 1, redirect its parent’s reference to the target’s only child.",
         "context": [
-          "Delete node 2 from a tree rooted at 8 containing values 2 through 15. The starting tree is the result of deleting node 1 in Figure 7-19. Node 2 has only a right child, 3. Two panels with a degree-1 check show the tree before and after deletion. The table compares their links. “Removed” means the node is no longer in the tree."
+          "Delete node 2 from the tree rooted at 8 that contains values 2 through 15. The initial state matches Figure 7-19 after node 1 was deleted: node 2 has only a right child, 3. The figure shows the deletion with before and after panels and a note identifying degree 1. The table compares the connections. “Removed” means the node no longer belongs to the tree."
         ],
         "description": [
-          "Animation steps 1 and 2 correspond to the two before-deletion columns in the links table. The last step corresponds to the two after-deletion columns. Look up any node by its row header in either state."
+          "Animation steps 1 and 2 correspond to the two before-deletion columns of the connection table. The last step corresponds to the two after-deletion columns. Use the node row headings to look up the connections in either state."
         ],
-        "result": "The remaining values 3 through 15 preserve search tree order. The operation redirects a link: the original node 3 becomes the left child of 4. It does not overwrite the value in node 2.",
+        "input_tables": [
+          0
+        ],
+        "result": "After deletion, values 3 through 15 remain in search tree order. The operation changes a parent-child reference. Node 3 keeps its identity and becomes the left child of 4. The value of node 2 is never overwritten.",
         "steps": [
           {
+            "announcement": "Follow the left branch to target node 2 and its parent, 4.",
+            "explanation": "The target 2 is less than 8 and 4. Follow 8→4→2 to reach cur=2 with pre=4. Node 4 currently has left child 2 and right child 6. Node 2 has no left child and has right leaf 3. No deletion has taken place. For the whole tree, see the two before-deletion columns in “Binary search tree connections before and after deleting a node with one child.”",
             "id": "step-1",
-            "title": "Locate target 2 and parent 4",
-            "explanation": "Target 2 is less than 8 and 4. Follow 8→4→2 to find cur=2 and pre=4. Node 4 has left child 2 and right child 6, and 2 has no left child and has right leaf 3. Nothing is deleted yet. For all links see the two before-deletion columns in “Binary search tree links before and after deleting a node with one child.”",
-            "key_state": "With cur = 2 and pre = 4, node 3 is still the right child of 2.",
-            "announcement": "Follow the left branch to find target 2 and parent 4."
+            "key_state": "With cur = 2 and pre = 4, child 3 is still attached to the right of 2.",
+            "title": "Locate target 2 and parent 4"
           },
           {
+            "announcement": "Confirm that target node 2 has just one child, its right child 3.",
+            "explanation": "Check that cur (2) has degree 1 and its only child is 3 on the right. To delete 2, reconnect 3 to the parent. Simply clearing 4.left would lose this connection. So far only the check is complete: pre=4, node 4 still has left child 2 and right child 6, and 2 still has right child 3. The whole tree still matches the two before-deletion columns of the same table.",
             "id": "step-2",
-            "title": "Confirm that 3 is the only child",
-            "explanation": "The check confirms degree 1 for cur (2): its only child is 3 on the right. Deletion must reconnect 3 to the parent; clearing 4.left would lose it. Only the check is complete: pre=4, and 4 still has left child 2 and right child 6, while 2 still has right child 3. The two before-deletion columns still describe the whole tree.",
-            "key_state": "Node 2 has degree 1 with sole right child 3. It is still the left child of parent 4 and has not been deleted.",
-            "announcement": "Confirm that target 2 has only one child, 3 on its right."
+            "key_state": "Node 2 has degree 1 and its only child is its right child, 3. Parent 4 still has left child 2. Deletion has yet to occur.",
+            "title": "Confirm that 3 is the only child"
           },
           {
+            "announcement": "Attach the only child, 3, to the left of parent 4 to finish deleting node 2.",
+            "explanation": "Set pre.left = cur.right so that 4.left points directly to 3, bypassing and detaching 2. The root is still 8, and 4 now has left leaf 3 and right child 6. All other connections stay the same, preserving values 3 through 15. The whole tree matches the two after-deletion columns of the same table, with node 2 marked “Removed.” Only a reference has changed. Node 3 is still the same object.",
             "id": "step-3",
-            "title": "Reconnect node 3 to the parent",
-            "explanation": "Execute pre.left = cur.right. Link 4.left now points directly to 3, bypassing and detaching 2. The root is still 8. Node 4 has left leaf 3 and right child 6, with all other links unchanged and values 3 through 15 retained. The two after-deletion columns mark node 2 as removed. Only a reference changed; node 3 is the original object.",
-            "key_state": "4.left = 3. After deletion, 4 has left child 3 and right child 6. Node 2 has been detached.",
-            "announcement": "Attach the only child 3 to the left of parent 4, completing the deletion of node 2."
+            "key_state": "With 4.left = 3, node 4 now has left child 3 and right child 6. Node 2 has been detached.",
+            "title": "Reconnect node 3 to the parent"
           }
         ],
+        "summary": "To delete a node of degree 1, redirect its parent's reference from the target to the target's only child.",
         "tables": [
           {
-            "caption": "Binary search tree links before and after deleting a node with one child",
+            "caption": "Binary search tree connections before and after deleting a node with one child",
             "headers": [
               "Node",
               "Left child before deletion",
@@ -61,6 +47,7 @@
               "Left child after deletion",
               "Right child after deletion"
             ],
+            "row_header": 0,
             "rows": [
               [
                 "2",
@@ -160,19 +147,31 @@
                 "Empty",
                 "Empty"
               ]
-            ],
-            "row_header": 0
+            ]
           }
         ],
-        "input_tables": [
-          0
-        ]
+        "title": "Deleting a node with one child from a binary search tree"
       }
     }
   },
+  "context": [
+    "Delete node 2 from the tree rooted at 8 that contains values 2 through 15. The initial state matches Figure 7-19 after node 1 was deleted: node 2 has only a right child, 3. The figure shows the deletion with before and after panels and a note identifying degree 1. The table compares the connections. “Removed” means the node no longer belongs to the tree."
+  ],
+  "description": [],
+  "frames": [
+    {
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case2.png",
+      "explanation": "To delete 2, follow 8 → 4 → 2 to find cur = 2 and its parent pre = 4. Node 2 has no left child and has right child 3, so its degree is 1. Simply clearing 4.left as for a leaf would disconnect node 3 from the root even though it must be retained. Instead, set pre.left = cur.right so that 4.left points to 3.",
+      "id": "source-123",
+      "title": "Deleting a node with one child from a binary search tree"
+    }
+  ],
+  "result": "After deletion, values 3 through 15 remain in search tree order. The operation changes a parent-child reference. Node 3 keeps its identity and becomes the left child of 4. The value of node 2 is never overwritten.",
+  "schema_version": 2,
+  "summary": "To delete a node of degree 1, redirect its parent's reference from the target to the target's only child.",
   "tables": [
     {
-      "caption": "Binary search tree links before and after deleting a node with one child",
+      "caption": "Binary search tree connections before and after deleting a node with one child",
       "headers": [
         "Node",
         "Left child before deletion",
@@ -180,6 +179,7 @@
         "Left child after deletion",
         "Right child after deletion"
       ],
+      "row_header": 0,
       "rows": [
         [
           "2",
@@ -279,8 +279,8 @@
           "Empty",
           "Empty"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Deleting a node with one child from a binary search tree"
 }

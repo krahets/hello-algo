@@ -6,7 +6,7 @@ Author: Hello Algo Team
 
 
 def sum_iter(n: int) -> int:
-    """Итеративное суммирование"""
+    """Суммирование в цикле"""
     res = 0
     for i in range(1, n + 1):
         res += i

@@ -7,8 +7,8 @@
 /* 二元樹節點 */
 class TreeNode {
     val; // 節點值
-    left; // 左子節點指標
-    right; // 右子節點指標
+    left; // 指向左子節點的參照
+    right; // 指向右子節點的參照
     height; //節點高度
     constructor(val, left, right, height) {
         this.val = val === undefined ? 0 : val;

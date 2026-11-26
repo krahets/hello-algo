@@ -6,7 +6,7 @@
 
 public class ListNode: Hashable {
     public var val: Int // 節點值
-    public var next: ListNode? // 後繼節點引用
+    public var next: ListNode? // 指向下一個節點的參照
 
     public init(x: Int) {
         val = x

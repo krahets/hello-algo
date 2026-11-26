@@ -8,66 +8,66 @@ import { type TreeNode } from '../modules/TreeNode';
 import { arrToTree } from '../modules/TreeNode';
 import { printTree } from '../modules/PrintUtil';
 
-/* Проверить, является ли текущее состояние решением */
+/* Проверяем, является ли текущее состояние решением */
 function isSolution(state: TreeNode[]): boolean {
     return state && state[state.length - 1]?.val === 7;
 }
 
-/* Записать решение */
+/* Сохраняем решение */
 function recordSolution(state: TreeNode[], res: TreeNode[][]): void {
     res.push([...state]);
 }
 
-/* Проверить, допустим ли этот выбор в текущем состоянии */
+/* Проверяем, допустим ли выбор в текущем состоянии */
 function isValid(state: TreeNode[], choice: TreeNode): boolean {
     return choice !== null && choice.val !== 3;
 }
 
-/* Обновить состояние */
+/* Обновляем состояние */
 function makeChoice(state: TreeNode[], choice: TreeNode): void {
     state.push(choice);
 }
 
-/* Восстановить состояние */
+/* Восстанавливаем состояние */
 function undoChoice(state: TreeNode[]): void {
     state.pop();
 }
 
-/* Алгоритм бэктрекинга: пример 3 */
+/* Поиск с возвратом: пример 3 */
 function backtrack(
     state: TreeNode[],
     choices: TreeNode[],
     res: TreeNode[][]
 ): void {
-    // Проверить, является ли текущее состояние решением
+    // Проверяем, найдено ли решение
     if (isSolution(state)) {
-        // Записать решение
+        // Сохраняем решение
         recordSolution(state, res);
     }
-    // Перебор всех вариантов выбора
+    // Перебираем все варианты
     for (const choice of choices) {
-        // Отсечение: проверить допустимость выбора
+        // Отсечение: проверяем допустимость выбора
         if (isValid(state, choice)) {
-            // Попытка: сделать выбор и обновить состояние
+            // Пробуем вариант и обновляем состояние
             makeChoice(state, choice);
-            // Перейти к следующему выбору
+            // Переходим к следующему выбору
             backtrack(state, [choice.left, choice.right], res);
-            // Откат: отменить выбор и восстановить предыдущее состояние
+            // Возврат: отменяем выбор и восстанавливаем прежнее состояние
             undoChoice(state);
         }
     }
 }
 
-// Driver Code
+// Основная программа
 const root = arrToTree([1, 7, 3, 4, 5, 6, 7]);
-console.log('\nИнициализация двоичного дерева');
+console.log('\nСоздаём двоичное дерево');
 printTree(root);
 
-// Алгоритм бэктрекинга
+// Поиск с возвратом
 const res: TreeNode[][] = [];
 backtrack([], [root], res);
 
-console.log('\nВсе пути от корня к узлу 7, не содержащие узлов со значением 3');
+console.log('\nВыводим все пути от корня до узлов со значением 7 без узлов со значением 3');
 res.forEach((path) => {
     console.log(path.map((node) => node.val));
 });

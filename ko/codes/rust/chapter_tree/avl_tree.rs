@@ -23,26 +23,26 @@ impl AVLTree {
         Self { root: None }
     }
 
-    /* 노드 높이 반환 */
+    /* 노드 높이 구하기 */
     fn height(node: OptionTreeNodeRc) -> i32 {
-        // 빈 노드의 높이는 -1이고, 리프 노드의 높이는 0이다
+        // 빈 노드의 높이는 -1, 리프 노드의 높이는 0이다
         match node {
             Some(node) => node.borrow().height,
             None => -1,
         }
     }
 
-    /* 노드 높이를 갱신한다 */
+    /* 노드 높이 갱신 */
     fn update_height(node: OptionTreeNodeRc) {
         if let Some(node) = node {
             let left = node.borrow().left.clone();
             let right = node.borrow().right.clone();
-            // 노드 높이는 가장 높은 서브트리의 높이 + 1이다
+            // 노드 높이는 가장 높은 서브트리의 높이에 1을 더한 값이다
             node.borrow_mut().height = std::cmp::max(Self::height(left), Self::height(right)) + 1;
         }
     }
 
-    /* 균형 인수 반환 */
+    /* 균형 인수 구하기 */
     fn balance_factor(node: OptionTreeNodeRc) -> i32 {
         match node {
             // 빈 노드의 균형 인수는 0이다
@@ -60,13 +60,13 @@ impl AVLTree {
             Some(node) => {
                 let child = node.borrow().left.clone().unwrap();
                 let grand_child = child.borrow().right.clone();
-                // child를 중심으로 node를 오른쪽으로 회전한다
+                // child를 축으로 node를 오른쪽으로 회전한다
                 child.borrow_mut().right = Some(node.clone());
                 node.borrow_mut().left = grand_child;
-                // 노드 높이를 갱신한다
+                // 노드 높이 갱신
                 Self::update_height(Some(node));
                 Self::update_height(Some(child.clone()));
-                // 회전한 서브트리의 루트 노드를 반환한다
+                // 회전 후 서브트리의 루트 노드를 반환한다
                 Some(child)
             }
             None => None,
@@ -79,20 +79,20 @@ impl AVLTree {
             Some(node) => {
                 let child = node.borrow().right.clone().unwrap();
                 let grand_child = child.borrow().left.clone();
-                // child를 중심으로 node를 왼쪽으로 회전한다
+                // child를 축으로 node를 왼쪽으로 회전한다
                 child.borrow_mut().left = Some(node.clone());
                 node.borrow_mut().right = grand_child;
-                // 노드 높이를 갱신한다
+                // 노드 높이 갱신
                 Self::update_height(Some(node));
                 Self::update_height(Some(child.clone()));
-                // 회전한 서브트리의 루트 노드를 반환한다
+                // 회전 후 서브트리의 루트 노드를 반환한다
                 Some(child)
             }
             None => None,
         }
     }
 
-    /* 회전 연산을 수행하여 해당 서브트리의 균형 복원 */
+    /* 회전으로 이 서브트리의 균형을 회복한다 */
     fn rotate(node: OptionTreeNodeRc) -> OptionTreeNodeRc {
         // 노드 node의 균형 인수를 구한다
         let balance_factor = Self::balance_factor(node.clone());
@@ -103,7 +103,7 @@ impl AVLTree {
                 // 오른쪽 회전
                 Self::right_rotate(Some(node))
             } else {
-                // 왼쪽으로 회전한 후 오른쪽으로 회전한다
+                // 왼쪽 회전 후 오른쪽 회전
                 let left = node.borrow().left.clone();
                 node.borrow_mut().left = Self::left_rotate(left);
                 Self::right_rotate(Some(node))
@@ -116,13 +116,13 @@ impl AVLTree {
                 // 왼쪽 회전
                 Self::left_rotate(Some(node))
             } else {
-                // 오른쪽으로 회전한 후 왼쪽으로 회전한다
+                // 오른쪽 회전 후 왼쪽 회전
                 let right = node.borrow().right.clone();
                 node.borrow_mut().right = Self::right_rotate(right);
                 Self::left_rotate(Some(node))
             }
         } else {
-            // 균형 트리이므로 회전할 필요 없이 바로 반환한다
+            // 균형이 잡혔으므로 회전 없이 바로 반환한다
             node
         }
     }
@@ -132,7 +132,7 @@ impl AVLTree {
         self.root = Self::insert_helper(self.root.clone(), val);
     }
 
-    /* 노드의 재귀적 삽입(보조 메서드) */
+    /* 재귀적 노드 삽입(보조 메서드) */
     fn insert_helper(node: OptionTreeNodeRc, val: i32) -> OptionTreeNodeRc {
         match node {
             Some(mut node) => {
@@ -155,9 +155,9 @@ impl AVLTree {
                         return Some(node); // 중복 노드는 삽입하지 않고 바로 반환한다
                     }
                 }
-                Self::update_height(Some(node.clone())); // 노드 높이를 갱신한다
+                Self::update_height(Some(node.clone())); // 노드 높이 갱신
 
-                /* 2. 회전 연산을 수행하여 해당 서브트리의 균형을 복원한다 */
+                /* 2. 회전으로 이 서브트리의 균형을 회복한다 */
                 node = Self::rotate(Some(node)).unwrap();
                 // 서브트리의 루트 노드를 반환한다
                 Some(node)
@@ -171,7 +171,7 @@ impl AVLTree {
         Self::remove_helper(self.root.clone(), val);
     }
 
-    /* 노드의 재귀적 삭제(보조 메서드) */
+    /* 재귀적 노드 삭제(보조 메서드) */
     fn remove_helper(node: OptionTreeNodeRc, val: i32) -> OptionTreeNodeRc {
         match node {
             Some(mut node) => {
@@ -189,15 +189,15 @@ impl AVLTree {
                         node.borrow().right.clone()
                     };
                     match child {
-                        // 자식 노드 수 = 0이면 node를 바로 삭제하고 반환한다
+                        // 자식 수 = 0. node를 바로 삭제하고 반환한다
                         None => {
                             return None;
                         }
-                        // 자식 노드 수 = 1이면 node를 바로 삭제한다
+                        // 자식 수 = 1. node를 바로 삭제한다
                         Some(child) => node = child,
                     }
                 } else {
-                    // 자식 노드 수 = 2이면 중위 순회의 다음 노드를 삭제하고, 그 노드로 현재 노드를 대체한다
+                    // 자식 수 = 2. 중위 순회에서 다음에 오는 노드를 삭제하고 그 값으로 현재 노드의 값을 대체한다
                     let mut temp = node.borrow().right.clone().unwrap();
                     loop {
                         let temp_left = temp.borrow().left.clone();
@@ -210,9 +210,9 @@ impl AVLTree {
                     node.borrow_mut().right = Self::remove_helper(right, temp.borrow().val);
                     node.borrow_mut().val = temp.borrow().val;
                 }
-                Self::update_height(Some(node.clone())); // 노드 높이를 갱신한다
+                Self::update_height(Some(node.clone())); // 노드 높이 갱신
 
-                /* 2. 회전 연산을 수행하여 해당 서브트리의 균형을 복원한다 */
+                /* 2. 회전으로 이 서브트리의 균형을 회복한다 */
                 node = Self::rotate(Some(node)).unwrap();
                 // 서브트리의 루트 노드를 반환한다
                 Some(node)
@@ -224,24 +224,24 @@ impl AVLTree {
     /* 노드 탐색 */
     fn search(&self, val: i32) -> OptionTreeNodeRc {
         let mut cur = self.root.clone();
-        // 반복하여 탐색하다 리프 노드를 지나면 종료한다
+        // 반복해서 찾다가 리프 노드를 지나면 종료한다
         while let Some(current) = cur.clone() {
             match current.borrow().val.cmp(&val) {
-                // 목표 노드는 cur의 오른쪽 서브트리에 있다
+                // 찾는 노드는 cur의 오른쪽 서브트리에 있다
                 Ordering::Less => {
                     cur = current.borrow().right.clone();
                 }
-                // 목표 노드는 cur의 왼쪽 서브트리에 있다
+                // 찾는 노드는 cur의 왼쪽 서브트리에 있다
                 Ordering::Greater => {
                     cur = current.borrow().left.clone();
                 }
-                // 목표 노드를 찾았으므로 반복문을 종료한다
+                // 찾는 노드를 발견했으므로 반복문을 종료한다
                 Ordering::Equal => {
                     break;
                 }
             }
         }
-        // 목표 노드를 반환한다
+        // 찾은 노드를 반환한다
         cur
     }
 }
@@ -250,13 +250,13 @@ impl AVLTree {
 fn main() {
     fn test_insert(tree: &mut AVLTree, val: i32) {
         tree.insert(val);
-        println!("\n노드 {} 삽입 후의 AVL 트리", val);
+        println!("\n노드 {} 삽입 후 AVL 트리:", val);
         print_util::print_tree(&tree.root.clone().unwrap());
     }
 
     fn test_remove(tree: &mut AVLTree, val: i32) {
         tree.remove(val);
-        println!("\n노드 {} 삭제 후의 AVL 트리", val);
+        println!("\n노드 {} 삭제 후 AVL 트리:", val);
         print_util::print_tree(&tree.root.clone().unwrap());
     }
 
@@ -264,7 +264,7 @@ fn main() {
     let mut avl_tree = AVLTree::new();
 
     /* 노드 삽입 */
-    // 노드를 삽입한 후 AVL 트리가 어떻게 균형을 유지하는지 살펴본다
+    // 노드를 삽입한 뒤 AVL 트리가 어떻게 균형을 유지하는지 살펴본다
     test_insert(&mut avl_tree, 1);
     test_insert(&mut avl_tree, 2);
     test_insert(&mut avl_tree, 3);
@@ -280,7 +280,7 @@ fn main() {
     test_insert(&mut avl_tree, 7);
 
     /* 노드 삭제 */
-    // 노드를 삭제한 후 AVL 트리가 어떻게 균형을 유지하는지 살펴본다
+    // 노드를 삭제한 뒤 AVL 트리가 어떻게 균형을 유지하는지 살펴본다
     test_remove(&mut avl_tree, 8); // 차수가 0인 노드 삭제
     test_remove(&mut avl_tree, 5); // 차수가 1인 노드 삭제
     test_remove(&mut avl_tree, 4); // 차수가 2인 노드 삭제

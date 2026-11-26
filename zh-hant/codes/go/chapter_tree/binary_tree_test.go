@@ -19,7 +19,7 @@ func TestBinaryTree(t *testing.T) {
 	n3 := NewTreeNode(3)
 	n4 := NewTreeNode(4)
 	n5 := NewTreeNode(5)
-	// 構建節點之間的引用（指標）
+	// 建立節點之間的參照（指標）
 	n1.Left = n2
 	n1.Right = n3
 	n2.Left = n4

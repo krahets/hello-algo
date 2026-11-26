@@ -11,14 +11,14 @@ require_relative '../utils/print_util'
 def pre_order(root)
   return unless root
 
-  # 記錄解
+  # 記錄此解
   $res << root if root.val == 7
 
   pre_order(root.left)
   pre_order(root.right)
 end
 
-### Driver Code ###
+### 主程式 ###
 if __FILE__ == $0
   root = arr_to_tree([1, 7, 3, 4, 5, 6, 7])
   puts "\n初始化二元樹"

@@ -1,53 +1,53 @@
-# N-queens problem
+# The n-queens problem
 
 !!! question
 
-    In chess, a queen can attack any piece in the same row, column, or diagonal. Given $n$ queens and an $n \times n$ chessboard, find all arrangements in which no two queens can attack each other.
+    In chess, a queen can attack a piece in the same row, column, or diagonal. Given $n$ queens and an $n \times n$ board, find the arrangements in which no two queens attack each other.
 
-As shown in the figure below, there are two solutions when $n = 4$. From a backtracking perspective, the $n \times n$ board has $n^2$ squares, which provide all possible `choices`. As we place queens one by one, the board changes; its arrangement at any moment is the current `state`.
+As the figure shows, there are two solutions when $n = 4$. In a backtracking search, the $n^2$ squares of the $n \times n$ board constitute the possible choices `choices`. As we place one queen after another, the board changes. Its arrangement at any point is the current state `state`.
 
 ![Solutions to the 4-queens problem](n_queens_problem.assets/solution_4_queens.svg)
 
-The figure below shows the three constraints: **no two queens may share a row, column, or diagonal**. Diagonals run in two directions: the main-diagonal direction `\` and the antidiagonal direction `/`.
+The figure illustrates three constraints: **no two queens may share a row, a column, or a diagonal**. Diagonals run in two directions: main diagonals `\` and secondary diagonals `/`.
 
-![Constraints of the n-queens problem](n_queens_problem.assets/n_queens_constraints.svg)
+![Constraints in the n-queens problem](n_queens_problem.assets/n_queens_constraints.svg)
 
 ### Placing queens row by row
 
-There are as many queens as rows, namely $n$, so we can immediately conclude that **each row must contain exactly one queen**.
+Both the number of queens and the number of rows equal $n$. It follows that **each row must contain exactly one queen**.
 
-We can therefore place queens row by row: start at the first row and place one queen in each row through the last.
+We can therefore place queens row by row, starting at the first row and placing one queen in each row through the last.
 
-The figure below illustrates this process for 4 queens. To fit the illustration, only one branch from the first row is expanded, and all arrangements violating the column or diagonal constraints are pruned.
+The figure shows row-by-row placement for four queens. To save space, it expands just one branch from the first row. Branches that violate a column or diagonal constraint have been pruned.
 
 ![Placing queens row by row](n_queens_problem.assets/n_queens_placing.svg)
 
-In essence, **placing queens row by row is itself a form of pruning**: it eliminates every search branch that places multiple queens in the same row.
+In effect, **placing queens row by row prunes the search** by excluding every branch that would place multiple queens in one row.
 
-### Pruning by columns and diagonals
+### Pruning by column and diagonal
 
-To enforce the column constraint, use a Boolean array `cols` of length $n$ to record whether each column contains a queen. Before placing a queen, consult `cols` to prune columns already occupied, and update `cols` as the search proceeds and backtracks.
+To enforce the column constraint, use a Boolean array `cols` of length $n$ to track which columns already contain queens. Before placing a queen, consult `cols` to skip occupied columns. Update `cols` as the search proceeds and backtracks.
 
 !!! tip
 
-    The matrix starts at its top-left corner. Row indices increase downward, and column indices increase to the right.
+    The matrix starts in the upper-left corner. Row indices increase downward and column indices increase to the right.
 
-How do we enforce the diagonal constraints? Let $(row, col)$ be the row and column indices of a square. Along any diagonal in the main-diagonal direction, the row index minus the column index is the same: **$row - col$ is constant along that diagonal**.
+How can we enforce the diagonal constraints? Let $(row, col)$ be the row and column indices of a square. Along any main diagonal, subtracting the column index from the row index always gives the same result: **the value of $row - col$ is constant along a main diagonal**.
 
-Thus, if two squares satisfy $row_1 - col_1 = row_2 - col_2$, they lie on the same main-direction diagonal. Using this property, the array `diags1` in the figure below records whether each such diagonal contains a queen.
+Thus, if two squares satisfy $row_1 - col_1 = row_2 - col_2$, they lie on the same main diagonal. We can use this property to track which main diagonals contain queens in the array `diags1`, as shown below.
 
-Similarly, **$row + col$ is constant along each antidiagonal**. We can use an array `diags2` to enforce the antidiagonal constraint.
+Similarly, **the value of $row + col$ is constant along a secondary diagonal**. The array `diags2` lets us enforce this constraint as well.
 
-![Enforcing column and diagonal constraints](n_queens_problem.assets/n_queens_cols_diagonals.svg)
+![Checking column and diagonal constraints](n_queens_problem.assets/n_queens_cols_diagonals.svg)
 
-### Code implementation
+### Implementation
 
-In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and $row + col$ ranges over $[0, 2n - 2]$. There are therefore $2n - 1$ diagonals in each direction, so both `diags1` and `diags2` have length $2n - 1$.
+In a square matrix with $n$ rows, $row - col$ ranges over $[-n + 1, n - 1]$, and $row + col$ ranges over $[0, 2n - 2]$. There are therefore $2n - 1$ diagonals in each direction, so `diags1` and `diags2` each have length $2n - 1$.
 
 ```src
 [file]{n_queens}-[class]{}-[func]{n_queens}
 ```
 
-We place a queen in each of $n$ rows. Considering the column constraint, the successive rows have $n$, $n-1$, $\dots$, $2$, and $1$ choices, giving $O(n!)$ time. Recording a solution requires copying the matrix `state` and appending the copy to `res`, which takes $O(n^2)$ time. **The overall time complexity is therefore $O(n! \cdot n^2)$**. In practice, diagonal pruning greatly reduces the search space, so the search is often faster than this bound suggests.
+We make $n$ placements, one per row. The column constraint leaves $n$, $n-1$, $\dots$, $2$, and $1$ choices in successive rows, taking $O(n!)$ time. To record a solution, we copy the matrix `state` into `res`. Each copy takes $O(n^2)$ time, giving an **overall time complexity of $O(n! \cdot n^2)$**. In practice, diagonal pruning can shrink the search space considerably, so the search often runs faster than this bound suggests.
 
-The array `state` uses $O(n^2)$ space, while `cols`, `diags1`, and `diags2` each use $O(n)$ space. The maximum recursion depth is $n$, requiring $O(n)$ space for stack frames. **The space complexity is therefore $O(n^2)$**.
+The array `state` takes $O(n^2)$ space, while `cols`, `diags1`, and `diags2` each take $O(n)$ space. The maximum recursion depth is $n$, requiring $O(n)$ space for stack frames. The **space complexity is therefore $O(n^2)$**.

@@ -4,19 +4,19 @@ Created Time: 2024-04-05
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### 基於環形陣列實現的佇列 ###
+### 以環狀陣列實作佇列 ###
 class ArrayQueue
-  ### 獲取佇列的長度 ###
+  ### 取得佇列長度 ###
   attr_reader :size
 
-  ### 建構子 ###
+  ### 初始化方法 ###
   def initialize(size)
-    @nums = Array.new(size, 0) # 用於儲存佇列元素的陣列
-    @front = 0 # 佇列首指標，指向佇列首元素
+    @nums = Array.new(size, 0) # 存放佇列元素的陣列
+    @front = 0 # 隊首索引，記錄隊首元素在陣列中的位置
     @size = 0 # 佇列長度
   end
 
-  ### 獲取佇列的容量 ###
+  ### 取得佇列容量 ###
   def capacity
     @nums.length
   end
@@ -26,35 +26,35 @@ class ArrayQueue
     size.zero?
   end
 
-  ### 入列 ###
+  ### 入隊 ###
   def push(num)
     raise IndexError, '佇列已滿' if size == capacity
 
-    # 計算佇列尾指標，指向佇列尾索引 + 1
-    # 透過取餘操作實現 rear 越過陣列尾部後回到頭部
+    # 計算下一次從隊尾寫入的位置 rear（隊尾索引 + 1）
+    # 取餘數，讓 rear 超過陣列末端時繞回開頭
     rear = (@front + size) % capacity
-    # 將 num 新增至佇列尾
+    # 將 num 加到隊尾
     @nums[rear] = num
     @size += 1
   end
 
-  ### 出列 ###
+  ### 出隊 ###
   def pop
     num = peek
-    # 佇列首指標向後移動一位，若越過尾部，則返回到陣列頭部
+    # 將隊首索引往後移一格，若超過陣列末端就繞回開頭
     @front = (@front + 1) % capacity
     @size -= 1
     num
   end
 
-  ### 訪問佇列首元素 ###
+  ### 讀取隊首元素 ###
   def peek
     raise IndexError, '佇列為空' if is_empty?
 
     @nums[@front]
   end
 
-  ### 返回串列用於列印 ###
+  ### 回傳陣列以便輸出 ###
   def to_array
     res = Array.new(size, 0)
     j = @front
@@ -68,12 +68,12 @@ class ArrayQueue
   end
 end
 
-### Driver Code ###
+### 範例程式 ###
 if __FILE__ == $0
   # 初始化佇列
   queue = ArrayQueue.new(10)
 
-  # 元素入列
+  # 將元素加入佇列
   queue.push(1)
   queue.push(3)
   queue.push(2)
@@ -81,16 +81,16 @@ if __FILE__ == $0
   queue.push(4)
   puts "佇列 queue = #{queue.to_array}"
 
-  # 訪問佇列首元素
+  # 讀取隊首元素
   peek = queue.peek
-  puts "佇列首元素 peek = #{peek}"
+  puts "隊首元素 peek = #{peek}"
 
-  # 元素出列
+  # 從佇列取出元素
   pop = queue.pop
-  puts "出列元素 pop = #{pop}"
-  puts "出列後 queue = #{queue.to_array}"
+  puts "出隊元素 pop = #{pop}"
+  puts "出隊後 queue = #{queue.to_array}"
 
-  # 獲取佇列的長度
+  # 取得佇列長度
   size = queue.size
   puts "佇列長度 size = #{size}"
 
@@ -98,10 +98,10 @@ if __FILE__ == $0
   is_empty = queue.is_empty?
   puts "佇列是否為空 = #{is_empty}"
 
-  # 測試環形陣列
+  # 測試環狀陣列
   for i in 0...10
     queue.push(i)
     queue.pop
-    puts "第 #{i} 輪入列 + 出列後 queue = #{queue.to_array}"
+    puts "第 #{i} 輪入隊 + 出隊後 queue = #{queue.to_array}"
   end
 end

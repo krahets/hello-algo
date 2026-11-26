@@ -6,28 +6,28 @@
 
 import '../utils/list_node.dart';
 
-/* Linear search (array) */
+/* Linear search in an array */
 int linearSearchArray(List<int> nums, int target) {
   // Traverse the array
   for (int i = 0; i < nums.length; i++) {
-    // The target element was found; return its index
+    // Found the target. Return its index
     if (nums[i] == target) {
       return i;
     }
   }
-  // The target element was not found; return -1
+  // Target not found. Return -1
   return -1;
 }
 
-/* Linear search (linked list) */
+/* Linear search in a linked list */
 ListNode? linearSearchList(ListNode? head, int target) {
   // Traverse the linked list
   while (head != null) {
-    // The target node was found; return it
+    // Found the target node. Return it
     if (head.val == target) return head;
     head = head.next;
   }
-  // The target element was not found; return null
+  // Target element not found. Return null
   return null;
 }
 
@@ -35,13 +35,13 @@ ListNode? linearSearchList(ListNode? head, int target) {
 void main() {
   int target = 3;
 
-  /* Perform linear search on the array */
+  /* Run linear search on the array */
   List<int> nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
   int index = linearSearchArray(nums, target);
-  print('Index of target element 3 = $index');
+  print('Index of target 3 = $index');
 
-  /* Perform linear search on the linked list */
+  /* Run linear search on the linked list */
   ListNode? head = listToLinkedList(nums);
   ListNode? node = linearSearchList(head, target);
-  print('Node object with target value 3: $node');
+  print('Node object for target value 3 = $node');
 }

@@ -16,12 +16,12 @@ impl From<i32> for Vertex {
     }
 }
 
-/* 輸入值串列 vals ，返回頂點串列 vets */
+/* 傳入數值向量 vals，回傳頂點向量 vets */
 pub fn vals_to_vets(vals: Vec<i32>) -> Vec<Vertex> {
     vals.into_iter().map(|val| val.into()).collect()
 }
 
-/* 輸入頂點串列 vets ，返回值串列 vals */
+/* 傳入頂點向量 vets，回傳數值向量 vals */
 pub fn vets_to_vals(vets: Vec<Vertex>) -> Vec<i32> {
     vets.into_iter().map(|vet| vet.val).collect()
 }

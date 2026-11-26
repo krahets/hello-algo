@@ -6,15 +6,15 @@
 
 package chapter_greedy
 
-/* Coin change: greedy algorithm */
+/* Greedy coin change */
 fun coinChangeGreedy(coins: IntArray, amt: Int): Int {
-    // Assume coins is sorted in ascending order
+    // Assume the coins list is sorted
     var am = amt
     var i = coins.size - 1
     var count = 0
-    // Repeatedly make greedy choices until no amount remains
+    // Make greedy choices until no amount remains
     while (am > 0) {
-        // Find the largest coin no greater than the remaining amount
+        // Find the largest denomination that does not exceed the remaining amount
         while (i > 0 && coins[i] > am) {
             i--
         }
@@ -28,26 +28,26 @@ fun coinChangeGreedy(coins: IntArray, amt: Int): Int {
 
 /* Driver code */
 fun main() {
-    // Greedy algorithm: guaranteed to find a globally optimal solution
+    // Greedy choices are guaranteed to give a global optimum here
     var coins = intArrayOf(1, 5, 10, 20, 50, 100)
     var amt = 186
     var res = coinChangeGreedy(coins, amt)
     println("\ncoins = ${coins.contentToString()}, amt = $amt")
-    println("For amount $amt, the greedy coin count is $res")
+    println("The minimum number of coins needed to make $amt is $res")
 
-    // Greedy algorithm: not guaranteed to find a globally optimal solution
+    // Greedy choices do not guarantee a global optimum here
     coins = intArrayOf(1, 20, 50)
     amt = 60
     res = coinChangeGreedy(coins, amt)
     println("\ncoins = ${coins.contentToString()}, amt = $amt")
-    println("For amount $amt, the greedy coin count is $res")
+    println("The minimum number of coins needed to make $amt is $res")
     println("The actual minimum is 3 coins: 20 + 20 + 20")
 
-    // Greedy algorithm: not guaranteed to find a globally optimal solution
+    // Greedy choices do not guarantee a global optimum here
     coins = intArrayOf(1, 49, 50)
     amt = 98
     res = coinChangeGreedy(coins, amt)
     println("\ncoins = ${coins.contentToString()}, amt = $amt")
-    println("For amount $amt, the greedy coin count is $res")
+    println("The minimum number of coins needed to make $amt is $res")
     println("The actual minimum is 2 coins: 49 + 49")
 }

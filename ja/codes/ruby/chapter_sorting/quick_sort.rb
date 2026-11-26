@@ -7,32 +7,32 @@ Author: Cy (3739004@gmail.com), Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 ### クイックソートクラス ###
 class QuickSort
   class << self
-    ### 番兵を用いた分割 ###
+    ### 左右から走査して分割 ###
     def partition(nums, left, right)
       # nums[left] をピボットとする
       i, j = left, right
       while i < j
         while i < j && nums[j] >= nums[left]
-          j -= 1 # 右から左へ、ピボットより小さい最初の要素を探す
+          j -= 1 # 右から左へ走査し、ピボットより小さい最初の要素を探す
         end
         while i < j && nums[i] <= nums[left]
-          i += 1 # 左から右へ、ピボットより大きい最初の要素を探す
+          i += 1 # 左から右へ走査し、ピボットより大きい最初の要素を探す
         end
-        # 要素の交換
+        # 要素を交換
         nums[i], nums[j] = nums[j], nums[i]
       end
-      # ピボットを 2 つの部分配列の境界に移す
+      # ピボットを交換して左右の部分配列の境界に移す
       nums[i], nums[left] = nums[left], nums[i]
       i # ピボットのインデックスを返す
     end
 
     ### クイックソートクラス ###
     def quick_sort(nums, left, right)
-      # 部分配列の長さが 1 でない場合、再帰する
+      # 部分配列の長さが 1 でなければ再帰する
       if left < right
-        # 番兵を用いた分割
+        # 左右から走査して分割
         pivot = partition(nums, left, right)
-        # 左部分配列と右部分配列を再帰的に処理する
+        # 左右の部分配列を再帰的に処理
         quick_sort(nums, left, pivot - 1)
         quick_sort(nums, pivot + 1, right)
       end
@@ -41,49 +41,49 @@ class QuickSort
   end
 end
 
-### クイックソートクラス（中央値による最適化）###
+### クイックソートクラス（中央値を使用）###
 class QuickSortMedian
   class << self
-    ### 候補となる 3 要素の中央値を選ぶ ###
+    ### 3 つの候補の中央値を選ぶ ###
     def median_three(nums, left, mid, right)
-      # 候補となる 3 要素の中央値を選ぶ
+      # 3 つの候補の中央値を選ぶ
       _l, _m, _r = nums[left], nums[mid], nums[right]
-      # m が l と r の間にある
+      # m の値は l と r の値の間にある
       return mid if (_l <= _m && _m <= _r) || (_r <= _m && _m <= _l)
-      # l が m と r の間にある
+      # l の値は m と r の値の間にある
       return left if (_m <= _l && _l <= _r) || (_r <= _l && _l <= _m)
       return right
     end
 
-    ### 番兵を用いた分割（3 値の中央値を選択）###
+    ### 左右から走査して分割（3 要素の中央値を使用）###
     def partition(nums, left, right)
       ### nums[left] をピボットとする
       med = median_three(nums, left, (left + right) / 2, right)
-      # 中央値を配列の左端に移す
+      # 中央値の要素を配列の左端に移す
       nums[left], nums[med] = nums[med], nums[left]
       i, j = left, right
       while i < j
         while i < j && nums[j] >= nums[left]
-          j -= 1 # 右から左へ、ピボットより小さい最初の要素を探す
+          j -= 1 # 右から左へ走査し、ピボットより小さい最初の要素を探す
         end
         while i < j && nums[i] <= nums[left]
-          i += 1 # 左から右へ、ピボットより大きい最初の要素を探す
+          i += 1 # 左から右へ走査し、ピボットより大きい最初の要素を探す
         end
-        # 要素の交換
+        # 要素を交換
         nums[i], nums[j] = nums[j], nums[i]
       end
-      # ピボットを 2 つの部分配列の境界に移す
+      # ピボットを交換して左右の部分配列の境界に移す
       nums[i], nums[left] = nums[left], nums[i]
       i # ピボットのインデックスを返す
     end
 
     ### クイックソート ###
     def quick_sort(nums, left, right)
-      # 部分配列の長さが 1 でない場合、再帰する
+      # 部分配列の長さが 1 でなければ再帰する
       if left < right
-        # 番兵を用いた分割
+        # 左右から走査して分割
         pivot = partition(nums, left, right)
-        # 左部分配列と右部分配列を再帰的に処理する
+        # 左右の部分配列を再帰的に処理
         quick_sort(nums, left, pivot - 1)
         quick_sort(nums, pivot + 1, right)
       end
@@ -92,62 +92,62 @@ class QuickSortMedian
   end
 end
 
-### クイックソートクラス（再帰の深さの最適化）###
+### クイックソートクラス（再帰の深さを最適化）###
 class QuickSortTailCall
   class << self
-    ### 番兵を用いた分割 ###
+    ### 左右から走査して分割 ###
     def partition(nums, left, right)
       # nums[left] をピボットとする
       i = left
       j = right
       while i < j
         while i < j && nums[j] >= nums[left]
-          j -= 1 # 右から左へ、ピボットより小さい最初の要素を探す
+          j -= 1 # 右から左へ走査し、ピボットより小さい最初の要素を探す
         end
         while i < j && nums[i] <= nums[left]
-          i += 1 # 左から右へ、ピボットより大きい最初の要素を探す
+          i += 1 # 左から右へ走査し、ピボットより大きい最初の要素を探す
         end
-        # 要素の交換
+        # 要素を交換
         nums[i], nums[j] = nums[j], nums[i]
       end
-      # ピボットを 2 つの部分配列の境界に移す
+      # ピボットを交換して左右の部分配列の境界に移す
       nums[i], nums[left] = nums[left], nums[i]
       i # ピボットのインデックスを返す
     end
 
-    ### クイックソート（再帰の深さの最適化）###
+    ### クイックソート（再帰の深さを最適化）###
     def quick_sort(nums, left, right)
-      # 部分配列の長さが 1 でない場合、再帰する
+      # 部分配列の長さが 1 でなければ再帰する
       while left < right
-        # 番兵を用いた分割
+        # 左右から走査して分割
         pivot = partition(nums, left, right)
-        # 2 つの部分配列のうち短いほうにクイックソートを適用する
+        # 短いほうの部分配列にクイックソートを適用
         if pivot - left < right - pivot
           quick_sort(nums, left, pivot - 1)
-          left = pivot + 1 # 残りの未ソート区間は [pivot + 1, right]
+          left = pivot + 1 # 残りの未整列区間は [pivot + 1, right]
         else
           quick_sort(nums, pivot + 1, right)
-          right = pivot - 1 # 残りの未ソート区間は [left, pivot - 1]
+          right = pivot - 1 # 残りの未整列区間は [left, pivot - 1]
         end
       end
     end
   end
 end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   # クイックソート
   nums = [2, 4, 1, 0, 3, 5]
   QuickSort.quick_sort(nums, 0, nums.length - 1)
-  puts "クイックソート完了後 nums = #{nums}"
+  puts "クイックソート後の nums = #{nums}"
 
-  # クイックソート（中央値ピボットによる最適化）
+  # クイックソート（中央値をピボットに使用）
   nums1 = [2, 4, 1, 0, 3, 5]
   QuickSortMedian.quick_sort(nums1, 0, nums1.length - 1)
-  puts "クイックソート（中央値ピボットによる最適化）の完了後 nums1 = #{nums1}"
+  puts "クイックソート（中央値をピボットに使用）後の nums1 = #{nums1}"
 
-  # クイックソート（再帰の深さの最適化）
+  # クイックソート（再帰の深さを最適化）
   nums2 = [2, 4, 1, 0, 3, 5]
   QuickSortTailCall.quick_sort(nums2, 0, nums2.length - 1)
-  puts "クイックソート（再帰の深さの最適化）の完了後 nums2 = #{nums2}"
+  puts "クイックソート（再帰の深さを最適化）後の nums2 = #{nums2}"
 end

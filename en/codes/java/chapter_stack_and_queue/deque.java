@@ -15,25 +15,25 @@ public class deque {
         deque.offerLast(3);
         deque.offerLast(2);
         deque.offerLast(5);
-        System.out.println("Deque deque = " + deque);
+        System.out.println("deque = " + deque);
 
-        /* Access an element */
+        /* Peek at the front and rear elements */
         int peekFirst = deque.peekFirst();
-        System.out.println("Front element peekFirst = " + peekFirst);
+        System.out.println("Front element (peekFirst) = " + peekFirst);
         int peekLast = deque.peekLast();
-        System.out.println("Rear element peekLast = " + peekLast);
+        System.out.println("Rear element (peekLast) = " + peekLast);
 
-        /* Enqueue elements */
+        /* Add elements to the deque */
         deque.offerLast(4);
-        System.out.println("After enqueuing element 4 at the rear, deque = " + deque);
+        System.out.println("After adding 4 at the rear, deque = " + deque);
         deque.offerFirst(1);
-        System.out.println("After enqueuing element 1 at the front, deque = " + deque);
+        System.out.println("After adding 1 at the front, deque = " + deque);
 
-        /* Dequeue an element */
+        /* Remove elements from both ends */
         int popLast = deque.pollLast();
-        System.out.println("Element dequeued from the rear = " + popLast + ", after dequeuing from the rear, deque = " + deque);
+        System.out.println("Removed from the rear = " + popLast + ", deque after removal = " + deque);
         int popFirst = deque.pollFirst();
-        System.out.println("Element dequeued from the front = " + popFirst + ", after dequeuing from the front, deque = " + deque);
+        System.out.println("Removed from the front = " + popFirst + ", deque after removal = " + deque);
 
         /* Get the deque size */
         int size = deque.size();
@@ -41,6 +41,6 @@ public class deque {
 
         /* Check whether the deque is empty */
         boolean isEmpty = deque.isEmpty();
-        System.out.println("Is the deque empty = " + isEmpty);
+        System.out.println("Deque is empty = " + isEmpty);
     }
 }

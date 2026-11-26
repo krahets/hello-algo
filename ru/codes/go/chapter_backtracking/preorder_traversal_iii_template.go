@@ -8,49 +8,49 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-/* Проверить, является ли текущее состояние решением */
+/* Проверяем, является ли текущее состояние решением */
 func isSolution(state *[]*TreeNode) bool {
 	return len(*state) != 0 && (*state)[len(*state)-1].Val == 7
 }
 
-/* Записать решение */
+/* Сохраняем решение */
 func recordSolution(state *[]*TreeNode, res *[][]*TreeNode) {
 	*res = append(*res, append([]*TreeNode{}, *state...))
 }
 
-/* Проверить, допустим ли этот выбор в текущем состоянии */
+/* Проверяем, допустим ли выбор в текущем состоянии */
 func isValid(state *[]*TreeNode, choice *TreeNode) bool {
 	return choice != nil && choice.Val != 3
 }
 
-/* Обновить состояние */
+/* Обновляем состояние */
 func makeChoice(state *[]*TreeNode, choice *TreeNode) {
 	*state = append(*state, choice)
 }
 
-/* Восстановить состояние */
+/* Восстанавливаем состояние */
 func undoChoice(state *[]*TreeNode, choice *TreeNode) {
 	*state = (*state)[:len(*state)-1]
 }
 
-/* Алгоритм бэктрекинга: пример 3 */
+/* Поиск с возвратом: пример 3 */
 func backtrackIII(state *[]*TreeNode, choices *[]*TreeNode, res *[][]*TreeNode) {
-	// Проверить, является ли текущее состояние решением
+	// Проверяем, найдено ли решение
 	if isSolution(state) {
-		// Записать решение
+		// Сохраняем решение
 		recordSolution(state, res)
 	}
-	// Перебор всех вариантов выбора
+	// Перебираем все варианты
 	for _, choice := range *choices {
-		// Отсечение: проверить допустимость выбора
+		// Отсечение: проверяем допустимость выбора
 		if isValid(state, choice) {
-			// Попытка: сделать выбор и обновить состояние
+			// Пробуем вариант и обновляем состояние
 			makeChoice(state, choice)
-			// Перейти к следующему выбору
+			// Переходим к следующему выбору
 			temp := make([]*TreeNode, 0)
 			temp = append(temp, choice.Left, choice.Right)
 			backtrackIII(state, &temp, res)
-			// Откат: отменить выбор и восстановить предыдущее состояние
+			// Возврат: отменяем выбор и восстанавливаем прежнее состояние
 			undoChoice(state, choice)
 		}
 	}

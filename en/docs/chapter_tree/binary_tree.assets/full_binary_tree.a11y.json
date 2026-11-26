@@ -1,18 +1,18 @@
 {
-  "schema_version": 2,
-  "title": "Full binary tree: every node has degree 0 or 2",
-  "summary": "A full binary tree constrains each node’s number of children. It does not require every level to be full.",
   "context": [],
   "description": [
-    "The tree on the left has four levels and 7 unlabeled nodes. The root’s right child is a leaf. Its left child has two children: the left one is a leaf and the right one branches into two more leaves.",
-    "A node’s degree is its number of children. The title reads “Full binary tree,” and the gray box says “Every node has 0 or 2 children.” Three internal nodes all have degree 2 and 4 leaves have degree 0. No node has degree 1. The 4 leaves occur on levels two, three, and four."
+    "The four-level tree on the left has 7 nodes without value labels. The root's right child is a leaf. Its left child has two children: the one on the left is a leaf, and the one on the right branches into two more leaves.",
+    "A node's degree is its number of children. The right side labels this a “Full binary tree,” and a gray note below reads “Every node has degree 0 or 2.” All three non-leaf nodes have degree 2, and all four leaves have degree 0. No node has degree 1. The four leaves are spread across the second, third, and fourth levels."
   ],
   "frames": [
     {
-      "id": "source-94",
       "book_path": "chapter_tree/binary_tree.assets/full_binary_tree.png",
-      "title": "Full binary tree: every node has degree 0 or 2",
-      "explanation": "A full binary tree requires each node to have 0 or 2 children. Levels may be partially filled and leaves may occur at different levels."
+      "explanation": "A full binary tree requires only that every node have zero or two children. The levels need not be full, and the leaves need not be at the same level.",
+      "id": "source-94",
+      "title": "Full binary tree: every node has degree 0 or 2"
     }
-  ]
+  ],
+  "schema_version": 2,
+  "summary": "A full binary tree restricts the number of children per node without requiring every level to be filled.",
+  "title": "Full binary tree: every node has degree 0 or 2"
 }

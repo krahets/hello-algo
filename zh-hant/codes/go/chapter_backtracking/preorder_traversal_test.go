@@ -39,7 +39,7 @@ func TestPreorderTraversalIICompact(t *testing.T) {
 	res := make([][]*TreeNode, 0)
 	preOrderII(root, &res, &path)
 
-	fmt.Println("\n輸出所有根節點到節點 7 的路徑")
+	fmt.Println("\n輸出從根節點到值為 7 的節點的所有路徑")
 	for _, path := range res {
 		for _, node := range path {
 			fmt.Printf("%v ", node.Val)
@@ -59,7 +59,7 @@ func TestPreorderTraversalIIICompact(t *testing.T) {
 	res := make([][]*TreeNode, 0)
 	preOrderIII(root, &res, &path)
 
-	fmt.Println("\n輸出所有根節點到節點 7 的路徑，路徑中不包含值為 3 的節點")
+	fmt.Println("\n輸出從根節點到值為 7 的節點的所有路徑，且路徑中不含值為 3 的節點")
 	for _, path := range res {
 		for _, node := range path {
 			fmt.Printf("%v ", node.Val)
@@ -81,7 +81,7 @@ func TestPreorderTraversalIIITemplate(t *testing.T) {
 	choices = append(choices, root)
 	backtrackIII(&state, &choices, &res)
 
-	fmt.Println("\n輸出所有根節點到節點 7 的路徑，路徑中不包含值為 3 的節點")
+	fmt.Println("\n輸出從根節點到值為 7 的節點的所有路徑，且路徑中不含值為 3 的節點")
 	for _, path := range res {
 		for _, node := range path {
 			fmt.Printf("%v ", node.Val)

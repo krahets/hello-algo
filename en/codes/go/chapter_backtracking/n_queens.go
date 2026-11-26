@@ -6,7 +6,7 @@ package chapter_backtracking
 
 /* Backtracking: n-queens */
 func backtrack(row, n int, state *[][]string, res *[][][]string, cols, diags1, diags2 *[]bool) {
-	// Record a solution when a queen has been placed in every row
+	// Record the solution once every row has a queen
 	if row == n {
 		newState := make([][]string, len(*state))
 		for i, _ := range newState {
@@ -17,19 +17,19 @@ func backtrack(row, n int, state *[][]string, res *[][][]string, cols, diags1, d
 		*res = append(*res, newState)
 		return
 	}
-	// Iterate over all columns
+	// Try each column
 	for col := 0; col < n; col++ {
-		// Calculate the main-diagonal and anti-diagonal indices for this square
+		// Find the two diagonals through this square
 		diag1 := row - col + n - 1
 		diag2 := row + col
-		// Prune: the square must have no queen in its column, main diagonal, or anti-diagonal
+		// Prune if the column or either diagonal already has a queen
 		if !(*cols)[col] && !(*diags1)[diag1] && !(*diags2)[diag2] {
-			// Try: place a queen on this square
+			// Try placing a queen on this square
 			(*state)[row][col] = "Q"
 			(*cols)[col], (*diags1)[diag1], (*diags2)[diag2] = true, true, true
 			// Place a queen in the next row
 			backtrack(row+1, n, state, res, cols, diags1, diags2)
-			// Backtrack: restore this square to empty
+			// Backtrack: clear this square
 			(*state)[row][col] = "#"
 			(*cols)[col], (*diags1)[diag1], (*diags2)[diag2] = false, false, false
 		}
@@ -38,7 +38,7 @@ func backtrack(row, n int, state *[][]string, res *[][][]string, cols, diags1, d
 
 /* Solve the n-queens problem */
 func nQueens(n int) [][][]string {
-	// Initialize an n*n board, where 'Q' represents a queen and '#' represents an empty square
+	// Set up an n-by-n board with 'Q' for a queen and '#' for an empty square
 	state := make([][]string, n)
 	for i := 0; i < n; i++ {
 		row := make([]string, n)
@@ -47,7 +47,7 @@ func nQueens(n int) [][][]string {
 		}
 		state[i] = row
 	}
-	// Track whether a column contains a queen
+	// Track occupied columns
 	cols := make([]bool, n)
 	diags1 := make([]bool, 2*n-1)
 	diags2 := make([]bool, 2*n-1)

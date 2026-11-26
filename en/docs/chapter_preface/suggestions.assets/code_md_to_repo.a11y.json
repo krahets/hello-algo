@@ -1,17 +1,17 @@
 {
-  "schema_version": 2,
-  "title": "In-text code and source files",
-  "summary": "Use the filename shown on a code block in the text to locate the complete runnable source file in the repository under its language and chapter directories.",
   "context": [],
   "description": [
-    "On the left is a code snippet from the text for the Python level-order traversal function level_order, with a green box in the upper-left corner of the code block highlighting the filename binary_tree_bfs.py; on the right is a screenshot of the repository directory, where the file of the same name is also outlined in green. A green double-headed dotted line connects the two labels “Code file name” and “Corresponding code file,” and two gray arrows point from those labels to the filename on the left code block and the matching file in the directory on the right."
+    "On the left is a Python snippet from the text showing the level-order traversal function level_order. A green box highlights the file name binary_tree_bfs.py at the upper left of the code block. On the right, another green box marks the same file in a screenshot of the repository directory. A dotted green line with arrows at both ends connects the labels “Source file name” and “Matching source file.” Two gray arrows point from the labels to the file name above the code on the left and to the matching file on the right."
   ],
   "frames": [
     {
-      "id": "source-7",
       "book_path": "chapter_preface/suggestions.assets/code_md_to_repo.png",
-      "title": "In-text code and source files",
-      "explanation": "In the repository, open codes, python, and chapter_tree in turn to find this file; the full path is codes/python/chapter_tree/binary_tree_bfs.py. In general, locate the corresponding source file at codes/<language>/<chapter_directory>/<filename>. The book text shows the core algorithm snippet, whereas the repository file includes test cases that can be read and executed; the shared filename links the two."
+      "explanation": "In the repository, open codes, then python, then chapter_tree. The full path is codes/python/chapter_tree/binary_tree_bfs.py. In general, look under codes/<language>/<chapter directory>/<file name>. The text shows the core algorithm. The matching repository file includes test cases and can be read and run. The file name connects the two.",
+      "id": "source-7",
+      "title": "Code in the text and its source file"
     }
-  ]
+  ],
+  "schema_version": 2,
+  "summary": "Use the file name above a code block and the language and chapter directories in the repository to find the complete, runnable source.",
+  "title": "Code in the text and its source file"
 }

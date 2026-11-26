@@ -18,7 +18,7 @@ pub struct TreeNode {
 }
 
 impl TreeNode {
-    /* 建構子 */
+    /* 建構方法 */
     pub fn new(val: i32) -> Rc<RefCell<Self>> {
         Rc::new(RefCell::new(Self {
             val,
@@ -39,11 +39,11 @@ macro_rules! op_vec {
     };
 }
 
-// 序列化編碼規則請參考：
-// https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-// 二元樹的陣列表示：
+// 序列化的編碼規則請參閱：
+// https://www.hello-algo.com/zh-hant/chapter_tree/array_representation_of_tree/
+// 二元樹的陣列表示法：
 // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
-// 二元樹的鏈結串列表示：
+// 二元樹的鏈結串列表示法：
 //             /——— 15
 //         /——— 7
 //     /——— 3
@@ -55,7 +55,7 @@ macro_rules! op_vec {
 //         \——— 4
 //             \——— 8
 
-/* 將串列反序列化為二元樹：遞迴 */
+/* 以遞迴方式將向量反序列化為二元樹 */
 fn vec_to_tree_dfs(arr: &[Option<i32>], i: usize) -> Option<Rc<RefCell<TreeNode>>> {
     if i >= arr.len() || arr[i].is_none() {
         return None;
@@ -66,15 +66,15 @@ fn vec_to_tree_dfs(arr: &[Option<i32>], i: usize) -> Option<Rc<RefCell<TreeNode>
     Some(root)
 }
 
-/* 將串列反序列化為二元樹 */
+/* 將向量反序列化為二元樹 */
 pub fn vec_to_tree(arr: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
     vec_to_tree_dfs(&arr, 0)
 }
 
-/* 將二元樹序列化為串列：遞迴 */
+/* 以遞迴方式將二元樹序列化為向量 */
 fn tree_to_vec_dfs(root: Option<&Rc<RefCell<TreeNode>>>, i: usize, res: &mut Vec<Option<i32>>) {
     if let Some(root) = root {
-        // i + 1 is the minimum valid size to access index i
+        // 若要存取索引 i，長度至少須為 i + 1
         while res.len() < i + 1 {
             res.push(None);
         }
@@ -84,7 +84,7 @@ fn tree_to_vec_dfs(root: Option<&Rc<RefCell<TreeNode>>>, i: usize, res: &mut Vec
     }
 }
 
-/* 將二元樹序列化為串列 */
+/* 將二元樹序列化為向量 */
 pub fn tree_to_vec(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Option<i32>> {
     let mut res = vec![];
     tree_to_vec_dfs(root.as_ref(), 0, &mut res);

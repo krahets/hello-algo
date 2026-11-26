@@ -10,7 +10,7 @@ use hello_algo_rust::include::print_util;
 fn bubble_sort(nums: &mut [i32]) {
     // Outer loop: the unsorted range is [0, i]
     for i in (1..nums.len()).rev() {
-        // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
+        // Inner loop: swap the largest element in [0, i] to the right end of the range
         for j in 0..i {
             if nums[j] > nums[j + 1] {
                 // Swap nums[j] and nums[j + 1]
@@ -20,12 +20,12 @@ fn bubble_sort(nums: &mut [i32]) {
     }
 }
 
-/* Bubble sort (flag optimization) */
+/* Bubble sort with an early-exit flag */
 fn bubble_sort_with_flag(nums: &mut [i32]) {
     // Outer loop: the unsorted range is [0, i]
     for i in (1..nums.len()).rev() {
         let mut flag = false; // Initialize the flag
-        // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
+        // Inner loop: swap the largest element in [0, i] to the right end of the range
         for j in 0..i {
             if nums[j] > nums[j + 1] {
                 // Swap nums[j] and nums[j + 1]
@@ -34,12 +34,12 @@ fn bubble_sort_with_flag(nums: &mut [i32]) {
             }
         }
         if !flag {
-            break; // Exit immediately if this pass made no swaps
+            break; // Stop if this pass made no swaps
         };
     }
 }
 
-/* Driver code */
+/* Driver Code */
 pub fn main() {
     let mut nums = [4, 1, 3, 1, 5, 2];
     bubble_sort(&mut nums);

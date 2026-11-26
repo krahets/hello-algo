@@ -11,12 +11,12 @@ class ArrayStack {
     _stack = [];
   }
 
-  /* 스택의 길이 반환 */
+  /* 스택의 길이 조회 */
   int size() {
     return _stack.length;
   }
 
-  /* 스택이 비어 있는지 판단 */
+  /* 스택이 비어 있는지 확인 */
   bool isEmpty() {
     return _stack.isEmpty;
   }
@@ -34,7 +34,7 @@ class ArrayStack {
     return _stack.removeLast();
   }
 
-  /* 스택 맨 위 원소 접근 */
+  /* 스택 맨 위의 원소 조회 */
   int peek() {
     if (isEmpty()) {
       throw Exception("스택이 비어 있다");
@@ -42,11 +42,11 @@ class ArrayStack {
     return _stack.last;
   }
 
-  /* 스택을 Array로 변환하여 반환 */
+  /* 스택을 배열로 변환해 반환한다 */
   List<int> toArray() => _stack;
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 void main() {
   /* 스택 초기화 */
   final ArrayStack stack = ArrayStack();
@@ -59,19 +59,19 @@ void main() {
   stack.push(4);
   print("스택 stack = ${stack.toArray()}");
 
-  /* 스택 맨 위 원소 접근 */
+  /* 스택 맨 위의 원소 조회 */
   final int peek = stack.peek();
-  print("스택의 맨 위 원소 peek = $peek");
+  print("맨 위 원소 peek = $peek");
 
   /* 스택에서 원소 꺼내기 */
   final int pop = stack.pop();
-  print("스택에서 꺼낸 원소 pop = $pop , 꺼낸 후 stack = ${stack.toArray()}");
+  print("꺼낸 원소 pop = $pop, 꺼낸 후 stack = ${stack.toArray()}");
 
-  /* 스택의 길이 반환 */
+  /* 스택의 길이 조회 */
   final int size = stack.size();
   print("스택의 길이 size = $size");
 
-  /* 비어 있는지 판단 */
+  /* 비어 있는지 확인 */
   final bool isEmpty = stack.isEmpty();
   print("스택이 비어 있는가 = $isEmpty");
 }

@@ -4,16 +4,16 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 基於陣列實現的堆疊 */
+/* 以陣列實作堆疊 */
 class ArrayStack {
     private var stack: [Int]
 
     init() {
-        // 初始化串列（動態陣列）
+        // 初始化動態陣列
         stack = []
     }
 
-    /* 獲取堆疊的長度 */
+    /* 取得堆疊長度 */
     func size() -> Int {
         stack.count
     }
@@ -23,12 +23,12 @@ class ArrayStack {
         stack.isEmpty
     }
 
-    /* 入堆疊 */
+    /* 推入堆疊 */
     func push(num: Int) {
         stack.append(num)
     }
 
-    /* 出堆疊 */
+    /* 彈出堆疊頂端的元素 */
     @discardableResult
     func pop() -> Int {
         if isEmpty() {
@@ -37,7 +37,7 @@ class ArrayStack {
         return stack.removeLast()
     }
 
-    /* 訪問堆疊頂元素 */
+    /* 讀取堆疊頂端的元素 */
     func peek() -> Int {
         if isEmpty() {
             fatalError("堆疊為空")
@@ -45,7 +45,7 @@ class ArrayStack {
         return stack.last!
     }
 
-    /* 將 List 轉化為 Array 並返回 */
+    /* 以陣列形式回傳堆疊內容 */
     func toArray() -> [Int] {
         stack
     }
@@ -53,12 +53,12 @@ class ArrayStack {
 
 @main
 enum _ArrayStack {
-    /* Driver Code */
+    /* 範例程式 */
     static func main() {
         /* 初始化堆疊 */
         let stack = ArrayStack()
 
-        /* 元素入堆疊 */
+        /* 將元素推入堆疊 */
         stack.push(num: 1)
         stack.push(num: 3)
         stack.push(num: 2)
@@ -66,19 +66,19 @@ enum _ArrayStack {
         stack.push(num: 4)
         print("堆疊 stack = \(stack.toArray())")
 
-        /* 訪問堆疊頂元素 */
+        /* 讀取堆疊頂端的元素 */
         let peek = stack.peek()
-        print("堆疊頂元素 peek = \(peek)")
+        print("堆疊頂端元素 peek = \(peek)")
 
-        /* 元素出堆疊 */
+        /* 從堆疊彈出元素 */
         let pop = stack.pop()
-        print("出堆疊元素 pop = \(pop)，出堆疊後 stack = \(stack.toArray())")
+        print("彈出的元素 pop = \(pop)，彈出後 stack = \(stack.toArray())")
 
-        /* 獲取堆疊的長度 */
+        /* 取得堆疊長度 */
         let size = stack.size()
-        print("堆疊的長度 size = \(size)")
+        print("堆疊長度 size = \(size)")
 
-        /* 判斷是否為空 */
+        /* 判斷堆疊是否為空 */
         let isEmpty = stack.isEmpty()
         print("堆疊是否為空 = \(isEmpty)")
     }

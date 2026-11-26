@@ -1,4 +1,4 @@
-# CSharp formatting rules
+# Правила форматирования C#
 [*.cs]
 csharp_new_line_before_open_brace = none
 csharp_new_line_before_else = false
@@ -20,19 +20,19 @@ csharp_style_expression_bodied_indexers = true:silent
 csharp_style_expression_bodied_accessors = true:silent
 csharp_style_expression_bodied_lambdas = true:silent
 
-# CS8981: The type name only contains lower-cased ascii characters. Such names may become reserved for the language.
+# CS8981: имя типа состоит только из строчных букв ASCII. Такие имена могут стать зарезервированными в языке.
 dotnet_diagnostic.CS8981.severity = silent
 
-# IDE1006: Naming Styles
+# IDE1006: стили именования
 dotnet_diagnostic.IDE1006.severity = silent
 
-# CA1822: Mark members as static
+# CA1822: объявить члены статическими
 dotnet_diagnostic.CA1822.severity = silent
 
 [*.{cs,vb}]
-#### Naming styles ####
+#### Стили именования ####
 
-# Naming rules
+# Правила именования
 
 dotnet_naming_rule.interface_should_be_begins_with_i.severity = suggestion
 dotnet_naming_rule.interface_should_be_begins_with_i.symbols = interface
@@ -46,7 +46,7 @@ dotnet_naming_rule.non_field_members_should_be_pascal_case.severity = suggestion
 dotnet_naming_rule.non_field_members_should_be_pascal_case.symbols = non_field_members
 dotnet_naming_rule.non_field_members_should_be_pascal_case.style = pascal_case
 
-# Symbol specifications
+# Спецификации символов
 
 dotnet_naming_symbols.interface.applicable_kinds = interface
 dotnet_naming_symbols.interface.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
@@ -60,7 +60,7 @@ dotnet_naming_symbols.non_field_members.applicable_kinds = property, event, meth
 dotnet_naming_symbols.non_field_members.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
 dotnet_naming_symbols.non_field_members.required_modifiers = 
 
-# Naming styles
+# Стили именования
 
 dotnet_naming_style.begins_with_i.required_prefix = I
 dotnet_naming_style.begins_with_i.required_suffix = 
@@ -81,8 +81,8 @@ tab_width = 4
 indent_size = 4
 end_of_line = crlf
 
-# IDE0040: Add accessibility modifiers
+# IDE0040: добавить модификаторы доступа
 dotnet_diagnostic.IDE0040.severity = silent
 
-# IDE0044: Add readonly modifier
+# IDE0044: добавить модификатор readonly
 dotnet_diagnostic.IDE0044.severity = silent

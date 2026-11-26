@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 頂点クラス */
+/* 頂点を表すクラス */
 public class Vertex: Hashable {
     public var val: Int
 
@@ -20,12 +20,12 @@ public class Vertex: Hashable {
         hasher.combine(val)
     }
 
-    /* 値のリスト vals を入力し、頂点のリスト vets を返す */
+    /* 値のリスト vals を受け取り、頂点のリスト vets を返す */
     public static func valsToVets(vals: [Int]) -> [Vertex] {
         vals.map { Vertex(val: $0) }
     }
 
-    /* 頂点のリスト vets を入力し、値のリスト vals を返す */
+    /* 頂点のリスト vets を受け取り、値のリスト vals を返す */
     public static func vetsToVals(vets: [Vertex]) -> [Int] {
         vets.map { $0.val }
     }

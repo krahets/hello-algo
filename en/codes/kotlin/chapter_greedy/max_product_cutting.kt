@@ -8,24 +8,24 @@ package chapter_greedy
 
 import kotlin.math.pow
 
-/* Maximum product after splitting: greedy algorithm */
+/* Greedy maximum product algorithm */
 fun maxProductCutting(n: Int): Int {
-    // When n <= 3, one part must be 1
+    // When n <= 3, one piece must be 1
     if (n <= 3) {
         return 1 * (n - 1)
     }
-    // Greedily split off parts of size 3; a is the number of 3s and b is the remainder
+    // Greedily cut off pieces of size 3. Let a be their count and b the remainder
     val a = n / 3
     val b = n % 3
     if (b == 1) {
-        // When the remainder is 1, replace one pair 1 * 3 with 2 * 2
+        // If the remainder is 1, replace one pair 1 * 3 with 2 * 2
         return 3.0.pow((a - 1)).toInt() * 2 * 2
     }
     if (b == 2) {
-        // When the remainder is 2, no adjustment is needed
-        return 3.0.pow(a).toInt() * 2 * 2
+        // If the remainder is 2, leave it as is
+        return 3.0.pow(a).toInt() * 2
     }
-    // When the remainder is 0, no adjustment is needed
+    // If the remainder is 0, no adjustment is needed
     return 3.0.pow(a).toInt()
 }
 
@@ -35,5 +35,5 @@ fun main() {
 
     // Greedy algorithm
     val res = maxProductCutting(n)
-    println("Maximum product after splitting: $res")
+    println("The maximum product after cutting is $res")
 }

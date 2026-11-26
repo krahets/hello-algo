@@ -15,10 +15,10 @@ class ListNode {
     }
 }
 
-/* Deque implemented with a doubly linked list */
+/* Deque backed by a doubly linked list */
 class LinkedListDeque {
-    private var front: ListNode? // Head node front
-    private var rear: ListNode? // Tail node rear
+    private var front: ListNode? // Head node (front)
+    private var rear: ListNode? // Tail node (rear)
     private var _size: Int // Deque size
 
     init() {
@@ -35,86 +35,86 @@ class LinkedListDeque {
         size() == 0
     }
 
-    /* Enqueue operation */
+    /* Add an element at either end */
     private func push(num: Int, isFront: Bool) {
         let node = ListNode(val: num)
-        // If the linked list is empty, make both front and rear point to node
+        // If the list is empty, point both front and rear at node
         if isEmpty() {
             front = node
             rear = node
         }
-        // Enqueue at the front
+        // Add at the front
         else if isFront {
-            // Add node to the head of the linked list
+            // Link node at the head of the list
             front?.prev = node
             node.next = front
-            front = node // Update the head node
+            front = node // Update the head
         }
-        // Enqueue at the rear
+        // Add at the rear
         else {
-            // Add node to the tail of the linked list
+            // Link node at the tail of the list
             rear?.next = node
             node.prev = rear
-            rear = node // Update the tail node
+            rear = node // Update the tail
         }
         _size += 1 // Update the deque size
     }
 
-    /* Enqueue at the front */
+    /* Add an element at the front */
     func pushFirst(num: Int) {
         push(num: num, isFront: true)
     }
 
-    /* Enqueue at the rear */
+    /* Add an element at the rear */
     func pushLast(num: Int) {
         push(num: num, isFront: false)
     }
 
-    /* Dequeue operation */
+    /* Remove an element from either end */
     private func pop(isFront: Bool) -> Int {
         if isEmpty() {
             fatalError("Deque is empty")
         }
         let val: Int
-        // When the deque size is 1, the head and tail point to the same node
+        // When the deque contains one element, the head and tail point to the same node
         if _size == 1 {
             val = front!.val
             front = nil
             rear = nil
         }
-        // Dequeue from the front
+        // Remove from the front
         else if isFront {
-            val = front!.val // Save the head node value
+            val = front!.val // Save the head node's value
             // Remove the head node
             let fNext = front?.next
             fNext?.prev = nil
             front?.next = nil
-            front = fNext // Update the head node
+            front = fNext // Update the head
         }
-        // Dequeue from the rear
+        // Remove from the rear
         else {
-            val = rear!.val // Save the tail node value
+            val = rear!.val // Save the tail node's value
             // Remove the tail node
             let rPrev = rear?.prev
             rPrev?.next = nil
             rear?.prev = nil
-            rear = rPrev // Update the tail node
+            rear = rPrev // Update the tail
         }
         _size -= 1 // Update the deque size
         return val
     }
 
-    /* Dequeue from the front */
+    /* Remove and return the front element */
     func popFirst() -> Int {
         pop(isFront: true)
     }
 
-    /* Dequeue from the rear */
+    /* Remove and return the rear element */
     func popLast() -> Int {
         pop(isFront: false)
     }
 
-    /* Access the front element */
+    /* Peek at the front element */
     func peekFirst() -> Int {
         if isEmpty() {
             fatalError("Deque is empty")
@@ -122,7 +122,7 @@ class LinkedListDeque {
         return front!.val
     }
 
-    /* Access the rear element */
+    /* Peek at the rear element */
     func peekLast() -> Int {
         if isEmpty() {
             fatalError("Deque is empty")
@@ -151,25 +151,25 @@ enum _LinkedListDeque {
         deque.pushLast(num: 3)
         deque.pushLast(num: 2)
         deque.pushLast(num: 5)
-        print("Deque deque = \(deque.toArray())")
+        print("deque = \(deque.toArray())")
 
-        /* Access an element */
+        /* Peek at the front and rear elements */
         let peekFirst = deque.peekFirst()
-        print("Front element peekFirst = \(peekFirst)")
+        print("Front element (peekFirst) = \(peekFirst)")
         let peekLast = deque.peekLast()
-        print("Rear element peekLast = \(peekLast)")
+        print("Rear element (peekLast) = \(peekLast)")
 
-        /* Enqueue elements */
+        /* Add elements to the deque */
         deque.pushLast(num: 4)
-        print("After enqueueing 4 at the rear, deque = \(deque.toArray())")
+        print("After adding 4 at the rear, deque = \(deque.toArray())")
         deque.pushFirst(num: 1)
-        print("After enqueueing 1 at the front, deque = \(deque.toArray())")
+        print("After adding 1 at the front, deque = \(deque.toArray())")
 
-        /* Dequeue an element */
+        /* Remove elements from both ends */
         let popLast = deque.popLast()
-        print("Element dequeued from the rear = \(popLast); after dequeueing, deque = \(deque.toArray())")
+        print("Removed from the rear = \(popLast), deque after removal = \(deque.toArray())")
         let popFirst = deque.popFirst()
-        print("Element dequeued from the front = \(popFirst); after dequeueing, deque = \(deque.toArray())")
+        print("Removed from the front = \(popFirst), deque after removal = \(deque.toArray())")
 
         /* Get the deque size */
         let size = deque.size()
@@ -177,6 +177,6 @@ enum _LinkedListDeque {
 
         /* Check whether the deque is empty */
         let isEmpty = deque.isEmpty()
-        print("Is the deque empty? \(isEmpty)")
+        print("Deque is empty = \(isEmpty)")
     }
 }

@@ -14,7 +14,7 @@ void insert(ListNode n0, ListNode P) {
   n0.next = P;
 }
 
-/* Remove the first node after node n0 in the linked list */
+/* Remove the node immediately after n0 in the linked list */
 void remove(ListNode n0) {
   if (n0.next == null) return;
   // n0 -> P -> n1
@@ -23,7 +23,7 @@ void remove(ListNode n0) {
   n0.next = n1;
 }
 
-/* Access the node at index `index` in the linked list */
+/* Access the linked list node at the specified index */
 ListNode? access(ListNode? head, int index) {
   for (var i = 0; i < index; i++) {
     if (head == null) return null;
@@ -45,39 +45,39 @@ int find(ListNode? head, int target) {
   return -1;
 }
 
-/* Driver code */
+/* Driver Code */
 void main() {
   // Initialize the linked list
-  // Initialize the individual nodes
+  // Initialize the nodes
   ListNode n0 = ListNode(1);
   ListNode n1 = ListNode(3);
   ListNode n2 = ListNode(2);
   ListNode n3 = ListNode(5);
   ListNode n4 = ListNode(4);
-  // Set up references between the nodes
+  // Link the nodes together
   n0.next = n1;
   n1.next = n2;
   n2.next = n3;
   n3.next = n4;
 
-  print('The initialized linked list is');
+  print('Initial linked list:');
   printLinkedList(n0);
 
   /* Insert a node */
   insert(n0, ListNode(0));
-  print('The linked list after inserting a node is');
+  print('Linked list after insertion:');
   printLinkedList(n0);
 
   /* Remove a node */
   remove(n0);
-  print('The linked list after removing a node is');
+  print('Linked list after removal:');
   printLinkedList(n0);
 
   /* Access a node */
   ListNode? node = access(n0, 3);
-  print('Value of the linked list node at index 3 = ${node!.val}');
+  print('Value of the node at index 3 = ${node!.val}');
 
   /* Find a node */
   int index = find(n0, 2);
-  print('Index of the linked list node with value 2 = $index');
+  print('Index of the node with value 2 = $index');
 }

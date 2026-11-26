@@ -6,7 +6,7 @@
 
 import utils
 
-/* 現在の状態が解かを判定 */
+/* 現在の状態が解かどうか判定する */
 func isSolution(state: [TreeNode]) -> Bool {
     !state.isEmpty && state.last!.val == 7
 }
@@ -16,7 +16,7 @@ func recordSolution(state: [TreeNode], res: inout [[TreeNode]]) {
     res.append(state)
 }
 
-/* 現在の状態でこの選択が有効か判定 */
+/* 現在の状態でその選択が可能か判定する */
 func isValid(state: [TreeNode], choice: TreeNode?) -> Bool {
     choice != nil && choice!.val != 3
 }
@@ -26,26 +26,26 @@ func makeChoice(state: inout [TreeNode], choice: TreeNode) {
     state.append(choice)
 }
 
-/* 状態を復元する */
+/* 状態を元に戻す */
 func undoChoice(state: inout [TreeNode], choice: TreeNode) {
     state.removeLast()
 }
 
 /* バックトラッキング：例題 3 */
 func backtrack(state: inout [TreeNode], choices: [TreeNode], res: inout [[TreeNode]]) {
-    // 解かを確認
+    // 解かどうか調べる
     if isSolution(state: state) {
         recordSolution(state: state, res: &res)
     }
-    // すべての選択肢を走査する
+    // すべての選択肢を調べる
     for choice in choices {
-        // 枝刈り：選択が有効か確認
+        // 枝刈り：その選択が可能か調べる
         if isValid(state: state, choice: choice) {
-            // 試行：選択を行い、状態を更新する
+            // 試行：選択して状態を更新する
             makeChoice(state: &state, choice: choice)
             // 次の選択に進む
             backtrack(state: &state, choices: [choice.left, choice.right].compactMap { $0 }, res: &res)
-            // 復元：選択を取り消し、以前の状態に戻す
+            // 後戻り：選択を取り消し、元の状態に戻す
             undoChoice(state: &state, choice: choice)
         }
     }
@@ -53,10 +53,10 @@ func backtrack(state: inout [TreeNode], choices: [TreeNode], res: inout [[TreeNo
 
 @main
 enum PreorderTraversalIIITemplate {
-    /* 実行用コード */
+    /* 実行例 */
     static func main() {
         let root = TreeNode.listToTree(arr: [1, 7, 3, 4, 5, 6, 7])
-        print("\n二分木を初期化する")
+        print("\n二分木を初期化")
         PrintUtil.printTree(root: root)
 
         // バックトラッキング
@@ -64,7 +64,7 @@ enum PreorderTraversalIIITemplate {
         var res: [[TreeNode]] = []
         backtrack(state: &state, choices: [root].compactMap { $0 }, res: &res)
 
-        print("\n値が 3 のノードを含まない、根ノードからノード 7 までのすべての経路を出力する")
+        print("\n根から値が 7 のノードまでの経路のうち、値が 3 のノードを含まないものをすべて出力")
         for path in res {
             var vals: [Int] = []
             for node in path {

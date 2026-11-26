@@ -6,27 +6,27 @@ package chapter_divide_and_conquer
 
 import . "github.com/krahets/hello-algo/pkg"
 
-/* Построить двоичное дерево: разделяй и властвуй */
+/* Построение двоичного дерева методом «разделяй и властвуй» */
 func dfsBuildTree(preorder []int, inorderMap map[int]int, i, l, r int) *TreeNode {
-	// Завершить при пустом диапазоне поддерева
+	// Если интервал поддерева пуст, завершаем рекурсию
 	if r-l < 0 {
 		return nil
 	}
-	// Инициализировать корневой узел
+	// Создаём корень
 	root := NewTreeNode(preorder[i])
-	// Найти m, чтобы разделить левое и правое поддеревья
+	// Находим m и разделяем левое и правое поддеревья
 	m := inorderMap[preorder[i]]
-	// Подзадача: построить левое поддерево
+	// Подзадача: строим левое поддерево
 	root.Left = dfsBuildTree(preorder, inorderMap, i+1, l, m-1)
-	// Подзадача: построить правое поддерево
+	// Подзадача: строим правое поддерево
 	root.Right = dfsBuildTree(preorder, inorderMap, i+1+m-l, m+1, r)
-	// Вернуть корневой узел
+	// Возвращаем корень
 	return root
 }
 
-/* Построить двоичное дерево */
+/* Построение двоичного дерева */
 func buildTree(preorder, inorder []int) *TreeNode {
-	// Инициализировать хеш-таблицу для хранения соответствия элементов inorder их индексам
+	// Создаём хеш-таблицу индексов элементов inorder
 	inorderMap := make(map[int]int, len(inorder))
 	for i := 0; i < len(inorder); i++ {
 		inorderMap[inorder[i]] = i

@@ -6,7 +6,7 @@ package chapter_dynamic_programming
 
 /* Search */
 func dfs(i int) int {
-	// The values of dp[1] and dp[2] are known; return them
+	// Return the known value for dp[1] or dp[2]
 	if i == 1 || i == 2 {
 		return i
 	}
@@ -15,7 +15,7 @@ func dfs(i int) int {
 	return count
 }
 
-/* Climbing stairs: search */
+/* Climbing stairs with search */
 func climbingStairsDFS(n int) int {
 	return dfs(n)
 }

@@ -12,22 +12,22 @@ import utils.printTree
 
 /* 函式 */
 fun function(): Int {
-    // 執行某些操作
+    // 執行操作
     return 0
 }
 
 /* 常數階 */
 fun constant(n: Int) {
-    // 常數、變數、物件佔用 O(1) 空間
+    // 常數、變數、物件占用 O(1) 空間
     val a = 0
     var b = 0
     val nums = Array(10000) { 0 }
     val node = ListNode(0)
-    // 迴圈中的變數佔用 O(1) 空間
+    // 迴圈內變數占用 O(1) 空間
     for (i in 0..<n) {
         val c = 0
     }
-    // 迴圈中的函式佔用 O(1) 空間
+    // 迴圈呼叫函式占用 O(1) 空間
     for (i in 0..<n) {
         function()
     }
@@ -35,21 +35,21 @@ fun constant(n: Int) {
 
 /* 線性階 */
 fun linear(n: Int) {
-    // 長度為 n 的陣列佔用 O(n) 空間
+    // 長度為 n 的陣列占用 O(n) 空間
     val nums = Array(n) { 0 }
-    // 長度為 n 的串列佔用 O(n) 空間
+    // 長度為 n 的串列占用 O(n) 空間
     val nodes = mutableListOf<ListNode>()
     for (i in 0..<n) {
         nodes.add(ListNode(i))
     }
-    // 長度為 n 的雜湊表佔用 O(n) 空間
+    // 長度為 n 的雜湊表占用 O(n) 空間
     val map = mutableMapOf<Int, String>()
     for (i in 0..<n) {
         map[i] = i.toString()
     }
 }
 
-/* 線性階（遞迴實現） */
+/* 線性階（遞迴實作） */
 fun linearRecur(n: Int) {
     println("遞迴 n = $n")
     if (n == 1)
@@ -59,9 +59,9 @@ fun linearRecur(n: Int) {
 
 /* 平方階 */
 fun quadratic(n: Int) {
-    // 矩陣佔用 O(n^2) 空間
+    // 矩陣占用 O(n^2) 空間
     val numMatrix = arrayOfNulls<Array<Int>?>(n)
-    // 二維串列佔用 O(n^2) 空間
+    // 二維串列占用 O(n^2) 空間
     val numList = mutableListOf<MutableList<Int>>()
     for (i in 0..<n) {
         val tmp = mutableListOf<Int>()
@@ -72,17 +72,17 @@ fun quadratic(n: Int) {
     }
 }
 
-/* 平方階（遞迴實現） */
+/* 平方階（遞迴實作） */
 tailrec fun quadraticRecur(n: Int): Int {
     if (n <= 0)
         return 0
     // 陣列 nums 長度為 n, n-1, ..., 2, 1
     val nums = Array(n) { 0 }
-    println("遞迴 n = $n 中的 nums 長度 = ${nums.size}")
+    println("遞迴 n = $n 時，nums 的長度 = ${nums.size}")
     return quadraticRecur(n - 1)
 }
 
-/* 指數階（建立滿二元樹） */
+/* 指數階（建完美二元樹） */
 fun buildTree(n: Int): TreeNode? {
     if (n == 0)
         return null
@@ -92,7 +92,7 @@ fun buildTree(n: Int): TreeNode? {
     return root
 }
 
-/* Driver Code */
+/* 主程式 */
 fun main() {
     val n = 5
     // 常數階

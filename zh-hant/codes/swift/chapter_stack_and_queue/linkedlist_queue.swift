@@ -6,9 +6,9 @@
 
 import utils
 
-/* 基於鏈結串列實現的佇列 */
+/* 以鏈結串列實作佇列 */
 class LinkedListQueue {
-    private var front: ListNode? // 頭節點
+    private var front: ListNode? // 首節點
     private var rear: ListNode? // 尾節點
     private var _size: Int
 
@@ -16,7 +16,7 @@ class LinkedListQueue {
         _size = 0
     }
 
-    /* 獲取佇列的長度 */
+    /* 取得佇列長度 */
     func size() -> Int {
         _size
     }
@@ -26,16 +26,16 @@ class LinkedListQueue {
         size() == 0
     }
 
-    /* 入列 */
+    /* 入隊 */
     func push(num: Int) {
-        // 在尾節點後新增 num
+        // 建立存有 num 的新節點，準備接到隊尾
         let node = ListNode(x: num)
-        // 如果佇列為空，則令頭、尾節點都指向該節點
+        // 若佇列為空，讓隊首與隊尾都指向新節點
         if front == nil {
             front = node
             rear = node
         }
-        // 如果佇列不為空，則將該節點新增到尾節點後
+        // 若佇列非空，將新節點接在尾節點之後
         else {
             rear?.next = node
             rear = node
@@ -43,17 +43,17 @@ class LinkedListQueue {
         _size += 1
     }
 
-    /* 出列 */
+    /* 出隊 */
     @discardableResult
     func pop() -> Int {
         let num = peek()
-        // 刪除頭節點
+        // 移除首節點
         front = front?.next
         _size -= 1
         return num
     }
 
-    /* 訪問佇列首元素 */
+    /* 讀取隊首元素 */
     func peek() -> Int {
         if isEmpty() {
             fatalError("佇列為空")
@@ -61,7 +61,7 @@ class LinkedListQueue {
         return front!.val
     }
 
-    /* 將鏈結串列轉化為 Array 並返回 */
+    /* 將鏈結串列轉成陣列並回傳 */
     func toArray() -> [Int] {
         var node = front
         var res = Array(repeating: 0, count: size())
@@ -75,12 +75,12 @@ class LinkedListQueue {
 
 @main
 enum _LinkedListQueue {
-    /* Driver Code */
+    /* 範例程式 */
     static func main() {
         /* 初始化佇列 */
         let queue = LinkedListQueue()
 
-        /* 元素入列 */
+        /* 將元素加入佇列 */
         queue.push(num: 1)
         queue.push(num: 3)
         queue.push(num: 2)
@@ -88,15 +88,15 @@ enum _LinkedListQueue {
         queue.push(num: 4)
         print("佇列 queue = \(queue.toArray())")
 
-        /* 訪問佇列首元素 */
+        /* 讀取隊首元素 */
         let peek = queue.peek()
-        print("佇列首元素 peek = \(peek)")
+        print("隊首元素 peek = \(peek)")
 
-        /* 元素出列 */
+        /* 從佇列取出元素 */
         let pop = queue.pop()
-        print("出列元素 pop = \(pop)，出列後 queue = \(queue.toArray())")
+        print("出隊元素 pop = \(pop)，出隊後 queue = \(queue.toArray())")
 
-        /* 獲取佇列的長度 */
+        /* 取得佇列長度 */
         let size = queue.size()
         print("佇列長度 size = \(size)")
 

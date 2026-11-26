@@ -9,7 +9,7 @@ import (
 	"testing"
 )
 
-/* Driver Code */
+/* Демонстрационный код */
 func TestMyList(t *testing.T) {
 	/* Инициализация списка */
 	nums := newMyList()
@@ -19,7 +19,7 @@ func TestMyList(t *testing.T) {
 	nums.add(2)
 	nums.add(5)
 	nums.add(4)
-	fmt.Printf("Список nums = %v, вместимость = %v, длина = %v\n", nums.toArray(), nums.capacity(), nums.size())
+	fmt.Printf("Список nums = %v, ёмкость = %v, длина = %v\n", nums.toArray(), nums.capacity(), nums.size())
 
 	/* Вставка элемента в середину */
 	nums.insert(6, 3)
@@ -35,12 +35,12 @@ func TestMyList(t *testing.T) {
 
 	/* Изменение элемента */
 	nums.set(0, 1)
-	fmt.Printf("После изменения значения элемента с индексом 1 на 0 nums = %v\n", nums.toArray())
+	fmt.Printf("После записи 0 по индексу 1 nums = %v\n", nums.toArray())
 
-	/* Проверка механизма расширения */
+	/* Проверка увеличения ёмкости */
 	for i := 0; i < 10; i++ {
-		// При i = 5 длина списка превысит его вместимость, и в этот момент сработает механизм расширения
+		// При i = 5 длина списка превысит его ёмкость, поэтому потребуется увеличить ёмкость
 		nums.add(i)
 	}
-	fmt.Printf("Список nums после увеличения вместимости = %v, вместимость = %v, длина = %v\n", nums.toArray(), nums.capacity(), nums.size())
+	fmt.Printf("После увеличения ёмкости список nums = %v, ёмкость = %v, длина = %v\n", nums.toArray(), nums.capacity(), nums.size())
 }

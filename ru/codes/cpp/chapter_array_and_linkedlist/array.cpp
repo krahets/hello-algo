@@ -6,9 +6,9 @@
 
 #include "../utils/common.hpp"
 
-/* Случайный доступ к элементу */
+/* Чтение случайного элемента */
 int randomAccess(int *nums, int size) {
-    // Случайный выбор числа из диапазона [0, size)
+    // Выбрать случайное число из интервала [0, size)
     int randomIndex = rand() % size;
     // Получить и вернуть случайный элемент
     int randomNum = nums[randomIndex];
@@ -17,31 +17,31 @@ int randomAccess(int *nums, int size) {
 
 /* Увеличение длины массива */
 int *extend(int *nums, int size, int enlarge) {
-    // Инициализировать массив увеличенной длины
+    // Создать массив увеличенной длины
     int *res = new int[size + enlarge]{};
-    // Скопировать все элементы исходного массива в новый массив
+    // Скопировать все элементы исходного массива в новый
     for (int i = 0; i < size; i++) {
         res[i] = nums[i];
     }
     // Освободить память
     delete[] nums;
-    // Вернуть новый массив после расширения
+    // Вернуть новый массив увеличенной длины
     return res;
 }
 
-/* Вставка элемента num в массив по индексу index */
+/* Вставить num в массив по индексу index */
 void insert(int *nums, int size, int num, int index) {
-    // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию вправо
+    // Сдвинуть на одну позицию вправо все элементы начиная с index
     for (int i = size - 1; i > index; i--) {
         nums[i] = nums[i - 1];
     }
-    // Присвоить num элементу по индексу index
+    // Записать num по индексу index
     nums[index] = num;
 }
 
-/* Удаление элемента по индексу index */
+/* Удалить элемент по индексу index */
 void remove(int *nums, int size, int index) {
-    // Сдвинуть все элементы после индекса index на одну позицию влево
+    // Сдвинуть все элементы после index на одну позицию влево
     for (int i = index; i < size - 1; i++) {
         nums[i] = nums[i + 1];
     }
@@ -50,7 +50,7 @@ void remove(int *nums, int size, int index) {
 /* Обход массива */
 void traverse(int *nums, int size) {
     int count = 0;
-    // Обход массива по индексам
+    // Обойти массив по индексам
     for (int i = 0; i < size; i++) {
         count += nums[i];
     }
@@ -65,7 +65,7 @@ int find(int *nums, int size, int target) {
     return -1;
 }
 
-/* Driver Code */
+/* Демонстрационный код */
 int main() {
     /* Инициализация массива */
     int size = 5;
@@ -77,11 +77,11 @@ int main() {
     cout << "Массив nums = ";
     printArray(nums, size);
 
-    /* Случайный доступ */
+    /* Чтение случайного элемента */
     int randomNum = randomAccess(nums, size);
-    cout << "Случайный элемент из nums = " << randomNum << endl;
+    cout << "Случайный элемент nums: " << randomNum << endl;
 
-    /* Расширение длины */
+    /* Увеличение длины */
     int enlarge = 3;
     nums = extend(nums, size, enlarge);
     size += enlarge;

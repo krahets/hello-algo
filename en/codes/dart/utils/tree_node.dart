@@ -15,7 +15,7 @@ class TreeNode {
   TreeNode(this.val, [this.height = 0, this.left, this.right]);
 }
 
-/* Deserialize a list into a binary tree: recursion */
+/* Recursively deserialize a list into a binary tree */
 TreeNode? listToTreeDFS(List<int?> arr, int i) {
   if (i < 0 || i >= arr.length || arr[i] == null) {
     return null;
@@ -31,7 +31,7 @@ TreeNode? listToTree(List<int?> arr) {
   return listToTreeDFS(arr, 0);
 }
 
-/* Serialize a binary tree into a list: recursion */
+/* Recursively serialize a binary tree into a list */
 void treeToListDFS(TreeNode? root, int i, List<int?> res) {
   if (root == null) return;
   while (i >= res.length) {

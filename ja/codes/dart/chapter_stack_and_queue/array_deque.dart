@@ -4,11 +4,11 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* 循環配列で実装した両端キュー */
+/* 循環配列を使った両端キュー */
 class ArrayDeque {
   late List<int> _nums; // 両端キューの要素を格納する配列
-  late int _front; // キューの先頭要素を指す先頭ポインタ
-  late int _queSize; // 両端キューの長さ
+  late int _front; // 両端キューの先頭要素を指すインデックス
+  late int _queSize; // 両端キューの要素数
 
   /* コンストラクタ */
   ArrayDeque(int capacity) {
@@ -21,7 +21,7 @@ class ArrayDeque {
     return _nums.length;
   }
 
-  /* 両端キューの長さを取得する */
+  /* 両端キューの要素数を取得する */
   int size() {
     return _queSize;
   }
@@ -31,56 +31,56 @@ class ArrayDeque {
     return _queSize == 0;
   }
 
-  /* 循環配列のインデックスを計算する */
+  /* 循環配列のインデックスを求める */
   int index(int i) {
-    // 剰余演算を使い、配列の先頭と末尾をつなぐ
-    // i が配列の末尾を越えたら、先頭に戻る
-    // i が配列の先頭を越えたら、末尾に戻る
+    // 剰余を使って配列の先頭と末尾をつなぐ
+    // i が配列の末尾を越えたら先頭に戻る
+    // i が配列の先頭より前に出たら末尾に回る
     return (i + capacity()) % capacity();
   }
 
-  /* 先頭にエンキューする */
+  /* 先頭に追加する */
   void pushFirst(int _num) {
     if (_queSize == capacity()) {
       throw Exception("両端キューが満杯です");
     }
-    // 先頭ポインタを左に 1 つ移動する
-    // 剰余演算により、_front が配列の先頭を越えたら末尾に戻るようにする
+    // 先頭のインデックスを左に 1 つ移す
+    // 剰余を使い、_front が配列の先頭より前に出たら末尾に回るようにする
     _front = index(_front - 1);
-    // _num をキューの先頭に追加する
+    // _num を両端キューの先頭に追加する
     _nums[_front] = _num;
     _queSize++;
   }
 
-  /* 末尾にエンキューする */
+  /* 末尾に追加する */
   void pushLast(int _num) {
     if (_queSize == capacity()) {
       throw Exception("両端キューが満杯です");
     }
-    // 末尾のインデックス + 1 を指す末尾ポインタを計算する
+    // 両端キューの末尾要素の次の位置を示すインデックスを求める
     int rear = index(_front + _queSize);
-    // _num をキューの末尾に追加する
+    // _num を両端キューの末尾に追加する
     _nums[rear] = _num;
     _queSize++;
   }
 
-  /* 先頭からデキューする */
+  /* 先頭から取り出す */
   int popFirst() {
     int _num = peekFirst();
-    // 先頭ポインタを右に 1 つ移動する
+    // 先頭のインデックスを右に 1 つ移す
     _front = index(_front + 1);
     _queSize--;
     return _num;
   }
 
-  /* 末尾からデキューする */
+  /* 末尾から取り出す */
   int popLast() {
     int _num = peekLast();
     _queSize--;
     return _num;
   }
 
-  /* キューの先頭要素にアクセス */
+  /* 両端キューの先頭要素を参照する */
   int peekFirst() {
     if (isEmpty()) {
       throw Exception("両端キューが空です");
@@ -88,19 +88,19 @@ class ArrayDeque {
     return _nums[_front];
   }
 
-  /* キューの末尾要素にアクセスする */
+  /* 両端キューの末尾要素を参照する */
   int peekLast() {
     if (isEmpty()) {
       throw Exception("両端キューが空です");
     }
-    // 末尾要素のインデックスを計算する
+    // 末尾要素のインデックスを求める
     int last = index(_front + _queSize - 1);
     return _nums[last];
   }
 
-  /* 表示用の配列を返す */
+  /* 表示用の List を返す */
   List<int> toArray() {
-    // 有効な長さの範囲内にあるリストの要素だけを変換する
+    // 両端キューの要素数に当たる範囲だけを変換する
     List<int> res = List.filled(_queSize, 0);
     for (int i = 0, j = _front; i < _queSize; i++, j++) {
       res[i] = _nums[index(j)];
@@ -109,7 +109,7 @@ class ArrayDeque {
   }
 }
 
-/* 実行用コード */
+/* 実行例 */
 void main() {
   /* 両端キューを初期化する */
   final ArrayDeque deque = ArrayDeque(10);
@@ -118,27 +118,27 @@ void main() {
   deque.pushLast(5);
   print("両端キュー deque = ${deque.toArray()}");
 
-  /* 要素にアクセスする */
+  /* 要素を参照する */
   final int peekFirst = deque.peekFirst();
-  print("キューの先頭要素 peekFirst = $peekFirst");
+  print("先頭要素 peekFirst = $peekFirst");
   final int peekLast = deque.peekLast();
-  print("キューの末尾要素 peekLast = $peekLast");
+  print("末尾要素 peekLast = $peekLast");
 
-  /* 要素をエンキューする */
+  /* 要素を両端キューに追加する */
   deque.pushLast(4);
-  print("要素 4 を末尾にエンキューした後 deque = ${deque.toArray()}");
+  print("末尾に 4 を追加した後の deque = ${deque.toArray()}");
   deque.pushFirst(1);
-  print("要素 1 を先頭にエンキューした後 deque = ${deque.toArray()}");
+  print("先頭に 1 を追加した後の deque = ${deque.toArray()}");
 
-  /* 要素をデキューする */
+  /* 両端キューから要素を取り出す */
   final int popLast = deque.popLast();
-  print("末尾からデキューした要素 = $popLast 、末尾からデキューした後 deque = ${deque.toArray()}");
+  print("末尾から取り出した要素 = $popLast 、末尾から取り出した後の deque = ${deque.toArray()}");
   final int popFirst = deque.popFirst();
-  print("先頭からデキューした要素 = $popFirst 、先頭からデキューした後 deque = ${deque.toArray()}");
+  print("先頭から取り出した要素 = $popFirst 、先頭から取り出した後の deque = ${deque.toArray()}");
 
-  /* 両端キューの長さを取得する */
+  /* 両端キューの要素数を取得する */
   final int size = deque.size();
-  print("両端キューの長さ size = $size");
+  print("両端キューの要素数 size = $size");
 
   /* 両端キューが空かどうかを判定する */
   final bool isEmpty = deque.isEmpty();

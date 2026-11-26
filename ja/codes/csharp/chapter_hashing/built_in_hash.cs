@@ -19,7 +19,7 @@ public class built_in_hash {
 
         double dec = 3.14159;
         int hashDec = dec.GetHashCode();
-        Console.WriteLine("小数 " + dec + " のハッシュ値は " + hashDec);
+        Console.WriteLine("浮動小数点数 " + dec + " のハッシュ値は " + hashDec);
 
         string str = "Hello 算法";
         int hashStr = str.GetHashCode();

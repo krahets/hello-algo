@@ -4,6 +4,6 @@
 
 !!! abstract
 
-    A towering tree brims with life, its roots deep, its leaves lush, and its branches spreading wide.
+    A towering tree teems with life, its roots deep, its foliage dense, its branches spreading.
     
-    It gives vivid form to the idea of dividing data to conquer a problem.
+    Its branching form shows how data can be divided and conquered.

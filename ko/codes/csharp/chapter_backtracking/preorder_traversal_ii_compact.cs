@@ -36,7 +36,7 @@ public class preorder_traversal_ii_compact {
         // 전위 순회
         PreOrder(root);
 
-        Console.WriteLine("\n루트 노드에서 노드 7까지의 모든 경로 출력");
+        Console.WriteLine("\n루트에서 값이 7인 노드까지의 모든 경로 출력");
         foreach (List<TreeNode> path in res) {
             PrintUtil.PrintList(path.Select(p => p.val).ToList());
         }

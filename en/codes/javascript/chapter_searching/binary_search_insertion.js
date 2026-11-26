@@ -4,36 +4,36 @@
  * Author: Gaofer Chou (gaofer-chou@qq.com)
  */
 
-/* Find an insertion point using binary search (no duplicates) */
+/* Binary search for an insertion point (no duplicates) */
 function binarySearchInsertionSimple(nums, target) {
     let i = 0,
         j = nums.length - 1; // Initialize the closed interval [0, n-1]
     while (i <= j) {
-        const m = Math.floor(i + (j - i) / 2); // Calculate midpoint index m, using Math.floor() to round down
+        const m = Math.floor(i + (j - i) / 2); // Compute the midpoint index m, rounding down with Math.floor()
         if (nums[m] < target) {
-            i = m + 1; // Target must be in [m+1, j] if it exists
+            i = m + 1; // Any match must lie in [m+1, j]
         } else if (nums[m] > target) {
-            j = m - 1; // Target must be in [i, m-1] if it exists
+            j = m - 1; // Any match must lie in [i, m-1]
         } else {
-            return m; // Target was found; return insertion point m
+            return m; // Found target. Return insertion point m
         }
     }
-    // Target was not found; return insertion point i
+    // Target not found. Return insertion point i
     return i;
 }
 
-/* Find an insertion point using binary search (with duplicates) */
+/* Binary search for an insertion point (duplicates allowed) */
 function binarySearchInsertion(nums, target) {
     let i = 0,
         j = nums.length - 1; // Initialize the closed interval [0, n-1]
     while (i <= j) {
-        const m = Math.floor(i + (j - i) / 2); // Calculate midpoint index m, using Math.floor() to round down
+        const m = Math.floor(i + (j - i) / 2); // Compute the midpoint index m, rounding down with Math.floor()
         if (nums[m] < target) {
-            i = m + 1; // Target must be in [m+1, j] if it exists
+            i = m + 1; // Any match must lie in [m+1, j]
         } else if (nums[m] > target) {
-            j = m - 1; // Target must be in [i, m-1] if it exists
+            j = m - 1; // Any match must lie in [i, m-1]
         } else {
-            j = m - 1; // Continue in [i, m-1] to find the rightmost element smaller than target
+            j = m - 1; // Look in [i, m-1] for the rightmost element less than target
         }
     }
     // Return insertion point i
@@ -42,19 +42,19 @@ function binarySearchInsertion(nums, target) {
 
 /* Driver code */
 if (require.main === module) {
-    // Array with no duplicate elements
+    // Array without duplicates
     let nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
     console.log('\nArray nums = ' + nums);
-    // Find an insertion point using binary search
+    // Find the insertion point using binary search
     for (const target of [6, 9]) {
         const index = binarySearchInsertionSimple(nums, target);
         console.log('Element ' + target + ' has insertion index ' + index);
     }
 
-    // Array containing duplicate elements
+    // Array with duplicates
     nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
     console.log('\nArray nums = ' + nums);
-    // Find an insertion point using binary search
+    // Find the insertion point using binary search
     for (const target of [2, 6, 20]) {
         const index = binarySearchInsertion(nums, target);
         console.log('Element ' + target + ' has insertion index ' + index);

@@ -4,10 +4,10 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* Deque implemented with a circular array */
+/* Deque backed by a circular array */
 class ArrayDeque {
-  late List<int> _nums; // Array for storing deque elements
-  late int _front; // Front pointer, pointing to the first element
+  late List<int> _nums; // Array that stores the deque elements
+  late int _front; // Index of the front element
   late int _queSize; // Deque size
 
   /* Constructor */
@@ -31,56 +31,56 @@ class ArrayDeque {
     return _queSize == 0;
   }
 
-  /* Calculate an index in the circular array */
+  /* Compute the circular array index */
   int index(int i) {
-    // Use modulo to connect the end of the array to its beginning
-    // When i passes the end of the array, wrap around to the beginning
-    // When i passes the beginning of the array, wrap around to the end
+    // Use the remainder to wrap indices around the array
+    // When i goes past the end, wrap it back to the start
+    // When i goes before the start, wrap it around to the end
     return (i + capacity()) % capacity();
   }
 
-  /* Enqueue at the front */
+  /* Add an element at the front */
   void pushFirst(int _num) {
     if (_queSize == capacity()) {
       throw Exception("Deque is full");
     }
-    // Move the front pointer one position to the left
-    // Use modulo to wrap _front to the end when it passes the beginning of the array
+    // Move the front index one slot to the left
+    // Use the remainder to wrap _front to the end if it goes before the start
     _front = index(_front - 1);
-    // Add _num to the front
+    // Add _num at the front
     _nums[_front] = _num;
     _queSize++;
   }
 
-  /* Enqueue at the rear */
+  /* Add an element at the rear */
   void pushLast(int _num) {
     if (_queSize == capacity()) {
       throw Exception("Deque is full");
     }
-    // Calculate the rear pointer, which points one position past the last element
+    // Compute the index one slot past the rear element
     int rear = index(_front + _queSize);
-    // Add _num to the rear
+    // Add _num at the rear
     _nums[rear] = _num;
     _queSize++;
   }
 
-  /* Dequeue from the front */
+  /* Remove and return the front element */
   int popFirst() {
     int _num = peekFirst();
-    // Move the front pointer one position to the right
+    // Move the front index one slot to the right
     _front = index(_front + 1);
     _queSize--;
     return _num;
   }
 
-  /* Dequeue from the rear */
+  /* Remove and return the rear element */
   int popLast() {
     int _num = peekLast();
     _queSize--;
     return _num;
   }
 
-  /* Access the front element */
+  /* Peek at the front element */
   int peekFirst() {
     if (isEmpty()) {
       throw Exception("Deque is empty");
@@ -88,19 +88,19 @@ class ArrayDeque {
     return _nums[_front];
   }
 
-  /* Access the rear element */
+  /* Peek at the rear element */
   int peekLast() {
     if (isEmpty()) {
       throw Exception("Deque is empty");
     }
-    // Calculate the index of the last element
+    // Compute the index of the rear element
     int last = index(_front + _queSize - 1);
     return _nums[last];
   }
 
-  /* Return an array for printing */
+  /* Return a List for printing */
   List<int> toArray() {
-    // Convert only the list elements within the occupied range
+    // Copy only the elements currently in the deque
     List<int> res = List.filled(_queSize, 0);
     for (int i = 0, j = _front; i < _queSize; i++, j++) {
       res[i] = _nums[index(j)];
@@ -116,25 +116,25 @@ void main() {
   deque.pushLast(3);
   deque.pushLast(2);
   deque.pushLast(5);
-  print("Deque deque = ${deque.toArray()}");
+  print("deque = ${deque.toArray()}");
 
-  /* Access an element */
+  /* Peek at the front and rear elements */
   final int peekFirst = deque.peekFirst();
-  print("Front element peekFirst = $peekFirst");
+  print("Front element (peekFirst) = $peekFirst");
   final int peekLast = deque.peekLast();
-  print("Rear element peekLast = $peekLast");
+  print("Rear element (peekLast) = $peekLast");
 
-  /* Enqueue elements */
+  /* Add elements to the deque */
   deque.pushLast(4);
-  print("After enqueuing 4 at the rear, deque = ${deque.toArray()}");
+  print("After adding 4 at the rear, deque = ${deque.toArray()}");
   deque.pushFirst(1);
-  print("After enqueuing 1 at the front, deque = ${deque.toArray()}");
+  print("After adding 1 at the front, deque = ${deque.toArray()}");
 
-  /* Dequeue an element */
+  /* Remove elements from both ends */
   final int popLast = deque.popLast();
-  print("Element dequeued from the rear = $popLast; after dequeuing from the rear, deque = ${deque.toArray()}");
+  print("Removed from the rear = $popLast, deque after removal = ${deque.toArray()}");
   final int popFirst = deque.popFirst();
-  print("Element dequeued from the front = $popFirst; after dequeuing from the front, deque = ${deque.toArray()}");
+  print("Removed from the front = $popFirst, deque after removal = ${deque.toArray()}");
 
   /* Get the deque size */
   final int size = deque.size();
@@ -142,5 +142,5 @@ void main() {
 
   /* Check whether the deque is empty */
   final bool isEmpty = deque.isEmpty();
-  print("Is the deque empty = $isEmpty");
+  print("Deque is empty = $isEmpty");
 }

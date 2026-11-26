@@ -1,0 +1,105 @@
+{
+  "animations": {
+    "bubble-pass": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "frame_id": "source-253",
+          "id": "step-1"
+        },
+        {
+          "frame_id": "source-254",
+          "id": "step-2"
+        },
+        {
+          "frame_id": "source-255",
+          "id": "step-3"
+        },
+        {
+          "frame_id": "source-256",
+          "id": "step-4"
+        },
+        {
+          "frame_id": "source-257",
+          "id": "step-5"
+        },
+        {
+          "frame_id": "source-258",
+          "id": "step-6"
+        },
+        {
+          "frame_id": "source-259",
+          "id": "step-7"
+        }
+      ]
+    }
+  },
+  "context": [
+    "輸入陣列為 nums = [4, 1, 3, 1, 5, 2]，索引從 0 到 5。每輪冒泡都從最左端向右走訪，逐一比較相鄰的兩個元素。若「左側元素 > 右側元素」，就交換兩者。若「左側元素 ≤ 右側元素」，則維持原位。",
+    "圖中將陣列元素畫成一排球形的「氣泡」，元素的值越大，氣泡就越大。陣列左端代表「水底」，右端代表「水面」。每一步用淺綠色方框標出正在比較的兩個相鄰位置。若兩個氣泡剛交換過，框內氣泡的上下方就會出現表示交換的弧線。"
+  ],
+  "description": [
+    "第 2 至 6 步依序比較五對相鄰位置上的元素，並顯示每次比較或交換後的結果。第 7 步指出本輪已就位的元素及剩餘區間。"
+  ],
+  "frames": [
+    {
+      "announcement": "將六個待排序元素 [4, 1, 3, 1, 5, 2] 畫成六個氣泡，準備從左向右比較。",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step1.png",
+      "explanation": "下方陣列 nums = [4, 1, 3, 1, 5, 2] 與上方六個氣泡一一對應，索引為 0 至 5。圖中說明元素的值與氣泡體積成正比。此時尚未開始比較，六個元素都要在這一輪掃描。",
+      "id": "source-253",
+      "key_state": "初始狀態：nums = [4, 1, 3, 1, 5, 2]，六個氣泡依原本的順序排列。",
+      "title": "用一排氣泡表示陣列"
+    },
+    {
+      "announcement": "索引 0 的 4 大於索引 1 的 1，交換後 4 移到索引 1。",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step2.png",
+      "explanation": "比較索引 0、1 的元素。因為 4 > 1，所以交換兩者，4 移到索引 1。淺綠框內變為 [1, 4]，弧線表示剛完成交換。目前 nums = [1, 4, 3, 1, 5, 2]，本輪已掃描到索引 1。",
+      "id": "source-254",
+      "key_state": "索引 0、1 的元素 4 與 1 已互換，陣列變為 [1, 4, 3, 1, 5, 2]。",
+      "title": "比較並交換索引 0、1 的元素"
+    },
+    {
+      "announcement": "索引 1 的 4 大於索引 2 的 3，交換後 4 移到索引 2。",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step3.png",
+      "explanation": "比較索引 1、2 的元素。因為 4 > 3，所以交換兩者，4 移到索引 2。淺綠框內變為 [3, 4]，目前 nums = [1, 3, 4, 1, 5, 2]，本輪已掃描到索引 2。",
+      "id": "source-255",
+      "key_state": "索引 1、2 的元素 4 與 3 已互換，陣列變為 [1, 3, 4, 1, 5, 2]。",
+      "title": "比較並交換索引 1、2 的元素"
+    },
+    {
+      "announcement": "索引 2 的 4 大於索引 3 的 1，交換後 4 移到索引 3。",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step4.png",
+      "explanation": "比較索引 2、3 的元素。4 大於右側的 1（原陣列中的第二個 1），因此交換兩者，4 移到索引 3。淺綠框內變為 [1, 4]，目前 nums = [1, 3, 1, 4, 5, 2]，本輪已掃描到索引 3。",
+      "id": "source-256",
+      "key_state": "索引 2、3 的元素 4 與第二個 1 已互換，陣列變為 [1, 3, 1, 4, 5, 2]。",
+      "title": "比較並交換索引 2、3 的元素"
+    },
+    {
+      "announcement": "索引 3 的 4 小於或等於索引 4 的 5，因此維持原位。",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step5.png",
+      "explanation": "比較索引 3、4 的元素。因為 4 ≤ 5，所以維持原位。淺綠框內為 [4, 5]，沒有交換的弧線。目前 nums = [1, 3, 1, 4, 5, 2]，本輪已掃描到索引 4。下一步將比較 5 與右側的元素。",
+      "id": "source-257",
+      "key_state": "索引 3、4 的元素滿足 4 ≤ 5，無須交換，陣列維持 [1, 3, 1, 4, 5, 2]。",
+      "title": "比較索引 3、4 的元素，維持原位"
+    },
+    {
+      "announcement": "索引 4 的 5 大於索引 5 的 2，交換後最大元素 5 移到最右端。",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step6.png",
+      "explanation": "比較索引 4、5 的元素。因為 5 > 2，所以交換兩者。淺綠框內變為 [2, 5]，最大值 5 到達索引 5。目前 nums = [1, 3, 1, 4, 2, 5]，五對相鄰位置都已比較完畢。",
+      "id": "source-258",
+      "key_state": "索引 4、5 的元素 5 與 2 已互換，最大值 5 到達索引 5。陣列為 [1, 3, 1, 4, 2, 5]。",
+      "title": "比較並交換索引 4、5 的元素"
+    },
+    {
+      "announcement": "第一輪冒泡結束，最大元素 5 已在最右端就位，前五個元素仍待排序。",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step7.png",
+      "explanation": "本輪結束，目前 nums = [1, 3, 1, 4, 2, 5]。索引 5 的最大氣泡 5 到達垂直「水面」標線右側並變成灰色，表示最終位置已確定。下方大括號標出左側「水底」方向的剩餘區間 [0, 4]，其中的 [1, 3, 1, 4, 2] 留待後續幾輪排序。",
+      "id": "source-259",
+      "key_state": "本輪冒泡完成：最大值 5 在索引 5 就位，剩餘的未排序區間 [0, 4] 內為 [1, 3, 1, 4, 2]。",
+      "title": "最大值 5 就位"
+    }
+  ],
+  "schema_version": 2,
+  "summary": "從左向右比較相鄰元素，經過一輪就能將最大值 5 移到陣列最右端。",
+  "title": "一輪冒泡操作"
+}

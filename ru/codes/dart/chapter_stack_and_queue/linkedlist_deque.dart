@@ -7,120 +7,120 @@
 /* Узел двусвязного списка */
 class ListNode {
   int val; // Значение узла
-  ListNode? next; // Ссылка на узел-преемник
-  ListNode? prev; // Ссылка на узел-предшественник
+  ListNode? next; // Ссылка на следующий узел
+  ListNode? prev; // Ссылка на предыдущий узел
 
   ListNode(this.val, {this.next, this.prev});
 }
 
-/* Двусторонняя очередь на основе двусвязного списка */
+/* Двусторонняя очередь (дек) на основе двусвязного списка */
 class LinkedListDeque {
-  late ListNode? _front; // Головной узел _front
-  late ListNode? _rear; // Хвостовой узел _rear
-  int _queSize = 0; // Длина двусторонней очереди
+  late ListNode? _front; // Первый узел _front
+  late ListNode? _rear; // Последний узел _rear
+  int _queSize = 0; // Длина дека
 
   LinkedListDeque() {
     this._front = null;
     this._rear = null;
   }
 
-  /* Получить длину двусторонней очереди */
+  /* Получить длину дека */
   int size() {
     return this._queSize;
   }
 
-  /* Проверка, пуста ли двусторонняя очередь */
+  /* Проверить, пуст ли дек */
   bool isEmpty() {
     return size() == 0;
   }
 
-  /* Операция добавления в очередь */
+  /* Добавить элемент в дек */
   void push(int _num, bool isFront) {
     final ListNode node = ListNode(_num);
     if (isEmpty()) {
-      // Если связный список пуст, пусть _front и _rear оба указывают на node
+      // Если связный список пуст, установить _front и _rear так, чтобы они указывали на node
       _front = _rear = node;
     } else if (isFront) {
-      // Операция добавления в голову очереди
+      // Добавить элемент в начало дека
       // Добавить node в начало связного списка
       _front!.prev = node;
       node.next = _front;
-      _front = node; // Обновить головной узел
+      _front = node; // Обновить ссылку на первый узел
     } else {
-      // Операция добавления в хвост очереди
+      // Добавить элемент в конец дека
       // Добавить node в конец связного списка
       _rear!.next = node;
       node.prev = _rear;
-      _rear = node; // Обновить хвостовой узел
+      _rear = node; // Обновить ссылку на последний узел
     }
-    _queSize++; // Обновить длину очереди
+    _queSize++; // Обновить длину дека
   }
 
-  /* Добавление в голову очереди */
+  /* Добавить элемент в начало дека */
   void pushFirst(int _num) {
     push(_num, true);
   }
 
-  /* Добавление в хвост очереди */
+  /* Добавить элемент в конец дека */
   void pushLast(int _num) {
     push(_num, false);
   }
 
-  /* Операция извлечения из очереди */
+  /* Извлечь элемент из дека */
   int? pop(bool isFront) {
-    // Если очередь пуста, сразу вернуть null
+    // Если дек пуст, сразу вернуть null
     if (isEmpty()) {
       return null;
     }
     final int val;
-    // Если в очереди один элемент, начало и конец указывают на один узел
+    // Если длина дека равна 1, ссылки на первый и последний узлы указывают на один и тот же узел
     if (_queSize == 1) {
       val = _front!.val;
       _front = null;
       _rear = null;
     }
-    // Операция извлечения из головы очереди
+    // Извлечь элемент из начала дека
     else if (isFront) {
-      val = _front!.val; // Временно сохранить значение головного узла
-      // Удалить головной узел
+      val = _front!.val; // Временно сохранить значение первого узла
+      // Удалить первый узел
       ListNode? fNext = _front!.next;
       fNext!.prev = null;
       _front!.next = null;
-      _front = fNext; // Обновить головной узел
-    // Операция извлечения из хвоста очереди
+      _front = fNext; // Обновить ссылку на первый узел
+    // Извлечь элемент из конца дека
     } else {
-      val = _rear!.val; // Временно сохранить значение хвостового узла
-      // Удалить хвостовой узел
+      val = _rear!.val; // Временно сохранить значение последнего узла
+      // Удалить последний узел
       ListNode? rPrev = _rear!.prev;
       rPrev!.next = null;
       _rear!.prev = null;
-      _rear = rPrev; // Обновить хвостовой узел
+      _rear = rPrev; // Обновить ссылку на последний узел
     }
-    _queSize--; // Обновить длину очереди
+    _queSize--; // Обновить длину дека
     return val;
   }
 
-  /* Извлечение из головы очереди */
+  /* Извлечь элемент из начала дека */
   int? popFirst() {
     return pop(true);
   }
 
-  /* Извлечение из хвоста очереди */
+  /* Извлечь элемент из конца дека */
   int? popLast() {
     return pop(false);
   }
 
-  /* Доступ к элементу в начале очереди */
+  /* Посмотреть первый элемент дека */
   int? peekFirst() {
     return _front?.val;
   }
 
-  /* Доступ к элементу в конце очереди */
+  /* Посмотреть последний элемент дека */
   int? peekLast() {
     return _rear?.val;
   }
 
-  /* Вернуть массив для вывода */
+  /* Вернуть список для вывода */
   List<int> toArray() {
     ListNode? node = _front;
     final List<int> res = [];
@@ -132,38 +132,38 @@ class LinkedListDeque {
   }
 }
 
-/* Driver Code */
+/* Пример использования */
 void main() {
-  /* Инициализация двусторонней очереди */
+  /* Инициализировать дек */
   final LinkedListDeque deque = LinkedListDeque();
   deque.pushLast(3);
   deque.pushLast(2);
   deque.pushLast(5);
-  print("Двусторонняя очередь deque = ${deque.toArray()}");
+  print("Дек deque = ${deque.toArray()}");
 
-  /* Доступ к элементу */
+  /* Посмотреть первый и последний элементы */
   int? peekFirst = deque.peekFirst();
-  print("Первый элемент peekFirst = $peekFirst");
+  print("Первый элемент дека peekFirst = $peekFirst");
   int? peekLast = deque.peekLast();
-  print("Последний элемент peekLast = $peekLast");
+  print("Последний элемент дека peekLast = $peekLast");
 
-  /* Добавление элемента в очередь */
+  /* Добавить элементы в дек */
   deque.pushLast(4);
-  print("После добавления элемента 4 в хвост deque = ${deque.toArray()}");
+  print("После добавления 4 в конец дека deque = ${deque.toArray()}");
   deque.pushFirst(1);
-  print("После добавления элемента 1 в голову deque = ${deque.toArray()}");
+  print("После добавления 1 в начало дека deque = ${deque.toArray()}");
 
-  /* Извлечение элемента из очереди */
+  /* Извлечь элементы из дека */
   int? popLast = deque.popLast();
-  print("Извлеченный из хвоста элемент = $popLast, deque после извлечения из хвоста = ${deque.toArray()}");
+  print("Извлечённый последний элемент = $popLast, после извлечения deque = ${deque.toArray()}");
   int? popFirst = deque.popFirst();
-  print("Извлеченный из головы элемент = $popFirst, deque после извлечения из головы = ${deque.toArray()}");
+  print("Извлечённый первый элемент = $popFirst, после извлечения deque = ${deque.toArray()}");
 
-  /* Получение длины двусторонней очереди */
+  /* Получить длину дека */
   int size = deque.size();
-  print("Длина двусторонней очереди size = $size");
+  print("Длина дека size = $size");
 
-  /* Проверка, пуста ли двусторонняя очередь */
+  /* Проверить, пуст ли дек */
   bool isEmpty = deque.isEmpty();
-  print("Пуста ли двусторонняя очередь = $isEmpty");
+  print("Дек пуст = $isEmpty");
 }

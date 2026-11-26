@@ -6,11 +6,11 @@ env = os.environ.copy()
 env["PYTHONIOENCODING"] = "utf-8"
 
 if __name__ == "__main__":
-    # find source code files
+    # Найти файлы с исходным кодом
     src_paths = sorted(glob.glob("chapter_*/*.py"))
     errors = []
 
-    # run python code
+    # Выполнить код на Python
     for src_path in src_paths:
         process = subprocess.Popen(
             ["python", src_path],
@@ -20,9 +20,9 @@ if __name__ == "__main__":
             env=env,
             encoding='utf-8'
         )
-        # Wait for the process to complete, and get the output and error messages
+        # Дождаться завершения процесса и получить его вывод и сообщения об ошибках
         stdout, stderr = process.communicate()
-        # Check the exit status
+        # Проверить код завершения
         exit_status = process.returncode
         if exit_status != 0:
             errors.append(stderr)

@@ -13,7 +13,7 @@ import (
 
 func TestHashingSearch(t *testing.T) {
 	target := 3
-	/* 해시 탐색(배열) */
+	/* 배열에서의 해시 탐색 */
 	nums := []int{1, 5, 3, 2, 4, 7, 5, 9, 10, 8}
 	// 해시 테이블 초기화
 	m := make(map[int]int)
@@ -23,7 +23,7 @@ func TestHashingSearch(t *testing.T) {
 	index := hashingSearchArray(m, target)
 	fmt.Println("목표 원소 3의 인덱스 = ", index)
 
-	/* 해시 탐색(연결 리스트) */
+	/* 연결 리스트에서의 해시 탐색 */
 	head := ArrayToLinkedList(nums)
 	// 해시 테이블 초기화
 	m1 := make(map[int]*ListNode)
@@ -32,5 +32,5 @@ func TestHashingSearch(t *testing.T) {
 		head = head.Next
 	}
 	node := hashingSearchLinkedList(m1, target)
-	fmt.Println("목표 노드 값 3에 해당하는 노드 객체 ", node)
+	fmt.Println("값이 3인 목표 노드의 객체 = ", node)
 }

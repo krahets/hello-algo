@@ -11,44 +11,44 @@ class ArrayQueue:
     def __init__(self, size: int):
         """Конструктор"""
         self._nums: list[int] = [0] * size  # Массив для хранения элементов очереди
-        self._front: int = 0  # Указатель head, указывающий на первый элемент очереди
+        self._front: int = 0  # Индекс первого элемента очереди
         self._size: int = 0  # Длина очереди
 
     def capacity(self) -> int:
-        """Получить вместимость очереди"""
+        """Получить ёмкость очереди"""
         return len(self._nums)
 
     def size(self) -> int:
-        """Получение длины очереди"""
+        """Получить длину очереди"""
         return self._size
 
     def is_empty(self) -> bool:
-        """Проверка, пуста ли очередь"""
+        """Проверить, пуста ли очередь"""
         return self._size == 0
 
     def push(self, num: int):
-        """Поместить в очередь"""
+        """Добавить элемент в очередь"""
         if self._size == self.capacity():
-            raise IndexError("очередь заполнена")
-        # Вычислить указатель хвоста, указывающий на индекс хвоста + 1
-        # С помощью операции взятия по модулю вернуть rear к началу после выхода за конец массива
+            raise IndexError("Очередь заполнена")
+        # Вычислить индекс вставки в конец очереди: прибавить 1 к индексу последнего элемента с учётом перехода по кругу
+        # При выходе за конец массива операция взятия остатка возвращает rear в начало
         rear: int = (self._front + self._size) % self.capacity()
-        # Добавить num в хвост очереди
+        # Добавить num в конец очереди
         self._nums[rear] = num
         self._size += 1
 
     def pop(self) -> int:
-        """Извлечь из очереди"""
+        """Извлечь элемент из очереди"""
         num: int = self.peek()
-        # Указатель head сдвигается на одну позицию назад; если он выходит за конец, то возвращается в начало массива
+        # Сдвинуть индекс начала очереди на одну позицию вперёд. При выходе за конец массива перейти к его началу
         self._front = (self._front + 1) % self.capacity()
         self._size -= 1
         return num
 
     def peek(self) -> int:
-        """Доступ к элементу в начале очереди"""
+        """Посмотреть первый элемент очереди"""
         if self.is_empty():
-            raise IndexError("очередь пуста")
+            raise IndexError("Очередь пуста")
         return self._nums[self._front]
 
     def to_list(self) -> list[int]:
@@ -63,10 +63,10 @@ class ArrayQueue:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Инициализация очереди
+    # Инициализировать очередь
     queue = ArrayQueue(10)
 
-    # Добавление элемента в очередь
+    # Добавить элементы в очередь
     queue.push(1)
     queue.push(3)
     queue.push(2)
@@ -74,25 +74,25 @@ if __name__ == "__main__":
     queue.push(4)
     print("Очередь queue =", queue.to_list())
 
-    # Доступ к элементу в начале очереди
+    # Посмотреть первый элемент очереди
     peek: int = queue.peek()
-    print("Первый элемент peek =", peek)
+    print("Первый элемент очереди peek =", peek)
 
-    # Извлечение элемента из очереди
+    # Извлечь элемент из очереди
     pop: int = queue.pop()
-    print("Извлеченный элемент pop =", pop)
-    print("queue после извлечения =", queue.to_list())
+    print("Извлечённый элемент pop =", pop)
+    print("После извлечения queue =", queue.to_list())
 
-    # Получение длины очереди
+    # Получить длину очереди
     size: int = queue.size()
     print("Длина очереди size =", size)
 
-    # Проверка, пуста ли очередь
+    # Проверить, пуста ли очередь
     is_empty: bool = queue.is_empty()
-    print("Пуста ли очередь =", is_empty)
+    print("Очередь пуста =", is_empty)
 
-    # Проверка кольцевого массива
+    # Проверить работу кольцевого массива
     for i in range(10):
         queue.push(i)
         queue.pop()
-        print("После", i, "-го раунда операций enqueue и dequeue queue =", queue.to_list())
+        print("В цикле", i, "после добавления и извлечения элемента queue = ", queue.to_list())

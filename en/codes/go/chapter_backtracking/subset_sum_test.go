@@ -20,11 +20,11 @@ func TestSubsetSumINaive(t *testing.T) {
 	fmt.Printf("target = " + strconv.Itoa(target) + ", input array nums = ")
 	PrintSlice(nums)
 
-	fmt.Println("All subsets with sum " + strconv.Itoa(target) + " are: res = ")
+	fmt.Println("Subsets that sum to " + strconv.Itoa(target) + " (res) = ")
 	for i := range res {
 		PrintSlice(res[i])
 	}
-	fmt.Println("Note that this method produces duplicate subsets")
+	fmt.Println("This method returns duplicate subsets")
 }
 
 func TestSubsetSumI(t *testing.T) {
@@ -35,7 +35,7 @@ func TestSubsetSumI(t *testing.T) {
 	fmt.Printf("target = " + strconv.Itoa(target) + ", input array nums = ")
 	PrintSlice(nums)
 
-	fmt.Println("All subsets with sum " + strconv.Itoa(target) + " are: res = ")
+	fmt.Println("Subsets that sum to " + strconv.Itoa(target) + " (res) = ")
 	for i := range res {
 		PrintSlice(res[i])
 	}
@@ -49,7 +49,7 @@ func TestSubsetSumII(t *testing.T) {
 	fmt.Printf("target = " + strconv.Itoa(target) + ", input array nums = ")
 	PrintSlice(nums)
 
-	fmt.Println("All subsets with sum " + strconv.Itoa(target) + " are: res = ")
+	fmt.Println("Subsets that sum to " + strconv.Itoa(target) + " (res) = ")
 	for i := range res {
 		PrintSlice(res[i])
 	}

@@ -9,7 +9,7 @@ package utils
 /* Класс вершины */
 class Vertex(val _val: Int) {
     companion object {
-        /* На вход подается список значений vals, на выходе возвращается список вершин vets */
+        /* Принять список значений vals и вернуть список вершин vets */
         fun valsToVets(vals: IntArray): Array<Vertex?> {
             val vets = arrayOfNulls<Vertex>(vals.size)
             for (i in vals.indices) {
@@ -18,7 +18,7 @@ class Vertex(val _val: Int) {
             return vets
         }
 
-        /* На вход подается список вершин vets, на выходе возвращается список значений vals */
+        /* Принять список вершин vets и вернуть список значений vals */
         fun vetsToVals(vets: MutableList<Vertex?>): MutableList<Int> {
             val vals = mutableListOf<Int>()
             for (vet in vets) {

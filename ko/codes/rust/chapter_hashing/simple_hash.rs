@@ -52,19 +52,19 @@ fn rot_hash(key: &str) -> i32 {
     hash as i32
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 fn main() {
     let key = "Hello 算法";
 
     let hash = add_hash(key);
-    println!("덧셈 해시값은 {hash}이다");
+    println!("덧셈 해시값: {hash}");
 
     let hash = mul_hash(key);
-    println!("곱셈 해시값은 {hash}이다");
+    println!("곱셈 해시값: {hash}");
 
     let hash = xor_hash(key);
-    println!("XOR 해시값은 {hash}이다");
+    println!("XOR 해시값: {hash}");
 
     let hash = rot_hash(key);
-    println!("회전 해시값은 {hash}이다");
+    println!("회전 해시값: {hash}");
 }

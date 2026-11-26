@@ -9,31 +9,31 @@ package chapter_tree
 import utils.TreeNode
 import utils.printTree
 
-/* 陣列表示下的二元樹類別 */
+/* 以陣列表示二元樹的類別 */
 class ArrayBinaryTree(private val tree: MutableList<Int?>) {
-    /* 串列容量 */
+    /* 串列長度 */
     fun size(): Int {
         return tree.size
     }
 
-    /* 獲取索引為 i 節點的值 */
+    /* 取得索引 i 處的節點值 */
     fun _val(i: Int): Int? {
-        // 若索引越界，則返回 null ，代表空位
+        // 若索引超出範圍，回傳 null 表示空位
         if (i < 0 || i >= size()) return null
         return tree[i]
     }
 
-    /* 獲取索引為 i 節點的左子節點的索引 */
+    /* 取得索引 i 處節點的左子節點索引 */
     fun left(i: Int): Int {
         return 2 * i + 1
     }
 
-    /* 獲取索引為 i 節點的右子節點的索引 */
+    /* 取得索引 i 處節點的右子節點索引 */
     fun right(i: Int): Int {
         return 2 * i + 2
     }
 
-    /* 獲取索引為 i 節點的父節點的索引 */
+    /* 取得索引 i 處節點的父節點索引 */
     fun parent(i: Int): Int {
         return (i - 1) / 2
     }
@@ -51,7 +51,7 @@ class ArrayBinaryTree(private val tree: MutableList<Int?>) {
 
     /* 深度優先走訪 */
     fun dfs(i: Int, order: String, res: MutableList<Int?>) {
-        // 若為空位，則返回
+        // 若為空位，直接返回
         if (_val(i) == null)
             return
         // 前序走訪
@@ -89,39 +89,39 @@ class ArrayBinaryTree(private val tree: MutableList<Int?>) {
     }
 }
 
-/* Driver Code */
+/* 主程式 */
 fun main() {
     // 初始化二元樹
-    // 這裡藉助了一個從串列直接生成二元樹的函式
+    // 這裡使用能從串列直接建立二元樹的函式
     val arr = mutableListOf(1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15)
 
     val root = TreeNode.listToTree(arr)
     println("\n初始化二元樹\n")
-    println("二元樹的陣列表示：")
+    println("二元樹的陣列表示法：")
     println(arr)
-    println("二元樹的鏈結串列表示：")
+    println("二元樹的鏈結串列表示法：")
     printTree(root)
 
-    // 陣列表示下的二元樹類別
+    // 以陣列表示二元樹的類別
     val abt = ArrayBinaryTree(arr)
 
-    // 訪問節點
+    // 存取節點
     val i = 1
     val l = abt.left(i)
     val r = abt.right(i)
     val p = abt.parent(i)
-    println("當前節點的索引為 $i ，值為 ${abt._val(i)}")
-    println("其左子節點的索引為 $l ，值為 ${abt._val(l)}")
-    println("其右子節點的索引為 $r ，值為 ${abt._val(r)}")
-    println("其父節點的索引為 $p ，值為 ${abt._val(p)}")
+    println("目前節點的索引為 $i，值為 ${abt._val(i)}")
+    println("其左子節點的索引為 $l，值為 ${abt._val(l)}")
+    println("其右子節點的索引為 $r，值為 ${abt._val(r)}")
+    println("其父節點的索引為 $p，值為 ${abt._val(p)}")
 
     // 走訪樹
     var res = abt.levelOrder()
-    println("\n層序走訪為：$res")
+    println("\n層序走訪的結果：$res")
     res = abt.preOrder()
-    println("前序走訪為：$res")
+    println("前序走訪的結果：$res")
     res = abt.inOrder()
-    println("中序走訪為：$res")
+    println("中序走訪的結果：$res")
     res = abt.postOrder()
-    println("後序走訪為：$res")
+    println("後序走訪的結果：$res")
 }

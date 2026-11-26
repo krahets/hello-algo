@@ -39,7 +39,7 @@ void printLinkedList(ListNode? head) {
 
 /**
  * 二分木を表示する
- * この木の表示処理は TECHIE DELIGHT から借用した
+ * 木の表示には TECHIE DELIGHT のコードを使用
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 void printTree(TreeNode? root, [Trunk? prev = null, bool isRight = false]) {
@@ -84,7 +84,7 @@ void showTrunks(Trunk? p) {
 /* ヒープを表示する */
 void printHeap(List<int> heap) {
   print("ヒープの配列表現：$heap");
-  print("ヒープの木構造表現：");
+  print("ヒープの木構造：");
   TreeNode? root = listToTree(heap);
   printTree(root);
 }

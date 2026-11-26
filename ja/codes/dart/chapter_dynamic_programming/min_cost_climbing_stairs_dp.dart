@@ -6,7 +6,7 @@
 
 import 'dart:math';
 
-/* 階段を上る最小コスト：動的計画法 */
+/* 階段を登る最小コスト：動的計画法 */
 int minCostClimbingStairsDP(List<int> cost) {
   int n = cost.length - 1;
   if (n == 1 || n == 2) return cost[n];
@@ -22,7 +22,7 @@ int minCostClimbingStairsDP(List<int> cost) {
   return dp[n];
 }
 
-/* 階段を上る最小コスト：空間を最適化した動的計画法 */
+/* 階段を登る最小コスト：使用メモリを削減した動的計画法 */
 int minCostClimbingStairsDPComp(List<int> cost) {
   int n = cost.length - 1;
   if (n == 1 || n == 2) return cost[n];
@@ -35,14 +35,14 @@ int minCostClimbingStairsDPComp(List<int> cost) {
   return b;
 }
 
-/* 実行用コード */
+/* 実行例 */
 void main() {
   List<int> cost = [0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1];
-  print("入力した階段のコストのリストは $cost");
+  print("各段のコストの入力リストは $cost");
 
   int res = minCostClimbingStairsDP(cost);
-  print("階段を上り終える最小コストは $res");
+  print("階段を登りきる最小コストは $res");
 
   res = minCostClimbingStairsDPComp(cost);
-  print("階段を上り終える最小コストは $res");
+  print("階段を登りきる最小コストは $res");
 }

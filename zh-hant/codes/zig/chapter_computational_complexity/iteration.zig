@@ -8,7 +8,7 @@ const Allocator = std.mem.Allocator;
 // for 迴圈
 fn forLoop(n: usize) i32 {
     var res: i32 = 0;
-    // 迴圈求和 1, 2, ..., n-1, n
+    // 迴圈加總 1, 2, ..., n-1, n
     for (1..n + 1) |i| {
         res += @intCast(i);
     }
@@ -19,18 +19,18 @@ fn forLoop(n: usize) i32 {
 fn whileLoop(n: i32) i32 {
     var res: i32 = 0;
     var i: i32 = 1; // 初始化條件變數
-    // 迴圈求和 1, 2, ..., n-1, n
+    // 迴圈加總 1, 2, ..., n-1, n
     while (i <= n) : (i += 1) {
         res += @intCast(i);
     }
     return res;
 }
 
-//  while 迴圈（兩次更新）
+//  while 迴圈（更新兩次）
 fn whileLoopII(n: i32) i32 {
     var res: i32 = 0;
     var i: i32 = 1; // 初始化條件變數
-    // 迴圈求和 1, 4, 10, ...
+    // 迴圈加總 1, 4, 10, ...
     while (i <= n) : ({
         // 更新條件變數
         i += 1;
@@ -57,7 +57,7 @@ fn nestedForLoop(allocator: Allocator, n: usize) ![]const u8 {
     return res.toOwnedSlice();
 }
 
-// Driver Code
+// 主程式
 pub fn run() !void {
     var gpa = std.heap.DebugAllocator(.{}){};
     defer _ = gpa.deinit();
@@ -67,16 +67,16 @@ pub fn run() !void {
     var res: i32 = 0;
 
     res = forLoop(n);
-    std.debug.print("for 迴圈的求和結果 res = {}\n", .{res});
+    std.debug.print("for 迴圈的總和 res = {}\n", .{res});
 
     res = whileLoop(n);
-    std.debug.print("while 迴圈的求和結果 res = {}\n", .{res});
+    std.debug.print("while 迴圈的總和 res = {}\n", .{res});
 
     res = whileLoopII(n);
-    std.debug.print("while 迴圈（兩次更新）求和結果 res = {}\n", .{res});
+    std.debug.print("while 迴圈（更新兩次）的總和 res = {}\n", .{res});
 
     const resStr = try nestedForLoop(allocator, n);
-    std.debug.print("雙層 for 迴圈的走訪結果 {s}\n", .{resStr});
+    std.debug.print("雙層 for 迴圈走訪的結果 {s}\n", .{resStr});
     allocator.free(resStr);
 
     std.debug.print("\n", .{});

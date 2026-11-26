@@ -10,7 +10,7 @@ import java.util.*
 
 class Trunk(var prev: Trunk?, var str: String)
 
-/* 列印矩陣（Array） */
+/* 印出矩陣（Array） */
 fun <T> printMatrix(matrix: Array<Array<T>>) {
     println("[")
     for (row in matrix) {
@@ -19,7 +19,7 @@ fun <T> printMatrix(matrix: Array<Array<T>>) {
     println("]")
 }
 
-/* 列印矩陣（List） */
+/* 印出矩陣（List） */
 fun <T> printMatrix(matrix: MutableList<MutableList<T>>) {
     println("[")
     for (row in matrix) {
@@ -28,7 +28,7 @@ fun <T> printMatrix(matrix: MutableList<MutableList<T>>) {
     println("]")
 }
 
-/* 列印鏈結串列 */
+/* 印出鏈結串列 */
 fun printLinkedList(h: ListNode?) {
     var head = h
     val list = mutableListOf<String>()
@@ -39,14 +39,14 @@ fun printLinkedList(h: ListNode?) {
     println(list.joinToString(separator = " -> "))
 }
 
-/* 列印二元樹 */
+/* 印出二元樹 */
 fun printTree(root: TreeNode?) {
     printTree(root, null, false)
 }
 
 /**
- * 列印二元樹
- * This tree printer is borrowed from TECHIE DELIGHT
+ * 印出二元樹
+ * 這段印出樹狀結構的程式碼取自 TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 fun printTree(root: TreeNode?, prev: Trunk?, isRight: Boolean) {
@@ -88,20 +88,20 @@ fun showTrunks(p: Trunk?) {
     print(p.str)
 }
 
-/* 列印雜湊表 */
+/* 印出雜湊表 */
 fun <K, V> printHashMap(map: Map<K, V>) {
     for ((key, value) in map) {
         println("${key.toString()} -> $value")
     }
 }
 
-/* 列印堆積 */
+/* 印出堆積 */
 fun printHeap(queue: Queue<Int>?) {
     val list = mutableListOf<Int?>()
     queue?.let { list.addAll(it) }
-    print("堆積的陣列表示：")
+    print("堆積的陣列表示法：")
     println(list)
-    println("堆積的樹狀表示：")
+    println("堆積的樹狀表示法：")
     val root = TreeNode.listToTree(list)
     printTree(root)
 }

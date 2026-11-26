@@ -1,20 +1,19 @@
 {
-  "schema_version": 2,
-  "title": "Binary tree array keeping empty slots",
-  "summary": "Explicitly keep empty slots for missing intermediate nodes in the level-order array so the 2i+1 and 2i+2 mappings reconstruct the tree uniquely.",
   "context": [
-    "The 10 solid nodes are connected as follows: root 1 connects to left child 2 and right child 3; 2 connects only to left child 4; 3 connects to left child 6 and right child 7; 4 connects to left child 8 and right child 9; 6 connects only to left child 12; 7 connects only to right child 15; and 8, 9, 12, and 15 are leaf nodes. Array indices 0 through 14 span 15 cells holding 10 node values and five empty slots at indices 4, 9, 10, 12, and 13; the table below lists every cell."
+    "The 10 solid nodes are connected as follows. Root 1 has left child 2 and right child 3. Node 2 has only a left child, 4. Node 3 has left child 6 and right child 7. Node 4 has left child 8 and right child 9. Node 6 has only a left child, 12, and node 7 has only a right child, 15. Nodes 8, 9, 12, and 15 are leaves. The array has 15 slots at indices 0 through 14. It holds 10 node values, with empty slots at indices 4, 9, 10, 12, and 13. The table lists the contents of each slot."
   ],
   "description": [],
-  "result": "Keeping intermediate empty slots explicitly lets child positions 2i+1 and 2i+2 for index i reconstruct this tree uniquely. An empty slot means no node exists there (often written None or null in code), not the numeric value 0.",
   "frames": [
     {
-      "id": "source-112",
       "book_path": "chapter_tree/array_representation_of_tree.assets/array_representation_with_empty.png",
-      "title": "Binary tree array keeping empty slots",
-      "explanation": "Even though index 4 is an empty slot with no node, its two child positions 9 and 10 on the next level must also be left empty so later nodes do not shift forward out of place. For instance, node 6 at index 5 stores 12 at left child position 11 and has an empty right child position 12."
+      "explanation": "Although there is no node at index 4, its two child positions on the next level, 9 and 10, must also stay empty so that later nodes do not shift forward. For example, node 6 at index 5 has value 12 at its left child position, 11, and an empty slot at its right child position, 12.",
+      "id": "source-112",
+      "title": "Binary tree array with empty slots preserved"
     }
   ],
+  "result": "Keeping internal empty slots makes it possible to reconstruct this tree uniquely using the child positions 2i+1 and 2i+2 for index i. An empty slot indicates that there is no node there (often written as None or null in code). It does not represent the value 0.",
+  "schema_version": 2,
+  "summary": "Explicitly keeping slots for missing nodes within a level-order array lets the mappings 2i+1 and 2i+2 reconstruct the tree shape uniquely.",
   "tables": [
     {
       "caption": "Array indices and node values",
@@ -22,6 +21,7 @@
         "Index",
         "Node value or empty slot"
       ],
+      "row_header": 0,
       "rows": [
         [
           "0",
@@ -83,8 +83,8 @@
           "14",
           "15"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Binary tree array with empty slots preserved"
 }

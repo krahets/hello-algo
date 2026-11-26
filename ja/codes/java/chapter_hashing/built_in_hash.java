@@ -21,7 +21,7 @@ public class built_in_hash {
 
         double dec = 3.14159;
         int hashDec = Double.hashCode(dec);
-        System.out.println("小数 " + dec + " のハッシュ値は " + hashDec);
+        System.out.println("浮動小数点数 " + dec + " のハッシュ値は " + hashDec);
 
         String str = "Hello 算法";
         int hashStr = str.hashCode();

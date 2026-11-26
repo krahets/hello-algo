@@ -4,25 +4,25 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Edit distance: brute-force search */
+/* Edit distance with brute-force search */
 func editDistanceDFS(s: String, t: String, i: Int, j: Int) -> Int {
-    // If both prefixes of s and t are empty, return 0
+    // Return 0 if both s and t are empty
     if i == 0, j == 0 {
         return 0
     }
-    // If the prefix of s is empty, return the prefix length of t
+    // Return the length of t if s is empty
     if i == 0 {
         return j
     }
-    // If the prefix of t is empty, return the prefix length of s
+    // Return the length of s if t is empty
     if j == 0 {
         return i
     }
-    // If the two current UTF-8 bytes match, skip both
+    // Skip both characters if they match
     if s.utf8CString[i - 1] == t.utf8CString[j - 1] {
         return editDistanceDFS(s: s, t: t, i: i - 1, j: j - 1)
     }
-    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
+    // Minimum edits = 1 + the smallest remaining edit count after an insertion, deletion, or replacement
     let insert = editDistanceDFS(s: s, t: t, i: i, j: j - 1)
     let delete = editDistanceDFS(s: s, t: t, i: i - 1, j: j)
     let replace = editDistanceDFS(s: s, t: t, i: i - 1, j: j - 1)
@@ -30,57 +30,57 @@ func editDistanceDFS(s: String, t: String, i: Int, j: Int) -> Int {
     return min(min(insert, delete), replace) + 1
 }
 
-/* Edit distance: memoized search */
+/* Edit distance with memoized search */
 func editDistanceDFSMem(s: String, t: String, mem: inout [[Int]], i: Int, j: Int) -> Int {
-    // If both prefixes of s and t are empty, return 0
+    // Return 0 if both s and t are empty
     if i == 0, j == 0 {
         return 0
     }
-    // If the prefix of s is empty, return the prefix length of t
+    // Return the length of t if s is empty
     if i == 0 {
         return j
     }
-    // If the prefix of t is empty, return the prefix length of s
+    // Return the length of s if t is empty
     if j == 0 {
         return i
     }
-    // If a result has already been recorded, return it directly
+    // Return the cached result if available
     if mem[i][j] != -1 {
         return mem[i][j]
     }
-    // If the two current UTF-8 bytes match, skip both
+    // Skip both characters if they match
     if s.utf8CString[i - 1] == t.utf8CString[j - 1] {
         return editDistanceDFS(s: s, t: t, i: i - 1, j: j - 1)
     }
-    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
+    // Minimum edits = 1 + the smallest remaining edit count after an insertion, deletion, or replacement
     let insert = editDistanceDFS(s: s, t: t, i: i, j: j - 1)
     let delete = editDistanceDFS(s: s, t: t, i: i - 1, j: j)
     let replace = editDistanceDFS(s: s, t: t, i: i - 1, j: j - 1)
-    // Record and return the minimum number of edits
+    // Cache and return the minimum number of edits
     mem[i][j] = min(min(insert, delete), replace) + 1
     return mem[i][j]
 }
 
-/* Edit distance: dynamic programming */
+/* Edit distance with dynamic programming */
 func editDistanceDP(s: String, t: String) -> Int {
     let n = s.utf8CString.count
     let m = t.utf8CString.count
     var dp = Array(repeating: Array(repeating: 0, count: m + 1), count: n + 1)
-    // State transitions: first row and first column
+    // State transitions for the first row and column
     for i in 1 ... n {
         dp[i][0] = i
     }
     for j in 1 ... m {
         dp[0][j] = j
     }
-    // State transitions: remaining rows and columns
+    // State transitions for the remaining rows and columns
     for i in 1 ... n {
         for j in 1 ... m {
             if s.utf8CString[i - 1] == t.utf8CString[j - 1] {
-                // If the two current UTF-8 bytes match, skip both
+                // Skip both characters if they match
                 dp[i][j] = dp[i - 1][j - 1]
             } else {
-                // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
+                // Minimum edits = 1 + the smallest remaining edit count after an insertion, deletion, or replacement
                 dp[i][j] = min(min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1
             }
         }
@@ -88,31 +88,31 @@ func editDistanceDP(s: String, t: String) -> Int {
     return dp[n][m]
 }
 
-/* Edit distance: space-optimized dynamic programming */
+/* Edit distance with space-optimized dynamic programming */
 func editDistanceDPComp(s: String, t: String) -> Int {
     let n = s.utf8CString.count
     let m = t.utf8CString.count
     var dp = Array(repeating: 0, count: m + 1)
-    // State transitions: first row
+    // State transitions for the first row
     for j in 1 ... m {
         dp[j] = j
     }
-    // State transitions: remaining rows
+    // State transitions for the remaining rows
     for i in 1 ... n {
-        // State transitions: first column
-        var leftup = dp[0] // Temporarily store dp[i-1, j-1]
+        // State transitions for the first column
+        var leftup = dp[0] // Save dp[i-1, j-1] temporarily
         dp[0] = i
-        // State transitions: remaining columns
+        // State transitions for the remaining columns
         for j in 1 ... m {
             let temp = dp[j]
             if s.utf8CString[i - 1] == t.utf8CString[j - 1] {
-                // If the two current UTF-8 bytes match, skip both
+                // Skip both characters if they match
                 dp[j] = leftup
             } else {
-                // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
+                // Minimum edits = 1 + the smallest remaining edit count after an insertion, deletion, or replacement
                 dp[j] = min(min(dp[j - 1], dp[j]), leftup) + 1
             }
-            leftup = temp // Update to dp[i-1, j-1] for the next iteration
+            leftup = temp // Update the saved value to hold dp[i-1, j-1] for the next iteration
         }
     }
     return dp[m]

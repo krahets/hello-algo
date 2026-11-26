@@ -8,7 +8,7 @@ package chapter_stack_and_queue;
 
 import java.util.*;
 
-/* 配列で実装したスタック */
+/* 配列を使ったスタック */
 class ArrayStack {
     private ArrayList<Integer> stack;
 
@@ -17,7 +17,7 @@ class ArrayStack {
         stack = new ArrayList<>();
     }
 
-    /* スタックの長さを取得する */
+    /* スタックの要素数を取得する */
     public int size() {
         return stack.size();
     }
@@ -27,26 +27,26 @@ class ArrayStack {
         return size() == 0;
     }
 
-    /* プッシュ */
+    /* プッシュする */
     public void push(int num) {
         stack.add(num);
     }
 
-    /* ポップ */
+    /* ポップする */
     public int pop() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return stack.remove(size() - 1);
     }
 
-    /* スタックの先頭要素にアクセスする */
+    /* スタックのトップを参照する */
     public int peek() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return stack.get(size() - 1);
     }
 
-    /* List を Array に変換して返す */
+    /* リストを配列に変換して返す */
     public Object[] toArray() {
         return stack.toArray();
     }
@@ -65,17 +65,17 @@ public class array_stack {
         stack.push(4);
         System.out.println("スタック stack = " + Arrays.toString(stack.toArray()));
 
-        /* スタックの先頭要素にアクセスする */
+        /* スタックのトップを参照する */
         int peek = stack.peek();
-        System.out.println("スタックの先頭要素 peek = " + peek);
+        System.out.println("スタックのトップの要素 peek = " + peek);
 
         /* 要素をポップする */
         int pop = stack.pop();
-        System.out.println("ポップした要素 pop = " + pop + "、ポップ後 stack = " + Arrays.toString(stack.toArray()));
+        System.out.println("ポップした要素 pop = " + pop + "、ポップ後の stack = " + Arrays.toString(stack.toArray()));
 
-        /* スタックの長さを取得する */
+        /* スタックの要素数を取得する */
         int size = stack.size();
-        System.out.println("スタックの長さ size = " + size);
+        System.out.println("スタックの要素数 size = " + size);
 
         /* 空かどうかを判定する */
         boolean isEmpty = stack.isEmpty();
