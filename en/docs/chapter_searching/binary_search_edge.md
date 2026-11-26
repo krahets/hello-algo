@@ -8,43 +8,43 @@ comments: true
 
 !!! question
 
-    Given a sorted array `nums` of length $n$ that may contain duplicate elements, return the index of the leftmost occurrence of `target`. If the array does not contain this element, return $-1$.
+    Given a sorted array `nums` of length $n$ that may contain duplicates, return the index of the leftmost occurrence of `target`. If the value is absent, return $-1$.
 
-Recall the method for finding an insertion point with binary search: when the search finishes, $i$ points to the leftmost `target`. **Finding the insertion point therefore amounts to finding the index of the leftmost `target`**.
+Recall how binary search finds an insertion point. When the search ends, $i$ points to the leftmost occurrence of `target`. Thus, **finding the insertion point is essentially finding the index of the leftmost occurrence of `target`**.
 
-We can use the insertion-point function to find the left boundary. However, `target` may be absent from the array, leading to either of the following outcomes.
+We can use the insertion-point function to find the left boundary. If the array does not contain `target`, one of two things will happen.
 
 - The insertion index $i$ is out of bounds.
-- `nums[i]` is not equal to `target`.
+- The element `nums[i]` differs from `target`.
 
-In either case, simply return $-1$. The code is as follows:
+In either case, return $-1$, as shown below:
 
 === "Python"
 
     ```python title="binary_search_edge.py"
     def binary_search_left_edge(nums: list[int], target: int) -> int:
-        """Find the leftmost occurrence of target using binary search"""
-        # This is equivalent to finding the insertion point of target
+        """Use binary search to find the leftmost occurrence of target"""
+        # Equivalent to finding the insertion point for target
         i = binary_search_insertion(nums, target)
-        # If target was not found, return -1
+        # Target not found. Return -1
         if i == len(nums) or nums[i] != target:
             return -1
-        # Target was found; return index i
+        # Found target. Return index i
         return i
     ```
 
 === "C++"
 
     ```cpp title="binary_search_edge.cpp"
-    /* Find the leftmost occurrence of target using binary search */
+    /* Use binary search to find the leftmost occurrence of target */
     int binarySearchLeftEdge(vector<int> &nums, int target) {
-        // This is equivalent to finding the insertion point of target
+        // Equivalent to finding the insertion point for target
         int i = binarySearchInsertion(nums, target);
-        // If target was not found, return -1
+        // Target not found. Return -1
         if (i == nums.size() || nums[i] != target) {
             return -1;
         }
-        // Target was found; return index i
+        // Found target. Return index i
         return i;
     }
     ```
@@ -52,15 +52,15 @@ In either case, simply return $-1$. The code is as follows:
 === "Java"
 
     ```java title="binary_search_edge.java"
-    /* Find the leftmost occurrence of target using binary search */
+    /* Use binary search to find the leftmost occurrence of target */
     int binarySearchLeftEdge(int[] nums, int target) {
-        // This is equivalent to finding the insertion point of target
+        // Equivalent to finding the insertion point for target
         int i = binary_search_insertion.binarySearchInsertion(nums, target);
-        // If target was not found, return -1
+        // Target not found. Return -1
         if (i == nums.length || nums[i] != target) {
             return -1;
         }
-        // Target was found; return index i
+        // Found target. Return index i
         return i;
     }
     ```
@@ -68,15 +68,15 @@ In either case, simply return $-1$. The code is as follows:
 === "C#"
 
     ```csharp title="binary_search_edge.cs"
-    /* Find the leftmost occurrence of target using binary search */
+    /* Use binary search to find the leftmost occurrence of target */
     int BinarySearchLeftEdge(int[] nums, int target) {
-        // This is equivalent to finding the insertion point of target
+        // Equivalent to finding the insertion point for target
         int i = binary_search_insertion.BinarySearchInsertion(nums, target);
-        // If target was not found, return -1
+        // Target not found. Return -1
         if (i == nums.Length || nums[i] != target) {
             return -1;
         }
-        // Target was found; return index i
+        // Found target. Return index i
         return i;
     }
     ```
@@ -84,15 +84,15 @@ In either case, simply return $-1$. The code is as follows:
 === "Go"
 
     ```go title="binary_search_edge.go"
-    /* Find the leftmost occurrence of target using binary search */
+    /* Use binary search to find the leftmost occurrence of target */
     func binarySearchLeftEdge(nums []int, target int) int {
-        // This is equivalent to finding the insertion point of target
+        // Equivalent to finding the insertion point for target
         i := binarySearchInsertion(nums, target)
-        // If target was not found, return -1
+        // Target not found. Return -1
         if i == len(nums) || nums[i] != target {
             return -1
         }
-        // Target was found; return index i
+        // Found target. Return index i
         return i
     }
     ```
@@ -100,15 +100,15 @@ In either case, simply return $-1$. The code is as follows:
 === "Swift"
 
     ```swift title="binary_search_edge.swift"
-    /* Find the leftmost occurrence of target using binary search */
+    /* Use binary search to find the leftmost occurrence of target */
     func binarySearchLeftEdge(nums: [Int], target: Int) -> Int {
-        // This is equivalent to finding the insertion point of target
+        // Equivalent to finding the insertion point for target
         let i = binarySearchInsertion(nums: nums, target: target)
-        // If target was not found, return -1
+        // Target not found. Return -1
         if i == nums.endIndex || nums[i] != target {
             return -1
         }
-        // Target was found; return index i
+        // Found target. Return index i
         return i
     }
     ```
@@ -116,15 +116,15 @@ In either case, simply return $-1$. The code is as follows:
 === "JS"
 
     ```javascript title="binary_search_edge.js"
-    /* Find the leftmost occurrence of target using binary search */
+    /* Use binary search to find the leftmost occurrence of target */
     function binarySearchLeftEdge(nums, target) {
-        // This is equivalent to finding the insertion point of target
+        // Equivalent to finding the insertion point for target
         const i = binarySearchInsertion(nums, target);
-        // If target was not found, return -1
+        // Target not found. Return -1
         if (i === nums.length || nums[i] !== target) {
             return -1;
         }
-        // Target was found; return index i
+        // Found target. Return index i
         return i;
     }
     ```
@@ -132,15 +132,15 @@ In either case, simply return $-1$. The code is as follows:
 === "TS"
 
     ```typescript title="binary_search_edge.ts"
-    /* Find the leftmost occurrence of target using binary search */
+    /* Use binary search to find the leftmost occurrence of target */
     function binarySearchLeftEdge(nums: Array<number>, target: number): number {
-        // This is equivalent to finding the insertion point of target
+        // Equivalent to finding the insertion point for target
         const i = binarySearchInsertion(nums, target);
-        // If target was not found, return -1
+        // Target not found. Return -1
         if (i === nums.length || nums[i] !== target) {
             return -1;
         }
-        // Target was found; return index i
+        // Found target. Return index i
         return i;
     }
     ```
@@ -148,15 +148,15 @@ In either case, simply return $-1$. The code is as follows:
 === "Dart"
 
     ```dart title="binary_search_edge.dart"
-    /* Find the leftmost occurrence of target using binary search */
+    /* Use binary search to find the leftmost occurrence of target */
     int binarySearchLeftEdge(List<int> nums, int target) {
-      // This is equivalent to finding the insertion point of target
+      // Equivalent to finding the insertion point for target
       int i = binarySearchInsertion(nums, target);
-      // If target was not found, return -1
+      // Target not found. Return -1
       if (i == nums.length || nums[i] != target) {
         return -1;
       }
-      // Target was found; return index i
+      // Found target. Return index i
       return i;
     }
     ```
@@ -164,15 +164,15 @@ In either case, simply return $-1$. The code is as follows:
 === "Rust"
 
     ```rust title="binary_search_edge.rs"
-    /* Find the leftmost occurrence of target using binary search */
+    /* Use binary search to find the leftmost occurrence of target */
     fn binary_search_left_edge(nums: &[i32], target: i32) -> i32 {
-        // This is equivalent to finding the insertion point of target
+        // Equivalent to finding the insertion point for target
         let i = binary_search_insertion(nums, target);
-        // If target was not found, return -1
+        // Target not found. Return -1
         if i == nums.len() as i32 || nums[i as usize] != target {
             return -1;
         }
-        // Target was found; return index i
+        // Found target. Return index i
         i
     }
     ```
@@ -180,15 +180,15 @@ In either case, simply return $-1$. The code is as follows:
 === "C"
 
     ```c title="binary_search_edge.c"
-    /* Find the leftmost occurrence of target using binary search */
+    /* Use binary search to find the leftmost occurrence of target */
     int binarySearchLeftEdge(int *nums, int numSize, int target) {
-        // This is equivalent to finding the insertion point of target
+        // Equivalent to finding the insertion point for target
         int i = binarySearchInsertion(nums, numSize, target);
-        // If target was not found, return -1
+        // Target not found. Return -1
         if (i == numSize || nums[i] != target) {
             return -1;
         }
-        // Target was found; return index i
+        // Found target. Return index i
         return i;
     }
     ```
@@ -196,15 +196,15 @@ In either case, simply return $-1$. The code is as follows:
 === "Kotlin"
 
     ```kotlin title="binary_search_edge.kt"
-    /* Find the leftmost occurrence of target using binary search */
+    /* Use binary search to find the leftmost occurrence of target */
     fun binarySearchLeftEdge(nums: IntArray, target: Int): Int {
-        // This is equivalent to finding the insertion point of target
+        // Equivalent to finding the insertion point for target
         val i = binarySearchInsertion(nums, target)
-        // If target was not found, return -1
+        // Target not found. Return -1
         if (i == nums.size || nums[i] != target) {
             return -1
         }
-        // Target was found; return index i
+        // Found target. Return index i
         return i
     }
     ```
@@ -212,71 +212,71 @@ In either case, simply return $-1$. The code is as follows:
 === "Ruby"
 
     ```ruby title="binary_search_edge.rb"
-    ### Find the leftmost occurrence of target using binary search ###
+    ### Use binary search to find the leftmost occurrence of target ###
     def binary_search_left_edge(nums, target)
-      # This is equivalent to finding the insertion point of target
+      # Equivalent to finding the insertion point for target
       i = binary_search_insertion(nums, target)
 
-      # If target was not found, return -1
+      # Target not found. Return -1
       return -1 if i == nums.length || nums[i] != target
 
-      i # Target was found; return index i
+      i # Found target. Return index i
     end
     ```
 
 ??? pythontutor "Visualize execution"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Find%20an%20insertion%20point%20using%20binary%20search%20%28with%20duplicates%29%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20Initialize%20the%20closed%20interval%20%5B0,%20n-1%5D%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20Calculate%20the%20midpoint%20index%20m%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20Target%20must%20be%20in%20%5Bm%2B1,%20j%5D%20if%20it%20exists%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Target%20must%20be%20in%20%5Bi,%20m-1%5D%20if%20it%20exists%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Search%20%5Bi,%20m-1%5D%20for%20the%20insertion%20point%20before%20equal%20elements%0A%20%20%20%20%23%20Return%20insertion%20point%20i%0A%20%20%20%20return%20i%0A%0Adef%20binary_search_left_edge%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Find%20the%20leftmost%20occurrence%20of%20target%20using%20binary%20search%22%22%22%0A%20%20%20%20%23%20This%20is%20equivalent%20to%20finding%20the%20insertion%20point%20of%20target%0A%20%20%20%20i%20%3D%20binary_search_insertion%28nums,%20target%29%0A%20%20%20%20%23%20If%20target%20was%20not%20found,%20return%20-1%0A%20%20%20%20if%20i%20%3D%3D%20len%28nums%29%20or%20nums%5Bi%5D%20%21%3D%20target%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20Target%20was%20found%3B%20return%20index%20i%0A%20%20%20%20return%20i%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Array%20containing%20duplicate%20elements%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%206,%206,%206,%206,%2010,%2012,%2015%5D%0A%20%20%20%20%23%20Find%20a%20boundary%20using%20binary%20search%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_left_edge%28nums,%20target%29%0A%20%20%20%20print%28f%22Index%20of%20the%20leftmost%20occurrence%20of%20%7Btarget%7D%3A%20%7Bindex%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Find%20an%20insertion%20point%20using%20binary%20search%20%28with%20duplicates%29%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20Initialize%20the%20closed%20interval%20%5B0,%20n-1%5D%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20Calculate%20the%20midpoint%20index%20m%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20Target%20must%20be%20in%20%5Bm%2B1,%20j%5D%20if%20it%20exists%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Target%20must%20be%20in%20%5Bi,%20m-1%5D%20if%20it%20exists%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Search%20%5Bi,%20m-1%5D%20for%20the%20insertion%20point%20before%20equal%20elements%0A%20%20%20%20%23%20Return%20insertion%20point%20i%0A%20%20%20%20return%20i%0A%0Adef%20binary_search_left_edge%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Find%20the%20leftmost%20occurrence%20of%20target%20using%20binary%20search%22%22%22%0A%20%20%20%20%23%20This%20is%20equivalent%20to%20finding%20the%20insertion%20point%20of%20target%0A%20%20%20%20i%20%3D%20binary_search_insertion%28nums,%20target%29%0A%20%20%20%20%23%20If%20target%20was%20not%20found,%20return%20-1%0A%20%20%20%20if%20i%20%3D%3D%20len%28nums%29%20or%20nums%5Bi%5D%20%21%3D%20target%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20Target%20was%20found%3B%20return%20index%20i%0A%20%20%20%20return%20i%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Array%20containing%20duplicate%20elements%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%206,%206,%206,%206,%2010,%2012,%2015%5D%0A%20%20%20%20%23%20Find%20a%20boundary%20using%20binary%20search%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_left_edge%28nums,%20target%29%0A%20%20%20%20print%28f%22Index%20of%20the%20leftmost%20occurrence%20of%20%7Btarget%7D%3A%20%7Bindex%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Binary%20search%20for%20an%20insertion%20point%20%28duplicates%20allowed%29%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20Initialize%20the%20closed%20interval%20%5B0,%20n-1%5D%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20Compute%20the%20midpoint%20index%20m%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20Any%20match%20must%20lie%20in%20%5Bm%2B1,%20j%5D%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Any%20match%20must%20lie%20in%20%5Bi,%20m-1%5D%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Look%20in%20%5Bi,%20m-1%5D%20for%20the%20first%20element%20less%20than%20target%0A%20%20%20%20%23%20Return%20insertion%20point%20i%0A%20%20%20%20return%20i%0A%0Adef%20binary_search_left_edge%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Use%20binary%20search%20to%20find%20the%20leftmost%20occurrence%20of%20target%22%22%22%0A%20%20%20%20%23%20Equivalent%20to%20finding%20the%20insertion%20point%20for%20target%0A%20%20%20%20i%20%3D%20binary_search_insertion%28nums,%20target%29%0A%20%20%20%20%23%20Target%20not%20found.%20Return%20-1%0A%20%20%20%20if%20i%20%3D%3D%20len%28nums%29%20or%20nums%5Bi%5D%20%21%3D%20target%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20Found%20target.%20Return%20index%20i%0A%20%20%20%20return%20i%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Array%20with%20duplicates%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%206,%206,%206,%206,%2010,%2012,%2015%5D%0A%20%20%20%20%23%20Find%20the%20left%20and%20right%20boundaries%20using%20binary%20search%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_left_edge%28nums,%20target%29%0A%20%20%20%20print%28f%22Index%20of%20the%20leftmost%20occurrence%20of%20%7Btarget%7D%20%3D%20%7Bindex%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Binary%20search%20for%20an%20insertion%20point%20%28duplicates%20allowed%29%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20Initialize%20the%20closed%20interval%20%5B0,%20n-1%5D%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20Compute%20the%20midpoint%20index%20m%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20Any%20match%20must%20lie%20in%20%5Bm%2B1,%20j%5D%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Any%20match%20must%20lie%20in%20%5Bi,%20m-1%5D%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Look%20in%20%5Bi,%20m-1%5D%20for%20the%20first%20element%20less%20than%20target%0A%20%20%20%20%23%20Return%20insertion%20point%20i%0A%20%20%20%20return%20i%0A%0Adef%20binary_search_left_edge%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Use%20binary%20search%20to%20find%20the%20leftmost%20occurrence%20of%20target%22%22%22%0A%20%20%20%20%23%20Equivalent%20to%20finding%20the%20insertion%20point%20for%20target%0A%20%20%20%20i%20%3D%20binary_search_insertion%28nums,%20target%29%0A%20%20%20%20%23%20Target%20not%20found.%20Return%20-1%0A%20%20%20%20if%20i%20%3D%3D%20len%28nums%29%20or%20nums%5Bi%5D%20%21%3D%20target%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20Found%20target.%20Return%20index%20i%0A%20%20%20%20return%20i%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Array%20with%20duplicates%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%206,%206,%206,%206,%2010,%2012,%2015%5D%0A%20%20%20%20%23%20Find%20the%20left%20and%20right%20boundaries%20using%20binary%20search%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_left_edge%28nums,%20target%29%0A%20%20%20%20print%28f%22Index%20of%20the%20leftmost%20occurrence%20of%20%7Btarget%7D%20%3D%20%7Bindex%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
 ## 10.3.2 &nbsp; Finding the right boundary
 
-How can we find the rightmost `target`? The most direct approach is to modify the pointer update for `nums[m] == target`. We omit the code here; interested readers can implement it themselves.
+How can we find the rightmost occurrence of `target`? The most direct approach is to change how the pointers narrow the interval when `nums[m] == target`. Try implementing this version yourself.
 
 Here are two shortcuts.
 
 ### 1. &nbsp; Reusing the left-boundary search
 
-We can use the function for finding the leftmost element to find the rightmost one: **turn the search for the rightmost `target` into a search for the leftmost `target + 1`**.
+We can use the function that finds the leftmost occurrence to find the rightmost one: **to locate the rightmost `target`, search for the leftmost `target + 1`**.
 
-As shown below, when the search finishes, pointer $i$ points to the leftmost `target + 1`, if it exists, while $j$ points to the rightmost `target`. **We therefore return $j$**.
+As Figure 10-7 shows, when the search ends, $i$ points to the leftmost `target + 1` (if present), and $j$ points to the rightmost `target`. **Return $j$ to get the right boundary**.
 
 ![Turning a right-boundary search into a left-boundary search](binary_search_edge.assets/binary_search_right_edge_by_left_edge.svg){ class="animation-figure" }
 
 <p align="center"> Figure 10-7 &nbsp; Turning a right-boundary search into a left-boundary search </p>
 
-The returned insertion point is $i$, so subtract $1$ to obtain $j$:
+The insertion-point function returns $i$. Subtract $1$ from it to obtain $j$:
 
 === "Python"
 
     ```python title="binary_search_edge.py"
     def binary_search_right_edge(nums: list[int], target: int) -> int:
-        """Find the rightmost occurrence of target using binary search"""
-        # Reduce the problem to finding the leftmost insertion point of target + 1
+        """Use binary search to find the rightmost occurrence of target"""
+        # Search for the leftmost occurrence of target + 1
         i = binary_search_insertion(nums, target + 1)
-        # j is the candidate rightmost target index; i is the index of the first element greater than target, or len(nums)
+        # j points to the rightmost occurrence of target, and i to the first larger element
         j = i - 1
-        # If target was not found, return -1
+        # Target not found. Return -1
         if j == -1 or nums[j] != target:
             return -1
-        # Target was found; return index j
+        # Found target. Return index j
         return j
     ```
 
 === "C++"
 
     ```cpp title="binary_search_edge.cpp"
-    /* Find the rightmost occurrence of target using binary search */
+    /* Use binary search to find the rightmost occurrence of target */
     int binarySearchRightEdge(vector<int> &nums, int target) {
-        // Reduce the problem to finding the leftmost insertion point of target + 1
+        // Search for the leftmost occurrence of target + 1
         int i = binarySearchInsertion(nums, target + 1);
-        // j points to the rightmost target, while i points to the first element greater than target
+        // j points to the rightmost occurrence of target, and i to the first larger element
         int j = i - 1;
-        // If target was not found, return -1
+        // Target not found. Return -1
         if (j == -1 || nums[j] != target) {
             return -1;
         }
-        // Target was found; return index j
+        // Found target. Return index j
         return j;
     }
     ```
@@ -284,17 +284,17 @@ The returned insertion point is $i$, so subtract $1$ to obtain $j$:
 === "Java"
 
     ```java title="binary_search_edge.java"
-    /* Find the rightmost occurrence of target using binary search */
+    /* Use binary search to find the rightmost occurrence of target */
     int binarySearchRightEdge(int[] nums, int target) {
-        // Reduce the problem to finding the leftmost insertion point of target + 1
+        // Search for the leftmost occurrence of target + 1
         int i = binary_search_insertion.binarySearchInsertion(nums, target + 1);
-        // j points to the rightmost target, while i points to the first element greater than target
+        // j points to the rightmost occurrence of target, and i to the first larger element
         int j = i - 1;
-        // If target was not found, return -1
+        // Target not found. Return -1
         if (j == -1 || nums[j] != target) {
             return -1;
         }
-        // Target was found; return index j
+        // Found target. Return index j
         return j;
     }
     ```
@@ -302,17 +302,17 @@ The returned insertion point is $i$, so subtract $1$ to obtain $j$:
 === "C#"
 
     ```csharp title="binary_search_edge.cs"
-    /* Find the rightmost occurrence of target using binary search */
+    /* Use binary search to find the rightmost occurrence of target */
     int BinarySearchRightEdge(int[] nums, int target) {
-        // Reduce the problem to finding the leftmost insertion point of target + 1
+        // Search for the leftmost occurrence of target + 1
         int i = binary_search_insertion.BinarySearchInsertion(nums, target + 1);
-        // j is the candidate index of the rightmost target; i is the insertion point after all elements <= target
+        // j points to the rightmost occurrence of target, and i to the first larger element
         int j = i - 1;
-        // If target was not found, return -1
+        // Target not found. Return -1
         if (j == -1 || nums[j] != target) {
             return -1;
         }
-        // Target was found; return index j
+        // Found target. Return index j
         return j;
     }
     ```
@@ -320,17 +320,17 @@ The returned insertion point is $i$, so subtract $1$ to obtain $j$:
 === "Go"
 
     ```go title="binary_search_edge.go"
-    /* Find the rightmost occurrence of target using binary search */
+    /* Use binary search to find the rightmost occurrence of target */
     func binarySearchRightEdge(nums []int, target int) int {
-        // For integer values, find the leftmost insertion point of target + 1 (assuming no overflow)
+        // Search for the leftmost occurrence of target + 1
         i := binarySearchInsertion(nums, target+1)
-        // i is the index of the first element greater than target (or len(nums)); j is the candidate index of the rightmost target
+        // j points to the rightmost occurrence of target, and i to the first larger element
         j := i - 1
-        // If target was not found, return -1
+        // Target not found. Return -1
         if j == -1 || nums[j] != target {
             return -1
         }
-        // Target was found; return index j
+        // Found target. Return index j
         return j
     }
     ```
@@ -338,17 +338,17 @@ The returned insertion point is $i$, so subtract $1$ to obtain $j$:
 === "Swift"
 
     ```swift title="binary_search_edge.swift"
-    /* Find the rightmost occurrence of target using binary search */
+    /* Use binary search to find the rightmost occurrence of target */
     func binarySearchRightEdge(nums: [Int], target: Int) -> Int {
-        // Reduce the problem to finding the leftmost insertion point of target + 1
+        // Search for the leftmost occurrence of target + 1
         let i = binarySearchInsertion(nums: nums, target: target + 1)
-        // i is the first index with a value greater than target (or nums.endIndex); j is the candidate index of the rightmost target
+        // j points to the rightmost occurrence of target, and i to the first larger element
         let j = i - 1
-        // If target was not found, return -1
+        // Target not found. Return -1
         if j == -1 || nums[j] != target {
             return -1
         }
-        // Target was found; return index j
+        // Found target. Return index j
         return j
     }
     ```
@@ -356,17 +356,17 @@ The returned insertion point is $i$, so subtract $1$ to obtain $j$:
 === "JS"
 
     ```javascript title="binary_search_edge.js"
-    /* Find the rightmost occurrence of target using binary search */
+    /* Use binary search to find the rightmost occurrence of target */
     function binarySearchRightEdge(nums, target) {
-        // Reduce the problem to finding the leftmost insertion point of target + 1
+        // Search for the leftmost occurrence of target + 1
         const i = binarySearchInsertion(nums, target + 1);
-        // j points to the rightmost target, while i points to the first element greater than target
+        // j points to the rightmost occurrence of target, and i to the first larger element
         const j = i - 1;
-        // If target was not found, return -1
+        // Target not found. Return -1
         if (j === -1 || nums[j] !== target) {
             return -1;
         }
-        // Target was found; return index j
+        // Found target. Return index j
         return j;
     }
     ```
@@ -374,17 +374,17 @@ The returned insertion point is $i$, so subtract $1$ to obtain $j$:
 === "TS"
 
     ```typescript title="binary_search_edge.ts"
-    /* Find the rightmost occurrence of target using binary search */
+    /* Use binary search to find the rightmost occurrence of target */
     function binarySearchRightEdge(nums: Array<number>, target: number): number {
-        // Reduce the problem to finding the leftmost insertion point of target + 1
+        // Search for the leftmost occurrence of target + 1
         const i = binarySearchInsertion(nums, target + 1);
-        // For integer elements, i is the first index greater than target (or the array length); j is the candidate rightmost target index
+        // j points to the rightmost occurrence of target, and i to the first larger element
         const j = i - 1;
-        // If target was not found, return -1
+        // Target not found. Return -1
         if (j === -1 || nums[j] !== target) {
             return -1;
         }
-        // Target was found; return index j
+        // Found target. Return index j
         return j;
     }
     ```
@@ -392,17 +392,17 @@ The returned insertion point is $i$, so subtract $1$ to obtain $j$:
 === "Dart"
 
     ```dart title="binary_search_edge.dart"
-    /* Find the rightmost occurrence of target using binary search */
+    /* Use binary search to find the rightmost occurrence of target */
     int binarySearchRightEdge(List<int> nums, int target) {
-      // Reduce the problem to finding the leftmost insertion point of target + 1
+      // Search for the leftmost occurrence of target + 1
       int i = binarySearchInsertion(nums, target + 1);
-      // i is the first index greater than target (or the array length); j is the candidate rightmost target index
+      // j points to the rightmost occurrence of target, and i to the first larger element
       int j = i - 1;
-      // If target was not found, return -1
+      // Target not found. Return -1
       if (j == -1 || nums[j] != target) {
         return -1;
       }
-      // Target was found; return index j
+      // Found target. Return index j
       return j;
     }
     ```
@@ -410,17 +410,17 @@ The returned insertion point is $i$, so subtract $1$ to obtain $j$:
 === "Rust"
 
     ```rust title="binary_search_edge.rs"
-    /* Find the rightmost occurrence of target using binary search */
+    /* Use binary search to find the rightmost occurrence of target */
     fn binary_search_right_edge(nums: &[i32], target: i32) -> i32 {
-        // Reduce the problem to finding the leftmost insertion point of target + 1
+        // Search for the leftmost occurrence of target + 1
         let i = binary_search_insertion(nums, target + 1);
-        // j points to the rightmost target, while i points to the first element greater than target
+        // j points to the rightmost occurrence of target, and i to the first larger element
         let j = i - 1;
-        // If target was not found, return -1
+        // Target not found. Return -1
         if j == -1 || nums[j as usize] != target {
             return -1;
         }
-        // Target was found; return index j
+        // Found target. Return index j
         j
     }
     ```
@@ -428,17 +428,17 @@ The returned insertion point is $i$, so subtract $1$ to obtain $j$:
 === "C"
 
     ```c title="binary_search_edge.c"
-    /* Find the rightmost occurrence of target using binary search */
+    /* Use binary search to find the rightmost occurrence of target */
     int binarySearchRightEdge(int *nums, int numSize, int target) {
-        // Reduce the problem to finding the leftmost insertion point of target + 1
+        // Search for the leftmost occurrence of target + 1
         int i = binarySearchInsertion(nums, numSize, target + 1);
-        // j points to the rightmost target, while i points to the first element greater than target
+        // j points to the rightmost occurrence of target, and i to the first larger element
         int j = i - 1;
-        // If target was not found, return -1
+        // Target not found. Return -1
         if (j == -1 || nums[j] != target) {
             return -1;
         }
-        // Target was found; return index j
+        // Found target. Return index j
         return j;
     }
     ```
@@ -446,17 +446,17 @@ The returned insertion point is $i$, so subtract $1$ to obtain $j$:
 === "Kotlin"
 
     ```kotlin title="binary_search_edge.kt"
-    /* Find the rightmost occurrence of target using binary search */
+    /* Use binary search to find the rightmost occurrence of target */
     fun binarySearchRightEdge(nums: IntArray, target: Int): Int {
-        // For integer values, find the leftmost insertion point of target + 1 (assuming no overflow)
+        // Search for the leftmost occurrence of target + 1
         val i = binarySearchInsertion(nums, target + 1)
-        // i is the index of the first element greater than target (or the array length); j is the candidate rightmost target index
+        // j points to the rightmost occurrence of target, and i to the first larger element
         val j = i - 1
-        // If target was not found, return -1
+        // Target not found. Return -1
         if (j == -1 || nums[j] != target) {
             return -1
         }
-        // Target was found; return index j
+        // Found target. Return index j
         return j
     }
     ```
@@ -464,40 +464,40 @@ The returned insertion point is $i$, so subtract $1$ to obtain $j$:
 === "Ruby"
 
     ```ruby title="binary_search_edge.rb"
-    ### Find the rightmost occurrence of target using binary search ###
+    ### Use binary search to find the rightmost occurrence of target ###
     def binary_search_right_edge(nums, target)
-      # For integer elements, find the leftmost insertion point of target + 1
+      # Search for the leftmost occurrence of target + 1
       i = binary_search_insertion(nums, target + 1)
 
-      # i is the index of the first element greater than target (or the array length); j is the candidate rightmost target index
+      # j points to the rightmost occurrence of target, and i to the first larger element
       j = i - 1
 
-      # If target was not found, return -1
+      # Target not found. Return -1
       return -1 if j == -1 || nums[j] != target
 
-      j # Target was found; return index j
+      j # Found target. Return index j
     end
     ```
 
 ??? pythontutor "Visualize execution"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Find%20an%20insertion%20point%20using%20binary%20search%20%28with%20duplicates%29%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20Initialize%20the%20closed%20interval%20%5B0,%20n-1%5D%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20Calculate%20the%20midpoint%20index%20m%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20Target%20must%20be%20in%20%5Bm%2B1,%20j%5D%20if%20it%20exists%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Target%20must%20be%20in%20%5Bi,%20m-1%5D%20if%20it%20exists%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Search%20%5Bi,%20m-1%5D%20for%20the%20insertion%20point%20before%20equal%20elements%0A%20%20%20%20%23%20Return%20insertion%20point%20i%0A%20%20%20%20return%20i%0A%0Adef%20binary_search_right_edge%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Find%20the%20rightmost%20occurrence%20of%20target%20using%20binary%20search%22%22%22%0A%20%20%20%20%23%20Reduce%20the%20problem%20to%20finding%20the%20leftmost%20insertion%20point%20of%20target%20%2B%201%0A%20%20%20%20i%20%3D%20binary_search_insertion%28nums,%20target%20%2B%201%29%0A%20%20%20%20%23%20j%20is%20the%20candidate%20index%20of%20the%20rightmost%20target%3B%20i%20is%20the%20index%20of%20the%20first%20element%20greater%20than%20target,%20or%20len%28nums%29%0A%20%20%20%20j%20%3D%20i%20-%201%0A%20%20%20%20%23%20If%20target%20was%20not%20found,%20return%20-1%0A%20%20%20%20if%20j%20%3D%3D%20-1%20or%20nums%5Bj%5D%20%21%3D%20target%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20Target%20was%20found%3B%20return%20index%20j%0A%20%20%20%20return%20j%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Array%20containing%20duplicate%20elements%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%206,%206,%206,%206,%2010,%2012,%2015%5D%0A%20%20%20%20%23%20Find%20a%20boundary%20using%20binary%20search%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_right_edge%28nums,%20target%29%0A%20%20%20%20print%28f%22Index%20of%20the%20rightmost%20occurrence%20of%20%7Btarget%7D%3A%20%7Bindex%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Find%20an%20insertion%20point%20using%20binary%20search%20%28with%20duplicates%29%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20Initialize%20the%20closed%20interval%20%5B0,%20n-1%5D%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20Calculate%20the%20midpoint%20index%20m%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20Target%20must%20be%20in%20%5Bm%2B1,%20j%5D%20if%20it%20exists%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Target%20must%20be%20in%20%5Bi,%20m-1%5D%20if%20it%20exists%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Search%20%5Bi,%20m-1%5D%20for%20the%20insertion%20point%20before%20equal%20elements%0A%20%20%20%20%23%20Return%20insertion%20point%20i%0A%20%20%20%20return%20i%0A%0Adef%20binary_search_right_edge%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Find%20the%20rightmost%20occurrence%20of%20target%20using%20binary%20search%22%22%22%0A%20%20%20%20%23%20Reduce%20the%20problem%20to%20finding%20the%20leftmost%20insertion%20point%20of%20target%20%2B%201%0A%20%20%20%20i%20%3D%20binary_search_insertion%28nums,%20target%20%2B%201%29%0A%20%20%20%20%23%20j%20is%20the%20candidate%20index%20of%20the%20rightmost%20target%3B%20i%20is%20the%20index%20of%20the%20first%20element%20greater%20than%20target,%20or%20len%28nums%29%0A%20%20%20%20j%20%3D%20i%20-%201%0A%20%20%20%20%23%20If%20target%20was%20not%20found,%20return%20-1%0A%20%20%20%20if%20j%20%3D%3D%20-1%20or%20nums%5Bj%5D%20%21%3D%20target%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20Target%20was%20found%3B%20return%20index%20j%0A%20%20%20%20return%20j%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Array%20containing%20duplicate%20elements%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%206,%206,%206,%206,%2010,%2012,%2015%5D%0A%20%20%20%20%23%20Find%20a%20boundary%20using%20binary%20search%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_right_edge%28nums,%20target%29%0A%20%20%20%20print%28f%22Index%20of%20the%20rightmost%20occurrence%20of%20%7Btarget%7D%3A%20%7Bindex%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Binary%20search%20for%20an%20insertion%20point%20%28duplicates%20allowed%29%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20Initialize%20the%20closed%20interval%20%5B0,%20n-1%5D%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20Compute%20the%20midpoint%20index%20m%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20Any%20match%20must%20lie%20in%20%5Bm%2B1,%20j%5D%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Any%20match%20must%20lie%20in%20%5Bi,%20m-1%5D%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Look%20in%20%5Bi,%20m-1%5D%20for%20the%20first%20element%20less%20than%20target%0A%20%20%20%20%23%20Return%20insertion%20point%20i%0A%20%20%20%20return%20i%0A%0Adef%20binary_search_right_edge%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Use%20binary%20search%20to%20find%20the%20rightmost%20occurrence%20of%20target%22%22%22%0A%20%20%20%20%23%20Search%20for%20the%20leftmost%20occurrence%20of%20target%20%2B%201%0A%20%20%20%20i%20%3D%20binary_search_insertion%28nums,%20target%20%2B%201%29%0A%20%20%20%20%23%20j%20points%20to%20the%20rightmost%20occurrence%20of%20target,%20and%20i%20to%20the%20first%20larger%20element%0A%20%20%20%20j%20%3D%20i%20-%201%0A%20%20%20%20%23%20Target%20not%20found.%20Return%20-1%0A%20%20%20%20if%20j%20%3D%3D%20-1%20or%20nums%5Bj%5D%20%21%3D%20target%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20Found%20target.%20Return%20index%20j%0A%20%20%20%20return%20j%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Array%20with%20duplicates%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%206,%206,%206,%206,%2010,%2012,%2015%5D%0A%20%20%20%20%23%20Find%20the%20left%20and%20right%20boundaries%20using%20binary%20search%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_right_edge%28nums,%20target%29%0A%20%20%20%20print%28f%22Index%20of%20the%20rightmost%20occurrence%20of%20%7Btarget%7D%20%3D%20%7Bindex%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Binary%20search%20for%20an%20insertion%20point%20%28duplicates%20allowed%29%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20Initialize%20the%20closed%20interval%20%5B0,%20n-1%5D%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20Compute%20the%20midpoint%20index%20m%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20Any%20match%20must%20lie%20in%20%5Bm%2B1,%20j%5D%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Any%20match%20must%20lie%20in%20%5Bi,%20m-1%5D%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Look%20in%20%5Bi,%20m-1%5D%20for%20the%20first%20element%20less%20than%20target%0A%20%20%20%20%23%20Return%20insertion%20point%20i%0A%20%20%20%20return%20i%0A%0Adef%20binary_search_right_edge%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Use%20binary%20search%20to%20find%20the%20rightmost%20occurrence%20of%20target%22%22%22%0A%20%20%20%20%23%20Search%20for%20the%20leftmost%20occurrence%20of%20target%20%2B%201%0A%20%20%20%20i%20%3D%20binary_search_insertion%28nums,%20target%20%2B%201%29%0A%20%20%20%20%23%20j%20points%20to%20the%20rightmost%20occurrence%20of%20target,%20and%20i%20to%20the%20first%20larger%20element%0A%20%20%20%20j%20%3D%20i%20-%201%0A%20%20%20%20%23%20Target%20not%20found.%20Return%20-1%0A%20%20%20%20if%20j%20%3D%3D%20-1%20or%20nums%5Bj%5D%20%21%3D%20target%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20Found%20target.%20Return%20index%20j%0A%20%20%20%20return%20j%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Array%20with%20duplicates%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%206,%206,%206,%206,%2010,%2012,%2015%5D%0A%20%20%20%20%23%20Find%20the%20left%20and%20right%20boundaries%20using%20binary%20search%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_right_edge%28nums,%20target%29%0A%20%20%20%20print%28f%22Index%20of%20the%20rightmost%20occurrence%20of%20%7Btarget%7D%20%3D%20%7Bindex%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-### 2. &nbsp; Turning a boundary search into an element search
+### 2. &nbsp; Finding a boundary by searching for a value
 
-When the array does not contain `target`, $i$ ultimately points to the first element greater than `target`, while $j$ points to the rightmost element smaller than `target`.
+When the array does not contain `target`, the final positions of $i$ and $j$ mark the first element greater than `target` and the rightmost element less than `target`, respectively.
 
-As shown below, we can therefore construct a value absent from the array and use it to find the left and right boundaries.
+We can therefore find either boundary by searching for a value we know is absent, as Figure 10-8 shows.
 
-- To find the leftmost `target`, search for `target - 0.5` and return pointer $i$.
-- To find the rightmost `target`, search for `target + 0.5` and return pointer $j$.
+- To find the leftmost `target`, search for `target - 0.5` and return the pointer $i$.
+- To find the rightmost `target`, search for `target + 0.5` and return the pointer $j$.
 
-![Turning a boundary search into an element search](binary_search_edge.assets/binary_search_edge_by_element.svg){ class="animation-figure" }
+![Finding a boundary by searching for a value](binary_search_edge.assets/binary_search_edge_by_element.svg){ class="animation-figure" }
 
-<p align="center"> Figure 10-8 &nbsp; Turning a boundary search into an element search </p>
+<p align="center"> Figure 10-8 &nbsp; Finding a boundary by searching for a value </p>
 
-The code is omitted here, but keep two points in mind.
+The code is omitted here. Keep two details in mind.
 
-- The given array contains no fractional values, so we do not need to handle equality.
-- Since this method introduces fractional values, change the function's `target` variable to a floating-point type. No change is needed in Python.
+- The given array contains only integers, so the equality case cannot arise for these fractional search values.
+- Since this method introduces fractional values, change the function's `target` variable to a floating-point type. Python requires no change.

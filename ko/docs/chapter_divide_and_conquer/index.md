@@ -7,11 +7,11 @@ icon: material/set-split
 
 ![분할 정복](../assets/covers/chapter_divide_and_conquer.svg){ class="cover-image" }
 
-!!! abstract "이 장을 시작하며"
+!!! abstract
 
-    어려운 문제도 한 단계씩 나눌 때마다 더욱 단순해진다.
+    어려운 문제도 한 단계씩 나눌 때마다 한결 단순해진다.
     
-    분할 정복은 중요한 사실을 알려 준다. 쉬운 것부터 시작하면 모든 것이 더 이상 복잡하지 않다.
+    분할 정복이 보여 주는 사실이 있다. 단순한 것부터 시작하면 복잡했던 문제도 풀린다.
 
 ## 이 장의 내용
 

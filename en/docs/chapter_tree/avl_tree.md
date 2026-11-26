@@ -4,29 +4,29 @@ comments: true
 
 # 7.5 &nbsp; AVL trees *
 
-The binary-search-tree section explained that repeated insertions and deletions can make a tree degenerate into a linked list. All operations then degrade from $O(\log n)$ to $O(n)$ time.
+As we saw in the section on binary search trees, repeated insertions and deletions can turn a binary search tree into a linked list. When that happens, the time complexity of each operation worsens from $O(\log n)$ to $O(n)$.
 
-In the example below, just two deletions turn the binary search tree into a linked list.
+In Figure 7-24, just two deletions turn the binary search tree into a linked list.
 
-![An AVL-tree example degenerating after deletions](avl_tree.assets/avltree_degradation_from_removing_node.svg){ class="animation-figure" }
+![An AVL tree degenerates after node deletions](avl_tree.assets/avltree_degradation_from_removing_node.svg){ class="animation-figure" }
 
-<p align="center"> Figure 7-24 &nbsp; An AVL-tree example degenerating after deletions </p>
+<p align="center"> Figure 7-24 &nbsp; An AVL tree degenerates after node deletions </p>
 
-Likewise, inserting two nodes into the perfect binary tree below makes it heavily skewed to the left, degrading lookup performance.
+Similarly, inserting two nodes into the perfect binary tree below makes it lean heavily to the left, worsening the time complexity of search.
 
-![An AVL-tree example degenerating after insertions](avl_tree.assets/avltree_degradation_from_inserting_node.svg){ class="animation-figure" }
+![An AVL tree degenerates after node insertions](avl_tree.assets/avltree_degradation_from_inserting_node.svg){ class="animation-figure" }
 
-<p align="center"> Figure 7-25 &nbsp; An AVL-tree example degenerating after insertions </p>
+<p align="center"> Figure 7-25 &nbsp; An AVL tree degenerates after node insertions </p>
 
-In 1962, G. M. Adelson-Velsky and E. M. Landis introduced the <u>AVL tree</u> in their paper “An algorithm for the organization of information.” They described operations that prevent degeneration through repeated insertions and deletions, keeping the time complexity of operations at $O(\log n)$. AVL trees therefore maintain efficient data operations when insertions, deletions, lookups, and updates are frequent, making them valuable in practice.
+In 1962, G. M. Adelson-Velsky and E. M. Landis introduced the <u>AVL tree</u> in their paper “An algorithm for the organization of information.” They described operations that prevent the tree from degenerating under repeated insertions and deletions, keeping its operations at $O(\log n)$ time. This makes AVL trees useful when data must be inserted, deleted, searched, and updated frequently.
 
 ## 7.5.1 &nbsp; AVL tree terminology
 
-An AVL tree is both a binary search tree and a balanced binary tree, satisfying the properties of both. It is therefore a <u>balanced binary search tree</u>.
+An AVL tree is both a binary search tree and a balanced binary tree. It satisfies all the properties of both, making it a <u>balanced binary search tree</u>.
 
 ### 1. &nbsp; Node height
 
-AVL operations need node heights, so add a `height` variable to the node class:
+AVL operations need the heights of nodes, so we add a `height` variable to the node class:
 
 === "Python"
 
@@ -82,7 +82,7 @@ AVL operations need node heights, so add a `height` variable to the node class:
 === "Go"
 
     ```go title=""
-    /* AVL tree node struct */
+    /* AVL tree node structure */
     type TreeNode struct {
         Val    int       // Node value
         Height int       // Node height
@@ -163,7 +163,7 @@ AVL operations need node heights, so add a `height` variable to the node class:
     use std::rc::Rc;
     use std::cell::RefCell;
 
-    /* AVL tree node struct */
+    /* AVL tree node structure */
     struct TreeNode {
         val: i32,                               // Node value
         height: i32,                            // Node height
@@ -187,7 +187,7 @@ AVL operations need node heights, so add a `height` variable to the node class:
 === "C"
 
     ```c title=""
-    /* AVL tree node struct */
+    /* AVL tree node structure */
     typedef struct TreeNode {
         int val;
         int height;
@@ -236,21 +236,21 @@ AVL operations need node heights, so add a `height` variable to the node class:
     end
     ```
 
-A node's height is the distance to its farthest leaf, measured in edges. A leaf has height $0$, while a missing node has height $-1$. We create two helper functions to retrieve and update a node's height:
+A node's height is the distance to its farthest leaf, measured in edges. A leaf has height $0$, and a null node has height $-1$. We will define two helper functions, one to get a node's height and one to update it:
 
 === "Python"
 
     ```python title="avl_tree.py"
     def height(self, node: TreeNode | None) -> int:
         """Get the node height"""
-        # An empty subtree has height -1; a leaf has height 0
+        # A null node has height -1, and a leaf has height 0
         if node is not None:
             return node.height
         return -1
 
     def update_height(self, node: TreeNode | None):
         """Update the node height"""
-        # The node height equals the height of its taller subtree + 1
+        # Node height is the height of the taller subtree plus 1
         node.height = max([self.height(node.left), self.height(node.right)]) + 1
     ```
 
@@ -259,13 +259,13 @@ A node's height is the distance to its farthest leaf, measured in edges. A leaf 
     ```cpp title="avl_tree.cpp"
     /* Get the node height */
     int height(TreeNode *node) {
-        // A null node has height -1; a leaf has height 0
+        // A null node has height -1, and a leaf has height 0
         return node == nullptr ? -1 : node->height;
     }
 
     /* Update the node height */
     void updateHeight(TreeNode *node) {
-        // The node height equals the height of its taller subtree + 1
+        // Node height is the height of the taller subtree plus 1
         node->height = max(height(node->left), height(node->right)) + 1;
     }
     ```
@@ -275,13 +275,13 @@ A node's height is the distance to its farthest leaf, measured in edges. A leaf 
     ```java title="avl_tree.java"
     /* Get the node height */
     int height(TreeNode node) {
-        // A null node has height -1; a leaf has height 0
+        // A null node has height -1, and a leaf has height 0
         return node == null ? -1 : node.height;
     }
 
     /* Update the node height */
     void updateHeight(TreeNode node) {
-        // The node height equals the height of its taller subtree + 1
+        // Node height is the height of the taller subtree plus 1
         node.height = Math.max(height(node.left), height(node.right)) + 1;
     }
     ```
@@ -291,13 +291,13 @@ A node's height is the distance to its farthest leaf, measured in edges. A leaf 
     ```csharp title="avl_tree.cs"
     /* Get the node height */
     int Height(TreeNode? node) {
-        // A null node has height -1; a leaf has height 0
+        // A null node has height -1, and a leaf has height 0
         return node == null ? -1 : node.height;
     }
 
     /* Update the node height */
     void UpdateHeight(TreeNode node) {
-        // The node height equals the height of its taller subtree + 1
+        // Node height is the height of the taller subtree plus 1
         node.height = Math.Max(Height(node.left), Height(node.right)) + 1;
     }
     ```
@@ -307,7 +307,7 @@ A node's height is the distance to its farthest leaf, measured in edges. A leaf 
     ```go title="avl_tree.go"
     /* Get the node height */
     func (t *aVLTree) height(node *TreeNode) int {
-        // A nil node has height -1; a leaf has height 0
+        // A null node has height -1, and a leaf has height 0
         if node != nil {
             return node.Height
         }
@@ -318,7 +318,7 @@ A node's height is the distance to its farthest leaf, measured in edges. A leaf 
     func (t *aVLTree) updateHeight(node *TreeNode) {
         lh := t.height(node.Left)
         rh := t.height(node.Right)
-        // The node height equals the height of its taller subtree + 1
+        // Node height is the height of the taller subtree plus 1
         if lh > rh {
             node.Height = lh + 1
         } else {
@@ -332,13 +332,13 @@ A node's height is the distance to its farthest leaf, measured in edges. A leaf 
     ```swift title="avl_tree.swift"
     /* Get the node height */
     func height(node: TreeNode?) -> Int {
-        // A nil node has height -1; a leaf has height 0
+        // A null node has height -1, and a leaf has height 0
         node?.height ?? -1
     }
 
     /* Update the node height */
     func updateHeight(node: TreeNode?) {
-        // The node height equals the height of its taller subtree + 1
+        // Node height is the height of the taller subtree plus 1
         node?.height = max(height(node: node?.left), height(node: node?.right)) + 1
     }
     ```
@@ -348,13 +348,13 @@ A node's height is the distance to its farthest leaf, measured in edges. A leaf 
     ```javascript title="avl_tree.js"
     /* Get the node height */
     height(node) {
-        // A null node has height -1; a leaf has height 0
+        // A null node has height -1, and a leaf has height 0
         return node === null ? -1 : node.height;
     }
 
     /* Update the node height */
     #updateHeight(node) {
-        // The node height equals the height of its taller subtree + 1
+        // Node height is the height of the taller subtree plus 1
         node.height =
             Math.max(this.height(node.left), this.height(node.right)) + 1;
     }
@@ -365,13 +365,13 @@ A node's height is the distance to its farthest leaf, measured in edges. A leaf 
     ```typescript title="avl_tree.ts"
     /* Get the node height */
     height(node: TreeNode): number {
-        // A null node has height -1; a leaf has height 0
+        // A null node has height -1, and a leaf has height 0
         return node === null ? -1 : node.height;
     }
 
     /* Update the node height */
     updateHeight(node: TreeNode): void {
-        // The node height equals the height of its taller subtree + 1
+        // Node height is the height of the taller subtree plus 1
         node.height =
             Math.max(this.height(node.left), this.height(node.right)) + 1;
     }
@@ -382,13 +382,13 @@ A node's height is the distance to its farthest leaf, measured in edges. A leaf 
     ```dart title="avl_tree.dart"
     /* Get the node height */
     int height(TreeNode? node) {
-      // A null node has height -1; a leaf has height 0
+      // A null node has height -1, and a leaf has height 0
       return node == null ? -1 : node.height;
     }
 
     /* Update the node height */
     void updateHeight(TreeNode? node) {
-      // The node height equals the height of its taller subtree + 1
+      // Node height is the height of the taller subtree plus 1
       node!.height = max(height(node.left), height(node.right)) + 1;
     }
     ```
@@ -398,7 +398,7 @@ A node's height is the distance to its farthest leaf, measured in edges. A leaf 
     ```rust title="avl_tree.rs"
     /* Get the node height */
     fn height(node: OptionTreeNodeRc) -> i32 {
-        // A null node has height -1; a leaf has height 0
+        // A null node has height -1, and a leaf has height 0
         match node {
             Some(node) => node.borrow().height,
             None => -1,
@@ -410,7 +410,7 @@ A node's height is the distance to its farthest leaf, measured in edges. A leaf 
         if let Some(node) = node {
             let left = node.borrow().left.clone();
             let right = node.borrow().right.clone();
-            // The node height equals the height of its taller subtree + 1
+            // Node height is the height of the taller subtree plus 1
             node.borrow_mut().height = std::cmp::max(Self::height(left), Self::height(right)) + 1;
         }
     }
@@ -421,7 +421,7 @@ A node's height is the distance to its farthest leaf, measured in edges. A leaf 
     ```c title="avl_tree.c"
     /* Get the node height */
     int height(TreeNode *node) {
-        // A null node has height -1; a leaf has height 0
+        // A null node has height -1, and a leaf has height 0
         if (node != NULL) {
             return node->height;
         }
@@ -432,7 +432,7 @@ A node's height is the distance to its farthest leaf, measured in edges. A leaf 
     void updateHeight(TreeNode *node) {
         int lh = height(node->left);
         int rh = height(node->right);
-        // The node height equals the height of its taller subtree + 1
+        // Node height is the height of the taller subtree plus 1
         if (lh > rh) {
             node->height = lh + 1;
         } else {
@@ -446,13 +446,13 @@ A node's height is the distance to its farthest leaf, measured in edges. A leaf 
     ```kotlin title="avl_tree.kt"
     /* Get the node height */
     fun height(node: TreeNode?): Int {
-        // A null node has height -1; a leaf has height 0
+        // A null node has height -1, and a leaf has height 0
         return node?.height ?: -1
     }
 
     /* Update the node height */
     fun updateHeight(node: TreeNode?) {
-        // The node height equals the height of its taller subtree + 1
+        // Node height is the height of the taller subtree plus 1
         node?.height = max(height(node?.left), height(node?.right)) + 1
     }
     ```
@@ -462,7 +462,7 @@ A node's height is the distance to its farthest leaf, measured in edges. A leaf 
     ```ruby title="avl_tree.rb"
     ### Get the node height ###
     def height(node)
-      # A nil node has height -1; a leaf has height 0
+      # A null node has height -1, and a leaf has height 0
       return node.height unless node.nil?
 
       -1
@@ -470,24 +470,24 @@ A node's height is the distance to its farthest leaf, measured in edges. A leaf 
 
     ### Update the node height ###
     def update_height(node)
-      # The node height equals the height of its taller subtree + 1
+      # Node height is the height of the taller subtree plus 1
       node.height = [height(node.left), height(node.right)].max + 1
     end
     ```
 
-### 2. &nbsp; Balance factor
+### 2. &nbsp; Node balance factor
 
-A node's <u>balance factor</u> is its left subtree's height minus its right subtree's height. A missing node has balance factor $0$. Wrap this calculation in a function for convenient use:
+A node's <u>balance factor</u> is the height of its left subtree minus the height of its right subtree. We define the balance factor of a null node to be $0$. For convenience, we put this calculation in a function too:
 
 === "Python"
 
     ```python title="avl_tree.py"
     def balance_factor(self, node: TreeNode | None) -> int:
         """Get the balance factor"""
-        # An empty subtree has balance factor 0
+        # A null node has a balance factor of 0
         if node is None:
             return 0
-        # Node balance factor = left subtree height - right subtree height
+        # Balance factor = left subtree height - right subtree height
         return self.height(node.left) - self.height(node.right)
     ```
 
@@ -496,10 +496,10 @@ A node's <u>balance factor</u> is its left subtree's height minus its right subt
     ```cpp title="avl_tree.cpp"
     /* Get the balance factor */
     int balanceFactor(TreeNode *node) {
-        // A null node has balance factor 0
+        // A null node has a balance factor of 0
         if (node == nullptr)
             return 0;
-        // Node balance factor = left subtree height - right subtree height
+        // Balance factor = left subtree height - right subtree height
         return height(node->left) - height(node->right);
     }
     ```
@@ -509,10 +509,10 @@ A node's <u>balance factor</u> is its left subtree's height minus its right subt
     ```java title="avl_tree.java"
     /* Get the balance factor */
     int balanceFactor(TreeNode node) {
-        // A null node has balance factor 0
+        // A null node has a balance factor of 0
         if (node == null)
             return 0;
-        // Node balance factor = left subtree height - right subtree height
+        // Balance factor = left subtree height - right subtree height
         return height(node.left) - height(node.right);
     }
     ```
@@ -522,9 +522,9 @@ A node's <u>balance factor</u> is its left subtree's height minus its right subt
     ```csharp title="avl_tree.cs"
     /* Get the balance factor */
     int BalanceFactor(TreeNode? node) {
-        // A null node has balance factor 0
+        // A null node has a balance factor of 0
         if (node == null) return 0;
-        // Node balance factor = left subtree height - right subtree height
+        // Balance factor = left subtree height - right subtree height
         return Height(node.left) - Height(node.right);
     }
     ```
@@ -534,11 +534,11 @@ A node's <u>balance factor</u> is its left subtree's height minus its right subt
     ```go title="avl_tree.go"
     /* Get the balance factor */
     func (t *aVLTree) balanceFactor(node *TreeNode) int {
-        // A nil node has balance factor 0
+        // A null node has a balance factor of 0
         if node == nil {
             return 0
         }
-        // Node balance factor = left subtree height - right subtree height
+        // Balance factor = left subtree height - right subtree height
         return t.height(node.Left) - t.height(node.Right)
     }
     ```
@@ -548,9 +548,9 @@ A node's <u>balance factor</u> is its left subtree's height minus its right subt
     ```swift title="avl_tree.swift"
     /* Get the balance factor */
     func balanceFactor(node: TreeNode?) -> Int {
-        // A nil node has balance factor 0
+        // A null node has a balance factor of 0
         guard let node = node else { return 0 }
-        // Node balance factor = left subtree height - right subtree height
+        // Balance factor = left subtree height - right subtree height
         return height(node: node.left) - height(node: node.right)
     }
     ```
@@ -560,9 +560,9 @@ A node's <u>balance factor</u> is its left subtree's height minus its right subt
     ```javascript title="avl_tree.js"
     /* Get the balance factor */
     balanceFactor(node) {
-        // A null node has balance factor 0
+        // A null node has a balance factor of 0
         if (node === null) return 0;
-        // Node balance factor = left subtree height - right subtree height
+        // Balance factor = left subtree height - right subtree height
         return this.height(node.left) - this.height(node.right);
     }
     ```
@@ -572,9 +572,9 @@ A node's <u>balance factor</u> is its left subtree's height minus its right subt
     ```typescript title="avl_tree.ts"
     /* Get the balance factor */
     balanceFactor(node: TreeNode): number {
-        // A null node has balance factor 0
+        // A null node has a balance factor of 0
         if (node === null) return 0;
-        // Node balance factor = left subtree height - right subtree height
+        // Balance factor = left subtree height - right subtree height
         return this.height(node.left) - this.height(node.right);
     }
     ```
@@ -584,9 +584,9 @@ A node's <u>balance factor</u> is its left subtree's height minus its right subt
     ```dart title="avl_tree.dart"
     /* Get the balance factor */
     int balanceFactor(TreeNode? node) {
-      // A null node has balance factor 0
+      // A null node has a balance factor of 0
       if (node == null) return 0;
-      // Node balance factor = left subtree height - right subtree height
+      // Balance factor = left subtree height - right subtree height
       return height(node.left) - height(node.right);
     }
     ```
@@ -597,9 +597,9 @@ A node's <u>balance factor</u> is its left subtree's height minus its right subt
     /* Get the balance factor */
     fn balance_factor(node: OptionTreeNodeRc) -> i32 {
         match node {
-            // A null node has balance factor 0
+            // A null node has a balance factor of 0
             None => 0,
-            // Node balance factor = left subtree height - right subtree height
+            // Balance factor = left subtree height - right subtree height
             Some(node) => {
                 Self::height(node.borrow().left.clone()) - Self::height(node.borrow().right.clone())
             }
@@ -612,11 +612,11 @@ A node's <u>balance factor</u> is its left subtree's height minus its right subt
     ```c title="avl_tree.c"
     /* Get the balance factor */
     int balanceFactor(TreeNode *node) {
-        // A null node has balance factor 0
+        // A null node has a balance factor of 0
         if (node == NULL) {
             return 0;
         }
-        // Node balance factor = left subtree height - right subtree height
+        // Balance factor = left subtree height - right subtree height
         return height(node->left) - height(node->right);
     }
     ```
@@ -626,9 +626,9 @@ A node's <u>balance factor</u> is its left subtree's height minus its right subt
     ```kotlin title="avl_tree.kt"
     /* Get the balance factor */
     fun balanceFactor(node: TreeNode?): Int {
-        // A null node has balance factor 0
+        // A null node has a balance factor of 0
         if (node == null) return 0
-        // Node balance factor = left subtree height - right subtree height
+        // Balance factor = left subtree height - right subtree height
         return height(node.left) - height(node.right)
     }
     ```
@@ -638,30 +638,30 @@ A node's <u>balance factor</u> is its left subtree's height minus its right subt
     ```ruby title="avl_tree.rb"
     ### Get the balance factor ###
     def balance_factor(node)
-      # A nil node has balance factor 0
+      # A null node has a balance factor of 0
       return 0 if node.nil?
 
-      # Node balance factor = left subtree height - right subtree height
+      # Balance factor = left subtree height - right subtree height
       height(node.left) - height(node.right)
     end
     ```
 
 !!! tip
 
-    If a node's balance factor is $f$, every node in an AVL tree satisfies $-1 \le f \le 1$.
+    If $f$ denotes the balance factor, every node in an AVL tree satisfies $-1 \le f \le 1$.
 
 ## 7.5.2 &nbsp; AVL tree rotations
 
-The defining operation of an AVL tree is rotation, which restores balance without changing the inorder traversal sequence. **A rotation preserves the binary-search-tree property while restoring the balanced-tree property**.
+The defining operation of an AVL tree is the rotation. It restores balance at a node without changing the inorder sequence of the tree. In other words, **rotation preserves the binary search tree property while bringing the tree back into balance**.
 
-A node whose balance factor has absolute value $> 1$ is “unbalanced.” Depending on the imbalance, we use one of four rotations: right, left, right-then-left, or left-then-right. Let us examine them in detail.
+A node is unbalanced if the absolute value of its balance factor is $> 1$. Depending on the shape of the imbalance, we use one of four rotations: right, left, right-left, or left-right. Let's look at each in turn.
 
-### 1. &nbsp; Right rotation
+### 1. &nbsp; Rotate right
 
-In Figure 7-26, balance factors appear beneath the nodes. Viewed from the bottom up, node 3 is the first unbalanced node. Focus on the subtree rooted there, naming its root `node` and its left child `child`. A right rotation restores balance while preserving the binary-search-tree property.
+In Figure 7-26, each node's balance factor appears beneath it. Working from the bottom up, node 3 is the first unbalanced node. Focus on the subtree rooted there. Call that node `node` and its left child `child`, and perform a right rotation. The subtree regains balance and still satisfies the binary search tree property.
 
 === "<1>"
-    ![Steps of a right rotation](avl_tree.assets/avltree_right_rotate_step1.svg){ class="animation-figure" }
+    ![Steps in a right rotation](avl_tree.assets/avltree_right_rotate_step1.svg){ class="animation-figure" }
 
 === "<2>"
     ![avltree_right_rotate_step2](avl_tree.assets/avltree_right_rotate_step2.svg){ class="animation-figure" }
@@ -672,15 +672,15 @@ In Figure 7-26, balance factors appear beneath the nodes. Viewed from the bottom
 === "<4>"
     ![avltree_right_rotate_step4](avl_tree.assets/avltree_right_rotate_step4.svg){ class="animation-figure" }
 
-<p align="center"> Figure 7-26 &nbsp; Steps of a right rotation </p>
+<p align="center"> Figure 7-26 &nbsp; Steps in a right rotation </p>
 
-If `child` has a right child, denoted by `grand_child`, add one step to the rotation: make `grand_child` the left child of `node`, as shown below.
+As shown below, if `child` has a right child (called `grand_child`), the right rotation needs one more step: make `grand_child` the left child of `node`.
 
-![A right rotation with grand_child](avl_tree.assets/avltree_right_rotate_with_grandchild.svg){ class="animation-figure" }
+![Right rotation with grand_child](avl_tree.assets/avltree_right_rotate_with_grandchild.svg){ class="animation-figure" }
 
-<p align="center"> Figure 7-27 &nbsp; A right rotation with grand_child </p>
+<p align="center"> Figure 7-27 &nbsp; Right rotation with grand_child </p>
 
-“Rotating right” is a visual description; the implementation updates node pointers:
+“Rotate right” describes what the movement looks like. To implement it, we update node pointers as follows:
 
 === "Python"
 
@@ -921,21 +921,21 @@ If `child` has a right child, denoted by `grand_child`, add one step to the rota
     end
     ```
 
-### 2. &nbsp; Left rotation
+### 2. &nbsp; Rotate left
 
-For the mirror image of the unbalanced tree above, perform a left rotation, as shown below.
+The mirror image of the unbalanced tree above calls for a left rotation, as shown below.
 
-![A left rotation](avl_tree.assets/avltree_left_rotate.svg){ class="animation-figure" }
+![Left rotation](avl_tree.assets/avltree_left_rotate.svg){ class="animation-figure" }
 
-<p align="center"> Figure 7-28 &nbsp; A left rotation </p>
+<p align="center"> Figure 7-28 &nbsp; Left rotation </p>
 
-Similarly, if `child` has a left child, denoted by `grand_child`, make it the right child of `node` during the rotation.
+Similarly, if `child` has a left child (called `grand_child`), the left rotation needs one more step: make `grand_child` the right child of `node`, as shown below.
 
-![A left rotation with grand_child](avl_tree.assets/avltree_left_rotate_with_grandchild.svg){ class="animation-figure" }
+![Left rotation with grand_child](avl_tree.assets/avltree_left_rotate_with_grandchild.svg){ class="animation-figure" }
 
-<p align="center"> Figure 7-29 &nbsp; A left rotation with grand_child </p>
+<p align="center"> Figure 7-29 &nbsp; Left rotation with grand_child </p>
 
-**Right and left rotations are mirror images, as are the imbalances they resolve**. To obtain left-rotation code, exchange every `left` and `right` in the right-rotation implementation:
+**Right and left rotations are mirror images of each other, as are the imbalances they correct**. To obtain the code for a left rotation, replace each `left` in the right rotation code with `right` and each `right` with `left`:
 
 === "Python"
 
@@ -1176,52 +1176,52 @@ Similarly, if `child` has a left child, denoted by `grand_child`, make it the ri
     end
     ```
 
-### 3. &nbsp; Left-then-right rotation
+### 3. &nbsp; Rotate left, then right
 
-For unbalanced node 3 below, neither a left nor a right rotation alone restores balance. First rotate `child` to the left, then rotate `node` to the right.
+For unbalanced node 3 in Figure 7-30, neither a single left rotation nor a single right rotation will balance the subtree. First rotate `child` to the left, then rotate `node` to the right.
 
-![A left-then-right rotation](avl_tree.assets/avltree_left_right_rotate.svg){ class="animation-figure" }
+![Left rotation followed by right rotation](avl_tree.assets/avltree_left_right_rotate.svg){ class="animation-figure" }
 
-<p align="center"> Figure 7-30 &nbsp; A left-then-right rotation </p>
+<p align="center"> Figure 7-30 &nbsp; Left rotation followed by right rotation </p>
 
-### 4. &nbsp; Right-then-left rotation
+### 4. &nbsp; Rotate right, then left
 
-For the mirror-image case below, first rotate `child` to the right, then rotate `node` to the left.
+In the mirror image of the preceding case, shown below, first rotate `child` to the right, then rotate `node` to the left.
 
-![A right-then-left rotation](avl_tree.assets/avltree_right_left_rotate.svg){ class="animation-figure" }
+![Right rotation followed by left rotation](avl_tree.assets/avltree_right_left_rotate.svg){ class="animation-figure" }
 
-<p align="center"> Figure 7-31 &nbsp; A right-then-left rotation </p>
+<p align="center"> Figure 7-31 &nbsp; Right rotation followed by left rotation </p>
 
 ### 5. &nbsp; Choosing a rotation
 
-The four cases below correspond to the examples above and require, respectively, right, left-then-right, right-then-left, and left rotations.
+The four imbalances below correspond to the examples above. From left to right, they require a right rotation, a left-right rotation, a right-left rotation, and a left rotation.
 
-![The four AVL rotation cases](avl_tree.assets/avltree_rotation_cases.svg){ class="animation-figure" }
+![Four rotation cases in an AVL tree](avl_tree.assets/avltree_rotation_cases.svg){ class="animation-figure" }
 
-<p align="center"> Figure 7-32 &nbsp; The four AVL rotation cases </p>
+<p align="center"> Figure 7-32 &nbsp; Four rotation cases in an AVL tree </p>
 
-As Table 7-3 shows, the signs of the unbalanced node's balance factor and that of the child on its taller side determine the case.
+As the table shows, we can identify the case by checking the balance factor of the unbalanced node and the sign of the balance factor of its child on the taller side.
 
-<p align="center"> Table 7-3 &nbsp; Conditions for choosing a rotation </p>
+<p align="center"> Table 7-3 &nbsp; Conditions for choosing among the four rotations </p>
 
 <div class="center-table" markdown>
 
-| Unbalanced node's balance factor | Child's balance factor | Rotation |
+| Balance factor of the unbalanced node | Balance factor of the child | Rotation to use |
 | ------------------ | ---------------- | ---------------- |
-| $> 1$ (left-heavy)   | $\geq 0$         | Right             |
-| $> 1$ (left-heavy)   | $<0$             | Left, then right     |
-| $< -1$ (right-heavy)  | $\leq 0$         | Left             |
-| $< -1$ (right-heavy)  | $>0$             | Right, then left     |
+| $> 1$ (left-heavy tree)   | $\geq 0$         | Rotate right             |
+| $> 1$ (left-heavy tree)   | $<0$             | Rotate left, then right     |
+| $< -1$ (right-heavy tree)  | $\leq 0$         | Rotate left             |
+| $< -1$ (right-heavy tree)  | $>0$             | Rotate right, then left     |
 
 </div>
 
-Wrap the rotation logic in one function. **It can then handle every imbalance and restore the affected node's balance**. The code is as follows:
+For convenience, we put the rotation logic in a function. **This function handles each kind of imbalance and restores balance at the affected node**. Here is the code:
 
 === "Python"
 
     ```python title="avl_tree.py"
     def rotate(self, node: TreeNode | None) -> TreeNode | None:
-        """Perform rotations to restore balance in this subtree"""
+        """Rebalance the subtree by rotating it"""
         # Get the balance factor of node
         balance_factor = self.balance_factor(node)
         # Left-heavy tree
@@ -1242,14 +1242,14 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
                 # Rotate right, then left
                 node.right = self.right_rotate(node.right)
                 return self.left_rotate(node)
-        # The tree is balanced; return without rotating
+        # The tree is balanced, so return without rotating
         return node
     ```
 
 === "C++"
 
     ```cpp title="avl_tree.cpp"
-    /* Perform rotations to restore balance in this subtree */
+    /* Rebalance the subtree by rotating it */
     TreeNode *rotate(TreeNode *node) {
         // Get the balance factor of node
         int _balanceFactor = balanceFactor(node);
@@ -1275,7 +1275,7 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
                 return leftRotate(node);
             }
         }
-        // The tree is balanced; return without rotating
+        // The tree is balanced, so return without rotating
         return node;
     }
     ```
@@ -1283,7 +1283,7 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
 === "Java"
 
     ```java title="avl_tree.java"
-    /* Perform rotations to restore balance in this subtree */
+    /* Rebalance the subtree by rotating it */
     TreeNode rotate(TreeNode node) {
         // Get the balance factor of node
         int balanceFactor = balanceFactor(node);
@@ -1309,7 +1309,7 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
                 return leftRotate(node);
             }
         }
-        // The tree is balanced; return without rotating
+        // The tree is balanced, so return without rotating
         return node;
     }
     ```
@@ -1317,7 +1317,7 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
 === "C#"
 
     ```csharp title="avl_tree.cs"
-    /* Perform rotations to restore balance in this subtree */
+    /* Rebalance the subtree by rotating it */
     TreeNode? Rotate(TreeNode? node) {
         // Get the balance factor of node
         int balanceFactorInt = BalanceFactor(node);
@@ -1343,7 +1343,7 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
                 return LeftRotate(node);
             }
         }
-        // The tree is balanced; return without rotating
+        // The tree is balanced, so return without rotating
         return node;
     }
     ```
@@ -1351,10 +1351,10 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
 === "Go"
 
     ```go title="avl_tree.go"
-    /* Perform rotations to restore balance in this subtree */
+    /* Rebalance the subtree by rotating it */
     func (t *aVLTree) rotate(node *TreeNode) *TreeNode {
         // Get the balance factor of node
-        // Go favors short local variable names; bf holds the result of t.balanceFactor(node)
+        // Go favors short variable names. Here bf stands for t.balanceFactor.
         bf := t.balanceFactor(node)
         // Left-heavy tree
         if bf > 1 {
@@ -1378,7 +1378,7 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
                 return t.leftRotate(node)
             }
         }
-        // The tree is balanced; return without rotating
+        // The tree is balanced, so return without rotating
         return node
     }
     ```
@@ -1386,7 +1386,7 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
 === "Swift"
 
     ```swift title="avl_tree.swift"
-    /* Perform rotations to restore balance in this subtree */
+    /* Rebalance the subtree by rotating it */
     func rotate(node: TreeNode?) -> TreeNode? {
         // Get the balance factor of node
         let balanceFactor = balanceFactor(node: node)
@@ -1412,7 +1412,7 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
                 return leftRotate(node: node)
             }
         }
-        // The tree is balanced; return without rotating
+        // The tree is balanced, so return without rotating
         return node
     }
     ```
@@ -1420,7 +1420,7 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
 === "JS"
 
     ```javascript title="avl_tree.js"
-    /* Perform rotations to restore balance in this subtree */
+    /* Rebalance the subtree by rotating it */
     #rotate(node) {
         // Get the balance factor of node
         const balanceFactor = this.balanceFactor(node);
@@ -1446,7 +1446,7 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
                 return this.#leftRotate(node);
             }
         }
-        // The tree is balanced; return without rotating
+        // The tree is balanced, so return without rotating
         return node;
     }
     ```
@@ -1454,7 +1454,7 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
 === "TS"
 
     ```typescript title="avl_tree.ts"
-    /* Perform rotations to restore balance in this subtree */
+    /* Rebalance the subtree by rotating it */
     rotate(node: TreeNode): TreeNode {
         // Get the balance factor of node
         const balanceFactor = this.balanceFactor(node);
@@ -1480,7 +1480,7 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
                 return this.leftRotate(node);
             }
         }
-        // The tree is balanced; return without rotating
+        // The tree is balanced, so return without rotating
         return node;
     }
     ```
@@ -1488,7 +1488,7 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
 === "Dart"
 
     ```dart title="avl_tree.dart"
-    /* Perform rotations to restore balance in this subtree */
+    /* Rebalance the subtree by rotating it */
     TreeNode? rotate(TreeNode? node) {
       // Get the balance factor of node
       int factor = balanceFactor(node);
@@ -1514,7 +1514,7 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
           return leftRotate(node);
         }
       }
-      // The tree is balanced; return without rotating
+      // The tree is balanced, so return without rotating
       return node;
     }
     ```
@@ -1522,7 +1522,7 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
 === "Rust"
 
     ```rust title="avl_tree.rs"
-    /* Perform rotations to restore balance in this subtree */
+    /* Rebalance the subtree by rotating it */
     fn rotate(node: OptionTreeNodeRc) -> OptionTreeNodeRc {
         // Get the balance factor of node
         let balance_factor = Self::balance_factor(node.clone());
@@ -1552,7 +1552,7 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
                 Self::left_rotate(Some(node))
             }
         } else {
-            // The tree is balanced; return without rotating
+            // The tree is balanced, so return without rotating
             node
         }
     }
@@ -1561,7 +1561,7 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
 === "C"
 
     ```c title="avl_tree.c"
-    /* Perform rotations to restore balance in this subtree */
+    /* Rebalance the subtree by rotating it */
     TreeNode *rotate(TreeNode *node) {
         // Get the balance factor of node
         int bf = balanceFactor(node);
@@ -1587,7 +1587,7 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
                 return leftRotate(node);
             }
         }
-        // The tree is balanced; return without rotating
+        // The tree is balanced, so return without rotating
         return node;
     }
     ```
@@ -1595,7 +1595,7 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
 === "Kotlin"
 
     ```kotlin title="avl_tree.kt"
-    /* Perform rotations to restore balance in this subtree */
+    /* Rebalance the subtree by rotating it */
     fun rotate(node: TreeNode): TreeNode {
         // Get the balance factor of node
         val balanceFactor = balanceFactor(node)
@@ -1621,7 +1621,7 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
                 return leftRotate(node)
             }
         }
-        // The tree is balanced; return without rotating
+        // The tree is balanced, so return without rotating
         return node
     }
     ```
@@ -1629,7 +1629,7 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
 === "Ruby"
 
     ```ruby title="avl_tree.rb"
-    ### Perform rotations to restore balance in this subtree ###
+    ### Rebalance the subtree by rotating it ###
     def rotate(node)
       # Get the balance factor of node
       balance_factor = balance_factor(node)
@@ -1654,16 +1654,16 @@ Wrap the rotation logic in one function. **It can then handle every imbalance an
           return left_rotate(node)
         end
       end
-      # The tree is balanced; return without rotating
+      # The tree is balanced, so return without rotating
       node
     end
     ```
 
 ## 7.5.3 &nbsp; Common AVL tree operations
 
-### 1. &nbsp; Inserting a node
+### 1. &nbsp; Insert a node
 
-Insertion largely follows the binary-search-tree procedure. The difference is that inserting a node may unbalance nodes along the path to the root. **Starting at the inserted node, work upward and perform rotations to restore balance at every affected node**:
+Inserting a node into an AVL tree works much like inserting one into a binary search tree. The difference is that after insertion, nodes along the path from the new node to the root may be unbalanced. **Starting at the new node, we work upward and apply rotations to rebalance every affected node**. Here is the code:
 
 === "Python"
 
@@ -1682,11 +1682,11 @@ Insertion largely follows the binary-search-tree procedure. The difference is th
         elif val > node.val:
             node.right = self.insert_helper(node.right, val)
         else:
-            # Return without inserting a duplicate node
+            # Return without inserting a duplicate
             return node
         # Update the node height
         self.update_height(node)
-        # 2. Perform rotations to restore balance in this subtree
+        # 2. Rebalance the subtree by rotating it
         return self.rotate(node)
     ```
 
@@ -1708,9 +1708,9 @@ Insertion largely follows the binary-search-tree procedure. The difference is th
         else if (val > node->val)
             node->right = insertHelper(node->right, val);
         else
-            return node;    // Return without inserting a duplicate node
+            return node;    // Return without inserting a duplicate
         updateHeight(node); // Update the node height
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = rotate(node);
         // Return the root of the subtree
         return node;
@@ -1735,11 +1735,11 @@ Insertion largely follows the binary-search-tree procedure. The difference is th
         else if (val > node.val)
             node.right = insertHelper(node.right, val);
         else
-            return node; // Return without inserting a duplicate node
+            return node; // Return without inserting a duplicate
         updateHeight(node); // Update the node height
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = rotate(node);
-        // Return the subtree root
+        // Return the root of the subtree
         return node;
     }
     ```
@@ -1761,11 +1761,11 @@ Insertion largely follows the binary-search-tree procedure. The difference is th
         else if (val > node.val)
             node.right = InsertHelper(node.right, val);
         else
-            return node;     // Return without inserting a duplicate node
+            return node;     // Return without inserting a duplicate
         UpdateHeight(node);  // Update the node height
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = Rotate(node);
-        // Return the subtree root
+        // Return the root of the subtree
         return node;
     }
     ```
@@ -1789,14 +1789,14 @@ Insertion largely follows the binary-search-tree procedure. The difference is th
         } else if val > node.Val.(int) {
             node.Right = t.insertHelper(node.Right, val)
         } else {
-            // Return without inserting a duplicate node
+            // Return without inserting a duplicate
             return node
         }
         // Update the node height
         t.updateHeight(node)
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = t.rotate(node)
-        // Return the subtree root
+        // Return the root of the subtree
         return node
     }
     ```
@@ -1821,12 +1821,12 @@ Insertion largely follows the binary-search-tree procedure. The difference is th
         } else if val > node!.val {
             node?.right = insertHelper(node: node?.right, val: val)
         } else {
-            return node // Return without inserting a duplicate node
+            return node // Return without inserting a duplicate
         }
         updateHeight(node: node) // Update the node height
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = rotate(node: node)
-        // Return the subtree root
+        // Return the root of the subtree
         return node
     }
     ```
@@ -1846,9 +1846,9 @@ Insertion largely follows the binary-search-tree procedure. The difference is th
         if (val < node.val) node.left = this.#insertHelper(node.left, val);
         else if (val > node.val)
             node.right = this.#insertHelper(node.right, val);
-        else return node; // Return without inserting a duplicate node
+        else return node; // Return without inserting a duplicate
         this.#updateHeight(node); // Update the node height
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = this.#rotate(node);
         // Return the root of the subtree
         return node;
@@ -1872,10 +1872,10 @@ Insertion largely follows the binary-search-tree procedure. The difference is th
         } else if (val > node.val) {
             node.right = this.insertHelper(node.right, val);
         } else {
-            return node; // Return without inserting a duplicate node
+            return node; // Return without inserting a duplicate
         }
         this.updateHeight(node); // Update the node height
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = this.rotate(node);
         // Return the root of the subtree
         return node;
@@ -1899,9 +1899,9 @@ Insertion largely follows the binary-search-tree procedure. The difference is th
       else if (val > node.val)
         node.right = insertHelper(node.right, val);
       else
-        return node; // Return without inserting a duplicate node
+        return node; // Return without inserting a duplicate
       updateHeight(node); // Update the node height
-      /* 2. Perform rotations to restore balance in this subtree */
+      /* 2. Rebalance the subtree by rotating it */
       node = rotate(node);
       // Return the root of the subtree
       return node;
@@ -1936,12 +1936,12 @@ Insertion largely follows the binary-search-tree procedure. The difference is th
                         node.borrow_mut().right = Self::insert_helper(right, val);
                     }
                     Ordering::Equal => {
-                        return Some(node); // Return without inserting a duplicate node
+                        return Some(node); // Return without inserting a duplicate
                     }
                 }
                 Self::update_height(Some(node.clone())); // Update the node height
 
-                /* 2. Perform rotations to restore balance in this subtree */
+                /* 2. Rebalance the subtree by rotating it */
                 node = Self::rotate(Some(node)).unwrap();
                 // Return the root of the subtree
                 Some(node)
@@ -1959,7 +1959,7 @@ Insertion largely follows the binary-search-tree procedure. The difference is th
         tree->root = insertHelper(tree->root, val);
     }
 
-    /* Recursively insert a node (helper function) */
+    /* Insert a node recursively (helper function) */
     TreeNode *insertHelper(TreeNode *node, int val) {
         if (node == NULL) {
             return newTreeNode(val);
@@ -1970,12 +1970,12 @@ Insertion largely follows the binary-search-tree procedure. The difference is th
         } else if (val > node->val) {
             node->right = insertHelper(node->right, val);
         } else {
-            // Return without inserting a duplicate node
+            // Return without inserting a duplicate
             return node;
         }
         // Update the node height
         updateHeight(node);
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = rotate(node);
         // Return the root of the subtree
         return node;
@@ -2001,11 +2001,11 @@ Insertion largely follows the binary-search-tree procedure. The difference is th
         else if (_val > node._val)
             node.right = insertHelper(node.right, _val)
         else
-            return node // Return without inserting a duplicate node
+            return node // Return without inserting a duplicate
         updateHeight(node) // Update the node height
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = rotate(node)
-        // Return the subtree root
+        // Return the root of the subtree
         return node
     }
     ```
@@ -2027,32 +2027,32 @@ Insertion largely follows the binary-search-tree procedure. The difference is th
       elsif val > node.val
         node.right = insert_helper(node.right, val)
       else
-        # Return without inserting a duplicate node
+        # Return without inserting a duplicate
         return node
       end
       # Update the node height
       update_height(node)
-      # 2. Perform rotations to restore balance in this subtree
+      # 2. Rebalance the subtree by rotating it
       rotate(node)
     end
     ```
 
-### 2. &nbsp; Deleting a node
+### 2. &nbsp; Delete a node
 
-Similarly, extend binary-search-tree deletion with rotations from the bottom up to restore balance at every affected node:
+Similarly, we extend binary search tree deletion by applying rotations from the bottom up to rebalance every affected node. Here is the code:
 
 === "Python"
 
     ```python title="avl_tree.py"
     def remove(self, val: int):
-        """Remove a node"""
+        """Delete a node"""
         self._root = self.remove_helper(self._root, val)
 
     def remove_helper(self, node: TreeNode | None, val: int) -> TreeNode | None:
-        """Remove a node recursively (helper method)"""
+        """Delete a node recursively (helper method)"""
         if node is None:
             return None
-        # 1. Find and remove the node
+        # 1. Find the node and delete it
         if val < node.val:
             node.left = self.remove_helper(node.left, val)
         elif val > node.val:
@@ -2060,14 +2060,14 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
         else:
             if node.left is None or node.right is None:
                 child = node.left or node.right
-                # Number of children = 0: remove node and return
+                # No children: delete node and return
                 if child is None:
                     return None
-                # Number of children = 1: remove node directly
+                # One child: delete node
                 else:
                     node = child
             else:
-                # Number of children = 2: remove the inorder successor and use its value to replace the current node value
+                # Two children: delete the inorder successor and use it to replace the current node
                 temp = node.right
                 while temp.left is not None:
                     temp = temp.left
@@ -2075,23 +2075,23 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
                 node.val = temp.val
         # Update the node height
         self.update_height(node)
-        # 2. Perform rotations to restore balance in this subtree
+        # 2. Rebalance the subtree by rotating it
         return self.rotate(node)
     ```
 
 === "C++"
 
     ```cpp title="avl_tree.cpp"
-    /* Remove a node */
+    /* Delete a node */
     void remove(int val) {
         root = removeHelper(root, val);
     }
 
-    /* Remove a node recursively (helper method) */
+    /* Delete a node recursively (helper method) */
     TreeNode *removeHelper(TreeNode *node, int val) {
         if (node == nullptr)
             return nullptr;
-        /* 1. Find and remove the node */
+        /* 1. Find the node and delete it */
         if (val < node->val)
             node->left = removeHelper(node->left, val);
         else if (val > node->val)
@@ -2099,18 +2099,18 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
         else {
             if (node->left == nullptr || node->right == nullptr) {
                 TreeNode *child = node->left != nullptr ? node->left : node->right;
-                // Number of children = 0: remove node and return
+                // No children: delete node and return
                 if (child == nullptr) {
                     delete node;
                     return nullptr;
                 }
-                // Number of children = 1: remove node directly
+                // One child: delete node
                 else {
                     delete node;
                     node = child;
                 }
             } else {
-                // Number of children = 2: remove the inorder successor and use its value to replace the current node value
+                // Two children: delete the inorder successor and use it to replace the current node
                 TreeNode *temp = node->right;
                 while (temp->left != nullptr) {
                     temp = temp->left;
@@ -2121,7 +2121,7 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
             }
         }
         updateHeight(node); // Update the node height
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = rotate(node);
         // Return the root of the subtree
         return node;
@@ -2131,16 +2131,16 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
 === "Java"
 
     ```java title="avl_tree.java"
-    /* Remove a node */
+    /* Delete a node */
     void remove(int val) {
         root = removeHelper(root, val);
     }
 
-    /* Remove a node recursively (helper method) */
+    /* Delete a node recursively (helper method) */
     TreeNode removeHelper(TreeNode node, int val) {
         if (node == null)
             return null;
-        /* 1. Find and remove the node */
+        /* 1. Find the node and delete it */
         if (val < node.val)
             node.left = removeHelper(node.left, val);
         else if (val > node.val)
@@ -2148,14 +2148,14 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
         else {
             if (node.left == null || node.right == null) {
                 TreeNode child = node.left != null ? node.left : node.right;
-                // Number of children = 0: remove node and return
+                // No children: delete node and return
                 if (child == null)
                     return null;
-                // Number of children = 1: remove node directly
+                // One child: delete node
                 else
                     node = child;
             } else {
-                // Number of children = 2: remove the inorder successor and use its value to replace the current node value
+                // Two children: delete the inorder successor and use it to replace the current node
                 TreeNode temp = node.right;
                 while (temp.left != null) {
                     temp = temp.left;
@@ -2165,9 +2165,9 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
             }
         }
         updateHeight(node); // Update the node height
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = rotate(node);
-        // Return the subtree root
+        // Return the root of the subtree
         return node;
     }
     ```
@@ -2175,15 +2175,15 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
 === "C#"
 
     ```csharp title="avl_tree.cs"
-    /* Remove a node */
+    /* Delete a node */
     void Remove(int val) {
         root = RemoveHelper(root, val);
     }
 
-    /* Remove a node recursively (helper method) */
+    /* Delete a node recursively (helper method) */
     TreeNode? RemoveHelper(TreeNode? node, int val) {
         if (node == null) return null;
-        /* 1. Find and remove the node */
+        /* 1. Find the node and delete it */
         if (val < node.val)
             node.left = RemoveHelper(node.left, val);
         else if (val > node.val)
@@ -2191,14 +2191,14 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
         else {
             if (node.left == null || node.right == null) {
                 TreeNode? child = node.left ?? node.right;
-                // Number of children = 0: remove node and return
+                // No children: delete node and return
                 if (child == null)
                     return null;
-                // Number of children = 1: remove node directly
+                // One child: delete node
                 else
                     node = child;
             } else {
-                // Number of children = 2: remove the inorder successor and use its value to replace the current node value
+                // Two children: delete the inorder successor and use it to replace the current node
                 TreeNode? temp = node.right;
                 while (temp.left != null) {
                     temp = temp.left;
@@ -2208,9 +2208,9 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
             }
         }
         UpdateHeight(node);  // Update the node height
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = Rotate(node);
-        // Return the subtree root
+        // Return the root of the subtree
         return node;
     }
     ```
@@ -2218,17 +2218,17 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
 === "Go"
 
     ```go title="avl_tree.go"
-    /* Remove a node */
+    /* Delete a node */
     func (t *aVLTree) remove(val int) {
         t.root = t.removeHelper(t.root, val)
     }
 
-    /* Remove a node recursively (helper function) */
+    /* Delete a node recursively (helper function) */
     func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
         if node == nil {
             return nil
         }
-        /* 1. Find and remove the node */
+        /* 1. Find the node and delete it */
         if val < node.Val.(int) {
             node.Left = t.removeHelper(node.Left, val)
         } else if val > node.Val.(int) {
@@ -2240,14 +2240,14 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
                     child = node.Right
                 }
                 if child == nil {
-                    // Number of children = 0: remove node and return
+                    // No children: delete node and return
                     return nil
                 } else {
-                    // Number of children = 1: remove node directly
+                    // One child: delete node
                     node = child
                 }
             } else {
-                // Number of children = 2: remove the inorder successor and use its value to replace the current node value
+                // Two children: delete the inorder successor and use it to replace the current node
                 temp := node.Right
                 for temp.Left != nil {
                     temp = temp.Left
@@ -2258,9 +2258,9 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
         }
         // Update the node height
         t.updateHeight(node)
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = t.rotate(node)
-        // Return the subtree root
+        // Return the root of the subtree
         return node
     }
     ```
@@ -2268,18 +2268,18 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
 === "Swift"
 
     ```swift title="avl_tree.swift"
-    /* Remove a node */
+    /* Delete a node */
     func remove(val: Int) {
         root = removeHelper(node: root, val: val)
     }
 
-    /* Remove a node recursively (helper method) */
+    /* Delete a node recursively (helper method) */
     func removeHelper(node: TreeNode?, val: Int) -> TreeNode? {
         var node = node
         if node == nil {
             return nil
         }
-        /* 1. Find and remove the node */
+        /* 1. Find the node and delete it */
         if val < node!.val {
             node?.left = removeHelper(node: node?.left, val: val)
         } else if val > node!.val {
@@ -2287,16 +2287,16 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
         } else {
             if node?.left == nil || node?.right == nil {
                 let child = node?.left ?? node?.right
-                // Number of children = 0: remove node and return
+                // No children: delete node and return
                 if child == nil {
                     return nil
                 }
-                // Number of children = 1: remove node directly
+                // One child: delete node
                 else {
                     node = child
                 }
             } else {
-                // Number of children = 2: remove the inorder successor and use its value to replace the current node value
+                // Two children: delete the inorder successor and use it to replace the current node
                 var temp = node?.right
                 while temp?.left != nil {
                     temp = temp?.left
@@ -2306,9 +2306,9 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
             }
         }
         updateHeight(node: node) // Update the node height
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = rotate(node: node)
-        // Return the subtree root
+        // Return the root of the subtree
         return node
     }
     ```
@@ -2316,27 +2316,27 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
 === "JS"
 
     ```javascript title="avl_tree.js"
-    /* Remove a node */
+    /* Delete a node */
     remove(val) {
         this.root = this.#removeHelper(this.root, val);
     }
 
-    /* Remove a node recursively (helper method) */
+    /* Delete a node recursively (helper method) */
     #removeHelper(node, val) {
         if (node === null) return null;
-        /* 1. Find and remove the node */
+        /* 1. Find the node and delete it */
         if (val < node.val) node.left = this.#removeHelper(node.left, val);
         else if (val > node.val)
             node.right = this.#removeHelper(node.right, val);
         else {
             if (node.left === null || node.right === null) {
                 const child = node.left !== null ? node.left : node.right;
-                // Number of children = 0: remove node and return
+                // No children: delete node and return
                 if (child === null) return null;
-                // Number of children = 1: remove node directly
+                // One child: delete node
                 else node = child;
             } else {
-                // Number of children = 2: remove the inorder successor and use its value to replace the current node value
+                // Two children: delete the inorder successor and use it to replace the current node
                 let temp = node.right;
                 while (temp.left !== null) {
                     temp = temp.left;
@@ -2346,7 +2346,7 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
             }
         }
         this.#updateHeight(node); // Update the node height
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = this.#rotate(node);
         // Return the root of the subtree
         return node;
@@ -2356,15 +2356,15 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
 === "TS"
 
     ```typescript title="avl_tree.ts"
-    /* Remove a node */
+    /* Delete a node */
     remove(val: number): void {
         this.root = this.removeHelper(this.root, val);
     }
 
-    /* Remove a node recursively (helper method) */
+    /* Delete a node recursively (helper method) */
     removeHelper(node: TreeNode, val: number): TreeNode {
         if (node === null) return null;
-        /* 1. Find and remove the node */
+        /* 1. Find the node and delete it */
         if (val < node.val) {
             node.left = this.removeHelper(node.left, val);
         } else if (val > node.val) {
@@ -2372,15 +2372,15 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
         } else {
             if (node.left === null || node.right === null) {
                 const child = node.left !== null ? node.left : node.right;
-                // Number of children = 0: remove node and return
+                // No children: delete node and return
                 if (child === null) {
                     return null;
                 } else {
-                    // Number of children = 1: remove node directly
+                    // One child: delete node
                     node = child;
                 }
             } else {
-                // Number of children = 2: remove the inorder successor and use its value to replace the current node value
+                // Two children: delete the inorder successor and use it to replace the current node
                 let temp = node.right;
                 while (temp.left !== null) {
                     temp = temp.left;
@@ -2390,7 +2390,7 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
             }
         }
         this.updateHeight(node); // Update the node height
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = this.rotate(node);
         // Return the root of the subtree
         return node;
@@ -2400,15 +2400,15 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
 === "Dart"
 
     ```dart title="avl_tree.dart"
-    /* Remove a node */
+    /* Delete a node */
     void remove(int val) {
       root = removeHelper(root, val);
     }
 
-    /* Remove a node recursively (helper method) */
+    /* Delete a node recursively (helper method) */
     TreeNode? removeHelper(TreeNode? node, int val) {
       if (node == null) return null;
-      /* 1. Find and remove the node */
+      /* 1. Find the node and delete it */
       if (val < node.val)
         node.left = removeHelper(node.left, val);
       else if (val > node.val)
@@ -2416,14 +2416,14 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
       else {
         if (node.left == null || node.right == null) {
           TreeNode? child = node.left ?? node.right;
-          // Number of children = 0: remove node and return
+          // No children: delete node and return
           if (child == null)
             return null;
-          // Number of children = 1: remove node directly
+          // One child: delete node
           else
             node = child;
         } else {
-          // Number of children = 2: remove the inorder successor and use its value to replace the current node value
+          // Two children: delete the inorder successor and use it to replace the current node
           TreeNode? temp = node.right;
           while (temp!.left != null) {
             temp = temp.left;
@@ -2433,7 +2433,7 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
         }
       }
       updateHeight(node); // Update the node height
-      /* 2. Perform rotations to restore balance in this subtree */
+      /* 2. Rebalance the subtree by rotating it */
       node = rotate(node);
       // Return the root of the subtree
       return node;
@@ -2443,16 +2443,16 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
 === "Rust"
 
     ```rust title="avl_tree.rs"
-    /* Remove a node */
+    /* Delete a node */
     fn remove(&self, val: i32) {
         Self::remove_helper(self.root.clone(), val);
     }
 
-    /* Remove a node recursively (helper method) */
+    /* Delete a node recursively (helper method) */
     fn remove_helper(node: OptionTreeNodeRc, val: i32) -> OptionTreeNodeRc {
         match node {
             Some(mut node) => {
-                /* 1. Find and remove the node */
+                /* 1. Find the node and delete it */
                 if val < node.borrow().val {
                     let left = node.borrow().left.clone();
                     node.borrow_mut().left = Self::remove_helper(left, val);
@@ -2466,15 +2466,15 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
                         node.borrow().right.clone()
                     };
                     match child {
-                        // Number of children = 0: remove node and return
+                        // No children: delete node and return
                         None => {
                             return None;
                         }
-                        // Number of children = 1: remove node directly
+                        // One child: delete node
                         Some(child) => node = child,
                     }
                 } else {
-                    // Number of children = 2: remove the inorder successor and use its value to replace the current node value
+                    // Two children: delete the inorder successor and use it to replace the current node
                     let mut temp = node.borrow().right.clone().unwrap();
                     loop {
                         let temp_left = temp.borrow().left.clone();
@@ -2489,7 +2489,7 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
                 }
                 Self::update_height(Some(node.clone())); // Update the node height
 
-                /* 2. Perform rotations to restore balance in this subtree */
+                /* 2. Rebalance the subtree by rotating it */
                 node = Self::rotate(Some(node)).unwrap();
                 // Return the root of the subtree
                 Some(node)
@@ -2502,19 +2502,19 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
 === "C"
 
     ```c title="avl_tree.c"
-    /* Remove a node */
-    // The name remove conflicts with the function declared in stdio.h
+    /* Delete a node */
+    // Including stdio.h prevents us from using the name remove here
     void removeItem(AVLTree *tree, int val) {
         TreeNode *root = removeHelper(tree->root, val);
     }
 
-    /* Recursively remove a node (helper function) */
+    /* Delete a node recursively (helper function) */
     TreeNode *removeHelper(TreeNode *node, int val) {
         TreeNode *child, *grandChild;
         if (node == NULL) {
             return NULL;
         }
-        /* 1. Find and remove the node */
+        /* 1. Find the node and delete it */
         if (val < node->val) {
             node->left = removeHelper(node->left, val);
         } else if (val > node->val) {
@@ -2525,15 +2525,15 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
                 if (node->right != NULL) {
                     child = node->right;
                 }
-                // Number of children = 0: remove node and return
+                // No children: delete node and return
                 if (child == NULL) {
                     return NULL;
                 } else {
-                    // Number of children = 1: remove node directly
+                    // One child: delete node
                     node = child;
                 }
             } else {
-                // Number of children = 2: remove the inorder successor and use its value to replace the current node value
+                // Two children: delete the inorder successor and use it to replace the current node
                 TreeNode *temp = node->right;
                 while (temp->left != NULL) {
                     temp = temp->left;
@@ -2545,7 +2545,7 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
         }
         // Update the node height
         updateHeight(node);
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = rotate(node);
         // Return the root of the subtree
         return node;
@@ -2555,15 +2555,15 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
 === "Kotlin"
 
     ```kotlin title="avl_tree.kt"
-    /* Remove a node */
+    /* Delete a node */
     fun remove(_val: Int) {
         root = removeHelper(root, _val)
     }
 
-    /* Remove a node recursively (helper method) */
+    /* Delete a node recursively (helper method) */
     fun removeHelper(n: TreeNode?, _val: Int): TreeNode? {
         var node = n ?: return null
-        /* 1. Find and remove the node */
+        /* 1. Find the node and delete it */
         if (_val < node._val)
             node.left = removeHelper(node.left, _val)
         else if (_val > node._val)
@@ -2574,14 +2574,14 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
                     node.left
                 else
                     node.right
-                // Number of children = 0: remove node and return
+                // No children: delete node and return
                 if (child == null)
                     return null
-                // Number of children = 1: remove node directly
+                // One child: delete node
                 else
                     node = child
             } else {
-                // Number of children = 2: remove the inorder successor and use its value to replace the current node value
+                // Two children: delete the inorder successor and use it to replace the current node
                 var temp = node.right
                 while (temp!!.left != null) {
                     temp = temp.left
@@ -2591,9 +2591,9 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
             }
         }
         updateHeight(node) // Update the node height
-        /* 2. Perform rotations to restore balance in this subtree */
+        /* 2. Rebalance the subtree by rotating it */
         node = rotate(node)
-        // Return the subtree root
+        // Return the root of the subtree
         return node
     }
     ```
@@ -2601,15 +2601,15 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
 === "Ruby"
 
     ```ruby title="avl_tree.rb"
-    ### Remove a node ###
+    ### Delete a node ###
     def remove(val)
       @root = remove_helper(@root, val)
     end
 
-    ### Remove a node recursively (helper method)###
+    ### Delete a node recursively (helper method)###
     def remove_helper(node, val)
       return if node.nil?
-      # 1. Find and remove the node
+      # 1. Find the node and delete it
       if val < node.val
         node.left = remove_helper(node.left, val)
       elsif val > node.val
@@ -2617,12 +2617,12 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
       else
         if node.left.nil? || node.right.nil?
           child = node.left || node.right
-          # Number of children = 0: remove node and return
+          # No children: delete node and return
           return if child.nil?
-          # Number of children = 1: remove node directly
+          # One child: delete node
           node = child
         else
-          # Number of children = 2: remove the inorder successor and use its value to replace the current node value
+          # Two children: delete the inorder successor and use it to replace the current node
           temp = node.right
           while !temp.left.nil?
             temp = temp.left
@@ -2633,17 +2633,17 @@ Similarly, extend binary-search-tree deletion with rotations from the bottom up 
       end
       # Update the node height
       update_height(node)
-      # 2. Perform rotations to restore balance in this subtree
+      # 2. Rebalance the subtree by rotating it
       rotate(node)
     end
     ```
 
-### 3. &nbsp; Finding a node
+### 3. &nbsp; Search for a node
 
-Lookup is identical to binary-search-tree lookup, so we will not repeat it here.
+Searching an AVL tree works exactly like searching a binary search tree.
 
-## 7.5.4 &nbsp; Typical applications
+## 7.5.4 &nbsp; Typical applications of AVL trees
 
-- Organizing and storing large datasets, particularly when lookups are frequent and insertions and deletions are less frequent.
-- Building database indexing systems.
-- Red-black trees are another common kind of balanced binary search tree. Their balance requirements are looser than those of AVL trees, so insertion and deletion need fewer rotations and are more efficient on average.
+- Organizing and storing large amounts of data when searches are frequent and insertions and deletions are infrequent.
+- Building database indexes.
+- A red-black tree is another common balanced binary search tree. It has looser balance requirements than an AVL tree, needs fewer rotations for insertions and deletions, and on average performs those operations more efficiently.

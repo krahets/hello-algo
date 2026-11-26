@@ -4,7 +4,7 @@ comments: true
 
 # 16.3 &nbsp; Glossary
 
-Table 16-1 lists important terms used in this book. Familiarity with their English names will help when reading technical literature in English.
+Table 16-1 pairs key English terms from this book with their Simplified Chinese equivalents. Knowing these terms makes it easier to read technical literature in English.
 
 <p align="center"> Table 16-1 &nbsp; Key terms in data structures and algorithms </p>
 
@@ -30,8 +30,8 @@ Table 16-1 lists important terms used in this book. Familiarity with their Engli
 | big-$O$ notation               | 大 $O$ 记号    |
 | asymptotic upper bound         | 渐近上界       |
 | sign-magnitude                 | 原码           |
-| one's complement                 | 反码           |
-| two's complement                 | 补码           |
+| 1’s complement                 | 反码           |
+| 2’s complement                 | 补码           |
 | array                          | 数组           |
 | index                          | 索引           |
 | linked list                    | 链表           |
@@ -86,9 +86,9 @@ Table 16-1 lists important terms used in this book. Familiarity with their Engli
 | level-order traversal          | 层序遍历       |
 | breadth-first traversal        | 广度优先遍历   |
 | depth-first traversal          | 深度优先遍历   |
-| preorder traversal            | 前序遍历       |
-| inorder traversal             | 中序遍历       |
-| postorder traversal           | 后序遍历       |
+| pre-order traversal            | 前序遍历       |
+| in-order traversal             | 中序遍历       |
+| post-order traversal           | 后序遍历       |
 | balanced binary search tree    | 平衡二叉搜索树 |
 | balance factor                 | 平衡因子       |
 | heap                           | 堆             |
@@ -125,7 +125,7 @@ Table 16-1 lists important terms used in this book. Familiarity with their Engli
 | counting sort                  | 计数排序       |
 | radix sort                     | 基数排序       |
 | divide and conquer             | 分治           |
-| Tower of Hanoi problem                 | 汉诺塔问题     |
+| hanota problem                 | 汉诺塔问题     |
 | backtracking algorithm         | 回溯算法       |
 | constraint                     | 约束           |
 | solution                       | 解             |
@@ -136,7 +136,7 @@ Table 16-1 lists important terms used in this book. Familiarity with their Engli
 | $n$-queens problem             | $n$ 皇后问题   |
 | dynamic programming            | 动态规划       |
 | initial state                  | 初始状态       |
-| state transition equation      | 状态转移方程   |
+| state-transition equation      | 状态转移方程   |
 | knapsack problem               | 背包问题       |
 | edit distance problem          | 编辑距离问题   |
 | greedy algorithm               | 贪心算法       |

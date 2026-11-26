@@ -9,14 +9,14 @@ icon: material/family-tree
 
 !!! abstract
 
-    堆積就像是山嶽峰巒，層疊起伏、形態各異。
+    堆積就像連綿的山巒，層層起伏，各有姿態。
     
-    座座山峰高低錯落，而最高的山峰總是最先映入眼簾。
+    群峰高低錯落，最先映入眼簾的，總是最高的那座山。
 
 ## 本章內容
 
 - [8.1 &nbsp; 堆積](heap.md)
-- [8.2 &nbsp; 建堆積操作](build_heap.md)
+- [8.2 &nbsp; 建立堆積](build_heap.md)
 - [8.3 &nbsp; Top-k 問題](top_k.md)
 - [8.4 &nbsp; 小結](summary.md)
 - [8.5 &nbsp; 練習](exercises.md)

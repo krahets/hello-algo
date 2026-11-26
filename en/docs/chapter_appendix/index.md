@@ -7,8 +7,8 @@ icon: material/help-circle-outline
 
 ![Appendix](../assets/covers/chapter_appendix.svg){ class="cover-image" }
 
-## Chapter contents
+## In this chapter
 
 - [16.1 &nbsp; Setting up a programming environment](installation.md)
-- [16.2 &nbsp; Contribute to the book](contribution.md)
+- [16.2 &nbsp; Contributing to the book](contribution.md)
 - [16.3 &nbsp; Glossary](terminology.md)

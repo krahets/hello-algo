@@ -2,53 +2,53 @@
 comments: true
 ---
 
-# 6.2 &nbsp; 雜湊衝突
+# 6.2 &nbsp; 雜湊碰撞
 
-上一節提到，**通常情況下雜湊函式的輸入空間遠大於輸出空間**，因此理論上雜湊衝突是不可避免的。比如，輸入空間為全體整數，輸出空間為陣列容量大小，則必然有多個整數對映至同一桶索引。
+上一節提到，**雜湊函式的輸入空間通常遠大於輸出空間**，因此理論上無法避免雜湊碰撞。例如，若輸入可以是任意整數，輸出的索引數量卻受限於陣列容量，就一定有多個整數對應到同一個桶索引。
 
-雜湊衝突會導致查詢結果錯誤，嚴重影響雜湊表的可用性。為了解決該問題，每當遇到雜湊衝突時，我們就進行雜湊表擴容，直至衝突消失為止。此方法簡單粗暴且有效，但效率太低，因為雜湊表擴容需要進行大量的資料搬運與雜湊值計算。為了提升效率，我們可以採用以下策略。
+雜湊碰撞會導致查詢結果錯誤，嚴重影響雜湊表的可用性。一個解決方法是，每當發生碰撞，就擴充雜湊表的容量，直到碰撞消失。這個方法簡單直接，雖然有效，效率卻太低，因為擴充容量需要搬移大量資料並重新計算雜湊值。為了提高效率，可以採用以下策略。
 
-1. 改良雜湊表資料結構，**使得雜湊表可以在出現雜湊衝突時正常工作**。
-2. 僅在必要時，即當雜湊衝突比較嚴重時，才執行擴容操作。
+1. 改良雜湊表的資料結構，**讓雜湊表在發生碰撞時仍能正常運作**。
+2. 只在必要時，也就是雜湊碰撞較為嚴重時，才擴充容量。
 
-雜湊表的結構改良方法主要包括“鏈式位址”和“開放定址”。
+改良雜湊表結構的方法主要有「鏈結法」與「開放定址法」兩種。
 
-## 6.2.1 &nbsp; 鏈式位址
+## 6.2.1 &nbsp; 鏈結法
 
-在原始雜湊表中，每個桶僅能儲存一個鍵值對。<u>鏈式位址（separate chaining）</u>將單個元素轉換為鏈結串列，將鍵值對作為鏈結串列節點，將所有發生衝突的鍵值對都儲存在同一鏈結串列中。圖 6-5 展示了一個鏈式位址雜湊表的例子。
+原本的雜湊表每個桶只能存放一個鍵值對。<u>鏈結法（separate chaining）</u>將桶中的單一元素改為鏈結串列，每個節點存放一個鍵值對，讓所有發生碰撞的鍵值對都存在同一條串列中。圖 6-5 是一個採用鏈結法的雜湊表。
 
-![鏈式位址雜湊表](hash_collision.assets/hash_table_chaining.svg){ class="animation-figure" }
+![鏈結法雜湊表](hash_collision.assets/hash_table_chaining.svg){ class="animation-figure" }
 
-<p align="center"> 圖 6-5 &nbsp; 鏈式位址雜湊表 </p>
+<p align="center"> 圖 6-5 &nbsp; 鏈結法雜湊表 </p>
 
-基於鏈式位址實現的雜湊表的操作方法發生了以下變化。
+採用鏈結法後，雜湊表的各項操作會有以下變化。
 
-- **查詢元素**：輸入 `key` ，經過雜湊函式得到桶索引，即可訪問鏈結串列頭節點，然後走訪鏈結串列並對比 `key` 以查詢目標鍵值對。
-- **新增元素**：首先透過雜湊函式訪問鏈結串列頭節點，然後將節點（鍵值對）新增到鏈結串列中。
-- **刪除元素**：根據雜湊函式的結果訪問鏈結串列頭部，接著走訪鏈結串列以查詢目標節點並將其刪除。
+- **查詢元素**：輸入 `key`，由雜湊函式算出桶索引，便可存取鏈結串列的首節點。接著走訪串列，逐一比對 `key`，找出目標鍵值對。
+- **新增元素**：先透過雜湊函式找到鏈結串列的首節點，再將新節點（鍵值對）加入串列。
+- **刪除元素**：根據雜湊函式的結果找到鏈結串列的開頭，再走訪串列，找出目標節點並將它刪除。
 
-鏈式位址存在以下侷限性。
+鏈結法有以下限制。
 
-- **佔用空間增大**：鏈結串列包含節點指標，它相比陣列更加耗費記憶體空間。
-- **查詢效率降低**：因為需要線性走訪鏈結串列來查詢對應元素。
+- **占用更多空間**：鏈結串列需要指向節點的指標，比陣列耗用更多記憶體。
+- **查詢效率降低**：為了找到對應的元素，必須依序走訪鏈結串列。
 
-以下程式碼給出了鏈式位址雜湊表的簡單實現，需要注意兩點。
+以下程式碼示範如何用鏈結法實作簡單的雜湊表。有兩點值得留意。
 
-- 使用串列（動態陣列）代替鏈結串列，從而簡化程式碼。在這種設定下，雜湊表（陣列）包含多個桶，每個桶都是一個串列。
-- 以下實現包含雜湊表擴容方法。當負載因子超過 $\frac{2}{3}$ 時，我們將雜湊表擴容至原先的 $2$ 倍。
+- 為了簡化程式碼，我們用串列（動態陣列）取代鏈結串列。在這個實作中，雜湊表（陣列）包含多個桶，每個桶都是一個串列。
+- 以下實作提供擴充雜湊表容量的方法。當負載因子超過 $\frac{2}{3}$ 時，我們就將雜湊表的容量擴充為原來的 $2$ 倍。
 
 === "Python"
 
     ```python title="hash_map_chaining.py"
     class HashMapChaining:
-        """鏈式位址雜湊表"""
+        """鏈結法雜湊表"""
 
         def __init__(self):
-            """建構子"""
+            """建構方法"""
             self.size = 0  # 鍵值對數量
             self.capacity = 4  # 雜湊表容量
-            self.load_thres = 2.0 / 3.0  # 觸發擴容的負載因子閾值
-            self.extend_ratio = 2  # 擴容倍數
+            self.load_thres = 2.0 / 3.0  # 觸發容量擴充的負載因子門檻
+            self.extend_ratio = 2  # 容量擴充倍數
             self.buckets = [[] for _ in range(self.capacity)]  # 桶陣列
 
         def hash_func(self, key: int) -> int:
@@ -63,26 +63,26 @@ comments: true
             """查詢操作"""
             index = self.hash_func(key)
             bucket = self.buckets[index]
-            # 走訪桶，若找到 key ，則返回對應 val
+            # 走訪桶中的元素，若找到 key，就回傳對應的 val
             for pair in bucket:
                 if pair.key == key:
                     return pair.val
-            # 若未找到 key ，則返回 None
+            # 若找不到 key，回傳 None
             return None
 
         def put(self, key: int, val: str):
             """新增操作"""
-            # 當負載因子超過閾值時，執行擴容
+            # 當負載因子超過門檻時，擴充容量
             if self.load_factor() > self.load_thres:
                 self.extend()
             index = self.hash_func(key)
             bucket = self.buckets[index]
-            # 走訪桶，若遇到指定 key ，則更新對應 val 並返回
+            # 走訪桶中的元素，若遇到指定的 key，就更新對應的 val 並結束操作
             for pair in bucket:
                 if pair.key == key:
                     pair.val = val
                     return
-            # 若無該 key ，則將鍵值對新增至尾部
+            # 若沒有這個 key，就將鍵值對加到尾端
             pair = Pair(key, val)
             bucket.append(pair)
             self.size += 1
@@ -91,7 +91,7 @@ comments: true
             """刪除操作"""
             index = self.hash_func(key)
             bucket = self.buckets[index]
-            # 走訪桶，從中刪除鍵值對
+            # 走訪桶中的元素，從中刪除鍵值對
             for pair in bucket:
                 if pair.key == key:
                     bucket.remove(pair)
@@ -99,20 +99,20 @@ comments: true
                     break
 
         def extend(self):
-            """擴容雜湊表"""
-            # 暫存原雜湊表
+            """擴充雜湊表容量"""
+            # 暫存原本的雜湊表
             buckets = self.buckets
-            # 初始化擴容後的新雜湊表
+            # 初始化擴充後的新雜湊表
             self.capacity *= self.extend_ratio
             self.buckets = [[] for _ in range(self.capacity)]
             self.size = 0
-            # 將鍵值對從原雜湊表搬運至新雜湊表
+            # 將鍵值對從原本的雜湊表移到新表
             for bucket in buckets:
                 for pair in bucket:
                     self.put(pair.key, pair.val)
 
         def print(self):
-            """列印雜湊表"""
+            """印出雜湊表"""
             for bucket in self.buckets:
                 res = []
                 for pair in bucket:
@@ -123,22 +123,22 @@ comments: true
 === "C++"
 
     ```cpp title="hash_map_chaining.cpp"
-    /* 鏈式位址雜湊表 */
+    /* 鏈結法雜湊表 */
     class HashMapChaining {
       private:
         int size;                       // 鍵值對數量
         int capacity;                   // 雜湊表容量
-        double loadThres;               // 觸發擴容的負載因子閾值
-        int extendRatio;                // 擴容倍數
+        double loadThres;               // 觸發容量擴充的負載因子門檻
+        int extendRatio;                // 容量擴充倍數
         vector<vector<Pair *>> buckets; // 桶陣列
 
       public:
-        /* 建構子 */
+        /* 建構方法 */
         HashMapChaining() : size(0), capacity(4), loadThres(2.0 / 3.0), extendRatio(2) {
             buckets.resize(capacity);
         }
 
-        /* 析構方法 */
+        /* 解構方法 */
         ~HashMapChaining() {
             for (auto &bucket : buckets) {
                 for (Pair *pair : bucket) {
@@ -161,31 +161,31 @@ comments: true
         /* 查詢操作 */
         string get(int key) {
             int index = hashFunc(key);
-            // 走訪桶，若找到 key ，則返回對應 val
+            // 走訪桶中的元素，若找到 key，就回傳對應的 val
             for (Pair *pair : buckets[index]) {
                 if (pair->key == key) {
                     return pair->val;
                 }
             }
-            // 若未找到 key ，則返回空字串
+            // 若找不到 key，則回傳空字串
             return "";
         }
 
         /* 新增操作 */
         void put(int key, string val) {
-            // 當負載因子超過閾值時，執行擴容
+            // 當負載因子超過門檻時，擴充容量
             if (loadFactor() > loadThres) {
                 extend();
             }
             int index = hashFunc(key);
-            // 走訪桶，若遇到指定 key ，則更新對應 val 並返回
+            // 走訪桶中的元素，若遇到指定的 key，就更新對應的 val 並結束操作
             for (Pair *pair : buckets[index]) {
                 if (pair->key == key) {
                     pair->val = val;
                     return;
                 }
             }
-            // 若無該 key ，則將鍵值對新增至尾部
+            // 若沒有這個 key，就將鍵值對加到尾端
             buckets[index].push_back(new Pair(key, val));
             size++;
         }
@@ -194,7 +194,7 @@ comments: true
         void remove(int key) {
             int index = hashFunc(key);
             auto &bucket = buckets[index];
-            // 走訪桶，從中刪除鍵值對
+            // 走訪桶中的元素，從中刪除鍵值對
             for (int i = 0; i < bucket.size(); i++) {
                 if (bucket[i]->key == key) {
                     Pair *tmp = bucket[i];
@@ -206,16 +206,16 @@ comments: true
             }
         }
 
-        /* 擴容雜湊表 */
+        /* 擴充雜湊表容量 */
         void extend() {
-            // 暫存原雜湊表
+            // 暫存原本的雜湊表
             vector<vector<Pair *>> bucketsTmp = buckets;
-            // 初始化擴容後的新雜湊表
+            // 初始化擴充後的新雜湊表
             capacity *= extendRatio;
             buckets.clear();
             buckets.resize(capacity);
             size = 0;
-            // 將鍵值對從原雜湊表搬運至新雜湊表
+            // 將鍵值對從原本的雜湊表移到新表
             for (auto &bucket : bucketsTmp) {
                 for (Pair *pair : bucket) {
                     put(pair->key, pair->val);
@@ -225,7 +225,7 @@ comments: true
             }
         }
 
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         void print() {
             for (auto &bucket : buckets) {
                 cout << "[";
@@ -241,15 +241,15 @@ comments: true
 === "Java"
 
     ```java title="hash_map_chaining.java"
-    /* 鏈式位址雜湊表 */
+    /* 鏈結法雜湊表 */
     class HashMapChaining {
         int size; // 鍵值對數量
         int capacity; // 雜湊表容量
-        double loadThres; // 觸發擴容的負載因子閾值
-        int extendRatio; // 擴容倍數
+        double loadThres; // 觸發容量擴充的負載因子門檻
+        int extendRatio; // 容量擴充倍數
         List<List<Pair>> buckets; // 桶陣列
 
-        /* 建構子 */
+        /* 建構方法 */
         public HashMapChaining() {
             size = 0;
             capacity = 4;
@@ -275,32 +275,32 @@ comments: true
         String get(int key) {
             int index = hashFunc(key);
             List<Pair> bucket = buckets.get(index);
-            // 走訪桶，若找到 key ，則返回對應 val
+            // 走訪桶中的元素，若找到 key，就回傳對應的 val
             for (Pair pair : bucket) {
                 if (pair.key == key) {
                     return pair.val;
                 }
             }
-            // 若未找到 key ，則返回 null
+            // 若找不到 key，回傳 null
             return null;
         }
 
         /* 新增操作 */
         void put(int key, String val) {
-            // 當負載因子超過閾值時，執行擴容
+            // 當負載因子超過門檻時，擴充容量
             if (loadFactor() > loadThres) {
                 extend();
             }
             int index = hashFunc(key);
             List<Pair> bucket = buckets.get(index);
-            // 走訪桶，若遇到指定 key ，則更新對應 val 並返回
+            // 走訪桶中的元素，若遇到指定的 key，就更新對應的 val 並結束操作
             for (Pair pair : bucket) {
                 if (pair.key == key) {
                     pair.val = val;
                     return;
                 }
             }
-            // 若無該 key ，則將鍵值對新增至尾部
+            // 若沒有這個 key，就將鍵值對加到尾端
             Pair pair = new Pair(key, val);
             bucket.add(pair);
             size++;
@@ -310,7 +310,7 @@ comments: true
         void remove(int key) {
             int index = hashFunc(key);
             List<Pair> bucket = buckets.get(index);
-            // 走訪桶，從中刪除鍵值對
+            // 走訪桶中的元素，從中刪除鍵值對
             for (Pair pair : bucket) {
                 if (pair.key == key) {
                     bucket.remove(pair);
@@ -320,18 +320,18 @@ comments: true
             }
         }
 
-        /* 擴容雜湊表 */
+        /* 擴充雜湊表容量 */
         void extend() {
-            // 暫存原雜湊表
+            // 暫存原本的雜湊表
             List<List<Pair>> bucketsTmp = buckets;
-            // 初始化擴容後的新雜湊表
+            // 初始化擴充後的新雜湊表
             capacity *= extendRatio;
             buckets = new ArrayList<>(capacity);
             for (int i = 0; i < capacity; i++) {
                 buckets.add(new ArrayList<>());
             }
             size = 0;
-            // 將鍵值對從原雜湊表搬運至新雜湊表
+            // 將鍵值對從原本的雜湊表移到新表
             for (List<Pair> bucket : bucketsTmp) {
                 for (Pair pair : bucket) {
                     put(pair.key, pair.val);
@@ -339,7 +339,7 @@ comments: true
             }
         }
 
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         void print() {
             for (List<Pair> bucket : buckets) {
                 List<String> res = new ArrayList<>();
@@ -355,15 +355,15 @@ comments: true
 === "C#"
 
     ```csharp title="hash_map_chaining.cs"
-    /* 鏈式位址雜湊表 */
+    /* 鏈結法雜湊表 */
     class HashMapChaining {
         int size; // 鍵值對數量
         int capacity; // 雜湊表容量
-        double loadThres; // 觸發擴容的負載因子閾值
-        int extendRatio; // 擴容倍數
+        double loadThres; // 觸發容量擴充的負載因子門檻
+        int extendRatio; // 容量擴充倍數
         List<List<Pair>> buckets; // 桶陣列
 
-        /* 建構子 */
+        /* 建構方法 */
         public HashMapChaining() {
             size = 0;
             capacity = 4;
@@ -388,31 +388,31 @@ comments: true
         /* 查詢操作 */
         public string? Get(int key) {
             int index = HashFunc(key);
-            // 走訪桶，若找到 key ，則返回對應 val
+            // 走訪桶中的元素，若找到 key，就回傳對應的 val
             foreach (Pair pair in buckets[index]) {
                 if (pair.key == key) {
                     return pair.val;
                 }
             }
-            // 若未找到 key ，則返回 null
+            // 若找不到 key，回傳 null
             return null;
         }
 
         /* 新增操作 */
         public void Put(int key, string val) {
-            // 當負載因子超過閾值時，執行擴容
+            // 當負載因子超過門檻時，擴充容量
             if (LoadFactor() > loadThres) {
                 Extend();
             }
             int index = HashFunc(key);
-            // 走訪桶，若遇到指定 key ，則更新對應 val 並返回
+            // 走訪桶中的元素，若遇到指定的 key，就更新對應的 val 並結束操作
             foreach (Pair pair in buckets[index]) {
                 if (pair.key == key) {
                     pair.val = val;
                     return;
                 }
             }
-            // 若無該 key ，則將鍵值對新增至尾部
+            // 若沒有這個 key，就將鍵值對加到尾端
             buckets[index].Add(new Pair(key, val));
             size++;
         }
@@ -420,7 +420,7 @@ comments: true
         /* 刪除操作 */
         public void Remove(int key) {
             int index = HashFunc(key);
-            // 走訪桶，從中刪除鍵值對
+            // 走訪桶中的元素，從中刪除鍵值對
             foreach (Pair pair in buckets[index].ToList()) {
                 if (pair.key == key) {
                     buckets[index].Remove(pair);
@@ -430,18 +430,18 @@ comments: true
             }
         }
 
-        /* 擴容雜湊表 */
+        /* 擴充雜湊表容量 */
         void Extend() {
-            // 暫存原雜湊表
+            // 暫存原本的雜湊表
             List<List<Pair>> bucketsTmp = buckets;
-            // 初始化擴容後的新雜湊表
+            // 初始化擴充後的新雜湊表
             capacity *= extendRatio;
             buckets = new List<List<Pair>>(capacity);
             for (int i = 0; i < capacity; i++) {
                 buckets.Add([]);
             }
             size = 0;
-            // 將鍵值對從原雜湊表搬運至新雜湊表
+            // 將鍵值對從原本的雜湊表移到新表
             foreach (List<Pair> bucket in bucketsTmp) {
                 foreach (Pair pair in bucket) {
                     Put(pair.key, pair.val);
@@ -449,7 +449,7 @@ comments: true
             }
         }
 
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         public void Print() {
             foreach (List<Pair> bucket in buckets) {
                 List<string> res = [];
@@ -467,16 +467,16 @@ comments: true
 === "Go"
 
     ```go title="hash_map_chaining.go"
-    /* 鏈式位址雜湊表 */
+    /* 鏈結法雜湊表 */
     type hashMapChaining struct {
         size        int      // 鍵值對數量
         capacity    int      // 雜湊表容量
-        loadThres   float64  // 觸發擴容的負載因子閾值
-        extendRatio int      // 擴容倍數
+        loadThres   float64  // 觸發容量擴充的負載因子門檻
+        extendRatio int      // 容量擴充倍數
         buckets     [][]pair // 桶陣列
     }
 
-    /* 建構子 */
+    /* 建構方法 */
     func newHashMapChaining() *hashMapChaining {
         buckets := make([][]pair, 4)
         for i := 0; i < 4; i++ {
@@ -505,31 +505,31 @@ comments: true
     func (m *hashMapChaining) get(key int) string {
         idx := m.hashFunc(key)
         bucket := m.buckets[idx]
-        // 走訪桶，若找到 key ，則返回對應 val
+        // 走訪桶中的元素，若找到 key，就回傳對應的 val
         for _, p := range bucket {
             if p.key == key {
                 return p.val
             }
         }
-        // 若未找到 key ，則返回空字串
+        // 若找不到 key，則回傳空字串
         return ""
     }
 
     /* 新增操作 */
     func (m *hashMapChaining) put(key int, val string) {
-        // 當負載因子超過閾值時，執行擴容
+        // 當負載因子超過門檻時，擴充容量
         if m.loadFactor() > m.loadThres {
             m.extend()
         }
         idx := m.hashFunc(key)
-        // 走訪桶，若遇到指定 key ，則更新對應 val 並返回
+        // 走訪桶中的元素，若遇到指定的 key，就更新對應的 val 並結束操作
         for i := range m.buckets[idx] {
             if m.buckets[idx][i].key == key {
                 m.buckets[idx][i].val = val
                 return
             }
         }
-        // 若無該 key ，則將鍵值對新增至尾部
+        // 若沒有這個 key，就將鍵值對加到尾端
         p := pair{
             key: key,
             val: val,
@@ -541,10 +541,10 @@ comments: true
     /* 刪除操作 */
     func (m *hashMapChaining) remove(key int) {
         idx := m.hashFunc(key)
-        // 走訪桶，從中刪除鍵值對
+        // 走訪桶中的元素，從中刪除鍵值對
         for i, p := range m.buckets[idx] {
             if p.key == key {
-                // 切片刪除
+                // 從切片刪除元素
                 m.buckets[idx] = append(m.buckets[idx][:i], m.buckets[idx][i+1:]...)
                 m.size -= 1
                 break
@@ -552,22 +552,22 @@ comments: true
         }
     }
 
-    /* 擴容雜湊表 */
+    /* 擴充雜湊表容量 */
     func (m *hashMapChaining) extend() {
-        // 暫存原雜湊表
+        // 暫存原本的雜湊表
         tmpBuckets := make([][]pair, len(m.buckets))
         for i := 0; i < len(m.buckets); i++ {
             tmpBuckets[i] = make([]pair, len(m.buckets[i]))
             copy(tmpBuckets[i], m.buckets[i])
         }
-        // 初始化擴容後的新雜湊表
+        // 初始化擴充後的新雜湊表
         m.capacity *= m.extendRatio
         m.buckets = make([][]pair, m.capacity)
         for i := 0; i < m.capacity; i++ {
             m.buckets[i] = make([]pair, 0)
         }
         m.size = 0
-        // 將鍵值對從原雜湊表搬運至新雜湊表
+        // 將鍵值對從原本的雜湊表移到新表
         for _, bucket := range tmpBuckets {
             for _, p := range bucket {
                 m.put(p.key, p.val)
@@ -575,7 +575,7 @@ comments: true
         }
     }
 
-    /* 列印雜湊表 */
+    /* 印出雜湊表 */
     func (m *hashMapChaining) print() {
         var builder strings.Builder
 
@@ -594,15 +594,15 @@ comments: true
 === "Swift"
 
     ```swift title="hash_map_chaining.swift"
-    /* 鏈式位址雜湊表 */
+    /* 鏈結法雜湊表 */
     class HashMapChaining {
         var size: Int // 鍵值對數量
         var capacity: Int // 雜湊表容量
-        var loadThres: Double // 觸發擴容的負載因子閾值
-        var extendRatio: Int // 擴容倍數
+        var loadThres: Double // 觸發容量擴充的負載因子門檻
+        var extendRatio: Int // 容量擴充倍數
         var buckets: [[Pair]] // 桶陣列
 
-        /* 建構子 */
+        /* 建構方法 */
         init() {
             size = 0
             capacity = 4
@@ -625,32 +625,32 @@ comments: true
         func get(key: Int) -> String? {
             let index = hashFunc(key: key)
             let bucket = buckets[index]
-            // 走訪桶，若找到 key ，則返回對應 val
+            // 走訪桶中的元素，若找到 key，就回傳對應的 val
             for pair in bucket {
                 if pair.key == key {
                     return pair.val
                 }
             }
-            // 若未找到 key ，則返回 nil
+            // 若找不到 key，回傳 nil
             return nil
         }
 
         /* 新增操作 */
         func put(key: Int, val: String) {
-            // 當負載因子超過閾值時，執行擴容
+            // 當負載因子超過門檻時，擴充容量
             if loadFactor() > loadThres {
                 extend()
             }
             let index = hashFunc(key: key)
             let bucket = buckets[index]
-            // 走訪桶，若遇到指定 key ，則更新對應 val 並返回
+            // 走訪桶中的元素，若遇到指定的 key，就更新對應的 val 並結束操作
             for pair in bucket {
                 if pair.key == key {
                     pair.val = val
                     return
                 }
             }
-            // 若無該 key ，則將鍵值對新增至尾部
+            // 若沒有這個 key，就將鍵值對加到尾端
             let pair = Pair(key: key, val: val)
             buckets[index].append(pair)
             size += 1
@@ -660,7 +660,7 @@ comments: true
         func remove(key: Int) {
             let index = hashFunc(key: key)
             let bucket = buckets[index]
-            // 走訪桶，從中刪除鍵值對
+            // 走訪桶中的元素，從中刪除鍵值對
             for (pairIndex, pair) in bucket.enumerated() {
                 if pair.key == key {
                     buckets[index].remove(at: pairIndex)
@@ -670,15 +670,15 @@ comments: true
             }
         }
 
-        /* 擴容雜湊表 */
+        /* 擴充雜湊表容量 */
         func extend() {
-            // 暫存原雜湊表
+            // 暫存原本的雜湊表
             let bucketsTmp = buckets
-            // 初始化擴容後的新雜湊表
+            // 初始化擴充後的新雜湊表
             capacity *= extendRatio
             buckets = Array(repeating: [], count: capacity)
             size = 0
-            // 將鍵值對從原雜湊表搬運至新雜湊表
+            // 將鍵值對從原本的雜湊表移到新表
             for bucket in bucketsTmp {
                 for pair in bucket {
                     put(key: pair.key, val: pair.val)
@@ -686,7 +686,7 @@ comments: true
             }
         }
 
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         func print() {
             for bucket in buckets {
                 let res = bucket.map { "\($0.key) -> \($0.val)" }
@@ -699,15 +699,15 @@ comments: true
 === "JS"
 
     ```javascript title="hash_map_chaining.js"
-    /* 鏈式位址雜湊表 */
+    /* 鏈結法雜湊表 */
     class HashMapChaining {
         #size; // 鍵值對數量
         #capacity; // 雜湊表容量
-        #loadThres; // 觸發擴容的負載因子閾值
-        #extendRatio; // 擴容倍數
+        #loadThres; // 觸發容量擴充的負載因子門檻
+        #extendRatio; // 容量擴充倍數
         #buckets; // 桶陣列
 
-        /* 建構子 */
+        /* 建構方法 */
         constructor() {
             this.#size = 0;
             this.#capacity = 4;
@@ -730,32 +730,32 @@ comments: true
         get(key) {
             const index = this.#hashFunc(key);
             const bucket = this.#buckets[index];
-            // 走訪桶，若找到 key ，則返回對應 val
+            // 走訪桶中的元素，若找到 key，就回傳對應的 val
             for (const pair of bucket) {
                 if (pair.key === key) {
                     return pair.val;
                 }
             }
-            // 若未找到 key ，則返回 null
+            // 若找不到 key，回傳 null
             return null;
         }
 
         /* 新增操作 */
         put(key, val) {
-            // 當負載因子超過閾值時，執行擴容
+            // 當負載因子超過門檻時，擴充容量
             if (this.#loadFactor() > this.#loadThres) {
                 this.#extend();
             }
             const index = this.#hashFunc(key);
             const bucket = this.#buckets[index];
-            // 走訪桶，若遇到指定 key ，則更新對應 val 並返回
+            // 走訪桶中的元素，若遇到指定的 key，就更新對應的 val 並結束操作
             for (const pair of bucket) {
                 if (pair.key === key) {
                     pair.val = val;
                     return;
                 }
             }
-            // 若無該 key ，則將鍵值對新增至尾部
+            // 若沒有這個 key，就將鍵值對加到尾端
             const pair = new Pair(key, val);
             bucket.push(pair);
             this.#size++;
@@ -765,7 +765,7 @@ comments: true
         remove(key) {
             const index = this.#hashFunc(key);
             let bucket = this.#buckets[index];
-            // 走訪桶，從中刪除鍵值對
+            // 走訪桶中的元素，從中刪除鍵值對
             for (let i = 0; i < bucket.length; i++) {
                 if (bucket[i].key === key) {
                     bucket.splice(i, 1);
@@ -775,15 +775,15 @@ comments: true
             }
         }
 
-        /* 擴容雜湊表 */
+        /* 擴充雜湊表容量 */
         #extend() {
-            // 暫存原雜湊表
+            // 暫存原本的雜湊表
             const bucketsTmp = this.#buckets;
-            // 初始化擴容後的新雜湊表
+            // 初始化擴充後的新雜湊表
             this.#capacity *= this.#extendRatio;
             this.#buckets = new Array(this.#capacity).fill(null).map((x) => []);
             this.#size = 0;
-            // 將鍵值對從原雜湊表搬運至新雜湊表
+            // 將鍵值對從原本的雜湊表移到新表
             for (const bucket of bucketsTmp) {
                 for (const pair of bucket) {
                     this.put(pair.key, pair.val);
@@ -791,7 +791,7 @@ comments: true
             }
         }
 
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         print() {
             for (const bucket of this.#buckets) {
                 let res = [];
@@ -807,15 +807,15 @@ comments: true
 === "TS"
 
     ```typescript title="hash_map_chaining.ts"
-    /* 鏈式位址雜湊表 */
+    /* 鏈結法雜湊表 */
     class HashMapChaining {
         #size: number; // 鍵值對數量
         #capacity: number; // 雜湊表容量
-        #loadThres: number; // 觸發擴容的負載因子閾值
-        #extendRatio: number; // 擴容倍數
+        #loadThres: number; // 觸發容量擴充的負載因子門檻
+        #extendRatio: number; // 容量擴充倍數
         #buckets: Pair[][]; // 桶陣列
 
-        /* 建構子 */
+        /* 建構方法 */
         constructor() {
             this.#size = 0;
             this.#capacity = 4;
@@ -838,32 +838,32 @@ comments: true
         get(key: number): string | null {
             const index = this.#hashFunc(key);
             const bucket = this.#buckets[index];
-            // 走訪桶，若找到 key ，則返回對應 val
+            // 走訪桶中的元素，若找到 key，就回傳對應的 val
             for (const pair of bucket) {
                 if (pair.key === key) {
                     return pair.val;
                 }
             }
-            // 若未找到 key ，則返回 null
+            // 若找不到 key，回傳 null
             return null;
         }
 
         /* 新增操作 */
         put(key: number, val: string): void {
-            // 當負載因子超過閾值時，執行擴容
+            // 當負載因子超過門檻時，擴充容量
             if (this.#loadFactor() > this.#loadThres) {
                 this.#extend();
             }
             const index = this.#hashFunc(key);
             const bucket = this.#buckets[index];
-            // 走訪桶，若遇到指定 key ，則更新對應 val 並返回
+            // 走訪桶中的元素，若遇到指定的 key，就更新對應的 val 並結束操作
             for (const pair of bucket) {
                 if (pair.key === key) {
                     pair.val = val;
                     return;
                 }
             }
-            // 若無該 key ，則將鍵值對新增至尾部
+            // 若沒有這個 key，就將鍵值對加到尾端
             const pair = new Pair(key, val);
             bucket.push(pair);
             this.#size++;
@@ -873,7 +873,7 @@ comments: true
         remove(key: number): void {
             const index = this.#hashFunc(key);
             let bucket = this.#buckets[index];
-            // 走訪桶，從中刪除鍵值對
+            // 走訪桶中的元素，從中刪除鍵值對
             for (let i = 0; i < bucket.length; i++) {
                 if (bucket[i].key === key) {
                     bucket.splice(i, 1);
@@ -883,15 +883,15 @@ comments: true
             }
         }
 
-        /* 擴容雜湊表 */
+        /* 擴充雜湊表容量 */
         #extend(): void {
-            // 暫存原雜湊表
+            // 暫存原本的雜湊表
             const bucketsTmp = this.#buckets;
-            // 初始化擴容後的新雜湊表
+            // 初始化擴充後的新雜湊表
             this.#capacity *= this.#extendRatio;
             this.#buckets = new Array(this.#capacity).fill(null).map((x) => []);
             this.#size = 0;
-            // 將鍵值對從原雜湊表搬運至新雜湊表
+            // 將鍵值對從原本的雜湊表移到新表
             for (const bucket of bucketsTmp) {
                 for (const pair of bucket) {
                     this.put(pair.key, pair.val);
@@ -899,7 +899,7 @@ comments: true
             }
         }
 
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         print(): void {
             for (const bucket of this.#buckets) {
                 let res = [];
@@ -915,15 +915,15 @@ comments: true
 === "Dart"
 
     ```dart title="hash_map_chaining.dart"
-    /* 鏈式位址雜湊表 */
+    /* 鏈結法雜湊表 */
     class HashMapChaining {
       late int size; // 鍵值對數量
       late int capacity; // 雜湊表容量
-      late double loadThres; // 觸發擴容的負載因子閾值
-      late int extendRatio; // 擴容倍數
+      late double loadThres; // 觸發容量擴充的負載因子門檻
+      late int extendRatio; // 容量擴充倍數
       late List<List<Pair>> buckets; // 桶陣列
 
-      /* 建構子 */
+      /* 建構方法 */
       HashMapChaining() {
         size = 0;
         capacity = 4;
@@ -946,32 +946,32 @@ comments: true
       String? get(int key) {
         int index = hashFunc(key);
         List<Pair> bucket = buckets[index];
-        // 走訪桶，若找到 key ，則返回對應 val
+        // 走訪桶中的元素，若找到 key，就回傳對應的 val
         for (Pair pair in bucket) {
           if (pair.key == key) {
             return pair.val;
           }
         }
-        // 若未找到 key ，則返回 null
+        // 若找不到 key，回傳 null
         return null;
       }
 
       /* 新增操作 */
       void put(int key, String val) {
-        // 當負載因子超過閾值時，執行擴容
+        // 當負載因子超過門檻時，擴充容量
         if (loadFactor() > loadThres) {
           extend();
         }
         int index = hashFunc(key);
         List<Pair> bucket = buckets[index];
-        // 走訪桶，若遇到指定 key ，則更新對應 val 並返回
+        // 走訪桶中的元素，若遇到指定的 key，就更新對應的 val 並結束操作
         for (Pair pair in bucket) {
           if (pair.key == key) {
             pair.val = val;
             return;
           }
         }
-        // 若無該 key ，則將鍵值對新增至尾部
+        // 若沒有這個 key，就將鍵值對加到尾端
         Pair pair = Pair(key, val);
         bucket.add(pair);
         size++;
@@ -981,7 +981,7 @@ comments: true
       void remove(int key) {
         int index = hashFunc(key);
         List<Pair> bucket = buckets[index];
-        // 走訪桶，從中刪除鍵值對
+        // 走訪桶中的元素，從中刪除鍵值對
         for (Pair pair in bucket) {
           if (pair.key == key) {
             bucket.remove(pair);
@@ -991,15 +991,15 @@ comments: true
         }
       }
 
-      /* 擴容雜湊表 */
+      /* 擴充雜湊表容量 */
       void extend() {
-        // 暫存原雜湊表
+        // 暫存原本的雜湊表
         List<List<Pair>> bucketsTmp = buckets;
-        // 初始化擴容後的新雜湊表
+        // 初始化擴充後的新雜湊表
         capacity *= extendRatio;
         buckets = List.generate(capacity, (_) => []);
         size = 0;
-        // 將鍵值對從原雜湊表搬運至新雜湊表
+        // 將鍵值對從原本的雜湊表移到新表
         for (List<Pair> bucket in bucketsTmp) {
           for (Pair pair in bucket) {
             put(pair.key, pair.val);
@@ -1007,7 +1007,7 @@ comments: true
         }
       }
 
-      /* 列印雜湊表 */
+      /* 印出雜湊表 */
       void printHashMap() {
         for (List<Pair> bucket in buckets) {
           List<String> res = [];
@@ -1023,7 +1023,7 @@ comments: true
 === "Rust"
 
     ```rust title="hash_map_chaining.rs"
-    /* 鏈式位址雜湊表 */
+    /* 鏈結法雜湊表 */
     struct HashMapChaining {
         size: usize,
         capacity: usize,
@@ -1033,7 +1033,7 @@ comments: true
     }
 
     impl HashMapChaining {
-        /* 建構子 */
+        /* 建構方法 */
         fn new() -> Self {
             Self {
                 size: 0,
@@ -1058,7 +1058,7 @@ comments: true
         fn remove(&mut self, key: i32) -> Option<String> {
             let index = self.hash_func(key);
 
-            // 走訪桶，從中刪除鍵值對
+            // 走訪桶中的元素，從中刪除鍵值對
             for (i, p) in self.buckets[index].iter_mut().enumerate() {
                 if p.key == key {
                     let pair = self.buckets[index].remove(i);
@@ -1067,21 +1067,21 @@ comments: true
                 }
             }
 
-            // 若未找到 key ，則返回 None
+            // 若找不到 key，回傳 None
             None
         }
 
-        /* 擴容雜湊表 */
+        /* 擴充雜湊表容量 */
         fn extend(&mut self) {
-            // 暫存原雜湊表
+            // 暫存原本的雜湊表
             let buckets_tmp = std::mem::take(&mut self.buckets);
 
-            // 初始化擴容後的新雜湊表
+            // 初始化擴充後的新雜湊表
             self.capacity *= self.extend_ratio;
             self.buckets = vec![Vec::new(); self.capacity as usize];
             self.size = 0;
 
-            // 將鍵值對從原雜湊表搬運至新雜湊表
+            // 將鍵值對從原本的雜湊表移到新表
             for bucket in buckets_tmp {
                 for pair in bucket {
                     self.put(pair.key, pair.val);
@@ -1089,7 +1089,7 @@ comments: true
             }
         }
 
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         fn print(&self) {
             for bucket in &self.buckets {
                 let mut res = Vec::new();
@@ -1102,14 +1102,14 @@ comments: true
 
         /* 新增操作 */
         fn put(&mut self, key: i32, val: String) {
-            // 當負載因子超過閾值時，執行擴容
+            // 當負載因子超過門檻時，擴充容量
             if self.load_factor() > self.load_thres {
                 self.extend();
             }
 
             let index = self.hash_func(key);
 
-            // 走訪桶，若遇到指定 key ，則更新對應 val 並返回
+            // 走訪桶中的元素，若遇到指定的 key，就更新對應的 val 並結束操作
             for pair in self.buckets[index].iter_mut() {
                 if pair.key == key {
                     pair.val = val;
@@ -1117,7 +1117,7 @@ comments: true
                 }
             }
 
-            // 若無該 key ，則將鍵值對新增至尾部
+            // 若沒有這個 key，就將鍵值對加到尾端
             let pair = Pair { key, val };
             self.buckets[index].push(pair);
             self.size += 1;
@@ -1127,14 +1127,14 @@ comments: true
         fn get(&self, key: i32) -> Option<&str> {
             let index = self.hash_func(key);
 
-            // 走訪桶，若找到 key ，則返回對應 val
+            // 走訪桶中的元素，若找到 key，就回傳對應的 val
             for pair in self.buckets[index].iter() {
                 if pair.key == key {
                     return Some(&pair.val);
                 }
             }
 
-            // 若未找到 key ，則返回 None
+            // 若找不到 key，回傳 None
             None
         }
     }
@@ -1149,16 +1149,16 @@ comments: true
         struct Node *next;
     } Node;
 
-    /* 鏈式位址雜湊表 */
+    /* 鏈結法雜湊表 */
     typedef struct {
         int size;         // 鍵值對數量
         int capacity;     // 雜湊表容量
-        double loadThres; // 觸發擴容的負載因子閾值
-        int extendRatio;  // 擴容倍數
+        double loadThres; // 觸發容量擴充的負載因子門檻
+        int extendRatio;  // 容量擴充倍數
         Node **buckets;   // 桶陣列
     } HashMapChaining;
 
-    /* 建構子 */
+    /* 建構函式 */
     HashMapChaining *newHashMapChaining() {
         HashMapChaining *hashMap = (HashMapChaining *)malloc(sizeof(HashMapChaining));
         hashMap->size = 0;
@@ -1172,7 +1172,7 @@ comments: true
         return hashMap;
     }
 
-    /* 析構函式 */
+    /* 解構函式 */
     void delHashMapChaining(HashMapChaining *hashMap) {
         for (int i = 0; i < hashMap->capacity; i++) {
             Node *cur = hashMap->buckets[i];
@@ -1200,7 +1200,7 @@ comments: true
     /* 查詢操作 */
     char *get(HashMapChaining *hashMap, int key) {
         int index = hashFunc(hashMap, key);
-        // 走訪桶，若找到 key ，則返回對應 val
+        // 走訪桶中的元素，若找到 key，就回傳對應的 val
         Node *cur = hashMap->buckets[index];
         while (cur) {
             if (cur->pair->key == key) {
@@ -1208,26 +1208,26 @@ comments: true
             }
             cur = cur->next;
         }
-        return ""; // 若未找到 key ，則返回空字串
+        return ""; // 若找不到 key，則回傳空字串
     }
 
     /* 新增操作 */
     void put(HashMapChaining *hashMap, int key, const char *val) {
-        // 當負載因子超過閾值時，執行擴容
+        // 當負載因子超過門檻時，擴充容量
         if (loadFactor(hashMap) > hashMap->loadThres) {
             extend(hashMap);
         }
         int index = hashFunc(hashMap, key);
-        // 走訪桶，若遇到指定 key ，則更新對應 val 並返回
+        // 走訪桶中的元素，若遇到指定的 key，就更新對應的 val 並結束操作
         Node *cur = hashMap->buckets[index];
         while (cur) {
             if (cur->pair->key == key) {
-                strcpy(cur->pair->val, val); // 若遇到指定 key ，則更新對應 val 並返回
+                strcpy(cur->pair->val, val); // 若遇到指定的 key，就更新對應的 val 並結束操作
                 return;
             }
             cur = cur->next;
         }
-        // 若無該 key ，則將鍵值對新增至鏈結串列頭部
+        // 若沒有這個 key，就將鍵值對加到鏈結串列的開頭
         Pair *newPair = (Pair *)malloc(sizeof(Pair));
         newPair->key = key;
         strcpy(newPair->val, val);
@@ -1238,19 +1238,19 @@ comments: true
         hashMap->size++;
     }
 
-    /* 擴容雜湊表 */
+    /* 擴充雜湊表容量 */
     void extend(HashMapChaining *hashMap) {
-        // 暫存原雜湊表
+        // 暫存原本的雜湊表
         int oldCapacity = hashMap->capacity;
         Node **oldBuckets = hashMap->buckets;
-        // 初始化擴容後的新雜湊表
+        // 初始化擴充後的新雜湊表
         hashMap->capacity *= hashMap->extendRatio;
         hashMap->buckets = (Node **)malloc(hashMap->capacity * sizeof(Node *));
         for (int i = 0; i < hashMap->capacity; i++) {
             hashMap->buckets[i] = NULL;
         }
         hashMap->size = 0;
-        // 將鍵值對從原雜湊表搬運至新雜湊表
+        // 將鍵值對從原本的雜湊表移到新表
         for (int i = 0; i < oldCapacity; i++) {
             Node *cur = oldBuckets[i];
             while (cur) {
@@ -1290,7 +1290,7 @@ comments: true
         }
     }
 
-    /* 列印雜湊表 */
+    /* 印出雜湊表 */
     void print(HashMapChaining *hashMap) {
         for (int i = 0; i < hashMap->capacity; i++) {
             Node *cur = hashMap->buckets[i];
@@ -1307,15 +1307,15 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="hash_map_chaining.kt"
-    /* 鏈式位址雜湊表 */
+    /* 鏈結法雜湊表 */
     class HashMapChaining {
         var size: Int // 鍵值對數量
         var capacity: Int // 雜湊表容量
-        val loadThres: Double // 觸發擴容的負載因子閾值
-        val extendRatio: Int // 擴容倍數
+        val loadThres: Double // 觸發容量擴充的負載因子門檻
+        val extendRatio: Int // 容量擴充倍數
         var buckets: MutableList<MutableList<Pair>> // 桶陣列
 
-        /* 建構子 */
+        /* 建構方法 */
         init {
             size = 0
             capacity = 4
@@ -1341,30 +1341,30 @@ comments: true
         fun get(key: Int): String? {
             val index = hashFunc(key)
             val bucket = buckets[index]
-            // 走訪桶，若找到 key ，則返回對應 val
+            // 走訪桶中的元素，若找到 key，就回傳對應的 val
             for (pair in bucket) {
                 if (pair.key == key) return pair._val
             }
-            // 若未找到 key ，則返回 null
+            // 若找不到 key，回傳 null
             return null
         }
 
         /* 新增操作 */
         fun put(key: Int, _val: String) {
-            // 當負載因子超過閾值時，執行擴容
+            // 當負載因子超過門檻時，擴充容量
             if (loadFactor() > loadThres) {
                 extend()
             }
             val index = hashFunc(key)
             val bucket = buckets[index]
-            // 走訪桶，若遇到指定 key ，則更新對應 val 並返回
+            // 走訪桶中的元素，若遇到指定的 key，就更新對應的 val 並結束操作
             for (pair in bucket) {
                 if (pair.key == key) {
                     pair._val = _val
                     return
                 }
             }
-            // 若無該 key ，則將鍵值對新增至尾部
+            // 若沒有這個 key，就將鍵值對加到尾端
             val pair = Pair(key, _val)
             bucket.add(pair)
             size++
@@ -1374,7 +1374,7 @@ comments: true
         fun remove(key: Int) {
             val index = hashFunc(key)
             val bucket = buckets[index]
-            // 走訪桶，從中刪除鍵值對
+            // 走訪桶中的元素，從中刪除鍵值對
             for (pair in bucket) {
                 if (pair.key == key) {
                     bucket.remove(pair)
@@ -1384,19 +1384,19 @@ comments: true
             }
         }
 
-        /* 擴容雜湊表 */
+        /* 擴充雜湊表容量 */
         fun extend() {
-            // 暫存原雜湊表
+            // 暫存原本的雜湊表
             val bucketsTmp = buckets
-            // 初始化擴容後的新雜湊表
+            // 初始化擴充後的新雜湊表
             capacity *= extendRatio
-            // mutablelist 無固定大小
+            // MutableList 的大小不固定
             buckets = mutableListOf()
             for (i in 0..<capacity) {
                 buckets.add(mutableListOf())
             }
             size = 0
-            // 將鍵值對從原雜湊表搬運至新雜湊表
+            // 將鍵值對從原本的雜湊表移到新表
             for (bucket in bucketsTmp) {
                 for (pair in bucket) {
                     put(pair.key, pair._val)
@@ -1404,7 +1404,7 @@ comments: true
             }
         }
 
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         fun print() {
             for (bucket in buckets) {
                 val res = mutableListOf<String>()
@@ -1422,14 +1422,14 @@ comments: true
 === "Ruby"
 
     ```ruby title="hash_map_chaining.rb"
-    ### 鍵式位址雜湊表 ###
+    ### 採用鏈結法的雜湊表 ###
     class HashMapChaining
-      ### 建構子 ###
+      ### 建構方法 ###
       def initialize
         @size = 0 # 鍵值對數量
         @capacity = 4 # 雜湊表容量
-        @load_thres = 2.0 / 3.0 # 觸發擴容的負載因子閾值
-        @extend_ratio = 2 # 擴容倍數
+        @load_thres = 2.0 / 3.0 # 觸發容量擴充的負載因子門檻
+        @extend_ratio = 2 # 容量擴充倍數
         @buckets = Array.new(@capacity) { [] } # 桶陣列
       end
 
@@ -1447,28 +1447,28 @@ comments: true
       def get(key)
         index = hash_func(key)
         bucket = @buckets[index]
-        # 走訪桶，若找到 key ，則返回對應 val
+        # 走訪桶中的元素，若找到 key，就回傳對應的 val
         for pair in bucket
           return pair.val if pair.key == key
         end
-        # 若未找到 key , 則返回 nil
+        # 若找不到 key，回傳 nil
         nil
       end
 
       ### 新增操作 ###
       def put(key, val)
-        # 當負載因子超過閾值時，執行擴容
+        # 當負載因子超過門檻時，擴充容量
         extend if load_factor > @load_thres
         index = hash_func(key)
         bucket = @buckets[index]
-        # 走訪桶，若遇到指定 key ，則更新對應 val 並返回
+        # 走訪桶中的元素，若遇到指定的 key，就更新對應的 val 並結束操作
         for pair in bucket
           if pair.key == key
             pair.val = val
             return
           end
         end
-        # 若無該 key ，則將鍵值對新增至尾部
+        # 若沒有這個 key，就將鍵值對加到尾端
         pair = Pair.new(key, val)
         bucket << pair
         @size += 1
@@ -1478,7 +1478,7 @@ comments: true
       def remove(key)
         index = hash_func(key)
         bucket = @buckets[index]
-        # 走訪桶，從中刪除鍵值對
+        # 走訪桶中的元素，從中刪除鍵值對
         for pair in bucket
           if pair.key == key
             bucket.delete(pair)
@@ -1488,15 +1488,15 @@ comments: true
         end
       end
 
-      ### 擴容雜湊表 ###
+      ### 擴充雜湊表容量 ###
       def extend
-        # 暫存原雜湊表
+        # 暫存原本的雜湊表
         buckets = @buckets
-        # 初始化擴容後的新雜湊表
+        # 初始化擴充後的新雜湊表
         @capacity *= @extend_ratio
         @buckets = Array.new(@capacity) { [] }
         @size = 0
-        # 將鍵值對從原雜湊表搬運至新雜湊表
+        # 將鍵值對從原本的雜湊表移到新表
         for bucket in buckets
           for pair in bucket
             put(pair.key, pair.val)
@@ -1504,7 +1504,7 @@ comments: true
         end
       end
 
-      ### 列印雜湊表 ###
+      ### 印出雜湊表 ###
       def print
         for bucket in @buckets
           res = []
@@ -1517,60 +1517,60 @@ comments: true
     end
     ```
 
-??? pythontutor "視覺化執行"
+??? pythontutor "執行視覺化示範"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="視覺化執行" src="https://pythontutor.com/iframe-embed.html#code=class%20Pair%3A%0A%20%20%20%20%22%22%22%E9%8D%B5%E5%80%BC%E5%B0%8D%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20key%3A%20int%2C%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20self.key%20%3D%20key%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%0Aclass%20HashMapChaining%3A%0A%20%20%20%20%22%22%22%E9%8F%88%E5%BC%8F%E4%BD%8D%E5%9D%80%E9%9B%9C%E6%B9%8A%E8%A1%A8%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%BB%BA%E6%A7%8B%E5%AD%90%22%22%22%0A%20%20%20%20%20%20%20%20self.size%20%3D%200%0A%20%20%20%20%20%20%20%20self.capacity%20%3D%204%0A%20%20%20%20%20%20%20%20self.load_thres%20%3D%202.0%20/%203.0%0A%20%20%20%20%20%20%20%20self.extend_ratio%20%3D%202%0A%20%20%20%20%20%20%20%20self.buckets%20%3D%20%5B%5B%5D%20for%20_%20in%20range%28self.capacity%29%5D%0A%0A%20%20%20%20def%20hash_func%28self%2C%20key%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E9%9B%9C%E6%B9%8A%E5%87%BD%E5%BC%8F%22%22%22%0A%20%20%20%20%20%20%20%20return%20key%20%25%20self.capacity%0A%0A%20%20%20%20def%20load_factor%28self%29%20-%3E%20float%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%B2%A0%E8%BC%89%E5%9B%A0%E5%AD%90%22%22%22%0A%20%20%20%20%20%20%20%20return%20self.size%20/%20self.capacity%0A%0A%20%20%20%20def%20get%28self%2C%20key%3A%20int%29%20-%3E%20str%20%7C%20None%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20index%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20bucket%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair.key%20%3D%3D%20key%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20pair.val%0A%20%20%20%20%20%20%20%20return%20None%0A%0A%20%20%20%20def%20put%28self%2C%20key%3A%20int%2C%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.load_factor%28%29%20%3E%20self.load_thres%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.extend%28%29%0A%20%20%20%20%20%20%20%20index%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20bucket%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair.key%20%3D%3D%20key%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20pair.val%20%3D%20val%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20%20%20pair%20%3D%20Pair%28key%2C%20val%29%0A%20%20%20%20%20%20%20%20bucket.append%28pair%29%0A%20%20%20%20%20%20%20%20self.size%20%2B%3D%201%0A%0A%20%20%20%20def%20remove%28self%2C%20key%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20index%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20bucket%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair.key%20%3D%3D%20key%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bucket.remove%28pair%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20self.size%20-%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20break%0A%0A%20%20%20%20def%20extend%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%93%B4%E5%AE%B9%E9%9B%9C%E6%B9%8A%E8%A1%A8%22%22%22%0A%20%20%20%20%20%20%20%20buckets%20%3D%20self.buckets%0A%20%20%20%20%20%20%20%20self.capacity%20%2A%3D%20self.extend_ratio%0A%20%20%20%20%20%20%20%20self.buckets%20%3D%20%5B%5B%5D%20for%20_%20in%20range%28self.capacity%29%5D%0A%20%20%20%20%20%20%20%20self.size%20%3D%200%0A%20%20%20%20%20%20%20%20for%20bucket%20in%20buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20self.put%28pair.key%2C%20pair.val%29%0A%0A%20%20%20%20def%20print%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%97%E5%8D%B0%E9%9B%9C%E6%B9%8A%E8%A1%A8%22%22%22%0A%20%20%20%20%20%20%20%20for%20bucket%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20res%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20res.append%28str%28pair.key%29%20%2B%20%22%20-%3E%20%22%20%2B%20pair.val%29%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28res%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20hashmap%20%3D%20HashMapChaining%28%29%0A%0A%20%20%20%20%23%20%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%0A%20%20%20%20hashmap.put%2812836%2C%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hashmap.put%2815937%2C%20%22%E5%B0%8F%E5%9B%89%22%29%0A%20%20%20%20hashmap.put%2816750%2C%20%22%E5%B0%8F%E7%AE%97%22%29%0A%20%20%20%20hashmap.put%2813276%2C%20%22%E5%B0%8F%E6%B3%95%22%29%0A%20%20%20%20hashmap.put%2810583%2C%20%22%E5%B0%8F%E9%B4%A8%22%29%0A%0A%20%20%20%20%23%20%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20name%20%3D%20hashmap.get%2813276%29%0A%0A%20%20%20%20%23%20%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20hashmap.remove%2812836%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20Pair%3A%0A%20%20%20%20%22%22%22%E9%8D%B5%E5%80%BC%E5%B0%8D%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20key%3A%20int%2C%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20self.key%20%3D%20key%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%0Aclass%20HashMapChaining%3A%0A%20%20%20%20%22%22%22%E9%8F%88%E5%BC%8F%E4%BD%8D%E5%9D%80%E9%9B%9C%E6%B9%8A%E8%A1%A8%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%BB%BA%E6%A7%8B%E5%AD%90%22%22%22%0A%20%20%20%20%20%20%20%20self.size%20%3D%200%0A%20%20%20%20%20%20%20%20self.capacity%20%3D%204%0A%20%20%20%20%20%20%20%20self.load_thres%20%3D%202.0%20/%203.0%0A%20%20%20%20%20%20%20%20self.extend_ratio%20%3D%202%0A%20%20%20%20%20%20%20%20self.buckets%20%3D%20%5B%5B%5D%20for%20_%20in%20range%28self.capacity%29%5D%0A%0A%20%20%20%20def%20hash_func%28self%2C%20key%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E9%9B%9C%E6%B9%8A%E5%87%BD%E5%BC%8F%22%22%22%0A%20%20%20%20%20%20%20%20return%20key%20%25%20self.capacity%0A%0A%20%20%20%20def%20load_factor%28self%29%20-%3E%20float%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%B2%A0%E8%BC%89%E5%9B%A0%E5%AD%90%22%22%22%0A%20%20%20%20%20%20%20%20return%20self.size%20/%20self.capacity%0A%0A%20%20%20%20def%20get%28self%2C%20key%3A%20int%29%20-%3E%20str%20%7C%20None%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20index%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20bucket%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair.key%20%3D%3D%20key%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20pair.val%0A%20%20%20%20%20%20%20%20return%20None%0A%0A%20%20%20%20def%20put%28self%2C%20key%3A%20int%2C%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.load_factor%28%29%20%3E%20self.load_thres%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.extend%28%29%0A%20%20%20%20%20%20%20%20index%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20bucket%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair.key%20%3D%3D%20key%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20pair.val%20%3D%20val%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20%20%20pair%20%3D%20Pair%28key%2C%20val%29%0A%20%20%20%20%20%20%20%20bucket.append%28pair%29%0A%20%20%20%20%20%20%20%20self.size%20%2B%3D%201%0A%0A%20%20%20%20def%20remove%28self%2C%20key%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20index%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20bucket%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair.key%20%3D%3D%20key%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bucket.remove%28pair%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20self.size%20-%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20break%0A%0A%20%20%20%20def%20extend%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%93%B4%E5%AE%B9%E9%9B%9C%E6%B9%8A%E8%A1%A8%22%22%22%0A%20%20%20%20%20%20%20%20buckets%20%3D%20self.buckets%0A%20%20%20%20%20%20%20%20self.capacity%20%2A%3D%20self.extend_ratio%0A%20%20%20%20%20%20%20%20self.buckets%20%3D%20%5B%5B%5D%20for%20_%20in%20range%28self.capacity%29%5D%0A%20%20%20%20%20%20%20%20self.size%20%3D%200%0A%20%20%20%20%20%20%20%20for%20bucket%20in%20buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20self.put%28pair.key%2C%20pair.val%29%0A%0A%20%20%20%20def%20print%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%97%E5%8D%B0%E9%9B%9C%E6%B9%8A%E8%A1%A8%22%22%22%0A%20%20%20%20%20%20%20%20for%20bucket%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20res%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20res.append%28str%28pair.key%29%20%2B%20%22%20-%3E%20%22%20%2B%20pair.val%29%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28res%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20hashmap%20%3D%20HashMapChaining%28%29%0A%0A%20%20%20%20%23%20%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%0A%20%20%20%20hashmap.put%2812836%2C%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hashmap.put%2815937%2C%20%22%E5%B0%8F%E5%9B%89%22%29%0A%20%20%20%20hashmap.put%2816750%2C%20%22%E5%B0%8F%E7%AE%97%22%29%0A%20%20%20%20hashmap.put%2813276%2C%20%22%E5%B0%8F%E6%B3%95%22%29%0A%20%20%20%20hashmap.put%2810583%2C%20%22%E5%B0%8F%E9%B4%A8%22%29%0A%0A%20%20%20%20%23%20%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20name%20%3D%20hashmap.get%2813276%29%0A%0A%20%20%20%20%23%20%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20hashmap.remove%2812836%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="執行視覺化示範" src="https://pythontutor.com/iframe-embed.html#code=class%20Pair%3A%0A%20%20%20%20%22%22%22%E9%8D%B5%E5%80%BC%E5%B0%8D%22%22%22%0A%20%20%20%20def%20__init__%28self,%20key%3A%20int,%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20self.key%20%3D%20key%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%0Aclass%20HashMapChaining%3A%0A%20%20%20%20%22%22%22%E9%8F%88%E7%B5%90%E6%B3%95%E9%9B%9C%E6%B9%8A%E8%A1%A8%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%BB%BA%E6%A7%8B%E6%96%B9%E6%B3%95%22%22%22%0A%20%20%20%20%20%20%20%20self.size%20%3D%200%0A%20%20%20%20%20%20%20%20self.capacity%20%3D%204%0A%20%20%20%20%20%20%20%20self.load_thres%20%3D%202.0%20/%203.0%0A%20%20%20%20%20%20%20%20self.extend_ratio%20%3D%202%0A%20%20%20%20%20%20%20%20self.buckets%20%3D%20%5B%5B%5D%20for%20_%20in%20range%28self.capacity%29%5D%0A%0A%20%20%20%20def%20hash_func%28self,%20key%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E9%9B%9C%E6%B9%8A%E5%87%BD%E5%BC%8F%22%22%22%0A%20%20%20%20%20%20%20%20return%20key%20%25%20self.capacity%0A%0A%20%20%20%20def%20load_factor%28self%29%20-%3E%20float%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%B2%A0%E8%BC%89%E5%9B%A0%E5%AD%90%22%22%22%0A%20%20%20%20%20%20%20%20return%20self.size%20/%20self.capacity%0A%0A%20%20%20%20def%20get%28self,%20key%3A%20int%29%20-%3E%20str%20%7C%20None%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20index%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20bucket%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair.key%20%3D%3D%20key%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20pair.val%0A%20%20%20%20%20%20%20%20return%20None%0A%0A%20%20%20%20def%20put%28self,%20key%3A%20int,%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.load_factor%28%29%20%3E%20self.load_thres%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.extend%28%29%0A%20%20%20%20%20%20%20%20index%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20bucket%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair.key%20%3D%3D%20key%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20pair.val%20%3D%20val%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20%20%20pair%20%3D%20Pair%28key,%20val%29%0A%20%20%20%20%20%20%20%20bucket.append%28pair%29%0A%20%20%20%20%20%20%20%20self.size%20%2B%3D%201%0A%0A%20%20%20%20def%20remove%28self,%20key%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20index%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20bucket%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair.key%20%3D%3D%20key%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bucket.remove%28pair%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20self.size%20-%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20break%0A%0A%20%20%20%20def%20extend%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%93%B4%E5%85%85%E9%9B%9C%E6%B9%8A%E8%A1%A8%E5%AE%B9%E9%87%8F%22%22%22%0A%20%20%20%20%20%20%20%20buckets%20%3D%20self.buckets%0A%20%20%20%20%20%20%20%20self.capacity%20%2A%3D%20self.extend_ratio%0A%20%20%20%20%20%20%20%20self.buckets%20%3D%20%5B%5B%5D%20for%20_%20in%20range%28self.capacity%29%5D%0A%20%20%20%20%20%20%20%20self.size%20%3D%200%0A%20%20%20%20%20%20%20%20for%20bucket%20in%20buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20self.put%28pair.key,%20pair.val%29%0A%0A%20%20%20%20def%20print%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%8D%B0%E5%87%BA%E9%9B%9C%E6%B9%8A%E8%A1%A8%22%22%22%0A%20%20%20%20%20%20%20%20for%20bucket%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20res%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20res.append%28str%28pair.key%29%20%2B%20%22%20-%3E%20%22%20%2B%20pair.val%29%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28res%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20hashmap%20%3D%20HashMapChaining%28%29%0A%0A%20%20%20%20%23%20%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%0A%20%20%20%20hashmap.put%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hashmap.put%2815937,%20%22%E5%B0%8F%E5%9B%89%22%29%0A%20%20%20%20hashmap.put%2816750,%20%22%E5%B0%8F%E7%AE%97%22%29%0A%20%20%20%20hashmap.put%2813276,%20%22%E5%B0%8F%E6%B3%95%22%29%0A%20%20%20%20hashmap.put%2810583,%20%22%E5%B0%8F%E9%B4%A8%22%29%0A%0A%20%20%20%20%23%20%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20name%20%3D%20hashmap.get%2813276%29%0A%0A%20%20%20%20%23%20%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20hashmap.remove%2812836%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20Pair%3A%0A%20%20%20%20%22%22%22%E9%8D%B5%E5%80%BC%E5%B0%8D%22%22%22%0A%20%20%20%20def%20__init__%28self,%20key%3A%20int,%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20self.key%20%3D%20key%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%0Aclass%20HashMapChaining%3A%0A%20%20%20%20%22%22%22%E9%8F%88%E7%B5%90%E6%B3%95%E9%9B%9C%E6%B9%8A%E8%A1%A8%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%BB%BA%E6%A7%8B%E6%96%B9%E6%B3%95%22%22%22%0A%20%20%20%20%20%20%20%20self.size%20%3D%200%0A%20%20%20%20%20%20%20%20self.capacity%20%3D%204%0A%20%20%20%20%20%20%20%20self.load_thres%20%3D%202.0%20/%203.0%0A%20%20%20%20%20%20%20%20self.extend_ratio%20%3D%202%0A%20%20%20%20%20%20%20%20self.buckets%20%3D%20%5B%5B%5D%20for%20_%20in%20range%28self.capacity%29%5D%0A%0A%20%20%20%20def%20hash_func%28self,%20key%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E9%9B%9C%E6%B9%8A%E5%87%BD%E5%BC%8F%22%22%22%0A%20%20%20%20%20%20%20%20return%20key%20%25%20self.capacity%0A%0A%20%20%20%20def%20load_factor%28self%29%20-%3E%20float%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%B2%A0%E8%BC%89%E5%9B%A0%E5%AD%90%22%22%22%0A%20%20%20%20%20%20%20%20return%20self.size%20/%20self.capacity%0A%0A%20%20%20%20def%20get%28self,%20key%3A%20int%29%20-%3E%20str%20%7C%20None%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20index%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20bucket%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair.key%20%3D%3D%20key%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20pair.val%0A%20%20%20%20%20%20%20%20return%20None%0A%0A%20%20%20%20def%20put%28self,%20key%3A%20int,%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.load_factor%28%29%20%3E%20self.load_thres%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.extend%28%29%0A%20%20%20%20%20%20%20%20index%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20bucket%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair.key%20%3D%3D%20key%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20pair.val%20%3D%20val%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20%20%20pair%20%3D%20Pair%28key,%20val%29%0A%20%20%20%20%20%20%20%20bucket.append%28pair%29%0A%20%20%20%20%20%20%20%20self.size%20%2B%3D%201%0A%0A%20%20%20%20def%20remove%28self,%20key%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20index%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20bucket%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair.key%20%3D%3D%20key%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bucket.remove%28pair%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20self.size%20-%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20break%0A%0A%20%20%20%20def%20extend%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%93%B4%E5%85%85%E9%9B%9C%E6%B9%8A%E8%A1%A8%E5%AE%B9%E9%87%8F%22%22%22%0A%20%20%20%20%20%20%20%20buckets%20%3D%20self.buckets%0A%20%20%20%20%20%20%20%20self.capacity%20%2A%3D%20self.extend_ratio%0A%20%20%20%20%20%20%20%20self.buckets%20%3D%20%5B%5B%5D%20for%20_%20in%20range%28self.capacity%29%5D%0A%20%20%20%20%20%20%20%20self.size%20%3D%200%0A%20%20%20%20%20%20%20%20for%20bucket%20in%20buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20self.put%28pair.key,%20pair.val%29%0A%0A%20%20%20%20def%20print%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%8D%B0%E5%87%BA%E9%9B%9C%E6%B9%8A%E8%A1%A8%22%22%22%0A%20%20%20%20%20%20%20%20for%20bucket%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20res%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20pair%20in%20bucket%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20res.append%28str%28pair.key%29%20%2B%20%22%20-%3E%20%22%20%2B%20pair.val%29%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28res%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20hashmap%20%3D%20HashMapChaining%28%29%0A%0A%20%20%20%20%23%20%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%0A%20%20%20%20hashmap.put%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hashmap.put%2815937,%20%22%E5%B0%8F%E5%9B%89%22%29%0A%20%20%20%20hashmap.put%2816750,%20%22%E5%B0%8F%E7%AE%97%22%29%0A%20%20%20%20hashmap.put%2813276,%20%22%E5%B0%8F%E6%B3%95%22%29%0A%20%20%20%20hashmap.put%2810583,%20%22%E5%B0%8F%E9%B4%A8%22%29%0A%0A%20%20%20%20%23%20%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20name%20%3D%20hashmap.get%2813276%29%0A%0A%20%20%20%20%23%20%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20hashmap.remove%2812836%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
 
-值得注意的是，當鏈結串列很長時，查詢效率 $O(n)$ 很差。**此時可以將鏈結串列轉換為“AVL 樹”或“紅黑樹”**，從而將查詢操作的時間複雜度最佳化至 $O(\log n)$ 。
+當鏈結串列很長時，查詢的效率 $O(n)$ 很差。**此時可以將鏈結串列改為「AVL 樹」或「紅黑樹」**，將查詢的時間複雜度改善為 $O(\log n)$。
 
-## 6.2.2 &nbsp; 開放定址
+## 6.2.2 &nbsp; 開放定址法
 
-<u>開放定址（open addressing）</u>不引入額外的資料結構，而是透過“多次探測”來處理雜湊衝突，探測方式主要包括線性探查、平方探測和多次雜湊等。
+<u>開放定址法（open addressing）</u>無須額外的資料結構，而是透過多次探測來處理雜湊碰撞。常見的探測方式有線性探測、平方探測和多重雜湊等。
 
-下面以線性探查為例，介紹開放定址雜湊表的工作機制。
+以下以線性探測為例，說明採用開放定址法的雜湊表如何運作。
 
-### 1. &nbsp; 線性探查
+### 1. &nbsp; 線性探測
 
-線性探查採用固定步長的線性搜尋來進行探測，其操作方法與普通雜湊表有所不同。
+線性探測每次向後移動固定步數，以線性搜尋的方式探測。它的操作與一般雜湊表略有不同。
 
-- **插入元素**：透過雜湊函式計算桶索引，若發現桶內已有元素，則從衝突位置向後線性走訪（步長通常為 $1$ ），直至找到空桶，將元素插入其中。
-- **查詢元素**：若發現雜湊衝突，則使用相同步長向後進行線性走訪，直到找到對應元素，返回 `value` 即可；如果遇到空桶，說明目標元素不在雜湊表中，返回 `None` 。
+- **插入元素**：先用雜湊函式算出桶索引。如果桶裡已有元素，就從碰撞位置開始，以固定步長（通常為 $1$）向後依序探測，找到空桶後將元素放入。
+- **查找元素**：若發生雜湊碰撞，就以相同的步長向後依序探測，找到對應的元素後回傳 `value`。如果遇到空桶，表示目標元素不在雜湊表中，便回傳 `None`。
 
-圖 6-6 展示了開放定址（線性探查）雜湊表的鍵值對分佈。根據此雜湊函式，最後兩位相同的 `key` 都會被對映到相同的桶。而透過線性探查，它們被依次儲存在該桶以及之下的桶中。
+圖 6-6 顯示採用開放定址法（線性探測）的雜湊表如何存放鍵值對。依照圖中的雜湊函式，末兩位相同的 `key` 都會對應到同一個桶。經過線性探測，這些鍵值對會依序放在該桶及其下方的桶中。
 
-![開放定址（線性探查）雜湊表的鍵值對分佈](hash_collision.assets/hash_table_linear_probing.svg){ class="animation-figure" }
+![開放定址法（線性探測）雜湊表的鍵值對分布](hash_collision.assets/hash_table_linear_probing.svg){ class="animation-figure" }
 
-<p align="center"> 圖 6-6 &nbsp; 開放定址（線性探查）雜湊表的鍵值對分佈 </p>
+<p align="center"> 圖 6-6 &nbsp; 開放定址法（線性探測）雜湊表的鍵值對分布 </p>
 
-然而，**線性探查容易產生“聚集現象”**。具體來說，陣列中連續被佔用的位置越長，這些連續位置發生雜湊衝突的可能性越大，從而進一步促使該位置的聚堆積生長，形成惡性迴圈，最終導致增刪查改操作效率劣化。
+不過，**線性探測容易產生「群聚現象」**。陣列中連續被占用的區段越長，新元素在這段區間發生碰撞的機率就越高，使這個群集進一步擴大。如此形成惡性循環，最後會降低新增、刪除、查詢與更新的效率。
 
-值得注意的是，**我們不能在開放定址雜湊表中直接刪除元素**。這是因為刪除元素會在陣列內產生一個空桶 `None` ，而當查詢元素時，線性探查到該空桶就會返回，因此在該空桶之下的元素都無法再被訪問到，程式可能誤判這些元素不存在，如圖 6-7 所示。
+請留意，**在採用開放定址法的雜湊表中，不能直接刪除元素**。直接刪除會在陣列中留下一個空桶 `None`。查詢時，線性探測遇到這個空桶就會結束，無法再繼續查找空桶後方的元素，程式便可能誤判這些元素不存在，如圖 6-7 所示。
 
-![在開放定址中刪除元素導致的查詢問題](hash_collision.assets/hash_table_open_addressing_deletion.svg){ class="animation-figure" }
+![開放定址法中直接刪除元素造成的查詢問題](hash_collision.assets/hash_table_open_addressing_deletion.svg){ class="animation-figure" }
 
-<p align="center"> 圖 6-7 &nbsp; 在開放定址中刪除元素導致的查詢問題 </p>
+<p align="center"> 圖 6-7 &nbsp; 開放定址法中直接刪除元素造成的查詢問題 </p>
 
-為了解決該問題，我們可以採用<u>懶刪除（lazy deletion）</u>機制：它不直接從雜湊表中移除元素，**而是利用一個常數 `TOMBSTONE` 來標記這個桶**。在該機制下，`None` 和 `TOMBSTONE` 都代表空桶，都可以放置鍵值對。但不同的是，線性探查到 `TOMBSTONE` 時應該繼續走訪，因為其之下可能還存在鍵值對。
+為了解決這個問題，可以採用<u>延遲刪除（lazy deletion）</u>：刪除時不直接從雜湊表移除元素，**而是用常數 `TOMBSTONE` 標記這個桶**。此時 `None` 和 `TOMBSTONE` 都表示空桶，都能放入鍵值對。差別在於線性探測遇到 `TOMBSTONE` 時要繼續往後找，因為後面可能還有鍵值對。
 
-然而，**懶刪除可能會加速雜湊表的效能退化**。這是因為每次刪除操作都會產生一個刪除標記，隨著 `TOMBSTONE` 的增加，搜尋時間也會增加，因為線性探查可能需要跳過多個 `TOMBSTONE` 才能找到目標元素。
+然而，**延遲刪除可能會讓雜湊表的效能下降得更快**。每次刪除都會留下一個刪除標記。隨著 `TOMBSTONE` 增多，線性探測可能要跳過好幾個 `TOMBSTONE` 才能找到目標元素，搜尋所需的時間也會增加。
 
-為此，考慮在線性探查中記錄遇到的首個 `TOMBSTONE` 的索引，並將搜尋到的目標元素與該 `TOMBSTONE` 交換位置。這樣做的好處是當每次查詢或新增元素時，元素會被移動至距離理想位置（探測起始點）更近的桶，從而最佳化查詢效率。
+為此，可以在線性探測時記下遇到的第一個 `TOMBSTONE` 的索引，找到目標元素後，再讓它和這個 `TOMBSTONE` 交換位置。如此一來，每次查詢或新增元素時，都有機會將元素移到更接近理想位置（探測起點）的桶，提升查詢效率。
 
-以下程式碼實現了一個包含懶刪除的開放定址（線性探查）雜湊表。為了更加充分地使用雜湊表的空間，我們將雜湊表看作一個“環形陣列”，當越過陣列尾部時，回到頭部繼續走訪。
+以下程式碼以開放定址法（線性探測）實作雜湊表，並支援延遲刪除。為了充分運用雜湊表的空間，我們把它視為「環狀陣列」：探測超過陣列尾端時，就回到開頭繼續走訪。
 
 === "Python"
 
     ```python title="hash_map_open_addressing.py"
     class HashMapOpenAddressing:
-        """開放定址雜湊表"""
+        """採用開放定址法的雜湊表"""
 
         def __init__(self):
-            """建構子"""
+            """建構方法"""
             self.size = 0  # 鍵值對數量
             self.capacity = 4  # 雜湊表容量
-            self.load_thres = 2.0 / 3.0  # 觸發擴容的負載因子閾值
-            self.extend_ratio = 2  # 擴容倍數
+            self.load_thres = 2.0 / 3.0  # 觸發容量擴充的負載因子門檻
+            self.extend_ratio = 2  # 容量擴充倍數
             self.buckets: list[Pair | None] = [None] * self.capacity  # 桶陣列
             self.TOMBSTONE = Pair(-1, "-1")  # 刪除標記
 
@@ -1583,79 +1583,79 @@ comments: true
             return self.size / self.capacity
 
         def find_bucket(self, key: int) -> int:
-            """搜尋 key 對應的桶索引"""
+            """尋找 key 對應的桶索引"""
             index = self.hash_func(key)
             first_tombstone = -1
             for _ in range(self.capacity):
                 bucket = self.buckets[index]
                 if bucket is None:
                     break
-                # 記錄遇到的首個刪除標記
+                # 記錄遇到的第一個刪除標記
                 if bucket is self.TOMBSTONE:
                     if first_tombstone == -1:
                         first_tombstone = index
-                # 若遇到 key ，返回對應的桶索引
+                # 若遇到 key，回傳對應的桶索引
                 elif bucket.key == key:
-                    # 若之前遇到了刪除標記，則將鍵值對移動至該索引處
+                    # 若先前遇過刪除標記，將鍵值對移到該標記所在的索引位置
                     if first_tombstone != -1:
                         self.buckets[first_tombstone] = bucket
                         self.buckets[index] = self.TOMBSTONE
-                        return first_tombstone  # 返回移動後的桶索引
-                    return index  # 返回桶索引
-                # 計算桶索引，越過尾部則返回頭部
+                        return first_tombstone  # 回傳移動後的桶索引
+                    return index  # 回傳桶索引
+                # 計算桶索引，超過陣列尾端就回到開頭
                 index = (index + 1) % self.capacity
-            # 若 key 不存在，則返回新增點的索引
+            # 若 key 不存在，回傳可插入位置的索引
             return index if first_tombstone == -1 else first_tombstone
 
         def get(self, key: int) -> str:
             """查詢操作"""
-            # 搜尋 key 對應的桶索引
+            # 尋找 key 對應的桶索引
             index = self.find_bucket(key)
-            # 若找到鍵值對，則返回對應 val
+            # 若找到鍵值對，回傳對應的 val
             if self.buckets[index] not in [None, self.TOMBSTONE]:
                 return self.buckets[index].val
-            # 若鍵值對不存在，則返回 None
+            # 若鍵值對不存在，回傳 None
             return None
 
         def put(self, key: int, val: str):
             """新增操作"""
-            # 當負載因子超過閾值時，執行擴容
+            # 當負載因子超過門檻時，擴充容量
             if self.load_factor() > self.load_thres:
                 self.extend()
-            # 搜尋 key 對應的桶索引
+            # 尋找 key 對應的桶索引
             index = self.find_bucket(key)
-            # 若找到鍵值對，則覆蓋 val 並返回
+            # 若找到鍵值對，覆寫 val 並結束操作
             if self.buckets[index] not in [None, self.TOMBSTONE]:
                 self.buckets[index].val = val
                 return
-            # 若鍵值對不存在，則新增該鍵值對
+            # 若鍵值對不存在，新增該鍵值對
             self.buckets[index] = Pair(key, val)
             self.size += 1
 
         def remove(self, key: int):
             """刪除操作"""
-            # 搜尋 key 對應的桶索引
+            # 尋找 key 對應的桶索引
             index = self.find_bucket(key)
-            # 若找到鍵值對，則用刪除標記覆蓋它
+            # 若找到鍵值對，以刪除標記取代它
             if self.buckets[index] not in [None, self.TOMBSTONE]:
                 self.buckets[index] = self.TOMBSTONE
                 self.size -= 1
 
         def extend(self):
-            """擴容雜湊表"""
-            # 暫存原雜湊表
+            """擴充雜湊表容量"""
+            # 暫存原本的雜湊表
             buckets_tmp = self.buckets
-            # 初始化擴容後的新雜湊表
+            # 初始化擴充後的新雜湊表
             self.capacity *= self.extend_ratio
             self.buckets = [None] * self.capacity
             self.size = 0
-            # 將鍵值對從原雜湊表搬運至新雜湊表
+            # 將鍵值對從原本的雜湊表移到新表
             for pair in buckets_tmp:
                 if pair not in [None, self.TOMBSTONE]:
                     self.put(pair.key, pair.val)
 
         def print(self):
-            """列印雜湊表"""
+            """印出雜湊表"""
             for pair in self.buckets:
                 if pair is None:
                     print("None")
@@ -1668,22 +1668,22 @@ comments: true
 === "C++"
 
     ```cpp title="hash_map_open_addressing.cpp"
-    /* 開放定址雜湊表 */
+    /* 採用開放定址法的雜湊表 */
     class HashMapOpenAddressing {
       private:
         int size;                             // 鍵值對數量
         int capacity = 4;                     // 雜湊表容量
-        const double loadThres = 2.0 / 3.0;     // 觸發擴容的負載因子閾值
-        const int extendRatio = 2;            // 擴容倍數
+        const double loadThres = 2.0 / 3.0;     // 觸發容量擴充的負載因子門檻
+        const int extendRatio = 2;            // 容量擴充倍數
         vector<Pair *> buckets;               // 桶陣列
         Pair *TOMBSTONE = new Pair(-1, "-1"); // 刪除標記
 
       public:
-        /* 建構子 */
+        /* 建構方法 */
         HashMapOpenAddressing() : size(0), buckets(capacity, nullptr) {
         }
 
-        /* 析構方法 */
+        /* 解構方法 */
         ~HashMapOpenAddressing() {
             for (Pair *pair : buckets) {
                 if (pair != nullptr && pair != TOMBSTONE) {
@@ -1703,68 +1703,68 @@ comments: true
             return (double)size / capacity;
         }
 
-        /* 搜尋 key 對應的桶索引 */
+        /* 尋找 key 對應的桶索引 */
         int findBucket(int key) {
             int index = hashFunc(key);
             int firstTombstone = -1;
-            // 線性探查，當遇到空桶時跳出
+            // 進行線性探測，遇到空桶就跳出迴圈
             while (buckets[index] != nullptr) {
-                // 若遇到 key ，返回對應的桶索引
+                // 若遇到 key，回傳對應的桶索引
                 if (buckets[index]->key == key) {
-                    // 若之前遇到了刪除標記，則將鍵值對移動至該索引處
+                    // 若先前遇過刪除標記，將鍵值對移到該標記所在的索引位置
                     if (firstTombstone != -1) {
                         buckets[firstTombstone] = buckets[index];
                         buckets[index] = TOMBSTONE;
-                        return firstTombstone; // 返回移動後的桶索引
+                        return firstTombstone; // 回傳移動後的桶索引
                     }
-                    return index; // 返回桶索引
+                    return index; // 回傳桶索引
                 }
-                // 記錄遇到的首個刪除標記
+                // 記錄遇到的第一個刪除標記
                 if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                     firstTombstone = index;
                 }
-                // 計算桶索引，越過尾部則返回頭部
+                // 計算桶索引，超過陣列尾端就回到開頭
                 index = (index + 1) % capacity;
             }
-            // 若 key 不存在，則返回新增點的索引
+            // 若 key 不存在，回傳可插入位置的索引
             return firstTombstone == -1 ? index : firstTombstone;
         }
 
         /* 查詢操作 */
         string get(int key) {
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             int index = findBucket(key);
-            // 若找到鍵值對，則返回對應 val
+            // 若找到鍵值對，回傳對應的 val
             if (buckets[index] != nullptr && buckets[index] != TOMBSTONE) {
                 return buckets[index]->val;
             }
-            // 若鍵值對不存在，則返回空字串
+            // 若鍵值對不存在，回傳空字串
             return "";
         }
 
         /* 新增操作 */
         void put(int key, string val) {
-            // 當負載因子超過閾值時，執行擴容
+            // 當負載因子超過門檻時，擴充容量
             if (loadFactor() > loadThres) {
                 extend();
             }
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             int index = findBucket(key);
-            // 若找到鍵值對，則覆蓋 val 並返回
+            // 若找到鍵值對，覆寫 val 並結束操作
             if (buckets[index] != nullptr && buckets[index] != TOMBSTONE) {
                 buckets[index]->val = val;
                 return;
             }
-            // 若鍵值對不存在，則新增該鍵值對
+            // 若鍵值對不存在，新增該鍵值對
             buckets[index] = new Pair(key, val);
             size++;
         }
 
         /* 刪除操作 */
         void remove(int key) {
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             int index = findBucket(key);
-            // 若找到鍵值對，則用刪除標記覆蓋它
+            // 若找到鍵值對，以刪除標記取代它
             if (buckets[index] != nullptr && buckets[index] != TOMBSTONE) {
                 delete buckets[index];
                 buckets[index] = TOMBSTONE;
@@ -1772,15 +1772,15 @@ comments: true
             }
         }
 
-        /* 擴容雜湊表 */
+        /* 擴充雜湊表容量 */
         void extend() {
-            // 暫存原雜湊表
+            // 暫存原本的雜湊表
             vector<Pair *> bucketsTmp = buckets;
-            // 初始化擴容後的新雜湊表
+            // 初始化擴充後的新雜湊表
             capacity *= extendRatio;
             buckets = vector<Pair *>(capacity, nullptr);
             size = 0;
-            // 將鍵值對從原雜湊表搬運至新雜湊表
+            // 將鍵值對從原本的雜湊表移到新表
             for (Pair *pair : bucketsTmp) {
                 if (pair != nullptr && pair != TOMBSTONE) {
                     put(pair->key, pair->val);
@@ -1789,7 +1789,7 @@ comments: true
             }
         }
 
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         void print() {
             for (Pair *pair : buckets) {
                 if (pair == nullptr) {
@@ -1807,16 +1807,16 @@ comments: true
 === "Java"
 
     ```java title="hash_map_open_addressing.java"
-    /* 開放定址雜湊表 */
+    /* 採用開放定址法的雜湊表 */
     class HashMapOpenAddressing {
         private int size; // 鍵值對數量
         private int capacity = 4; // 雜湊表容量
-        private final double loadThres = 2.0 / 3.0; // 觸發擴容的負載因子閾值
-        private final int extendRatio = 2; // 擴容倍數
+        private final double loadThres = 2.0 / 3.0; // 觸發容量擴充的負載因子門檻
+        private final int extendRatio = 2; // 容量擴充倍數
         private Pair[] buckets; // 桶陣列
         private final Pair TOMBSTONE = new Pair(-1, "-1"); // 刪除標記
 
-        /* 建構子 */
+        /* 建構方法 */
         public HashMapOpenAddressing() {
             size = 0;
             buckets = new Pair[capacity];
@@ -1832,83 +1832,83 @@ comments: true
             return (double) size / capacity;
         }
 
-        /* 搜尋 key 對應的桶索引 */
+        /* 尋找 key 對應的桶索引 */
         private int findBucket(int key) {
             int index = hashFunc(key);
             int firstTombstone = -1;
-            // 線性探查，當遇到空桶時跳出
+            // 進行線性探測，遇到空桶就跳出迴圈
             while (buckets[index] != null) {
-                // 若遇到 key ，返回對應的桶索引
+                // 若遇到 key，回傳對應的桶索引
                 if (buckets[index].key == key) {
-                    // 若之前遇到了刪除標記，則將鍵值對移動至該索引處
+                    // 若先前遇過刪除標記，將鍵值對移到該標記所在的索引位置
                     if (firstTombstone != -1) {
                         buckets[firstTombstone] = buckets[index];
                         buckets[index] = TOMBSTONE;
-                        return firstTombstone; // 返回移動後的桶索引
+                        return firstTombstone; // 回傳移動後的桶索引
                     }
-                    return index; // 返回桶索引
+                    return index; // 回傳桶索引
                 }
-                // 記錄遇到的首個刪除標記
+                // 記錄遇到的第一個刪除標記
                 if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                     firstTombstone = index;
                 }
-                // 計算桶索引，越過尾部則返回頭部
+                // 計算桶索引，超過陣列尾端就回到開頭
                 index = (index + 1) % capacity;
             }
-            // 若 key 不存在，則返回新增點的索引
+            // 若 key 不存在，回傳可插入位置的索引
             return firstTombstone == -1 ? index : firstTombstone;
         }
 
         /* 查詢操作 */
         public String get(int key) {
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             int index = findBucket(key);
-            // 若找到鍵值對，則返回對應 val
+            // 若找到鍵值對，回傳對應的 val
             if (buckets[index] != null && buckets[index] != TOMBSTONE) {
                 return buckets[index].val;
             }
-            // 若鍵值對不存在，則返回 null
+            // 若鍵值對不存在，回傳 null
             return null;
         }
 
         /* 新增操作 */
         public void put(int key, String val) {
-            // 當負載因子超過閾值時，執行擴容
+            // 當負載因子超過門檻時，擴充容量
             if (loadFactor() > loadThres) {
                 extend();
             }
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             int index = findBucket(key);
-            // 若找到鍵值對，則覆蓋 val 並返回
+            // 若找到鍵值對，覆寫 val 並結束操作
             if (buckets[index] != null && buckets[index] != TOMBSTONE) {
                 buckets[index].val = val;
                 return;
             }
-            // 若鍵值對不存在，則新增該鍵值對
+            // 若鍵值對不存在，新增該鍵值對
             buckets[index] = new Pair(key, val);
             size++;
         }
 
         /* 刪除操作 */
         public void remove(int key) {
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             int index = findBucket(key);
-            // 若找到鍵值對，則用刪除標記覆蓋它
+            // 若找到鍵值對，以刪除標記取代它
             if (buckets[index] != null && buckets[index] != TOMBSTONE) {
                 buckets[index] = TOMBSTONE;
                 size--;
             }
         }
 
-        /* 擴容雜湊表 */
+        /* 擴充雜湊表容量 */
         private void extend() {
-            // 暫存原雜湊表
+            // 暫存原本的雜湊表
             Pair[] bucketsTmp = buckets;
-            // 初始化擴容後的新雜湊表
+            // 初始化擴充後的新雜湊表
             capacity *= extendRatio;
             buckets = new Pair[capacity];
             size = 0;
-            // 將鍵值對從原雜湊表搬運至新雜湊表
+            // 將鍵值對從原本的雜湊表移到新表
             for (Pair pair : bucketsTmp) {
                 if (pair != null && pair != TOMBSTONE) {
                     put(pair.key, pair.val);
@@ -1916,7 +1916,7 @@ comments: true
             }
         }
 
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         public void print() {
             for (Pair pair : buckets) {
                 if (pair == null) {
@@ -1934,16 +1934,16 @@ comments: true
 === "C#"
 
     ```csharp title="hash_map_open_addressing.cs"
-    /* 開放定址雜湊表 */
+    /* 採用開放定址法的雜湊表 */
     class HashMapOpenAddressing {
         int size; // 鍵值對數量
         int capacity = 4; // 雜湊表容量
-        double loadThres = 2.0 / 3.0; // 觸發擴容的負載因子閾值
-        int extendRatio = 2; // 擴容倍數
+        double loadThres = 2.0 / 3.0; // 觸發容量擴充的負載因子門檻
+        int extendRatio = 2; // 容量擴充倍數
         Pair[] buckets; // 桶陣列
         Pair TOMBSTONE = new(-1, "-1"); // 刪除標記
 
-        /* 建構子 */
+        /* 建構方法 */
         public HashMapOpenAddressing() {
             size = 0;
             buckets = new Pair[capacity];
@@ -1959,83 +1959,83 @@ comments: true
             return (double)size / capacity;
         }
 
-        /* 搜尋 key 對應的桶索引 */
+        /* 尋找 key 對應的桶索引 */
         int FindBucket(int key) {
             int index = HashFunc(key);
             int firstTombstone = -1;
-            // 線性探查，當遇到空桶時跳出
+            // 進行線性探測，遇到空桶就跳出迴圈
             while (buckets[index] != null) {
-                // 若遇到 key ，返回對應的桶索引
+                // 若遇到 key，回傳對應的桶索引
                 if (buckets[index].key == key) {
-                    // 若之前遇到了刪除標記，則將鍵值對移動至該索引處
+                    // 若先前遇過刪除標記，將鍵值對移到該標記所在的索引位置
                     if (firstTombstone != -1) {
                         buckets[firstTombstone] = buckets[index];
                         buckets[index] = TOMBSTONE;
-                        return firstTombstone; // 返回移動後的桶索引
+                        return firstTombstone; // 回傳移動後的桶索引
                     }
-                    return index; // 返回桶索引
+                    return index; // 回傳桶索引
                 }
-                // 記錄遇到的首個刪除標記
+                // 記錄遇到的第一個刪除標記
                 if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                     firstTombstone = index;
                 }
-                // 計算桶索引，越過尾部則返回頭部
+                // 計算桶索引，超過陣列尾端就回到開頭
                 index = (index + 1) % capacity;
             }
-            // 若 key 不存在，則返回新增點的索引
+            // 若 key 不存在，回傳可插入位置的索引
             return firstTombstone == -1 ? index : firstTombstone;
         }
 
         /* 查詢操作 */
         public string? Get(int key) {
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             int index = FindBucket(key);
-            // 若找到鍵值對，則返回對應 val
+            // 若找到鍵值對，回傳對應的 val
             if (buckets[index] != null && buckets[index] != TOMBSTONE) {
                 return buckets[index].val;
             }
-            // 若鍵值對不存在，則返回 null
+            // 若鍵值對不存在，回傳 null
             return null;
         }
 
         /* 新增操作 */
         public void Put(int key, string val) {
-            // 當負載因子超過閾值時，執行擴容
+            // 當負載因子超過門檻時，擴充容量
             if (LoadFactor() > loadThres) {
                 Extend();
             }
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             int index = FindBucket(key);
-            // 若找到鍵值對，則覆蓋 val 並返回
+            // 若找到鍵值對，覆寫 val 並結束操作
             if (buckets[index] != null && buckets[index] != TOMBSTONE) {
                 buckets[index].val = val;
                 return;
             }
-            // 若鍵值對不存在，則新增該鍵值對
+            // 若鍵值對不存在，新增該鍵值對
             buckets[index] = new Pair(key, val);
             size++;
         }
 
         /* 刪除操作 */
         public void Remove(int key) {
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             int index = FindBucket(key);
-            // 若找到鍵值對，則用刪除標記覆蓋它
+            // 若找到鍵值對，以刪除標記取代它
             if (buckets[index] != null && buckets[index] != TOMBSTONE) {
                 buckets[index] = TOMBSTONE;
                 size--;
             }
         }
 
-        /* 擴容雜湊表 */
+        /* 擴充雜湊表容量 */
         void Extend() {
-            // 暫存原雜湊表
+            // 暫存原本的雜湊表
             Pair[] bucketsTmp = buckets;
-            // 初始化擴容後的新雜湊表
+            // 初始化擴充後的新雜湊表
             capacity *= extendRatio;
             buckets = new Pair[capacity];
             size = 0;
-            // 將鍵值對從原雜湊表搬運至新雜湊表
+            // 將鍵值對從原本的雜湊表移到新表
             foreach (Pair pair in bucketsTmp) {
                 if (pair != null && pair != TOMBSTONE) {
                     Put(pair.key, pair.val);
@@ -2043,7 +2043,7 @@ comments: true
             }
         }
 
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         public void Print() {
             foreach (Pair pair in buckets) {
                 if (pair == null) {
@@ -2061,17 +2061,17 @@ comments: true
 === "Go"
 
     ```go title="hash_map_open_addressing.go"
-    /* 開放定址雜湊表 */
+    /* 採用開放定址法的雜湊表 */
     type hashMapOpenAddressing struct {
         size        int     // 鍵值對數量
         capacity    int     // 雜湊表容量
-        loadThres   float64 // 觸發擴容的負載因子閾值
-        extendRatio int     // 擴容倍數
+        loadThres   float64 // 觸發容量擴充的負載因子門檻
+        extendRatio int     // 容量擴充倍數
         buckets     []*pair // 桶陣列
         TOMBSTONE   *pair   // 刪除標記
     }
 
-    /* 建構子 */
+    /* 建構方法 */
     func newHashMapOpenAddressing() *hashMapOpenAddressing {
         return &hashMapOpenAddressing{
             size:        0,
@@ -2090,29 +2090,29 @@ comments: true
 
     /* 負載因子 */
     func (h *hashMapOpenAddressing) loadFactor() float64 {
-        return float64(h.size) / float64(h.capacity) // 計算當前負載因子
+        return float64(h.size) / float64(h.capacity) // 計算目前的負載因子
     }
 
-    /* 搜尋 key 對應的桶索引 */
+    /* 尋找 key 對應的桶索引 */
     func (h *hashMapOpenAddressing) findBucket(key int) int {
-        index := h.hashFunc(key) // 獲取初始索引
-        firstTombstone := -1     // 記錄遇到的第一個TOMBSTONE的位置
+        index := h.hashFunc(key) // 取得起始索引
+        firstTombstone := -1     // 記錄遇到的第一個 TOMBSTONE 的位置
         for h.buckets[index] != nil {
             if h.buckets[index].key == key {
                 if firstTombstone != -1 {
-                    // 若之前遇到了刪除標記，則將鍵值對移動至該索引處
+                    // 若先前遇過刪除標記，將鍵值對移到該標記所在的索引位置
                     h.buckets[firstTombstone] = h.buckets[index]
                     h.buckets[index] = h.TOMBSTONE
-                    return firstTombstone // 返回移動後的桶索引
+                    return firstTombstone // 回傳移動後的桶索引
                 }
-                return index // 返回找到的索引
+                return index // 回傳找到的索引
             }
             if firstTombstone == -1 && h.buckets[index] == h.TOMBSTONE {
-                firstTombstone = index // 記錄遇到的首個刪除標記的位置
+                firstTombstone = index // 記錄遇到的第一個刪除標記的位置
             }
-            index = (index + 1) % h.capacity // 線性探查，越過尾部則返回頭部
+            index = (index + 1) % h.capacity // 進行線性探測，超過尾端就回到開頭
         }
-        // 若 key 不存在，則返回新增點的索引
+        // 若 key 不存在，回傳可插入位置的索引
         if firstTombstone != -1 {
             return firstTombstone
         }
@@ -2121,43 +2121,43 @@ comments: true
 
     /* 查詢操作 */
     func (h *hashMapOpenAddressing) get(key int) string {
-        index := h.findBucket(key) // 搜尋 key 對應的桶索引
+        index := h.findBucket(key) // 尋找 key 對應的桶索引
         if h.buckets[index] != nil && h.buckets[index] != h.TOMBSTONE {
-            return h.buckets[index].val // 若找到鍵值對，則返回對應 val
+            return h.buckets[index].val // 若找到鍵值對，回傳對應的 val
         }
-        return "" // 若鍵值對不存在，則返回 ""
+        return "" // 若鍵值對不存在，回傳 ""
     }
 
     /* 新增操作 */
     func (h *hashMapOpenAddressing) put(key int, val string) {
         if h.loadFactor() > h.loadThres {
-            h.extend() // 當負載因子超過閾值時，執行擴容
+            h.extend() // 當負載因子超過門檻時，擴充容量
         }
-        index := h.findBucket(key) // 搜尋 key 對應的桶索引
+        index := h.findBucket(key) // 尋找 key 對應的桶索引
         if h.buckets[index] == nil || h.buckets[index] == h.TOMBSTONE {
-            h.buckets[index] = &pair{key, val} // 若鍵值對不存在，則新增該鍵值對
+            h.buckets[index] = &pair{key, val} // 若鍵值對不存在，新增該鍵值對
             h.size++
         } else {
-            h.buckets[index].val = val // 若找到鍵值對，則覆蓋 val
+            h.buckets[index].val = val // 若找到鍵值對，覆寫 val
         }
     }
 
     /* 刪除操作 */
     func (h *hashMapOpenAddressing) remove(key int) {
-        index := h.findBucket(key) // 搜尋 key 對應的桶索引
+        index := h.findBucket(key) // 尋找 key 對應的桶索引
         if h.buckets[index] != nil && h.buckets[index] != h.TOMBSTONE {
-            h.buckets[index] = h.TOMBSTONE // 若找到鍵值對，則用刪除標記覆蓋它
+            h.buckets[index] = h.TOMBSTONE // 若找到鍵值對，以刪除標記取代它
             h.size--
         }
     }
 
-    /* 擴容雜湊表 */
+    /* 擴充雜湊表容量 */
     func (h *hashMapOpenAddressing) extend() {
-        oldBuckets := h.buckets               // 暫存原雜湊表
+        oldBuckets := h.buckets               // 暫存原本的雜湊表
         h.capacity *= h.extendRatio           // 更新容量
-        h.buckets = make([]*pair, h.capacity) // 初始化擴容後的新雜湊表
-        h.size = 0                            // 重置大小
-        // 將鍵值對從原雜湊表搬運至新雜湊表
+        h.buckets = make([]*pair, h.capacity) // 初始化擴充後的新雜湊表
+        h.size = 0                            // 重設大小
+        // 將鍵值對從原本的雜湊表移到新表
         for _, pair := range oldBuckets {
             if pair != nil && pair != h.TOMBSTONE {
                 h.put(pair.key, pair.val)
@@ -2165,7 +2165,7 @@ comments: true
         }
     }
 
-    /* 列印雜湊表 */
+    /* 印出雜湊表 */
     func (h *hashMapOpenAddressing) print() {
         for _, pair := range h.buckets {
             if pair == nil {
@@ -2182,16 +2182,16 @@ comments: true
 === "Swift"
 
     ```swift title="hash_map_open_addressing.swift"
-    /* 開放定址雜湊表 */
+    /* 採用開放定址法的雜湊表 */
     class HashMapOpenAddressing {
         var size: Int // 鍵值對數量
         var capacity: Int // 雜湊表容量
-        var loadThres: Double // 觸發擴容的負載因子閾值
-        var extendRatio: Int // 擴容倍數
+        var loadThres: Double // 觸發容量擴充的負載因子門檻
+        var extendRatio: Int // 容量擴充倍數
         var buckets: [Pair?] // 桶陣列
         var TOMBSTONE: Pair // 刪除標記
 
-        /* 建構子 */
+        /* 建構方法 */
         init() {
             size = 0
             capacity = 4
@@ -2211,83 +2211,83 @@ comments: true
             Double(size) / Double(capacity)
         }
 
-        /* 搜尋 key 對應的桶索引 */
+        /* 尋找 key 對應的桶索引 */
         func findBucket(key: Int) -> Int {
             var index = hashFunc(key: key)
             var firstTombstone = -1
-            // 線性探查，當遇到空桶時跳出
+            // 進行線性探測，遇到空桶就跳出迴圈
             while buckets[index] != nil {
-                // 若遇到 key ，返回對應的桶索引
+                // 若遇到 key，回傳對應的桶索引
                 if buckets[index]!.key == key {
-                    // 若之前遇到了刪除標記，則將鍵值對移動至該索引處
+                    // 若先前遇過刪除標記，將鍵值對移到該標記所在的索引位置
                     if firstTombstone != -1 {
                         buckets[firstTombstone] = buckets[index]
                         buckets[index] = TOMBSTONE
-                        return firstTombstone // 返回移動後的桶索引
+                        return firstTombstone // 回傳移動後的桶索引
                     }
-                    return index // 返回桶索引
+                    return index // 回傳桶索引
                 }
-                // 記錄遇到的首個刪除標記
+                // 記錄遇到的第一個刪除標記
                 if firstTombstone == -1 && buckets[index] == TOMBSTONE {
                     firstTombstone = index
                 }
-                // 計算桶索引，越過尾部則返回頭部
+                // 計算桶索引，超過陣列尾端就回到開頭
                 index = (index + 1) % capacity
             }
-            // 若 key 不存在，則返回新增點的索引
+            // 若 key 不存在，回傳可插入位置的索引
             return firstTombstone == -1 ? index : firstTombstone
         }
 
         /* 查詢操作 */
         func get(key: Int) -> String? {
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             let index = findBucket(key: key)
-            // 若找到鍵值對，則返回對應 val
+            // 若找到鍵值對，回傳對應的 val
             if buckets[index] != nil, buckets[index] != TOMBSTONE {
                 return buckets[index]!.val
             }
-            // 若鍵值對不存在，則返回 null
+            // 若鍵值對不存在，回傳 null
             return nil
         }
 
         /* 新增操作 */
         func put(key: Int, val: String) {
-            // 當負載因子超過閾值時，執行擴容
+            // 當負載因子超過門檻時，擴充容量
             if loadFactor() > loadThres {
                 extend()
             }
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             let index = findBucket(key: key)
-            // 若找到鍵值對，則覆蓋 val 並返回
+            // 若找到鍵值對，覆寫 val 並結束操作
             if buckets[index] != nil, buckets[index] != TOMBSTONE {
                 buckets[index]!.val = val
                 return
             }
-            // 若鍵值對不存在，則新增該鍵值對
+            // 若鍵值對不存在，新增該鍵值對
             buckets[index] = Pair(key: key, val: val)
             size += 1
         }
 
         /* 刪除操作 */
         func remove(key: Int) {
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             let index = findBucket(key: key)
-            // 若找到鍵值對，則用刪除標記覆蓋它
+            // 若找到鍵值對，以刪除標記取代它
             if buckets[index] != nil, buckets[index] != TOMBSTONE {
                 buckets[index] = TOMBSTONE
                 size -= 1
             }
         }
 
-        /* 擴容雜湊表 */
+        /* 擴充雜湊表容量 */
         func extend() {
-            // 暫存原雜湊表
+            // 暫存原本的雜湊表
             let bucketsTmp = buckets
-            // 初始化擴容後的新雜湊表
+            // 初始化擴充後的新雜湊表
             capacity *= extendRatio
             buckets = Array(repeating: nil, count: capacity)
             size = 0
-            // 將鍵值對從原雜湊表搬運至新雜湊表
+            // 將鍵值對從原本的雜湊表移到新表
             for pair in bucketsTmp {
                 if let pair, pair != TOMBSTONE {
                     put(key: pair.key, val: pair.val)
@@ -2295,7 +2295,7 @@ comments: true
             }
         }
 
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         func print() {
             for pair in buckets {
                 if pair == nil {
@@ -2313,21 +2313,21 @@ comments: true
 === "JS"
 
     ```javascript title="hash_map_open_addressing.js"
-    /* 開放定址雜湊表 */
+    /* 採用開放定址法的雜湊表 */
     class HashMapOpenAddressing {
         #size; // 鍵值對數量
         #capacity; // 雜湊表容量
-        #loadThres; // 觸發擴容的負載因子閾值
-        #extendRatio; // 擴容倍數
+        #loadThres; // 觸發容量擴充的負載因子門檻
+        #extendRatio; // 容量擴充倍數
         #buckets; // 桶陣列
         #TOMBSTONE; // 刪除標記
 
-        /* 建構子 */
+        /* 建構方法 */
         constructor() {
             this.#size = 0; // 鍵值對數量
             this.#capacity = 4; // 雜湊表容量
-            this.#loadThres = 2.0 / 3.0; // 觸發擴容的負載因子閾值
-            this.#extendRatio = 2; // 擴容倍數
+            this.#loadThres = 2.0 / 3.0; // 觸發容量擴充的負載因子門檻
+            this.#extendRatio = 2; // 容量擴充倍數
             this.#buckets = Array(this.#capacity).fill(null); // 桶陣列
             this.#TOMBSTONE = new Pair(-1, '-1'); // 刪除標記
         }
@@ -2342,60 +2342,60 @@ comments: true
             return this.#size / this.#capacity;
         }
 
-        /* 搜尋 key 對應的桶索引 */
+        /* 尋找 key 對應的桶索引 */
         #findBucket(key) {
             let index = this.#hashFunc(key);
             let firstTombstone = -1;
-            // 線性探查，當遇到空桶時跳出
+            // 進行線性探測，遇到空桶就跳出迴圈
             while (this.#buckets[index] !== null) {
-                // 若遇到 key ，返回對應的桶索引
+                // 若遇到 key，回傳對應的桶索引
                 if (this.#buckets[index].key === key) {
-                    // 若之前遇到了刪除標記，則將鍵值對移動至該索引處
+                    // 若先前遇過刪除標記，將鍵值對移到該標記所在的索引位置
                     if (firstTombstone !== -1) {
                         this.#buckets[firstTombstone] = this.#buckets[index];
                         this.#buckets[index] = this.#TOMBSTONE;
-                        return firstTombstone; // 返回移動後的桶索引
+                        return firstTombstone; // 回傳移動後的桶索引
                     }
-                    return index; // 返回桶索引
+                    return index; // 回傳桶索引
                 }
-                // 記錄遇到的首個刪除標記
+                // 記錄遇到的第一個刪除標記
                 if (
                     firstTombstone === -1 &&
                     this.#buckets[index] === this.#TOMBSTONE
                 ) {
                     firstTombstone = index;
                 }
-                // 計算桶索引，越過尾部則返回頭部
+                // 計算桶索引，超過陣列尾端就回到開頭
                 index = (index + 1) % this.#capacity;
             }
-            // 若 key 不存在，則返回新增點的索引
+            // 若 key 不存在，回傳可插入位置的索引
             return firstTombstone === -1 ? index : firstTombstone;
         }
 
         /* 查詢操作 */
         get(key) {
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             const index = this.#findBucket(key);
-            // 若找到鍵值對，則返回對應 val
+            // 若找到鍵值對，回傳對應的 val
             if (
                 this.#buckets[index] !== null &&
                 this.#buckets[index] !== this.#TOMBSTONE
             ) {
                 return this.#buckets[index].val;
             }
-            // 若鍵值對不存在，則返回 null
+            // 若鍵值對不存在，回傳 null
             return null;
         }
 
         /* 新增操作 */
         put(key, val) {
-            // 當負載因子超過閾值時，執行擴容
+            // 當負載因子超過門檻時，擴充容量
             if (this.#loadFactor() > this.#loadThres) {
                 this.#extend();
             }
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             const index = this.#findBucket(key);
-            // 若找到鍵值對，則覆蓋 val 並返回
+            // 若找到鍵值對，覆寫 val 並結束操作
             if (
                 this.#buckets[index] !== null &&
                 this.#buckets[index] !== this.#TOMBSTONE
@@ -2403,16 +2403,16 @@ comments: true
                 this.#buckets[index].val = val;
                 return;
             }
-            // 若鍵值對不存在，則新增該鍵值對
+            // 若鍵值對不存在，新增該鍵值對
             this.#buckets[index] = new Pair(key, val);
             this.#size++;
         }
 
         /* 刪除操作 */
         remove(key) {
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             const index = this.#findBucket(key);
-            // 若找到鍵值對，則用刪除標記覆蓋它
+            // 若找到鍵值對，以刪除標記取代它
             if (
                 this.#buckets[index] !== null &&
                 this.#buckets[index] !== this.#TOMBSTONE
@@ -2422,15 +2422,15 @@ comments: true
             }
         }
 
-        /* 擴容雜湊表 */
+        /* 擴充雜湊表容量 */
         #extend() {
-            // 暫存原雜湊表
+            // 暫存原本的雜湊表
             const bucketsTmp = this.#buckets;
-            // 初始化擴容後的新雜湊表
+            // 初始化擴充後的新雜湊表
             this.#capacity *= this.#extendRatio;
             this.#buckets = Array(this.#capacity).fill(null);
             this.#size = 0;
-            // 將鍵值對從原雜湊表搬運至新雜湊表
+            // 將鍵值對從原本的雜湊表移到新表
             for (const pair of bucketsTmp) {
                 if (pair !== null && pair !== this.#TOMBSTONE) {
                     this.put(pair.key, pair.val);
@@ -2438,7 +2438,7 @@ comments: true
             }
         }
 
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         print() {
             for (const pair of this.#buckets) {
                 if (pair === null) {
@@ -2456,21 +2456,21 @@ comments: true
 === "TS"
 
     ```typescript title="hash_map_open_addressing.ts"
-    /* 開放定址雜湊表 */
+    /* 採用開放定址法的雜湊表 */
     class HashMapOpenAddressing {
         private size: number; // 鍵值對數量
         private capacity: number; // 雜湊表容量
-        private loadThres: number; // 觸發擴容的負載因子閾值
-        private extendRatio: number; // 擴容倍數
+        private loadThres: number; // 觸發容量擴充的負載因子門檻
+        private extendRatio: number; // 容量擴充倍數
         private buckets: Array<Pair | null>; // 桶陣列
         private TOMBSTONE: Pair; // 刪除標記
 
-        /* 建構子 */
+        /* 建構方法 */
         constructor() {
             this.size = 0; // 鍵值對數量
             this.capacity = 4; // 雜湊表容量
-            this.loadThres = 2.0 / 3.0; // 觸發擴容的負載因子閾值
-            this.extendRatio = 2; // 擴容倍數
+            this.loadThres = 2.0 / 3.0; // 觸發容量擴充的負載因子門檻
+            this.extendRatio = 2; // 容量擴充倍數
             this.buckets = Array(this.capacity).fill(null); // 桶陣列
             this.TOMBSTONE = new Pair(-1, '-1'); // 刪除標記
         }
@@ -2485,60 +2485,60 @@ comments: true
             return this.size / this.capacity;
         }
 
-        /* 搜尋 key 對應的桶索引 */
+        /* 尋找 key 對應的桶索引 */
         private findBucket(key: number): number {
             let index = this.hashFunc(key);
             let firstTombstone = -1;
-            // 線性探查，當遇到空桶時跳出
+            // 進行線性探測，遇到空桶就跳出迴圈
             while (this.buckets[index] !== null) {
-                // 若遇到 key ，返回對應的桶索引
+                // 若遇到 key，回傳對應的桶索引
                 if (this.buckets[index]!.key === key) {
-                    // 若之前遇到了刪除標記，則將鍵值對移動至該索引處
+                    // 若先前遇過刪除標記，將鍵值對移到該標記所在的索引位置
                     if (firstTombstone !== -1) {
                         this.buckets[firstTombstone] = this.buckets[index];
                         this.buckets[index] = this.TOMBSTONE;
-                        return firstTombstone; // 返回移動後的桶索引
+                        return firstTombstone; // 回傳移動後的桶索引
                     }
-                    return index; // 返回桶索引
+                    return index; // 回傳桶索引
                 }
-                // 記錄遇到的首個刪除標記
+                // 記錄遇到的第一個刪除標記
                 if (
                     firstTombstone === -1 &&
                     this.buckets[index] === this.TOMBSTONE
                 ) {
                     firstTombstone = index;
                 }
-                // 計算桶索引，越過尾部則返回頭部
+                // 計算桶索引，超過陣列尾端就回到開頭
                 index = (index + 1) % this.capacity;
             }
-            // 若 key 不存在，則返回新增點的索引
+            // 若 key 不存在，回傳可插入位置的索引
             return firstTombstone === -1 ? index : firstTombstone;
         }
 
         /* 查詢操作 */
         get(key: number): string | null {
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             const index = this.findBucket(key);
-            // 若找到鍵值對，則返回對應 val
+            // 若找到鍵值對，回傳對應的 val
             if (
                 this.buckets[index] !== null &&
                 this.buckets[index] !== this.TOMBSTONE
             ) {
                 return this.buckets[index]!.val;
             }
-            // 若鍵值對不存在，則返回 null
+            // 若鍵值對不存在，回傳 null
             return null;
         }
 
         /* 新增操作 */
         put(key: number, val: string): void {
-            // 當負載因子超過閾值時，執行擴容
+            // 當負載因子超過門檻時，擴充容量
             if (this.loadFactor() > this.loadThres) {
                 this.extend();
             }
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             const index = this.findBucket(key);
-            // 若找到鍵值對，則覆蓋 val 並返回
+            // 若找到鍵值對，覆寫 val 並結束操作
             if (
                 this.buckets[index] !== null &&
                 this.buckets[index] !== this.TOMBSTONE
@@ -2546,16 +2546,16 @@ comments: true
                 this.buckets[index]!.val = val;
                 return;
             }
-            // 若鍵值對不存在，則新增該鍵值對
+            // 若鍵值對不存在，新增該鍵值對
             this.buckets[index] = new Pair(key, val);
             this.size++;
         }
 
         /* 刪除操作 */
         remove(key: number): void {
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             const index = this.findBucket(key);
-            // 若找到鍵值對，則用刪除標記覆蓋它
+            // 若找到鍵值對，以刪除標記取代它
             if (
                 this.buckets[index] !== null &&
                 this.buckets[index] !== this.TOMBSTONE
@@ -2565,15 +2565,15 @@ comments: true
             }
         }
 
-        /* 擴容雜湊表 */
+        /* 擴充雜湊表容量 */
         private extend(): void {
-            // 暫存原雜湊表
+            // 暫存原本的雜湊表
             const bucketsTmp = this.buckets;
-            // 初始化擴容後的新雜湊表
+            // 初始化擴充後的新雜湊表
             this.capacity *= this.extendRatio;
             this.buckets = Array(this.capacity).fill(null);
             this.size = 0;
-            // 將鍵值對從原雜湊表搬運至新雜湊表
+            // 將鍵值對從原本的雜湊表移到新表
             for (const pair of bucketsTmp) {
                 if (pair !== null && pair !== this.TOMBSTONE) {
                     this.put(pair.key, pair.val);
@@ -2581,7 +2581,7 @@ comments: true
             }
         }
 
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         print(): void {
             for (const pair of this.buckets) {
                 if (pair === null) {
@@ -2599,16 +2599,16 @@ comments: true
 === "Dart"
 
     ```dart title="hash_map_open_addressing.dart"
-    /* 開放定址雜湊表 */
+    /* 採用開放定址法的雜湊表 */
     class HashMapOpenAddressing {
       late int _size; // 鍵值對數量
       int _capacity = 4; // 雜湊表容量
-      double _loadThres = 2.0 / 3.0; // 觸發擴容的負載因子閾值
-      int _extendRatio = 2; // 擴容倍數
+      double _loadThres = 2.0 / 3.0; // 觸發容量擴充的負載因子門檻
+      int _extendRatio = 2; // 容量擴充倍數
       late List<Pair?> _buckets; // 桶陣列
       Pair _TOMBSTONE = Pair(-1, "-1"); // 刪除標記
 
-      /* 建構子 */
+      /* 建構方法 */
       HashMapOpenAddressing() {
         _size = 0;
         _buckets = List.generate(_capacity, (index) => null);
@@ -2624,82 +2624,82 @@ comments: true
         return _size / _capacity;
       }
 
-      /* 搜尋 key 對應的桶索引 */
+      /* 尋找 key 對應的桶索引 */
       int findBucket(int key) {
         int index = hashFunc(key);
         int firstTombstone = -1;
         for (int i = 0; i < _capacity; i++) {
           final bucket = _buckets[index];
           if (bucket == null) break;
-          // 記錄遇到的首個刪除標記
+          // 記錄遇到的第一個刪除標記
           if (identical(bucket, _TOMBSTONE)) {
             if (firstTombstone == -1) firstTombstone = index;
           } else if (bucket.key == key) {
-            // 若之前遇到了刪除標記，則將鍵值對移動至該索引處
+            // 若先前遇過刪除標記，將鍵值對移到該標記所在的索引位置
             if (firstTombstone != -1) {
               _buckets[firstTombstone] = bucket;
               _buckets[index] = _TOMBSTONE;
-              return firstTombstone; // 返回移動後的桶索引
+              return firstTombstone; // 回傳移動後的桶索引
             }
-            return index; // 返回桶索引
+            return index; // 回傳桶索引
           }
-          // 計算桶索引，越過尾部則返回頭部
+          // 計算桶索引，超過陣列尾端就回到開頭
           index = (index + 1) % _capacity;
         }
-        // 若 key 不存在，則返回新增點的索引
+        // 若 key 不存在，回傳可插入位置的索引
         return firstTombstone == -1 ? index : firstTombstone;
       }
 
       /* 查詢操作 */
       String? get(int key) {
-        // 搜尋 key 對應的桶索引
+        // 尋找 key 對應的桶索引
         int index = findBucket(key);
-        // 若找到鍵值對，則返回對應 val
+        // 若找到鍵值對，回傳對應的 val
         if (_buckets[index] != null && _buckets[index] != _TOMBSTONE) {
           return _buckets[index]!.val;
         }
-        // 若鍵值對不存在，則返回 null
+        // 若鍵值對不存在，回傳 null
         return null;
       }
 
       /* 新增操作 */
       void put(int key, String val) {
-        // 當負載因子超過閾值時，執行擴容
+        // 當負載因子超過門檻時，擴充容量
         if (loadFactor() > _loadThres) {
           extend();
         }
-        // 搜尋 key 對應的桶索引
+        // 尋找 key 對應的桶索引
         int index = findBucket(key);
-        // 若找到鍵值對，則覆蓋 val 並返回
+        // 若找到鍵值對，覆寫 val 並結束操作
         if (_buckets[index] != null && _buckets[index] != _TOMBSTONE) {
           _buckets[index]!.val = val;
           return;
         }
-        // 若鍵值對不存在，則新增該鍵值對
+        // 若鍵值對不存在，新增該鍵值對
         _buckets[index] = new Pair(key, val);
         _size++;
       }
 
       /* 刪除操作 */
       void remove(int key) {
-        // 搜尋 key 對應的桶索引
+        // 尋找 key 對應的桶索引
         int index = findBucket(key);
-        // 若找到鍵值對，則用刪除標記覆蓋它
+        // 若找到鍵值對，以刪除標記取代它
         if (_buckets[index] != null && _buckets[index] != _TOMBSTONE) {
           _buckets[index] = _TOMBSTONE;
           _size--;
         }
       }
 
-      /* 擴容雜湊表 */
+      /* 擴充雜湊表容量 */
       void extend() {
-        // 暫存原雜湊表
+        // 暫存原本的雜湊表
         List<Pair?> bucketsTmp = _buckets;
-        // 初始化擴容後的新雜湊表
+        // 初始化擴充後的新雜湊表
         _capacity *= _extendRatio;
         _buckets = List.generate(_capacity, (index) => null);
         _size = 0;
-        // 將鍵值對從原雜湊表搬運至新雜湊表
+        // 將鍵值對從原本的雜湊表移到新表
         for (Pair? pair in bucketsTmp) {
           if (pair != null && pair != _TOMBSTONE) {
             put(pair.key, pair.val);
@@ -2707,7 +2707,7 @@ comments: true
         }
       }
 
-      /* 列印雜湊表 */
+      /* 印出雜湊表 */
       void printHashMap() {
         for (Pair? pair in _buckets) {
           if (pair == null) {
@@ -2725,18 +2725,18 @@ comments: true
 === "Rust"
 
     ```rust title="hash_map_open_addressing.rs"
-    /* 開放定址雜湊表 */
+    /* 採用開放定址法的雜湊表 */
     struct HashMapOpenAddressing {
         size: usize,                // 鍵值對數量
         capacity: usize,            // 雜湊表容量
-        load_thres: f64,            // 觸發擴容的負載因子閾值
-        extend_ratio: usize,        // 擴容倍數
+        load_thres: f64,            // 觸發容量擴充的負載因子門檻
+        extend_ratio: usize,        // 容量擴充倍數
         buckets: Vec<Option<Pair>>, // 桶陣列
         TOMBSTONE: Option<Pair>,    // 刪除標記
     }
 
     impl HashMapOpenAddressing {
-        /* 建構子 */
+        /* 建構方法 */
         fn new() -> Self {
             Self {
                 size: 0,
@@ -2761,30 +2761,30 @@ comments: true
             self.size as f64 / self.capacity as f64
         }
 
-        /* 搜尋 key 對應的桶索引 */
+        /* 尋找 key 對應的桶索引 */
         fn find_bucket(&mut self, key: i32) -> usize {
             let mut index = self.hash_func(key);
             let mut first_tombstone = -1;
-            // 線性探查，當遇到空桶時跳出
+            // 進行線性探測，遇到空桶就跳出迴圈
             while self.buckets[index].is_some() {
-                // 若遇到 key，返回對應的桶索引
+                // 若遇到 key，回傳對應的桶索引
                 if self.buckets[index].as_ref().unwrap().key == key {
-                    // 若之前遇到了刪除標記，則將建值對移動至該索引
+                    // 若先前遇過刪除標記，將鍵值對移到該標記所在的索引位置
                     if first_tombstone != -1 {
                         self.buckets[first_tombstone as usize] = self.buckets[index].take();
                         self.buckets[index] = self.TOMBSTONE.clone();
-                        return first_tombstone as usize; // 返回移動後的桶索引
+                        return first_tombstone as usize; // 回傳移動後的桶索引
                     }
-                    return index; // 返回桶索引
+                    return index; // 回傳桶索引
                 }
-                // 記錄遇到的首個刪除標記
+                // 記錄遇到的第一個刪除標記
                 if first_tombstone == -1 && self.buckets[index] == self.TOMBSTONE {
                     first_tombstone = index as i32;
                 }
-                // 計算桶索引，越過尾部則返回頭部
+                // 計算桶索引，超過陣列尾端就回到開頭
                 index = (index + 1) % self.capacity;
             }
-            // 若 key 不存在，則返回新增點的索引
+            // 若 key 不存在，回傳可插入位置的索引
             if first_tombstone == -1 {
                 index
             } else {
@@ -2794,55 +2794,55 @@ comments: true
 
         /* 查詢操作 */
         fn get(&mut self, key: i32) -> Option<&str> {
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             let index = self.find_bucket(key);
-            // 若找到鍵值對，則返回對應 val
+            // 若找到鍵值對，回傳對應的 val
             if self.buckets[index].is_some() && self.buckets[index] != self.TOMBSTONE {
                 return self.buckets[index].as_ref().map(|pair| &pair.val as &str);
             }
-            // 若鍵值對不存在，則返回 null
+            // 若鍵值對不存在，回傳 null
             None
         }
 
         /* 新增操作 */
         fn put(&mut self, key: i32, val: String) {
-            // 當負載因子超過閾值時，執行擴容
+            // 當負載因子超過門檻時，擴充容量
             if self.load_factor() > self.load_thres {
                 self.extend();
             }
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             let index = self.find_bucket(key);
-            // 若找到鍵值對，則覆蓋 val 並返回
+            // 若找到鍵值對，覆寫 val 並結束操作
             if self.buckets[index].is_some() && self.buckets[index] != self.TOMBSTONE {
                 self.buckets[index].as_mut().unwrap().val = val;
                 return;
             }
-            // 若鍵值對不存在，則新增該鍵值對
+            // 若鍵值對不存在，新增該鍵值對
             self.buckets[index] = Some(Pair { key, val });
             self.size += 1;
         }
 
         /* 刪除操作 */
         fn remove(&mut self, key: i32) {
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             let index = self.find_bucket(key);
-            // 若找到鍵值對，則用刪除標記覆蓋它
+            // 若找到鍵值對，以刪除標記取代它
             if self.buckets[index].is_some() && self.buckets[index] != self.TOMBSTONE {
                 self.buckets[index] = self.TOMBSTONE.clone();
                 self.size -= 1;
             }
         }
 
-        /* 擴容雜湊表 */
+        /* 擴充雜湊表容量 */
         fn extend(&mut self) {
-            // 暫存原雜湊表
+            // 暫存原本的雜湊表
             let buckets_tmp = self.buckets.clone();
-            // 初始化擴容後的新雜湊表
+            // 初始化擴充後的新雜湊表
             self.capacity *= self.extend_ratio;
             self.buckets = vec![None; self.capacity];
             self.size = 0;
 
-            // 將鍵值對從原雜湊表搬運至新雜湊表
+            // 將鍵值對從原本的雜湊表移到新表
             for pair in buckets_tmp {
                 if pair.is_none() || pair == self.TOMBSTONE {
                     continue;
@@ -2852,7 +2852,7 @@ comments: true
                 self.put(pair.key, pair.val);
             }
         }
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         fn print(&self) {
             for pair in &self.buckets {
                 if pair.is_none() {
@@ -2871,17 +2871,17 @@ comments: true
 === "C"
 
     ```c title="hash_map_open_addressing.c"
-    /* 開放定址雜湊表 */
+    /* 採用開放定址法的雜湊表 */
     typedef struct {
         int size;         // 鍵值對數量
         int capacity;     // 雜湊表容量
-        double loadThres; // 觸發擴容的負載因子閾值
-        int extendRatio;  // 擴容倍數
+        double loadThres; // 觸發容量擴充的負載因子門檻
+        int extendRatio;  // 容量擴充倍數
         Pair **buckets;   // 桶陣列
         Pair *TOMBSTONE;  // 刪除標記
     } HashMapOpenAddressing;
 
-    /* 建構子 */
+    /* 建構函式 */
     HashMapOpenAddressing *newHashMapOpenAddressing() {
         HashMapOpenAddressing *hashMap = (HashMapOpenAddressing *)malloc(sizeof(HashMapOpenAddressing));
         hashMap->size = 0;
@@ -2896,7 +2896,7 @@ comments: true
         return hashMap;
     }
 
-    /* 析構函式 */
+    /* 解構函式 */
     void delHashMapOpenAddressing(HashMapOpenAddressing *hashMap) {
         for (int i = 0; i < hashMap->capacity; i++) {
             Pair *pair = hashMap->buckets[i];
@@ -2920,54 +2920,54 @@ comments: true
         return (double)hashMap->size / (double)hashMap->capacity;
     }
 
-    /* 搜尋 key 對應的桶索引 */
+    /* 尋找 key 對應的桶索引 */
     int findBucket(HashMapOpenAddressing *hashMap, int key) {
         int index = hashFunc(hashMap, key);
         int firstTombstone = -1;
-        // 線性探查，當遇到空桶時跳出
+        // 進行線性探測，遇到空桶就跳出迴圈
         while (hashMap->buckets[index] != NULL) {
-            // 若遇到 key ，返回對應的桶索引
+            // 若遇到 key，回傳對應的桶索引
             if (hashMap->buckets[index]->key == key) {
-                // 若之前遇到了刪除標記，則將鍵值對移動至該索引處
+                // 若先前遇過刪除標記，將鍵值對移到該標記所在的索引位置
                 if (firstTombstone != -1) {
                     hashMap->buckets[firstTombstone] = hashMap->buckets[index];
                     hashMap->buckets[index] = hashMap->TOMBSTONE;
-                    return firstTombstone; // 返回移動後的桶索引
+                    return firstTombstone; // 回傳移動後的桶索引
                 }
-                return index; // 返回桶索引
+                return index; // 回傳桶索引
             }
-            // 記錄遇到的首個刪除標記
+            // 記錄遇到的第一個刪除標記
             if (firstTombstone == -1 && hashMap->buckets[index] == hashMap->TOMBSTONE) {
                 firstTombstone = index;
             }
-            // 計算桶索引，越過尾部則返回頭部
+            // 計算桶索引，超過陣列尾端就回到開頭
             index = (index + 1) % hashMap->capacity;
         }
-        // 若 key 不存在，則返回新增點的索引
+        // 若 key 不存在，回傳可插入位置的索引
         return firstTombstone == -1 ? index : firstTombstone;
     }
 
     /* 查詢操作 */
     char *get(HashMapOpenAddressing *hashMap, int key) {
-        // 搜尋 key 對應的桶索引
+        // 尋找 key 對應的桶索引
         int index = findBucket(hashMap, key);
-        // 若找到鍵值對，則返回對應 val
+        // 若找到鍵值對，回傳對應的 val
         if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
             return hashMap->buckets[index]->val;
         }
-        // 若鍵值對不存在，則返回空字串
+        // 若鍵值對不存在，回傳空字串
         return "";
     }
 
     /* 新增操作 */
     void put(HashMapOpenAddressing *hashMap, int key, char *val) {
-        // 當負載因子超過閾值時，執行擴容
+        // 當負載因子超過門檻時，擴充容量
         if (loadFactor(hashMap) > hashMap->loadThres) {
             extend(hashMap);
         }
-        // 搜尋 key 對應的桶索引
+        // 尋找 key 對應的桶索引
         int index = findBucket(hashMap, key);
-        // 若找到鍵值對，則覆蓋 val 並返回
+        // 若找到鍵值對，覆寫 val 並結束操作
         if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
             free(hashMap->buckets[index]->val);
             hashMap->buckets[index]->val = (char *)malloc(strlen(val) + 1);
@@ -2975,7 +2975,7 @@ comments: true
             hashMap->buckets[index]->val[strlen(val)] = '\0';
             return;
         }
-        // 若鍵值對不存在，則新增該鍵值對
+        // 若鍵值對不存在，新增該鍵值對
         Pair *pair = (Pair *)malloc(sizeof(Pair));
         pair->key = key;
         pair->val = (char *)malloc(strlen(val) + 1);
@@ -2988,9 +2988,9 @@ comments: true
 
     /* 刪除操作 */
     void removeItem(HashMapOpenAddressing *hashMap, int key) {
-        // 搜尋 key 對應的桶索引
+        // 尋找 key 對應的桶索引
         int index = findBucket(hashMap, key);
-        // 若找到鍵值對，則用刪除標記覆蓋它
+        // 若找到鍵值對，以刪除標記取代它
         if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
             Pair *pair = hashMap->buckets[index];
             free(pair->val);
@@ -3000,16 +3000,16 @@ comments: true
         }
     }
 
-    /* 擴容雜湊表 */
+    /* 擴充雜湊表容量 */
     void extend(HashMapOpenAddressing *hashMap) {
-        // 暫存原雜湊表
+        // 暫存原本的雜湊表
         Pair **bucketsTmp = hashMap->buckets;
         int oldCapacity = hashMap->capacity;
-        // 初始化擴容後的新雜湊表
+        // 初始化擴充後的新雜湊表
         hashMap->capacity *= hashMap->extendRatio;
         hashMap->buckets = (Pair **)calloc(hashMap->capacity, sizeof(Pair *));
         hashMap->size = 0;
-        // 將鍵值對從原雜湊表搬運至新雜湊表
+        // 將鍵值對從原本的雜湊表移到新表
         for (int i = 0; i < oldCapacity; i++) {
             Pair *pair = bucketsTmp[i];
             if (pair != NULL && pair != hashMap->TOMBSTONE) {
@@ -3021,7 +3021,7 @@ comments: true
         free(bucketsTmp);
     }
 
-    /* 列印雜湊表 */
+    /* 印出雜湊表 */
     void print(HashMapOpenAddressing *hashMap) {
         for (int i = 0; i < hashMap->capacity; i++) {
             Pair *pair = hashMap->buckets[i];
@@ -3039,16 +3039,16 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="hash_map_open_addressing.kt"
-    /* 開放定址雜湊表 */
+    /* 採用開放定址法的雜湊表 */
     class HashMapOpenAddressing {
         private var size: Int               // 鍵值對數量
         private var capacity: Int           // 雜湊表容量
-        private val loadThres: Double       // 觸發擴容的負載因子閾值
-        private val extendRatio: Int        // 擴容倍數
+        private val loadThres: Double       // 觸發容量擴充的負載因子門檻
+        private val extendRatio: Int        // 容量擴充倍數
         private var buckets: Array<Pair?>   // 桶陣列
         private val TOMBSTONE: Pair         // 刪除標記
 
-        /* 建構子 */
+        /* 建構方法 */
         init {
             size = 0
             capacity = 4
@@ -3068,83 +3068,83 @@ comments: true
             return (size / capacity).toDouble()
         }
 
-        /* 搜尋 key 對應的桶索引 */
+        /* 尋找 key 對應的桶索引 */
         fun findBucket(key: Int): Int {
             var index = hashFunc(key)
             var firstTombstone = -1
-            // 線性探查，當遇到空桶時跳出
+            // 進行線性探測，遇到空桶就跳出迴圈
             while (buckets[index] != null) {
-                // 若遇到 key ，返回對應的桶索引
+                // 若遇到 key，回傳對應的桶索引
                 if (buckets[index]?.key == key) {
-                    // 若之前遇到了刪除標記，則將鍵值對移動至該索引處
+                    // 若先前遇過刪除標記，將鍵值對移到該標記所在的索引位置
                     if (firstTombstone != -1) {
                         buckets[firstTombstone] = buckets[index]
                         buckets[index] = TOMBSTONE
-                        return firstTombstone // 返回移動後的桶索引
+                        return firstTombstone // 回傳移動後的桶索引
                     }
-                    return index // 返回桶索引
+                    return index // 回傳桶索引
                 }
-                // 記錄遇到的首個刪除標記
+                // 記錄遇到的第一個刪除標記
                 if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                     firstTombstone = index
                 }
-                // 計算桶索引，越過尾部則返回頭部
+                // 計算桶索引，超過陣列尾端就回到開頭
                 index = (index + 1) % capacity
             }
-            // 若 key 不存在，則返回新增點的索引
+            // 若 key 不存在，回傳可插入位置的索引
             return if (firstTombstone == -1) index else firstTombstone
         }
 
         /* 查詢操作 */
         fun get(key: Int): String? {
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             val index = findBucket(key)
-            // 若找到鍵值對，則返回對應 val
+            // 若找到鍵值對，回傳對應的 val
             if (buckets[index] != null && buckets[index] != TOMBSTONE) {
                 return buckets[index]?._val
             }
-            // 若鍵值對不存在，則返回 null
+            // 若鍵值對不存在，回傳 null
             return null
         }
 
         /* 新增操作 */
         fun put(key: Int, _val: String) {
-            // 當負載因子超過閾值時，執行擴容
+            // 當負載因子超過門檻時，擴充容量
             if (loadFactor() > loadThres) {
                 extend()
             }
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             val index = findBucket(key)
-            // 若找到鍵值對，則覆蓋 val 並返回
+            // 若找到鍵值對，覆寫 val 並結束操作
             if (buckets[index] != null && buckets[index] != TOMBSTONE) {
                 buckets[index]!!._val = _val
                 return
             }
-            // 若鍵值對不存在，則新增該鍵值對
+            // 若鍵值對不存在，新增該鍵值對
             buckets[index] = Pair(key, _val)
             size++
         }
 
         /* 刪除操作 */
         fun remove(key: Int) {
-            // 搜尋 key 對應的桶索引
+            // 尋找 key 對應的桶索引
             val index = findBucket(key)
-            // 若找到鍵值對，則用刪除標記覆蓋它
+            // 若找到鍵值對，以刪除標記取代它
             if (buckets[index] != null && buckets[index] != TOMBSTONE) {
                 buckets[index] = TOMBSTONE
                 size--
             }
         }
 
-        /* 擴容雜湊表 */
+        /* 擴充雜湊表容量 */
         fun extend() {
-            // 暫存原雜湊表
+            // 暫存原本的雜湊表
             val bucketsTmp = buckets
-            // 初始化擴容後的新雜湊表
+            // 初始化擴充後的新雜湊表
             capacity *= extendRatio
             buckets = arrayOfNulls(capacity)
             size = 0
-            // 將鍵值對從原雜湊表搬運至新雜湊表
+            // 將鍵值對從原本的雜湊表移到新表
             for (pair in bucketsTmp) {
                 if (pair != null && pair != TOMBSTONE) {
                     put(pair.key, pair._val)
@@ -3152,7 +3152,7 @@ comments: true
             }
         }
 
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         fun print() {
             for (pair in buckets) {
                 if (pair == null) {
@@ -3170,16 +3170,16 @@ comments: true
 === "Ruby"
 
     ```ruby title="hash_map_open_addressing.rb"
-    ### 開放定址雜湊表 ###
+    ### 採用開放定址法的雜湊表 ###
     class HashMapOpenAddressing
       TOMBSTONE = Pair.new(-1, '-1') # 刪除標記
 
-      ### 建構子 ###
+      ### 建構方法 ###
       def initialize
         @size = 0 # 鍵值對數量
         @capacity = 4 # 雜湊表容量
-        @load_thres = 2.0 / 3.0 # 觸發擴容的負載因子閾值
-        @extend_ratio = 2 # 擴容倍數
+        @load_thres = 2.0 / 3.0 # 觸發容量擴充的負載因子門檻
+        @extend_ratio = 2 # 容量擴充倍數
         @buckets = Array.new(@capacity) # 桶陣列
       end
 
@@ -3193,83 +3193,83 @@ comments: true
         @size / @capacity.to_f
       end
 
-      ### 搜尋 key 對應的桶索引 ###
+      ### 尋找 key 對應的桶索引 ###
       def find_bucket(key)
         index = hash_func(key)
         first_tombstone = -1
-        # 線性探查，當遇到空桶時跳出
+        # 進行線性探測，遇到空桶就跳出迴圈
         while !@buckets[index].nil?
-          # 若遇到 key ，返回對應的桶索引
+          # 若遇到 key，回傳對應的桶索引
           if @buckets[index].key == key
-            # 若之前遇到了刪除標記，則將鍵值對移動至該索引處
+            # 若先前遇過刪除標記，將鍵值對移到該標記所在的索引位置
             if first_tombstone != -1
               @buckets[first_tombstone] = @buckets[index]
               @buckets[index] = TOMBSTONE
-              return first_tombstone # 返回移動後的桶索引
+              return first_tombstone # 回傳移動後的桶索引
             end
-            return index # 返回桶索引
+            return index # 回傳桶索引
           end
-          # 記錄遇到的首個刪除標記
+          # 記錄遇到的第一個刪除標記
           first_tombstone = index if first_tombstone == -1 && @buckets[index] == TOMBSTONE
-          # 計算桶索引，越過尾部則返回頭部
+          # 計算桶索引，超過陣列尾端就回到開頭
           index = (index + 1) % @capacity
         end
-        # 若 key 不存在，則返回新增點的索引
+        # 若 key 不存在，回傳可插入位置的索引
         first_tombstone == -1 ? index : first_tombstone
       end
 
       ### 查詢操作 ###
       def get(key)
-        # 搜尋 key 對應的桶索引
+        # 尋找 key 對應的桶索引
         index = find_bucket(key)
-        # 若找到鍵值對，則返回對應 val
+        # 若找到鍵值對，回傳對應的 val
         return @buckets[index].val unless [nil, TOMBSTONE].include?(@buckets[index])
-        # 若鍵值對不存在，則返回 nil
+        # 若鍵值對不存在，回傳 nil
         nil
       end
 
       ### 新增操作 ###
       def put(key, val)
-        # 當負載因子超過閾值時，執行擴容
+        # 當負載因子超過門檻時，擴充容量
         extend if load_factor > @load_thres
-        # 搜尋 key 對應的桶索引
+        # 尋找 key 對應的桶索引
         index = find_bucket(key)
-        # 若找到鍵值對，則覆蓋 val 開返回
+        # 若找到鍵值對，覆寫 val 並結束操作
         unless [nil, TOMBSTONE].include?(@buckets[index])
           @buckets[index].val = val
           return
         end
-        # 若鍵值對不存在，則新增該鍵值對
+        # 若鍵值對不存在，新增該鍵值對
         @buckets[index] = Pair.new(key, val)
         @size += 1
       end
 
       ### 刪除操作 ###
       def remove(key)
-        # 搜尋 key 對應的桶索引
+        # 尋找 key 對應的桶索引
         index = find_bucket(key)
-        # 若找到鍵值對，則用刪除標記覆蓋它
+        # 若找到鍵值對，以刪除標記取代它
         unless [nil, TOMBSTONE].include?(@buckets[index])
           @buckets[index] = TOMBSTONE
           @size -= 1
         end
       end
 
-      ### 擴容雜湊表 ###
+      ### 擴充雜湊表容量 ###
       def extend
-        # 暫存原雜湊表
+        # 暫存原本的雜湊表
         buckets_tmp = @buckets
-        # 初始化擴容後的新雜湊表
+        # 初始化擴充後的新雜湊表
         @capacity *= @extend_ratio
         @buckets = Array.new(@capacity)
         @size = 0
-        # 將鍵值對從原雜湊表搬運至新雜湊表
+        # 將鍵值對從原本的雜湊表移到新表
         for pair in buckets_tmp
           put(pair.key, pair.val) unless [nil, TOMBSTONE].include?(pair)
         end
       end
 
-      ### 列印雜湊表 ###
+      ### 印出雜湊表 ###
       def print
         for pair in @buckets
           if pair.nil?
@@ -3286,35 +3286,35 @@ comments: true
 
 ### 2. &nbsp; 平方探測
 
-平方探測與線性探查類似，都是開放定址的常見策略之一。當發生衝突時，平方探測不是簡單地跳過一個固定的步數，而是跳過“探測次數的平方”的步數，即 $1, 4, 9, \dots$ 步。
+和線性探測一樣，平方探測也是開放定址法的常見策略。發生碰撞時，平方探測跳過的步數並不固定，而是取「探測次數的平方」，也就是 $1, 4, 9, \dots$ 步。
 
-平方探測主要具有以下優勢。
+平方探測有以下優點。
 
-- 平方探測透過跳過探測次數平方的距離，試圖緩解線性探查的聚集效應。
-- 平方探測會跳過更大的距離來尋找空位置，有助於資料分佈得更加均勻。
+- 每次探測都跳過相當於探測次數平方的距離，有助於緩解線性探測造成的群聚現象。
+- 平方探測會跨越較大的距離來尋找空位，有助於讓資料分布得更均勻。
 
-然而，平方探測並不是完美的。
+不過，平方探測也有侷限。
 
-- 仍然存在聚集現象，即某些位置比其他位置更容易被佔用。
-- 由於平方的增長，平方探測可能不會探測整個雜湊表，這意味著即使雜湊表中有空桶，平方探測也可能無法訪問到它。
+- 群聚現象仍可能發生，某些位置比其他位置更容易被占用。
+- 由於平方值的成長方式，探測可能無法涵蓋整個雜湊表。也就是說，即使表中有空桶，平方探測也可能無法到達那裡。
 
-### 3. &nbsp; 多次雜湊
+### 3. &nbsp; 多重雜湊
 
-顧名思義，多次雜湊方法使用多個雜湊函式 $f_1(x)$、$f_2(x)$、$f_3(x)$、$\dots$ 進行探測。
+顧名思義，多重雜湊使用多個雜湊函式 $f_1(x)$、$f_2(x)$、$f_3(x)$、$\dots$ 來探測。
 
-- **插入元素**：若雜湊函式 $f_1(x)$ 出現衝突，則嘗試 $f_2(x)$ ，以此類推，直到找到空位後插入元素。
-- **查詢元素**：在相同的雜湊函式順序下進行查詢，直到找到目標元素時返回；若遇到空位或已嘗試所有雜湊函式，說明雜湊表中不存在該元素，則返回 `None` 。
+- **插入元素**：若使用雜湊函式 $f_1(x)$ 時發生碰撞，就改試 $f_2(x)$，依此類推，直到找到空位再插入元素。
+- **查找元素**：以相同順序使用各個雜湊函式查找，找到目標元素後就回傳。如果遇到空位，或已試過所有雜湊函式仍未找到，便表示該元素不在雜湊表中，回傳 `None`。
 
-與線性探查相比，多次雜湊方法不易產生聚集，但多個雜湊函式會帶來額外的計算量。
+與線性探測相比，多重雜湊較不容易產生群聚，但使用多個雜湊函式也會增加計算量。
 
 !!! tip
 
-    請注意，開放定址（線性探查、平方探測和多次雜湊）雜湊表都存在“不能直接刪除元素”的問題。
+    請留意，採用開放定址法的雜湊表，無論使用線性探測、平方探測或多重雜湊，都有「不能直接刪除元素」的問題。
 
-## 6.2.3 &nbsp; 程式語言的選擇
+## 6.2.3 &nbsp; 各種程式語言的選擇
 
-各種程式語言採取了不同的雜湊表實現策略，下面舉幾個例子。
+不同程式語言採用的雜湊表實作策略各有不同，以下是幾個例子。
 
-- Python 採用開放定址。字典 `dict` 使用偽隨機數進行探測。
-- Java 採用鏈式位址。自 JDK 1.8 以來，當 `HashMap` 內陣列長度達到 64 且鏈結串列長度達到 8 時，鏈結串列會轉換為紅黑樹以提升查詢效能。
-- Go 1.24 起，內建 `map` 預設採用基於 Swiss Table 的開放定址實現。Go 1.23 及更早版本採用鏈式位址，每個桶最多儲存 8 個鍵值對，超出容量時連線溢位桶。
+- Python 採用開放定址法，字典 `dict` 使用虛擬亂數進行探測。
+- Java 採用鏈結法。從 JDK 1.8 開始，當 `HashMap` 內部的陣列長度達到 64，且鏈結串列的長度達到 8 時，就會將串列轉為紅黑樹，以提升查找效能。
+- 從 Go 1.24 開始，內建的 `map` 預設採用以 Swiss Table 為基礎的開放定址實作。Go 1.23 及更早的版本採用鏈結法，每個桶最多可存放 8 個鍵值對，超過容量時便連接溢位桶。

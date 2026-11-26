@@ -9,12 +9,12 @@ icon: material/calculator-variant-outline
 
 !!! abstract
 
-    一位少女翩翩起舞，與資料交織在一起，裙襬上飄揚著演算法的旋律。
+    一位少女翩然起舞，舞姿與資料交織，裙襬間流動著演算法的旋律。
     
-    她邀請你共舞，請緊跟她的步伐，踏入充滿邏輯與美感的演算法世界。
+    她邀你共舞。請跟上她的步伐，一起踏入充滿邏輯與美感的演算法世界。
 
 ## 本章內容
 
-- [1.1 &nbsp; 演算法無處不在](algorithms_are_everywhere.md)
-- [1.2 &nbsp; 演算法是什麼](what_is_dsa.md)
-- [1.3 &nbsp; 小結](summary.md)
+- [1.1 &nbsp; 演算法無所不在](algorithms_are_everywhere.md)
+- [1.2 &nbsp; 什麼是演算法](what_is_dsa.md)
+- [1.3 &nbsp; 本章小結](summary.md)

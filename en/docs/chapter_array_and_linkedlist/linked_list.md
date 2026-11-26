@@ -4,23 +4,23 @@ comments: true
 
 # 4.2 &nbsp; Linked lists
 
-Memory is a resource used by all programs, and in a complex system, free space may be scattered throughout it. An array requires contiguous storage, which may be unavailable for a very large array. This is where a linked list's flexibility helps.
+Programs share memory, and in a complex system, free space may be scattered throughout it. An array needs contiguous storage, and a sufficiently large contiguous block may be unavailable for a very large array. This is where the flexibility of a linked list pays off.
 
-A <u>linked list</u> is a linear data structure whose elements are node objects connected by references. Each reference stores the next node's memory address, allowing us to reach it from the current node.
+A <u>linked list</u> is a linear data structure in which each element is a node object. References connect the nodes. A reference records the address of the next node, letting us reach it from the current one.
 
-This design lets nodes occupy scattered memory locations; their addresses need not be contiguous.
+With this design, nodes can be scattered throughout memory. Their addresses do not need to be contiguous.
 
-![Linked list definition and storage layout](linked_list.assets/linkedlist_definition.svg){ class="animation-figure" }
+![A linked list and its memory layout](linked_list.assets/linkedlist_definition.svg){ class="animation-figure" }
 
-<p align="center"> Figure 4-5 &nbsp; Linked list definition and storage layout </p>
+<p align="center"> Figure 4-5 &nbsp; A linked list and its memory layout </p>
 
-As shown above, the basic unit of a linked list is a <u>node</u> object. Each node holds a value and a reference to the next node.
+As the figure shows, a linked list is made up of <u>node</u> objects. Each node contains two pieces of data: its value and a reference to the next node.
 
-- The first node is called the head, and the last is called the tail.
-- The tail points to a null value: `null` in Java, `nullptr` in C++, and `None` in Python.
-- In languages supporting pointers, such as C, C++, Go, and Rust, these references are expressed as pointers.
+- The first node is called the head, and the last node is called the tail.
+- The tail points to nothing, represented by `null` in Java, `nullptr` in C++, and `None` in Python.
+- In languages that support pointers, such as C, C++, Go, and Rust, the links described above as references can be expressed as pointers.
 
-As the code below shows, each `ListNode` stores a reference (pointer) in addition to its value. Thus, **a linked list uses more memory than an array for the same amount of data**.
+As the following code shows, a `ListNode` node stores an extra reference (pointer) alongside its value. For the same amount of data, **a linked list therefore occupies more memory than an array**.
 
 === "Python"
 
@@ -72,13 +72,13 @@ As the code below shows, each `ListNode` stores a reference (pointer) in additio
 === "Go"
 
     ```go title=""
-    // ListNode represents a linked list node.
+    // ListNode represents a linked list node
     type ListNode struct {
         Val  int       // Node value
         Next *ListNode // Pointer to the next node
     }
 
-    // NewListNode constructs a linked list node.
+    // NewListNode constructs a linked list node
     func NewListNode(v int) *ListNode {
         return &ListNode{
             Val:  v,
@@ -170,7 +170,7 @@ As the code below shows, each `ListNode` stores a reference (pointer) in additio
         struct ListNode *next; // Pointer to the next node
     } ListNode;
 
-    /* Constructor: initialize a new node */
+    /* Constructor that initializes a new node */
     ListNode *newListNode(int val) {
         ListNode *node;
         node = (ListNode *)malloc(sizeof(ListNode));
@@ -208,19 +208,19 @@ As the code below shows, each `ListNode` stores a reference (pointer) in additio
 
 ### 1. &nbsp; Initializing a linked list
 
-Building a linked list takes two steps: initialize the node objects, then connect them with references. Afterward, start at the head and follow `next` references to visit every node in order.
+Building a linked list takes two steps. First initialize the individual nodes, then set up the references between them. Once the list is initialized, we can visit every node in order by starting at the head and following the `next` references.
 
 === "Python"
 
     ```python title="linked_list.py"
     # Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4
-    # Initialize the individual nodes
+    # Initialize the nodes
     n0 = ListNode(1)
     n1 = ListNode(3)
     n2 = ListNode(2)
     n3 = ListNode(5)
     n4 = ListNode(4)
-    # Set up references between the nodes
+    # Link the nodes together
     n0.next = n1
     n1.next = n2
     n2.next = n3
@@ -231,13 +231,13 @@ Building a linked list takes two steps: initialize the node objects, then connec
 
     ```cpp title="linked_list.cpp"
     /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize the individual nodes
+    // Initialize the nodes
     ListNode *n0 = new ListNode(1);
     ListNode *n1 = new ListNode(3);
     ListNode *n2 = new ListNode(2);
     ListNode *n3 = new ListNode(5);
     ListNode *n4 = new ListNode(4);
-    // Set up references between the nodes
+    // Link the nodes together
     n0->next = n1;
     n1->next = n2;
     n2->next = n3;
@@ -248,13 +248,13 @@ Building a linked list takes two steps: initialize the node objects, then connec
 
     ```java title="linked_list.java"
     /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize the individual nodes
+    // Initialize the nodes
     ListNode n0 = new ListNode(1);
     ListNode n1 = new ListNode(3);
     ListNode n2 = new ListNode(2);
     ListNode n3 = new ListNode(5);
     ListNode n4 = new ListNode(4);
-    // Set up references between the nodes
+    // Link the nodes together
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -265,13 +265,13 @@ Building a linked list takes two steps: initialize the node objects, then connec
 
     ```csharp title="linked_list.cs"
     // Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4
-    // Initialize the individual nodes
+    // Initialize the nodes
     ListNode n0 = new(1);
     ListNode n1 = new(3);
     ListNode n2 = new(2);
     ListNode n3 = new(5);
     ListNode n4 = new(4);
-    // Set up references between the nodes
+    // Link the nodes together
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -282,14 +282,14 @@ Building a linked list takes two steps: initialize the node objects, then connec
 
     ```go title="linked_list.go"
     /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize the individual nodes
+    // Initialize the nodes
     n0 := NewListNode(1)
     n1 := NewListNode(3)
     n2 := NewListNode(2)
     n3 := NewListNode(5)
     n4 := NewListNode(4)
 
-    // Set up references between the nodes
+    // Link the nodes together
     n0.Next = n1
     n1.Next = n2
     n2.Next = n3
@@ -300,13 +300,13 @@ Building a linked list takes two steps: initialize the node objects, then connec
 
     ```swift title="linked_list.swift"
     /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize the individual nodes
+    // Initialize the nodes
     let n0 = ListNode(x: 1)
     let n1 = ListNode(x: 3)
     let n2 = ListNode(x: 2)
     let n3 = ListNode(x: 5)
     let n4 = ListNode(x: 4)
-    // Set up references between the nodes
+    // Link the nodes together
     n0.next = n1
     n1.next = n2
     n2.next = n3
@@ -317,13 +317,13 @@ Building a linked list takes two steps: initialize the node objects, then connec
 
     ```javascript title="linked_list.js"
     /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize the individual nodes
+    // Initialize the nodes
     const n0 = new ListNode(1);
     const n1 = new ListNode(3);
     const n2 = new ListNode(2);
     const n3 = new ListNode(5);
     const n4 = new ListNode(4);
-    // Set up references between the nodes
+    // Link the nodes together
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -334,13 +334,13 @@ Building a linked list takes two steps: initialize the node objects, then connec
 
     ```typescript title="linked_list.ts"
     /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize the individual nodes
+    // Initialize the nodes
     const n0 = new ListNode(1);
     const n1 = new ListNode(3);
     const n2 = new ListNode(2);
     const n3 = new ListNode(5);
     const n4 = new ListNode(4);
-    // Set up references between the nodes
+    // Link the nodes together
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -351,13 +351,13 @@ Building a linked list takes two steps: initialize the node objects, then connec
 
     ```dart title="linked_list.dart"
     // Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4
-    // Initialize the individual nodes
+    // Initialize the nodes
     ListNode n0 = ListNode(1);
     ListNode n1 = ListNode(3);
     ListNode n2 = ListNode(2);
     ListNode n3 = ListNode(5);
     ListNode n4 = ListNode(4);
-    // Set up references between the nodes
+    // Link the nodes together
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -368,14 +368,14 @@ Building a linked list takes two steps: initialize the node objects, then connec
 
     ```rust title="linked_list.rs"
     /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize the individual nodes
+    // Initialize the nodes
     let n0 = ListNode::new(1);
     let n1 = ListNode::new(3);
     let n2 = ListNode::new(2);
     let n3 = ListNode::new(5);
     let n4 = ListNode::new(4);
 
-    // Set up references between the nodes
+    // Link the nodes together
     n0.borrow_mut().next = Some(n1.clone());
     n1.borrow_mut().next = Some(n2.clone());
     n2.borrow_mut().next = Some(n3.clone());
@@ -386,13 +386,13 @@ Building a linked list takes two steps: initialize the node objects, then connec
 
     ```c title="linked_list.c"
     /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize the individual nodes
+    // Initialize the nodes
     ListNode *n0 = newListNode(1);
     ListNode *n1 = newListNode(3);
     ListNode *n2 = newListNode(2);
     ListNode *n3 = newListNode(5);
     ListNode *n4 = newListNode(4);
-    // Set up references between the nodes
+    // Link the nodes together
     n0->next = n1;
     n1->next = n2;
     n2->next = n3;
@@ -403,14 +403,14 @@ Building a linked list takes two steps: initialize the node objects, then connec
 
     ```kotlin title="linked_list.kt"
     /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize the individual nodes
+    // Initialize the nodes
     val n0 = ListNode(1)
     val n1 = ListNode(3)
     val n2 = ListNode(2)
     val n3 = ListNode(5)
     val n4 = ListNode(4)
 
-    // Set up references between the nodes
+    // Link the nodes together
     n0.next = n1
     n1.next = n2
     n2.next = n3
@@ -421,13 +421,13 @@ Building a linked list takes two steps: initialize the node objects, then connec
 
     ```ruby title="linked_list.rb"
     # Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4
-    # Initialize the individual nodes
+    # Initialize the nodes
     n0 = ListNode.new(1)
     n1 = ListNode.new(3)
     n2 = ListNode.new(2)
     n3 = ListNode.new(5)
     n4 = ListNode.new(4)
-    # Set up references between the nodes
+    # Link the nodes together
     n0.next = n1
     n1.next = n2
     n2.next = n3
@@ -436,16 +436,16 @@ Building a linked list takes two steps: initialize the node objects, then connec
 
 ??? pythontutor "Visualize execution"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20successor%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20linked%20list%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%0A%20%20%20%20%23%20Initialize%20the%20nodes%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20Link%20the%20nodes%20with%20references%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20successor%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20linked%20list%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%0A%20%20%20%20%23%20Initialize%20the%20nodes%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20Link%20the%20nodes%20with%20references%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20linked%20list%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%0A%20%20%20%20%23%20Initialize%20each%20node%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20Link%20each%20node%20to%20the%20next%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20linked%20list%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%0A%20%20%20%20%23%20Initialize%20each%20node%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20Link%20each%20node%20to%20the%20next%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-An array is a single variable, such as `nums`, containing entries `nums[0]`, `nums[1]`, and so on. A linked list consists of separate node objects. **We usually refer to the list by its head node**; for example, the list above can be called `n0`.
+A single variable represents an entire array. For example, the array `nums` contains elements such as `nums[0]` and `nums[1]`. A linked list, however, consists of independent node objects. **We usually refer to the whole list by its head node**. For example, we can call the list in the preceding code the list `n0`.
 
 ### 2. &nbsp; Inserting a node
 
-Inserting a node is straightforward. As shown in Figure 4-6, inserting a new node `P` between adjacent nodes `n0` and `n1` **requires changing only two references (pointers)**, taking $O(1)$ time.
+Inserting a node into a linked list is straightforward. To insert a new node `P` between adjacent nodes `n0` and `n1` as shown below, **change just two node references (pointers)**. This takes $O(1)$ time.
 
-In contrast, inserting an array element takes $O(n)$ time and is slower for large datasets.
+In comparison, inserting an element into an array takes $O(n)$ time and is less efficient for large amounts of data.
 
 ![Inserting a node into a linked list](linked_list.assets/linkedlist_insert_node.svg){ class="animation-figure" }
 
@@ -587,7 +587,7 @@ In contrast, inserting an array element takes $O(n)$ time and is slower for larg
 
     ```ruby title="linked_list.rb"
     ### Insert node _p after node n0 in the linked list ###
-    # In Ruby, `p` is a built-in method and `P` denotes a constant, so use `_p` instead
+    # In Ruby, `p` is a built-in method and `P` is a constant, so use `_p` instead
     def insert(n0, _p)
       n1 = n0.next
       _p.next = n1
@@ -597,24 +597,24 @@ In contrast, inserting an array element takes $O(n)$ time and is slower for larg
 
 ??? pythontutor "Visualize execution"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0Adef%20insert%28n0%3A%20ListNode,%20P%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22Insert%20node%20P%20after%20node%20n0%20in%20the%20linked%20list%22%22%22%0A%20%20%20%20n1%20%3D%20n0.next%0A%20%20%20%20P.next%20%3D%20n1%0A%20%20%20%20n0.next%20%3D%20P%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20linked%20list%0A%20%20%20%20%23%20Initialize%20the%20individual%20nodes%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20Set%20up%20references%20between%20the%20nodes%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20Insert%20a%20node%0A%20%20%20%20p%20%3D%20ListNode%280%29%0A%20%20%20%20insert%28n0,%20p%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=39&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0Adef%20insert%28n0%3A%20ListNode,%20P%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22Insert%20node%20P%20after%20node%20n0%20in%20the%20linked%20list%22%22%22%0A%20%20%20%20n1%20%3D%20n0.next%0A%20%20%20%20P.next%20%3D%20n1%0A%20%20%20%20n0.next%20%3D%20P%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20linked%20list%0A%20%20%20%20%23%20Initialize%20the%20individual%20nodes%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20Set%20up%20references%20between%20the%20nodes%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20Insert%20a%20node%0A%20%20%20%20p%20%3D%20ListNode%280%29%0A%20%20%20%20insert%28n0,%20p%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=39&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0Adef%20insert%28n0%3A%20ListNode,%20P%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22Insert%20node%20P%20after%20node%20n0%20in%20the%20linked%20list%22%22%22%0A%20%20%20%20n1%20%3D%20n0.next%0A%20%20%20%20P.next%20%3D%20n1%0A%20%20%20%20n0.next%20%3D%20P%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20linked%20list%0A%20%20%20%20%23%20Initialize%20the%20nodes%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20Link%20the%20nodes%20together%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20Insert%20a%20node%0A%20%20%20%20p%20%3D%20ListNode%280%29%0A%20%20%20%20insert%28n0,%20p%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=39&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0Adef%20insert%28n0%3A%20ListNode,%20P%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22Insert%20node%20P%20after%20node%20n0%20in%20the%20linked%20list%22%22%22%0A%20%20%20%20n1%20%3D%20n0.next%0A%20%20%20%20P.next%20%3D%20n1%0A%20%20%20%20n0.next%20%3D%20P%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20linked%20list%0A%20%20%20%20%23%20Initialize%20the%20nodes%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20Link%20the%20nodes%20together%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20Insert%20a%20node%0A%20%20%20%20p%20%3D%20ListNode%280%29%0A%20%20%20%20insert%28n0,%20p%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=39&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
 ### 3. &nbsp; Removing a node
 
-Removing a node is also straightforward: as shown in Figure 4-7, **only one reference (pointer) needs to change**.
+Removing a node is straightforward as well. As the figure shows, **only one node reference (pointer) needs to change**.
 
-Although `P` still points to `n1` after removal, traversing the list can no longer reach `P`. It therefore no longer belongs to the list.
+After removal, node `P` still points to `n1`. However, traversing the list can no longer reach `P`, so `P` no longer belongs to the list.
 
-![Removing a linked list node](linked_list.assets/linkedlist_remove_node.svg){ class="animation-figure" }
+![Removing a node from a linked list](linked_list.assets/linkedlist_remove_node.svg){ class="animation-figure" }
 
-<p align="center"> Figure 4-7 &nbsp; Removing a linked list node </p>
+<p align="center"> Figure 4-7 &nbsp; Removing a node from a linked list </p>
 
 === "Python"
 
     ```python title="linked_list.py"
     def remove(n0: ListNode):
-        """Remove the first node after node n0 in the linked list"""
+        """Remove the node immediately after n0 in the linked list"""
         if not n0.next:
             return
         # n0 -> P -> n1
@@ -626,7 +626,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    /* Remove the first node after node n0 in the linked list */
+    /* Remove the node immediately after n0 in the linked list */
     void remove(ListNode *n0) {
         if (n0->next == nullptr)
             return;
@@ -642,7 +642,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "Java"
 
     ```java title="linked_list.java"
-    /* Remove the first node after node n0 in the linked list */
+    /* Remove the node immediately after n0 in the linked list */
     void remove(ListNode n0) {
         if (n0.next == null)
             return;
@@ -656,7 +656,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "C#"
 
     ```csharp title="linked_list.cs"
-    /* Remove the first node after node n0 in the linked list */
+    /* Remove the node immediately after n0 in the linked list */
     void Remove(ListNode n0) {
         if (n0.next == null)
             return;
@@ -670,7 +670,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "Go"
 
     ```go title="linked_list.go"
-    /* Remove the first node after node n0 in the linked list */
+    /* Remove the node immediately after n0 in the linked list */
     func removeItem(n0 *ListNode) {
         if n0.Next == nil {
             return
@@ -685,7 +685,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "Swift"
 
     ```swift title="linked_list.swift"
-    /* Remove the first node after node n0 in the linked list */
+    /* Remove the node immediately after n0 in the linked list */
     func remove(n0: ListNode) {
         if n0.next == nil {
             return
@@ -700,7 +700,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "JS"
 
     ```javascript title="linked_list.js"
-    /* Remove the first node after node n0 in the linked list */
+    /* Remove the node immediately after n0 in the linked list */
     function remove(n0) {
         if (!n0.next) return;
         // n0 -> P -> n1
@@ -713,7 +713,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "TS"
 
     ```typescript title="linked_list.ts"
-    /* Remove the first node after node n0 in the linked list */
+    /* Remove the node immediately after n0 in the linked list */
     function remove(n0: ListNode): void {
         if (!n0.next) {
             return;
@@ -728,7 +728,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "Dart"
 
     ```dart title="linked_list.dart"
-    /* Remove the first node after node n0 in the linked list */
+    /* Remove the node immediately after n0 in the linked list */
     void remove(ListNode n0) {
       if (n0.next == null) return;
       // n0 -> P -> n1
@@ -741,7 +741,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "Rust"
 
     ```rust title="linked_list.rs"
-    /* Remove the first node after node n0 in the linked list */
+    /* Remove the node immediately after n0 in the linked list */
     #[allow(non_snake_case)]
     pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
         // n0 -> P -> n1
@@ -756,8 +756,8 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "C"
 
     ```c title="linked_list.c"
-    /* Remove the first node after node n0 in the linked list */
-    // Note: stdio.h already declares a function named remove
+    /* Remove the node immediately after n0 in the linked list */
+    // Note: stdio.h already uses the name remove
     void removeItem(ListNode *n0) {
         if (!n0->next)
             return;
@@ -773,7 +773,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "Kotlin"
 
     ```kotlin title="linked_list.kt"
-    /* Remove the first node after node n0 in the linked list */
+    /* Remove the node immediately after n0 in the linked list */
     fun remove(n0: ListNode?) {
         if (n0?.next == null)
             return
@@ -787,7 +787,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "Ruby"
 
     ```ruby title="linked_list.rb"
-    ### Remove the first node after node n0 in the linked list ###
+    ### Remove the node immediately after n0 in the linked list ###
     def remove(n0)
       return if n0.next.nil?
 
@@ -800,18 +800,18 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 
 ??? pythontutor "Visualize execution"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0Adef%20remove%28n0%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22Remove%20the%20first%20node%20after%20node%20n0%20in%20the%20linked%20list%22%22%22%0A%20%20%20%20if%20not%20n0.next%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20n0%20-%3E%20P%20-%3E%20n1%0A%20%20%20%20P%20%3D%20n0.next%0A%20%20%20%20n1%20%3D%20P.next%0A%20%20%20%20n0.next%20%3D%20n1%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20linked%20list%0A%20%20%20%20%23%20Initialize%20the%20individual%20nodes%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20Set%20up%20references%20between%20the%20nodes%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20Remove%20a%20node%0A%20%20%20%20remove%28n0%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0Adef%20remove%28n0%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22Remove%20the%20first%20node%20after%20node%20n0%20in%20the%20linked%20list%22%22%22%0A%20%20%20%20if%20not%20n0.next%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20n0%20-%3E%20P%20-%3E%20n1%0A%20%20%20%20P%20%3D%20n0.next%0A%20%20%20%20n1%20%3D%20P.next%0A%20%20%20%20n0.next%20%3D%20n1%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20linked%20list%0A%20%20%20%20%23%20Initialize%20the%20individual%20nodes%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20Set%20up%20references%20between%20the%20nodes%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20Remove%20a%20node%0A%20%20%20%20remove%28n0%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0Adef%20remove%28n0%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22Remove%20the%20node%20immediately%20after%20n0%20in%20the%20linked%20list%22%22%22%0A%20%20%20%20if%20not%20n0.next%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20n0%20-%3E%20P%20-%3E%20n1%0A%20%20%20%20P%20%3D%20n0.next%0A%20%20%20%20n1%20%3D%20P.next%0A%20%20%20%20n0.next%20%3D%20n1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20linked%20list%0A%20%20%20%20%23%20Initialize%20the%20nodes%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20Link%20the%20nodes%20together%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20Remove%20a%20node%0A%20%20%20%20remove%28n0%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0Adef%20remove%28n0%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22Remove%20the%20node%20immediately%20after%20n0%20in%20the%20linked%20list%22%22%22%0A%20%20%20%20if%20not%20n0.next%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20n0%20-%3E%20P%20-%3E%20n1%0A%20%20%20%20P%20%3D%20n0.next%0A%20%20%20%20n1%20%3D%20P.next%0A%20%20%20%20n0.next%20%3D%20n1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20linked%20list%0A%20%20%20%20%23%20Initialize%20the%20nodes%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20Link%20the%20nodes%20together%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20Remove%20a%20node%0A%20%20%20%20remove%28n0%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
 ### 4. &nbsp; Accessing a node
 
-**Accessing a node in a linked list is relatively slow**. An array provides access to any element in $O(1)$ time, but a linked list must be traversed from its head until the desired node is reached. Accessing the $i$-th node requires $i - 1$ iterations, giving $O(n)$ time complexity.
+**Accessing a node by position in a linked list is relatively slow**. As we saw in the previous section, any array element can be accessed in $O(1)$ time. In a linked list, the program must start at the head and visit nodes one by one until it reaches the desired node. Reaching the $i$-th node thus takes $i - 1$ iterations, for a time complexity of $O(n)$.
 
 === "Python"
 
     ```python title="linked_list.py"
     def access(head: ListNode, index: int) -> ListNode | None:
-        """Access the node at index `index` in the linked list"""
+        """Access the linked list node at the specified index"""
         for _ in range(index):
             if not head:
                 return None
@@ -822,7 +822,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    /* Access the node at index `index` in the linked list */
+    /* Access the linked list node at the specified index */
     ListNode *access(ListNode *head, int index) {
         for (int i = 0; i < index; i++) {
             if (head == nullptr)
@@ -836,7 +836,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "Java"
 
     ```java title="linked_list.java"
-    /* Access the node at index `index` in the linked list */
+    /* Access the linked list node at the specified index */
     ListNode access(ListNode head, int index) {
         for (int i = 0; i < index; i++) {
             if (head == null)
@@ -850,7 +850,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "C#"
 
     ```csharp title="linked_list.cs"
-    /* Access the node at index `index` in the linked list */
+    /* Access the linked list node at the specified index */
     ListNode? Access(ListNode? head, int index) {
         for (int i = 0; i < index; i++) {
             if (head == null)
@@ -864,7 +864,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "Go"
 
     ```go title="linked_list.go"
-    /* Access the node at index `index` in the linked list */
+    /* Access the linked list node at the specified index */
     func access(head *ListNode, index int) *ListNode {
         for i := 0; i < index; i++ {
             if head == nil {
@@ -879,7 +879,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "Swift"
 
     ```swift title="linked_list.swift"
-    /* Access the node at index `index` in the linked list */
+    /* Access the linked list node at the specified index */
     func access(head: ListNode, index: Int) -> ListNode? {
         var head: ListNode? = head
         for _ in 0 ..< index {
@@ -895,7 +895,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "JS"
 
     ```javascript title="linked_list.js"
-    /* Access the node at index `index` in the linked list */
+    /* Access the linked list node at the specified index */
     function access(head, index) {
         for (let i = 0; i < index; i++) {
             if (!head) {
@@ -910,7 +910,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "TS"
 
     ```typescript title="linked_list.ts"
-    /* Access the node at index `index` in the linked list */
+    /* Access the linked list node at the specified index */
     function access(head: ListNode | null, index: number): ListNode | null {
         for (let i = 0; i < index; i++) {
             if (!head) {
@@ -925,7 +925,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "Dart"
 
     ```dart title="linked_list.dart"
-    /* Access the node at index `index` in the linked list */
+    /* Access the linked list node at the specified index */
     ListNode? access(ListNode? head, int index) {
       for (var i = 0; i < index; i++) {
         if (head == null) return null;
@@ -938,7 +938,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "Rust"
 
     ```rust title="linked_list.rs"
-    /* Access the node at index `index` in the linked list */
+    /* Access the linked list node at the specified index */
     pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Option<Rc<RefCell<ListNode<T>>>> {
         fn dfs<T>(
             head: Option<&Rc<RefCell<ListNode<T>>>>,
@@ -962,7 +962,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "C"
 
     ```c title="linked_list.c"
-    /* Access the node at index `index` in the linked list */
+    /* Access the linked list node at the specified index */
     ListNode *access(ListNode *head, int index) {
         for (int i = 0; i < index; i++) {
             if (head == NULL)
@@ -976,7 +976,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "Kotlin"
 
     ```kotlin title="linked_list.kt"
-    /* Access the node at index `index` in the linked list */
+    /* Access the linked list node at the specified index */
     fun access(head: ListNode?, index: Int): ListNode? {
         var h = head
         for (i in 0..<index) {
@@ -991,7 +991,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 === "Ruby"
 
     ```ruby title="linked_list.rb"
-    ### Access the node at index `index` in the linked list ###
+    ### Access the linked list node at the specified index ###
     def access(head, index)
       for i in 0...index
         return nil if head.nil?
@@ -1004,12 +1004,12 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 
 ??? pythontutor "Visualize execution"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0Adef%20access%28head%3A%20ListNode,%20index%3A%20int%29%20-%3E%20ListNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Access%20the%20node%20at%20index%20%60index%60%20in%20the%20linked%20list%22%22%22%0A%20%20%20%20for%20_%20in%20range%28index%29%3A%0A%20%20%20%20%20%20%20%20if%20not%20head%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20return%20head%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20linked%20list%0A%20%20%20%20%23%20Initialize%20the%20individual%20nodes%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20Set%20up%20references%20between%20the%20nodes%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20Access%20a%20node%0A%20%20%20%20node%20%3D%20access%28n0,%203%29%0A%20%20%20%20print%28%22Value%20of%20the%20node%20at%20index%203%20in%20the%20linked%20list%20%3D%20%7B%7D%22.format%28node.val%29%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0Adef%20access%28head%3A%20ListNode,%20index%3A%20int%29%20-%3E%20ListNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Access%20the%20node%20at%20index%20%60index%60%20in%20the%20linked%20list%22%22%22%0A%20%20%20%20for%20_%20in%20range%28index%29%3A%0A%20%20%20%20%20%20%20%20if%20not%20head%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20return%20head%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20linked%20list%0A%20%20%20%20%23%20Initialize%20the%20individual%20nodes%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20Set%20up%20references%20between%20the%20nodes%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20Access%20a%20node%0A%20%20%20%20node%20%3D%20access%28n0,%203%29%0A%20%20%20%20print%28%22Value%20of%20the%20node%20at%20index%203%20in%20the%20linked%20list%20%3D%20%7B%7D%22.format%28node.val%29%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0Adef%20access%28head%3A%20ListNode,%20index%3A%20int%29%20-%3E%20ListNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Access%20the%20linked%20list%20node%20at%20the%20specified%20index%22%22%22%0A%20%20%20%20for%20_%20in%20range%28index%29%3A%0A%20%20%20%20%20%20%20%20if%20not%20head%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20return%20head%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20linked%20list%0A%20%20%20%20%23%20Initialize%20the%20nodes%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20Link%20the%20nodes%20together%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20Access%20a%20node%0A%20%20%20%20node%20%3D%20access%28n0,%203%29%0A%20%20%20%20print%28%22Value%20of%20the%20node%20at%20index%203%20%3D%20%7B%7D%22.format%28node.val%29%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0Adef%20access%28head%3A%20ListNode,%20index%3A%20int%29%20-%3E%20ListNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Access%20the%20linked%20list%20node%20at%20the%20specified%20index%22%22%22%0A%20%20%20%20for%20_%20in%20range%28index%29%3A%0A%20%20%20%20%20%20%20%20if%20not%20head%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20return%20head%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20linked%20list%0A%20%20%20%20%23%20Initialize%20the%20nodes%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20Link%20the%20nodes%20together%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20Access%20a%20node%0A%20%20%20%20node%20%3D%20access%28n0,%203%29%0A%20%20%20%20print%28%22Value%20of%20the%20node%20at%20index%203%20%3D%20%7B%7D%22.format%28node.val%29%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
 ### 5. &nbsp; Finding a node
 
-Traverse the list to find a node with value `target`, then return its index. This is also linear search. The code is as follows:
+Traverse the list to find a node whose value is `target` and report its index. This is another linear search. Here is the code:
 
 === "Python"
 
@@ -1230,35 +1230,35 @@ Traverse the list to find a node with value `target`, then return its index. Thi
 
 ??? pythontutor "Visualize execution"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0Adef%20find%28head%3A%20ListNode,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Find%20the%20first%20node%20with%20value%20target%20in%20the%20linked%20list%22%22%22%0A%20%20%20%20index%20%3D%200%0A%20%20%20%20while%20head%3A%0A%20%20%20%20%20%20%20%20if%20head.val%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20index%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20%20%20%20%20index%20%2B%3D%201%0A%20%20%20%20return%20-1%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20linked%20list%0A%20%20%20%20%23%20Initialize%20the%20individual%20nodes%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20Set%20up%20references%20between%20the%20nodes%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20Find%20a%20node%0A%20%20%20%20index%20%3D%20find%28n0,%202%29%0A%20%20%20%20print%28%22Index%20of%20the%20node%20with%20value%202%20in%20the%20linked%20list%20%3D%20%7B%7D%22.format%28index%29%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0Adef%20find%28head%3A%20ListNode,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Find%20the%20first%20node%20with%20value%20target%20in%20the%20linked%20list%22%22%22%0A%20%20%20%20index%20%3D%200%0A%20%20%20%20while%20head%3A%0A%20%20%20%20%20%20%20%20if%20head.val%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20index%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20%20%20%20%20index%20%2B%3D%201%0A%20%20%20%20return%20-1%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20linked%20list%0A%20%20%20%20%23%20Initialize%20the%20individual%20nodes%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20Set%20up%20references%20between%20the%20nodes%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20Find%20a%20node%0A%20%20%20%20index%20%3D%20find%28n0,%202%29%0A%20%20%20%20print%28%22Index%20of%20the%20node%20with%20value%202%20in%20the%20linked%20list%20%3D%20%7B%7D%22.format%28index%29%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0Adef%20find%28head%3A%20ListNode,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Find%20the%20first%20node%20with%20value%20target%20in%20the%20linked%20list%22%22%22%0A%20%20%20%20index%20%3D%200%0A%20%20%20%20while%20head%3A%0A%20%20%20%20%20%20%20%20if%20head.val%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20index%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20%20%20%20%20index%20%2B%3D%201%0A%20%20%20%20return%20-1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20linked%20list%0A%20%20%20%20%23%20Initialize%20the%20nodes%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20Link%20the%20nodes%20together%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20Find%20a%20node%0A%20%20%20%20index%20%3D%20find%28n0,%202%29%0A%20%20%20%20print%28%22Index%20of%20the%20node%20with%20value%202%20%3D%20%7B%7D%22.format%28index%29%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22Linked%20list%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20next%20node%0A%0Adef%20find%28head%3A%20ListNode,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Find%20the%20first%20node%20with%20value%20target%20in%20the%20linked%20list%22%22%22%0A%20%20%20%20index%20%3D%200%0A%20%20%20%20while%20head%3A%0A%20%20%20%20%20%20%20%20if%20head.val%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20index%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20%20%20%20%20index%20%2B%3D%201%0A%20%20%20%20return%20-1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20linked%20list%0A%20%20%20%20%23%20Initialize%20the%20nodes%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20Link%20the%20nodes%20together%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20Find%20a%20node%0A%20%20%20%20index%20%3D%20find%28n0,%202%29%0A%20%20%20%20print%28%22Index%20of%20the%20node%20with%20value%202%20%3D%20%7B%7D%22.format%28index%29%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-## 4.2.2 &nbsp; Arrays versus linked lists
+## 4.2.2 &nbsp; Arrays vs. linked lists
 
-Table 4-1 compares their properties and operation costs. Their contrasting storage strategies give them contrasting strengths.
+The table below compares the properties of arrays and linked lists and the efficiency of their operations. Their contrasting storage strategies lead to different strengths and weaknesses.
 
-<p align="center"> Table 4-1 &nbsp; Comparing array and linked list efficiency </p>
+<p align="center">Table <id> &nbsp; Comparing the efficiency of arrays and linked lists</p>
 
 <div class="center-table" markdown>
 
-|          | Array                           | Linked list           |
+|          | Arrays                           | Linked lists           |
 | -------- | ------------------------------ | -------------- |
-| Storage | Contiguous memory                   | Scattered memory   |
-| Expansion | Fixed length                     | Flexible expansion     |
-| Memory efficiency | Less memory per element, but may waste space | More memory per element |
-| Access an element | $O(1)$                         | $O(n)$         |
-| Add an element | $O(n)$                         | $O(1)$         |
-| Remove an element | $O(n)$                         | $O(1)$         |
+| Storage layout | Contiguous memory                   | Noncontiguous memory   |
+| Capacity growth | Fixed length                     | Can grow as needed     |
+| Memory efficiency | Less memory per element, but unused slots can waste space | More memory per element |
+| Accessing an element | $O(1)$                         | $O(n)$         |
+| Adding an element | $O(n)$                         | $O(1)$         |
+| Removing an element | $O(n)$                         | $O(1)$         |
 
 </div>
 
 ## 4.2.3 &nbsp; Common types of linked lists
 
-Figure 4-8 shows three common types.
+Figure 4-8 shows three common types of linked lists.
 
-- **Singly linked list**: The ordinary linked list introduced above. Each node stores a value and a reference to the next node. The first and last nodes are the head and tail, and the tail points to `None`.
-- **Circular linked list**: Connecting a singly linked list's tail to its head forms a circular list. Any node can then be treated as the head.
-- **Doubly linked list**: Each node stores references (pointers) in both directions, to its successor and predecessor. This makes it more flexible and allows traversal in either direction, at the cost of additional memory.
+- **Singly linked list.** This is the list introduced above. Each node contains a value and a reference to the next node. The first node is the head, and the last node is the tail. The tail points to `None`.
+- **Circular linked list.** Point the tail of a singly linked list back to its head to form a circular linked list. Any node in the circle can serve as the head.
+- **Doubly linked list.** Unlike a singly linked list, a doubly linked list records references in both directions. Each node holds a reference (pointer) to its successor (the next node) and to its predecessor (the previous node). This allows more flexible traversal in either direction, at the cost of additional memory.
 
 === "Python"
 
@@ -1319,11 +1319,11 @@ Figure 4-8 shows three common types.
     /* Doubly linked list node structure */
     type DoublyListNode struct {
         Val  int             // Node value
-        Next *DoublyListNode // Pointer to the successor
-        Prev *DoublyListNode // Pointer to the predecessor
+        Next *DoublyListNode // Pointer to the next node
+        Prev *DoublyListNode // Pointer to the previous node
     }
 
-    // Initialize a node with NewDoublyListNode
+    // NewDoublyListNode initializes a node
     func NewDoublyListNode(val int) *DoublyListNode {
         return &DoublyListNode{
             Val:  val,
@@ -1444,7 +1444,7 @@ Figure 4-8 shows three common types.
     ```kotlin title=""
     /* Doubly linked list node */
     class ListNode(
-        var _val: Int // The node value is stored in _val
+        var _val: Int // Node value
     ) {
         var next: ListNode? = null // Reference to the next node
         var prev: ListNode? = null // Reference to the previous node
@@ -1471,21 +1471,21 @@ Figure 4-8 shows three common types.
 
 <p align="center"> Figure 4-8 &nbsp; Common types of linked lists </p>
 
-## 4.2.4 &nbsp; Typical applications of linked lists
+## 4.2.4 &nbsp; Common uses of linked lists
 
-Singly linked lists commonly implement stacks, queues, hash tables, and graphs.
+Singly linked lists are often used to implement stacks, queues, hash tables, and graphs.
 
-- **Stacks and queues**: Inserting and removing at the same end gives last-in, first-out behavior, forming a stack. Inserting at one end and removing at the other gives first-in, first-out behavior, forming a queue.
-- **Hash tables**: Separate chaining is a common collision-handling strategy that places colliding elements in a linked list.
-- **Graphs**: An adjacency list associates each vertex with a linked list whose elements represent the other vertices connected to it.
+- **Stacks and queues.** Inserting and removing at the same end of a linked list gives last-in, first-out behavior, as in a stack. Inserting at one end and removing at the other gives first-in, first-out behavior, as in a queue.
+- **Hash tables.** Separate chaining is a common way to resolve hash collisions. It stores all elements that collide in the same linked list.
+- **Graphs.** An adjacency list is a common representation of a graph. Each vertex has an associated list whose elements represent the other vertices connected to it.
 
-Doubly linked lists are useful when both the previous and next elements must be found quickly.
+Doubly linked lists are useful when we need quick access to both the previous and the next element.
 
-- **Advanced data structures**: In structures such as red-black trees and B-trees, a node may need access to its parent. Storing a parent reference is similar to the backward link in a doubly linked list.
-- **Browser history**: The forward and back buttons require access to the next and previous visited pages. A doubly linked list makes this straightforward.
-- **LRU caching**: Least recently used eviction needs fast access to the least recently used data and efficient insertion and removal, making doubly linked lists a good fit.
+- **Advanced data structures.** In red-black trees and B-trees, for example, we need to access a node's parent. A node can store a reference back to its parent, much like a backward link in a doubly linked list.
+- **Browser history.** When a user clicks Forward or Back, the browser needs to know which page comes next or came before in the browsing history. A doubly linked list makes these operations straightforward.
+- **LRU cache eviction.** A least recently used (LRU) eviction algorithm needs to locate the least recently used data quickly and to add and remove nodes efficiently. A doubly linked list is well suited to these operations.
 
-Circular linked lists suit cyclic operations, such as operating-system resource scheduling.
+Circular linked lists are useful when operations repeat in cycles, as in operating system resource scheduling.
 
-- **Round-robin scheduling**: This common CPU scheduling algorithm cycles through processes, giving each a time slice before moving to the next. A circular linked list can implement this cycle.
-- **Data buffers**: Some buffers use circular linked lists. Audio and video players, for example, may divide a stream into buffer blocks arranged in a circular list for seamless playback.
+- **Round-robin scheduling.** In this common CPU scheduling algorithm, the operating system cycles through a set of processes. Each process gets a time slice. When it expires, the CPU switches to the next process. A circular linked list can implement this rotation.
+- **Data buffers.** Some buffers use circular linked lists. For instance, an audio or video player might divide its data stream into buffer blocks and place them in a circular linked list for seamless playback.

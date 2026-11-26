@@ -4,10 +4,10 @@ comments: true
 
 # 7.4 &nbsp; 二分探索木
 
-図 7-16 の<u>二分探索木（binary search tree）</u>は、次の条件を満たします。
+図 7-16 のように、<u>二分探索木（binary search tree）</u>は次の条件を満たします。
 
-1. 根について、左の部分木のすべての値 $<$ 根の値 $<$ 右の部分木のすべての値が成り立ちます。
-2. どのノードの左右の部分木も二分探索木であり、同じく条件 `1.` を満たします。
+1. 根について、左部分木のすべてのノードの値 $<$ 根の値 $<$ 右部分木のすべてのノードの値、という関係が成り立ちます。
+2. 任意のノードの左右の部分木も二分探索木です。つまり、そこでも条件 `1.` が成り立ちます。
 
 ![二分探索木](binary_search_tree.assets/binary_search_tree.svg){ class="animation-figure" }
 
@@ -15,31 +15,31 @@ comments: true
 
 ## 7.4.1 &nbsp; 二分探索木の操作
 
-クラス `BinarySearchTree` にまとめ、根ノードを指すメンバー変数 `root` を宣言します。
+二分探索木をクラス `BinarySearchTree` にまとめ、木の根を指すメンバー変数 `root` を宣言します。
 
 ### 1. &nbsp; ノードの探索
 
-目的の値 `num` が与えられたら、二分探索木の性質を使って探せます。図 7-17 のように、ノード `cur` を宣言して根 `root` から出発し、`cur.val` と `num` の大小を繰り返し比較します。
+探したい値 `num` が与えられたときは、二分探索木の性質を利用できます。図 7-17 のように、現在のノードを表す `cur` を宣言し、根 `root` から出発して、ノードの値 `cur.val` と `num` の大小を繰り返し比較します。
 
-- `cur.val < num` なら、目的のノードは右の部分木にあるので、`cur = cur.right` とします。
-- `cur.val > num` なら、目的のノードは左の部分木にあるので、`cur = cur.left` とします。
-- `cur.val = num` なら、見つかったのでループを抜け、そのノードを返します。
+- `cur.val < num` なら、目的のノードは `cur` の右部分木にあるので、`cur = cur.right` を実行します。
+- `cur.val > num` なら、目的のノードは `cur` の左部分木にあるので、`cur = cur.left` を実行します。
+- `cur.val = num` なら、目的のノードが見つかったので、ループを抜けてそのノードを返します。
 
 === "<1>"
     ![二分探索木でノードを探す例](binary_search_tree.assets/bst_search_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![二分探索木での探索の手順 2](binary_search_tree.assets/bst_search_step2.svg){ class="animation-figure" }
+    ![bst_search_step2](binary_search_tree.assets/bst_search_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![二分探索木での探索の手順 3](binary_search_tree.assets/bst_search_step3.svg){ class="animation-figure" }
+    ![bst_search_step3](binary_search_tree.assets/bst_search_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![二分探索木での探索の手順 4](binary_search_tree.assets/bst_search_step4.svg){ class="animation-figure" }
+    ![bst_search_step4](binary_search_tree.assets/bst_search_step4.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-17 &nbsp; 二分探索木でノードを探す例 </p>
 
-二分探索木の探索は、二分探索と同じく、各反復で候補の半分を除外する仕組みです。反復回数は最大で木の高さとなり、木が平衡なら $O(\log n)$ 時間です。コード例を示します。
+二分探索木の探索は二分探索と同じ原理で動き、どちらも各回で候補の半分を除外します。ループの回数は最大でも木の高さで、木が平衡なら時間計算量は $O(\log n)$ です。コード例を示します。
 
 === "Python"
 
@@ -47,7 +47,7 @@ comments: true
     def search(self, num: int) -> TreeNode | None:
         """ノードを探索する"""
         cur = self._root
-        # 繰り返し探索し、葉ノードを越えたら終了する
+        # ループで探索し、葉を越えたら終了する
         while cur is not None:
             # 目的のノードは cur の右部分木にある
             if cur.val < num:
@@ -55,7 +55,7 @@ comments: true
             # 目的のノードは cur の左部分木にある
             elif cur.val > num:
                 cur = cur.left
-            # 目的のノードが見つかったので、ループを終了する
+            # 目的のノードが見つかったのでループを抜ける
             else:
                 break
         return cur
@@ -67,7 +67,7 @@ comments: true
     /* ノードを探索する */
     TreeNode *search(int num) {
         TreeNode *cur = root;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while (cur != nullptr) {
             // 目的のノードは cur の右部分木にある
             if (cur->val < num)
@@ -75,7 +75,7 @@ comments: true
             // 目的のノードは cur の左部分木にある
             else if (cur->val > num)
                 cur = cur->left;
-            // 目的のノードが見つかったので、ループを終了する
+            // 目的のノードが見つかったのでループを抜ける
             else
                 break;
         }
@@ -90,7 +90,7 @@ comments: true
     /* ノードを探索する */
     TreeNode search(int num) {
         TreeNode cur = root;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while (cur != null) {
             // 目的のノードは cur の右部分木にある
             if (cur.val < num)
@@ -98,7 +98,7 @@ comments: true
             // 目的のノードは cur の左部分木にある
             else if (cur.val > num)
                 cur = cur.left;
-            // 目的のノードが見つかったので、ループを終了する
+            // 目的のノードが見つかったのでループを抜ける
             else
                 break;
         }
@@ -113,7 +113,7 @@ comments: true
     /* ノードを探索する */
     TreeNode? Search(int num) {
         TreeNode? cur = root;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while (cur != null) {
             // 目的のノードは cur の右部分木にある
             if (cur.val < num) cur =
@@ -121,7 +121,7 @@ comments: true
             // 目的のノードは cur の左部分木にある
             else if (cur.val > num)
                 cur = cur.left;
-            // 目的のノードが見つかったので、ループを終了する
+            // 目的のノードが見つかったのでループを抜ける
             else
                 break;
         }
@@ -136,7 +136,7 @@ comments: true
     /* ノードを探索する */
     func (bst *binarySearchTree) search(num int) *TreeNode {
         node := bst.root
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         for node != nil {
             if node.Val.(int) < num {
                 // 目的のノードは cur の右部分木にある
@@ -145,7 +145,7 @@ comments: true
                 // 目的のノードは cur の左部分木にある
                 node = node.Left
             } else {
-                // 目的のノードが見つかったので、ループを終了する
+                // 目的のノードが見つかったのでループを抜ける
                 break
             }
         }
@@ -160,7 +160,7 @@ comments: true
     /* ノードを探索する */
     func search(num: Int) -> TreeNode? {
         var cur = root
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while cur != nil {
             // 目的のノードは cur の右部分木にある
             if cur!.val < num {
@@ -170,7 +170,7 @@ comments: true
             else if cur!.val > num {
                 cur = cur?.left
             }
-            // 目的のノードが見つかったので、ループを終了する
+            // 目的のノードが見つかったのでループを抜ける
             else {
                 break
             }
@@ -186,13 +186,13 @@ comments: true
     /* ノードを探索する */
     search(num) {
         let cur = this.root;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while (cur !== null) {
             // 目的のノードは cur の右部分木にある
             if (cur.val < num) cur = cur.right;
             // 目的のノードは cur の左部分木にある
             else if (cur.val > num) cur = cur.left;
-            // 目的のノードが見つかったので、ループを終了する
+            // 目的のノードが見つかったのでループを抜ける
             else break;
         }
         // 目的のノードを返す
@@ -206,13 +206,13 @@ comments: true
     /* ノードを探索する */
     search(num: number): TreeNode | null {
         let cur = this.root;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while (cur !== null) {
             // 目的のノードは cur の右部分木にある
             if (cur.val < num) cur = cur.right;
             // 目的のノードは cur の左部分木にある
             else if (cur.val > num) cur = cur.left;
-            // 目的のノードが見つかったので、ループを終了する
+            // 目的のノードが見つかったのでループを抜ける
             else break;
         }
         // 目的のノードを返す
@@ -226,7 +226,7 @@ comments: true
     /* ノードを探索する */
     TreeNode? search(int _num) {
       TreeNode? cur = _root;
-      // 繰り返し探索し、葉ノードを越えたら終了する
+      // ループで探索し、葉を越えたら終了する
       while (cur != null) {
         // 目的のノードは cur の右部分木にある
         if (cur.val < _num)
@@ -234,7 +234,7 @@ comments: true
         // 目的のノードは cur の左部分木にある
         else if (cur.val > _num)
           cur = cur.left;
-        // 目的のノードが見つかったので、ループを終了する
+        // 目的のノードが見つかったのでループを抜ける
         else
           break;
       }
@@ -249,14 +249,14 @@ comments: true
     /* ノードを探索する */
     pub fn search(&self, num: i32) -> OptionTreeNodeRc {
         let mut cur = self.root.clone();
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while let Some(node) = cur.clone() {
             match num.cmp(&node.borrow().val) {
                 // 目的のノードは cur の右部分木にある
                 Ordering::Greater => cur = node.borrow().right.clone(),
                 // 目的のノードは cur の左部分木にある
                 Ordering::Less => cur = node.borrow().left.clone(),
-                // 目的のノードが見つかったので、ループを終了する
+                // 目的のノードが見つかったのでループを抜ける
                 Ordering::Equal => break,
             }
         }
@@ -272,7 +272,7 @@ comments: true
     /* ノードを探索する */
     TreeNode *search(BinarySearchTree *bst, int num) {
         TreeNode *cur = bst->root;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while (cur != NULL) {
             if (cur->val < num) {
                 // 目的のノードは cur の右部分木にある
@@ -281,7 +281,7 @@ comments: true
                 // 目的のノードは cur の左部分木にある
                 cur = cur->left;
             } else {
-                // 目的のノードが見つかったので、ループを終了する
+                // 目的のノードが見つかったのでループを抜ける
                 break;
             }
         }
@@ -296,7 +296,7 @@ comments: true
     /* ノードを探索する */
     fun search(num: Int): TreeNode? {
         var cur = root
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while (cur != null) {
             // 目的のノードは cur の右部分木にある
             cur = if (cur._val < num)
@@ -304,7 +304,7 @@ comments: true
             // 目的のノードは cur の左部分木にある
             else if (cur._val > num)
                 cur.left
-            // 目的のノードが見つかったので、ループを終了する
+            // 目的のノードが見つかったのでループを抜ける
             else
                 break
         }
@@ -320,7 +320,7 @@ comments: true
     def search(num)
       cur = @root
 
-      # 繰り返し探索し、葉ノードを越えたら終了する
+      # ループで探索し、葉を越えたら終了する
       while !cur.nil?
         # 目的のノードは cur の右部分木にある
         if cur.val < num
@@ -328,7 +328,7 @@ comments: true
         # 目的のノードは cur の左部分木にある
         elsif cur.val > num
           cur = cur.left
-        # 目的のノードが見つかったので、ループを終了する
+        # 目的のノードが見つかったのでループを抜ける
         else
           break
         end
@@ -338,40 +338,40 @@ comments: true
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20def%20__init__%28self,%20val%29%3A%0A%20%20%20%20self.val%20%3D%20val%0A%20%20%20%20self.left%20%3D%20None%0A%20%20%20%20self.right%20%3D%20None%0A%0A%0Aclass%20BinarySearchTree%3A%0A%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%22%22%22%0A%0A%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20%23%20%E7%A9%BA%E3%81%AE%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20self._root%20%3D%20None%0A%0A%20%20def%20search%28self,%20num%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8E%A2%E7%B4%A2%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20cur%20%3D%20self._root%0A%20%20%20%20%23%20%E7%B9%B0%E3%82%8A%E8%BF%94%E3%81%97%E6%8E%A2%E7%B4%A2%E3%81%97%E3%80%81%E8%91%89%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E8%B6%8A%E3%81%88%E3%81%9F%E3%82%89%E7%B5%82%E4%BA%86%E3%81%99%E3%82%8B%0A%20%20%20%20while%20cur%20is%20not%20None%3A%0A%20%20%20%20%20%20%23%20%E7%9B%AE%E7%9A%84%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AF%20cur%20%E3%81%AE%E5%8F%B3%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20if%20cur.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.right%0A%20%20%20%20%20%20%23%20%E7%9B%AE%E7%9A%84%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AF%20cur%20%E3%81%AE%E5%B7%A6%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20elif%20cur.val%20%3E%20num%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.left%0A%20%20%20%20%20%20%23%20%E7%9B%AE%E7%9A%84%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%80%81%E3%83%AB%E3%83%BC%E3%83%97%E3%82%92%E7%B5%82%E4%BA%86%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20break%0A%20%20%20%20return%20cur%0A%0A%20%20def%20insert%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%23%20%E6%9C%A8%E3%81%8C%E7%A9%BA%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%81%E6%A0%B9%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20if%20self._root%20is%20None%3A%0A%20%20%20%20%20%20self._root%20%3D%20TreeNode%28num%29%0A%20%20%20%20%20%20return%0A%20%20%20%20%23%20%E7%B9%B0%E3%82%8A%E8%BF%94%E3%81%97%E6%8E%A2%E7%B4%A2%E3%81%97%E3%80%81%E8%91%89%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E8%B6%8A%E3%81%88%E3%81%9F%E3%82%89%E7%B5%82%E4%BA%86%E3%81%99%E3%82%8B%0A%20%20%20%20cur,%20pre%20%3D%20self._root,%20None%0A%20%20%20%20while%20cur%20is%20not%20None%3A%0A%20%20%20%20%20%20%23%20%E9%87%8D%E8%A4%87%E3%81%97%E3%81%9F%E3%83%8E%E3%83%BC%E3%83%89%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%80%81%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E6%88%BB%E3%82%8B%0A%20%20%20%20%20%20if%20cur.val%20%3D%3D%20num%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20pre%20%3D%20cur%0A%20%20%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AF%20cur%20%E3%81%AE%E5%8F%B3%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20if%20cur.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.right%0A%20%20%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AF%20cur%20%E3%81%AE%E5%B7%A6%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.left%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20%20%20%20node%20%3D%20TreeNode%28num%29%0A%20%20%20%20if%20pre.val%20%3C%20num%3A%0A%20%20%20%20%20%20pre.right%20%3D%20node%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20pre.left%20%3D%20node%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%23%20%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20bst%20%3D%20BinarySearchTree%28%29%0A%20%20nums%20%3D%20%5B4,%202,%206,%201,%203,%205,%207%5D%0A%20%20for%20num%20in%20nums%3A%0A%20%20%20%20bst.insert%28num%29%0A%0A%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8E%A2%E7%B4%A2%E3%81%99%E3%82%8B%0A%20%20node%20%3D%20bst.search%287%29%0A%20%20print%28%22%5Cn%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AF%3A%20%7B%7D%E3%80%81%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%20%3D%20%7B%7D%22.format%28node,%20node.val%29%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=162&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20def%20__init__%28self,%20val%29%3A%0A%20%20%20%20self.val%20%3D%20val%0A%20%20%20%20self.left%20%3D%20None%0A%20%20%20%20self.right%20%3D%20None%0A%0A%0Aclass%20BinarySearchTree%3A%0A%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%22%22%22%0A%0A%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20%23%20%E7%A9%BA%E3%81%AE%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20self._root%20%3D%20None%0A%0A%20%20def%20search%28self,%20num%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8E%A2%E7%B4%A2%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20cur%20%3D%20self._root%0A%20%20%20%20%23%20%E7%B9%B0%E3%82%8A%E8%BF%94%E3%81%97%E6%8E%A2%E7%B4%A2%E3%81%97%E3%80%81%E8%91%89%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E8%B6%8A%E3%81%88%E3%81%9F%E3%82%89%E7%B5%82%E4%BA%86%E3%81%99%E3%82%8B%0A%20%20%20%20while%20cur%20is%20not%20None%3A%0A%20%20%20%20%20%20%23%20%E7%9B%AE%E7%9A%84%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AF%20cur%20%E3%81%AE%E5%8F%B3%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20if%20cur.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.right%0A%20%20%20%20%20%20%23%20%E7%9B%AE%E7%9A%84%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AF%20cur%20%E3%81%AE%E5%B7%A6%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20elif%20cur.val%20%3E%20num%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.left%0A%20%20%20%20%20%20%23%20%E7%9B%AE%E7%9A%84%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%80%81%E3%83%AB%E3%83%BC%E3%83%97%E3%82%92%E7%B5%82%E4%BA%86%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20break%0A%20%20%20%20return%20cur%0A%0A%20%20def%20insert%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%23%20%E6%9C%A8%E3%81%8C%E7%A9%BA%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%81%E6%A0%B9%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20if%20self._root%20is%20None%3A%0A%20%20%20%20%20%20self._root%20%3D%20TreeNode%28num%29%0A%20%20%20%20%20%20return%0A%20%20%20%20%23%20%E7%B9%B0%E3%82%8A%E8%BF%94%E3%81%97%E6%8E%A2%E7%B4%A2%E3%81%97%E3%80%81%E8%91%89%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E8%B6%8A%E3%81%88%E3%81%9F%E3%82%89%E7%B5%82%E4%BA%86%E3%81%99%E3%82%8B%0A%20%20%20%20cur,%20pre%20%3D%20self._root,%20None%0A%20%20%20%20while%20cur%20is%20not%20None%3A%0A%20%20%20%20%20%20%23%20%E9%87%8D%E8%A4%87%E3%81%97%E3%81%9F%E3%83%8E%E3%83%BC%E3%83%89%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%80%81%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E6%88%BB%E3%82%8B%0A%20%20%20%20%20%20if%20cur.val%20%3D%3D%20num%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20pre%20%3D%20cur%0A%20%20%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AF%20cur%20%E3%81%AE%E5%8F%B3%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20if%20cur.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.right%0A%20%20%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AF%20cur%20%E3%81%AE%E5%B7%A6%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.left%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20%20%20%20node%20%3D%20TreeNode%28num%29%0A%20%20%20%20if%20pre.val%20%3C%20num%3A%0A%20%20%20%20%20%20pre.right%20%3D%20node%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20pre.left%20%3D%20node%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%23%20%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20bst%20%3D%20BinarySearchTree%28%29%0A%20%20nums%20%3D%20%5B4,%202,%206,%201,%203,%205,%207%5D%0A%20%20for%20num%20in%20nums%3A%0A%20%20%20%20bst.insert%28num%29%0A%0A%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8E%A2%E7%B4%A2%E3%81%99%E3%82%8B%0A%20%20node%20%3D%20bst.search%287%29%0A%20%20print%28%22%5Cn%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AF%3A%20%7B%7D%E3%80%81%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%20%3D%20%7B%7D%22.format%28node,%20node.val%29%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=162&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20def%20__init__%28self,%20val%29%3A%0A%20%20%20%20self.val%20%3D%20val%0A%20%20%20%20self.left%20%3D%20None%0A%20%20%20%20self.right%20%3D%20None%0A%0A%0Aclass%20BinarySearchTree%3A%0A%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%22%22%22%0A%0A%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20%23%20%E7%A9%BA%E3%81%AE%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20self._root%20%3D%20None%0A%0A%20%20def%20search%28self,%20num%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8E%A2%E7%B4%A2%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20cur%20%3D%20self._root%0A%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%A7%E6%8E%A2%E7%B4%A2%E3%81%97%E3%80%81%E8%91%89%E3%82%92%E8%B6%8A%E3%81%88%E3%81%9F%E3%82%89%E7%B5%82%E4%BA%86%E3%81%99%E3%82%8B%0A%20%20%20%20while%20cur%20is%20not%20None%3A%0A%20%20%20%20%20%20%23%20%E7%9B%AE%E7%9A%84%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AF%20cur%20%E3%81%AE%E5%8F%B3%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20if%20cur.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.right%0A%20%20%20%20%20%20%23%20%E7%9B%AE%E7%9A%84%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AF%20cur%20%E3%81%AE%E5%B7%A6%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20elif%20cur.val%20%3E%20num%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.left%0A%20%20%20%20%20%20%23%20%E7%9B%AE%E7%9A%84%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%83%AB%E3%83%BC%E3%83%97%E3%82%92%E6%8A%9C%E3%81%91%E3%82%8B%0A%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20break%0A%20%20%20%20return%20cur%0A%0A%20%20def%20insert%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%23%20%E6%9C%A8%E3%81%8C%E7%A9%BA%E3%81%AA%E3%82%89%E6%A0%B9%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20if%20self._root%20is%20None%3A%0A%20%20%20%20%20%20self._root%20%3D%20TreeNode%28num%29%0A%20%20%20%20%20%20return%0A%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%A7%E6%8E%A2%E7%B4%A2%E3%81%97%E3%80%81%E8%91%89%E3%82%92%E8%B6%8A%E3%81%88%E3%81%9F%E3%82%89%E7%B5%82%E4%BA%86%E3%81%99%E3%82%8B%0A%20%20%20%20cur,%20pre%20%3D%20self._root,%20None%0A%20%20%20%20while%20cur%20is%20not%20None%3A%0A%20%20%20%20%20%20%23%20%E5%80%A4%E3%81%8C%E9%87%8D%E8%A4%87%E3%81%99%E3%82%8B%E3%83%8E%E3%83%BC%E3%83%89%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%82%89%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E6%88%BB%E3%82%8B%0A%20%20%20%20%20%20if%20cur.val%20%3D%3D%20num%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20pre%20%3D%20cur%0A%20%20%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AF%20cur%20%E3%81%AE%E5%8F%B3%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20if%20cur.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.right%0A%20%20%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AF%20cur%20%E3%81%AE%E5%B7%A6%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.left%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20%20%20%20node%20%3D%20TreeNode%28num%29%0A%20%20%20%20if%20pre.val%20%3C%20num%3A%0A%20%20%20%20%20%20pre.right%20%3D%20node%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20pre.left%20%3D%20node%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%23%20%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20bst%20%3D%20BinarySearchTree%28%29%0A%20%20nums%20%3D%20%5B4,%202,%206,%201,%203,%205,%207%5D%0A%20%20for%20num%20in%20nums%3A%0A%20%20%20%20bst.insert%28num%29%0A%0A%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8E%A2%E7%B4%A2%E3%81%99%E3%82%8B%0A%20%20node%20%3D%20bst.search%287%29%0A%20%20print%28%22%5Cn%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%EF%BC%9A%7B%7D%E3%80%81%E5%80%A4%20%3D%20%7B%7D%22.format%28node,%20node.val%29%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=162&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20def%20__init__%28self,%20val%29%3A%0A%20%20%20%20self.val%20%3D%20val%0A%20%20%20%20self.left%20%3D%20None%0A%20%20%20%20self.right%20%3D%20None%0A%0A%0Aclass%20BinarySearchTree%3A%0A%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%22%22%22%0A%0A%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20%23%20%E7%A9%BA%E3%81%AE%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20self._root%20%3D%20None%0A%0A%20%20def%20search%28self,%20num%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8E%A2%E7%B4%A2%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20cur%20%3D%20self._root%0A%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%A7%E6%8E%A2%E7%B4%A2%E3%81%97%E3%80%81%E8%91%89%E3%82%92%E8%B6%8A%E3%81%88%E3%81%9F%E3%82%89%E7%B5%82%E4%BA%86%E3%81%99%E3%82%8B%0A%20%20%20%20while%20cur%20is%20not%20None%3A%0A%20%20%20%20%20%20%23%20%E7%9B%AE%E7%9A%84%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AF%20cur%20%E3%81%AE%E5%8F%B3%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20if%20cur.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.right%0A%20%20%20%20%20%20%23%20%E7%9B%AE%E7%9A%84%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AF%20cur%20%E3%81%AE%E5%B7%A6%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20elif%20cur.val%20%3E%20num%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.left%0A%20%20%20%20%20%20%23%20%E7%9B%AE%E7%9A%84%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%83%AB%E3%83%BC%E3%83%97%E3%82%92%E6%8A%9C%E3%81%91%E3%82%8B%0A%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20break%0A%20%20%20%20return%20cur%0A%0A%20%20def%20insert%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%23%20%E6%9C%A8%E3%81%8C%E7%A9%BA%E3%81%AA%E3%82%89%E6%A0%B9%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20if%20self._root%20is%20None%3A%0A%20%20%20%20%20%20self._root%20%3D%20TreeNode%28num%29%0A%20%20%20%20%20%20return%0A%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%A7%E6%8E%A2%E7%B4%A2%E3%81%97%E3%80%81%E8%91%89%E3%82%92%E8%B6%8A%E3%81%88%E3%81%9F%E3%82%89%E7%B5%82%E4%BA%86%E3%81%99%E3%82%8B%0A%20%20%20%20cur,%20pre%20%3D%20self._root,%20None%0A%20%20%20%20while%20cur%20is%20not%20None%3A%0A%20%20%20%20%20%20%23%20%E5%80%A4%E3%81%8C%E9%87%8D%E8%A4%87%E3%81%99%E3%82%8B%E3%83%8E%E3%83%BC%E3%83%89%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%82%89%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E6%88%BB%E3%82%8B%0A%20%20%20%20%20%20if%20cur.val%20%3D%3D%20num%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20pre%20%3D%20cur%0A%20%20%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AF%20cur%20%E3%81%AE%E5%8F%B3%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20if%20cur.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.right%0A%20%20%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AF%20cur%20%E3%81%AE%E5%B7%A6%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.left%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20%20%20%20node%20%3D%20TreeNode%28num%29%0A%20%20%20%20if%20pre.val%20%3C%20num%3A%0A%20%20%20%20%20%20pre.right%20%3D%20node%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20pre.left%20%3D%20node%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%23%20%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20bst%20%3D%20BinarySearchTree%28%29%0A%20%20nums%20%3D%20%5B4,%202,%206,%201,%203,%205,%207%5D%0A%20%20for%20num%20in%20nums%3A%0A%20%20%20%20bst.insert%28num%29%0A%0A%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8E%A2%E7%B4%A2%E3%81%99%E3%82%8B%0A%20%20node%20%3D%20bst.search%287%29%0A%20%20print%28%22%5Cn%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%EF%BC%9A%7B%7D%E3%80%81%E5%80%A4%20%3D%20%7B%7D%22.format%28node,%20node.val%29%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=162&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
 ### 2. &nbsp; ノードの挿入
 
-挿入する要素 `num` に対して、「左の部分木 < 根 < 右の部分木」という性質を保つため、図 7-18 の手順で挿入します。
+挿入する要素 `num` が与えられたとき、二分探索木の「左部分木 < 根 < 右部分木」という性質を保つため、図 7-18 の手順で挿入します。
 
-1. **挿入位置を探す**：探索と同じく根から出発し、現在の値と `num` を比較しながら下へ進みます。葉を越えて `None` に達したらループを抜けます。
-2. **その位置に挿入する**：値 `num` のノードを初期化し、`None` の位置へ置きます。
+1. **挿入位置を探します**。探索と同様に根から始め、現在のノードの値と `num` の大小関係に応じて下へ進みます。葉を越えたら（`None` に達したら）ループを抜けます。
+2. **見つけた位置にノードを挿入します**。ノード `num` を初期化し、`None` の位置に置きます。
 
 ![二分探索木へのノードの挿入](binary_search_tree.assets/bst_insert.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-18 &nbsp; 二分探索木へのノードの挿入 </p>
 
-実装では、次の二点に注意します。
+実装では次の 2 点に注意します。
 
-- 重複するノードは定義に反するため許しません。挿入するノードがすでに存在すれば、何もせずに戻ります。
-- 挿入のため、ノード `pre` に前回の反復のノードを保存します。これにより、`None` に達したときに親を取得して挿入できます。
+- 定義上、二分探索木では値の重複を認めません。挿入する値がすでに木にある場合は、挿入せずにそのまま戻ります。
+- 挿入には、前のループで訪れたノードを `pre` に保存しておく必要があります。こうすると、`None` に達した時点で親がわかり、新しいノードを挿入できます。
 
 === "Python"
 
     ```python title="binary_search_tree.py"
     def insert(self, num: int):
         """ノードを挿入する"""
-        # 木が空の場合、根ノードを初期化する
+        # 木が空なら根を初期化する
         if self._root is None:
             self._root = TreeNode(num)
             return
-        # 繰り返し探索し、葉ノードを越えたら終了する
+        # ループで探索し、葉を越えたら終了する
         cur, pre = self._root, None
         while cur is not None:
-            # 重複したノードが見つかったので、そのまま戻る
+            # 値が重複するノードが見つかったらそのまま戻る
             if cur.val == num:
                 return
             pre = cur
@@ -394,15 +394,15 @@ comments: true
     ```cpp title="binary_search_tree.cpp"
     /* ノードを挿入する */
     void insert(int num) {
-        // 木が空の場合、根ノードを初期化する
+        // 木が空なら根を初期化する
         if (root == nullptr) {
             root = new TreeNode(num);
             return;
         }
         TreeNode *cur = root, *pre = nullptr;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while (cur != nullptr) {
-            // 重複したノードが見つかったので、そのまま戻る
+            // 値が重複するノードが見つかったらそのまま戻る
             if (cur->val == num)
                 return;
             pre = cur;
@@ -427,15 +427,15 @@ comments: true
     ```java title="binary_search_tree.java"
     /* ノードを挿入する */
     void insert(int num) {
-        // 木が空の場合、根ノードを初期化する
+        // 木が空なら根を初期化する
         if (root == null) {
             root = new TreeNode(num);
             return;
         }
         TreeNode cur = root, pre = null;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while (cur != null) {
-            // 重複したノードが見つかったので、そのまま戻る
+            // 値が重複するノードが見つかったらそのまま戻る
             if (cur.val == num)
                 return;
             pre = cur;
@@ -460,15 +460,15 @@ comments: true
     ```csharp title="binary_search_tree.cs"
     /* ノードを挿入する */
     void Insert(int num) {
-        // 木が空の場合、根ノードを初期化する
+        // 木が空なら根を初期化する
         if (root == null) {
             root = new TreeNode(num);
             return;
         }
         TreeNode? cur = root, pre = null;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while (cur != null) {
-            // 重複したノードが見つかったので、そのまま戻る
+            // 値が重複するノードが見つかったらそのまま戻る
             if (cur.val == num)
                 return;
             pre = cur;
@@ -497,14 +497,14 @@ comments: true
     /* ノードを挿入する */
     func (bst *binarySearchTree) insert(num int) {
         cur := bst.root
-        // 木が空の場合、根ノードを初期化する
+        // 木が空なら根を初期化する
         if cur == nil {
             bst.root = NewTreeNode(num)
             return
         }
-        // 挿入対象ノードの直前のノードの位置
+        // 挿入位置の親ノード
         var pre *TreeNode = nil
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         for cur != nil {
             if cur.Val == num {
                 return
@@ -531,16 +531,16 @@ comments: true
     ```swift title="binary_search_tree.swift"
     /* ノードを挿入する */
     func insert(num: Int) {
-        // 木が空の場合、根ノードを初期化する
+        // 木が空なら根を初期化する
         if root == nil {
             root = TreeNode(x: num)
             return
         }
         var cur = root
         var pre: TreeNode?
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while cur != nil {
-            // 重複したノードが見つかったので、そのまま戻る
+            // 値が重複するノードが見つかったらそのまま戻る
             if cur!.val == num {
                 return
             }
@@ -569,16 +569,16 @@ comments: true
     ```javascript title="binary_search_tree.js"
     /* ノードを挿入する */
     insert(num) {
-        // 木が空の場合、根ノードを初期化する
+        // 木が空なら根を初期化する
         if (this.root === null) {
             this.root = new TreeNode(num);
             return;
         }
         let cur = this.root,
             pre = null;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while (cur !== null) {
-            // 重複したノードが見つかったので、そのまま戻る
+            // 値が重複するノードが見つかったらそのまま戻る
             if (cur.val === num) return;
             pre = cur;
             // 挿入位置は cur の右部分木にある
@@ -598,16 +598,16 @@ comments: true
     ```typescript title="binary_search_tree.ts"
     /* ノードを挿入する */
     insert(num: number): void {
-        // 木が空の場合、根ノードを初期化する
+        // 木が空なら根を初期化する
         if (this.root === null) {
             this.root = new TreeNode(num);
             return;
         }
         let cur: TreeNode | null = this.root,
             pre: TreeNode | null = null;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while (cur !== null) {
-            // 重複したノードが見つかったので、そのまま戻る
+            // 値が重複するノードが見つかったらそのまま戻る
             if (cur.val === num) return;
             pre = cur;
             // 挿入位置は cur の右部分木にある
@@ -627,16 +627,16 @@ comments: true
     ```dart title="binary_search_tree.dart"
     /* ノードを挿入する */
     void insert(int _num) {
-      // 木が空の場合、根ノードを初期化する
+      // 木が空なら根を初期化する
       if (_root == null) {
         _root = TreeNode(_num);
         return;
       }
       TreeNode? cur = _root;
       TreeNode? pre = null;
-      // 繰り返し探索し、葉ノードを越えたら終了する
+      // ループで探索し、葉を越えたら終了する
       while (cur != null) {
-        // 重複したノードが見つかったので、そのまま戻る
+        // 値が重複するノードが見つかったらそのまま戻る
         if (cur.val == _num) return;
         pre = cur;
         // 挿入位置は cur の右部分木にある
@@ -660,17 +660,17 @@ comments: true
     ```rust title="binary_search_tree.rs"
     /* ノードを挿入する */
     pub fn insert(&mut self, num: i32) {
-        // 木が空の場合、根ノードを初期化する
+        // 木が空なら根を初期化する
         if self.root.is_none() {
             self.root = Some(TreeNode::new(num));
             return;
         }
         let mut cur = self.root.clone();
         let mut pre = None;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while let Some(node) = cur.clone() {
             match num.cmp(&node.borrow().val) {
-                // 重複したノードが見つかったので、そのまま戻る
+                // 値が重複するノードが見つかったらそのまま戻る
                 Ordering::Equal => return,
                 // 挿入位置は cur の右部分木にある
                 Ordering::Greater => {
@@ -700,15 +700,15 @@ comments: true
     ```c title="binary_search_tree.c"
     /* ノードを挿入する */
     void insert(BinarySearchTree *bst, int num) {
-        // 木が空の場合、根ノードを初期化する
+        // 木が空なら根を初期化する
         if (bst->root == NULL) {
             bst->root = newTreeNode(num);
             return;
         }
         TreeNode *cur = bst->root, *pre = NULL;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while (cur != NULL) {
-            // 重複したノードが見つかったので、そのまま戻る
+            // 値が重複するノードが見つかったらそのまま戻る
             if (cur->val == num) {
                 return;
             }
@@ -736,16 +736,16 @@ comments: true
     ```kotlin title="binary_search_tree.kt"
     /* ノードを挿入する */
     fun insert(num: Int) {
-        // 木が空の場合、根ノードを初期化する
+        // 木が空なら根を初期化する
         if (root == null) {
             root = TreeNode(num)
             return
         }
         var cur = root
         var pre: TreeNode? = null
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while (cur != null) {
-            // 重複したノードが見つかったので、そのまま戻る
+            // 値が重複するノードが見つかったらそのまま戻る
             if (cur._val == num)
                 return
             pre = cur
@@ -770,16 +770,16 @@ comments: true
     ```ruby title="binary_search_tree.rb"
     ### ノードを挿入する ###
     def insert(num)
-      # 木が空の場合、根ノードを初期化する
+      # 木が空なら根を初期化する
       if @root.nil?
         @root = TreeNode.new(num)
         return
       end
 
-      # 繰り返し探索し、葉ノードを越えたら終了する
+      # ループで探索し、葉を越えたら終了する
       cur, pre = @root, nil
       while !cur.nil?
-        # 重複したノードが見つかったので、そのまま戻る
+        # 値が重複するノードが見つかったらそのまま戻る
         return if cur.val == num
 
         pre = cur
@@ -802,80 +802,80 @@ comments: true
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%29%3A%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%20%20%20%20%20%20%20%20self.left%20%3D%20None%0A%20%20%20%20%20%20%20%20self.right%20%3D%20None%0A%0A%0Aclass%20BinarySearchTree%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20%20%20%20%20%23%20%E7%A9%BA%E3%81%AE%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20self._root%20%3D%20None%0A%0A%20%20%20%20def%20insert%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20%23%20%E6%9C%A8%E3%81%8C%E7%A9%BA%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%81%E6%A0%B9%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20if%20self._root%20is%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self._root%20%3D%20TreeNode%28num%29%0A%20%20%20%20%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20%20%20%23%20%E7%B9%B0%E3%82%8A%E8%BF%94%E3%81%97%E6%8E%A2%E7%B4%A2%E3%81%97%E3%80%81%E8%91%89%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E8%B6%8A%E3%81%88%E3%81%9F%E3%82%89%E7%B5%82%E4%BA%86%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20cur,%20pre%20%3D%20self._root,%20None%0A%20%20%20%20%20%20%20%20while%20cur%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E9%87%8D%E8%A4%87%E3%81%97%E3%81%9F%E3%83%8E%E3%83%BC%E3%83%89%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%80%81%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E6%88%BB%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20cur.val%20%3D%3D%20num%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20%20%20%20%20%20%20pre%20%3D%20cur%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AF%20cur%20%E3%81%AE%E5%8F%B3%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20cur.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20cur%20%3D%20cur.right%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AF%20cur%20%E3%81%AE%E5%B7%A6%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20cur%20%3D%20cur.left%0A%20%20%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20node%20%3D%20TreeNode%28num%29%0A%20%20%20%20%20%20%20%20if%20pre.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20pre.right%20%3D%20node%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20pre.left%20%3D%20node%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20bst%20%3D%20BinarySearchTree%28%29%0A%20%20%20%20nums%20%3D%20%5B4,%202,%206,%201,%203,%205,%207%5D%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20bst.insert%28num%29%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20%20%20%20bst.insert%2816%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=162&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%29%3A%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%20%20%20%20%20%20%20%20self.left%20%3D%20None%0A%20%20%20%20%20%20%20%20self.right%20%3D%20None%0A%0A%0Aclass%20BinarySearchTree%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20%20%20%20%20%23%20%E7%A9%BA%E3%81%AE%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20self._root%20%3D%20None%0A%0A%20%20%20%20def%20insert%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20%23%20%E6%9C%A8%E3%81%8C%E7%A9%BA%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%81%E6%A0%B9%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20if%20self._root%20is%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self._root%20%3D%20TreeNode%28num%29%0A%20%20%20%20%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20%20%20%23%20%E7%B9%B0%E3%82%8A%E8%BF%94%E3%81%97%E6%8E%A2%E7%B4%A2%E3%81%97%E3%80%81%E8%91%89%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E8%B6%8A%E3%81%88%E3%81%9F%E3%82%89%E7%B5%82%E4%BA%86%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20cur,%20pre%20%3D%20self._root,%20None%0A%20%20%20%20%20%20%20%20while%20cur%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E9%87%8D%E8%A4%87%E3%81%97%E3%81%9F%E3%83%8E%E3%83%BC%E3%83%89%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%80%81%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E6%88%BB%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20cur.val%20%3D%3D%20num%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20%20%20%20%20%20%20pre%20%3D%20cur%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AF%20cur%20%E3%81%AE%E5%8F%B3%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20cur.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20cur%20%3D%20cur.right%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AF%20cur%20%E3%81%AE%E5%B7%A6%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20cur%20%3D%20cur.left%0A%20%20%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20node%20%3D%20TreeNode%28num%29%0A%20%20%20%20%20%20%20%20if%20pre.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20pre.right%20%3D%20node%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20pre.left%20%3D%20node%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20bst%20%3D%20BinarySearchTree%28%29%0A%20%20%20%20nums%20%3D%20%5B4,%202,%206,%201,%203,%205,%207%5D%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20bst.insert%28num%29%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20%20%20%20bst.insert%2816%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=162&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%29%3A%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%20%20%20%20%20%20%20%20self.left%20%3D%20None%0A%20%20%20%20%20%20%20%20self.right%20%3D%20None%0A%0A%0Aclass%20BinarySearchTree%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20%20%20%20%20%23%20%E7%A9%BA%E3%81%AE%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20self._root%20%3D%20None%0A%0A%20%20%20%20def%20insert%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20%23%20%E6%9C%A8%E3%81%8C%E7%A9%BA%E3%81%AA%E3%82%89%E6%A0%B9%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20if%20self._root%20is%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self._root%20%3D%20TreeNode%28num%29%0A%20%20%20%20%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%A7%E6%8E%A2%E7%B4%A2%E3%81%97%E3%80%81%E8%91%89%E3%82%92%E8%B6%8A%E3%81%88%E3%81%9F%E3%82%89%E7%B5%82%E4%BA%86%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20cur,%20pre%20%3D%20self._root,%20None%0A%20%20%20%20%20%20%20%20while%20cur%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E5%80%A4%E3%81%8C%E9%87%8D%E8%A4%87%E3%81%99%E3%82%8B%E3%83%8E%E3%83%BC%E3%83%89%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%82%89%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E6%88%BB%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20cur.val%20%3D%3D%20num%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20%20%20%20%20%20%20pre%20%3D%20cur%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AF%20cur%20%E3%81%AE%E5%8F%B3%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20cur.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20cur%20%3D%20cur.right%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AF%20cur%20%E3%81%AE%E5%B7%A6%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20cur%20%3D%20cur.left%0A%20%20%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20node%20%3D%20TreeNode%28num%29%0A%20%20%20%20%20%20%20%20if%20pre.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20pre.right%20%3D%20node%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20pre.left%20%3D%20node%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20bst%20%3D%20BinarySearchTree%28%29%0A%20%20%20%20nums%20%3D%20%5B4,%202,%206,%201,%203,%205,%207%5D%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20bst.insert%28num%29%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20%20%20%20bst.insert%2816%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=162&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%29%3A%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%20%20%20%20%20%20%20%20self.left%20%3D%20None%0A%20%20%20%20%20%20%20%20self.right%20%3D%20None%0A%0A%0Aclass%20BinarySearchTree%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20%20%20%20%20%23%20%E7%A9%BA%E3%81%AE%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20self._root%20%3D%20None%0A%0A%20%20%20%20def%20insert%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20%23%20%E6%9C%A8%E3%81%8C%E7%A9%BA%E3%81%AA%E3%82%89%E6%A0%B9%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20if%20self._root%20is%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self._root%20%3D%20TreeNode%28num%29%0A%20%20%20%20%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%A7%E6%8E%A2%E7%B4%A2%E3%81%97%E3%80%81%E8%91%89%E3%82%92%E8%B6%8A%E3%81%88%E3%81%9F%E3%82%89%E7%B5%82%E4%BA%86%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20cur,%20pre%20%3D%20self._root,%20None%0A%20%20%20%20%20%20%20%20while%20cur%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E5%80%A4%E3%81%8C%E9%87%8D%E8%A4%87%E3%81%99%E3%82%8B%E3%83%8E%E3%83%BC%E3%83%89%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%82%89%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E6%88%BB%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20cur.val%20%3D%3D%20num%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20%20%20%20%20%20%20pre%20%3D%20cur%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AF%20cur%20%E3%81%AE%E5%8F%B3%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20cur.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20cur%20%3D%20cur.right%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AF%20cur%20%E3%81%AE%E5%B7%A6%E9%83%A8%E5%88%86%E6%9C%A8%E3%81%AB%E3%81%82%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20cur%20%3D%20cur.left%0A%20%20%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20node%20%3D%20TreeNode%28num%29%0A%20%20%20%20%20%20%20%20if%20pre.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20pre.right%20%3D%20node%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20pre.left%20%3D%20node%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20bst%20%3D%20BinarySearchTree%28%29%0A%20%20%20%20nums%20%3D%20%5B4,%202,%206,%201,%203,%205,%207%5D%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20bst.insert%28num%29%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20%20%20%20bst.insert%2816%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=162&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-探索と同じく、挿入には $O(\log n)$ 時間かかります。
+探索と同様、挿入にかかる時間は $O(\log n)$ です。
 
 ### 3. &nbsp; ノードの削除
 
-まず目的のノードを見つけてから削除します。挿入と同じく、削除後も「左の部分木 < 根 < 右の部分木」を保つ必要があります。そのため、子の数が 0、1、2 の三つの場合に分けて処理します。
+まず二分木から目的のノードを探し、それを削除します。挿入と同様、削除後も二分探索木の「左部分木 < 根 < 右部分木」という性質を保たなければなりません。そこで、対象の子の数が 0 個、1 個、2 個の 3 通りに分け、それぞれに応じた削除を行います。
 
-図 7-19 のように、削除するノードの次数が $0$ なら葉なので、直接削除できます。
+図 7-19 のように、削除対象の次数が $0$ なら、そのノードは葉なので直接削除できます。
 
-![二分探索木のノードの削除（次数 0）](binary_search_tree.assets/bst_remove_case1.svg){ class="animation-figure" }
+![二分探索木からのノードの削除（次数 0）](binary_search_tree.assets/bst_remove_case1.svg){ class="animation-figure" }
 
-<p align="center"> 図 7-19 &nbsp; 二分探索木のノードの削除（次数 0） </p>
+<p align="center"> 図 7-19 &nbsp; 二分探索木からのノードの削除（次数 0） </p>
 
-図 7-20 のように、次数が $1$ なら、そのノードを子に置き換えれば済みます。
+図 7-20 のように、削除対象の次数が $1$ なら、そのノードを唯一の子で置き換えます。
 
-![二分探索木のノードの削除（次数 1）](binary_search_tree.assets/bst_remove_case2.svg){ class="animation-figure" }
+![二分探索木からのノードの削除（次数 1）](binary_search_tree.assets/bst_remove_case2.svg){ class="animation-figure" }
 
-<p align="center"> 図 7-20 &nbsp; 二分探索木のノードの削除（次数 1） </p>
+<p align="center"> 図 7-20 &nbsp; 二分探索木からのノードの削除（次数 1） </p>
 
-次数が $2$ の場合は直接削除できず、別のノードで置き換える必要があります。「左の部分木 $<$ 根 $<$ 右の部分木」を保つため、**右の部分木の最小ノードか、左の部分木の最大ノードを使えます**。
+削除対象の次数が $2$ なら、そのまま削除することはできず、別のノードで置き換える必要があります。二分探索木の「左部分木 $<$ 根 $<$ 右部分木」という性質を保つため、**右部分木の最小のノードか、左部分木の最大のノードを使えます**。
 
-右の部分木の最小ノード、つまり通りがけ順で次のノードを選ぶとすると、手順は図 7-21 のとおりです。
+右部分木の最小のノード（通りがけ順で次のノード）を選ぶと、削除手順は図 7-21 のようになります。
 
-1. 削除するノードの次に通りがけ順で現れるノードを探し、`tmp` とします。
-2. 削除するノードの値を `tmp` の値で上書きし、木から `tmp` を再帰的に削除します。
+1. 通りがけ順の列で削除対象の次に来るノードを見つけ、`tmp` とします。
+2. `tmp` の値で削除対象の値を上書きし、木からノード `tmp` を再帰的に削除します。
 
 === "<1>"
-    ![二分探索木のノードの削除（次数 2）](binary_search_tree.assets/bst_remove_case3_step1.svg){ class="animation-figure" }
+    ![二分探索木からのノードの削除（次数 2）](binary_search_tree.assets/bst_remove_case3_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![次数 2 のノードの削除の手順 2](binary_search_tree.assets/bst_remove_case3_step2.svg){ class="animation-figure" }
+    ![bst_remove_case3_step2](binary_search_tree.assets/bst_remove_case3_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![次数 2 のノードの削除の手順 3](binary_search_tree.assets/bst_remove_case3_step3.svg){ class="animation-figure" }
+    ![bst_remove_case3_step3](binary_search_tree.assets/bst_remove_case3_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![次数 2 のノードの削除の手順 4](binary_search_tree.assets/bst_remove_case3_step4.svg){ class="animation-figure" }
+    ![bst_remove_case3_step4](binary_search_tree.assets/bst_remove_case3_step4.svg){ class="animation-figure" }
 
-<p align="center"> 図 7-21 &nbsp; 二分探索木のノードの削除（次数 2） </p>
+<p align="center"> 図 7-21 &nbsp; 二分探索木からのノードの削除（次数 2） </p>
 
-削除も $O(\log n)$ 時間です。削除対象の探索に $O(\log n)$、通りがけ順の後続ノードの取得に $O(\log n)$ 時間かかります。コード例を示します。
+削除の時間計算量も $O(\log n)$ です。このうち、削除対象の探索に $O(\log n)$、通りがけ順の後続ノードの取得に $O(\log n)$ の時間がかかります。コード例を示します。
 
 === "Python"
 
     ```python title="binary_search_tree.py"
     def remove(self, num: int):
         """ノードを削除する"""
-        # 木が空の場合、そのまま早期リターンする
+        # 木が空ならすぐに戻る
         if self._root is None:
             return
-        # 繰り返し探索し、葉ノードを越えたら終了する
+        # ループで探索し、葉を越えたら終了する
         cur, pre = self._root, None
         while cur is not None:
-            # 削除対象のノードが見つかったので、ループを終了する
+            # 削除対象のノードが見つかったのでループを抜ける
             if cur.val == num:
                 break
             pre = cur
-            # 削除対象のノードは cur の右部分木にある
+            # 削除対象は cur の右部分木にある
             if cur.val < num:
                 cur = cur.right
-            # 削除対象のノードは cur の左部分木にある
+            # 削除対象は cur の左部分木にある
             else:
                 cur = cur.left
-        # 削除対象のノードが存在しない場合、そのまま戻る
+        # 削除対象が見つからなければそのまま戻る
         if cur is None:
             return
 
-        # 子ノード数 = 0 または 1
+        # 子が 0 個または 1 個
         if cur.left is None or cur.right is None:
-            # 子ノード数 = 0 / 1 の場合、child = null / その子ノード
+            # 子が 0 個なら child = null、1 個なら child はその子
             child = cur.left or cur.right
             # ノード cur を削除する
             if cur != self._root:
@@ -884,17 +884,17 @@ comments: true
                 else:
                     pre.right = child
             else:
-                # 削除するノードが根ノードの場合、根ノードを指定し直す
+                # 削除対象が根なら根を設定し直す
                 self._root = child
-        # 子ノード数 = 2
+        # 子が 2 個
         else:
-            # 通りがけ順で cur の次のノードを取得する
+            # 通りがけ順で cur の次に来るノードを取得する
             tmp: TreeNode = cur.right
             while tmp.left is not None:
                 tmp = tmp.left
             # ノード tmp を再帰的に削除する
             self.remove(tmp.val)
-            # tmp で cur を上書きする
+            # tmp の値で cur の値を上書きする
             cur.val = tmp.val
     ```
 
@@ -903,29 +903,29 @@ comments: true
     ```cpp title="binary_search_tree.cpp"
     /* ノードを削除する */
     void remove(int num) {
-        // 木が空の場合、そのまま早期リターンする
+        // 木が空ならすぐに戻る
         if (root == nullptr)
             return;
         TreeNode *cur = root, *pre = nullptr;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while (cur != nullptr) {
-            // 削除対象のノードが見つかったので、ループを終了する
+            // 削除対象のノードが見つかったのでループを抜ける
             if (cur->val == num)
                 break;
             pre = cur;
-            // 削除対象のノードは cur の右部分木にある
+            // 削除対象は cur の右部分木にある
             if (cur->val < num)
                 cur = cur->right;
-            // 削除対象のノードは cur の左部分木にある
+            // 削除対象は cur の左部分木にある
             else
                 cur = cur->left;
         }
-        // 削除対象のノードが存在しない場合、そのまま戻る
+        // 削除対象が見つからなければそのまま戻る
         if (cur == nullptr)
             return;
-        // 子ノード数 = 0 または 1
+        // 子が 0 個または 1 個
         if (cur->left == nullptr || cur->right == nullptr) {
-            // 子ノード数 = 0 / 1 の場合、child = nullptr / その子ノード
+            // 子が 0 個なら child = nullptr、1 個なら child はその子
             TreeNode *child = cur->left != nullptr ? cur->left : cur->right;
             // ノード cur を削除する
             if (cur != root) {
@@ -934,15 +934,15 @@ comments: true
                 else
                     pre->right = child;
             } else {
-                // 削除するノードが根ノードの場合、根ノードを指定し直す
+                // 削除対象が根なら根を設定し直す
                 root = child;
             }
             // メモリを解放する
             delete cur;
         }
-        // 子ノード数 = 2
+        // 子が 2 個
         else {
-            // 通りがけ順で cur の次のノードを取得する
+            // 通りがけ順で cur の次に来るノードを取得する
             TreeNode *tmp = cur->right;
             while (tmp->left != nullptr) {
                 tmp = tmp->left;
@@ -950,7 +950,7 @@ comments: true
             int tmpVal = tmp->val;
             // ノード tmp を再帰的に削除する
             remove(tmp->val);
-            // tmp で cur を上書きする
+            // tmp の値で cur の値を上書きする
             cur->val = tmpVal;
         }
     }
@@ -961,29 +961,29 @@ comments: true
     ```java title="binary_search_tree.java"
     /* ノードを削除する */
     void remove(int num) {
-        // 木が空の場合、そのまま早期リターンする
+        // 木が空ならすぐに戻る
         if (root == null)
             return;
         TreeNode cur = root, pre = null;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while (cur != null) {
-            // 削除対象のノードが見つかったので、ループを終了する
+            // 削除対象のノードが見つかったのでループを抜ける
             if (cur.val == num)
                 break;
             pre = cur;
-            // 削除対象のノードは cur の右部分木にある
+            // 削除対象は cur の右部分木にある
             if (cur.val < num)
                 cur = cur.right;
-            // 削除対象のノードは cur の左部分木にある
+            // 削除対象は cur の左部分木にある
             else
                 cur = cur.left;
         }
-        // 削除対象のノードが存在しない場合、そのまま戻る
+        // 削除対象が見つからなければそのまま戻る
         if (cur == null)
             return;
-        // 子ノード数 = 0 または 1
+        // 子が 0 個または 1 個
         if (cur.left == null || cur.right == null) {
-            // 子ノード数 = 0 / 1 の場合、child = null / その子ノード
+            // 子が 0 個なら child = null、1 個なら child はその子
             TreeNode child = cur.left != null ? cur.left : cur.right;
             // ノード cur を削除する
             if (cur != root) {
@@ -992,20 +992,20 @@ comments: true
                 else
                     pre.right = child;
             } else {
-                // 削除するノードが根ノードの場合、根ノードを指定し直す
+                // 削除対象が根なら根を設定し直す
                 root = child;
             }
         }
-        // 子ノード数 = 2
+        // 子が 2 個
         else {
-            // 通りがけ順で cur の次のノードを取得する
+            // 通りがけ順で cur の次に来るノードを取得する
             TreeNode tmp = cur.right;
             while (tmp.left != null) {
                 tmp = tmp.left;
             }
             // ノード tmp を再帰的に削除する
             remove(tmp.val);
-            // tmp で cur を上書きする
+            // tmp の値で cur の値を上書きする
             cur.val = tmp.val;
         }
     }
@@ -1016,29 +1016,29 @@ comments: true
     ```csharp title="binary_search_tree.cs"
     /* ノードを削除する */
     void Remove(int num) {
-        // 木が空の場合、そのまま早期リターンする
+        // 木が空ならすぐに戻る
         if (root == null)
             return;
         TreeNode? cur = root, pre = null;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while (cur != null) {
-            // 削除対象のノードが見つかったので、ループを終了する
+            // 削除対象のノードが見つかったのでループを抜ける
             if (cur.val == num)
                 break;
             pre = cur;
-            // 削除対象のノードは cur の右部分木にある
+            // 削除対象は cur の右部分木にある
             if (cur.val < num)
                 cur = cur.right;
-            // 削除対象のノードは cur の左部分木にある
+            // 削除対象は cur の左部分木にある
             else
                 cur = cur.left;
         }
-        // 削除対象のノードが存在しない場合、そのまま戻る
+        // 削除対象が見つからなければそのまま戻る
         if (cur == null)
             return;
-        // 子ノード数 = 0 または 1
+        // 子が 0 個または 1 個
         if (cur.left == null || cur.right == null) {
-            // 子ノード数 = 0 / 1 の場合、child = null / その子ノード
+            // 子が 0 個なら child = null、1 個なら child はその子
             TreeNode? child = cur.left ?? cur.right;
             // ノード cur を削除する
             if (cur != root) {
@@ -1047,20 +1047,20 @@ comments: true
                 else
                     pre.right = child;
             } else {
-                // 削除するノードが根ノードの場合、根ノードを指定し直す
+                // 削除対象が根なら根を設定し直す
                 root = child;
             }
         }
-        // 子ノード数 = 2
+        // 子が 2 個
         else {
-            // 通りがけ順で cur の次のノードを取得する
+            // 通りがけ順で cur の次に来るノードを取得する
             TreeNode? tmp = cur.right;
             while (tmp.left != null) {
                 tmp = tmp.left;
             }
             // ノード tmp を再帰的に削除する
             Remove(tmp.val!.Value);
-            // tmp で cur を上書きする
+            // tmp の値で cur の値を上書きする
             cur.val = tmp.val;
         }
     }
@@ -1072,34 +1072,34 @@ comments: true
     /* ノードを削除する */
     func (bst *binarySearchTree) remove(num int) {
         cur := bst.root
-        // 木が空の場合、そのまま早期リターンする
+        // 木が空ならすぐに戻る
         if cur == nil {
             return
         }
-        // 削除対象ノードの直前のノードの位置
+        // 削除対象の親ノード
         var pre *TreeNode = nil
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         for cur != nil {
             if cur.Val == num {
                 break
             }
             pre = cur
             if cur.Val.(int) < num {
-                // 削除対象のノードは右部分木にある
+                // 削除対象は右部分木にある
                 cur = cur.Right
             } else {
-                // 削除対象のノードは左部分木にある
+                // 削除対象は左部分木にある
                 cur = cur.Left
             }
         }
-        // 削除対象のノードが存在しない場合、そのまま戻る
+        // 削除対象が見つからなければそのまま戻る
         if cur == nil {
             return
         }
-        // 子ノード数は 0 または 1
+        // 子が 0 個または 1 個
         if cur.Left == nil || cur.Right == nil {
             var child *TreeNode = nil
-            // 削除対象のノードの子ノードを取り出す
+            // 削除対象の子を取り出す
             if cur.Left != nil {
                 child = cur.Left
             } else {
@@ -1113,19 +1113,19 @@ comments: true
                     pre.Right = child
                 }
             } else {
-                // 削除するノードが根ノードの場合、根ノードを指定し直す
+                // 削除対象が根なら根を設定し直す
                 bst.root = child
             }
-            // 子ノード数は 2
+            // 子が 2 個
         } else {
-            // 通りがけ順で削除対象ノード cur の次のノードを取得する
+            // 通りがけ順で削除対象の cur の次に来るノードを取得する
             tmp := cur.Right
             for tmp.Left != nil {
                 tmp = tmp.Left
             }
             // ノード tmp を再帰的に削除する
             bst.remove(tmp.Val.(int))
-            // tmp で cur を上書きする
+            // tmp の値で cur の値を上書きする
             cur.Val = tmp.Val
         }
     }
@@ -1136,35 +1136,35 @@ comments: true
     ```swift title="binary_search_tree.swift"
     /* ノードを削除する */
     func remove(num: Int) {
-        // 木が空の場合、そのまま早期リターンする
+        // 木が空ならすぐに戻る
         if root == nil {
             return
         }
         var cur = root
         var pre: TreeNode?
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while cur != nil {
-            // 削除対象のノードが見つかったので、ループを終了する
+            // 削除対象のノードが見つかったのでループを抜ける
             if cur!.val == num {
                 break
             }
             pre = cur
-            // 削除対象のノードは cur の右部分木にある
+            // 削除対象は cur の右部分木にある
             if cur!.val < num {
                 cur = cur?.right
             }
-            // 削除対象のノードは cur の左部分木にある
+            // 削除対象は cur の左部分木にある
             else {
                 cur = cur?.left
             }
         }
-        // 削除対象のノードが存在しない場合、そのまま戻る
+        // 削除対象が見つからなければそのまま戻る
         if cur == nil {
             return
         }
-        // 子ノード数 = 0 または 1
+        // 子が 0 個または 1 個
         if cur?.left == nil || cur?.right == nil {
-            // 子ノード数 = 0 / 1 の場合、child = null / その子ノード
+            // 子が 0 個なら child = null、1 個なら child はその子
             let child = cur?.left ?? cur?.right
             // ノード cur を削除する
             if cur !== root {
@@ -1174,20 +1174,20 @@ comments: true
                     pre?.right = child
                 }
             } else {
-                // 削除するノードが根ノードの場合、根ノードを指定し直す
+                // 削除対象が根なら根を設定し直す
                 root = child
             }
         }
-        // 子ノード数 = 2
+        // 子が 2 個
         else {
-            // 通りがけ順で cur の次のノードを取得する
+            // 通りがけ順で cur の次に来るノードを取得する
             var tmp = cur?.right
             while tmp?.left != nil {
                 tmp = tmp?.left
             }
             // ノード tmp を再帰的に削除する
             remove(num: tmp!.val)
-            // tmp で cur を上書きする
+            // tmp の値で cur の値を上書きする
             cur?.val = tmp!.val
         }
     }
@@ -1198,45 +1198,45 @@ comments: true
     ```javascript title="binary_search_tree.js"
     /* ノードを削除する */
     remove(num) {
-        // 木が空の場合、そのまま早期リターンする
+        // 木が空ならすぐに戻る
         if (this.root === null) return;
         let cur = this.root,
             pre = null;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while (cur !== null) {
-            // 削除対象のノードが見つかったので、ループを終了する
+            // 削除対象のノードが見つかったのでループを抜ける
             if (cur.val === num) break;
             pre = cur;
-            // 削除対象のノードは cur の右部分木にある
+            // 削除対象は cur の右部分木にある
             if (cur.val < num) cur = cur.right;
-            // 削除対象のノードは cur の左部分木にある
+            // 削除対象は cur の左部分木にある
             else cur = cur.left;
         }
-        // 削除対象のノードが存在しない場合、そのまま戻る
+        // 削除対象が見つからなければそのまま戻る
         if (cur === null) return;
-        // 子ノード数 = 0 または 1
+        // 子が 0 個または 1 個
         if (cur.left === null || cur.right === null) {
-            // 子ノード数 = 0 / 1 の場合、child = null / その子ノード
+            // 子が 0 個なら child = null、1 個なら child はその子
             const child = cur.left !== null ? cur.left : cur.right;
             // ノード cur を削除する
             if (cur !== this.root) {
                 if (pre.left === cur) pre.left = child;
                 else pre.right = child;
             } else {
-                // 削除するノードが根ノードの場合、根ノードを指定し直す
+                // 削除対象が根なら根を設定し直す
                 this.root = child;
             }
         }
-        // 子ノード数 = 2
+        // 子が 2 個
         else {
-            // 通りがけ順で cur の次のノードを取得する
+            // 通りがけ順で cur の次に来るノードを取得する
             let tmp = cur.right;
             while (tmp.left !== null) {
                 tmp = tmp.left;
             }
             // ノード tmp を再帰的に削除する
             this.remove(tmp.val);
-            // tmp で cur を上書きする
+            // tmp の値で cur の値を上書きする
             cur.val = tmp.val;
         }
     }
@@ -1247,25 +1247,25 @@ comments: true
     ```typescript title="binary_search_tree.ts"
     /* ノードを削除する */
     remove(num: number): void {
-        // 木が空の場合、そのまま早期リターンする
+        // 木が空ならすぐに戻る
         if (this.root === null) return;
         let cur: TreeNode | null = this.root,
             pre: TreeNode | null = null;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while (cur !== null) {
-            // 削除対象のノードが見つかったので、ループを終了する
+            // 削除対象のノードが見つかったのでループを抜ける
             if (cur.val === num) break;
             pre = cur;
-            // 削除対象のノードは cur の右部分木にある
+            // 削除対象は cur の右部分木にある
             if (cur.val < num) cur = cur.right;
-            // 削除対象のノードは cur の左部分木にある
+            // 削除対象は cur の左部分木にある
             else cur = cur.left;
         }
-        // 削除対象のノードが存在しない場合、そのまま戻る
+        // 削除対象が見つからなければそのまま戻る
         if (cur === null) return;
-        // 子ノード数 = 0 または 1
+        // 子が 0 個または 1 個
         if (cur.left === null || cur.right === null) {
-            // 子ノード数 = 0 / 1 の場合、child = null / その子ノード
+            // 子が 0 個なら child = null、1 個なら child はその子
             const child: TreeNode | null =
                 cur.left !== null ? cur.left : cur.right;
             // ノード cur を削除する
@@ -1273,20 +1273,20 @@ comments: true
                 if (pre!.left === cur) pre!.left = child;
                 else pre!.right = child;
             } else {
-                // 削除するノードが根ノードの場合、根ノードを指定し直す
+                // 削除対象が根なら根を設定し直す
                 this.root = child;
             }
         }
-        // 子ノード数 = 2
+        // 子が 2 個
         else {
-            // 通りがけ順で cur の次のノードを取得する
+            // 通りがけ順で cur の次に来るノードを取得する
             let tmp: TreeNode | null = cur.right;
             while (tmp!.left !== null) {
                 tmp = tmp!.left;
             }
             // ノード tmp を再帰的に削除する
             this.remove(tmp!.val);
-            // tmp で cur を上書きする
+            // tmp の値で cur の値を上書きする
             cur.val = tmp!.val;
         }
     }
@@ -1297,27 +1297,27 @@ comments: true
     ```dart title="binary_search_tree.dart"
     /* ノードを削除する */
     void remove(int _num) {
-      // 木が空の場合、そのまま早期リターンする
+      // 木が空ならすぐに戻る
       if (_root == null) return;
       TreeNode? cur = _root;
       TreeNode? pre = null;
-      // 繰り返し探索し、葉ノードを越えたら終了する
+      // ループで探索し、葉を越えたら終了する
       while (cur != null) {
-        // 削除対象のノードが見つかったので、ループを終了する
+        // 削除対象のノードが見つかったのでループを抜ける
         if (cur.val == _num) break;
         pre = cur;
-        // 削除対象のノードは cur の右部分木にある
+        // 削除対象は cur の右部分木にある
         if (cur.val < _num)
           cur = cur.right;
-        // 削除対象のノードは cur の左部分木にある
+        // 削除対象は cur の左部分木にある
         else
           cur = cur.left;
       }
-      // 削除対象のノードが存在しない場合、そのまま戻る
+      // 削除対象がなければそのまま戻る
       if (cur == null) return;
-      // 子ノード数 = 0 または 1
+      // 子が 0 個または 1 個
       if (cur.left == null || cur.right == null) {
-        // 子ノード数 = 0 / 1 の場合、child = null / その子ノード
+        // 子が 0 個なら child = null、1 個なら child はその子
         TreeNode? child = cur.left ?? cur.right;
         // ノード cur を削除する
         if (cur != _root) {
@@ -1326,19 +1326,19 @@ comments: true
           else
             pre.right = child;
         } else {
-          // 削除するノードが根ノードの場合、根ノードを指定し直す
+          // 削除対象が根なら根を設定し直す
           _root = child;
         }
       } else {
-        // 子ノード数 = 2
-        // 通りがけ順で cur の次のノードを取得する
+        // 子が 2 個
+        // 通りがけ順で cur の次に来るノードを取得する
         TreeNode? tmp = cur.right;
         while (tmp!.left != null) {
           tmp = tmp.left;
         }
         // ノード tmp を再帰的に削除する
         remove(tmp.val);
-        // tmp で cur を上書きする
+        // tmp の値で cur の値を上書きする
         cur.val = tmp.val;
       }
     }
@@ -1349,39 +1349,39 @@ comments: true
     ```rust title="binary_search_tree.rs"
     /* ノードを削除する */
     pub fn remove(&mut self, num: i32) {
-        // 木が空の場合、そのまま早期リターンする
+        // 木が空ならすぐに戻る
         if self.root.is_none() {
             return;
         }
         let mut cur = self.root.clone();
         let mut pre = None;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while let Some(node) = cur.clone() {
             match num.cmp(&node.borrow().val) {
-                // 削除対象のノードが見つかったので、ループを終了する
+                // 削除対象のノードが見つかったのでループを抜ける
                 Ordering::Equal => break,
-                // 削除対象のノードは cur の右部分木にある
+                // 削除対象は cur の右部分木にある
                 Ordering::Greater => {
                     pre = cur.clone();
                     cur = node.borrow().right.clone();
                 }
-                // 削除対象のノードは cur の左部分木にある
+                // 削除対象は cur の左部分木にある
                 Ordering::Less => {
                     pre = cur.clone();
                     cur = node.borrow().left.clone();
                 }
             }
         }
-        // 削除対象のノードが存在しない場合、そのまま戻る
+        // 削除対象が見つからなければそのまま戻る
         if cur.is_none() {
             return;
         }
         let cur = cur.unwrap();
         let (left_child, right_child) = (cur.borrow().left.clone(), cur.borrow().right.clone());
         match (left_child.clone(), right_child.clone()) {
-            // 子ノード数 = 0 または 1
+            // 子が 0 個または 1 個
             (None, None) | (Some(_), None) | (None, Some(_)) => {
-                // 子ノード数 = 0 / 1 の場合、child = nullptr / その子ノード
+                // 子が 0 個なら child = nullptr、1 個なら child はその子
                 let child = left_child.or(right_child);
                 // ノード cur を削除する
                 if !Rc::ptr_eq(&cur, self.root.as_ref().unwrap()) {
@@ -1393,13 +1393,13 @@ comments: true
                         pre.borrow_mut().right = child;
                     }
                 } else {
-                    // 削除するノードが根ノードの場合、根ノードを指定し直す
+                    // 削除対象が根なら根を設定し直す
                     self.root = child;
                 }
             }
-            // 子ノード数 = 2
+            // 子が 2 個
             (Some(_), Some(_)) => {
-                // 通りがけ順で cur の次のノードを取得する
+                // 通りがけ順で cur の次に来るノードを取得する
                 let mut tmp = cur.borrow().right.clone();
                 while let Some(node) = tmp.clone() {
                     if node.borrow().left.is_some() {
@@ -1411,7 +1411,7 @@ comments: true
                 let tmp_val = tmp.unwrap().borrow().val;
                 // ノード tmp を再帰的に削除する
                 self.remove(tmp_val);
-                // tmp で cur を上書きする
+                // tmp の値で cur の値を上書きする
                 cur.borrow_mut().val = tmp_val;
             }
         }
@@ -1422,33 +1422,33 @@ comments: true
 
     ```c title="binary_search_tree.c"
     /* ノードを削除する */
-    // stdio.h を読み込んでいるため、ここでは remove という名前は使えない
+    // stdio.h をインクルードしているため、ここでは remove という名前は使えない
     void removeItem(BinarySearchTree *bst, int num) {
-        // 木が空の場合、そのまま早期リターンする
+        // 木が空ならすぐに戻る
         if (bst->root == NULL)
             return;
         TreeNode *cur = bst->root, *pre = NULL;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while (cur != NULL) {
-            // 削除対象のノードが見つかったので、ループを終了する
+            // 削除対象のノードが見つかったのでループを抜ける
             if (cur->val == num)
                 break;
             pre = cur;
             if (cur->val < num) {
-                // 削除対象のノードは root の右部分木にある
+                // 削除対象は root の右部分木にある
                 cur = cur->right;
             } else {
-                // 削除対象のノードは root の左部分木にある
+                // 削除対象は root の左部分木にある
                 cur = cur->left;
             }
         }
-        // 削除対象のノードが存在しない場合、そのまま戻る
+        // 削除対象が見つからなければそのまま戻る
         if (cur == NULL)
             return;
-        // 削除対象のノードに子ノードがあるかどうかを判定する
+        // 削除対象のノードに子があるか調べる
         if (cur->left == NULL || cur->right == NULL) {
-            /* 子ノード数 = 0 または 1 */
-            // 子ノード数 = 0 / 1 の場合、child = nullptr / その子ノード
+            /* 子が 0 個または 1 個 */
+            // 子が 0 個なら child = nullptr、1 個なら child はその子
             TreeNode *child = cur->left != NULL ? cur->left : cur->right;
             // ノード cur を削除する
             if (pre == NULL) {
@@ -1461,8 +1461,8 @@ comments: true
             // メモリを解放する
             free(cur);
         } else {
-            /* 子ノード数 = 2 */
-            // 通りがけ順で cur の次のノードを取得する
+            /* 子が 2 個 */
+            // 通りがけ順で cur の次に来るノードを取得する
             TreeNode *tmp = cur->right;
             while (tmp->left != NULL) {
                 tmp = tmp->left;
@@ -1470,7 +1470,7 @@ comments: true
             int tmpVal = tmp->val;
             // ノード tmp を再帰的に削除する
             removeItem(bst, tmp->val);
-            // tmp で cur を上書きする
+            // tmp の値で cur の値を上書きする
             cur->val = tmpVal;
         }
     }
@@ -1481,30 +1481,30 @@ comments: true
     ```kotlin title="binary_search_tree.kt"
     /* ノードを削除する */
     fun remove(num: Int) {
-        // 木が空の場合、そのまま早期リターンする
+        // 木が空ならすぐに戻る
         if (root == null)
             return
         var cur = root
         var pre: TreeNode? = null
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while (cur != null) {
-            // 削除対象のノードが見つかったので、ループを終了する
+            // 削除対象のノードが見つかったのでループを抜ける
             if (cur._val == num)
                 break
             pre = cur
-            // 削除対象のノードは cur の右部分木にある
+            // 削除対象は cur の右部分木にある
             cur = if (cur._val < num)
                 cur.right
-            // 削除対象のノードは cur の左部分木にある
+            // 削除対象は cur の左部分木にある
             else
                 cur.left
         }
-        // 削除対象のノードが存在しない場合、そのまま戻る
+        // 削除対象が見つからなければそのまま戻る
         if (cur == null)
             return
-        // 子ノード数 = 0 または 1
+        // 子が 0 個または 1 個
         if (cur.left == null || cur.right == null) {
-            // 子ノード数 = 0 / 1 の場合、child = null / その子ノード
+            // 子が 0 個なら child = null、1 個なら child はその子
             val child = if (cur.left != null)
                 cur.left
             else
@@ -1516,19 +1516,19 @@ comments: true
                 else
                     pre.right = child
             } else {
-                // 削除するノードが根ノードの場合、根ノードを指定し直す
+                // 削除対象が根なら根を設定し直す
                 root = child
             }
-            // 子ノード数 = 2
+            // 子が 2 個
         } else {
-            // 通りがけ順で cur の次のノードを取得する
+            // 通りがけ順で cur の次に来るノードを取得する
             var tmp = cur.right
             while (tmp!!.left != null) {
                 tmp = tmp.left
             }
             // ノード tmp を再帰的に削除する
             remove(tmp._val)
-            // tmp で cur を上書きする
+            // tmp の値で cur の値を上書きする
             cur._val = tmp._val
         }
     }
@@ -1539,30 +1539,30 @@ comments: true
     ```ruby title="binary_search_tree.rb"
     ### ノードを削除する ###
     def remove(num)
-      # 木が空の場合、そのまま早期リターンする
+      # 木が空ならすぐに戻る
       return if @root.nil?
 
-      # 繰り返し探索し、葉ノードを越えたら終了する
+      # ループで探索し、葉を越えたら終了する
       cur, pre = @root, nil
       while !cur.nil?
-        # 削除対象のノードが見つかったので、ループを終了する
+        # 削除対象のノードが見つかったのでループを抜ける
         break if cur.val == num
 
         pre = cur
-        # 削除対象のノードは cur の右部分木にある
+        # 削除対象は cur の右部分木にある
         if cur.val < num
           cur = cur.right
-        # 削除対象のノードは cur の左部分木にある
+        # 削除対象は cur の左部分木にある
         else
           cur = cur.left
         end
       end
-      # 削除対象のノードが存在しない場合、そのまま戻る
+      # 削除対象が見つからなければそのまま戻る
       return if cur.nil?
 
-      # 子ノード数 = 0 または 1
+      # 子が 0 個または 1 個
       if cur.left.nil? || cur.right.nil?
-        # 子ノード数 = 0 / 1 の場合、child = null / その子ノード
+        # 子が 0 個なら child = null、1 個なら child はその子
         child = cur.left || cur.right
         # ノード cur を削除する
         if cur != @root
@@ -1572,50 +1572,50 @@ comments: true
             pre.right = child
           end
         else
-          # 削除するノードが根ノードの場合、根ノードを指定し直す
+          # 削除対象が根なら根を設定し直す
           @root = child
         end
-      # 子ノード数 = 2
+      # 子が 2 個
       else
-        # 通りがけ順で cur の次のノードを取得する
+        # 通りがけ順で cur の次に来るノードを取得する
         tmp = cur.right
         while !tmp.left.nil?
           tmp = tmp.left
         end
         # ノード tmp を再帰的に削除する
         remove(tmp.val)
-        # tmp で cur を上書きする
+        # tmp の値で cur の値を上書きする
         cur.val = tmp.val
       end
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20def%20__init__%28self,%20val%29%3A%0A%20%20%20%20self.val%20%3D%20val%0A%20%20%20%20self.left%20%3D%20None%0A%20%20%20%20self.right%20%3D%20None%0A%0Aclass%20BinarySearchTree%3A%0A%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%22%22%22%0A%0A%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20self._root%20%3D%20None%0A%0A%20%20def%20insert%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20if%20self._root%20is%20None%3A%0A%20%20%20%20%20%20self._root%20%3D%20TreeNode%28num%29%0A%20%20%20%20%20%20return%0A%20%20%20%20cur,%20pre%20%3D%20self._root,%20None%0A%20%20%20%20while%20cur%20is%20not%20None%3A%0A%20%20%20%20%20%20if%20cur.val%20%3D%3D%20num%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20pre%20%3D%20cur%0A%20%20%20%20%20%20if%20cur.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.right%0A%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.left%0A%20%20%20%20node%20%3D%20TreeNode%28num%29%0A%20%20%20%20if%20pre.val%20%3C%20num%3A%0A%20%20%20%20%20%20pre.right%20%3D%20node%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20pre.left%20%3D%20node%0A%0A%20%20def%20remove%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20if%20self._root%20is%20None%3A%0A%20%20%20%20%20%20return%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8E%A2%E7%B4%A2%E3%81%99%E3%82%8B%0A%20%20%20%20cur,%20pre%20%3D%20self._root,%20None%0A%20%20%20%20while%20cur%20is%20not%20None%3A%0A%20%20%20%20%20%20if%20cur.val%20%3D%3D%20num%3A%0A%20%20%20%20%20%20%20%20break%0A%20%20%20%20%20%20pre%20%3D%20cur%0A%20%20%20%20%20%20if%20cur.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.right%0A%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.left%0A%20%20%20%20if%20cur%20is%20None%3A%0A%20%20%20%20%20%20return%0A%0A%20%20%20%20%23%20%E5%AD%90%E3%83%8E%E3%83%BC%E3%83%89%E6%95%B0%20%3D%200%20%E3%81%BE%E3%81%9F%E3%81%AF%201%0A%20%20%20%20if%20cur.left%20is%20None%20or%20cur.right%20is%20None%3A%0A%20%20%20%20%20%20%23%20%E5%AD%90%E3%83%8E%E3%83%BC%E3%83%89%E6%95%B0%20%3D%200%20/%201%20%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%81child%20%3D%20null%20/%20%E3%81%9D%E3%81%AE%E5%AD%90%E3%83%8E%E3%83%BC%E3%83%89%0A%20%20%20%20%20%20child%20%3D%20cur.left%20or%20cur.right%0A%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%20cur%20%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20if%20cur%20%21%3D%20self._root%3A%0A%20%20%20%20%20%20%20%20if%20pre.left%20%3D%3D%20cur%3A%0A%20%20%20%20%20%20%20%20%20%20pre.left%20%3D%20child%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20pre.right%20%3D%20child%0A%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20self._root%20%3D%20child%0A%20%20%20%20%23%20%E5%AD%90%E3%83%8E%E3%83%BC%E3%83%89%E6%95%B0%20%3D%202%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%23%20%E9%80%9A%E3%82%8A%E3%81%8C%E3%81%91%E9%A0%86%E3%81%A7%20cur%20%E3%81%AE%E6%AC%A1%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20tmp%3A%20TreeNode%20%3D%20cur.right%0A%20%20%20%20%20%20while%20tmp.left%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20tmp%20%3D%20tmp.left%0A%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%20tmp%20%E3%82%92%E5%86%8D%E5%B8%B0%E7%9A%84%E3%81%AB%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20self.remove%28tmp.val%29%0A%20%20%20%20%20%20%23%20tmp%20%E3%81%A7%20cur%20%E3%82%92%E4%B8%8A%E6%9B%B8%E3%81%8D%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20cur.val%20%3D%20tmp.val%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%23%20%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20bst%20%3D%20BinarySearchTree%28%29%0A%20%20nums%20%3D%20%5B4,%202,%206,%201,%203,%205,%207%5D%0A%20%20for%20num%20in%20nums%3A%0A%20%20%20%20bst.insert%28num%29%0A%0A%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%0A%20%20bst.remove%281%29%20%23%20%E6%AC%A1%E6%95%B0%E3%81%AF%200%0A%20%20bst.remove%282%29%20%23%20%E6%AC%A1%E6%95%B0%E3%81%AF%201%0A%20%20bst.remove%284%29%20%23%20%E6%AC%A1%E6%95%B0%E3%81%AF%202&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=162&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20def%20__init__%28self,%20val%29%3A%0A%20%20%20%20self.val%20%3D%20val%0A%20%20%20%20self.left%20%3D%20None%0A%20%20%20%20self.right%20%3D%20None%0A%0Aclass%20BinarySearchTree%3A%0A%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%22%22%22%0A%0A%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20self._root%20%3D%20None%0A%0A%20%20def%20insert%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20if%20self._root%20is%20None%3A%0A%20%20%20%20%20%20self._root%20%3D%20TreeNode%28num%29%0A%20%20%20%20%20%20return%0A%20%20%20%20cur,%20pre%20%3D%20self._root,%20None%0A%20%20%20%20while%20cur%20is%20not%20None%3A%0A%20%20%20%20%20%20if%20cur.val%20%3D%3D%20num%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20pre%20%3D%20cur%0A%20%20%20%20%20%20if%20cur.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.right%0A%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.left%0A%20%20%20%20node%20%3D%20TreeNode%28num%29%0A%20%20%20%20if%20pre.val%20%3C%20num%3A%0A%20%20%20%20%20%20pre.right%20%3D%20node%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20pre.left%20%3D%20node%0A%0A%20%20def%20remove%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20if%20self._root%20is%20None%3A%0A%20%20%20%20%20%20return%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8E%A2%E7%B4%A2%E3%81%99%E3%82%8B%0A%20%20%20%20cur,%20pre%20%3D%20self._root,%20None%0A%20%20%20%20while%20cur%20is%20not%20None%3A%0A%20%20%20%20%20%20if%20cur.val%20%3D%3D%20num%3A%0A%20%20%20%20%20%20%20%20break%0A%20%20%20%20%20%20pre%20%3D%20cur%0A%20%20%20%20%20%20if%20cur.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.right%0A%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.left%0A%20%20%20%20if%20cur%20is%20None%3A%0A%20%20%20%20%20%20return%0A%0A%20%20%20%20%23%20%E5%AD%90%E3%83%8E%E3%83%BC%E3%83%89%E6%95%B0%20%3D%200%20%E3%81%BE%E3%81%9F%E3%81%AF%201%0A%20%20%20%20if%20cur.left%20is%20None%20or%20cur.right%20is%20None%3A%0A%20%20%20%20%20%20%23%20%E5%AD%90%E3%83%8E%E3%83%BC%E3%83%89%E6%95%B0%20%3D%200%20/%201%20%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%81child%20%3D%20null%20/%20%E3%81%9D%E3%81%AE%E5%AD%90%E3%83%8E%E3%83%BC%E3%83%89%0A%20%20%20%20%20%20child%20%3D%20cur.left%20or%20cur.right%0A%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%20cur%20%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20if%20cur%20%21%3D%20self._root%3A%0A%20%20%20%20%20%20%20%20if%20pre.left%20%3D%3D%20cur%3A%0A%20%20%20%20%20%20%20%20%20%20pre.left%20%3D%20child%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20pre.right%20%3D%20child%0A%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20self._root%20%3D%20child%0A%20%20%20%20%23%20%E5%AD%90%E3%83%8E%E3%83%BC%E3%83%89%E6%95%B0%20%3D%202%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%23%20%E9%80%9A%E3%82%8A%E3%81%8C%E3%81%91%E9%A0%86%E3%81%A7%20cur%20%E3%81%AE%E6%AC%A1%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20tmp%3A%20TreeNode%20%3D%20cur.right%0A%20%20%20%20%20%20while%20tmp.left%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20tmp%20%3D%20tmp.left%0A%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%20tmp%20%E3%82%92%E5%86%8D%E5%B8%B0%E7%9A%84%E3%81%AB%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20self.remove%28tmp.val%29%0A%20%20%20%20%20%20%23%20tmp%20%E3%81%A7%20cur%20%E3%82%92%E4%B8%8A%E6%9B%B8%E3%81%8D%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20cur.val%20%3D%20tmp.val%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%23%20%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20bst%20%3D%20BinarySearchTree%28%29%0A%20%20nums%20%3D%20%5B4,%202,%206,%201,%203,%205,%207%5D%0A%20%20for%20num%20in%20nums%3A%0A%20%20%20%20bst.insert%28num%29%0A%0A%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%0A%20%20bst.remove%281%29%20%23%20%E6%AC%A1%E6%95%B0%E3%81%AF%200%0A%20%20bst.remove%282%29%20%23%20%E6%AC%A1%E6%95%B0%E3%81%AF%201%0A%20%20bst.remove%284%29%20%23%20%E6%AC%A1%E6%95%B0%E3%81%AF%202&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=162&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20def%20__init__%28self,%20val%29%3A%0A%20%20%20%20self.val%20%3D%20val%0A%20%20%20%20self.left%20%3D%20None%0A%20%20%20%20self.right%20%3D%20None%0A%0Aclass%20BinarySearchTree%3A%0A%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%22%22%22%0A%0A%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20self._root%20%3D%20None%0A%0A%20%20def%20insert%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20if%20self._root%20is%20None%3A%0A%20%20%20%20%20%20self._root%20%3D%20TreeNode%28num%29%0A%20%20%20%20%20%20return%0A%20%20%20%20cur,%20pre%20%3D%20self._root,%20None%0A%20%20%20%20while%20cur%20is%20not%20None%3A%0A%20%20%20%20%20%20if%20cur.val%20%3D%3D%20num%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20pre%20%3D%20cur%0A%20%20%20%20%20%20if%20cur.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.right%0A%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.left%0A%20%20%20%20node%20%3D%20TreeNode%28num%29%0A%20%20%20%20if%20pre.val%20%3C%20num%3A%0A%20%20%20%20%20%20pre.right%20%3D%20node%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20pre.left%20%3D%20node%0A%0A%20%20def%20remove%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20if%20self._root%20is%20None%3A%0A%20%20%20%20%20%20return%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8E%A2%E7%B4%A2%E3%81%99%E3%82%8B%0A%20%20%20%20cur,%20pre%20%3D%20self._root,%20None%0A%20%20%20%20while%20cur%20is%20not%20None%3A%0A%20%20%20%20%20%20if%20cur.val%20%3D%3D%20num%3A%0A%20%20%20%20%20%20%20%20break%0A%20%20%20%20%20%20pre%20%3D%20cur%0A%20%20%20%20%20%20if%20cur.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.right%0A%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.left%0A%20%20%20%20if%20cur%20is%20None%3A%0A%20%20%20%20%20%20return%0A%0A%20%20%20%20%23%20%E5%AD%90%E3%81%8C%200%20%E5%80%8B%E3%81%BE%E3%81%9F%E3%81%AF%201%20%E5%80%8B%0A%20%20%20%20if%20cur.left%20is%20None%20or%20cur.right%20is%20None%3A%0A%20%20%20%20%20%20%23%20%E5%AD%90%E3%81%8C%200%20%E5%80%8B%E3%81%AA%E3%82%89%20child%20%3D%20null%E3%80%811%20%E5%80%8B%E3%81%AA%E3%82%89%20child%20%E3%81%AF%E3%81%9D%E3%81%AE%E5%AD%90%0A%20%20%20%20%20%20child%20%3D%20cur.left%20or%20cur.right%0A%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%20cur%20%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20if%20cur%20%21%3D%20self._root%3A%0A%20%20%20%20%20%20%20%20if%20pre.left%20%3D%3D%20cur%3A%0A%20%20%20%20%20%20%20%20%20%20pre.left%20%3D%20child%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20pre.right%20%3D%20child%0A%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20self._root%20%3D%20child%0A%20%20%20%20%23%20%E5%AD%90%E3%81%8C%202%20%E5%80%8B%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%23%20%E9%80%9A%E3%82%8A%E3%81%8C%E3%81%91%E9%A0%86%E3%81%A7%20cur%20%E3%81%AE%E6%AC%A1%E3%81%AB%E6%9D%A5%E3%82%8B%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20tmp%3A%20TreeNode%20%3D%20cur.right%0A%20%20%20%20%20%20while%20tmp.left%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20tmp%20%3D%20tmp.left%0A%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%20tmp%20%E3%82%92%E5%86%8D%E5%B8%B0%E7%9A%84%E3%81%AB%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20self.remove%28tmp.val%29%0A%20%20%20%20%20%20%23%20tmp%20%E3%81%AE%E5%80%A4%E3%81%A7%20cur%20%E3%81%AE%E5%80%A4%E3%82%92%E4%B8%8A%E6%9B%B8%E3%81%8D%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20cur.val%20%3D%20tmp.val%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%23%20%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20bst%20%3D%20BinarySearchTree%28%29%0A%20%20nums%20%3D%20%5B4,%202,%206,%201,%203,%205,%207%5D%0A%20%20for%20num%20in%20nums%3A%0A%20%20%20%20bst.insert%28num%29%0A%0A%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%0A%20%20bst.remove%281%29%20%23%20%E5%AD%90%E3%81%8C%200%20%E5%80%8B%0A%20%20bst.remove%282%29%20%23%20%E5%AD%90%E3%81%8C%201%20%E5%80%8B%0A%20%20bst.remove%284%29%20%23%20%E5%AD%90%E3%81%8C%202%20%E5%80%8B&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=162&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20def%20__init__%28self,%20val%29%3A%0A%20%20%20%20self.val%20%3D%20val%0A%20%20%20%20self.left%20%3D%20None%0A%20%20%20%20self.right%20%3D%20None%0A%0Aclass%20BinarySearchTree%3A%0A%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%22%22%22%0A%0A%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20self._root%20%3D%20None%0A%0A%20%20def%20insert%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20if%20self._root%20is%20None%3A%0A%20%20%20%20%20%20self._root%20%3D%20TreeNode%28num%29%0A%20%20%20%20%20%20return%0A%20%20%20%20cur,%20pre%20%3D%20self._root,%20None%0A%20%20%20%20while%20cur%20is%20not%20None%3A%0A%20%20%20%20%20%20if%20cur.val%20%3D%3D%20num%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20pre%20%3D%20cur%0A%20%20%20%20%20%20if%20cur.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.right%0A%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.left%0A%20%20%20%20node%20%3D%20TreeNode%28num%29%0A%20%20%20%20if%20pre.val%20%3C%20num%3A%0A%20%20%20%20%20%20pre.right%20%3D%20node%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20pre.left%20%3D%20node%0A%0A%20%20def%20remove%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20if%20self._root%20is%20None%3A%0A%20%20%20%20%20%20return%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8E%A2%E7%B4%A2%E3%81%99%E3%82%8B%0A%20%20%20%20cur,%20pre%20%3D%20self._root,%20None%0A%20%20%20%20while%20cur%20is%20not%20None%3A%0A%20%20%20%20%20%20if%20cur.val%20%3D%3D%20num%3A%0A%20%20%20%20%20%20%20%20break%0A%20%20%20%20%20%20pre%20%3D%20cur%0A%20%20%20%20%20%20if%20cur.val%20%3C%20num%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.right%0A%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20cur%20%3D%20cur.left%0A%20%20%20%20if%20cur%20is%20None%3A%0A%20%20%20%20%20%20return%0A%0A%20%20%20%20%23%20%E5%AD%90%E3%81%8C%200%20%E5%80%8B%E3%81%BE%E3%81%9F%E3%81%AF%201%20%E5%80%8B%0A%20%20%20%20if%20cur.left%20is%20None%20or%20cur.right%20is%20None%3A%0A%20%20%20%20%20%20%23%20%E5%AD%90%E3%81%8C%200%20%E5%80%8B%E3%81%AA%E3%82%89%20child%20%3D%20null%E3%80%811%20%E5%80%8B%E3%81%AA%E3%82%89%20child%20%E3%81%AF%E3%81%9D%E3%81%AE%E5%AD%90%0A%20%20%20%20%20%20child%20%3D%20cur.left%20or%20cur.right%0A%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%20cur%20%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20if%20cur%20%21%3D%20self._root%3A%0A%20%20%20%20%20%20%20%20if%20pre.left%20%3D%3D%20cur%3A%0A%20%20%20%20%20%20%20%20%20%20pre.left%20%3D%20child%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20pre.right%20%3D%20child%0A%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20self._root%20%3D%20child%0A%20%20%20%20%23%20%E5%AD%90%E3%81%8C%202%20%E5%80%8B%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%23%20%E9%80%9A%E3%82%8A%E3%81%8C%E3%81%91%E9%A0%86%E3%81%A7%20cur%20%E3%81%AE%E6%AC%A1%E3%81%AB%E6%9D%A5%E3%82%8B%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20tmp%3A%20TreeNode%20%3D%20cur.right%0A%20%20%20%20%20%20while%20tmp.left%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20tmp%20%3D%20tmp.left%0A%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%20tmp%20%E3%82%92%E5%86%8D%E5%B8%B0%E7%9A%84%E3%81%AB%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20self.remove%28tmp.val%29%0A%20%20%20%20%20%20%23%20tmp%20%E3%81%AE%E5%80%A4%E3%81%A7%20cur%20%E3%81%AE%E5%80%A4%E3%82%92%E4%B8%8A%E6%9B%B8%E3%81%8D%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20cur.val%20%3D%20tmp.val%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%23%20%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20bst%20%3D%20BinarySearchTree%28%29%0A%20%20nums%20%3D%20%5B4,%202,%206,%201,%203,%205,%207%5D%0A%20%20for%20num%20in%20nums%3A%0A%20%20%20%20bst.insert%28num%29%0A%0A%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%0A%20%20bst.remove%281%29%20%23%20%E5%AD%90%E3%81%8C%200%20%E5%80%8B%0A%20%20bst.remove%282%29%20%23%20%E5%AD%90%E3%81%8C%201%20%E5%80%8B%0A%20%20bst.remove%284%29%20%23%20%E5%AD%90%E3%81%8C%202%20%E5%80%8B&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=162&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-### 4. &nbsp; 通りがけ順では整列済みになる
+### 4. &nbsp; 通りがけ順に走査すると昇順になる
 
-図 7-22 のように、通りがけ順走査は「左 $\rightarrow$ 根 $\rightarrow$ 右」の順で進み、二分探索木では「左の子 $<$ 根 $<$ 右の子」の大小関係が成り立ちます。
+図 7-22 のように、二分木の通りがけ順走査では「左 $\rightarrow$ 根 $\rightarrow$ 右」の順にたどります。一方、二分探索木では「左の子 $<$ 根 $<$ 右の子」という大小関係が成り立ちます。
 
-そのため、通りがけ順では常に次に小さいノードを優先して訪問します。ここから、**二分探索木の通りがけ順走査の列は昇順になる**という重要な性質が得られます。
+つまり、二分探索木の通りがけ順走査では、まだ訪問していないノードのうち値が最も小さいものを順に訪問します。ここから、**二分探索木を通りがけ順に走査すると値が昇順に並ぶ**という重要な性質が得られます。
 
-この性質を利用すれば、追加のソートなしに $O(n)$ 時間で整列済みのデータを取得でき、非常に効率的です。
+この性質を利用すると、二分探索木から整列済みのデータを $O(n)$ の時間で取り出せます。追加のソートが不要で効率的です。
 
-![二分探索木の通りがけ順走査の列](binary_search_tree.assets/bst_inorder_traversal.svg){ class="animation-figure" }
+![二分探索木を通りがけ順に走査した列](binary_search_tree.assets/bst_inorder_traversal.svg){ class="animation-figure" }
 
-<p align="center"> 図 7-22 &nbsp; 二分探索木の通りがけ順走査の列 </p>
+<p align="center"> 図 7-22 &nbsp; 二分探索木を通りがけ順に走査した列 </p>
 
 ## 7.4.2 &nbsp; 二分探索木の効率
 
-データを配列または二分探索木で格納する場合を考えます。表 7-2 では、二分探索木の各操作の時間計算量はすべて対数時間で、安定した高い性能を示します。配列のほうが効率的なのは、追加が多く、探索と削除が少ない場合だけです。
+あるデータを配列または二分探索木に格納する場合を考えます。表 7-2 を見ると、二分探索木の各操作の時間計算量は対数オーダーで、安定して効率よく処理できます。配列のほうが効率的なのは、データの追加が多く、探索と削除が少ない場合だけです。
 
 <p align="center"> 表 7-2 &nbsp; 配列と探索木の効率の比較 </p>
 
 <div class="center-table" markdown>
 
-|          | 未整列配列 | 二分探索木  |
+|          | 未整列の配列 | 二分探索木  |
 | -------- | -------- | ----------- |
 | 要素の探索 | $O(n)$   | $O(\log n)$ |
 | 要素の挿入 | $O(1)$   | $O(\log n)$ |
@@ -1623,16 +1623,16 @@ comments: true
 
 </div>
 
-理想的には二分探索木は平衡であり、どのノードも $\log n$ 回の反復で見つけられます。
+理想的な場合、二分探索木は平衡で、どのノードも $\log n$ 回のループで見つけられます。
 
-ただし、挿入と削除を続けると、図 7-23 のように連結リストへ退化する可能性があります。その場合、各操作の時間計算量も $O(n)$ に悪化します。
+しかし、挿入と削除を繰り返すと、二分探索木は図 7-23 のような連結リストに退化することがあります。このとき、各操作の時間計算量も $O(n)$ に悪化します。
 
 ![二分探索木の退化](binary_search_tree.assets/bst_degradation.svg){ class="animation-figure" }
 
 <p align="center"> 図 7-23 &nbsp; 二分探索木の退化 </p>
 
-## 7.4.3 &nbsp; 二分探索木の主な用途
+## 7.4.3 &nbsp; 二分探索木の代表的な用途
 
-- システムの多段階のインデックスとして、効率的な探索、挿入、削除を実現します。
-- 一部の探索アルゴリズムの基盤となるデータ構造として使います。
-- データストリームを格納し、整列状態を保ちます。
+- システムの多段インデックスとして使い、探索・挿入・削除を効率よく行います。
+- 一部の探索アルゴリズムの基礎となるデータ構造として使います。
+- データストリームを格納し、整列状態を保つために使います。

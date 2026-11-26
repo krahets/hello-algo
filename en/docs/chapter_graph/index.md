@@ -9,13 +9,13 @@ icon: material/graphql
 
 !!! abstract
 
-    On the journey of life, we are like nodes joined by countless invisible edges.
+    On life's journey, each of us is a node connected to others by countless invisible edges.
     
-    Every meeting and parting leaves a unique mark on this vast network.
+    Every meeting and every parting leaves its own mark on this vast network.
 
-## Chapter contents
+## In this chapter
 
-- [9.1 &nbsp; Graphs](graph.md)
+- [9.1 &nbsp; Graph](graph.md)
 - [9.2 &nbsp; Basic graph operations](graph_operations.md)
 - [9.3 &nbsp; Graph traversal](graph_traversal.md)
 - [9.4 &nbsp; Summary](summary.md)

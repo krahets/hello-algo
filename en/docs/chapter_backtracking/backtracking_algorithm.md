@@ -2,17 +2,17 @@
 comments: true
 ---
 
-# 13.1 &nbsp; Backtracking algorithms
+# 13.1 &nbsp; Backtracking
 
-A <u>backtracking algorithm</u> solves a problem through exhaustive search. Starting from an initial state, it explores possible solutions by brute force, recording valid solutions as it finds them, until a solution is found or every possible choice has been tried without success.
+A <u>backtracking algorithm</u> solves a problem by exhaustive search. Starting from an initial state, it explores possible solutions and records each valid solution it finds. The search can stop when it finds the solution it needs or when it has tried every choice without success.
 
-Backtracking usually traverses the solution space through depth-first search. In the binary tree chapter, we learned that preorder, inorder, and postorder traversal are all forms of depth-first search. We will use preorder traversal to build a backtracking problem and explore the approach step by step.
+Backtracking usually explores the solution space using depth-first search. In the chapter on binary trees, we saw three forms of depth-first search: preorder, inorder, and postorder traversal. Let’s build a backtracking problem around preorder traversal to see how the algorithm works.
 
 !!! question "Example 1"
 
-    Given a binary tree, find and record every node with value $7$. Return a list of these nodes.
+    Given a binary tree, find every node with value $7$ and return the list of matching nodes.
 
-Traverse the tree in preorder and check whether the current node's value is $7$. If so, add that node's value to the result list `res`. The code and figure below show the process:
+Traverse the tree in preorder and check whether the current node’s value is $7$. If it is, add the node’s value to the result list `res`. The figure and code below show the process:
 
 === "Python"
 
@@ -234,26 +234,26 @@ Traverse the tree in preorder and check whether the current node's value is $7$.
 
 ??? pythontutor "Visualize execution"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20left%20child%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20right%20child%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%3A%20recursion%22%22%22%0A%20%20%20%20%23%20Return%20None%20if%20the%20index%20is%20out%20of%20bounds%20or%20the%20corresponding%20element%20is%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Create%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Recursively%20build%20the%20left%20and%20right%20subtrees%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Preorder%20traversal%3A%20example%201%22%22%22%0A%20%20%20%20if%20root%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20res.append%28root%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Preorder%20traversal%0A%20%20%20%20res%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5CnOutput%20all%20nodes%20with%20value%207%22%29%0A%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20res%5D%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20left%20child%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20right%20child%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%3A%20recursion%22%22%22%0A%20%20%20%20%23%20Return%20None%20if%20the%20index%20is%20out%20of%20bounds%20or%20the%20corresponding%20element%20is%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Create%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Recursively%20build%20the%20left%20and%20right%20subtrees%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Preorder%20traversal%3A%20example%201%22%22%22%0A%20%20%20%20if%20root%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20res.append%28root%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Preorder%20traversal%0A%20%20%20%20res%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5CnOutput%20all%20nodes%20with%20value%207%22%29%0A%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20res%5D%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Left%20child%20reference%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Right%20child%20reference%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%20recursively%22%22%22%0A%20%20%20%20%23%20Return%20None%20for%20an%20out-of-range%20index%20or%20a%20None%20element%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Build%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Build%20both%20subtrees%20recursively%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Preorder%20traversal%3A%20example%201%22%22%22%0A%20%20%20%20if%20root%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20res.append%28root%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Preorder%20traversal%0A%20%20%20%20res%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5CnPrint%20all%20nodes%20with%20value%207%22%29%0A%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20res%5D%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Left%20child%20reference%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Right%20child%20reference%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%20recursively%22%22%22%0A%20%20%20%20%23%20Return%20None%20for%20an%20out-of-range%20index%20or%20a%20None%20element%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Build%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Build%20both%20subtrees%20recursively%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Preorder%20traversal%3A%20example%201%22%22%22%0A%20%20%20%20if%20root%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20res.append%28root%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Preorder%20traversal%0A%20%20%20%20res%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5CnPrint%20all%20nodes%20with%20value%207%22%29%0A%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20res%5D%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-![Finding nodes during preorder traversal](backtracking_algorithm.assets/preorder_find_nodes.svg){ class="animation-figure" }
+![Searching for nodes during preorder traversal](backtracking_algorithm.assets/preorder_find_nodes.svg){ class="animation-figure" }
 
-<p align="center"> Figure 13-1 &nbsp; Finding nodes during preorder traversal </p>
+<p align="center"> Figure 13-1 &nbsp; Searching for nodes during preorder traversal </p>
 
-## 13.1.1 &nbsp; Trying choices and backtracking
+## 13.1.1 &nbsp; Trying a choice and backtracking
 
-**Backtracking gets its name from its pattern of trying choices and undoing them while searching the solution space**. When the search reaches a state that cannot advance or lead to a valid solution, it undoes the last choice, returns to the previous state, and tries other possibilities.
+**Backtracking gets its name from the way it tries choices and then retraces its steps as it explores the solution space**. Whenever the search reaches a state from which it cannot proceed or produce a valid solution, it undoes the last choice, returns to the previous state, and tries another choice.
 
-In Example 1, visiting a node is a trial, while a `return` after passing a leaf or returning to a parent is backtracking.
+In example 1, each node visit is an attempt. A `return` after stepping past a leaf or when going back to a parent is a backtracking step.
 
-**Backtracking involves more than returning from a function**. To see why, let's extend Example 1.
+However, **backtracking can involve more than returning from a function**. A small extension of example 1 illustrates this point.
 
 !!! question "Example 2"
 
-    Find every node with value $7$ in a binary tree, and **return the paths from the root to those nodes**.
+    Find all nodes with value $7$ in a binary tree and **return the paths from the root to those nodes**.
 
-Extend the first solution with a list `path` recording the current path of visited nodes. When a node with value $7$ is reached, append a copy of `path` to the result list `res`. After traversal, `res` contains all solutions. The code is as follows:
+Extend the code from example 1 with a list `path` that tracks the nodes along the current path. When a node has value $7$, copy `path` and append the copy to the result list `res`. Once traversal ends, `res` holds all solutions. Here is the code:
 
 === "Python"
 
@@ -262,7 +262,7 @@ Extend the first solution with a list `path` recording the current path of visit
         """Preorder traversal: example 2"""
         if root is None:
             return
-        # Try
+        # Try a choice
         path.append(root)
         if root.val == 7:
             # Record the solution
@@ -281,7 +281,7 @@ Extend the first solution with a list `path` recording the current path of visit
         if (root == nullptr) {
             return;
         }
-        // Try
+        // Try a choice
         path.push_back(root);
         if (root->val == 7) {
             // Record the solution
@@ -302,7 +302,7 @@ Extend the first solution with a list `path` recording the current path of visit
         if (root == null) {
             return;
         }
-        // Try
+        // Try a choice
         path.add(root);
         if (root.val == 7) {
             // Record the solution
@@ -323,7 +323,7 @@ Extend the first solution with a list `path` recording the current path of visit
         if (root == null) {
             return;
         }
-        // Try
+        // Try a choice
         path.Add(root);
         if (root.val == 7) {
             // Record the solution
@@ -344,7 +344,7 @@ Extend the first solution with a list `path` recording the current path of visit
         if root == nil {
             return
         }
-        // Try
+        // Try a choice
         *path = append(*path, root)
         if root.Val.(int) == 7 {
             // Record the solution
@@ -365,7 +365,7 @@ Extend the first solution with a list `path` recording the current path of visit
         guard let root = root else {
             return
         }
-        // Try
+        // Try a choice
         path.append(root)
         if root.val == 7 {
             // Record the solution
@@ -386,7 +386,7 @@ Extend the first solution with a list `path` recording the current path of visit
         if (root === null) {
             return;
         }
-        // Try
+        // Try a choice
         path.push(root);
         if (root.val === 7) {
             // Record the solution
@@ -411,7 +411,7 @@ Extend the first solution with a list `path` recording the current path of visit
         if (root === null) {
             return;
         }
-        // Try
+        // Try a choice
         path.push(root);
         if (root.val === 7) {
             // Record the solution
@@ -437,7 +437,7 @@ Extend the first solution with a list `path` recording the current path of visit
         return;
       }
 
-      // Try
+      // Try a choice
       path.add(root);
       if (root.val == 7) {
         // Record the solution
@@ -463,7 +463,7 @@ Extend the first solution with a list `path` recording the current path of visit
             return;
         }
         if let Some(node) = root {
-            // Try
+            // Try a choice
             path.push(node.clone());
             if node.borrow().val == 7 {
                 // Record the solution
@@ -485,7 +485,7 @@ Extend the first solution with a list `path` recording the current path of visit
         if (root == NULL) {
             return;
         }
-        // Try
+        // Try a choice
         path[pathSize++] = root;
         if (root->val == 7) {
             // Record the solution
@@ -509,7 +509,7 @@ Extend the first solution with a list `path` recording the current path of visit
         if (root == null) {
             return
         }
-        // Try
+        // Try a choice
         path!!.add(root)
         if (root._val == 7) {
             // Record the solution
@@ -529,7 +529,7 @@ Extend the first solution with a list `path` recording the current path of visit
     def pre_order(root)
       return unless root
 
-      # Try
+      # Try a choice
       $path << root
 
       # Record the solution
@@ -545,15 +545,15 @@ Extend the first solution with a list `path` recording the current path of visit
 
 ??? pythontutor "Visualize execution"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20left%20child%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20right%20child%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%3A%20recursion%22%22%22%0A%20%20%20%20%23%20Return%20None%20if%20the%20index%20is%20out%20of%20bounds%20or%20the%20corresponding%20element%20is%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Create%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Recursively%20build%20the%20left%20and%20right%20subtrees%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Preorder%20traversal%3A%20example%202%22%22%22%0A%20%20%20%20if%20root%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20Try%0A%20%20%20%20path.append%28root%29%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20res.append%28list%28path%29%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%20%20%20%20%23%20Backtrack%0A%20%20%20%20path.pop%28%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Preorder%20traversal%0A%20%20%20%20path%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20res%20%3D%20list%5Blist%5BTreeNode%5D%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5CnOutput%20all%20paths%20from%20the%20root%20to%20nodes%20with%20value%207%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20left%20child%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20right%20child%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%3A%20recursion%22%22%22%0A%20%20%20%20%23%20Return%20None%20if%20the%20index%20is%20out%20of%20bounds%20or%20the%20corresponding%20element%20is%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Create%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Recursively%20build%20the%20left%20and%20right%20subtrees%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Preorder%20traversal%3A%20example%202%22%22%22%0A%20%20%20%20if%20root%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20Try%0A%20%20%20%20path.append%28root%29%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20res.append%28list%28path%29%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%20%20%20%20%23%20Backtrack%0A%20%20%20%20path.pop%28%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Preorder%20traversal%0A%20%20%20%20path%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20res%20%3D%20list%5Blist%5BTreeNode%5D%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5CnOutput%20all%20paths%20from%20the%20root%20to%20nodes%20with%20value%207%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Left%20child%20reference%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Right%20child%20reference%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%20recursively%22%22%22%0A%20%20%20%20%23%20Return%20None%20for%20an%20out-of-range%20index%20or%20a%20None%20element%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Build%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Build%20both%20subtrees%20recursively%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Preorder%20traversal%3A%20example%202%22%22%22%0A%20%20%20%20if%20root%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20Try%20a%20choice%0A%20%20%20%20path.append%28root%29%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20res.append%28list%28path%29%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%20%20%20%20%23%20Backtrack%0A%20%20%20%20path.pop%28%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Preorder%20traversal%0A%20%20%20%20path%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20res%20%3D%20list%5Blist%5BTreeNode%5D%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5CnPrint%20all%20paths%20from%20the%20root%20to%20a%20node%20with%20value%207%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Left%20child%20reference%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Right%20child%20reference%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%20recursively%22%22%22%0A%20%20%20%20%23%20Return%20None%20for%20an%20out-of-range%20index%20or%20a%20None%20element%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Build%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Build%20both%20subtrees%20recursively%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Preorder%20traversal%3A%20example%202%22%22%22%0A%20%20%20%20if%20root%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20Try%20a%20choice%0A%20%20%20%20path.append%28root%29%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20res.append%28list%28path%29%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%20%20%20%20%23%20Backtrack%0A%20%20%20%20path.pop%28%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Preorder%20traversal%0A%20%20%20%20path%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20res%20%3D%20list%5Blist%5BTreeNode%5D%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5CnPrint%20all%20paths%20from%20the%20root%20to%20a%20node%20with%20value%207%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-Each time we try a node, append it to `path`. Before backtracking, pop that node from `path` **to restore the state from before the trial**.
+When trying a choice, append the current node to `path` to record the path. Before returning, pop that node from `path` to **restore the state from before the attempt**.
 
-As Figure 13-2 illustrates, **trying a choice and backtracking are like moving forward and undoing that move**: they are inverse operations.
+In Figure 13-2, **trying a choice is a step forward and backtracking undoes that step**. The two operations are inverses.
 
 === "<1>"
-    ![Trying choices and backtracking](backtracking_algorithm.assets/preorder_find_paths_step1.svg){ class="animation-figure" }
+    ![Trying a choice and backtracking](backtracking_algorithm.assets/preorder_find_paths_step1.svg){ class="animation-figure" }
 
 === "<2>"
     ![preorder_find_paths_step2](backtracking_algorithm.assets/preorder_find_paths_step2.svg){ class="animation-figure" }
@@ -585,17 +585,17 @@ As Figure 13-2 illustrates, **trying a choice and backtracking are like moving f
 === "<11>"
     ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.svg){ class="animation-figure" }
 
-<p align="center"> Figure 13-2 &nbsp; Trying choices and backtracking </p>
+<p align="center"> Figure 13-2 &nbsp; Trying a choice and backtracking </p>
 
 ## 13.1.2 &nbsp; Pruning
 
-Complex backtracking problems usually have one or more constraints, **which can often be used for pruning**.
+More complex backtracking problems typically have one or more constraints. **These constraints often let us prune the search**.
 
 !!! question "Example 3"
 
-    Find every node with value $7$ in a binary tree and return the paths from the root to those nodes, **requiring that no path contain a node with value $3$**.
+    Find all nodes with value $7$ in a binary tree and return the paths from the root to those nodes, **excluding any path that contains a node with value $3$**.
 
-To enforce this constraint, **add a pruning step**: when a node with value $3$ is encountered, return immediately without searching farther. The code is as follows:
+To enforce this constraint, **add a pruning step**. When the search encounters a node with value $3$, return immediately and stop exploring that branch. Here is the code:
 
 === "Python"
 
@@ -605,7 +605,7 @@ To enforce this constraint, **add a pruning step**: when a node with value $3$ i
         # Prune
         if root is None or root.val == 3:
             return
-        # Try
+        # Try a choice
         path.append(root)
         if root.val == 7:
             # Record the solution
@@ -625,7 +625,7 @@ To enforce this constraint, **add a pruning step**: when a node with value $3$ i
         if (root == nullptr || root->val == 3) {
             return;
         }
-        // Try
+        // Try a choice
         path.push_back(root);
         if (root->val == 7) {
             // Record the solution
@@ -647,7 +647,7 @@ To enforce this constraint, **add a pruning step**: when a node with value $3$ i
         if (root == null || root.val == 3) {
             return;
         }
-        // Try
+        // Try a choice
         path.add(root);
         if (root.val == 7) {
             // Record the solution
@@ -669,7 +669,7 @@ To enforce this constraint, **add a pruning step**: when a node with value $3$ i
         if (root == null || root.val == 3) {
             return;
         }
-        // Try
+        // Try a choice
         path.Add(root);
         if (root.val == 7) {
             // Record the solution
@@ -691,7 +691,7 @@ To enforce this constraint, **add a pruning step**: when a node with value $3$ i
         if root == nil || root.Val == 3 {
             return
         }
-        // Try
+        // Try a choice
         *path = append(*path, root)
         if root.Val.(int) == 7 {
             // Record the solution
@@ -713,7 +713,7 @@ To enforce this constraint, **add a pruning step**: when a node with value $3$ i
         guard let root = root, root.val != 3 else {
             return
         }
-        // Try
+        // Try a choice
         path.append(root)
         if root.val == 7 {
             // Record the solution
@@ -735,7 +735,7 @@ To enforce this constraint, **add a pruning step**: when a node with value $3$ i
         if (root === null || root.val === 3) {
             return;
         }
-        // Try
+        // Try a choice
         path.push(root);
         if (root.val === 7) {
             // Record the solution
@@ -761,7 +761,7 @@ To enforce this constraint, **add a pruning step**: when a node with value $3$ i
         if (root === null || root.val === 3) {
             return;
         }
-        // Try
+        // Try a choice
         path.push(root);
         if (root.val === 7) {
             // Record the solution
@@ -787,7 +787,7 @@ To enforce this constraint, **add a pruning step**: when a node with value $3$ i
         return;
       }
 
-      // Try
+      // Try a choice
       path.add(root);
       if (root.val == 7) {
         // Record the solution
@@ -814,7 +814,7 @@ To enforce this constraint, **add a pruning step**: when a node with value $3$ i
             return;
         }
         if let Some(node) = root {
-            // Try
+            // Try a choice
             path.push(node.clone());
             if node.borrow().val == 7 {
                 // Record the solution
@@ -837,7 +837,7 @@ To enforce this constraint, **add a pruning step**: when a node with value $3$ i
         if (root == NULL || root->val == 3) {
             return;
         }
-        // Try
+        // Try a choice
         path[pathSize++] = root;
         if (root->val == 7) {
             // Record the solution
@@ -862,7 +862,7 @@ To enforce this constraint, **add a pruning step**: when a node with value $3$ i
         if (root == null || root._val == 3) {
             return
         }
-        // Try
+        // Try a choice
         path!!.add(root)
         if (root._val == 7) {
             // Record the solution
@@ -883,7 +883,7 @@ To enforce this constraint, **add a pruning step**: when a node with value $3$ i
       # Prune
       return if !root || root.val == 3
 
-      # Try
+      # Try a choice
       $path.append(root)
 
       # Record the solution
@@ -899,63 +899,63 @@ To enforce this constraint, **add a pruning step**: when a node with value $3$ i
 
 ??? pythontutor "Visualize execution"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20left%20child%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20right%20child%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%3A%20recursion%22%22%22%0A%20%20%20%20%23%20Return%20None%20if%20the%20index%20is%20out%20of%20bounds%20or%20the%20corresponding%20element%20is%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Create%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Recursively%20build%20the%20left%20and%20right%20subtrees%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Preorder%20traversal%3A%20example%203%22%22%22%0A%20%20%20%20%23%20Prune%0A%20%20%20%20if%20root%20is%20None%20or%20root.val%20%3D%3D%203%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20Try%0A%20%20%20%20path.append%28root%29%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20res.append%28list%28path%29%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%20%20%20%20%23%20Backtrack%0A%20%20%20%20path.pop%28%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Preorder%20traversal%0A%20%20%20%20path%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20res%20%3D%20list%5Blist%5BTreeNode%5D%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5CnOutput%20all%20paths%20from%20the%20root%20to%20nodes%20with%20value%207%20that%20contain%20no%20node%20with%20value%203%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20left%20child%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20right%20child%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%3A%20recursion%22%22%22%0A%20%20%20%20%23%20Return%20None%20if%20the%20index%20is%20out%20of%20bounds%20or%20the%20corresponding%20element%20is%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Create%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Recursively%20build%20the%20left%20and%20right%20subtrees%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Preorder%20traversal%3A%20example%203%22%22%22%0A%20%20%20%20%23%20Prune%0A%20%20%20%20if%20root%20is%20None%20or%20root.val%20%3D%3D%203%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20Try%0A%20%20%20%20path.append%28root%29%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20res.append%28list%28path%29%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%20%20%20%20%23%20Backtrack%0A%20%20%20%20path.pop%28%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Preorder%20traversal%0A%20%20%20%20path%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20res%20%3D%20list%5Blist%5BTreeNode%5D%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5CnOutput%20all%20paths%20from%20the%20root%20to%20nodes%20with%20value%207%20that%20contain%20no%20node%20with%20value%203%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Left%20child%20reference%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Right%20child%20reference%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%20recursively%22%22%22%0A%20%20%20%20%23%20Return%20None%20for%20an%20out-of-range%20index%20or%20a%20None%20element%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Build%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Build%20both%20subtrees%20recursively%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Preorder%20traversal%3A%20example%203%22%22%22%0A%20%20%20%20%23%20Prune%0A%20%20%20%20if%20root%20is%20None%20or%20root.val%20%3D%3D%203%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20Try%20a%20choice%0A%20%20%20%20path.append%28root%29%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20res.append%28list%28path%29%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%20%20%20%20%23%20Backtrack%0A%20%20%20%20path.pop%28%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Preorder%20traversal%0A%20%20%20%20path%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20res%20%3D%20list%5Blist%5BTreeNode%5D%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5CnPrint%20all%20paths%20from%20the%20root%20to%20a%20node%20with%20value%207%20that%20avoid%20nodes%20with%20value%203%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Left%20child%20reference%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Right%20child%20reference%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%20recursively%22%22%22%0A%20%20%20%20%23%20Return%20None%20for%20an%20out-of-range%20index%20or%20a%20None%20element%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Build%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Build%20both%20subtrees%20recursively%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Preorder%20traversal%3A%20example%203%22%22%22%0A%20%20%20%20%23%20Prune%0A%20%20%20%20if%20root%20is%20None%20or%20root.val%20%3D%3D%203%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20Try%20a%20choice%0A%20%20%20%20path.append%28root%29%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20res.append%28list%28path%29%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%20%20%20%20%23%20Backtrack%0A%20%20%20%20path.pop%28%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Preorder%20traversal%0A%20%20%20%20path%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20res%20%3D%20list%5Blist%5BTreeNode%5D%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5CnPrint%20all%20paths%20from%20the%20root%20to%20a%20node%20with%20value%207%20that%20avoid%20nodes%20with%20value%203%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-Pruning is an apt name. As shown in Figure 13-3, **we cut off search branches that violate the constraints**, avoiding pointless trials and improving efficiency.
+The image of pruning a tree fits the operation well. As the figure shows, **we cut off search branches that violate the constraint**. This saves fruitless attempts and makes the search more efficient.
 
-![Pruning according to constraints](backtracking_algorithm.assets/preorder_find_constrained_paths.svg){ class="animation-figure" }
+![Pruning branches using constraints](backtracking_algorithm.assets/preorder_find_constrained_paths.svg){ class="animation-figure" }
 
-<p align="center"> Figure 13-3 &nbsp; Pruning according to constraints </p>
+<p align="center"> Figure 13-3 &nbsp; Pruning branches using constraints </p>
 
-## 13.1.3 &nbsp; A code template
+## 13.1.3 &nbsp; A backtracking framework
 
-We will now extract the core pattern of trying, undoing, and pruning into a more general backtracking template.
+We can make the code more widely applicable by extracting the steps that backtracking problems share: try a choice, undo it, and prune invalid branches.
 
-In the following template, `state` is the current problem state, and `choices` contains the choices available from that state:
+In the framework below, `state` describes the current state of the problem, and `choices` contains the choices available in that state:
 
 === "Python"
 
     ```python title=""
     def backtrack(state: State, choices: list[Choice], res: list[State]):
-        """Backtracking template"""
-        # Check whether the state is a solution
+        """Backtracking framework"""
+        # Check for a solution
         if is_solution(state):
             # Record the solution
             record_solution(state, res)
-            # Stop searching this branch
+            # Stop searching
             return
-        # Try every choice
+        # Try each choice
         for choice in choices:
             # Prune: check whether the choice is valid
             if is_valid(state, choice):
-                # Try: make the choice and update the state
+                # Make a choice and update the state
                 make_choice(state, choice)
                 backtrack(state, choices, res)
-                # Backtrack: undo the choice and restore the previous state
+                # Backtrack: undo the choice to restore the previous state
                 undo_choice(state, choice)
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* Backtracking template */
+    /* Backtracking framework */
     void backtrack(State *state, vector<Choice *> &choices, vector<State *> &res) {
-        // Check whether the state is a solution
+        // Check for a solution
         if (isSolution(state)) {
             // Record the solution
             recordSolution(state, res);
-            // Stop searching this branch
+            // Stop searching
             return;
         }
-        // Try every choice
+        // Try each choice
         for (Choice *choice : choices) {
             // Prune: check whether the choice is valid
             if (isValid(state, choice)) {
-                // Try: make the choice and update the state
+                // Make a choice and update the state
                 makeChoice(state, choice);
                 backtrack(state, choices, res);
-                // Backtrack: undo the choice and restore the previous state
+                // Backtrack: undo the choice to restore the previous state
                 undoChoice(state, choice);
             }
         }
@@ -965,23 +965,23 @@ In the following template, `state` is the current problem state, and `choices` c
 === "Java"
 
     ```java title=""
-    /* Backtracking template */
+    /* Backtracking framework */
     void backtrack(State state, List<Choice> choices, List<State> res) {
-        // Check whether the state is a solution
+        // Check for a solution
         if (isSolution(state)) {
             // Record the solution
             recordSolution(state, res);
-            // Stop searching this branch
+            // Stop searching
             return;
         }
-        // Try every choice
+        // Try each choice
         for (Choice choice : choices) {
             // Prune: check whether the choice is valid
             if (isValid(state, choice)) {
-                // Try: make the choice and update the state
+                // Make a choice and update the state
                 makeChoice(state, choice);
                 backtrack(state, choices, res);
-                // Backtrack: undo the choice and restore the previous state
+                // Backtrack: undo the choice to restore the previous state
                 undoChoice(state, choice);
             }
         }
@@ -991,23 +991,23 @@ In the following template, `state` is the current problem state, and `choices` c
 === "C#"
 
     ```csharp title=""
-    /* Backtracking template */
+    /* Backtracking framework */
     void Backtrack(State state, List<Choice> choices, List<State> res) {
-        // Check whether the state is a solution
+        // Check for a solution
         if (IsSolution(state)) {
             // Record the solution
             RecordSolution(state, res);
-            // Stop searching this branch
+            // Stop searching
             return;
         }
-        // Try every choice
+        // Try each choice
         foreach (Choice choice in choices) {
             // Prune: check whether the choice is valid
             if (IsValid(state, choice)) {
-                // Try: make the choice and update the state
+                // Make a choice and update the state
                 MakeChoice(state, choice);
                 Backtrack(state, choices, res);
-                // Backtrack: undo the choice and restore the previous state
+                // Backtrack: undo the choice to restore the previous state
                 UndoChoice(state, choice);
             }
         }
@@ -1017,23 +1017,23 @@ In the following template, `state` is the current problem state, and `choices` c
 === "Go"
 
     ```go title=""
-    /* Backtracking template */
+    /* Backtracking framework */
     func backtrack(state *State, choices []Choice, res *[]State) {
-        // Check whether the state is a solution
+        // Check for a solution
         if isSolution(state) {
             // Record the solution
             recordSolution(state, res)
-            // Stop searching this branch
+            // Stop searching
             return
         }
-        // Try every choice
+        // Try each choice
         for _, choice := range choices {
             // Prune: check whether the choice is valid
             if isValid(state, choice) {
-                // Try: make the choice and update the state
+                // Make a choice and update the state
                 makeChoice(state, choice)
                 backtrack(state, choices, res)
-                // Backtrack: undo the choice and restore the previous state
+                // Backtrack: undo the choice to restore the previous state
                 undoChoice(state, choice)
             }
         }
@@ -1043,23 +1043,23 @@ In the following template, `state` is the current problem state, and `choices` c
 === "Swift"
 
     ```swift title=""
-    /* Backtracking template */
+    /* Backtracking framework */
     func backtrack(state: inout State, choices: [Choice], res: inout [State]) {
-        // Check whether the state is a solution
+        // Check for a solution
         if isSolution(state: state) {
             // Record the solution
             recordSolution(state: state, res: &res)
-            // Stop searching this branch
+            // Stop searching
             return
         }
-        // Try every choice
+        // Try each choice
         for choice in choices {
             // Prune: check whether the choice is valid
             if isValid(state: state, choice: choice) {
-                // Try: make the choice and update the state
+                // Make a choice and update the state
                 makeChoice(state: &state, choice: choice)
                 backtrack(state: &state, choices: choices, res: &res)
-                // Backtrack: undo the choice and restore the previous state
+                // Backtrack: undo the choice to restore the previous state
                 undoChoice(state: &state, choice: choice)
             }
         }
@@ -1069,23 +1069,23 @@ In the following template, `state` is the current problem state, and `choices` c
 === "JS"
 
     ```javascript title=""
-    /* Backtracking template */
+    /* Backtracking framework */
     function backtrack(state, choices, res) {
-        // Check whether the state is a solution
+        // Check for a solution
         if (isSolution(state)) {
             // Record the solution
             recordSolution(state, res);
-            // Stop searching this branch
+            // Stop searching
             return;
         }
-        // Try every choice
+        // Try each choice
         for (let choice of choices) {
             // Prune: check whether the choice is valid
             if (isValid(state, choice)) {
-                // Try: make the choice and update the state
+                // Make a choice and update the state
                 makeChoice(state, choice);
                 backtrack(state, choices, res);
-                // Backtrack: undo the choice and restore the previous state
+                // Backtrack: undo the choice to restore the previous state
                 undoChoice(state, choice);
             }
         }
@@ -1095,23 +1095,23 @@ In the following template, `state` is the current problem state, and `choices` c
 === "TS"
 
     ```typescript title=""
-    /* Backtracking template */
+    /* Backtracking framework */
     function backtrack(state: State, choices: Choice[], res: State[]): void {
-        // Check whether the state is a solution
+        // Check for a solution
         if (isSolution(state)) {
             // Record the solution
             recordSolution(state, res);
-            // Stop searching this branch
+            // Stop searching
             return;
         }
-        // Try every choice
+        // Try each choice
         for (let choice of choices) {
             // Prune: check whether the choice is valid
             if (isValid(state, choice)) {
-                // Try: make the choice and update the state
+                // Make a choice and update the state
                 makeChoice(state, choice);
                 backtrack(state, choices, res);
-                // Backtrack: undo the choice and restore the previous state
+                // Backtrack: undo the choice to restore the previous state
                 undoChoice(state, choice);
             }
         }
@@ -1121,23 +1121,23 @@ In the following template, `state` is the current problem state, and `choices` c
 === "Dart"
 
     ```dart title=""
-    /* Backtracking template */
+    /* Backtracking framework */
     void backtrack(State state, List<Choice> choices, List<State> res) {
-      // Check whether the state is a solution
+      // Check for a solution
       if (isSolution(state)) {
         // Record the solution
         recordSolution(state, res);
-        // Stop searching this branch
+        // Stop searching
         return;
       }
-      // Try every choice
+      // Try each choice
       for (Choice choice in choices) {
         // Prune: check whether the choice is valid
         if (isValid(state, choice)) {
-          // Try: make the choice and update the state
+          // Make a choice and update the state
           makeChoice(state, choice);
           backtrack(state, choices, res);
-          // Backtrack: undo the choice and restore the previous state
+          // Backtrack: undo the choice to restore the previous state
           undoChoice(state, choice);
         }
       }
@@ -1147,23 +1147,23 @@ In the following template, `state` is the current problem state, and `choices` c
 === "Rust"
 
     ```rust title=""
-    /* Backtracking template */
+    /* Backtracking framework */
     fn backtrack(state: &mut State, choices: &Vec<Choice>, res: &mut Vec<State>) {
-        // Check whether the state is a solution
+        // Check for a solution
         if is_solution(state) {
             // Record the solution
             record_solution(state, res);
-            // Stop searching this branch
+            // Stop searching
             return;
         }
-        // Try every choice
+        // Try each choice
         for choice in choices {
             // Prune: check whether the choice is valid
             if is_valid(state, choice) {
-                // Try: make the choice and update the state
+                // Make a choice and update the state
                 make_choice(state, choice);
                 backtrack(state, choices, res);
-                // Backtrack: undo the choice and restore the previous state
+                // Backtrack: undo the choice to restore the previous state
                 undo_choice(state, choice);
             }
         }
@@ -1173,23 +1173,23 @@ In the following template, `state` is the current problem state, and `choices` c
 === "C"
 
     ```c title=""
-    /* Backtracking template */
+    /* Backtracking framework */
     void backtrack(State *state, Choice *choices, int numChoices, State *res, int numRes) {
-        // Check whether the state is a solution
+        // Check for a solution
         if (isSolution(state)) {
             // Record the solution
             recordSolution(state, res, numRes);
-            // Stop searching this branch
+            // Stop searching
             return;
         }
-        // Try every choice
+        // Try each choice
         for (int i = 0; i < numChoices; i++) {
             // Prune: check whether the choice is valid
             if (isValid(state, &choices[i])) {
-                // Try: make the choice and update the state
+                // Make a choice and update the state
                 makeChoice(state, &choices[i]);
                 backtrack(state, choices, numChoices, res, numRes);
-                // Backtrack: undo the choice and restore the previous state
+                // Backtrack: undo the choice to restore the previous state
                 undoChoice(state, &choices[i]);
             }
         }
@@ -1199,23 +1199,23 @@ In the following template, `state` is the current problem state, and `choices` c
 === "Kotlin"
 
     ```kotlin title=""
-    /* Backtracking template */
+    /* Backtracking framework */
     fun backtrack(state: State?, choices: List<Choice?>, res: List<State?>?) {
-        // Check whether the state is a solution
+        // Check for a solution
         if (isSolution(state)) {
             // Record the solution
             recordSolution(state, res)
-            // Stop searching this branch
+            // Stop searching
             return
         }
-        // Try every choice
+        // Try each choice
         for (choice in choices) {
             // Prune: check whether the choice is valid
             if (isValid(state, choice)) {
-                // Try: make the choice and update the state
+                // Make a choice and update the state
                 makeChoice(state, choice)
                 backtrack(state, choices, res)
-                // Backtrack: undo the choice and restore the previous state
+                // Backtrack: undo the choice to restore the previous state
                 undoChoice(state, choice)
             }
         }
@@ -1225,30 +1225,30 @@ In the following template, `state` is the current problem state, and `choices` c
 === "Ruby"
 
     ```ruby title=""
-    ### Backtracking template ###
+    ### Backtracking framework ###
     def backtrack(state, choices, res)
-        # Check whether the state is a solution
+        # Check for a solution
         if is_solution?(state)
             # Record the solution
             record_solution(state, res)
             return
         end
 
-        # Try every choice
+        # Try each choice
         for choice in choices
             # Prune: check whether the choice is valid
             if is_valid?(state, choice)
-                # Try: make the choice and update the state
+                # Make a choice and update the state
                 make_choice(state, choice)
                 backtrack(state, choices, res)
-                # Backtrack: undo the choice and restore the previous state
+                # Backtrack: undo the choice to restore the previous state
                 undo_choice(state, choice)
             end
         end
     end
     ```
 
-Now apply this template to Example 3. The `state` is the current path of visited nodes, `choices` consists of the current node's left and right children, and `res` is the list of paths:
+We can now use this framework to solve example 3. The state `state` is the current path of nodes, the choices `choices` are the current node’s left and right children, and the result `res` is a list of paths:
 
 === "Python"
 
@@ -1262,7 +1262,7 @@ Now apply this template to Example 3. The `state` is the current path of visited
         res.append(list(state))
 
     def is_valid(state: list[TreeNode], choice: TreeNode) -> bool:
-        """Check whether the choice is valid in the current state"""
+        """Check whether this choice is valid in the current state"""
         return choice is not None and choice.val != 3
 
     def make_choice(state: list[TreeNode], choice: TreeNode):
@@ -1277,19 +1277,19 @@ Now apply this template to Example 3. The `state` is the current path of visited
         state: list[TreeNode], choices: list[TreeNode], res: list[list[TreeNode]]
     ):
         """Backtracking: example 3"""
-        # Check whether this is a solution
+        # Check for a solution
         if is_solution(state):
             # Record the solution
             record_solution(state, res)
-        # Iterate over all choices
+        # Try each choice
         for choice in choices:
             # Prune: check whether the choice is valid
             if is_valid(state, choice):
-                # Try: make a choice and update the state
+                # Make a choice and update the state
                 make_choice(state, choice)
-                # Proceed to the next choice
+                # Make the next choice
                 backtrack(state, [choice.left, choice.right], res)
-                # Backtrack: undo the choice and restore the previous state
+                # Backtrack: undo the choice to restore the previous state
                 undo_choice(state, choice)
     ```
 
@@ -1306,7 +1306,7 @@ Now apply this template to Example 3. The `state` is the current path of visited
         res.push_back(state);
     }
 
-    /* Check whether the choice is valid in the current state */
+    /* Check whether this choice is valid in the current state */
     bool isValid(vector<TreeNode *> &state, TreeNode *choice) {
         return choice != nullptr && choice->val != 3;
     }
@@ -1323,21 +1323,21 @@ Now apply this template to Example 3. The `state` is the current path of visited
 
     /* Backtracking: example 3 */
     void backtrack(vector<TreeNode *> &state, vector<TreeNode *> &choices, vector<vector<TreeNode *>> &res) {
-        // Check whether this is a solution
+        // Check for a solution
         if (isSolution(state)) {
             // Record the solution
             recordSolution(state, res);
         }
-        // Iterate over all choices
+        // Try each choice
         for (TreeNode *choice : choices) {
             // Prune: check whether the choice is valid
             if (isValid(state, choice)) {
-                // Try: make a choice and update the state
+                // Make a choice and update the state
                 makeChoice(state, choice);
-                // Proceed to the next choice
+                // Make the next choice
                 vector<TreeNode *> nextChoices{choice->left, choice->right};
                 backtrack(state, nextChoices, res);
-                // Backtrack: undo the choice and restore the previous state
+                // Backtrack: undo the choice to restore the previous state
                 undoChoice(state, choice);
             }
         }
@@ -1357,7 +1357,7 @@ Now apply this template to Example 3. The `state` is the current path of visited
         res.add(new ArrayList<>(state));
     }
 
-    /* Check whether the choice is valid in the current state */
+    /* Check whether this choice is valid in the current state */
     boolean isValid(List<TreeNode> state, TreeNode choice) {
         return choice != null && choice.val != 3;
     }
@@ -1374,20 +1374,20 @@ Now apply this template to Example 3. The `state` is the current path of visited
 
     /* Backtracking: example 3 */
     void backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res) {
-        // Check whether this is a solution
+        // Check for a solution
         if (isSolution(state)) {
             // Record the solution
             recordSolution(state, res);
         }
-        // Iterate over all choices
+        // Try each choice
         for (TreeNode choice : choices) {
             // Prune: check whether the choice is valid
             if (isValid(state, choice)) {
-                // Try: make a choice and update the state
+                // Make a choice and update the state
                 makeChoice(state, choice);
-                // Proceed to the next choice
+                // Make the next choice
                 backtrack(state, Arrays.asList(choice.left, choice.right), res);
-                // Backtrack: undo the choice and restore the previous state
+                // Backtrack: undo the choice to restore the previous state
                 undoChoice(state, choice);
             }
         }
@@ -1407,7 +1407,7 @@ Now apply this template to Example 3. The `state` is the current path of visited
         res.Add(new List<TreeNode>(state));
     }
 
-    /* Check whether the choice is valid in the current state */
+    /* Check whether this choice is valid in the current state */
     bool IsValid(List<TreeNode> state, TreeNode choice) {
         return choice != null && choice.val != 3;
     }
@@ -1424,20 +1424,20 @@ Now apply this template to Example 3. The `state` is the current path of visited
 
     /* Backtracking: example 3 */
     void Backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res) {
-        // Check whether this is a solution
+        // Check for a solution
         if (IsSolution(state)) {
             // Record the solution
             RecordSolution(state, res);
         }
-        // Iterate over all choices
+        // Try each choice
         foreach (TreeNode choice in choices) {
             // Prune: check whether the choice is valid
             if (IsValid(state, choice)) {
-                // Try: make a choice and update the state
+                // Make a choice and update the state
                 MakeChoice(state, choice);
-                // Proceed to the next choice
+                // Make the next choice
                 Backtrack(state, [choice.left!, choice.right!], res);
-                // Backtrack: undo the choice and restore the previous state
+                // Backtrack: undo the choice to restore the previous state
                 UndoChoice(state, choice);
             }
         }
@@ -1457,7 +1457,7 @@ Now apply this template to Example 3. The `state` is the current path of visited
         *res = append(*res, append([]*TreeNode{}, *state...))
     }
 
-    /* Check whether the choice is valid in the current state */
+    /* Check whether this choice is valid in the current state */
     func isValid(state *[]*TreeNode, choice *TreeNode) bool {
         return choice != nil && choice.Val != 3
     }
@@ -1474,22 +1474,22 @@ Now apply this template to Example 3. The `state` is the current path of visited
 
     /* Backtracking: example 3 */
     func backtrackIII(state *[]*TreeNode, choices *[]*TreeNode, res *[][]*TreeNode) {
-        // Check whether this is a solution
+        // Check for a solution
         if isSolution(state) {
             // Record the solution
             recordSolution(state, res)
         }
-        // Iterate over all choices
+        // Try each choice
         for _, choice := range *choices {
             // Prune: check whether the choice is valid
             if isValid(state, choice) {
-                // Try: make a choice and update the state
+                // Make a choice and update the state
                 makeChoice(state, choice)
-                // Proceed to the next choice
+                // Make the next choice
                 temp := make([]*TreeNode, 0)
                 temp = append(temp, choice.Left, choice.Right)
                 backtrackIII(state, &temp, res)
-                // Backtrack: undo the choice and restore the previous state
+                // Backtrack: undo the choice to restore the previous state
                 undoChoice(state, choice)
             }
         }
@@ -1509,7 +1509,7 @@ Now apply this template to Example 3. The `state` is the current path of visited
         res.append(state)
     }
 
-    /* Check whether the choice is valid in the current state */
+    /* Check whether this choice is valid in the current state */
     func isValid(state: [TreeNode], choice: TreeNode?) -> Bool {
         choice != nil && choice!.val != 3
     }
@@ -1526,19 +1526,19 @@ Now apply this template to Example 3. The `state` is the current path of visited
 
     /* Backtracking: example 3 */
     func backtrack(state: inout [TreeNode], choices: [TreeNode], res: inout [[TreeNode]]) {
-        // Check whether this is a solution
+        // Check for a solution
         if isSolution(state: state) {
             recordSolution(state: state, res: &res)
         }
-        // Iterate over all choices
+        // Try each choice
         for choice in choices {
             // Prune: check whether the choice is valid
             if isValid(state: state, choice: choice) {
-                // Try: make a choice and update the state
+                // Make a choice and update the state
                 makeChoice(state: &state, choice: choice)
-                // Proceed to the next choice
+                // Make the next choice
                 backtrack(state: &state, choices: [choice.left, choice.right].compactMap { $0 }, res: &res)
-                // Backtrack: undo the choice and restore the previous state
+                // Backtrack: undo the choice to restore the previous state
                 undoChoice(state: &state, choice: choice)
             }
         }
@@ -1558,7 +1558,7 @@ Now apply this template to Example 3. The `state` is the current path of visited
         res.push([...state]);
     }
 
-    /* Check whether the choice is valid in the current state */
+    /* Check whether this choice is valid in the current state */
     function isValid(state, choice) {
         return choice !== null && choice.val !== 3;
     }
@@ -1575,20 +1575,20 @@ Now apply this template to Example 3. The `state` is the current path of visited
 
     /* Backtracking: example 3 */
     function backtrack(state, choices, res) {
-        // Check whether this is a solution
+        // Check for a solution
         if (isSolution(state)) {
             // Record the solution
             recordSolution(state, res);
         }
-        // Iterate over all choices
+        // Try each choice
         for (const choice of choices) {
             // Prune: check whether the choice is valid
             if (isValid(state, choice)) {
-                // Try: make a choice and update the state
+                // Make a choice and update the state
                 makeChoice(state, choice);
-                // Proceed to the next choice
+                // Make the next choice
                 backtrack(state, [choice.left, choice.right], res);
-                // Backtrack: undo the choice and restore the previous state
+                // Backtrack: undo the choice to restore the previous state
                 undoChoice(state);
             }
         }
@@ -1608,7 +1608,7 @@ Now apply this template to Example 3. The `state` is the current path of visited
         res.push([...state]);
     }
 
-    /* Check whether the choice is valid in the current state */
+    /* Check whether this choice is valid in the current state */
     function isValid(state: TreeNode[], choice: TreeNode): boolean {
         return choice !== null && choice.val !== 3;
     }
@@ -1629,20 +1629,20 @@ Now apply this template to Example 3. The `state` is the current path of visited
         choices: TreeNode[],
         res: TreeNode[][]
     ): void {
-        // Check whether this is a solution
+        // Check for a solution
         if (isSolution(state)) {
             // Record the solution
             recordSolution(state, res);
         }
-        // Iterate over all choices
+        // Try each choice
         for (const choice of choices) {
             // Prune: check whether the choice is valid
             if (isValid(state, choice)) {
-                // Try: make a choice and update the state
+                // Make a choice and update the state
                 makeChoice(state, choice);
-                // Proceed to the next choice
+                // Make the next choice
                 backtrack(state, [choice.left, choice.right], res);
-                // Backtrack: undo the choice and restore the previous state
+                // Backtrack: undo the choice to restore the previous state
                 undoChoice(state);
             }
         }
@@ -1662,7 +1662,7 @@ Now apply this template to Example 3. The `state` is the current path of visited
       res.add(List.from(state));
     }
 
-    /* Check whether the choice is valid in the current state */
+    /* Check whether this choice is valid in the current state */
     bool isValid(List<TreeNode> state, TreeNode? choice) {
       return choice != null && choice.val != 3;
     }
@@ -1683,20 +1683,20 @@ Now apply this template to Example 3. The `state` is the current path of visited
       List<TreeNode?> choices,
       List<List<TreeNode>> res,
     ) {
-      // Check whether this is a solution
+      // Check for a solution
       if (isSolution(state)) {
         // Record the solution
         recordSolution(state, res);
       }
-      // Iterate over all choices
+      // Try each choice
       for (TreeNode? choice in choices) {
         // Prune: check whether the choice is valid
         if (isValid(state, choice)) {
-          // Try: make a choice and update the state
+          // Make a choice and update the state
           makeChoice(state, choice);
-          // Proceed to the next choice
+          // Make the next choice
           backtrack(state, [choice!.left, choice.right], res);
-          // Backtrack: undo the choice and restore the previous state
+          // Backtrack: undo the choice to restore the previous state
           undoChoice(state, choice);
         }
       }
@@ -1719,7 +1719,7 @@ Now apply this template to Example 3. The `state` is the current path of visited
         res.push(state.clone());
     }
 
-    /* Check whether the choice is valid in the current state */
+    /* Check whether this choice is valid in the current state */
     fn is_valid(_: &mut Vec<Rc<RefCell<TreeNode>>>, choice: Option<&Rc<RefCell<TreeNode>>>) -> bool {
         return choice.is_some() && choice.unwrap().borrow().val != 3;
     }
@@ -1740,18 +1740,18 @@ Now apply this template to Example 3. The `state` is the current path of visited
         choices: &Vec<Option<&Rc<RefCell<TreeNode>>>>,
         res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
     ) {
-        // Check whether this is a solution
+        // Check for a solution
         if is_solution(state) {
             // Record the solution
             record_solution(state, res);
         }
-        // Iterate over all choices
+        // Try each choice
         for &choice in choices.iter() {
             // Prune: check whether the choice is valid
             if is_valid(state, choice) {
-                // Try: make a choice and update the state
+                // Make a choice and update the state
                 make_choice(state, choice.unwrap().clone());
-                // Proceed to the next choice
+                // Make the next choice
                 backtrack(
                     state,
                     &vec![
@@ -1760,7 +1760,7 @@ Now apply this template to Example 3. The `state` is the current path of visited
                     ],
                     res,
                 );
-                // Backtrack: undo the choice and restore the previous state
+                // Backtrack: undo the choice to restore the previous state
                 undo_choice(state, choice.unwrap().clone());
             }
         }
@@ -1783,7 +1783,7 @@ Now apply this template to Example 3. The `state` is the current path of visited
         resSize++;
     }
 
-    /* Check whether the choice is valid in the current state */
+    /* Check whether this choice is valid in the current state */
     bool isValid(TreeNode *choice) {
         return choice != NULL && choice->val != 3;
     }
@@ -1800,22 +1800,22 @@ Now apply this template to Example 3. The `state` is the current path of visited
 
     /* Backtracking: example 3 */
     void backtrack(TreeNode *choices[2]) {
-        // Check whether this is a solution
+        // Check for a solution
         if (isSolution()) {
             // Record the solution
             recordSolution();
         }
-        // Iterate over all choices
+        // Try each choice
         for (int i = 0; i < 2; i++) {
             TreeNode *choice = choices[i];
             // Prune: check whether the choice is valid
             if (isValid(choice)) {
-                // Try: make a choice and update the state
+                // Make a choice and update the state
                 makeChoice(choice);
-                // Proceed to the next choice
+                // Make the next choice
                 TreeNode *nextChoices[2] = {choice->left, choice->right};
                 backtrack(nextChoices);
-                // Backtrack: undo the choice and restore the previous state
+                // Backtrack: undo the choice to restore the previous state
                 undoChoice();
             }
         }
@@ -1835,7 +1835,7 @@ Now apply this template to Example 3. The `state` is the current path of visited
         res.add(state!!.toMutableList())
     }
 
-    /* Check whether the choice is valid in the current state */
+    /* Check whether this choice is valid in the current state */
     fun isValid(state: MutableList<TreeNode?>?, choice: TreeNode?): Boolean {
         return choice != null && choice._val != 3
     }
@@ -1856,20 +1856,20 @@ Now apply this template to Example 3. The `state` is the current path of visited
         choices: MutableList<TreeNode?>,
         res: MutableList<MutableList<TreeNode?>?>
     ) {
-        // Check whether this is a solution
+        // Check for a solution
         if (isSolution(state)) {
             // Record the solution
             recordSolution(state, res)
         }
-        // Iterate over all choices
+        // Try each choice
         for (choice in choices) {
             // Prune: check whether the choice is valid
             if (isValid(state, choice)) {
-                // Try: make a choice and update the state
+                // Make a choice and update the state
                 makeChoice(state, choice)
-                // Proceed to the next choice
+                // Make the next choice
                 backtrack(state, mutableListOf(choice!!.left, choice.right), res)
-                // Backtrack: undo the choice and restore the previous state
+                // Backtrack: undo the choice to restore the previous state
                 undoChoice(state, choice)
             }
         }
@@ -1889,7 +1889,7 @@ Now apply this template to Example 3. The `state` is the current path of visited
       res << state.dup
     end
 
-    ### Check whether the choice is valid in the current state ###
+    ### Check whether this choice is valid in the current state ###
     def is_valid?(state, choice)
       choice && choice.val != 3
     end
@@ -1906,18 +1906,18 @@ Now apply this template to Example 3. The `state` is the current path of visited
 
     ### Backtracking: example 3 ###
     def backtrack(state, choices, res)
-      # Check whether this is a solution
+      # Check for a solution
       record_solution(state, res) if is_solution?(state)
 
-      # Iterate over all choices
+      # Try each choice
       for choice in choices
         # Prune: check whether the choice is valid
         if is_valid?(state, choice)
-          # Try: make a choice and update the state
+          # Make a choice and update the state
           make_choice(state, choice)
-          # Proceed to the next choice
+          # Make the next choice
           backtrack(state, [choice.left, choice.right], res)
-          # Backtrack: undo the choice and restore the previous state
+          # Backtrack: undo the choice to restore the previous state
           undo_choice(state, choice)
         end
       end
@@ -1926,78 +1926,78 @@ Now apply this template to Example 3. The `state` is the current path of visited
 
 ??? pythontutor "Visualize execution"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20left%20child%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20right%20child%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%3A%20recursion%22%22%22%0A%20%20%20%20%23%20Return%20None%20if%20the%20index%20is%20out%20of%20bounds%20or%20the%20corresponding%20element%20is%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Create%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Recursively%20build%20the%20left%20and%20right%20subtrees%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20is_solution%28state%3A%20list%5BTreeNode%5D%29%20-%3E%20bool%3A%0A%20%20%20%20%22%22%22Check%20whether%20the%20current%20state%20is%20a%20solution%22%22%22%0A%20%20%20%20return%20state%20and%20state%5B-1%5D.val%20%3D%3D%207%0A%0Adef%20record_solution%28state%3A%20list%5BTreeNode%5D,%20res%3A%20list%5Blist%5BTreeNode%5D%5D%29%3A%0A%20%20%20%20%22%22%22Record%20the%20solution%22%22%22%0A%20%20%20%20res.append%28list%28state%29%29%0A%0Adef%20is_valid%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%20-%3E%20bool%3A%0A%20%20%20%20%22%22%22Check%20whether%20the%20choice%20is%20valid%20in%20the%20current%20state%22%22%22%0A%20%20%20%20return%20choice%20is%20not%20None%20and%20choice.val%20%21%3D%203%0A%0Adef%20make_choice%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Update%20the%20state%22%22%22%0A%20%20%20%20state.append%28choice%29%0A%0Adef%20undo_choice%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Restore%20the%20state%22%22%22%0A%20%20%20%20state.pop%28%29%0A%0Adef%20backtrack%28%0A%20%20%20%20state%3A%20list%5BTreeNode%5D,%20choices%3A%20list%5BTreeNode%5D,%20res%3A%20list%5Blist%5BTreeNode%5D%5D%0A%29%3A%0A%20%20%20%20%22%22%22Backtracking%3A%20example%203%22%22%22%0A%20%20%20%20%23%20Check%20whether%20this%20is%20a%20solution%0A%20%20%20%20if%20is_solution%28state%29%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20record_solution%28state,%20res%29%0A%20%20%20%20%23%20Iterate%20over%20all%20choices%0A%20%20%20%20for%20choice%20in%20choices%3A%0A%20%20%20%20%20%20%20%20%23%20Prune%3A%20check%20whether%20the%20choice%20is%20valid%0A%20%20%20%20%20%20%20%20if%20is_valid%28state,%20choice%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Try%3A%20make%20a%20choice%20and%20update%20the%20state%0A%20%20%20%20%20%20%20%20%20%20%20%20make_choice%28state,%20choice%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Proceed%20to%20the%20next%20choice%0A%20%20%20%20%20%20%20%20%20%20%20%20backtrack%28state,%20%5Bchoice.left,%20choice.right%5D,%20res%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Backtrack%3A%20undo%20the%20choice%20and%20restore%20the%20previous%20state%0A%20%20%20%20%20%20%20%20%20%20%20%20undo_choice%28state,%20choice%29%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Backtracking%20algorithm%0A%20%20%20%20res%20%3D%20%5B%5D%0A%20%20%20%20backtrack%28state%3D%5B%5D,%20choices%3D%5Broot%5D,%20res%3Dres%29%0A%20%20%20%20print%28%22%5CnOutput%20all%20paths%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=138&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20left%20child%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20right%20child%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%3A%20recursion%22%22%22%0A%20%20%20%20%23%20Return%20None%20if%20the%20index%20is%20out%20of%20bounds%20or%20the%20corresponding%20element%20is%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Create%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Recursively%20build%20the%20left%20and%20right%20subtrees%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20is_solution%28state%3A%20list%5BTreeNode%5D%29%20-%3E%20bool%3A%0A%20%20%20%20%22%22%22Check%20whether%20the%20current%20state%20is%20a%20solution%22%22%22%0A%20%20%20%20return%20state%20and%20state%5B-1%5D.val%20%3D%3D%207%0A%0Adef%20record_solution%28state%3A%20list%5BTreeNode%5D,%20res%3A%20list%5Blist%5BTreeNode%5D%5D%29%3A%0A%20%20%20%20%22%22%22Record%20the%20solution%22%22%22%0A%20%20%20%20res.append%28list%28state%29%29%0A%0Adef%20is_valid%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%20-%3E%20bool%3A%0A%20%20%20%20%22%22%22Check%20whether%20the%20choice%20is%20valid%20in%20the%20current%20state%22%22%22%0A%20%20%20%20return%20choice%20is%20not%20None%20and%20choice.val%20%21%3D%203%0A%0Adef%20make_choice%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Update%20the%20state%22%22%22%0A%20%20%20%20state.append%28choice%29%0A%0Adef%20undo_choice%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Restore%20the%20state%22%22%22%0A%20%20%20%20state.pop%28%29%0A%0Adef%20backtrack%28%0A%20%20%20%20state%3A%20list%5BTreeNode%5D,%20choices%3A%20list%5BTreeNode%5D,%20res%3A%20list%5Blist%5BTreeNode%5D%5D%0A%29%3A%0A%20%20%20%20%22%22%22Backtracking%3A%20example%203%22%22%22%0A%20%20%20%20%23%20Check%20whether%20this%20is%20a%20solution%0A%20%20%20%20if%20is_solution%28state%29%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20record_solution%28state,%20res%29%0A%20%20%20%20%23%20Iterate%20over%20all%20choices%0A%20%20%20%20for%20choice%20in%20choices%3A%0A%20%20%20%20%20%20%20%20%23%20Prune%3A%20check%20whether%20the%20choice%20is%20valid%0A%20%20%20%20%20%20%20%20if%20is_valid%28state,%20choice%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Try%3A%20make%20a%20choice%20and%20update%20the%20state%0A%20%20%20%20%20%20%20%20%20%20%20%20make_choice%28state,%20choice%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Proceed%20to%20the%20next%20choice%0A%20%20%20%20%20%20%20%20%20%20%20%20backtrack%28state,%20%5Bchoice.left,%20choice.right%5D,%20res%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Backtrack%3A%20undo%20the%20choice%20and%20restore%20the%20previous%20state%0A%20%20%20%20%20%20%20%20%20%20%20%20undo_choice%28state,%20choice%29%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Backtracking%20algorithm%0A%20%20%20%20res%20%3D%20%5B%5D%0A%20%20%20%20backtrack%28state%3D%5B%5D,%20choices%3D%5Broot%5D,%20res%3Dres%29%0A%20%20%20%20print%28%22%5CnOutput%20all%20paths%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=138&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Left%20child%20reference%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Right%20child%20reference%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%20recursively%22%22%22%0A%20%20%20%20%23%20Return%20None%20for%20an%20out-of-range%20index%20or%20a%20None%20element%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Build%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Build%20both%20subtrees%20recursively%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20is_solution%28state%3A%20list%5BTreeNode%5D%29%20-%3E%20bool%3A%0A%20%20%20%20%22%22%22Check%20whether%20the%20current%20state%20is%20a%20solution%22%22%22%0A%20%20%20%20return%20state%20and%20state%5B-1%5D.val%20%3D%3D%207%0A%0Adef%20record_solution%28state%3A%20list%5BTreeNode%5D,%20res%3A%20list%5Blist%5BTreeNode%5D%5D%29%3A%0A%20%20%20%20%22%22%22Record%20the%20solution%22%22%22%0A%20%20%20%20res.append%28list%28state%29%29%0A%0Adef%20is_valid%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%20-%3E%20bool%3A%0A%20%20%20%20%22%22%22Check%20whether%20this%20choice%20is%20valid%20in%20the%20current%20state%22%22%22%0A%20%20%20%20return%20choice%20is%20not%20None%20and%20choice.val%20%21%3D%203%0A%0Adef%20make_choice%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Update%20the%20state%22%22%22%0A%20%20%20%20state.append%28choice%29%0A%0Adef%20undo_choice%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Restore%20the%20state%22%22%22%0A%20%20%20%20state.pop%28%29%0A%0Adef%20backtrack%28%0A%20%20%20%20state%3A%20list%5BTreeNode%5D,%20choices%3A%20list%5BTreeNode%5D,%20res%3A%20list%5Blist%5BTreeNode%5D%5D%0A%29%3A%0A%20%20%20%20%22%22%22Backtracking%3A%20example%203%22%22%22%0A%20%20%20%20%23%20Check%20for%20a%20solution%0A%20%20%20%20if%20is_solution%28state%29%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20record_solution%28state,%20res%29%0A%20%20%20%20%23%20Try%20each%20choice%0A%20%20%20%20for%20choice%20in%20choices%3A%0A%20%20%20%20%20%20%20%20%23%20Prune%3A%20check%20whether%20the%20choice%20is%20valid%0A%20%20%20%20%20%20%20%20if%20is_valid%28state,%20choice%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Make%20a%20choice%20and%20update%20the%20state%0A%20%20%20%20%20%20%20%20%20%20%20%20make_choice%28state,%20choice%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Make%20the%20next%20choice%0A%20%20%20%20%20%20%20%20%20%20%20%20backtrack%28state,%20%5Bchoice.left,%20choice.right%5D,%20res%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Backtrack%3A%20undo%20the%20choice%20to%20restore%20the%20previous%20state%0A%20%20%20%20%20%20%20%20%20%20%20%20undo_choice%28state,%20choice%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Backtracking%0A%20%20%20%20res%20%3D%20%5B%5D%0A%20%20%20%20backtrack%28state%3D%5B%5D,%20choices%3D%5Broot%5D,%20res%3Dres%29%0A%20%20%20%20print%28%22%5CnPrint%20all%20paths%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=138&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Left%20child%20reference%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Right%20child%20reference%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%20recursively%22%22%22%0A%20%20%20%20%23%20Return%20None%20for%20an%20out-of-range%20index%20or%20a%20None%20element%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20Build%20the%20current%20node%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20Build%20both%20subtrees%20recursively%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22Deserialize%20a%20list%20into%20a%20binary%20tree%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20is_solution%28state%3A%20list%5BTreeNode%5D%29%20-%3E%20bool%3A%0A%20%20%20%20%22%22%22Check%20whether%20the%20current%20state%20is%20a%20solution%22%22%22%0A%20%20%20%20return%20state%20and%20state%5B-1%5D.val%20%3D%3D%207%0A%0Adef%20record_solution%28state%3A%20list%5BTreeNode%5D,%20res%3A%20list%5Blist%5BTreeNode%5D%5D%29%3A%0A%20%20%20%20%22%22%22Record%20the%20solution%22%22%22%0A%20%20%20%20res.append%28list%28state%29%29%0A%0Adef%20is_valid%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%20-%3E%20bool%3A%0A%20%20%20%20%22%22%22Check%20whether%20this%20choice%20is%20valid%20in%20the%20current%20state%22%22%22%0A%20%20%20%20return%20choice%20is%20not%20None%20and%20choice.val%20%21%3D%203%0A%0Adef%20make_choice%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Update%20the%20state%22%22%22%0A%20%20%20%20state.append%28choice%29%0A%0Adef%20undo_choice%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22Restore%20the%20state%22%22%22%0A%20%20%20%20state.pop%28%29%0A%0Adef%20backtrack%28%0A%20%20%20%20state%3A%20list%5BTreeNode%5D,%20choices%3A%20list%5BTreeNode%5D,%20res%3A%20list%5Blist%5BTreeNode%5D%5D%0A%29%3A%0A%20%20%20%20%22%22%22Backtracking%3A%20example%203%22%22%22%0A%20%20%20%20%23%20Check%20for%20a%20solution%0A%20%20%20%20if%20is_solution%28state%29%3A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20solution%0A%20%20%20%20%20%20%20%20record_solution%28state,%20res%29%0A%20%20%20%20%23%20Try%20each%20choice%0A%20%20%20%20for%20choice%20in%20choices%3A%0A%20%20%20%20%20%20%20%20%23%20Prune%3A%20check%20whether%20the%20choice%20is%20valid%0A%20%20%20%20%20%20%20%20if%20is_valid%28state,%20choice%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Make%20a%20choice%20and%20update%20the%20state%0A%20%20%20%20%20%20%20%20%20%20%20%20make_choice%28state,%20choice%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Make%20the%20next%20choice%0A%20%20%20%20%20%20%20%20%20%20%20%20backtrack%28state,%20%5Bchoice.left,%20choice.right%5D,%20res%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Backtrack%3A%20undo%20the%20choice%20to%20restore%20the%20previous%20state%0A%20%20%20%20%20%20%20%20%20%20%20%20undo_choice%28state,%20choice%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20Backtracking%0A%20%20%20%20res%20%3D%20%5B%5D%0A%20%20%20%20backtrack%28state%3D%5B%5D,%20choices%3D%5Broot%5D,%20res%3Dres%29%0A%20%20%20%20print%28%22%5CnPrint%20all%20paths%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=138&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-The problem requires us to keep searching after finding a node with value $7$, **so remove the `return` after recording a solution**. Figure 13-4 compares the searches with and without that `return`.
+The problem requires us to keep searching after reaching a node with value $7$, so **remove the `return` statement that follows the step that records a solution**. The figure compares the search with and without `return`.
 
-![Comparing searches with and without return](backtracking_algorithm.assets/backtrack_remove_return_or_not.svg){ class="animation-figure" }
+![Search with and without return](backtracking_algorithm.assets/backtrack_remove_return_or_not.svg){ class="animation-figure" }
 
-<p align="center"> Figure 13-4 &nbsp; Comparing searches with and without return </p>
+<p align="center"> Figure 13-4 &nbsp; Search with and without return </p>
 
-The template-based implementation is more verbose than the preorder version, but more general. **Many backtracking problems can be solved within this template**: define `state` and `choices` for the problem, then implement each helper method.
+The framework takes more code than the preorder implementation, but it applies more broadly. In fact, **many backtracking problems fit this framework**. For each problem, define `state` and `choices` and implement the individual methods accordingly.
 
-## 13.1.4 &nbsp; Common terminology
+## 13.1.4 &nbsp; Common terms
 
-Table 13-1 summarizes common backtracking terms and illustrates them with Example 3, helping us analyze problems more clearly.
+The table summarizes common backtracking terms and illustrates each one using example 3. These terms will help us describe algorithms more precisely.
 
-<p align="center"> Table 13-1 &nbsp; Common backtracking terminology </p>
+<p align="center"> Table 13-1 &nbsp; Common backtracking terms </p>
 
 <div class="center-table" markdown>
 
 | Term                   | Definition                                                                       | Example 3                                                               |
 | ---------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| Solution         | An answer satisfying the problem's conditions; there may be one or more                               | All paths from the root to a node valued $7$ that satisfy the constraint                            |
-| Constraint | A condition restricting which solutions are feasible, often used for pruning                         | The path contains no node valued $3$                                                 |
-| State          | The situation at a particular point, including the choices already made                           | The current path of visited nodes, stored in `path`                             |
-| Trial        | Exploring the solution space by making a choice, updating the state, and checking for a solution | Recursively visit a left or right child, append it to `path`, and check whether its value is $7$ |
-| Backtracking   | Undoing an earlier choice and returning to the previous state when a constraint cannot be met       | Stop searching and return after passing a leaf, finishing a node, or encountering value $3$  |
-| Pruning        | Using problem properties and constraints to avoid pointless search paths and improve efficiency     | Stop searching when a node valued $3$ is encountered                              |
+| Solution         | An answer that satisfies the problem’s conditions. A problem may have one or more solutions.                               | All paths from the root to a node with value $7$ that satisfy the constraint                            |
+| Constraint | A condition that limits which solutions are valid. Constraints often help prune the search.                         | The path must contain no node with value $3$                                                 |
+| State          | The situation at a particular point in the search, including choices already made                           | The current path of visited nodes, stored in the list `path`                             |
+| Attempt        | Exploring the solution space by making an available choice, updating the state, and checking for a solution | Recursively visit the left or right child, add it to `path`, and check whether its value is $7$ |
+| Backtracking   | Undoing a previous choice and returning to the preceding state when the current state violates a constraint       | Stop searching and return when the traversal passes a leaf, finishes visiting a node, or encounters a node with value $3$  |
+| Pruning        | Using the problem’s properties and constraints to skip unproductive search paths and improve efficiency     | Stop exploring a branch upon reaching a node with value $3$                              |
 
 </div>
 
 !!! tip
 
-    Concepts such as problems, solutions, and states are shared by divide and conquer, backtracking, dynamic programming, greedy algorithms, and other approaches.
+    Concepts such as problems, solutions, and states also appear in divide and conquer, dynamic programming, and greedy algorithms.
 
-## 13.1.5 &nbsp; Strengths and limitations
+## 13.1.5 &nbsp; Advantages and limitations
 
-Backtracking is fundamentally a depth-first search that tries possible solutions until it finds ones meeting the conditions. It can find all possible solutions and can be highly efficient with effective pruning.
+Backtracking is essentially a depth-first search. It tries possible solutions until it finds one that meets the requirements. It can find every solution and can be highly efficient with well-chosen pruning rules.
 
-However, for large or complex problems, **backtracking may be unacceptably slow**.
+For large or complex problems, however, **backtracking may be prohibitively expensive**.
 
-- **Time**: Backtracking often explores every possibility in the state space, leading to exponential or factorial time complexity.
-- **Space**: Recursive calls must preserve state, such as the path and auxiliary pruning variables. Deep recursion can therefore require substantial space.
+- **Time**: Backtracking often has to explore every possibility in the state space. Its time complexity can be exponential or even factorial.
+- **Space**: Recursive calls must preserve the current state, such as the path and auxiliary variables used for pruning. Deep recursion can require considerable space.
 
-Even so, **backtracking remains the best approach for some search and constraint satisfaction problems**. When we cannot predict which choices lead to valid solutions, we must explore every possibility. **The key is then to improve efficiency**, commonly through two techniques.
+Even so, **backtracking remains the best approach for some search and constraint satisfaction problems**. When we cannot predict which choices will lead to a valid solution, we must explore every possibility. The question then becomes **how to make the search more efficient**. Two common approaches follow.
 
-- **Pruning**: Avoid paths that cannot produce a solution, saving time and space.
-- **Heuristic search**: Use strategies or estimates to explore paths most likely to yield valid solutions first.
+- **Pruning**: Skip paths that cannot produce a solution to save time and space.
+- **Heuristic search**: Use a strategy or estimate to explore the most promising paths first.
 
 ## 13.1.6 &nbsp; Typical backtracking problems
 
 Backtracking can solve many search, constraint satisfaction, and combinatorial optimization problems.
 
-**Search problems** seek solutions satisfying specified conditions.
+**Search problems** ask for solutions that meet specified conditions.
 
-- Permutations: Given a collection, find every possible ordering of its elements.
-- Subset sum: Given a collection and a target sum, find every subset whose sum equals the target.
-- Tower of Hanoi: Given three rods and disks of different sizes, move all disks from one rod to another, moving only one at a time and never placing a larger disk on a smaller one.
+- Permutations: Given a set, find every possible ordering of its elements.
+- Subset sum: Given a set and a target sum, find all subsets whose elements add up to the target.
+- Tower of Hanoi: Given three pegs and disks of different sizes, move all disks from one peg to another. Move only one disk at a time and never place a larger disk on a smaller one.
 
-**Constraint satisfaction problems** seek solutions meeting all constraints.
+**Constraint satisfaction problems** ask for solutions that satisfy every constraint.
 
-- $n$-queens: Place $n$ queens on an $n \times n$ chessboard so that no two attack each other.
-- Sudoku: Fill a $9 \times 9$ grid with digits $1$ ~ $9$ so that no digit repeats in any row, column, or $3 \times 3$ subgrid.
-- Graph coloring: Color an undirected graph's vertices with as few colors as possible, ensuring adjacent vertices have different colors.
+- $n$-queens: On an $n \times n$ board, place $n$ queens so that no two attack each other.
+- Sudoku: Fill a $9 \times 9$ grid with the digits $1$ through $9$ so that no digit repeats in any row, column, or $3 \times 3$ box.
+- Graph coloring: Given an undirected graph, color its vertices using as few colors as possible while giving adjacent vertices different colors.
 
-**Combinatorial optimization problems** seek an optimal solution satisfying conditions within a space of combinations.
+**Combinatorial optimization problems** ask for the best combination that satisfies specified conditions.
 
-- 0-1 knapsack: Given items with values and weights and a knapsack, choose items to maximize total value within the capacity limit.
-- Traveling salesperson: Starting at a vertex in a graph, visit every other vertex exactly once and return to the start along the shortest possible route.
-- Maximum clique: Given an undirected graph, find its largest complete subgraph, in which every pair of vertices is connected by an edge.
+- 0-1 knapsack: Given items with specified values and weights, choose the items of greatest total value that fit within a knapsack’s weight capacity.
+- Traveling salesperson: Find the shortest route in a graph that starts at one vertex, visits every other vertex exactly once, and returns to the start.
+- Maximum clique: Given an undirected graph, find its largest complete subgraph, one in which every pair of vertices is connected by an edge.
 
-For many combinatorial optimization problems, backtracking is not the best approach.
+For many combinatorial optimization problems, other approaches are preferable to backtracking.
 
-- 0-1 knapsack is usually solved more efficiently with dynamic programming.
-- The traveling salesperson problem is a well-known NP-hard problem. Common approaches include genetic algorithms and ant colony algorithms.
-- Maximum clique is a classic graph theory problem that can be approached with heuristics such as greedy algorithms.
+- Dynamic programming usually solves the 0-1 knapsack problem more efficiently.
+- The traveling salesperson problem is a well-known NP-hard problem. Common approaches include genetic algorithms and ant colony optimization.
+- The maximum clique problem is a classic problem in graph theory. Heuristics such as greedy algorithms can be used to tackle it.

@@ -2,27 +2,27 @@
 comments: true
 ---
 
-# 13.1 &nbsp; Алгоритм поиска с возвратом
+# 13.1 &nbsp; Поиск с возвратом
 
-<u>Алгоритм поиска с возвратом (backtracking algorithm)</u> - это метод решения задач путем полного перебора. Его основная идея состоит в том, чтобы, начиная с некоторого исходного состояния, грубо перебрать все возможные решения, записывать корректные решения и продолжать поиск до тех пор, пока решение не будет найдено или пока не будут исчерпаны все возможные варианты.
+<u>Поиск с возвратом (backtracking algorithm)</u> — метод решения задач перебором. Начав с исходного состояния, алгоритм перебирает возможные варианты и записывает подходящие решения. Поиск ведётся, пока решение не найдено или пока не исчерпаны все варианты.
 
-Обычно алгоритмы поиска с возвратом используют обход в глубину для обхода пространства решений. В главе «Бинарные деревья» мы уже упоминали, что прямой, симметричный и обратный обходы относятся к обходу в глубину. Теперь мы на основе прямого обхода построим задачу поиска с возвратом и постепенно разберем принцип работы этого алгоритма.
+Для обхода пространства решений обычно применяют поиск в глубину. В главе «Двоичное дерево» мы уже встречали три его разновидности: прямой, симметричный и обратный обходы. На примере прямого обхода разберём по шагам, как работает поиск с возвратом.
 
 !!! question "Пример 1"
 
-    Дано двоичное дерево. Найдите и запишите все узлы со значением $7$. Верните список этих узлов.
+    Дано двоичное дерево. Найдите все узлы со значением $7$ и верните их в виде списка.
 
-Для этой задачи мы выполняем прямой обход дерева и проверяем, равно ли значение текущего узла $7$. Если да, то добавляем значение этого узла в список результатов `res` . Соответствующий процесс показан на рисунке 13-1 и в коде:
+Обойдём дерево в прямом порядке и для каждого узла проверим, равно ли его значение $7$. Если да, добавим значение узла в список результатов `res`. Ход поиска показан на рисунке и в коде ниже.
 
 === "Python"
 
     ```python title="preorder_traversal_i_compact.py"
     def pre_order(root: TreeNode):
-        """Предварительный обход: пример 1"""
+        """Прямой обход: пример 1"""
         if root is None:
             return
         if root.val == 7:
-            # Записать решение
+            # Сохраняем решение
             res.append(root)
         pre_order(root.left)
         pre_order(root.right)
@@ -31,13 +31,13 @@ comments: true
 === "C++"
 
     ```cpp title="preorder_traversal_i_compact.cpp"
-    /* Предварительный обход: пример 1 */
+    /* Прямой обход: пример 1 */
     void preOrder(TreeNode *root) {
         if (root == nullptr) {
             return;
         }
         if (root->val == 7) {
-            // Записать решение
+            // Сохраняем решение
             res.push_back(root);
         }
         preOrder(root->left);
@@ -48,13 +48,13 @@ comments: true
 === "Java"
 
     ```java title="preorder_traversal_i_compact.java"
-    /* Предварительный обход: пример 1 */
+    /* Прямой обход: пример 1 */
     void preOrder(TreeNode root) {
         if (root == null) {
             return;
         }
         if (root.val == 7) {
-            // Записать решение
+            // Сохраняем решение
             res.add(root);
         }
         preOrder(root.left);
@@ -65,13 +65,13 @@ comments: true
 === "C#"
 
     ```csharp title="preorder_traversal_i_compact.cs"
-    /* Предварительный обход: пример 1 */
+    /* Прямой обход: пример 1 */
     void PreOrder(TreeNode? root) {
         if (root == null) {
             return;
         }
         if (root.val == 7) {
-            // Записать решение
+            // Сохраняем решение
             res.Add(root);
         }
         PreOrder(root.left);
@@ -82,13 +82,13 @@ comments: true
 === "Go"
 
     ```go title="preorder_traversal_i_compact.go"
-    /* Предварительный обход: пример 1 */
+    /* Прямой обход: пример 1 */
     func preOrderI(root *TreeNode, res *[]*TreeNode) {
         if root == nil {
             return
         }
         if (root.Val).(int) == 7 {
-            // Записать решение
+            // Сохраняем решение
             *res = append(*res, root)
         }
         preOrderI(root.Left, res)
@@ -99,13 +99,13 @@ comments: true
 === "Swift"
 
     ```swift title="preorder_traversal_i_compact.swift"
-    /* Предварительный обход: пример 1 */
+    /* Прямой обход: пример 1 */
     func preOrder(root: TreeNode?) {
         guard let root = root else {
             return
         }
         if root.val == 7 {
-            // Записать решение
+            // Сохраняем решение
             res.append(root)
         }
         preOrder(root: root.left)
@@ -116,13 +116,13 @@ comments: true
 === "JS"
 
     ```javascript title="preorder_traversal_i_compact.js"
-    /* Предварительный обход: пример 1 */
+    /* Прямой обход: пример 1 */
     function preOrder(root, res) {
         if (root === null) {
             return;
         }
         if (root.val === 7) {
-            // Записать решение
+            // Сохраняем решение
             res.push(root);
         }
         preOrder(root.left, res);
@@ -133,13 +133,13 @@ comments: true
 === "TS"
 
     ```typescript title="preorder_traversal_i_compact.ts"
-    /* Предварительный обход: пример 1 */
+    /* Прямой обход: пример 1 */
     function preOrder(root: TreeNode | null, res: TreeNode[]): void {
         if (root === null) {
             return;
         }
         if (root.val === 7) {
-            // Записать решение
+            // Сохраняем решение
             res.push(root);
         }
         preOrder(root.left, res);
@@ -150,13 +150,13 @@ comments: true
 === "Dart"
 
     ```dart title="preorder_traversal_i_compact.dart"
-    /* Предварительный обход: пример 1 */
+    /* Прямой обход: пример 1 */
     void preOrder(TreeNode? root, List<TreeNode> res) {
       if (root == null) {
         return;
       }
       if (root.val == 7) {
-        // Записать решение
+        // Сохраняем решение
         res.add(root);
       }
       preOrder(root.left, res);
@@ -167,14 +167,14 @@ comments: true
 === "Rust"
 
     ```rust title="preorder_traversal_i_compact.rs"
-    /* Предварительный обход: пример 1 */
+    /* Прямой обход: пример 1 */
     fn pre_order(res: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<&Rc<RefCell<TreeNode>>>) {
         if root.is_none() {
             return;
         }
         if let Some(node) = root {
             if node.borrow().val == 7 {
-                // Записать решение
+                // Сохраняем решение
                 res.push(node.clone());
             }
             pre_order(res, node.borrow().left.as_ref());
@@ -186,13 +186,13 @@ comments: true
 === "C"
 
     ```c title="preorder_traversal_i_compact.c"
-    /* Предварительный обход: пример 1 */
+    /* Прямой обход: пример 1 */
     void preOrder(TreeNode *root) {
         if (root == NULL) {
             return;
         }
         if (root->val == 7) {
-            // Записать решение
+            // Сохраняем решение
             res[resSize++] = root;
         }
         preOrder(root->left);
@@ -203,13 +203,13 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="preorder_traversal_i_compact.kt"
-    /* Предварительный обход: пример 1 */
+    /* Прямой обход: пример 1 */
     fun preOrder(root: TreeNode?) {
         if (root == null) {
             return
         }
         if (root._val == 7) {
-            // Записать решение
+            // Сохраняем решение
             res!!.add(root)
         }
         preOrder(root.left)
@@ -220,11 +220,11 @@ comments: true
 === "Ruby"
 
     ```ruby title="preorder_traversal_i_compact.rb"
-    ### Предварительный обход: пример 1 ###
+    ### Прямой обход: пример 1 ###
     def pre_order(root)
       return unless root
 
-      # Записать решение
+      # Сохраняем решение
       $res << root if root.val == 7
 
       pre_order(root.left)
@@ -232,64 +232,64 @@ comments: true
     end
     ```
 
-??? pythontutor "Визуализация кода"
+??? pythontutor "Визуализация выполнения"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация кода" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BB%D0%B5%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B0%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D%2C%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B5%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%3A%20%D1%80%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D1%8F%22%22%22%0A%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%B2%D1%8B%D1%85%D0%BE%D0%B4%D0%B8%D1%82%20%D0%B7%D0%B0%20%D0%B4%D0%BB%D0%B8%D0%BD%D1%83%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%20%D0%B8%D0%BB%D0%B8%20%D1%81%D0%BE%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D1%81%D1%82%D0%B2%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D1%80%D0%B0%D0%B2%D0%B5%D0%BD%20None%2C%20%D0%B2%D0%B5%D1%80%D0%BD%D1%83%D1%82%D1%8C%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20%D0%9F%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%B2%D0%BD%D0%BE%20%D0%BF%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D0%BB%D0%B5%D0%B2%D0%BE%D0%B5%20%D0%B8%20%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D0%B5%20%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr%2C%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr%2C%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B5%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr%2C%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22%D0%9F%D1%80%D0%B5%D0%B4%D0%B2%D0%B0%D1%80%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%3A%20%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%201%22%22%22%0A%20%20%20%20if%20root%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%0A%20%20%20%20%20%20%20%20res.append%28root%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1%2C%207%2C%203%2C%204%2C%205%2C%206%2C%207%5D%29%0A%0A%20%20%20%20%23%20%D0%9F%D1%80%D0%B5%D0%B4%D0%B2%D0%B0%D1%80%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%0A%20%20%20%20res%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5Cn%D0%92%D1%81%D0%B5%20%D1%83%D0%B7%D0%BB%D1%8B%20%D1%81%D0%BE%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%207%22%29%0A%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20res%5D%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BB%D0%B5%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B0%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D%2C%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B5%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%3A%20%D1%80%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D1%8F%22%22%22%0A%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%B2%D1%8B%D1%85%D0%BE%D0%B4%D0%B8%D1%82%20%D0%B7%D0%B0%20%D0%B4%D0%BB%D0%B8%D0%BD%D1%83%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%20%D0%B8%D0%BB%D0%B8%20%D1%81%D0%BE%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D1%81%D1%82%D0%B2%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D1%80%D0%B0%D0%B2%D0%B5%D0%BD%20None%2C%20%D0%B2%D0%B5%D1%80%D0%BD%D1%83%D1%82%D1%8C%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20%D0%9F%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%B2%D0%BD%D0%BE%20%D0%BF%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D0%BB%D0%B5%D0%B2%D0%BE%D0%B5%20%D0%B8%20%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D0%B5%20%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr%2C%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr%2C%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B5%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr%2C%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22%D0%9F%D1%80%D0%B5%D0%B4%D0%B2%D0%B0%D1%80%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%3A%20%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%201%22%22%22%0A%20%20%20%20if%20root%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%0A%20%20%20%20%20%20%20%20res.append%28root%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1%2C%207%2C%203%2C%204%2C%205%2C%206%2C%207%5D%29%0A%0A%20%20%20%20%23%20%D0%9F%D1%80%D0%B5%D0%B4%D0%B2%D0%B0%D1%80%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%0A%20%20%20%20res%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5Cn%D0%92%D1%81%D0%B5%20%D1%83%D0%B7%D0%BB%D1%8B%20%D1%81%D0%BE%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%207%22%29%0A%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20res%5D%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация выполнения" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BB%D0%B5%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BC%D0%BA%D0%B0%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BC%D0%BA%D0%B0%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%3A%20%D1%80%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D1%8F%22%22%22%0A%20%20%20%20%23%20%D0%92%D0%BD%D0%B5%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%20%D0%B8%D0%BB%D0%B8%20%D0%BF%D1%80%D0%B8%20None%20%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D0%BC%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%91%D0%BC%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%B2%D0%BD%D0%BE%20%D1%81%D1%82%D1%80%D0%BE%D0%B8%D0%BC%20%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%98%D0%B7%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22%D0%9F%D1%80%D1%8F%D0%BC%D0%BE%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%3A%20%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%201%22%22%22%0A%20%20%20%20if%20root%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8F%0A%20%20%20%20%20%20%20%20res.append%28root%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20%D0%9F%D1%80%D1%8F%D0%BC%D0%BE%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%0A%20%20%20%20res%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5Cn%D0%92%D1%8B%D0%B2%D0%BE%D0%B4%D0%B8%D0%BC%20%D0%B2%D1%81%D0%B5%20%D1%83%D0%B7%D0%BB%D1%8B%20%D1%81%D0%BE%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%207%22%29%0A%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20res%5D%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BB%D0%B5%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BC%D0%BA%D0%B0%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BC%D0%BA%D0%B0%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%3A%20%D1%80%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D1%8F%22%22%22%0A%20%20%20%20%23%20%D0%92%D0%BD%D0%B5%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%20%D0%B8%D0%BB%D0%B8%20%D0%BF%D1%80%D0%B8%20None%20%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D0%BC%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%91%D0%BC%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%B2%D0%BD%D0%BE%20%D1%81%D1%82%D1%80%D0%BE%D0%B8%D0%BC%20%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%98%D0%B7%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22%D0%9F%D1%80%D1%8F%D0%BC%D0%BE%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%3A%20%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%201%22%22%22%0A%20%20%20%20if%20root%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8F%0A%20%20%20%20%20%20%20%20res.append%28root%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20%D0%9F%D1%80%D1%8F%D0%BC%D0%BE%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%0A%20%20%20%20res%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5Cn%D0%92%D1%8B%D0%B2%D0%BE%D0%B4%D0%B8%D0%BC%20%D0%B2%D1%81%D0%B5%20%D1%83%D0%B7%D0%BB%D1%8B%20%D1%81%D0%BE%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%207%22%29%0A%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20res%5D%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
 
 ![Поиск узлов при прямом обходе](backtracking_algorithm.assets/preorder_find_nodes.svg){ class="animation-figure" }
 
 <p align="center"> Рисунок 13-1 &nbsp; Поиск узлов при прямом обходе </p>
 
-## 13.1.1 &nbsp; Попытка и откат
+## 13.1.1 &nbsp; Проба варианта и возврат
 
-**Алгоритм называется поиском с возвратом, потому что при поиске в пространстве решений он использует стратегию «попытка» и «откат»**. Когда в процессе поиска алгоритм приходит в состояние, из которого нельзя двигаться дальше или нельзя получить удовлетворяющее условиям решение, он отменяет предыдущий выбор, возвращается к более раннему состоянию и пробует другие возможные варианты.
+**Метод называют поиском с возвратом, поскольку при переборе решений он чередует пробы вариантов и возвраты**. Если из текущего состояния нельзя продвинуться дальше или получить допустимое решение, алгоритм отменяет последний выбор, возвращается к предыдущему состоянию и пробует другие варианты.
 
-Для примера 1 посещение каждого узла представляет собой «попытку», а прохождение листового узла или возврат к родителю через `return` означает «откат».
+В первом примере посещение каждого узла — это проба варианта, а `return` при выходе за лист или при переходе обратно к родителю — возврат.
 
-Важно понимать, что **откат не сводится только к возврату из функции**. Чтобы показать это, слегка расширим пример 1.
+При этом **возврат не сводится к выходу из функции**. Чтобы увидеть разницу, немного расширим первый пример.
 
 !!! question "Пример 2"
 
     Найдите в двоичном дереве все узлы со значением $7$ и **верните пути от корня до этих узлов**.
 
-Взяв за основу код примера 1, добавим список `path` для записи пути посещенных узлов. Когда встречается узел со значением $7$ , мы копируем `path` и добавляем его в список результатов `res` . После завершения обхода именно `res` будет содержать все решения. Код приведен ниже:
+Дополним код первого примера списком `path`, в котором будем хранить путь из посещённых узлов. Дойдя до узла со значением $7$, добавим копию `path` в список результатов `res`. После обхода в `res` окажутся все решения. Вот соответствующий код:
 
 === "Python"
 
     ```python title="preorder_traversal_ii_compact.py"
     def pre_order(root: TreeNode):
-        """Предварительный обход: пример 2"""
+        """Прямой обход: пример 2"""
         if root is None:
             return
-        # Попытка
+        # Пробуем вариант
         path.append(root)
         if root.val == 7:
-            # Записать решение
+            # Сохраняем решение
             res.append(list(path))
         pre_order(root.left)
         pre_order(root.right)
-        # Откат
+        # Возврат
         path.pop()
     ```
 
 === "C++"
 
     ```cpp title="preorder_traversal_ii_compact.cpp"
-    /* Предварительный обход: пример 2 */
+    /* Прямой обход: пример 2 */
     void preOrder(TreeNode *root) {
         if (root == nullptr) {
             return;
         }
-        // Попытка
+        // Пробуем вариант
         path.push_back(root);
         if (root->val == 7) {
-            // Записать решение
+            // Сохраняем решение
             res.push_back(path);
         }
         preOrder(root->left);
         preOrder(root->right);
-        // Откат
+        // Возврат
         path.pop_back();
     }
     ```
@@ -297,20 +297,20 @@ comments: true
 === "Java"
 
     ```java title="preorder_traversal_ii_compact.java"
-    /* Предварительный обход: пример 2 */
+    /* Прямой обход: пример 2 */
     void preOrder(TreeNode root) {
         if (root == null) {
             return;
         }
-        // Попытка
+        // Пробуем вариант
         path.add(root);
         if (root.val == 7) {
-            // Записать решение
+            // Сохраняем решение
             res.add(new ArrayList<>(path));
         }
         preOrder(root.left);
         preOrder(root.right);
-        // Откат
+        // Возврат
         path.remove(path.size() - 1);
     }
     ```
@@ -318,20 +318,20 @@ comments: true
 === "C#"
 
     ```csharp title="preorder_traversal_ii_compact.cs"
-    /* Предварительный обход: пример 2 */
+    /* Прямой обход: пример 2 */
     void PreOrder(TreeNode? root) {
         if (root == null) {
             return;
         }
-        // Попытка
+        // Пробуем вариант
         path.Add(root);
         if (root.val == 7) {
-            // Записать решение
+            // Сохраняем решение
             res.Add(new List<TreeNode>(path));
         }
         PreOrder(root.left);
         PreOrder(root.right);
-        // Откат
+        // Возврат
         path.RemoveAt(path.Count - 1);
     }
     ```
@@ -339,20 +339,20 @@ comments: true
 === "Go"
 
     ```go title="preorder_traversal_ii_compact.go"
-    /* Предварительный обход: пример 2 */
+    /* Прямой обход: пример 2 */
     func preOrderII(root *TreeNode, res *[][]*TreeNode, path *[]*TreeNode) {
         if root == nil {
             return
         }
-        // Попытка
+        // Пробуем вариант
         *path = append(*path, root)
         if root.Val.(int) == 7 {
-            // Записать решение
+            // Сохраняем решение
             *res = append(*res, append([]*TreeNode{}, *path...))
         }
         preOrderII(root.Left, res, path)
         preOrderII(root.Right, res, path)
-        // Откат
+        // Возврат
         *path = (*path)[:len(*path)-1]
     }
     ```
@@ -360,20 +360,20 @@ comments: true
 === "Swift"
 
     ```swift title="preorder_traversal_ii_compact.swift"
-    /* Предварительный обход: пример 2 */
+    /* Прямой обход: пример 2 */
     func preOrder(root: TreeNode?) {
         guard let root = root else {
             return
         }
-        // Попытка
+        // Пробуем вариант
         path.append(root)
         if root.val == 7 {
-            // Записать решение
+            // Сохраняем решение
             res.append(path)
         }
         preOrder(root: root.left)
         preOrder(root: root.right)
-        // Откат
+        // Возврат
         path.removeLast()
     }
     ```
@@ -381,20 +381,20 @@ comments: true
 === "JS"
 
     ```javascript title="preorder_traversal_ii_compact.js"
-    /* Предварительный обход: пример 2 */
+    /* Прямой обход: пример 2 */
     function preOrder(root, path, res) {
         if (root === null) {
             return;
         }
-        // Попытка
+        // Пробуем вариант
         path.push(root);
         if (root.val === 7) {
-            // Записать решение
+            // Сохраняем решение
             res.push([...path]);
         }
         preOrder(root.left, path, res);
         preOrder(root.right, path, res);
-        // Откат
+        // Возврат
         path.pop();
     }
     ```
@@ -402,7 +402,7 @@ comments: true
 === "TS"
 
     ```typescript title="preorder_traversal_ii_compact.ts"
-    /* Предварительный обход: пример 2 */
+    /* Прямой обход: пример 2 */
     function preOrder(
         root: TreeNode | null,
         path: TreeNode[],
@@ -411,15 +411,15 @@ comments: true
         if (root === null) {
             return;
         }
-        // Попытка
+        // Пробуем вариант
         path.push(root);
         if (root.val === 7) {
-            // Записать решение
+            // Сохраняем решение
             res.push([...path]);
         }
         preOrder(root.left, path, res);
         preOrder(root.right, path, res);
-        // Откат
+        // Возврат
         path.pop();
     }
     ```
@@ -427,7 +427,7 @@ comments: true
 === "Dart"
 
     ```dart title="preorder_traversal_ii_compact.dart"
-    /* Предварительный обход: пример 2 */
+    /* Прямой обход: пример 2 */
     void preOrder(
       TreeNode? root,
       List<TreeNode> path,
@@ -437,15 +437,15 @@ comments: true
         return;
       }
 
-      // Попытка
+      // Пробуем вариант
       path.add(root);
       if (root.val == 7) {
-        // Записать решение
+        // Сохраняем решение
         res.add(List.from(path));
       }
       preOrder(root.left, path, res);
       preOrder(root.right, path, res);
-      // Откат
+      // Возврат
       path.removeLast();
     }
     ```
@@ -453,7 +453,7 @@ comments: true
 === "Rust"
 
     ```rust title="preorder_traversal_ii_compact.rs"
-    /* Предварительный обход: пример 2 */
+    /* Прямой обход: пример 2 */
     fn pre_order(
         res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
         path: &mut Vec<Rc<RefCell<TreeNode>>>,
@@ -463,15 +463,15 @@ comments: true
             return;
         }
         if let Some(node) = root {
-            // Попытка
+            // Пробуем вариант
             path.push(node.clone());
             if node.borrow().val == 7 {
-                // Записать решение
+                // Сохраняем решение
                 res.push(path.clone());
             }
             pre_order(res, path, node.borrow().left.as_ref());
             pre_order(res, path, node.borrow().right.as_ref());
-            // Откат
+            // Возврат
             path.pop();
         }
     }
@@ -480,15 +480,15 @@ comments: true
 === "C"
 
     ```c title="preorder_traversal_ii_compact.c"
-    /* Предварительный обход: пример 2 */
+    /* Прямой обход: пример 2 */
     void preOrder(TreeNode *root) {
         if (root == NULL) {
             return;
         }
-        // Попытка
+        // Пробуем вариант
         path[pathSize++] = root;
         if (root->val == 7) {
-            // Записать решение
+            // Сохраняем решение
             for (int i = 0; i < pathSize; ++i) {
                 res[resSize][i] = path[i];
             }
@@ -496,7 +496,7 @@ comments: true
         }
         preOrder(root->left);
         preOrder(root->right);
-        // Откат
+        // Возврат
         pathSize--;
     }
     ```
@@ -504,20 +504,20 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="preorder_traversal_ii_compact.kt"
-    /* Предварительный обход: пример 2 */
+    /* Прямой обход: пример 2 */
     fun preOrder(root: TreeNode?) {
         if (root == null) {
             return
         }
-        // Попытка
+        // Пробуем вариант
         path!!.add(root)
         if (root._val == 7) {
-            // Записать решение
+            // Сохраняем решение
             res!!.add(path!!.toMutableList())
         }
         preOrder(root.left)
         preOrder(root.right)
-        // Откат
+        // Возврат
         path!!.removeAt(path!!.size - 1)
     }
     ```
@@ -525,35 +525,35 @@ comments: true
 === "Ruby"
 
     ```ruby title="preorder_traversal_ii_compact.rb"
-    ### Предварительный обход: пример 2 ###
+    ### Прямой обход: пример 2 ###
     def pre_order(root)
       return unless root
 
-      # Попытка
+      # Пробуем вариант
       $path << root
 
-      # Записать решение
+      # Сохраняем решение
       $res << $path.dup if root.val == 7
 
       pre_order(root.left)
       pre_order(root.right)
 
-      # Откат
+      # Возврат
       $path.pop
     end
     ```
 
-??? pythontutor "Визуализация кода"
+??? pythontutor "Визуализация выполнения"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация кода" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BB%D0%B5%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B0%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D%2C%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B5%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%3A%20%D1%80%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D1%8F%22%22%22%0A%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%B2%D1%8B%D1%85%D0%BE%D0%B4%D0%B8%D1%82%20%D0%B7%D0%B0%20%D0%B4%D0%BB%D0%B8%D0%BD%D1%83%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%20%D0%B8%D0%BB%D0%B8%20%D1%81%D0%BE%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D1%81%D1%82%D0%B2%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D1%80%D0%B0%D0%B2%D0%B5%D0%BD%20None%2C%20%D0%B2%D0%B5%D1%80%D0%BD%D1%83%D1%82%D1%8C%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20%D0%9F%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%B2%D0%BD%D0%BE%20%D0%BF%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D0%BB%D0%B5%D0%B2%D0%BE%D0%B5%20%D0%B8%20%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D0%B5%20%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr%2C%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr%2C%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B5%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr%2C%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22%D0%9F%D1%80%D0%B5%D0%B4%D0%B2%D0%B0%D1%80%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%3A%20%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%202%22%22%22%0A%20%20%20%20if%20root%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%BF%D1%8B%D1%82%D0%BA%D0%B0%0A%20%20%20%20path.append%28root%29%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%0A%20%20%20%20%20%20%20%20res.append%28list%28path%29%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%20%20%20%20%23%20%D0%9E%D1%82%D0%BA%D0%B0%D1%82%0A%20%20%20%20path.pop%28%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1%2C%207%2C%203%2C%204%2C%205%2C%206%2C%207%5D%29%0A%0A%20%20%20%20%23%20%D0%9F%D1%80%D0%B5%D0%B4%D0%B2%D0%B0%D1%80%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%0A%20%20%20%20path%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20res%20%3D%20list%5Blist%5BTreeNode%5D%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5Cn%D0%92%D1%81%D0%B5%20%D0%BF%D1%83%D1%82%D0%B8%20%D0%BE%D1%82%20%D0%BA%D0%BE%D1%80%D0%BD%D1%8F%20%D0%BA%20%D1%83%D0%B7%D0%BB%D1%83%207%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BB%D0%B5%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B0%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D%2C%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B5%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%3A%20%D1%80%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D1%8F%22%22%22%0A%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%B2%D1%8B%D1%85%D0%BE%D0%B4%D0%B8%D1%82%20%D0%B7%D0%B0%20%D0%B4%D0%BB%D0%B8%D0%BD%D1%83%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%20%D0%B8%D0%BB%D0%B8%20%D1%81%D0%BE%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D1%81%D1%82%D0%B2%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D1%80%D0%B0%D0%B2%D0%B5%D0%BD%20None%2C%20%D0%B2%D0%B5%D1%80%D0%BD%D1%83%D1%82%D1%8C%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20%D0%9F%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%B2%D0%BD%D0%BE%20%D0%BF%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D0%BB%D0%B5%D0%B2%D0%BE%D0%B5%20%D0%B8%20%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D0%B5%20%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr%2C%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr%2C%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B5%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr%2C%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22%D0%9F%D1%80%D0%B5%D0%B4%D0%B2%D0%B0%D1%80%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%3A%20%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%202%22%22%22%0A%20%20%20%20if%20root%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%BF%D1%8B%D1%82%D0%BA%D0%B0%0A%20%20%20%20path.append%28root%29%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%0A%20%20%20%20%20%20%20%20res.append%28list%28path%29%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%20%20%20%20%23%20%D0%9E%D1%82%D0%BA%D0%B0%D1%82%0A%20%20%20%20path.pop%28%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1%2C%207%2C%203%2C%204%2C%205%2C%206%2C%207%5D%29%0A%0A%20%20%20%20%23%20%D0%9F%D1%80%D0%B5%D0%B4%D0%B2%D0%B0%D1%80%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%0A%20%20%20%20path%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20res%20%3D%20list%5Blist%5BTreeNode%5D%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5Cn%D0%92%D1%81%D0%B5%20%D0%BF%D1%83%D1%82%D0%B8%20%D0%BE%D1%82%20%D0%BA%D0%BE%D1%80%D0%BD%D1%8F%20%D0%BA%20%D1%83%D0%B7%D0%BB%D1%83%207%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация выполнения" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BB%D0%B5%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BC%D0%BA%D0%B0%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BC%D0%BA%D0%B0%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%3A%20%D1%80%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D1%8F%22%22%22%0A%20%20%20%20%23%20%D0%92%D0%BD%D0%B5%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%20%D0%B8%D0%BB%D0%B8%20%D0%BF%D1%80%D0%B8%20None%20%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D0%BC%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%91%D0%BC%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%B2%D0%BD%D0%BE%20%D1%81%D1%82%D1%80%D0%BE%D0%B8%D0%BC%20%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%98%D0%B7%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22%D0%9F%D1%80%D1%8F%D0%BC%D0%BE%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%3A%20%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%202%22%22%22%0A%20%20%20%20if%20root%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20%D0%9F%D1%80%D0%BE%D0%B1%D1%83%D0%B5%D0%BC%20%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D1%82%0A%20%20%20%20path.append%28root%29%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8F%0A%20%20%20%20%20%20%20%20res.append%28list%28path%29%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%20%20%20%20%23%20%D0%92%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%0A%20%20%20%20path.pop%28%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20%D0%9F%D1%80%D1%8F%D0%BC%D0%BE%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%0A%20%20%20%20path%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20res%20%3D%20list%5Blist%5BTreeNode%5D%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5Cn%D0%92%D1%8B%D0%B2%D0%BE%D0%B4%D0%B8%D0%BC%20%D0%B2%D1%81%D0%B5%20%D0%BF%D1%83%D1%82%D0%B8%20%D0%BE%D1%82%20%D0%BA%D0%BE%D1%80%D0%BD%D1%8F%20%D0%B4%D0%BE%20%D1%83%D0%B7%D0%BB%D0%BE%D0%B2%20%D1%81%D0%BE%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%207%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BB%D0%B5%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BC%D0%BA%D0%B0%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BC%D0%BA%D0%B0%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%3A%20%D1%80%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D1%8F%22%22%22%0A%20%20%20%20%23%20%D0%92%D0%BD%D0%B5%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%20%D0%B8%D0%BB%D0%B8%20%D0%BF%D1%80%D0%B8%20None%20%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D0%BC%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%91%D0%BC%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%B2%D0%BD%D0%BE%20%D1%81%D1%82%D1%80%D0%BE%D0%B8%D0%BC%20%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%98%D0%B7%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22%D0%9F%D1%80%D1%8F%D0%BC%D0%BE%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%3A%20%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%202%22%22%22%0A%20%20%20%20if%20root%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20%D0%9F%D1%80%D0%BE%D0%B1%D1%83%D0%B5%D0%BC%20%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D1%82%0A%20%20%20%20path.append%28root%29%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8F%0A%20%20%20%20%20%20%20%20res.append%28list%28path%29%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%20%20%20%20%23%20%D0%92%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%0A%20%20%20%20path.pop%28%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20%D0%9F%D1%80%D1%8F%D0%BC%D0%BE%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%0A%20%20%20%20path%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20res%20%3D%20list%5Blist%5BTreeNode%5D%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5Cn%D0%92%D1%8B%D0%B2%D0%BE%D0%B4%D0%B8%D0%BC%20%D0%B2%D1%81%D0%B5%20%D0%BF%D1%83%D1%82%D0%B8%20%D0%BE%D1%82%20%D0%BA%D0%BE%D1%80%D0%BD%D1%8F%20%D0%B4%D0%BE%20%D1%83%D0%B7%D0%BB%D0%BE%D0%B2%20%D1%81%D0%BE%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%207%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
 
-В каждой «попытке» мы добавляем текущий узел в `path` , чтобы записать путь. А перед «откатом» нам нужно удалить этот узел из `path` , **чтобы восстановить состояние, существовавшее до текущей попытки**.
+При каждой пробе мы добавляем текущий узел в `path`, тем самым удлиняя путь. Перед возвратом нужно извлечь этот узел из `path`, **чтобы восстановить состояние до пробы**.
 
-Если посмотреть на процесс, изображенный на рисунке 13-2, **то попытку и откат можно понимать как «движение вперед» и «отмену»**: это два взаимно противоположных действия.
+На рисунке видно, что **пробу и возврат можно представить как шаг вперёд и его отмену**. Это две взаимно обратные операции.
 
 === "<1>"
-    ![Попытка и откат](backtracking_algorithm.assets/preorder_find_paths_step1.svg){ class="animation-figure" }
+    ![Проба варианта и возврат](backtracking_algorithm.assets/preorder_find_paths_step1.svg){ class="animation-figure" }
 
 === "<2>"
     ![preorder_find_paths_step2](backtracking_algorithm.assets/preorder_find_paths_step2.svg){ class="animation-figure" }
@@ -585,55 +585,55 @@ comments: true
 === "<11>"
     ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.svg){ class="animation-figure" }
 
-<p align="center"> Рисунок 13-2 &nbsp; Попытка и откат </p>
+<p align="center"> Рисунок 13-2 &nbsp; Проба варианта и возврат </p>
 
-## 13.1.2 &nbsp; Обрезка
+## 13.1.2 &nbsp; Отсечение
 
-Сложные задачи поиска с возвратом обычно содержат одно или несколько ограничений, **которые часто можно использовать для «обрезки»**.
+В более сложных задачах обычно есть одно или несколько ограничений. **Ограничения часто позволяют отсекать ветви поиска**.
 
 !!! question "Пример 3"
 
-    Найдите в двоичном дереве все узлы со значением $7$ , верните пути от корня до этих узлов, **причем путь не должен содержать узлы со значением $3$**.
+    Найдите в двоичном дереве все узлы со значением $7$ и верните пути от корня до этих узлов. **В пути не должно быть узлов со значением $3$**.
 
-Чтобы выполнить это ограничение, **нам нужно добавить операцию обрезки**: во время поиска, если встречается узел со значением $3$ , мы сразу возвращаемся и не продолжаем дальнейший поиск. Код выглядит так:
+Чтобы соблюсти ограничение, **добавим отсечение**. Встретив узел со значением $3$, сразу вернёмся из вызова, прекратив поиск в этой ветви. Реализация приведена ниже.
 
 === "Python"
 
     ```python title="preorder_traversal_iii_compact.py"
     def pre_order(root: TreeNode):
-        """Предварительный обход: пример 3"""
+        """Прямой обход: пример 3"""
         # Отсечение
         if root is None or root.val == 3:
             return
-        # Попытка
+        # Пробуем вариант
         path.append(root)
         if root.val == 7:
-            # Записать решение
+            # Сохраняем решение
             res.append(list(path))
         pre_order(root.left)
         pre_order(root.right)
-        # Откат
+        # Возврат
         path.pop()
     ```
 
 === "C++"
 
     ```cpp title="preorder_traversal_iii_compact.cpp"
-    /* Предварительный обход: пример 3 */
+    /* Прямой обход: пример 3 */
     void preOrder(TreeNode *root) {
         // Отсечение
         if (root == nullptr || root->val == 3) {
             return;
         }
-        // Попытка
+        // Пробуем вариант
         path.push_back(root);
         if (root->val == 7) {
-            // Записать решение
+            // Сохраняем решение
             res.push_back(path);
         }
         preOrder(root->left);
         preOrder(root->right);
-        // Откат
+        // Возврат
         path.pop_back();
     }
     ```
@@ -641,21 +641,21 @@ comments: true
 === "Java"
 
     ```java title="preorder_traversal_iii_compact.java"
-    /* Предварительный обход: пример 3 */
+    /* Прямой обход: пример 3 */
     void preOrder(TreeNode root) {
         // Отсечение
         if (root == null || root.val == 3) {
             return;
         }
-        // Попытка
+        // Пробуем вариант
         path.add(root);
         if (root.val == 7) {
-            // Записать решение
+            // Сохраняем решение
             res.add(new ArrayList<>(path));
         }
         preOrder(root.left);
         preOrder(root.right);
-        // Откат
+        // Возврат
         path.remove(path.size() - 1);
     }
     ```
@@ -663,21 +663,21 @@ comments: true
 === "C#"
 
     ```csharp title="preorder_traversal_iii_compact.cs"
-    /* Предварительный обход: пример 3 */
+    /* Прямой обход: пример 3 */
     void PreOrder(TreeNode? root) {
         // Отсечение
         if (root == null || root.val == 3) {
             return;
         }
-        // Попытка
+        // Пробуем вариант
         path.Add(root);
         if (root.val == 7) {
-            // Записать решение
+            // Сохраняем решение
             res.Add(new List<TreeNode>(path));
         }
         PreOrder(root.left);
         PreOrder(root.right);
-        // Откат
+        // Возврат
         path.RemoveAt(path.Count - 1);
     }
     ```
@@ -685,21 +685,21 @@ comments: true
 === "Go"
 
     ```go title="preorder_traversal_iii_compact.go"
-    /* Предварительный обход: пример 3 */
+    /* Прямой обход: пример 3 */
     func preOrderIII(root *TreeNode, res *[][]*TreeNode, path *[]*TreeNode) {
         // Отсечение
         if root == nil || root.Val == 3 {
             return
         }
-        // Попытка
+        // Пробуем вариант
         *path = append(*path, root)
         if root.Val.(int) == 7 {
-            // Записать решение
+            // Сохраняем решение
             *res = append(*res, append([]*TreeNode{}, *path...))
         }
         preOrderIII(root.Left, res, path)
         preOrderIII(root.Right, res, path)
-        // Откат
+        // Возврат
         *path = (*path)[:len(*path)-1]
     }
     ```
@@ -707,21 +707,21 @@ comments: true
 === "Swift"
 
     ```swift title="preorder_traversal_iii_compact.swift"
-    /* Предварительный обход: пример 3 */
+    /* Прямой обход: пример 3 */
     func preOrder(root: TreeNode?) {
         // Отсечение
         guard let root = root, root.val != 3 else {
             return
         }
-        // Попытка
+        // Пробуем вариант
         path.append(root)
         if root.val == 7 {
-            // Записать решение
+            // Сохраняем решение
             res.append(path)
         }
         preOrder(root: root.left)
         preOrder(root: root.right)
-        // Откат
+        // Возврат
         path.removeLast()
     }
     ```
@@ -729,21 +729,21 @@ comments: true
 === "JS"
 
     ```javascript title="preorder_traversal_iii_compact.js"
-    /* Предварительный обход: пример 3 */
+    /* Прямой обход: пример 3 */
     function preOrder(root, path, res) {
         // Отсечение
         if (root === null || root.val === 3) {
             return;
         }
-        // Попытка
+        // Пробуем вариант
         path.push(root);
         if (root.val === 7) {
-            // Записать решение
+            // Сохраняем решение
             res.push([...path]);
         }
         preOrder(root.left, path, res);
         preOrder(root.right, path, res);
-        // Откат
+        // Возврат
         path.pop();
     }
     ```
@@ -751,7 +751,7 @@ comments: true
 === "TS"
 
     ```typescript title="preorder_traversal_iii_compact.ts"
-    /* Предварительный обход: пример 3 */
+    /* Прямой обход: пример 3 */
     function preOrder(
         root: TreeNode | null,
         path: TreeNode[],
@@ -761,15 +761,15 @@ comments: true
         if (root === null || root.val === 3) {
             return;
         }
-        // Попытка
+        // Пробуем вариант
         path.push(root);
         if (root.val === 7) {
-            // Записать решение
+            // Сохраняем решение
             res.push([...path]);
         }
         preOrder(root.left, path, res);
         preOrder(root.right, path, res);
-        // Откат
+        // Возврат
         path.pop();
     }
     ```
@@ -777,7 +777,7 @@ comments: true
 === "Dart"
 
     ```dart title="preorder_traversal_iii_compact.dart"
-    /* Предварительный обход: пример 3 */
+    /* Прямой обход: пример 3 */
     void preOrder(
       TreeNode? root,
       List<TreeNode> path,
@@ -787,15 +787,15 @@ comments: true
         return;
       }
 
-      // Попытка
+      // Пробуем вариант
       path.add(root);
       if (root.val == 7) {
-        // Записать решение
+        // Сохраняем решение
         res.add(List.from(path));
       }
       preOrder(root.left, path, res);
       preOrder(root.right, path, res);
-      // Откат
+      // Возврат
       path.removeLast();
     }
     ```
@@ -803,7 +803,7 @@ comments: true
 === "Rust"
 
     ```rust title="preorder_traversal_iii_compact.rs"
-    /* Предварительный обход: пример 3 */
+    /* Прямой обход: пример 3 */
     fn pre_order(
         res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
         path: &mut Vec<Rc<RefCell<TreeNode>>>,
@@ -814,15 +814,15 @@ comments: true
             return;
         }
         if let Some(node) = root {
-            // Попытка
+            // Пробуем вариант
             path.push(node.clone());
             if node.borrow().val == 7 {
-                // Записать решение
+                // Сохраняем решение
                 res.push(path.clone());
             }
             pre_order(res, path, node.borrow().left.as_ref());
             pre_order(res, path, node.borrow().right.as_ref());
-            // Откат
+            // Возврат
             path.pop();
         }
     }
@@ -831,16 +831,16 @@ comments: true
 === "C"
 
     ```c title="preorder_traversal_iii_compact.c"
-    /* Предварительный обход: пример 3 */
+    /* Прямой обход: пример 3 */
     void preOrder(TreeNode *root) {
         // Отсечение
         if (root == NULL || root->val == 3) {
             return;
         }
-        // Попытка
+        // Пробуем вариант
         path[pathSize++] = root;
         if (root->val == 7) {
-            // Записать решение
+            // Сохраняем решение
             for (int i = 0; i < pathSize; i++) {
                 res[resSize][i] = path[i];
             }
@@ -848,7 +848,7 @@ comments: true
         }
         preOrder(root->left);
         preOrder(root->right);
-        // Откат
+        // Возврат
         pathSize--;
     }
     ```
@@ -856,21 +856,21 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="preorder_traversal_iii_compact.kt"
-    /* Предварительный обход: пример 3 */
+    /* Прямой обход: пример 3 */
     fun preOrder(root: TreeNode?) {
         // Отсечение
         if (root == null || root._val == 3) {
             return
         }
-        // Попытка
+        // Пробуем вариант
         path!!.add(root)
         if (root._val == 7) {
-            // Записать решение
+            // Сохраняем решение
             res!!.add(path!!.toMutableList())
         }
         preOrder(root.left)
         preOrder(root.right)
-        // Откат
+        // Возврат
         path!!.removeAt(path!!.size - 1)
     }
     ```
@@ -878,84 +878,84 @@ comments: true
 === "Ruby"
 
     ```ruby title="preorder_traversal_iii_compact.rb"
-    ### Предварительный обход: пример 3 ###
+    ### Прямой обход: пример 3 ###
     def pre_order(root)
       # Отсечение
       return if !root || root.val == 3
 
-      # Попытка
+      # Пробуем вариант
       $path.append(root)
 
-      # Записать решение
+      # Сохраняем решение
       $res << $path.dup if root.val == 7
 
       pre_order(root.left)
       pre_order(root.right)
 
-      # Откат
+      # Возврат
       $path.pop
     end
     ```
 
-??? pythontutor "Визуализация кода"
+??? pythontutor "Визуализация выполнения"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация кода" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BB%D0%B5%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B0%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D%2C%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B5%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%3A%20%D1%80%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D1%8F%22%22%22%0A%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%B2%D1%8B%D1%85%D0%BE%D0%B4%D0%B8%D1%82%20%D0%B7%D0%B0%20%D0%B4%D0%BB%D0%B8%D0%BD%D1%83%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%20%D0%B8%D0%BB%D0%B8%20%D1%81%D0%BE%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D1%81%D1%82%D0%B2%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D1%80%D0%B0%D0%B2%D0%B5%D0%BD%20None%2C%20%D0%B2%D0%B5%D1%80%D0%BD%D1%83%D1%82%D1%8C%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20%D0%9F%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%B2%D0%BD%D0%BE%20%D0%BF%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D0%BB%D0%B5%D0%B2%D0%BE%D0%B5%20%D0%B8%20%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D0%B5%20%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr%2C%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr%2C%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B5%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr%2C%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22%D0%9F%D1%80%D0%B5%D0%B4%D0%B2%D0%B0%D1%80%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%3A%20%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%203%22%22%22%0A%20%20%20%20%23%20%D0%9E%D1%82%D1%81%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%0A%20%20%20%20if%20root%20is%20None%20or%20root.val%20%3D%3D%203%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%BF%D1%8B%D1%82%D0%BA%D0%B0%0A%20%20%20%20path.append%28root%29%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%0A%20%20%20%20%20%20%20%20res.append%28list%28path%29%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%20%20%20%20%23%20%D0%9E%D1%82%D0%BA%D0%B0%D1%82%0A%20%20%20%20path.pop%28%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1%2C%207%2C%203%2C%204%2C%205%2C%206%2C%207%5D%29%0A%0A%20%20%20%20%23%20%D0%9F%D1%80%D0%B5%D0%B4%D0%B2%D0%B0%D1%80%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%0A%20%20%20%20path%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20res%20%3D%20list%5Blist%5BTreeNode%5D%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5Cn%D0%92%D1%81%D0%B5%20%D0%BF%D1%83%D1%82%D0%B8%20%D0%BE%D1%82%20%D0%BA%D0%BE%D1%80%D0%BD%D1%8F%20%D0%BA%20%D1%83%D0%B7%D0%BB%D1%83%207%2C%20%D0%BD%D0%B5%20%D1%81%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D1%89%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%BE%D0%B2%20%D1%81%D0%BE%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%203%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BB%D0%B5%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B0%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D%2C%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B5%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%3A%20%D1%80%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D1%8F%22%22%22%0A%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%B2%D1%8B%D1%85%D0%BE%D0%B4%D0%B8%D1%82%20%D0%B7%D0%B0%20%D0%B4%D0%BB%D0%B8%D0%BD%D1%83%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%20%D0%B8%D0%BB%D0%B8%20%D1%81%D0%BE%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D1%81%D1%82%D0%B2%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D1%80%D0%B0%D0%B2%D0%B5%D0%BD%20None%2C%20%D0%B2%D0%B5%D1%80%D0%BD%D1%83%D1%82%D1%8C%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20%D0%9F%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%B2%D0%BD%D0%BE%20%D0%BF%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D0%BB%D0%B5%D0%B2%D0%BE%D0%B5%20%D0%B8%20%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D0%B5%20%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr%2C%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr%2C%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B5%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr%2C%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22%D0%9F%D1%80%D0%B5%D0%B4%D0%B2%D0%B0%D1%80%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%3A%20%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%203%22%22%22%0A%20%20%20%20%23%20%D0%9E%D1%82%D1%81%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%0A%20%20%20%20if%20root%20is%20None%20or%20root.val%20%3D%3D%203%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%BF%D1%8B%D1%82%D0%BA%D0%B0%0A%20%20%20%20path.append%28root%29%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%0A%20%20%20%20%20%20%20%20res.append%28list%28path%29%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%20%20%20%20%23%20%D0%9E%D1%82%D0%BA%D0%B0%D1%82%0A%20%20%20%20path.pop%28%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1%2C%207%2C%203%2C%204%2C%205%2C%206%2C%207%5D%29%0A%0A%20%20%20%20%23%20%D0%9F%D1%80%D0%B5%D0%B4%D0%B2%D0%B0%D1%80%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%0A%20%20%20%20path%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20res%20%3D%20list%5Blist%5BTreeNode%5D%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5Cn%D0%92%D1%81%D0%B5%20%D0%BF%D1%83%D1%82%D0%B8%20%D0%BE%D1%82%20%D0%BA%D0%BE%D1%80%D0%BD%D1%8F%20%D0%BA%20%D1%83%D0%B7%D0%BB%D1%83%207%2C%20%D0%BD%D0%B5%20%D1%81%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D1%89%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%BE%D0%B2%20%D1%81%D0%BE%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%203%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация выполнения" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BB%D0%B5%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BC%D0%BA%D0%B0%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BC%D0%BA%D0%B0%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%3A%20%D1%80%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D1%8F%22%22%22%0A%20%20%20%20%23%20%D0%92%D0%BD%D0%B5%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%20%D0%B8%D0%BB%D0%B8%20%D0%BF%D1%80%D0%B8%20None%20%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D0%BC%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%91%D0%BC%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%B2%D0%BD%D0%BE%20%D1%81%D1%82%D1%80%D0%BE%D0%B8%D0%BC%20%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%98%D0%B7%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22%D0%9F%D1%80%D1%8F%D0%BC%D0%BE%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%3A%20%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%203%22%22%22%0A%20%20%20%20%23%20%D0%9E%D1%82%D1%81%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%0A%20%20%20%20if%20root%20is%20None%20or%20root.val%20%3D%3D%203%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20%D0%9F%D1%80%D0%BE%D0%B1%D1%83%D0%B5%D0%BC%20%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D1%82%0A%20%20%20%20path.append%28root%29%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8F%0A%20%20%20%20%20%20%20%20res.append%28list%28path%29%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%20%20%20%20%23%20%D0%92%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%0A%20%20%20%20path.pop%28%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20%D0%9F%D1%80%D1%8F%D0%BC%D0%BE%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%0A%20%20%20%20path%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20res%20%3D%20list%5Blist%5BTreeNode%5D%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5Cn%D0%92%D1%8B%D0%B2%D0%BE%D0%B4%D0%B8%D0%BC%20%D0%B2%D1%81%D0%B5%20%D0%BF%D1%83%D1%82%D0%B8%20%D0%BE%D1%82%20%D0%BA%D0%BE%D1%80%D0%BD%D1%8F%20%D0%B4%D0%BE%20%D1%83%D0%B7%D0%BB%D0%BE%D0%B2%20%D1%81%D0%BE%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%207%20%D0%B1%D0%B5%D0%B7%20%D1%83%D0%B7%D0%BB%D0%BE%D0%B2%20%D1%81%D0%BE%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%203%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BB%D0%B5%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BC%D0%BA%D0%B0%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BC%D0%BA%D0%B0%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%3A%20%D1%80%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D1%8F%22%22%22%0A%20%20%20%20%23%20%D0%92%D0%BD%D0%B5%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%20%D0%B8%D0%BB%D0%B8%20%D0%BF%D1%80%D0%B8%20None%20%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D0%BC%20None%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%23%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%91%D0%BC%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%20%20%20%23%20%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%B2%D0%BD%D0%BE%20%D1%81%D1%82%D1%80%D0%BE%D0%B8%D0%BC%20%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%98%D0%B7%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20pre_order%28root%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22%D0%9F%D1%80%D1%8F%D0%BC%D0%BE%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%3A%20%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%203%22%22%22%0A%20%20%20%20%23%20%D0%9E%D1%82%D1%81%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%0A%20%20%20%20if%20root%20is%20None%20or%20root.val%20%3D%3D%203%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20%D0%9F%D1%80%D0%BE%D0%B1%D1%83%D0%B5%D0%BC%20%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D1%82%0A%20%20%20%20path.append%28root%29%0A%20%20%20%20if%20root.val%20%3D%3D%207%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8F%0A%20%20%20%20%20%20%20%20res.append%28list%28path%29%29%0A%20%20%20%20pre_order%28root.left%29%0A%20%20%20%20pre_order%28root.right%29%0A%20%20%20%20%23%20%D0%92%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%0A%20%20%20%20path.pop%28%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%20%20%20%23%20%D0%9F%D1%80%D1%8F%D0%BC%D0%BE%D0%B9%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%0A%20%20%20%20path%20%3D%20list%5BTreeNode%5D%28%29%0A%20%20%20%20res%20%3D%20list%5Blist%5BTreeNode%5D%5D%28%29%0A%20%20%20%20pre_order%28root%29%0A%0A%20%20%20%20print%28%22%5Cn%D0%92%D1%8B%D0%B2%D0%BE%D0%B4%D0%B8%D0%BC%20%D0%B2%D1%81%D0%B5%20%D0%BF%D1%83%D1%82%D0%B8%20%D0%BE%D1%82%20%D0%BA%D0%BE%D1%80%D0%BD%D1%8F%20%D0%B4%D0%BE%20%D1%83%D0%B7%D0%BB%D0%BE%D0%B2%20%D1%81%D0%BE%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%207%20%D0%B1%D0%B5%D0%B7%20%D1%83%D0%B7%D0%BB%D0%BE%D0%B2%20%D1%81%D0%BE%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%203%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=126&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
 
-Термин «обрезка» очень нагляден. Как показано на рисунке 13-3, во время поиска **мы отсекаем ветви, не удовлетворяющие ограничениям** , тем самым избегая множества бессмысленных попыток и повышая эффективность поиска.
+Название «отсечение» хорошо передаёт смысл операции. Как видно на рисунке, **мы отсекаем ветви поиска, нарушающие ограничения**. Это избавляет от многих бесполезных проб и повышает эффективность поиска.
 
-![Обрезка по условиям задачи](backtracking_algorithm.assets/preorder_find_constrained_paths.svg){ class="animation-figure" }
+![Отсечение по ограничениям задачи](backtracking_algorithm.assets/preorder_find_constrained_paths.svg){ class="animation-figure" }
 
-<p align="center"> Рисунок 13-3 &nbsp; Обрезка по условиям задачи </p>
+<p align="center"> Рисунок 13-3 &nbsp; Отсечение по ограничениям задачи </p>
 
-## 13.1.3 &nbsp; Каркас кода
+## 13.1.3 &nbsp; Общая схема алгоритма
 
-Теперь попробуем извлечь общий каркас из действий «попытка», «откат» и «обрезка», чтобы сделать код более универсальным.
+Выделим общую схему поиска с возвратом — пробу, возврат и отсечение. Тогда один и тот же код можно будет использовать в разных задачах.
 
-В следующем каркасе кода `state` обозначает текущее состояние задачи, а `choices` - список выборов, доступных в текущем состоянии:
+В следующей схеме `state` обозначает текущее состояние задачи, а `choices` — варианты выбора в этом состоянии:
 
 === "Python"
 
     ```python title=""
     def backtrack(state: State, choices: list[Choice], res: list[State]):
-        """Каркас алгоритма поиска с возвратом"""
-        # Проверка, является ли текущее состояние решением
+        """Общая схема поиска с возвратом"""
+        # Проверяем, найдено ли решение
         if is_solution(state):
-            # Запись решения
+            # Сохраняем решение
             record_solution(state, res)
-            # Дальше не продолжаем поиск
+            # Завершаем поиск в этой ветви
             return
-        # Перебор всех возможных выборов
+        # Перебираем все варианты
         for choice in choices:
-            # Обрезка: проверка допустимости выбора
+            # Отсечение: проверяем допустимость выбора
             if is_valid(state, choice):
-                # Попытка: сделать выбор и обновить состояние
+                # Пробуем вариант и обновляем состояние
                 make_choice(state, choice)
                 backtrack(state, choices, res)
-                # Откат: отменить выбор и восстановить предыдущее состояние
+                # Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 undo_choice(state, choice)
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* Каркас алгоритма поиска с возвратом */
+    /* Общая схема поиска с возвратом */
     void backtrack(State *state, vector<Choice *> &choices, vector<State *> &res) {
-        // Проверка, является ли текущее состояние решением
+        // Проверяем, найдено ли решение
         if (isSolution(state)) {
-            // Запись решения
+            // Сохраняем решение
             recordSolution(state, res);
-            // Дальше не продолжаем поиск
+            // Завершаем поиск в этой ветви
             return;
         }
-        // Перебор всех возможных выборов
+        // Перебираем все варианты
         for (Choice *choice : choices) {
-            // Обрезка: проверка допустимости выбора
+            // Отсечение: проверяем допустимость выбора
             if (isValid(state, choice)) {
-                // Попытка: сделать выбор и обновить состояние
+                // Пробуем вариант и обновляем состояние
                 makeChoice(state, choice);
                 backtrack(state, choices, res);
-                // Откат: отменить выбор и восстановить предыдущее состояние
+                // Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 undoChoice(state, choice);
             }
         }
@@ -965,23 +965,23 @@ comments: true
 === "Java"
 
     ```java title=""
-    /* Каркас алгоритма поиска с возвратом */
+    /* Общая схема поиска с возвратом */
     void backtrack(State state, List<Choice> choices, List<State> res) {
-        // Проверка, является ли текущее состояние решением
+        // Проверяем, найдено ли решение
         if (isSolution(state)) {
-            // Запись решения
+            // Сохраняем решение
             recordSolution(state, res);
-            // Дальше не продолжаем поиск
+            // Завершаем поиск в этой ветви
             return;
         }
-        // Перебор всех возможных выборов
+        // Перебираем все варианты
         for (Choice choice : choices) {
-            // Обрезка: проверка допустимости выбора
+            // Отсечение: проверяем допустимость выбора
             if (isValid(state, choice)) {
-                // Попытка: сделать выбор и обновить состояние
+                // Пробуем вариант и обновляем состояние
                 makeChoice(state, choice);
                 backtrack(state, choices, res);
-                // Откат: отменить выбор и восстановить предыдущее состояние
+                // Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 undoChoice(state, choice);
             }
         }
@@ -991,23 +991,23 @@ comments: true
 === "C#"
 
     ```csharp title=""
-    /* Каркас алгоритма поиска с возвратом */
+    /* Общая схема поиска с возвратом */
     void Backtrack(State state, List<Choice> choices, List<State> res) {
-        // Проверка, является ли текущее состояние решением
+        // Проверяем, найдено ли решение
         if (IsSolution(state)) {
-            // Запись решения
+            // Сохраняем решение
             RecordSolution(state, res);
-            // Дальше не продолжаем поиск
+            // Завершаем поиск в этой ветви
             return;
         }
-        // Перебор всех возможных выборов
+        // Перебираем все варианты
         foreach (Choice choice in choices) {
-            // Обрезка: проверка допустимости выбора
+            // Отсечение: проверяем допустимость выбора
             if (IsValid(state, choice)) {
-                // Попытка: сделать выбор и обновить состояние
+                // Пробуем вариант и обновляем состояние
                 MakeChoice(state, choice);
                 Backtrack(state, choices, res);
-                // Откат: отменить выбор и восстановить предыдущее состояние
+                // Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 UndoChoice(state, choice);
             }
         }
@@ -1017,23 +1017,23 @@ comments: true
 === "Go"
 
     ```go title=""
-    /* Каркас алгоритма поиска с возвратом */
+    /* Общая схема поиска с возвратом */
     func backtrack(state *State, choices []Choice, res *[]State) {
-        // Проверка, является ли текущее состояние решением
+        // Проверяем, найдено ли решение
         if isSolution(state) {
-            // Запись решения
+            // Сохраняем решение
             recordSolution(state, res)
-            // Дальше не продолжаем поиск
+            // Завершаем поиск в этой ветви
             return
         }
-        // Перебор всех возможных выборов
+        // Перебираем все варианты
         for _, choice := range choices {
-            // Обрезка: проверка допустимости выбора
+            // Отсечение: проверяем допустимость выбора
             if isValid(state, choice) {
-                // Попытка: сделать выбор и обновить состояние
+                // Пробуем вариант и обновляем состояние
                 makeChoice(state, choice)
                 backtrack(state, choices, res)
-                // Откат: отменить выбор и восстановить предыдущее состояние
+                // Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 undoChoice(state, choice)
             }
         }
@@ -1043,23 +1043,23 @@ comments: true
 === "Swift"
 
     ```swift title=""
-    /* Каркас алгоритма поиска с возвратом */
+    /* Общая схема поиска с возвратом */
     func backtrack(state: inout State, choices: [Choice], res: inout [State]) {
-        // Проверка, является ли текущее состояние решением
+        // Проверяем, найдено ли решение
         if isSolution(state: state) {
-            // Запись решения
+            // Сохраняем решение
             recordSolution(state: state, res: &res)
-            // Дальше не продолжаем поиск
+            // Завершаем поиск в этой ветви
             return
         }
-        // Перебор всех возможных выборов
+        // Перебираем все варианты
         for choice in choices {
-            // Обрезка: проверка допустимости выбора
+            // Отсечение: проверяем допустимость выбора
             if isValid(state: state, choice: choice) {
-                // Попытка: сделать выбор и обновить состояние
+                // Пробуем вариант и обновляем состояние
                 makeChoice(state: &state, choice: choice)
                 backtrack(state: &state, choices: choices, res: &res)
-                // Откат: отменить выбор и восстановить предыдущее состояние
+                // Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 undoChoice(state: &state, choice: choice)
             }
         }
@@ -1069,23 +1069,23 @@ comments: true
 === "JS"
 
     ```javascript title=""
-    /* Каркас алгоритма поиска с возвратом */
+    /* Общая схема поиска с возвратом */
     function backtrack(state, choices, res) {
-        // Проверка, является ли текущее состояние решением
+        // Проверяем, найдено ли решение
         if (isSolution(state)) {
-            // Запись решения
+            // Сохраняем решение
             recordSolution(state, res);
-            // Дальше не продолжаем поиск
+            // Завершаем поиск в этой ветви
             return;
         }
-        // Перебор всех возможных выборов
+        // Перебираем все варианты
         for (let choice of choices) {
-            // Обрезка: проверка допустимости выбора
+            // Отсечение: проверяем допустимость выбора
             if (isValid(state, choice)) {
-                // Попытка: сделать выбор и обновить состояние
+                // Пробуем вариант и обновляем состояние
                 makeChoice(state, choice);
                 backtrack(state, choices, res);
-                // Откат: отменить выбор и восстановить предыдущее состояние
+                // Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 undoChoice(state, choice);
             }
         }
@@ -1095,23 +1095,23 @@ comments: true
 === "TS"
 
     ```typescript title=""
-    /* Каркас алгоритма поиска с возвратом */
+    /* Общая схема поиска с возвратом */
     function backtrack(state: State, choices: Choice[], res: State[]): void {
-        // Проверка, является ли текущее состояние решением
+        // Проверяем, найдено ли решение
         if (isSolution(state)) {
-            // Запись решения
+            // Сохраняем решение
             recordSolution(state, res);
-            // Дальше не продолжаем поиск
+            // Завершаем поиск в этой ветви
             return;
         }
-        // Перебор всех возможных выборов
+        // Перебираем все варианты
         for (let choice of choices) {
-            // Обрезка: проверка допустимости выбора
+            // Отсечение: проверяем допустимость выбора
             if (isValid(state, choice)) {
-                // Попытка: сделать выбор и обновить состояние
+                // Пробуем вариант и обновляем состояние
                 makeChoice(state, choice);
                 backtrack(state, choices, res);
-                // Откат: отменить выбор и восстановить предыдущее состояние
+                // Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 undoChoice(state, choice);
             }
         }
@@ -1121,23 +1121,23 @@ comments: true
 === "Dart"
 
     ```dart title=""
-    /* Каркас алгоритма поиска с возвратом */
+    /* Общая схема поиска с возвратом */
     void backtrack(State state, List<Choice> choices, List<State> res) {
-      // Проверка, является ли текущее состояние решением
+      // Проверяем, найдено ли решение
       if (isSolution(state)) {
-        // Запись решения
+        // Сохраняем решение
         recordSolution(state, res);
-        // Дальше не продолжаем поиск
+        // Завершаем поиск в этой ветви
         return;
       }
-      // Перебор всех возможных выборов
+      // Перебираем все варианты
       for (Choice choice in choices) {
-        // Обрезка: проверка допустимости выбора
+        // Отсечение: проверяем допустимость выбора
         if (isValid(state, choice)) {
-          // Попытка: сделать выбор и обновить состояние
+          // Пробуем вариант и обновляем состояние
           makeChoice(state, choice);
           backtrack(state, choices, res);
-          // Откат: отменить выбор и восстановить предыдущее состояние
+          // Возврат: отменяем выбор и восстанавливаем прежнее состояние
           undoChoice(state, choice);
         }
       }
@@ -1147,23 +1147,23 @@ comments: true
 === "Rust"
 
     ```rust title=""
-    /* Каркас алгоритма поиска с возвратом */
+    /* Общая схема поиска с возвратом */
     fn backtrack(state: &mut State, choices: &Vec<Choice>, res: &mut Vec<State>) {
-        // Проверка, является ли текущее состояние решением
+        // Проверяем, найдено ли решение
         if is_solution(state) {
-            // Запись решения
+            // Сохраняем решение
             record_solution(state, res);
-            // Дальше не продолжаем поиск
+            // Завершаем поиск в этой ветви
             return;
         }
-        // Перебор всех возможных выборов
+        // Перебираем все варианты
         for choice in choices {
-            // Обрезка: проверка допустимости выбора
+            // Отсечение: проверяем допустимость выбора
             if is_valid(state, choice) {
-                // Попытка: сделать выбор и обновить состояние
+                // Пробуем вариант и обновляем состояние
                 make_choice(state, choice);
                 backtrack(state, choices, res);
-                // Откат: отменить выбор и восстановить предыдущее состояние
+                // Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 undo_choice(state, choice);
             }
         }
@@ -1173,23 +1173,23 @@ comments: true
 === "C"
 
     ```c title=""
-    /* Каркас алгоритма поиска с возвратом */
+    /* Общая схема поиска с возвратом */
     void backtrack(State *state, Choice *choices, int numChoices, State *res, int numRes) {
-        // Проверка, является ли текущее состояние решением
+        // Проверяем, найдено ли решение
         if (isSolution(state)) {
-            // Запись решения
+            // Сохраняем решение
             recordSolution(state, res, numRes);
-            // Дальше не продолжаем поиск
+            // Завершаем поиск в этой ветви
             return;
         }
-        // Перебор всех возможных выборов
+        // Перебираем все варианты
         for (int i = 0; i < numChoices; i++) {
-            // Обрезка: проверка допустимости выбора
+            // Отсечение: проверяем допустимость выбора
             if (isValid(state, &choices[i])) {
-                // Попытка: сделать выбор и обновить состояние
+                // Пробуем вариант и обновляем состояние
                 makeChoice(state, &choices[i]);
                 backtrack(state, choices, numChoices, res, numRes);
-                // Откат: отменить выбор и восстановить предыдущее состояние
+                // Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 undoChoice(state, &choices[i]);
             }
         }
@@ -1199,23 +1199,23 @@ comments: true
 === "Kotlin"
 
     ```kotlin title=""
-    /* Каркас алгоритма поиска с возвратом */
+    /* Общая схема поиска с возвратом */
     fun backtrack(state: State?, choices: List<Choice?>, res: List<State?>?) {
-        // Проверка, является ли текущее состояние решением
+        // Проверяем, найдено ли решение
         if (isSolution(state)) {
-            // Запись решения
+            // Сохраняем решение
             recordSolution(state, res)
-            // Дальше не продолжаем поиск
+            // Завершаем поиск в этой ветви
             return
         }
-        // Перебор всех возможных выборов
+        // Перебираем все варианты
         for (choice in choices) {
-            // Обрезка: проверка допустимости выбора
+            // Отсечение: проверяем допустимость выбора
             if (isValid(state, choice)) {
-                // Попытка: сделать выбор и обновить состояние
+                // Пробуем вариант и обновляем состояние
                 makeChoice(state, choice)
                 backtrack(state, choices, res)
-                // Откат: отменить выбор и восстановить предыдущее состояние
+                // Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 undoChoice(state, choice)
             }
         }
@@ -1225,119 +1225,119 @@ comments: true
 === "Ruby"
 
     ```ruby title=""
-    ### Каркас алгоритма поиска с возвратом ###
+    ### Общая схема поиска с возвратом ###
     def backtrack(state, choices, res)
-        # Проверка, является ли текущее состояние решением
+        # Проверяем, найдено ли решение
         if is_solution?(state)
-            # Запись решения
+            # Сохраняем решение
             record_solution(state, res)
             return
         end
 
-        # Перебор всех возможных выборов
+        # Перебираем все варианты
         for choice in choices
-            # Обрезка: проверка допустимости выбора
+            # Отсечение: проверяем допустимость выбора
             if is_valid?(state, choice)
-                # Попытка: сделать выбор и обновить состояние
+                # Пробуем вариант и обновляем состояние
                 make_choice(state, choice)
                 backtrack(state, choices, res)
-                # Откат: отменить выбор и восстановить предыдущее состояние
+                # Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 undo_choice(state, choice)
             end
         end
     end
     ```
 
-Теперь, опираясь на этот каркас, решим пример 3. Состояние `state` здесь - это путь обхода узлов, выбор `choices` - левый и правый потомки текущего узла, а результат `res` - список путей:
+Применим схему к примеру 3. Состояние `state` — текущий путь по узлам дерева, варианты `choices` — левый и правый потомки текущего узла, а результат `res` — список путей:
 
 === "Python"
 
     ```python title="preorder_traversal_iii_template.py"
     def is_solution(state: list[TreeNode]) -> bool:
-        """Проверить, является ли текущее состояние решением"""
+        """Проверяем, является ли текущее состояние решением"""
         return state and state[-1].val == 7
 
     def record_solution(state: list[TreeNode], res: list[list[TreeNode]]):
-        """Записать решение"""
+        """Сохраняем решение"""
         res.append(list(state))
 
     def is_valid(state: list[TreeNode], choice: TreeNode) -> bool:
-        """Проверить, допустим ли этот выбор в текущем состоянии"""
+        """Проверяем, допустим ли выбор в текущем состоянии"""
         return choice is not None and choice.val != 3
 
     def make_choice(state: list[TreeNode], choice: TreeNode):
-        """Обновить состояние"""
+        """Обновляем состояние"""
         state.append(choice)
 
     def undo_choice(state: list[TreeNode], choice: TreeNode):
-        """Восстановить состояние"""
+        """Восстанавливаем состояние"""
         state.pop()
 
     def backtrack(
         state: list[TreeNode], choices: list[TreeNode], res: list[list[TreeNode]]
     ):
-        """Алгоритм бэктрекинга: пример 3"""
-        # Проверить, является ли текущее состояние решением
+        """Поиск с возвратом: пример 3"""
+        # Проверяем, найдено ли решение
         if is_solution(state):
-            # Записать решение
+            # Сохраняем решение
             record_solution(state, res)
-        # Перебор всех вариантов выбора
+        # Перебираем все варианты
         for choice in choices:
-            # Отсечение: проверить допустимость выбора
+            # Отсечение: проверяем допустимость выбора
             if is_valid(state, choice):
-                # Попытка: сделать выбор и обновить состояние
+                # Пробуем вариант и обновляем состояние
                 make_choice(state, choice)
-                # Перейти к следующему выбору
+                # Переходим к следующему выбору
                 backtrack(state, [choice.left, choice.right], res)
-                # Откат: отменить выбор и восстановить предыдущее состояние
+                # Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 undo_choice(state, choice)
     ```
 
 === "C++"
 
     ```cpp title="preorder_traversal_iii_template.cpp"
-    /* Проверить, является ли текущее состояние решением */
+    /* Проверяем, является ли текущее состояние решением */
     bool isSolution(vector<TreeNode *> &state) {
         return !state.empty() && state.back()->val == 7;
     }
 
-    /* Записать решение */
+    /* Сохраняем решение */
     void recordSolution(vector<TreeNode *> &state, vector<vector<TreeNode *>> &res) {
         res.push_back(state);
     }
 
-    /* Проверить, допустим ли этот выбор в текущем состоянии */
+    /* Проверяем, допустим ли выбор в текущем состоянии */
     bool isValid(vector<TreeNode *> &state, TreeNode *choice) {
         return choice != nullptr && choice->val != 3;
     }
 
-    /* Обновить состояние */
+    /* Обновляем состояние */
     void makeChoice(vector<TreeNode *> &state, TreeNode *choice) {
         state.push_back(choice);
     }
 
-    /* Восстановить состояние */
+    /* Восстанавливаем состояние */
     void undoChoice(vector<TreeNode *> &state, TreeNode *choice) {
         state.pop_back();
     }
 
-    /* Алгоритм бэктрекинга: пример 3 */
+    /* Поиск с возвратом: пример 3 */
     void backtrack(vector<TreeNode *> &state, vector<TreeNode *> &choices, vector<vector<TreeNode *>> &res) {
-        // Проверить, является ли текущее состояние решением
+        // Проверяем, найдено ли решение
         if (isSolution(state)) {
-            // Записать решение
+            // Сохраняем решение
             recordSolution(state, res);
         }
-        // Перебор всех вариантов выбора
+        // Перебираем все варианты
         for (TreeNode *choice : choices) {
-            // Отсечение: проверить допустимость выбора
+            // Отсечение: проверяем допустимость выбора
             if (isValid(state, choice)) {
-                // Попытка: сделать выбор и обновить состояние
+                // Пробуем вариант и обновляем состояние
                 makeChoice(state, choice);
-                // Перейти к следующему выбору
+                // Переходим к следующему выбору
                 vector<TreeNode *> nextChoices{choice->left, choice->right};
                 backtrack(state, nextChoices, res);
-                // Откат: отменить выбор и восстановить предыдущее состояние
+                // Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 undoChoice(state, choice);
             }
         }
@@ -1347,47 +1347,47 @@ comments: true
 === "Java"
 
     ```java title="preorder_traversal_iii_template.java"
-    /* Проверить, является ли текущее состояние решением */
+    /* Проверяем, является ли текущее состояние решением */
     boolean isSolution(List<TreeNode> state) {
         return !state.isEmpty() && state.get(state.size() - 1).val == 7;
     }
 
-    /* Записать решение */
+    /* Сохраняем решение */
     void recordSolution(List<TreeNode> state, List<List<TreeNode>> res) {
         res.add(new ArrayList<>(state));
     }
 
-    /* Проверить, допустим ли этот выбор в текущем состоянии */
+    /* Проверяем, допустим ли выбор в текущем состоянии */
     boolean isValid(List<TreeNode> state, TreeNode choice) {
         return choice != null && choice.val != 3;
     }
 
-    /* Обновить состояние */
+    /* Обновляем состояние */
     void makeChoice(List<TreeNode> state, TreeNode choice) {
         state.add(choice);
     }
 
-    /* Восстановить состояние */
+    /* Восстанавливаем состояние */
     void undoChoice(List<TreeNode> state, TreeNode choice) {
         state.remove(state.size() - 1);
     }
 
-    /* Алгоритм бэктрекинга: пример 3 */
+    /* Поиск с возвратом: пример 3 */
     void backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res) {
-        // Проверить, является ли текущее состояние решением
+        // Проверяем, найдено ли решение
         if (isSolution(state)) {
-            // Записать решение
+            // Сохраняем решение
             recordSolution(state, res);
         }
-        // Перебор всех вариантов выбора
+        // Перебираем все варианты
         for (TreeNode choice : choices) {
-            // Отсечение: проверить допустимость выбора
+            // Отсечение: проверяем допустимость выбора
             if (isValid(state, choice)) {
-                // Попытка: сделать выбор и обновить состояние
+                // Пробуем вариант и обновляем состояние
                 makeChoice(state, choice);
-                // Перейти к следующему выбору
+                // Переходим к следующему выбору
                 backtrack(state, Arrays.asList(choice.left, choice.right), res);
-                // Откат: отменить выбор и восстановить предыдущее состояние
+                // Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 undoChoice(state, choice);
             }
         }
@@ -1397,47 +1397,47 @@ comments: true
 === "C#"
 
     ```csharp title="preorder_traversal_iii_template.cs"
-    /* Проверить, является ли текущее состояние решением */
+    /* Проверяем, является ли текущее состояние решением */
     bool IsSolution(List<TreeNode> state) {
         return state.Count != 0 && state[^1].val == 7;
     }
 
-    /* Записать решение */
+    /* Сохраняем решение */
     void RecordSolution(List<TreeNode> state, List<List<TreeNode>> res) {
         res.Add(new List<TreeNode>(state));
     }
 
-    /* Проверить, допустим ли этот выбор в текущем состоянии */
+    /* Проверяем, допустим ли выбор в текущем состоянии */
     bool IsValid(List<TreeNode> state, TreeNode choice) {
         return choice != null && choice.val != 3;
     }
 
-    /* Обновить состояние */
+    /* Обновляем состояние */
     void MakeChoice(List<TreeNode> state, TreeNode choice) {
         state.Add(choice);
     }
 
-    /* Восстановить состояние */
+    /* Восстанавливаем состояние */
     void UndoChoice(List<TreeNode> state, TreeNode choice) {
         state.RemoveAt(state.Count - 1);
     }
 
-    /* Алгоритм бэктрекинга: пример 3 */
+    /* Поиск с возвратом: пример 3 */
     void Backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res) {
-        // Проверить, является ли текущее состояние решением
+        // Проверяем, найдено ли решение
         if (IsSolution(state)) {
-            // Записать решение
+            // Сохраняем решение
             RecordSolution(state, res);
         }
-        // Перебор всех вариантов выбора
+        // Перебираем все варианты
         foreach (TreeNode choice in choices) {
-            // Отсечение: проверить допустимость выбора
+            // Отсечение: проверяем допустимость выбора
             if (IsValid(state, choice)) {
-                // Попытка: сделать выбор и обновить состояние
+                // Пробуем вариант и обновляем состояние
                 MakeChoice(state, choice);
-                // Перейти к следующему выбору
+                // Переходим к следующему выбору
                 Backtrack(state, [choice.left!, choice.right!], res);
-                // Откат: отменить выбор и восстановить предыдущее состояние
+                // Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 UndoChoice(state, choice);
             }
         }
@@ -1447,49 +1447,49 @@ comments: true
 === "Go"
 
     ```go title="preorder_traversal_iii_template.go"
-    /* Проверить, является ли текущее состояние решением */
+    /* Проверяем, является ли текущее состояние решением */
     func isSolution(state *[]*TreeNode) bool {
         return len(*state) != 0 && (*state)[len(*state)-1].Val == 7
     }
 
-    /* Записать решение */
+    /* Сохраняем решение */
     func recordSolution(state *[]*TreeNode, res *[][]*TreeNode) {
         *res = append(*res, append([]*TreeNode{}, *state...))
     }
 
-    /* Проверить, допустим ли этот выбор в текущем состоянии */
+    /* Проверяем, допустим ли выбор в текущем состоянии */
     func isValid(state *[]*TreeNode, choice *TreeNode) bool {
         return choice != nil && choice.Val != 3
     }
 
-    /* Обновить состояние */
+    /* Обновляем состояние */
     func makeChoice(state *[]*TreeNode, choice *TreeNode) {
         *state = append(*state, choice)
     }
 
-    /* Восстановить состояние */
+    /* Восстанавливаем состояние */
     func undoChoice(state *[]*TreeNode, choice *TreeNode) {
         *state = (*state)[:len(*state)-1]
     }
 
-    /* Алгоритм бэктрекинга: пример 3 */
+    /* Поиск с возвратом: пример 3 */
     func backtrackIII(state *[]*TreeNode, choices *[]*TreeNode, res *[][]*TreeNode) {
-        // Проверить, является ли текущее состояние решением
+        // Проверяем, найдено ли решение
         if isSolution(state) {
-            // Записать решение
+            // Сохраняем решение
             recordSolution(state, res)
         }
-        // Перебор всех вариантов выбора
+        // Перебираем все варианты
         for _, choice := range *choices {
-            // Отсечение: проверить допустимость выбора
+            // Отсечение: проверяем допустимость выбора
             if isValid(state, choice) {
-                // Попытка: сделать выбор и обновить состояние
+                // Пробуем вариант и обновляем состояние
                 makeChoice(state, choice)
-                // Перейти к следующему выбору
+                // Переходим к следующему выбору
                 temp := make([]*TreeNode, 0)
                 temp = append(temp, choice.Left, choice.Right)
                 backtrackIII(state, &temp, res)
-                // Откат: отменить выбор и восстановить предыдущее состояние
+                // Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 undoChoice(state, choice)
             }
         }
@@ -1499,46 +1499,46 @@ comments: true
 === "Swift"
 
     ```swift title="preorder_traversal_iii_template.swift"
-    /* Проверить, является ли текущее состояние решением */
+    /* Проверяем, является ли текущее состояние решением */
     func isSolution(state: [TreeNode]) -> Bool {
         !state.isEmpty && state.last!.val == 7
     }
 
-    /* Записать решение */
+    /* Сохраняем решение */
     func recordSolution(state: [TreeNode], res: inout [[TreeNode]]) {
         res.append(state)
     }
 
-    /* Проверить, допустим ли этот выбор в текущем состоянии */
+    /* Проверяем, допустим ли выбор в текущем состоянии */
     func isValid(state: [TreeNode], choice: TreeNode?) -> Bool {
         choice != nil && choice!.val != 3
     }
 
-    /* Обновить состояние */
+    /* Обновляем состояние */
     func makeChoice(state: inout [TreeNode], choice: TreeNode) {
         state.append(choice)
     }
 
-    /* Восстановить состояние */
+    /* Восстанавливаем состояние */
     func undoChoice(state: inout [TreeNode], choice: TreeNode) {
         state.removeLast()
     }
 
-    /* Алгоритм бэктрекинга: пример 3 */
+    /* Поиск с возвратом: пример 3 */
     func backtrack(state: inout [TreeNode], choices: [TreeNode], res: inout [[TreeNode]]) {
-        // Проверить, является ли текущее состояние решением
+        // Проверяем, найдено ли решение
         if isSolution(state: state) {
             recordSolution(state: state, res: &res)
         }
-        // Перебор всех вариантов выбора
+        // Перебираем все варианты
         for choice in choices {
-            // Отсечение: проверить допустимость выбора
+            // Отсечение: проверяем допустимость выбора
             if isValid(state: state, choice: choice) {
-                // Попытка: сделать выбор и обновить состояние
+                // Пробуем вариант и обновляем состояние
                 makeChoice(state: &state, choice: choice)
-                // Перейти к следующему выбору
+                // Переходим к следующему выбору
                 backtrack(state: &state, choices: [choice.left, choice.right].compactMap { $0 }, res: &res)
-                // Откат: отменить выбор и восстановить предыдущее состояние
+                // Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 undoChoice(state: &state, choice: choice)
             }
         }
@@ -1548,47 +1548,47 @@ comments: true
 === "JS"
 
     ```javascript title="preorder_traversal_iii_template.js"
-    /* Проверить, является ли текущее состояние решением */
+    /* Проверяем, является ли текущее состояние решением */
     function isSolution(state) {
         return state && state[state.length - 1]?.val === 7;
     }
 
-    /* Записать решение */
+    /* Сохраняем решение */
     function recordSolution(state, res) {
         res.push([...state]);
     }
 
-    /* Проверить, допустим ли этот выбор в текущем состоянии */
+    /* Проверяем, допустим ли выбор в текущем состоянии */
     function isValid(state, choice) {
         return choice !== null && choice.val !== 3;
     }
 
-    /* Обновить состояние */
+    /* Обновляем состояние */
     function makeChoice(state, choice) {
         state.push(choice);
     }
 
-    /* Восстановить состояние */
+    /* Восстанавливаем состояние */
     function undoChoice(state) {
         state.pop();
     }
 
-    /* Алгоритм бэктрекинга: пример 3 */
+    /* Поиск с возвратом: пример 3 */
     function backtrack(state, choices, res) {
-        // Проверить, является ли текущее состояние решением
+        // Проверяем, найдено ли решение
         if (isSolution(state)) {
-            // Записать решение
+            // Сохраняем решение
             recordSolution(state, res);
         }
-        // Перебор всех вариантов выбора
+        // Перебираем все варианты
         for (const choice of choices) {
-            // Отсечение: проверить допустимость выбора
+            // Отсечение: проверяем допустимость выбора
             if (isValid(state, choice)) {
-                // Попытка: сделать выбор и обновить состояние
+                // Пробуем вариант и обновляем состояние
                 makeChoice(state, choice);
-                // Перейти к следующему выбору
+                // Переходим к следующему выбору
                 backtrack(state, [choice.left, choice.right], res);
-                // Откат: отменить выбор и восстановить предыдущее состояние
+                // Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 undoChoice(state);
             }
         }
@@ -1598,51 +1598,51 @@ comments: true
 === "TS"
 
     ```typescript title="preorder_traversal_iii_template.ts"
-    /* Проверить, является ли текущее состояние решением */
+    /* Проверяем, является ли текущее состояние решением */
     function isSolution(state: TreeNode[]): boolean {
         return state && state[state.length - 1]?.val === 7;
     }
 
-    /* Записать решение */
+    /* Сохраняем решение */
     function recordSolution(state: TreeNode[], res: TreeNode[][]): void {
         res.push([...state]);
     }
 
-    /* Проверить, допустим ли этот выбор в текущем состоянии */
+    /* Проверяем, допустим ли выбор в текущем состоянии */
     function isValid(state: TreeNode[], choice: TreeNode): boolean {
         return choice !== null && choice.val !== 3;
     }
 
-    /* Обновить состояние */
+    /* Обновляем состояние */
     function makeChoice(state: TreeNode[], choice: TreeNode): void {
         state.push(choice);
     }
 
-    /* Восстановить состояние */
+    /* Восстанавливаем состояние */
     function undoChoice(state: TreeNode[]): void {
         state.pop();
     }
 
-    /* Алгоритм бэктрекинга: пример 3 */
+    /* Поиск с возвратом: пример 3 */
     function backtrack(
         state: TreeNode[],
         choices: TreeNode[],
         res: TreeNode[][]
     ): void {
-        // Проверить, является ли текущее состояние решением
+        // Проверяем, найдено ли решение
         if (isSolution(state)) {
-            // Записать решение
+            // Сохраняем решение
             recordSolution(state, res);
         }
-        // Перебор всех вариантов выбора
+        // Перебираем все варианты
         for (const choice of choices) {
-            // Отсечение: проверить допустимость выбора
+            // Отсечение: проверяем допустимость выбора
             if (isValid(state, choice)) {
-                // Попытка: сделать выбор и обновить состояние
+                // Пробуем вариант и обновляем состояние
                 makeChoice(state, choice);
-                // Перейти к следующему выбору
+                // Переходим к следующему выбору
                 backtrack(state, [choice.left, choice.right], res);
-                // Откат: отменить выбор и восстановить предыдущее состояние
+                // Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 undoChoice(state);
             }
         }
@@ -1652,51 +1652,51 @@ comments: true
 === "Dart"
 
     ```dart title="preorder_traversal_iii_template.dart"
-    /* Проверить, является ли текущее состояние решением */
+    /* Проверяем, является ли текущее состояние решением */
     bool isSolution(List<TreeNode> state) {
       return state.isNotEmpty && state.last.val == 7;
     }
 
-    /* Записать решение */
+    /* Сохраняем решение */
     void recordSolution(List<TreeNode> state, List<List<TreeNode>> res) {
       res.add(List.from(state));
     }
 
-    /* Проверить, допустим ли этот выбор в текущем состоянии */
+    /* Проверяем, допустим ли выбор в текущем состоянии */
     bool isValid(List<TreeNode> state, TreeNode? choice) {
       return choice != null && choice.val != 3;
     }
 
-    /* Обновить состояние */
+    /* Обновляем состояние */
     void makeChoice(List<TreeNode> state, TreeNode? choice) {
       state.add(choice!);
     }
 
-    /* Восстановить состояние */
+    /* Восстанавливаем состояние */
     void undoChoice(List<TreeNode> state, TreeNode? choice) {
       state.removeLast();
     }
 
-    /* Алгоритм бэктрекинга: пример 3 */
+    /* Поиск с возвратом: пример 3 */
     void backtrack(
       List<TreeNode> state,
       List<TreeNode?> choices,
       List<List<TreeNode>> res,
     ) {
-      // Проверить, является ли текущее состояние решением
+      // Проверяем, найдено ли решение
       if (isSolution(state)) {
-        // Записать решение
+        // Сохраняем решение
         recordSolution(state, res);
       }
-      // Перебор всех вариантов выбора
+      // Перебираем все варианты
       for (TreeNode? choice in choices) {
-        // Отсечение: проверить допустимость выбора
+        // Отсечение: проверяем допустимость выбора
         if (isValid(state, choice)) {
-          // Попытка: сделать выбор и обновить состояние
+          // Пробуем вариант и обновляем состояние
           makeChoice(state, choice);
-          // Перейти к следующему выбору
+          // Переходим к следующему выбору
           backtrack(state, [choice!.left, choice.right], res);
-          // Откат: отменить выбор и восстановить предыдущее состояние
+          // Возврат: отменяем выбор и восстанавливаем прежнее состояние
           undoChoice(state, choice);
         }
       }
@@ -1706,12 +1706,12 @@ comments: true
 === "Rust"
 
     ```rust title="preorder_traversal_iii_template.rs"
-    /* Проверить, является ли текущее состояние решением */
+    /* Проверяем, является ли текущее состояние решением */
     fn is_solution(state: &mut Vec<Rc<RefCell<TreeNode>>>) -> bool {
         return !state.is_empty() && state.last().unwrap().borrow().val == 7;
     }
 
-    /* Записать решение */
+    /* Сохраняем решение */
     fn record_solution(
         state: &mut Vec<Rc<RefCell<TreeNode>>>,
         res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
@@ -1719,39 +1719,39 @@ comments: true
         res.push(state.clone());
     }
 
-    /* Проверить, допустим ли этот выбор в текущем состоянии */
+    /* Проверяем, допустим ли выбор в текущем состоянии */
     fn is_valid(_: &mut Vec<Rc<RefCell<TreeNode>>>, choice: Option<&Rc<RefCell<TreeNode>>>) -> bool {
         return choice.is_some() && choice.unwrap().borrow().val != 3;
     }
 
-    /* Обновить состояние */
+    /* Обновляем состояние */
     fn make_choice(state: &mut Vec<Rc<RefCell<TreeNode>>>, choice: Rc<RefCell<TreeNode>>) {
         state.push(choice);
     }
 
-    /* Восстановить состояние */
+    /* Восстанавливаем состояние */
     fn undo_choice(state: &mut Vec<Rc<RefCell<TreeNode>>>, _: Rc<RefCell<TreeNode>>) {
         state.pop();
     }
 
-    /* Алгоритм бэктрекинга: пример 3 */
+    /* Поиск с возвратом: пример 3 */
     fn backtrack(
         state: &mut Vec<Rc<RefCell<TreeNode>>>,
         choices: &Vec<Option<&Rc<RefCell<TreeNode>>>>,
         res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
     ) {
-        // Проверить, является ли текущее состояние решением
+        // Проверяем, найдено ли решение
         if is_solution(state) {
-            // Записать решение
+            // Сохраняем решение
             record_solution(state, res);
         }
-        // Перебор всех вариантов выбора
+        // Перебираем все варианты
         for &choice in choices.iter() {
-            // Отсечение: проверить допустимость выбора
+            // Отсечение: проверяем допустимость выбора
             if is_valid(state, choice) {
-                // Попытка: сделать выбор и обновить состояние
+                // Пробуем вариант и обновляем состояние
                 make_choice(state, choice.unwrap().clone());
-                // Перейти к следующему выбору
+                // Переходим к следующему выбору
                 backtrack(
                     state,
                     &vec![
@@ -1760,7 +1760,7 @@ comments: true
                     ],
                     res,
                 );
-                // Откат: отменить выбор и восстановить предыдущее состояние
+                // Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 undo_choice(state, choice.unwrap().clone());
             }
         }
@@ -1770,12 +1770,12 @@ comments: true
 === "C"
 
     ```c title="preorder_traversal_iii_template.c"
-    /* Проверить, является ли текущее состояние решением */
+    /* Проверяем, является ли текущее состояние решением */
     bool isSolution(void) {
         return pathSize > 0 && path[pathSize - 1]->val == 7;
     }
 
-    /* Записать решение */
+    /* Сохраняем решение */
     void recordSolution(void) {
         for (int i = 0; i < pathSize; i++) {
             res[resSize][i] = path[i];
@@ -1783,39 +1783,39 @@ comments: true
         resSize++;
     }
 
-    /* Проверить, допустим ли этот выбор в текущем состоянии */
+    /* Проверяем, допустим ли выбор в текущем состоянии */
     bool isValid(TreeNode *choice) {
         return choice != NULL && choice->val != 3;
     }
 
-    /* Обновить состояние */
+    /* Обновляем состояние */
     void makeChoice(TreeNode *choice) {
         path[pathSize++] = choice;
     }
 
-    /* Восстановить состояние */
+    /* Восстанавливаем состояние */
     void undoChoice(void) {
         pathSize--;
     }
 
-    /* Алгоритм бэктрекинга: пример 3 */
+    /* Поиск с возвратом: пример 3 */
     void backtrack(TreeNode *choices[2]) {
-        // Проверить, является ли текущее состояние решением
+        // Проверяем, найдено ли решение
         if (isSolution()) {
-            // Записать решение
+            // Сохраняем решение
             recordSolution();
         }
-        // Перебор всех вариантов выбора
+        // Перебираем все варианты
         for (int i = 0; i < 2; i++) {
             TreeNode *choice = choices[i];
-            // Отсечение: проверить допустимость выбора
+            // Отсечение: проверяем допустимость выбора
             if (isValid(choice)) {
-                // Попытка: сделать выбор и обновить состояние
+                // Пробуем вариант и обновляем состояние
                 makeChoice(choice);
-                // Перейти к следующему выбору
+                // Переходим к следующему выбору
                 TreeNode *nextChoices[2] = {choice->left, choice->right};
                 backtrack(nextChoices);
-                // Откат: отменить выбор и восстановить предыдущее состояние
+                // Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 undoChoice();
             }
         }
@@ -1825,51 +1825,51 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="preorder_traversal_iii_template.kt"
-    /* Проверить, является ли текущее состояние решением */
+    /* Проверяем, является ли текущее состояние решением */
     fun isSolution(state: MutableList<TreeNode?>): Boolean {
         return state.isNotEmpty() && state[state.size - 1]?._val == 7
     }
 
-    /* Записать решение */
+    /* Сохраняем решение */
     fun recordSolution(state: MutableList<TreeNode?>?, res: MutableList<MutableList<TreeNode?>?>) {
         res.add(state!!.toMutableList())
     }
 
-    /* Проверить, допустим ли этот выбор в текущем состоянии */
+    /* Проверяем, допустим ли выбор в текущем состоянии */
     fun isValid(state: MutableList<TreeNode?>?, choice: TreeNode?): Boolean {
         return choice != null && choice._val != 3
     }
 
-    /* Обновить состояние */
+    /* Обновляем состояние */
     fun makeChoice(state: MutableList<TreeNode?>, choice: TreeNode?) {
         state.add(choice)
     }
 
-    /* Восстановить состояние */
+    /* Восстанавливаем состояние */
     fun undoChoice(state: MutableList<TreeNode?>, choice: TreeNode?) {
         state.removeLast()
     }
 
-    /* Алгоритм бэктрекинга: пример 3 */
+    /* Поиск с возвратом: пример 3 */
     fun backtrack(
         state: MutableList<TreeNode?>,
         choices: MutableList<TreeNode?>,
         res: MutableList<MutableList<TreeNode?>?>
     ) {
-        // Проверить, является ли текущее состояние решением
+        // Проверяем, найдено ли решение
         if (isSolution(state)) {
-            // Записать решение
+            // Сохраняем решение
             recordSolution(state, res)
         }
-        // Перебор всех вариантов выбора
+        // Перебираем все варианты
         for (choice in choices) {
-            // Отсечение: проверить допустимость выбора
+            // Отсечение: проверяем допустимость выбора
             if (isValid(state, choice)) {
-                // Попытка: сделать выбор и обновить состояние
+                // Пробуем вариант и обновляем состояние
                 makeChoice(state, choice)
-                // Перейти к следующему выбору
+                // Переходим к следующему выбору
                 backtrack(state, mutableListOf(choice!!.left, choice.right), res)
-                // Откат: отменить выбор и восстановить предыдущее состояние
+                // Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 undoChoice(state, choice)
             }
         }
@@ -1879,125 +1879,125 @@ comments: true
 === "Ruby"
 
     ```ruby title="preorder_traversal_iii_template.rb"
-    ### Проверка, является ли текущее состояние решением ###
+    ### Проверяем, является ли текущее состояние решением ###
     def is_solution?(state)
       !state.empty? && state.last.val == 7
     end
 
-    ### Записать решение ###
+    ### Сохраняем решение ###
     def record_solution(state, res)
       res << state.dup
     end
 
-    ### Проверка допустимости этого выбора в текущем состоянии ###
+    ### Проверяем, допустим ли выбор в текущем состоянии ###
     def is_valid?(state, choice)
       choice && choice.val != 3
     end
 
-    ### Обновить состояние ###
+    ### Обновляем состояние ###
     def make_choice(state, choice)
       state << choice
     end
 
-    ### Восстановить состояние ###
+    ### Восстанавливаем состояние ###
     def undo_choice(state, choice)
       state.pop
     end
 
-    ### Алгоритм бэктрекинга: пример 3 ###
+    ### Поиск с возвратом: пример 3 ###
     def backtrack(state, choices, res)
-      # Проверить, является ли текущее состояние решением
+      # Проверяем, найдено ли решение
       record_solution(state, res) if is_solution?(state)
 
-      # Перебор всех вариантов выбора
+      # Перебираем все варианты
       for choice in choices
-        # Отсечение: проверить допустимость выбора
+        # Отсечение: проверяем допустимость выбора
         if is_valid?(state, choice)
-          # Попытка: сделать выбор и обновить состояние
+          # Пробуем вариант и обновляем состояние
           make_choice(state, choice)
-          # Перейти к следующему выбору
+          # Переходим к следующему выбору
           backtrack(state, [choice.left, choice.right], res)
-          # Откат: отменить выбор и восстановить предыдущее состояние
+          # Возврат: отменяем выбор и восстанавливаем прежнее состояние
           undo_choice(state, choice)
         end
       end
     end
     ```
 
-??? pythontutor "Визуализация кода"
+??? pythontutor "Визуализация выполнения"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация кода" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D%2C%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B5%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%3A%20%D1%80%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D1%8F%22%22%22%0A%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr%2C%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr%2C%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B5%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr%2C%200%29%0A%0A%0Adef%20is_solution%28state%3A%20list%5BTreeNode%5D%29%20-%3E%20bool%3A%0A%20%20%20%20%22%22%22%D0%9F%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%B8%D1%82%D1%8C%2C%20%D1%8F%D0%B2%D0%BB%D1%8F%D0%B5%D1%82%D1%81%D1%8F%20%D0%BB%D0%B8%20%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B5%D0%B5%20%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B5%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%22%22%22%0A%20%20%20%20return%20state%20and%20state%5B-1%5D.val%20%3D%3D%207%0A%0Adef%20record_solution%28state%3A%20list%5BTreeNode%5D%2C%20res%3A%20list%5Blist%5BTreeNode%5D%5D%29%3A%0A%20%20%20%20%22%22%22%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%22%22%22%0A%20%20%20%20res.append%28list%28state%29%29%0A%0Adef%20is_valid%28state%3A%20list%5BTreeNode%5D%2C%20choice%3A%20TreeNode%29%20-%3E%20bool%3A%0A%20%20%20%20%22%22%22%D0%9F%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%B8%D1%82%D1%8C%2C%20%D0%B4%D0%BE%D0%BF%D1%83%D1%81%D1%82%D0%B8%D0%BC%20%D0%BB%D0%B8%20%D1%8D%D1%82%D0%BE%D1%82%20%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%20%D0%B2%20%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B5%D0%BC%20%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B8%22%22%22%0A%20%20%20%20return%20choice%20is%20not%20None%20and%20choice.val%20%21%3D%203%0A%0Adef%20make_choice%28state%3A%20list%5BTreeNode%5D%2C%20choice%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22%D0%9E%D0%B1%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C%20%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B5%22%22%22%0A%20%20%20%20state.append%28choice%29%0A%0Adef%20undo_choice%28state%3A%20list%5BTreeNode%5D%2C%20choice%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22%D0%92%D0%BE%D1%81%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C%20%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B5%22%22%22%0A%20%20%20%20state.pop%28%29%0A%0Adef%20backtrack%28%0A%20%20%20%20state%3A%20list%5BTreeNode%5D%2C%20choices%3A%20list%5BTreeNode%5D%2C%20res%3A%20list%5Blist%5BTreeNode%5D%5D%0A%29%3A%0A%20%20%20%20%22%22%22%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D0%B1%D1%8D%D0%BA%D1%82%D1%80%D0%B5%D0%BA%D0%B8%D0%BD%D0%B3%D0%B0%3A%20%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%203%22%22%22%0A%0A%20%20%20%20if%20is_solution%28state%29%3A%0A%0A%20%20%20%20%20%20%20%20record_solution%28state%2C%20res%29%0A%0A%20%20%20%20for%20choice%20in%20choices%3A%0A%0A%20%20%20%20%20%20%20%20if%20is_valid%28state%2C%20choice%29%3A%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20make_choice%28state%2C%20choice%29%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20backtrack%28state%2C%20%5Bchoice.left%2C%20choice.right%5D%2C%20res%29%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20undo_choice%28state%2C%20choice%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1%2C%207%2C%203%2C%204%2C%205%2C%206%2C%207%5D%29%0A%0A%0A%20%20%20%20res%20%3D%20%5B%5D%0A%20%20%20%20backtrack%28state%3D%5B%5D%2C%20choices%3D%5Broot%5D%2C%20res%3Dres%29%0A%20%20%20%20print%28%22%5Cn%D0%92%D1%8B%D0%B2%D0%B5%D1%81%D1%82%D0%B8%20%D0%B2%D1%81%D0%B5%20%D0%BF%D1%83%D1%82%D0%B8%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=138&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D%2C%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B5%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%3A%20%D1%80%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D1%8F%22%22%22%0A%0A%20%20%20%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%0A%20%20%20%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%0A%20%20%20%20root.left%20%3D%20list_to_tree_dfs%28arr%2C%202%20%2A%20i%20%2B%201%29%0A%20%20%20%20root.right%20%3D%20list_to_tree_dfs%28arr%2C%202%20%2A%20i%20%2B%202%29%0A%20%20%20%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B5%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%22%22%22%0A%20%20%20%20return%20list_to_tree_dfs%28arr%2C%200%29%0A%0A%0Adef%20is_solution%28state%3A%20list%5BTreeNode%5D%29%20-%3E%20bool%3A%0A%20%20%20%20%22%22%22%D0%9F%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%B8%D1%82%D1%8C%2C%20%D1%8F%D0%B2%D0%BB%D1%8F%D0%B5%D1%82%D1%81%D1%8F%20%D0%BB%D0%B8%20%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B5%D0%B5%20%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B5%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%22%22%22%0A%20%20%20%20return%20state%20and%20state%5B-1%5D.val%20%3D%3D%207%0A%0Adef%20record_solution%28state%3A%20list%5BTreeNode%5D%2C%20res%3A%20list%5Blist%5BTreeNode%5D%5D%29%3A%0A%20%20%20%20%22%22%22%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%22%22%22%0A%20%20%20%20res.append%28list%28state%29%29%0A%0Adef%20is_valid%28state%3A%20list%5BTreeNode%5D%2C%20choice%3A%20TreeNode%29%20-%3E%20bool%3A%0A%20%20%20%20%22%22%22%D0%9F%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%B8%D1%82%D1%8C%2C%20%D0%B4%D0%BE%D0%BF%D1%83%D1%81%D1%82%D0%B8%D0%BC%20%D0%BB%D0%B8%20%D1%8D%D1%82%D0%BE%D1%82%20%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%20%D0%B2%20%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B5%D0%BC%20%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B8%22%22%22%0A%20%20%20%20return%20choice%20is%20not%20None%20and%20choice.val%20%21%3D%203%0A%0Adef%20make_choice%28state%3A%20list%5BTreeNode%5D%2C%20choice%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22%D0%9E%D0%B1%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C%20%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B5%22%22%22%0A%20%20%20%20state.append%28choice%29%0A%0Adef%20undo_choice%28state%3A%20list%5BTreeNode%5D%2C%20choice%3A%20TreeNode%29%3A%0A%20%20%20%20%22%22%22%D0%92%D0%BE%D1%81%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C%20%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B5%22%22%22%0A%20%20%20%20state.pop%28%29%0A%0Adef%20backtrack%28%0A%20%20%20%20state%3A%20list%5BTreeNode%5D%2C%20choices%3A%20list%5BTreeNode%5D%2C%20res%3A%20list%5Blist%5BTreeNode%5D%5D%0A%29%3A%0A%20%20%20%20%22%22%22%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D0%B1%D1%8D%D0%BA%D1%82%D1%80%D0%B5%D0%BA%D0%B8%D0%BD%D0%B3%D0%B0%3A%20%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%203%22%22%22%0A%0A%20%20%20%20if%20is_solution%28state%29%3A%0A%0A%20%20%20%20%20%20%20%20record_solution%28state%2C%20res%29%0A%0A%20%20%20%20for%20choice%20in%20choices%3A%0A%0A%20%20%20%20%20%20%20%20if%20is_valid%28state%2C%20choice%29%3A%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20make_choice%28state%2C%20choice%29%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20backtrack%28state%2C%20%5Bchoice.left%2C%20choice.right%5D%2C%20res%29%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20undo_choice%28state%2C%20choice%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20root%20%3D%20list_to_tree%28%5B1%2C%207%2C%203%2C%204%2C%205%2C%206%2C%207%5D%29%0A%0A%0A%20%20%20%20res%20%3D%20%5B%5D%0A%20%20%20%20backtrack%28state%3D%5B%5D%2C%20choices%3D%5Broot%5D%2C%20res%3Dres%29%0A%20%20%20%20print%28%22%5Cn%D0%92%D1%8B%D0%B2%D0%B5%D1%81%D1%82%D0%B8%20%D0%B2%D1%81%D0%B5%20%D0%BF%D1%83%D1%82%D0%B8%22%29%0A%20%20%20%20for%20path%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=138&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация выполнения" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%0A%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%0A%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%B2%D0%BB%D0%B5%D0%B2%D0%BE%0A%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%B2%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%22%22%22%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%3A%20%D1%80%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D1%8F%22%22%22%0A%20%23%20%D0%97%D0%B0%20%D0%B3%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B5%D0%B9%20%D0%B8%D0%BB%D0%B8%20%D0%BF%D1%80%D0%B8%20None%20%D0%B2%D0%B5%D1%80%D0%BD%D1%83%D1%82%D1%8C%20None%0A%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20return%20None%0A%20%23%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%91%D0%BC%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%23%20%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D1%8F%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D0%B1%D0%BE%D0%B8%D1%85%20%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D0%B5%D0%B2%0A%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%22%22%22%D0%98%D0%B7%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%22%22%22%0A%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20is_solution%28state%3A%20list%5BTreeNode%5D%29%20-%3E%20bool%3A%0A%20%22%22%22state%20%E2%80%94%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%3F%22%22%22%0A%20return%20state%20and%20state%5B-1%5D.val%20%3D%3D%207%0A%0Adef%20record_solution%28state%3A%20list%5BTreeNode%5D,%20res%3A%20list%5Blist%5BTreeNode%5D%5D%29%3A%0A%20%22%22%22%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8F%22%22%22%0A%20res.append%28list%28state%29%29%0A%0Adef%20is_valid%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%20-%3E%20bool%3A%0A%20%22%22%22%D0%92%D1%8B%D0%B1%D0%BE%D1%80%20%D0%B4%D0%BE%D0%BF%D1%83%D1%81%D1%82%D0%B8%D0%BC%20%D0%B2%20state%3F%22%22%22%0A%20return%20choice%20is%20not%20None%20and%20choice.val%20%21%3D%203%0A%0Adef%20make_choice%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%3A%0A%20%22%22%22%D0%9E%D0%B1%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C%20state%22%22%22%0A%20state.append%28choice%29%0A%0Adef%20undo_choice%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%3A%0A%20%22%22%22%D0%92%D0%BE%D1%81%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C%20state%22%22%22%0A%20state.pop%28%29%0A%0Adef%20backtrack%28%0A%20state%3A%20list%5BTreeNode%5D,%20choices%3A%20list%5BTreeNode%5D,%20res%3A%20list%5Blist%5BTreeNode%5D%5D%0A%29%3A%0A%20%22%22%22%D0%9F%D0%BE%D0%B8%D1%81%D0%BA%20%D1%81%20%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%BE%D0%BC%3A%20%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%203%22%22%22%0A%20%23%20%D0%95%D1%81%D1%82%D1%8C%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%3F%0A%20if%20is_solution%28state%29%3A%0A%20%20%23%20%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8F%0A%20%20record_solution%28state,%20res%29%0A%20%23%20%D0%9F%D0%B5%D1%80%D0%B5%D0%B1%D0%BE%D1%80%20%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D1%82%D0%BE%D0%B2%0A%20for%20choice%20in%20choices%3A%0A%20%20%23%20%D0%9E%D1%82%D1%81%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%3A%20%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%20%D0%B4%D0%BE%D0%BF%D1%83%D1%81%D1%82%D0%B8%D0%BC%3F%0A%20%20if%20is_valid%28state,%20choice%29%3A%0A%20%20%20%23%20%D0%92%D1%8B%D0%B1%D1%80%D0%B0%D1%82%D1%8C,%20%D0%BE%D0%B1%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C%20state%0A%20%20%20make_choice%28state,%20choice%29%0A%20%20%20%23%20%D0%A1%D0%BB%D0%B5%D0%B4%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%0A%20%20%20backtrack%28state,%20%5Bchoice.left,%20choice.right%5D,%20res%29%0A%20%20%20%23%20%D0%9E%D1%82%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C%20%D0%B2%D1%8B%D0%B1%D0%BE%D1%80,%20%D0%B2%D0%B5%D1%80%D0%BD%D1%83%D1%82%D1%8C%20state%0A%20%20%20undo_choice%28state,%20choice%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%23%20%D0%9F%D0%BE%D0%B8%D1%81%D0%BA%20%D1%81%20%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%BE%D0%BC%0A%20res%20%3D%20%5B%5D%0A%20backtrack%28state%3D%5B%5D,%20choices%3D%5Broot%5D,%20res%3Dres%29%0A%20print%28%22%5Cn%D0%92%D1%81%D0%B5%20%D0%BF%D1%83%D1%82%D0%B8%3A%22%29%0A%20for%20path%20in%20res%3A%0A%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=138&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%0A%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%0A%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%B2%D0%BB%D0%B5%D0%B2%D0%BE%0A%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%B2%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%0A%0Adef%20list_to_tree_dfs%28arr%3A%20list%5Bint%5D,%20i%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%22%22%22%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%3A%20%D1%80%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D1%8F%22%22%22%0A%20%23%20%D0%97%D0%B0%20%D0%B3%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B5%D0%B9%20%D0%B8%D0%BB%D0%B8%20%D0%BF%D1%80%D0%B8%20None%20%D0%B2%D0%B5%D1%80%D0%BD%D1%83%D1%82%D1%8C%20None%0A%20if%20i%20%3C%200%20or%20i%20%3E%3D%20len%28arr%29%20or%20arr%5Bi%5D%20is%20None%3A%0A%20%20return%20None%0A%20%23%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%91%D0%BC%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20root%20%3D%20TreeNode%28arr%5Bi%5D%29%0A%20%23%20%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D1%8F%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D0%B1%D0%BE%D0%B8%D1%85%20%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D0%B5%D0%B2%0A%20root.left%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%201%29%0A%20root.right%20%3D%20list_to_tree_dfs%28arr,%202%20%2A%20i%20%2B%202%29%0A%20return%20root%0A%0Adef%20list_to_tree%28arr%3A%20list%5Bint%5D%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%22%22%22%D0%98%D0%B7%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%20%D0%B2%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%22%22%22%0A%20return%20list_to_tree_dfs%28arr,%200%29%0A%0A%0Adef%20is_solution%28state%3A%20list%5BTreeNode%5D%29%20-%3E%20bool%3A%0A%20%22%22%22state%20%E2%80%94%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%3F%22%22%22%0A%20return%20state%20and%20state%5B-1%5D.val%20%3D%3D%207%0A%0Adef%20record_solution%28state%3A%20list%5BTreeNode%5D,%20res%3A%20list%5Blist%5BTreeNode%5D%5D%29%3A%0A%20%22%22%22%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8F%22%22%22%0A%20res.append%28list%28state%29%29%0A%0Adef%20is_valid%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%20-%3E%20bool%3A%0A%20%22%22%22%D0%92%D1%8B%D0%B1%D0%BE%D1%80%20%D0%B4%D0%BE%D0%BF%D1%83%D1%81%D1%82%D0%B8%D0%BC%20%D0%B2%20state%3F%22%22%22%0A%20return%20choice%20is%20not%20None%20and%20choice.val%20%21%3D%203%0A%0Adef%20make_choice%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%3A%0A%20%22%22%22%D0%9E%D0%B1%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C%20state%22%22%22%0A%20state.append%28choice%29%0A%0Adef%20undo_choice%28state%3A%20list%5BTreeNode%5D,%20choice%3A%20TreeNode%29%3A%0A%20%22%22%22%D0%92%D0%BE%D1%81%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C%20state%22%22%22%0A%20state.pop%28%29%0A%0Adef%20backtrack%28%0A%20state%3A%20list%5BTreeNode%5D,%20choices%3A%20list%5BTreeNode%5D,%20res%3A%20list%5Blist%5BTreeNode%5D%5D%0A%29%3A%0A%20%22%22%22%D0%9F%D0%BE%D0%B8%D1%81%D0%BA%20%D1%81%20%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%BE%D0%BC%3A%20%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%203%22%22%22%0A%20%23%20%D0%95%D1%81%D1%82%D1%8C%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%3F%0A%20if%20is_solution%28state%29%3A%0A%20%20%23%20%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8F%0A%20%20record_solution%28state,%20res%29%0A%20%23%20%D0%9F%D0%B5%D1%80%D0%B5%D0%B1%D0%BE%D1%80%20%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D1%82%D0%BE%D0%B2%0A%20for%20choice%20in%20choices%3A%0A%20%20%23%20%D0%9E%D1%82%D1%81%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%3A%20%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%20%D0%B4%D0%BE%D0%BF%D1%83%D1%81%D1%82%D0%B8%D0%BC%3F%0A%20%20if%20is_valid%28state,%20choice%29%3A%0A%20%20%20%23%20%D0%92%D1%8B%D0%B1%D1%80%D0%B0%D1%82%D1%8C,%20%D0%BE%D0%B1%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C%20state%0A%20%20%20make_choice%28state,%20choice%29%0A%20%20%20%23%20%D0%A1%D0%BB%D0%B5%D0%B4%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%0A%20%20%20backtrack%28state,%20%5Bchoice.left,%20choice.right%5D,%20res%29%0A%20%20%20%23%20%D0%9E%D1%82%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C%20%D0%B2%D1%8B%D0%B1%D0%BE%D1%80,%20%D0%B2%D0%B5%D1%80%D0%BD%D1%83%D1%82%D1%8C%20state%0A%20%20%20undo_choice%28state,%20choice%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20root%20%3D%20list_to_tree%28%5B1,%207,%203,%204,%205,%206,%207%5D%29%0A%0A%20%23%20%D0%9F%D0%BE%D0%B8%D1%81%D0%BA%20%D1%81%20%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%BE%D0%BC%0A%20res%20%3D%20%5B%5D%0A%20backtrack%28state%3D%5B%5D,%20choices%3D%5Broot%5D,%20res%3Dres%29%0A%20print%28%22%5Cn%D0%92%D1%81%D0%B5%20%D0%BF%D1%83%D1%82%D0%B8%3A%22%29%0A%20for%20path%20in%20res%3A%0A%20%20print%28%5Bnode.val%20for%20node%20in%20path%5D%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=138&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
 
-Согласно условию задачи, после нахождения узла со значением $7$ мы должны продолжать поиск, **поэтому оператор `return` после записи решения нужно удалить**. На рисунке 13-4 сравниваются процессы поиска в случаях, когда `return` сохраняется и когда он удаляется.
+По условию после обнаружения узла со значением $7$ поиск должен продолжаться, **поэтому удалим инструкцию `return` после записи решения**. Рисунок показывает, как проходит поиск с инструкцией `return` и без неё.
 
-![Сравнение поиска при сохранении и удалении return](backtracking_algorithm.assets/backtrack_remove_return_or_not.svg){ class="animation-figure" }
+![Сравнение поиска с инструкцией return и без неё](backtracking_algorithm.assets/backtrack_remove_return_or_not.svg){ class="animation-figure" }
 
-<p align="center"> Рисунок 13-4 &nbsp; Сравнение поиска при сохранении и удалении return </p>
+<p align="center"> Рисунок 13-4 &nbsp; Сравнение поиска с инструкцией return и без неё </p>
 
-По сравнению с реализацией на основе прямого обхода, версия на основе общего каркаса поиска с возвратом выглядит более громоздкой, но при этом обладает лучшей универсальностью. На практике **многие задачи поиска с возвратом можно решать в рамках этого каркаса**. Для этого нужно лишь определить `state` и `choices` под конкретную задачу и реализовать соответствующие методы каркаса.
+Реализация по общей схеме выглядит длиннее кода прямого обхода, зато область её применения шире. **Эта схема подходит для многих задач поиска с возвратом**. Достаточно определить `state` и `choices` для конкретной задачи и реализовать методы схемы.
 
-## 13.1.4 &nbsp; Часто используемые термины
+## 13.1.4 &nbsp; Основные термины
 
-Чтобы яснее анализировать алгоритмические задачи, подытожим значения часто используемых терминов поиска с возвратом и сопоставим их с примером 3, как показано в таблице 13-1.
+Чтобы упростить разбор задач, соберём в таблице термины поиска с возвратом и проиллюстрируем каждый из них на примере 3.
 
-<p align="center"> Таблица 13-1 &nbsp; Часто используемые термины алгоритма поиска с возвратом </p>
+<p align="center"> Таблица 13-1 &nbsp; Основные термины поиска с возвратом </p>
 
 <div class="center-table" markdown>
 
-| Термин                   | Определение                                                                | Пример 3                                                              |
-| ------------------------ | -------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| Решение (solution)       | Решение - это ответ, удовлетворяющий условиям задачи. Решений может быть одно или несколько | Все пути от корня до узла $7$ , удовлетворяющие ограничениям          |
-| Ограничение (constraint) | Ограничение определяет допустимость решения и обычно используется для обрезки | Путь не содержит узлы со значением $3$                                |
-| Состояние (state)        | Состояние описывает ситуацию задачи в некоторый момент времени, включая уже сделанные выборы | Текущий путь посещенных узлов, то есть список узлов `path`            |
-| Попытка (attempt)        | Попытка - это исследование пространства решений на основе доступных выборов, включая выбор, обновление состояния и проверку, является ли состояние решением | Рекурсивный переход к левому или правому потомку, добавление узла в `path` и проверка, равно ли значение узла $7$ |
-| Откат (backtracking)     | Откат означает отмену предыдущих выборов и возврат к более раннему состоянию при встрече состояния, не удовлетворяющего ограничениям | Завершение поиска при проходе через лист, окончании посещения узла или встрече узла со значением $3$ , то есть возврат из функции |
-| Обрезка (pruning)        | Обрезка - это способ избегать бессмысленных путей поиска на основе свойств задачи и ее ограничений, повышающий эффективность | При встрече узла со значением $3$ поиск по этой ветви прекращается    |
+| Термин                   | Определение                                                                       | Пример 3                                                               |
+| ---------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| Решение (solution)         | Ответ, удовлетворяющий условиям задачи. Решение может быть одно, а может быть несколько                               | Все пути от корня до узлов со значением $7$, удовлетворяющие ограничениям                            |
+| Ограничение (constraint) | Условие задачи, определяющее допустимость решения. Часто используется для отсечения                         | На пути нет узла со значением $3$                                                 |
+| Состояние (state)          | Положение дел в данный момент, включая уже сделанный выбор                           | Текущий путь по посещённым узлам — список `path`                             |
+| Проба (attempt)        | Шаг исследования пространства решений: выбрать доступный вариант, обновить состояние и проверить, получено ли решение | Рекурсивно посетить левого или правого потомка, добавить узел в `path` и проверить, равно ли его значение $7$ |
+| Возврат (backtracking)   | Отмена предыдущего выбора и переход к прежнему состоянию при обнаружении состояния, нарушающего ограничения       | Функция завершает поиск в ветви и возвращает управление при выходе за лист, по окончании посещения узла или при встрече узла со значением $3$  |
+| Отсечение (pruning)        | Исключение бесперспективных путей на основании свойств и ограничений задачи. Повышает эффективность поиска     | При встрече узла со значением $3$ поиск в этой ветви прекращается                              |
 
 </div>
 
 !!! tip
 
-    Такие понятия, как задача, решение и состояние, являются общими и встречаются не только в поиске с возвратом, но и в «разделяй и властвуй», динамическом программировании, жадных алгоритмах и других темах.
+    Понятия задачи, решения и состояния встречаются и в других методах: «разделяй и властвуй», поиске с возвратом, динамическом программировании и жадных алгоритмах.
 
 ## 13.1.5 &nbsp; Преимущества и ограничения
 
-Алгоритм поиска с возвратом по своей сути представляет собой алгоритм обхода в глубину, который перебирает все возможные решения, пока не найдет удовлетворяющее условиям. Преимущество этого подхода в том, что он позволяет находить все возможные решения и при разумной обрезке может работать весьма эффективно.
+Поиск с возвратом по сути представляет собой поиск в глубину: он перебирает варианты, пока не найдёт решение, удовлетворяющее условиям. Преимущество метода в том, что он позволяет найти все решения, а при удачном отсечении ветвей может работать весьма эффективно.
 
-Однако при работе с большими или сложными задачами **эффективность поиска с возвратом может оказаться неприемлемой**.
+Однако на больших или сложных задачах **поиск с возвратом может оказаться неприемлемо медленным**.
 
-- **Время**: поиск с возвратом обычно требует обхода всех возможных состояний пространства состояний, и его временная сложность может достигать экспоненциального или факториального порядка.
-- **Память**: при рекурсивных вызовах нужно хранить текущее состояние (например, путь, вспомогательные переменные для обрезки и т.д.), поэтому при большой глубине рекурсии потребность в памяти может стать значительной.
+- **Время**. Часто приходится перебирать все варианты в пространстве состояний. Временная сложность может быть экспоненциальной или даже факториальной.
+- **Память**. Рекурсивным вызовам нужно хранить текущее состояние, например путь и вспомогательные переменные для отсечения. При большой глубине может понадобиться много памяти.
 
-Тем не менее **поиск с возвратом по-прежнему остается лучшим решением для некоторых поисковых задач и задач удовлетворения ограничений**. В таких задачах заранее невозможно предсказать, какие выборы приведут к эффективному решению, поэтому приходится перебирать все возможные варианты. В этой ситуации **ключевым становится вопрос оптимизации эффективности** , и для этого обычно используют две стратегии.
+И всё же **для некоторых задач поиска и удовлетворения ограничений поиск с возвратом остаётся лучшим методом**. Заранее неизвестно, какой выбор приведёт к решению, поэтому приходится перебирать возможные варианты. Тогда **важно повысить эффективность поиска**. Для этого часто используют два приёма.
 
-- **Обрезка**: избегать поиска по тем путям, которые заведомо не приведут к решению, тем самым экономя время и память.
-- **Эвристический поиск**: вводить во время поиска дополнительные стратегии или оценки, чтобы в первую очередь исследовать пути, наиболее вероятно ведущие к эффективному решению.
+- **Отсечение**. Исключаем пути, которые заведомо не приведут к решению. Это экономит время и память.
+- **Эвристический поиск**. Используем правила или оценки, чтобы в первую очередь исследовать пути, наиболее вероятно ведущие к решению.
 
 ## 13.1.6 &nbsp; Типичные задачи поиска с возвратом
 
-Алгоритм поиска с возвратом можно использовать для решения множества поисковых задач, задач удовлетворения ограничений и задач комбинаторной оптимизации.
+Поиск с возвратом применим ко многим задачам поиска, удовлетворения ограничений и комбинаторной оптимизации.
 
-**Поисковые задачи**: целью таких задач является поиск решений, удовлетворяющих определенным условиям.
+**Задачи поиска**. Требуется найти решения, удовлетворяющие заданным условиям.
 
-- Задача о перестановках: дано множество, требуется найти все возможные перестановки его элементов.
-- Задача о сумме подмножеств: даны множество и целевая сумма. Нужно найти все подмножества, сумма элементов которых равна целевой.
-- Задача о Ханойской башне: даны три стержня и набор дисков разного размера. Требуется перенести все диски с одного стержня на другой, перемещая за раз только один диск и не помещая больший диск на меньший.
+- Перестановки. Для заданного множества найти все способы упорядочить его элементы.
+- Сумма подмножества. Для заданного множества и целевой суммы найти все подмножества с такой суммой элементов.
+- Ханойские башни. Даны три стержня и диски разного размера. Нужно перенести все диски с одного стержня на другой, перемещая по одному диску и не кладя больший диск на меньший.
 
-**Задачи удовлетворения ограничений**: целью таких задач является поиск решений, удовлетворяющих всем ограничениям.
+**Задачи удовлетворения ограничений**. Нужно найти решение, которое удовлетворяет всем ограничениям.
 
-- Задача о $n$ ферзях: разместить $n$ ферзей на шахматной доске размера $n \times n$ так, чтобы они не атаковали друг друга.
-- Судоку: заполнить сетку $9 \times 9$ числами от $1$ до $9$ так, чтобы в каждой строке, каждом столбце и каждом блоке $3 \times 3$ числа не повторялись.
-- Задача раскраски графа: дан неориентированный граф. Требуется раскрасить его вершины минимальным числом цветов так, чтобы соседние вершины имели разные цвета.
+- Задача о $n$ ферзях. На доске $n \times n$ нужно расставить $n$ ферзей так, чтобы они не били друг друга.
+- Судоку. Впишите в сетку $9 \times 9$ цифры от $1$ до $9$ так, чтобы они не повторялись ни в одной строке, ни в одном столбце и ни в одном квадрате $3 \times 3$.
+- Раскраска графа. Раскрасить вершины неориентированного графа минимальным числом цветов так, чтобы соседние вершины различались по цвету.
 
-**Задачи комбинаторной оптимизации**: целью таких задач является поиск оптимального решения в некотором комбинаторном пространстве при заданных ограничениях.
+**Задачи комбинаторной оптимизации**. Среди комбинаций, удовлетворяющих заданным условиям, требуется найти оптимальную.
 
-- Задача о рюкзаке 0-1: даны набор предметов и рюкзак. У каждого предмета есть ценность и вес, и нужно выбрать предметы так, чтобы при ограниченной вместимости рюкзака суммарная ценность была максимальной.
-- Задача коммивояжера: начиная из некоторой вершины графа, требуется посетить все остальные вершины ровно по одному разу и вернуться в исходную вершину, найдя при этом кратчайший путь.
-- Задача о максимальной клике: дан неориентированный граф. Требуется найти в нем максимальный полный подграф, то есть подграф, в котором любая пара вершин соединена ребром.
+- Задача о рюкзаке 0–1. Даны рюкзак и набор предметов с известными ценностью и весом. Нужно выбрать предметы максимальной суммарной ценности, не превысив вместимость рюкзака.
+- Задача коммивояжёра. Найти в графе кратчайший маршрут, который начинается в заданной вершине, посещает все остальные ровно по одному разу и возвращается в исходную вершину.
+- Задача о максимальной клике. Найти в неориентированном графе наибольший полный подграф — такой, в котором любые две вершины соединены ребром.
 
-Стоит отметить: для многих задач комбинаторной оптимизации поиск с возвратом не является оптимальным способом решения.
+Для многих задач комбинаторной оптимизации поиск с возвратом не является лучшим методом.
 
-- Задача о рюкзаке 0-1 обычно решается с помощью динамического программирования, что дает более высокую временную эффективность.
-- Задача коммивояжера является известной NP-Hard задачей. Для ее решения часто используют генетические алгоритмы, муравьиные алгоритмы и другие методы.
-- Задача о максимальной клике является классической задачей теории графов и может решаться жадными и другими эвристическими алгоритмами.
+- Задачу о рюкзаке 0–1 обычно решают с помощью динамического программирования: это сокращает время вычислений.
+- Задача коммивояжёра — известная NP-трудная задача. Для неё часто применяют генетические и муравьиные алгоритмы.
+- Задача о максимальной клике — классическая задача теории графов. Для её решения применяют, в частности, жадные и другие эвристические алгоритмы.

@@ -2,29 +2,29 @@
 comments: true
 ---
 
-# 3.3 &nbsp; Number encoding *
+# 3.3 &nbsp; Number representations *
 
 !!! tip
 
-    Sections marked with * in their titles are optional. If you are short on time or find them difficult, you can skip them initially and return after completing the required sections.
+    In this book, an asterisk (*) marks an optional section. If you have limited time or find one difficult, you can skip it for now and return after finishing the required sections.
 
-## 3.3.1 &nbsp; Sign-magnitude, one's complement, and two's complement
+## 3.3.1 &nbsp; Sign and magnitude, ones' complement, and two's complement
 
-The previous table showed that every integer type represents one more negative value than positive value. For example, `byte` ranges over $[-128, 127]$. Understanding this counterintuitive fact requires sign-magnitude, one's complement, and two's complement.
+The table in the previous section shows that each signed integer type represents one more negative number than positive numbers. For example, the range of `byte` is $[-128, 127]$. To understand this surprising asymmetry, we need to look at sign and magnitude, ones' complement, and two's complement.
 
-First, **integers are stored in two's complement form**. Before explaining why, let's define the three representations.
+First, **computers store signed integers in two's complement form**. Before exploring why, let's define the three representations.
 
-- **Sign-magnitude**: The highest bit is the sign: $0$ for positive and $1$ for negative. The remaining bits represent the magnitude.
-- **One's complement**: A positive number has the same representation as sign-magnitude. For a negative number, invert every bit except the sign bit of its sign-magnitude representation.
-- **Two's complement**: A positive number again has the same representation as sign-magnitude. For a negative number, add $1$ to its one's complement.
+- **Sign and magnitude.** The highest bit is the sign bit: $0$ indicates a positive sign and $1$ a negative sign. The remaining bits give the magnitude.
+- **Ones' complement.** For a positive number, this is the same as sign and magnitude. For a negative number, start with sign and magnitude and invert all bits except the sign bit.
+- **Two's complement.** For a positive number, this is again the same as sign and magnitude. For a negative number, add $1$ to its ones' complement representation.
 
-Figure 3-4 shows how to convert among these representations.
+The figure shows how to convert between sign and magnitude, ones' complement, and two's complement.
 
-![Converting between sign-magnitude, one's complement, and two's complement](number_encoding.assets/1s_2s_complement.svg){ class="animation-figure" }
+![Converting between sign and magnitude, ones' complement, and two's complement](number_encoding.assets/1s_2s_complement.svg){ class="animation-figure" }
 
-<p align="center"> Figure 3-4 &nbsp; Converting between sign-magnitude, one's complement, and two's complement </p>
+<p align="center"> Figure 3-4 &nbsp; Converting between sign and magnitude, ones' complement, and two's complement </p>
 
-Although <u>sign-magnitude</u> is intuitive, it has limitations. First, **negative sign-magnitude values cannot be used directly in ordinary binary arithmetic**. For example, directly adding $1 + (-2)$ in this representation gives $-3$, which is clearly wrong.
+<u>Sign and magnitude</u> is the most intuitive representation, but it has limitations. For one, **the sign-and-magnitude bit pattern of a negative number cannot be used directly in ordinary binary arithmetic**. For example, adding the sign-and-magnitude bit patterns for $1 + (-2)$ gives $-3$, which is clearly incorrect.
 
 $$
 \begin{aligned}
@@ -35,20 +35,20 @@ $$
 \end{aligned}
 $$
 
-To address this, computers introduced <u>one's complement</u>. Convert the operands to one's complement, calculate $1 + (-2)$, and convert the result back to sign-magnitude to obtain the correct answer, $-1$.
+To address this, computers introduced <u>ones' complement</u>. Convert the operands from sign and magnitude to ones' complement, compute $1 + (-2)$ in ones' complement, and convert the result back to sign and magnitude. This gives the correct result, $-1$.
 
 $$
 \begin{aligned}
 & 1 + (-2) \newline
-& \rightarrow 0000 \; 0001 \; \text{(sign-magnitude)} + 1000 \; 0010 \; \text{(sign-magnitude)} \newline
-& = 0000 \; 0001 \; \text{(one's complement)} + 1111  \; 1101 \; \text{(one's complement)} \newline
-& = 1111 \; 1110 \; \text{(one's complement)} \newline
-& = 1000 \; 0001 \; \text{(sign-magnitude)} \newline
+& \rightarrow 0000 \; 0001 \; \text{(sign and magnitude)} + 1000 \; 0010 \; \text{(sign and magnitude)} \newline
+& = 0000 \; 0001 \; \text{(ones' complement)} + 1111  \; 1101 \; \text{(ones' complement)} \newline
+& = 1111 \; 1110 \; \text{(ones' complement)} \newline
+& = 1000 \; 0001 \; \text{(sign and magnitude)} \newline
 & \rightarrow -1
 \end{aligned}
 $$
 
-Second, **sign-magnitude has two representations of zero, $+0$ and $-0$**. Two binary encodings for zero can create ambiguity. Conditional checks may be wrong if they do not handle both forms, while special handling requires extra checks that can reduce efficiency.
+Another limitation is that **sign and magnitude has two representations of zero, $+0$ and $-0$**. Two different bit patterns for zero can introduce ambiguity. For example, a conditional test may give the wrong result if it does not account for positive and negative zero. Adding special checks to handle both representations can reduce computational efficiency.
 
 $$
 \begin{aligned}
@@ -57,70 +57,70 @@ $$
 \end{aligned}
 $$
 
-One's complement also has positive and negative zero, so computers introduced <u>two's complement</u>. Consider converting negative zero through all three representations:
+Ones' complement shares this ambiguity, which is why computers went on to adopt <u>two's complement</u>. Consider the conversion of negative zero from sign and magnitude to ones' complement and then to two's complement:
 
 $$
 \begin{aligned}
--0 \rightarrow \; & 1000 \; 0000 \; \text{(sign-magnitude)} \newline
-= \; & 1111 \; 1111 \; \text{(one's complement)} \newline
+-0 \rightarrow \; & 1000 \; 0000 \; \text{(sign and magnitude)} \newline
+= \; & 1111 \; 1111 \; \text{(ones' complement)} \newline
 = 1 \; & 0000 \; 0000 \; \text{(two's complement)} \newline
 \end{aligned}
 $$
 
-Adding $1$ to the one's complement of negative zero produces a carry. A `byte` has only 8 bits, so the $1$ carried into the ninth bit is discarded. **Negative zero's two's complement is therefore $0000 \; 0000$, the same as positive zero**. Two's complement has only one zero, eliminating the ambiguity.
+Adding $1$ to negative zero in ones' complement produces a carry. Since a `byte` is only 8 bits wide, the $1$ that spills into the ninth bit is discarded. Thus **the two's complement representation of negative zero is $0000 \; 0000$, the same as for positive zero**. Two's complement has only one zero, resolving the ambiguity.
 
-One question remains: if `byte` ranges over $[-128, 127]$, where does the extra negative value $-128$ come from? Every integer in $[-127, +127]$ has sign-magnitude, one's complement, and two's complement representations, and its sign-magnitude and two's complement forms can be converted into each other.
+One question remains. The range of `byte` is $[-128, 127]$, so where does the extra negative number $-128$ come from? Every integer in the closed interval $[-127, +127]$ has a sign-and-magnitude, ones' complement, and two's complement representation, and we can convert between sign and magnitude and two's complement.
 
-However, **the two's complement value $1000 \; 0000$ is an exception with no corresponding sign-magnitude form**. Applying the conversion gives $0000 \; 0000$, but that represents $0$, whose two's complement should be itself. The special pattern $1000 \; 0000$ is defined to represent $-128$. Indeed, two's complement addition of $(-1) + (-127)$ gives $-128$.
+However, **the two's complement bit pattern $1000 \; 0000$ has no sign-and-magnitude counterpart**. Applying the conversion procedure would give the sign-and-magnitude pattern $0000 \; 0000$. This is a contradiction: that pattern represents $0$, whose two's complement representation should be identical to itself. Computers assign the special two's complement pattern $1000 \; 0000$ to $-128$. In fact, adding $(-1) + (-127)$ in two's complement gives exactly $-128$.
 
 $$
 \begin{aligned}
 & (-127) + (-1) \newline
-& \rightarrow 1111 \; 1111 \; \text{(sign-magnitude)} + 1000 \; 0001 \; \text{(sign-magnitude)} \newline
-& = 1000 \; 0000 \; \text{(one's complement)} + 1111  \; 1110 \; \text{(one's complement)} \newline
+& \rightarrow 1111 \; 1111 \; \text{(sign and magnitude)} + 1000 \; 0001 \; \text{(sign and magnitude)} \newline
+& = 1000 \; 0000 \; \text{(ones' complement)} + 1111  \; 1110 \; \text{(ones' complement)} \newline
 & = 1000 \; 0001 \; \text{(two's complement)} + 1111  \; 1111 \; \text{(two's complement)} \newline
 & = 1000 \; 0000 \; \text{(two's complement)} \newline
 & \rightarrow -128
 \end{aligned}
 $$
 
-All the calculations above use addition. This points to an important fact: **computer arithmetic circuits are largely built around addition**. Compared with operations such as multiplication, division, and subtraction, addition is simpler to implement in hardware, easier to parallelize, and faster.
+Notice that every calculation above is an addition. This points to an important fact: **addition is central to the design of computer arithmetic circuits**. Compared with multiplication, division, or subtraction, addition is simpler to implement in hardware, easier to parallelize, and faster to execute.
 
-This does not mean computers can only add. **Combining addition with basic logical operations makes other arithmetic possible**. For example, subtraction $a - b$ becomes addition $a + (-b)$, while multiplication and division can be expressed as repeated additions or subtractions.
+Computers can, of course, do more than add. **Combining addition with basic logical operations lets them perform many other mathematical operations**. For example, subtraction $a - b$ can be rewritten as addition $a + (-b)$, and multiplication and division can be expressed as repeated addition or subtraction.
 
-We can now summarize why computers use two's complement. It lets the same circuitry and operations handle both positive and negative addition, without dedicated subtraction circuitry or special handling for positive and negative zero. This simplifies hardware and improves efficiency.
+We can now see why computers use two's complement. The same circuitry and operations can add positive and negative numbers, with no need for special subtraction circuitry or special handling of positive and negative zero. This greatly simplifies hardware design and improves computational efficiency.
 
-Two's complement is an elegant design. Space limits our discussion here, but interested readers are encouraged to explore it further.
+There is more to the design of two's complement than we have room to explore here. Interested readers can investigate it further.
 
-## 3.3.2 &nbsp; Floating-point encoding
+## 3.3.2 &nbsp; Floating-point representation
 
-Both `int` and `float` occupy 4 bytes, yet `float` has a much wider range. This seems surprising: since `float` also represents fractions, should its range not be smaller?
+Both `int` and `float` occupy 4 bytes, so why is the range of `float` so much larger than that of `int`? At first glance, having to represent fractions as well might seem to give `float` a smaller range.
 
-**The reason is that `float` uses a different representation**. Write a 32-bit binary number as:
+**The difference lies in how a `float` represents numbers**. Write a 32-bit binary number as follows:
 
 $$
 b_{31} b_{30} b_{29} \ldots b_2 b_1 b_0
 $$
 
-Under IEEE 754, a 32-bit `float` has three parts.
+Under IEEE 754, a 32-bit `float` consists of three fields.
 
-- Sign $\mathrm{S}$: 1 bit, corresponding to $b_{31}$.
-- Exponent $\mathrm{E}$: 8 bits, corresponding to $b_{30} b_{29} \ldots b_{23}$.
-- Fraction $\mathrm{N}$: 23 bits, corresponding to $b_{22} b_{21} \ldots b_0$.
+- Sign $\mathrm{S}$: 1 bit, $b_{31}$.
+- Exponent $\mathrm{E}$: 8 bits, $b_{30} b_{29} \ldots b_{23}$.
+- Fraction $\mathrm{N}$: 23 bits, $b_{22} b_{21} \ldots b_0$.
 
-The value represented by the binary `float` is:
+The binary representation of a `float` gives its value as follows:
 
 $$
 \text {val} = (-1)^{b_{31}} \times 2^{\left(b_{30} b_{29} \ldots b_{23}\right)_2-127} \times\left(1 . b_{22} b_{21} \ldots b_0\right)_2
 $$
 
-In decimal notation, this becomes:
+Expressed in decimal terms, the formula becomes:
 
 $$
 \text {val}=(-1)^{\mathrm{S}} \times 2^{\mathrm{E} -127} \times (1 + \mathrm{N})
 $$
 
-The components have these ranges:
+The terms have the following ranges:
 
 $$
 \begin{aligned}
@@ -129,27 +129,27 @@ $$
 \end{aligned}
 $$
 
-![Example of an IEEE 754 float calculation](number_encoding.assets/ieee_754_float.svg){ class="animation-figure" }
+![Calculating the value of an IEEE 754 float](number_encoding.assets/ieee_754_float.svg){ class="animation-figure" }
 
-<p align="center"> Figure 3-5 &nbsp; Example of an IEEE 754 float calculation </p>
+<p align="center"> Figure 3-5 &nbsp; Calculating the value of an IEEE 754 float </p>
 
-In Figure 3-5, $\mathrm{S} = 0$, $\mathrm{E} = 124$, and $\mathrm{N} = 2^{-2} + 2^{-3} = 0.375$, giving:
+In the example shown above, $\mathrm{S} = 0$, $\mathrm{E} = 124$, and $\mathrm{N} = 2^{-2} + 2^{-3} = 0.375$. Substituting gives:
 
 $$
 \text { val } = (-1)^0 \times 2^{124 - 127} \times (1 + 0.375) = 0.171875
 $$
 
-We can now answer the original question: **the exponent gives `float` a much wider range than `int`**. The largest positive `float` is $2^{254 - 127} \times (2 - 2^{-23}) \approx 3.4 \times 10^{38}$; changing the sign bit gives the most negative value.
+We can now answer the original question: **the exponent field gives `float` a far greater range than `int`**. From the calculation above, the largest positive value of `float` is $2^{254 - 127} \times (2 - 2^{-23}) \approx 3.4 \times 10^{38}$. Flipping the sign bit gives the most negative value.
 
-**The wider range of `float` comes at the cost of precision**. An `int` uses all 32 bits to represent evenly spaced integer values. Because `float` includes an exponent, the gap between adjacent representable values tends to grow as their magnitude increases.
+**The greater range of `float` comes at the cost of precision**. The integer type `int` uses all 32 bits to represent evenly spaced numbers. With `float`, the exponent means that as the magnitude grows, the spacing between adjacent representable numbers generally increases.
 
-As shown in Table 3-2, exponent values $\mathrm{E} = 0$ and $\mathrm{E} = 255$ have special meanings, **representing zero, infinity, and $\mathrm{NaN}$, among other values**.
+As the table shows, exponent values $\mathrm{E} = 0$ and $\mathrm{E} = 255$ have special meanings, **allowing representations of zero, infinity, $\mathrm{NaN}$, and other cases**.
 
-<p align="center"> Table 3-2 &nbsp; Meanings of exponent values </p>
+<p align="center">Table <id> &nbsp; Meanings of exponent field values</p>
 
 <div class="center-table" markdown>
 
-| Exponent E           | Fraction $\mathrm{N} = 0$ | Fraction $\mathrm{N} \ne 0$ | Formula                                                               |
+| Exponent field E           | Fraction field $\mathrm{N} = 0$ | Fraction field $\mathrm{N} \ne 0$ | Formula                                                               |
 | ------------------ | ----------------------- | ------------------------- | ---------------------------------------------------------------------- |
 | $0$                | $\pm 0$                 | Subnormal number                  | $(-1)^{\mathrm{S}} \times 2^{-126} \times (0.\mathrm{N})$              |
 | $1, 2, \dots, 254$ | Normal number                  | Normal number                    | $(-1)^{\mathrm{S}} \times 2^{(\mathrm{E} -127)} \times (1.\mathrm{N})$ |
@@ -157,6 +157,6 @@ As shown in Table 3-2, exponent values $\mathrm{E} = 0$ and $\mathrm{E} = 255$ h
 
 </div>
 
-Subnormal numbers substantially improve precision near zero. The smallest positive normal number is $2^{-126}$, and the smallest positive subnormal number is $2^{-126} \times 2^{-23}$.
+Subnormal numbers provide much finer resolution near zero. The smallest positive normal number is $2^{-126}$, while the smallest positive subnormal number is $2^{-126} \times 2^{-23}$.
 
-Double-precision `double` uses a similar representation, which we will not detail here.
+Double precision (`double`) uses a representation similar to `float`, so we will omit the details.

@@ -4,31 +4,31 @@ comments: true
 
 # 2.4 &nbsp; 空間計算量
 
-<u>空間計算量（space complexity）</u>は、データ量が増えるにつれて、アルゴリズムのメモリ使用量がどのように増えるかを測ります。時間計算量とよく似ており、「実行時間」を「メモリ使用量」に置き換えた概念です。
+<u>空間計算量（space complexity）</u>は、データ量が大きくなるにつれて、アルゴリズムが使うメモリ領域がどのように増えるかを表します。時間計算量とよく似た概念で、「実行時間」を「メモリ使用量」に置き換えたものです。
 
-## 2.4.1 &nbsp; アルゴリズムに関わる空間
+## 2.4.1 &nbsp; アルゴリズムが使う領域
 
-実行中に使うメモリ空間は、主に次の種類に分かれます。
+アルゴリズムの実行中に使うメモリ領域は、主に次のように分けられます。
 
-- **入力空間**：入力データを保存します。
-- **一時空間**：実行中の変数、オブジェクト、関数の実行状態などを保存します。
-- **出力空間**：出力データを保存します。
+- **入力領域**：アルゴリズムに入力するデータを格納します。
+- **作業領域**：実行中の変数、オブジェクト、関数の実行状態などを格納します。
+- **出力領域**：アルゴリズムが出力するデータを格納します。
 
-通常、空間計算量には「一時空間」と「出力空間」を含めます。
+通常、空間計算量に含めるのは「作業領域」と「出力領域」の合計です。
 
-一時空間は、さらに三つに分けられます。
+作業領域は、さらに 3 つに分けられます。
 
-- **一時データ**：実行中の定数、変数、オブジェクトなどを保存します。
-- **スタックフレーム**：呼び出した関数の実行状態を保存します。関数を呼ぶたびにスタックの先頭にフレームが作られ、戻ると解放されます。
-- **命令空間**：コンパイルされた命令を保存します。実際の集計では通常、無視します。
+- **一時データ**：実行中に使う定数、変数、オブジェクトなどを保持します。
+- **スタックフレーム領域**：呼び出した関数の実行状態を保持します。システムは関数を呼び出すたびにスタックの先頭にフレームを作り、関数が戻るとその領域を解放します。
+- **命令領域**：コンパイル後のプログラムの命令を格納します。実際に計算量を求める際は通常無視します。
 
-プログラムの空間計算量では、図 2-15 のように、**通常は一時データ、スタックフレーム、出力データの三つを数えます**。
+図 2-15 のように、プログラムの空間計算量を分析するときは、**通常、一時データ、スタックフレーム領域、出力データの 3 つを数えます**。
 
-![アルゴリズムが使う空間](space_complexity.assets/space_types.svg){ class="animation-figure" }
+![アルゴリズムが使うメモリ領域](space_complexity.assets/space_types.svg){ class="animation-figure" }
 
-<p align="center"> 図 2-15 &nbsp; アルゴリズムが使う空間 </p>
+<p align="center"> 図 2-15 &nbsp; アルゴリズムが使うメモリ領域 </p>
 
-関連するコードを次に示します。
+対応するコードを示します。
 
 === "Python"
 
@@ -41,14 +41,14 @@ comments: true
 
     def function() -> int:
         """関数"""
-        # 何らかの処理を実行...
+        # 何らかの処理を行う...
         return 0
 
     def algorithm(n) -> int:  # 入力データ
-        A = 0                 # 一時データ（定数、通常は大文字で表す）
+        A = 0                 # 一時データ（定数。通常は大文字で表す）
         b = 0                 # 一時データ（変数）
         node = Node(0)        # 一時データ（オブジェクト）
-        c = function()        # スタックフレーム（関数呼び出し）
+        c = function()        # スタックフレームの領域（関数呼び出し）
         return A + b + c      # 出力データ
     ```
 
@@ -64,7 +64,7 @@ comments: true
 
     /* 関数 */
     int func() {
-        // 何らかの処理を実行...
+        // 何らかの処理を行う...
         return 0;
     }
 
@@ -72,7 +72,7 @@ comments: true
         const int a = 0;          // 一時データ（定数）
         int b = 0;                // 一時データ（変数）
         Node* node = new Node(0); // 一時データ（オブジェクト）
-        int c = func();           // スタックフレーム（関数呼び出し）
+        int c = func();           // スタックフレームの領域（関数呼び出し）
         return a + b + c;         // 出力データ
     }
     ```
@@ -89,7 +89,7 @@ comments: true
 
     /* 関数 */
     int function() {
-        // 何らかの処理を実行...
+        // 何らかの処理を行う...
         return 0;
     }
 
@@ -97,7 +97,7 @@ comments: true
         final int a = 0;          // 一時データ（定数）
         int b = 0;                // 一時データ（変数）
         Node node = new Node(0);  // 一時データ（オブジェクト）
-        int c = function();       // スタックフレーム（関数呼び出し）
+        int c = function();       // スタックフレームの領域（関数呼び出し）
         return a + b + c;         // 出力データ
     }
     ```
@@ -113,7 +113,7 @@ comments: true
 
     /* 関数 */
     int Function() {
-        // 何らかの処理を実行...
+        // 何らかの処理を行う...
         return 0;
     }
 
@@ -121,7 +121,7 @@ comments: true
         const int a = 0;          // 一時データ（定数）
         int b = 0;                // 一時データ（変数）
         Node node = new(0);       // 一時データ（オブジェクト）
-        int c = Function();       // スタックフレーム（関数呼び出し）
+        int c = Function();       // スタックフレームの領域（関数呼び出し）
         return a + b + c;         // 出力データ
     }
     ```
@@ -142,7 +142,7 @@ comments: true
 
     /* 関数 */
     func function() int {
-        // 何らかの処理を実行...
+        // 何らかの処理を行う...
         return 0
     }
 
@@ -150,7 +150,7 @@ comments: true
         const a = 0             // 一時データ（定数）
         b := 0                  // 一時データ（変数）
         newNode(0)              // 一時データ（オブジェクト）
-        c := function()         // スタックフレーム（関数呼び出し）
+        c := function()         // スタックフレームの領域（関数呼び出し）
         return a + b + c        // 出力データ
     }
     ```
@@ -170,7 +170,7 @@ comments: true
 
     /* 関数 */
     func function() -> Int {
-        // 何らかの処理を実行...
+        // 何らかの処理を行う...
         return 0
     }
 
@@ -178,7 +178,7 @@ comments: true
         let a = 0             // 一時データ（定数）
         var b = 0             // 一時データ（変数）
         let node = Node(x: 0) // 一時データ（オブジェクト）
-        let c = function()    // スタックフレーム（関数呼び出し）
+        let c = function()    // スタックフレームの領域（関数呼び出し）
         return a + b + c      // 出力データ
     }
     ```
@@ -198,7 +198,7 @@ comments: true
 
     /* 関数 */
     function constFunc() {
-        // 何らかの処理を実行
+        // 何らかの処理を行う
         return 0;
     }
 
@@ -206,7 +206,7 @@ comments: true
         const a = 0;              // 一時データ（定数）
         let b = 0;                // 一時データ（変数）
         const node = new Node(0); // 一時データ（オブジェクト）
-        const c = constFunc();    // スタックフレーム（関数呼び出し）
+        const c = constFunc();    // スタックフレームの領域（関数呼び出し）
         return a + b + c;         // 出力データ
     }
     ```
@@ -226,7 +226,7 @@ comments: true
 
     /* 関数 */
     function constFunc(): number {
-        // 何らかの処理を実行
+        // 何らかの処理を行う
         return 0;
     }
 
@@ -234,7 +234,7 @@ comments: true
         const a = 0;                        // 一時データ（定数）
         let b = 0;                          // 一時データ（変数）
         const node = new Node(0);           // 一時データ（オブジェクト）
-        const c = constFunc();              // スタックフレーム（関数呼び出し）
+        const c = constFunc();              // スタックフレームの領域（関数呼び出し）
         return a + b + c;                   // 出力データ
     }
     ```
@@ -251,7 +251,7 @@ comments: true
 
     /* 関数 */
     int function() {
-      // 何らかの処理を実行...
+      // 何らかの処理を行う...
       return 0;
     }
 
@@ -259,7 +259,7 @@ comments: true
       const int a = 0;      // 一時データ（定数）
       int b = 0;            // 一時データ（変数）
       Node node = Node(0);  // 一時データ（オブジェクト）
-      int c = function();   // スタックフレーム（関数呼び出し）
+      int c = function();   // スタックフレームの領域（関数呼び出し）
       return a + b + c;     // 出力データ
     }
     ```
@@ -285,7 +285,7 @@ comments: true
 
     /* 関数 */
     fn function() -> i32 {      
-        // 何らかの処理を実行...
+        // 何らかの処理を行う...
         return 0;
     }
 
@@ -293,7 +293,7 @@ comments: true
         const a: i32 = 0;               // 一時データ（定数）
         let mut b = 0;                  // 一時データ（変数）
         let node = Node::new(0);        // 一時データ（オブジェクト）
-        let c = function();             // スタックフレーム（関数呼び出し）
+        let c = function();             // スタックフレームの領域（関数呼び出し）
         return a + b + c;               // 出力データ
     }
     ```
@@ -303,14 +303,14 @@ comments: true
     ```c title=""
     /* 関数 */
     int func() {
-        // 何らかの処理を実行...
+        // 何らかの処理を行う...
         return 0;
     }
 
     int algorithm(int n) { // 入力データ
         const int a = 0;   // 一時データ（定数）
         int b = 0;         // 一時データ（変数）
-        int c = func();    // スタックフレーム（関数呼び出し）
+        int c = func();    // スタックフレームの領域（関数呼び出し）
         return a + b + c;  // 出力データ
     }
     ```
@@ -325,7 +325,7 @@ comments: true
 
     /* 関数 */
     fun function(): Int {
-        // 何らかの処理を実行...
+        // 何らかの処理を行う...
         return 0
     }
 
@@ -333,7 +333,7 @@ comments: true
         val a = 0                // 一時データ（定数）
         var b = 0                // 一時データ（変数）
         val node = Node(0)       // 一時データ（オブジェクト）
-        val c = function()       // スタックフレーム（関数呼び出し）
+        val c = function()       // スタックフレームの領域（関数呼び出し）
         return a + b + c         // 出力データ
     }
     ```
@@ -353,7 +353,7 @@ comments: true
 
     ### 関数 ###
     def function
-        # 何らかの処理を実行...
+        # 何らかの処理を行う...
         0
     end
 
@@ -362,21 +362,21 @@ comments: true
         a = 0               # 一時データ（定数）
         b = 0               # 一時データ（変数）
         node = Node.new(0)  # 一時データ（オブジェクト）
-        c = function        # スタックフレーム（関数呼び出し）
+        c = function        # スタックフレームの領域（関数呼び出し）
         a + b + c           # 出力データ
     end
     ```
 
-## 2.4.2 &nbsp; 見積もり方
+## 2.4.2 &nbsp; 計算量の求め方
 
-空間計算量の見積もり方は時間計算量とほぼ同じで、数える対象を「操作回数」から「使う空間の大きさ」に変えます。
+空間計算量の求め方は時間計算量とほぼ同じです。数える対象を「操作回数」から「使用する領域の大きさ」に変えます。
 
-ただし時間計算量と異なり、**通常は最悪空間計算量だけに注目します**。メモリ容量は必ず満たすべき要件であり、どの入力でも十分なメモリを確保できるようにする必要があるためです。
+時間計算量と違い、**空間計算量は通常、最悪の場合だけに着目します**。必要なメモリを確保できることは実行の必須条件であり、どのような入力にも十分な領域を用意しておく必要があるからです。
 
-次のコードでは、「最悪」には二つの意味があります。
+次のコードを見ると、最悪空間計算量の「最悪」には 2 つの意味があることがわかります。
 
-1. **最悪の入力を基準にする**：$n < 10$ なら $O(1)$ ですが、$n > 10$ なら配列 `nums` が $O(n)$ の空間を使うため、最悪空間計算量は $O(n)$ です。
-2. **実行中の最大メモリ使用量を基準にする**：たとえば、最後の行の実行前は $O(1)$ ですが、配列 `nums` を初期化すると $O(n)$ の空間を使うため、最悪空間計算量は $O(n)$ です。
+1. **最悪の入力を基準にする**：$n < 10$ では空間計算量は $O(1)$ ですが、$n > 10$ では初期化した配列 `nums` が $O(n)$ の領域を使います。したがって最悪空間計算量は $O(n)$ です。
+2. **実行中のメモリ使用量の最大値を基準にする**：例えば、最後の行を実行する前の使用量は $O(1)$ ですが、配列 `nums` を初期化すると $O(n)$ になります。したがって最悪空間計算量は $O(n)$ です。
 
 === "Python"
 
@@ -531,13 +531,13 @@ comments: true
     end
     ```
 
-**再帰関数では、スタックフレームを数え忘れないよう注意が必要です**。次のコードを見てください。
+**再帰関数では、スタックフレーム領域を数え忘れないようにします**。次のコードを見てください。
 
 === "Python"
 
     ```python title=""
     def function() -> int:
-        # 何らかの処理を実行
+        # 何らかの処理を行う
         return 0
 
     def loop(n: int):
@@ -556,7 +556,7 @@ comments: true
 
     ```cpp title=""
     int func() {
-        // 何らかの処理を実行
+        // 何らかの処理を行う
         return 0;
     }
     /* ループの空間計算量は O(1) */
@@ -576,7 +576,7 @@ comments: true
 
     ```java title=""
     int function() {
-        // 何らかの処理を実行
+        // 何らかの処理を行う
         return 0;
     }
     /* ループの空間計算量は O(1) */
@@ -596,7 +596,7 @@ comments: true
 
     ```csharp title=""
     int Function() {
-        // 何らかの処理を実行
+        // 何らかの処理を行う
         return 0;
     }
     /* ループの空間計算量は O(1) */
@@ -616,7 +616,7 @@ comments: true
 
     ```go title=""
     func function() int {
-        // 何らかの処理を実行
+        // 何らかの処理を行う
         return 0
     }
 
@@ -641,7 +641,7 @@ comments: true
     ```swift title=""
     @discardableResult
     func function() -> Int {
-        // 何らかの処理を実行
+        // 何らかの処理を行う
         return 0
     }
 
@@ -665,7 +665,7 @@ comments: true
 
     ```javascript title=""
     function constFunc() {
-        // 何らかの処理を実行
+        // 何らかの処理を行う
         return 0;
     }
     /* ループの空間計算量は O(1) */
@@ -685,7 +685,7 @@ comments: true
 
     ```typescript title=""
     function constFunc(): number {
-        // 何らかの処理を実行
+        // 何らかの処理を行う
         return 0;
     }
     /* ループの空間計算量は O(1) */
@@ -705,7 +705,7 @@ comments: true
 
     ```dart title=""
     int function() {
-      // 何らかの処理を実行
+      // 何らかの処理を行う
       return 0;
     }
     /* ループの空間計算量は O(1) */
@@ -725,7 +725,7 @@ comments: true
 
     ```rust title=""
     fn function() -> i32 {
-        // 何らかの処理を実行
+        // 何らかの処理を行う
         return 0;
     }
     /* ループの空間計算量は O(1) */
@@ -747,7 +747,7 @@ comments: true
 
     ```c title=""
     int func() {
-        // 何らかの処理を実行
+        // 何らかの処理を行う
         return 0;
     }
     /* ループの空間計算量は O(1) */
@@ -767,7 +767,7 @@ comments: true
 
     ```kotlin title=""
     fun function(): Int {
-        // 何らかの処理を実行
+        // 何らかの処理を行う
         return 0
     }
     /* ループの空間計算量は O(1) */
@@ -787,7 +787,7 @@ comments: true
 
     ```ruby title=""
     def function
-        # 何らかの処理を実行
+        # 何らかの処理を行う
         0
     end
 
@@ -803,19 +803,19 @@ comments: true
     end
     ```
 
-関数 `loop()` と `recur()` の時間計算量はどちらも $O(n)$ ですが、空間計算量は異なります。
+関数 `loop()` と `recur()` の時間計算量はいずれも $O(n)$ ですが、空間計算量は異なります。
 
-- `loop()` は `function()` を $n$ 回呼びますが、毎回戻ってスタックフレームを解放するため、空間計算量は $O(1)$ のままです。
-- 再帰関数 `recur()` では、戻っていない `recur()` が同時に $n$ 個存在するため、スタックフレームに $O(n)$ の空間を使います。
+- `loop()` はループ中に `function()` を $n$ 回呼び出します。毎回 `function()` が戻ってスタックフレーム領域が解放されるため、空間計算量は $O(1)$ のままです。
+- 再帰関数 `recur()` では、実行中にまだ戻っていない `recur()` の呼び出しが同時に $n$ 個あり、$O(n)$ のスタックフレーム領域を使います。
 
-## 2.4.3 &nbsp; 代表的な種類
+## 2.4.3 &nbsp; 代表的な計算量
 
-入力の大きさを $n$ とし、代表的な空間計算量を小さい順に図 2-16 に示します。
+入力データのサイズを $n$ とします。図 2-16 に代表的な空間計算量を小さい順に示します。
 
 $$
 \begin{aligned}
 & O(1) < O(\log n) < O(n) < O(n^2) < O(2^n) \newline
-& \text{定数} < \text{対数} < \text{線形} < \text{二乗} < \text{指数}
+& \text{定数オーダー} < \text{対数オーダー} < \text{線形オーダー} < \text{二次オーダー} < \text{指数オーダー}
 \end{aligned}
 $$
 
@@ -823,30 +823,30 @@ $$
 
 <p align="center"> 図 2-16 &nbsp; 代表的な空間計算量 </p>
 
-### 1. &nbsp; 定数のオーダー $O(1)$ {data-toc-label="1. &nbsp; 定数のオーダー"}
+### 1. &nbsp; 定数オーダー $O(1)$ {data-toc-label="1. &nbsp; 定数オーダー"}
 
-定数のオーダーは、入力の大きさ $n$ によって個数が変わらない定数、変数、オブジェクトによく見られます。
+定数、変数、オブジェクトなどの個数が入力サイズ $n$ に依存しない場合には、定数オーダーがよく現れます。
 
-ループ内の変数の初期化や関数呼び出しで使ったメモリは、次の反復に入ると解放され、累積しないため、空間計算量は $O(1)$ のままです。
+ループ内で変数を初期化したり関数を呼び出したりして使用したメモリは、次の反復に移ると解放されます。使用量は累積せず、空間計算量は $O(1)$ のままです。
 
 === "Python"
 
     ```python title="space_complexity.py"
     def function() -> int:
         """関数"""
-        # 何らかの処理を実行する
+        # 何らかの処理を行う
         return 0
 
     def constant(n: int):
         """定数オーダー"""
-        # 定数、変数、オブジェクトは O(1) の領域を使用する
+        # 定数・変数・オブジェクトが使う領域は O(1)
         a = 0
         nums = [0] * 10000
         node = ListNode(0)
-        # ループ内の変数は O(1) の領域を使用する
+        # ループ内の変数が使う領域は O(1)
         for _ in range(n):
             c = 0
-        # ループ内の関数は O(1) の領域を使用する
+        # ループ内の関数が使う領域は O(1)
         for _ in range(n):
             function()
     ```
@@ -856,22 +856,22 @@ $$
     ```cpp title="space_complexity.cpp"
     /* 関数 */
     int func() {
-        // 何らかの処理を実行する
+        // 何らかの処理を行う
         return 0;
     }
 
     /* 定数オーダー */
     void constant(int n) {
-        // 定数、変数、オブジェクトは O(1) の領域を使用する
+        // 定数・変数・オブジェクトが使う領域は O(1)
         const int a = 0;
         int b = 0;
         vector<int> nums(10000);
         ListNode node(0);
-        // ループ内の変数は O(1) の領域を使用する
+        // ループ内の変数が使う領域は O(1)
         for (int i = 0; i < n; i++) {
             int c = 0;
         }
-        // ループ内の関数は O(1) の領域を使用する
+        // ループ内の関数が使う領域は O(1)
         for (int i = 0; i < n; i++) {
             func();
         }
@@ -883,22 +883,22 @@ $$
     ```java title="space_complexity.java"
     /* 関数 */
     int function() {
-        // 何らかの処理を実行する
+        // 何らかの処理を行う
         return 0;
     }
 
     /* 定数オーダー */
     void constant(int n) {
-        // 定数、変数、オブジェクトは O(1) の領域を使用する
+        // 定数・変数・オブジェクトが使う領域は O(1)
         final int a = 0;
         int b = 0;
         int[] nums = new int[10000];
         ListNode node = new ListNode(0);
-        // ループ内の変数は O(1) の領域を使用する
+        // ループ内の変数が使う領域は O(1)
         for (int i = 0; i < n; i++) {
             int c = 0;
         }
-        // ループ内の関数は O(1) の領域を使用する
+        // ループ内の関数が使う領域は O(1)
         for (int i = 0; i < n; i++) {
             function();
         }
@@ -910,22 +910,22 @@ $$
     ```csharp title="space_complexity.cs"
     /* 関数 */
     int Function() {
-        // 何らかの処理を実行する
+        // 何らかの処理を行う
         return 0;
     }
 
     /* 定数オーダー */
     void Constant(int n) {
-        // 定数、変数、オブジェクトは O(1) の領域を使用する
+        // 定数・変数・オブジェクトが使う領域は O(1)
         int a = 0;
         int b = 0;
         int[] nums = new int[10000];
         ListNode node = new(0);
-        // ループ内の変数は O(1) の領域を使用する
+        // ループ内の変数が使う領域は O(1)
         for (int i = 0; i < n; i++) {
             int c = 0;
         }
-        // ループ内の関数は O(1) の領域を使用する
+        // ループ内の関数が使う領域は O(1)
         for (int i = 0; i < n; i++) {
             Function();
         }
@@ -937,23 +937,23 @@ $$
     ```go title="space_complexity.go"
     /* 関数 */
     func function() int {
-        // 何らかの処理を実行する...
+        // 何らかの処理を行う...
         return 0
     }
 
     /* 定数オーダー */
     func spaceConstant(n int) {
-        // 定数、変数、オブジェクトは O(1) の領域を使用する
+        // 定数・変数・オブジェクトが使う領域は O(1)
         const a = 0
         b := 0
         nums := make([]int, 10000)
         node := newNode(0)
-        // ループ内の変数は O(1) の領域を使用する
+        // ループ内の変数が使う領域は O(1)
         var c int
         for i := 0; i < n; i++ {
             c = 0
         }
-        // ループ内の関数は O(1) の領域を使用する
+        // ループ内の関数が使う領域は O(1)
         for i := 0; i < n; i++ {
             function()
         }
@@ -970,22 +970,22 @@ $$
     /* 関数 */
     @discardableResult
     func function() -> Int {
-        // 何らかの処理を実行する
+        // 何らかの処理を行う
         return 0
     }
 
     /* 定数オーダー */
     func constant(n: Int) {
-        // 定数、変数、オブジェクトは O(1) の領域を使用する
+        // 定数・変数・オブジェクトが使う領域は O(1)
         let a = 0
         var b = 0
         let nums = Array(repeating: 0, count: 10000)
         let node = ListNode(x: 0)
-        // ループ内の変数は O(1) の領域を使用する
+        // ループ内の変数が使う領域は O(1)
         for _ in 0 ..< n {
             let c = 0
         }
-        // ループ内の関数は O(1) の領域を使用する
+        // ループ内の関数が使う領域は O(1)
         for _ in 0 ..< n {
             function()
         }
@@ -997,22 +997,22 @@ $$
     ```javascript title="space_complexity.js"
     /* 関数 */
     function constFunc() {
-        // 何らかの処理を実行する
+        // 何らかの処理を行う
         return 0;
     }
 
     /* 定数オーダー */
     function constant(n) {
-        // 定数、変数、オブジェクトは O(1) の領域を使用する
+        // 定数・変数・オブジェクトが使う領域は O(1)
         const a = 0;
         const b = 0;
         const nums = new Array(10000);
         const node = new ListNode(0);
-        // ループ内の変数は O(1) の領域を使用する
+        // ループ内の変数が使う領域は O(1)
         for (let i = 0; i < n; i++) {
             const c = 0;
         }
-        // ループ内の関数は O(1) の領域を使用する
+        // ループ内の関数が使う領域は O(1)
         for (let i = 0; i < n; i++) {
             constFunc();
         }
@@ -1024,22 +1024,22 @@ $$
     ```typescript title="space_complexity.ts"
     /* 関数 */
     function constFunc(): number {
-        // 何らかの処理を実行する
+        // 何らかの処理を行う
         return 0;
     }
 
     /* 定数オーダー */
     function constant(n: number): void {
-        // 定数、変数、オブジェクトは O(1) の領域を使用する
+        // 定数・変数・オブジェクトが使う領域は O(1)
         const a = 0;
         const b = 0;
         const nums = new Array(10000);
         const node = new ListNode(0);
-        // ループ内の変数は O(1) の領域を使用する
+        // ループ内の変数が使う領域は O(1)
         for (let i = 0; i < n; i++) {
             const c = 0;
         }
-        // ループ内の関数は O(1) の領域を使用する
+        // ループ内の関数が使う領域は O(1)
         for (let i = 0; i < n; i++) {
             constFunc();
         }
@@ -1051,22 +1051,22 @@ $$
     ```dart title="space_complexity.dart"
     /* 関数 */
     int function() {
-      // 何らかの処理を実行する
+      // 何らかの処理を行う
       return 0;
     }
 
     /* 定数オーダー */
     void constant(int n) {
-      // 定数、変数、オブジェクトは O(1) の領域を使用する
+      // 定数・変数・オブジェクトが使う領域は O(1)
       final int a = 0;
       int b = 0;
       List<int> nums = List.filled(10000, 0);
       ListNode node = ListNode(0);
-      // ループ内の変数は O(1) の領域を使用する
+      // ループ内の変数が使う領域は O(1)
       for (var i = 0; i < n; i++) {
         int c = 0;
       }
-      // ループ内の関数は O(1) の領域を使用する
+      // ループ内の関数が使う領域は O(1)
       for (var i = 0; i < n; i++) {
         function();
       }
@@ -1078,23 +1078,23 @@ $$
     ```rust title="space_complexity.rs"
     /* 関数 */
     fn function() -> i32 {
-        // 何らかの処理を実行する
+        // 何らかの処理を行う
         return 0;
     }
 
     /* 定数オーダー */
     #[allow(unused)]
     fn constant(n: i32) {
-        // 定数、変数、オブジェクトは O(1) の領域を使用する
+        // 定数・変数・オブジェクトが使う領域は O(1)
         const A: i32 = 0;
         let b = 0;
         let nums = vec![0; 10000];
         let node = ListNode::new(0);
-        // ループ内の変数は O(1) の領域を使用する
+        // ループ内の変数が使う領域は O(1)
         for i in 0..n {
             let c = 0;
         }
-        // ループ内の関数は O(1) の領域を使用する
+        // ループ内の関数が使う領域は O(1)
         for i in 0..n {
             function();
         }
@@ -1106,23 +1106,23 @@ $$
     ```c title="space_complexity.c"
     /* 関数 */
     int func() {
-        // 何らかの処理を実行する
+        // 何らかの処理を行う
         return 0;
     }
 
     /* 定数オーダー */
     void constant(int n) {
-        // 定数、変数、オブジェクトは O(1) の領域を使用する
+        // 定数・変数・オブジェクトが使う領域は O(1)
         const int a = 0;
         int b = 0;
         int nums[1000];
         ListNode *node = newListNode(0);
         free(node);
-        // ループ内の変数は O(1) の領域を使用する
+        // ループ内の変数が使う領域は O(1)
         for (int i = 0; i < n; i++) {
             int c = 0;
         }
-        // ループ内の関数は O(1) の領域を使用する
+        // ループ内の関数が使う領域は O(1)
         for (int i = 0; i < n; i++) {
             func();
         }
@@ -1134,22 +1134,22 @@ $$
     ```kotlin title="space_complexity.kt"
     /* 関数 */
     fun function(): Int {
-        // 何らかの処理を実行する
+        // 何らかの処理を行う
         return 0
     }
 
     /* 定数オーダー */
     fun constant(n: Int) {
-        // 定数、変数、オブジェクトは O(1) の領域を使用する
+        // 定数・変数・オブジェクトが使う領域は O(1)
         val a = 0
         var b = 0
         val nums = Array(10000) { 0 }
         val node = ListNode(0)
-        // ループ内の変数は O(1) の領域を使用する
+        // ループ内の変数が使う領域は O(1)
         for (i in 0..<n) {
             val c = 0
         }
-        // ループ内の関数は O(1) の領域を使用する
+        // ループ内の関数が使う領域は O(1)
         for (i in 0..<n) {
             function()
         }
@@ -1161,41 +1161,41 @@ $$
     ```ruby title="space_complexity.rb"
     ### 関数 ###
     def function
-      # 何らかの処理を実行する
+      # 何らかの処理を行う
       0
     end
 
     ### 定数オーダー ###
     def constant(n)
-      # 定数、変数、オブジェクトは O(1) の領域を使用する
+      # 定数・変数・オブジェクトが使う領域は O(1)
       a = 0
       nums = [0] * 10000
       node = ListNode.new
 
-      # ループ内の変数は O(1) の領域を使用する
+      # ループ内の変数が使う領域は O(1)
       (0...n).each { c = 0 }
-      # ループ内の関数は O(1) の領域を使用する
+      # ループ内の関数が使う領域は O(1)
       (0...n).each { function }
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B6%9A%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20function%28%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%96%A2%E6%95%B0%22%22%22%0A%20%20%20%20%23%20%E4%BD%95%E3%82%89%E3%81%8B%E3%81%AE%E5%87%A6%E7%90%86%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%0A%20%20%20%20return%200%0A%0Adef%20constant%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E5%AE%9A%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20%23%20%E5%AE%9A%E6%95%B0%E3%80%81%E5%A4%89%E6%95%B0%E3%80%81%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AF%20O%281%29%20%E3%81%AE%E9%A0%98%E5%9F%9F%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%0A%20%20%20%20a%20%3D%200%0A%20%20%20%20nums%20%3D%20%5B0%5D%20%2A%2010%0A%20%20%20%20node%20%3D%20ListNode%280%29%0A%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E5%86%85%E3%81%AE%E5%A4%89%E6%95%B0%E3%81%AF%20O%281%29%20%E3%81%AE%E9%A0%98%E5%9F%9F%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20c%20%3D%200%0A%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E5%86%85%E3%81%AE%E9%96%A2%E6%95%B0%E3%81%AF%20O%281%29%20%E3%81%AE%E9%A0%98%E5%9F%9F%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20function%28%29%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E5%AE%9A%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20constant%28n%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B6%9A%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20function%28%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%96%A2%E6%95%B0%22%22%22%0A%20%20%20%20%23%20%E4%BD%95%E3%82%89%E3%81%8B%E3%81%AE%E5%87%A6%E7%90%86%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%0A%20%20%20%20return%200%0A%0Adef%20constant%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E5%AE%9A%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20%23%20%E5%AE%9A%E6%95%B0%E3%80%81%E5%A4%89%E6%95%B0%E3%80%81%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AF%20O%281%29%20%E3%81%AE%E9%A0%98%E5%9F%9F%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%0A%20%20%20%20a%20%3D%200%0A%20%20%20%20nums%20%3D%20%5B0%5D%20%2A%2010%0A%20%20%20%20node%20%3D%20ListNode%280%29%0A%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E5%86%85%E3%81%AE%E5%A4%89%E6%95%B0%E3%81%AF%20O%281%29%20%E3%81%AE%E9%A0%98%E5%9F%9F%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20c%20%3D%200%0A%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E5%86%85%E3%81%AE%E9%96%A2%E6%95%B0%E3%81%AF%20O%281%29%20%E3%81%AE%E9%A0%98%E5%9F%9F%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20function%28%29%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E5%AE%9A%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20constant%28n%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%AC%A1%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20function%28%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%96%A2%E6%95%B0%22%22%22%0A%20%20%20%20%23%20%E4%BD%95%E3%82%89%E3%81%8B%E3%81%AE%E5%87%A6%E7%90%86%E3%82%92%E8%A1%8C%E3%81%86%0A%20%20%20%20return%200%0A%0Adef%20constant%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E5%AE%9A%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20%23%20%E5%AE%9A%E6%95%B0%E3%83%BB%E5%A4%89%E6%95%B0%E3%83%BB%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%8C%E4%BD%BF%E3%81%86%E9%A0%98%E5%9F%9F%E3%81%AF%20O%281%29%0A%20%20%20%20a%20%3D%200%0A%20%20%20%20nums%20%3D%20%5B0%5D%20%2A%2010%0A%20%20%20%20node%20%3D%20ListNode%280%29%0A%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E5%86%85%E3%81%AE%E5%A4%89%E6%95%B0%E3%81%8C%E4%BD%BF%E3%81%86%E9%A0%98%E5%9F%9F%E3%81%AF%20O%281%29%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20c%20%3D%200%0A%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E5%86%85%E3%81%AE%E9%96%A2%E6%95%B0%E3%81%8C%E4%BD%BF%E3%81%86%E9%A0%98%E5%9F%9F%E3%81%AF%20O%281%29%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20function%28%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E5%AE%9A%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20constant%28n%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%AC%A1%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20function%28%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%96%A2%E6%95%B0%22%22%22%0A%20%20%20%20%23%20%E4%BD%95%E3%82%89%E3%81%8B%E3%81%AE%E5%87%A6%E7%90%86%E3%82%92%E8%A1%8C%E3%81%86%0A%20%20%20%20return%200%0A%0Adef%20constant%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E5%AE%9A%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20%23%20%E5%AE%9A%E6%95%B0%E3%83%BB%E5%A4%89%E6%95%B0%E3%83%BB%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%8C%E4%BD%BF%E3%81%86%E9%A0%98%E5%9F%9F%E3%81%AF%20O%281%29%0A%20%20%20%20a%20%3D%200%0A%20%20%20%20nums%20%3D%20%5B0%5D%20%2A%2010%0A%20%20%20%20node%20%3D%20ListNode%280%29%0A%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E5%86%85%E3%81%AE%E5%A4%89%E6%95%B0%E3%81%8C%E4%BD%BF%E3%81%86%E9%A0%98%E5%9F%9F%E3%81%AF%20O%281%29%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20c%20%3D%200%0A%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E5%86%85%E3%81%AE%E9%96%A2%E6%95%B0%E3%81%8C%E4%BD%BF%E3%81%86%E9%A0%98%E5%9F%9F%E3%81%AF%20O%281%29%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20function%28%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E5%AE%9A%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20constant%28n%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-### 2. &nbsp; 線形のオーダー $O(n)$ {data-toc-label="2. &nbsp; 線形のオーダー"}
+### 2. &nbsp; 線形オーダー $O(n)$ {data-toc-label="2. &nbsp; 線形オーダー"}
 
-線形のオーダーは、要素数が $n$ に比例する配列、連結リスト、スタック、キューなどによく見られます。
+配列、連結リスト、スタック、キューなどの要素数が $n$ に比例する場合には、線形オーダーがよく現れます。
 
 === "Python"
 
     ```python title="space_complexity.py"
     def linear(n: int):
         """線形オーダー"""
-        # 長さ n のリストは O(n) の領域を使用する
+        # 長さ n のリストが使う領域は O(n)
         nums = [0] * n
-        # 長さ n のハッシュテーブルは O(n) の領域を使用する
+        # 長さ n のハッシュテーブルが使う領域は O(n)
         hmap = dict[int, str]()
         for i in range(n):
             hmap[i] = str(i)
@@ -1206,14 +1206,14 @@ $$
     ```cpp title="space_complexity.cpp"
     /* 線形オーダー */
     void linear(int n) {
-        // 長さ n の配列は O(n) の領域を使用する
+        // 長さ n の配列が使う領域は O(n)
         vector<int> nums(n);
-        // 長さ n のリストは O(n) の領域を使用する
+        // 長さ n のリストが使う領域は O(n)
         vector<ListNode> nodes;
         for (int i = 0; i < n; i++) {
             nodes.push_back(ListNode(i));
         }
-        // 長さ n のハッシュテーブルは O(n) の領域を使用する
+        // 長さ n のハッシュテーブルが使う領域は O(n)
         unordered_map<int, string> map;
         for (int i = 0; i < n; i++) {
             map[i] = to_string(i);
@@ -1226,14 +1226,14 @@ $$
     ```java title="space_complexity.java"
     /* 線形オーダー */
     void linear(int n) {
-        // 長さ n の配列は O(n) の領域を使用する
+        // 長さ n の配列が使う領域は O(n)
         int[] nums = new int[n];
-        // 長さ n のリストは O(n) の領域を使用する
+        // 長さ n のリストが使う領域は O(n)
         List<ListNode> nodes = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             nodes.add(new ListNode(i));
         }
-        // 長さ n のハッシュテーブルは O(n) の領域を使用する
+        // 長さ n のハッシュテーブルが使う領域は O(n)
         Map<Integer, String> map = new HashMap<>();
         for (int i = 0; i < n; i++) {
             map.put(i, String.valueOf(i));
@@ -1246,14 +1246,14 @@ $$
     ```csharp title="space_complexity.cs"
     /* 線形オーダー */
     void Linear(int n) {
-        // 長さ n の配列は O(n) の領域を使用する
+        // 長さ n の配列が使う領域は O(n)
         int[] nums = new int[n];
-        // 長さ n のリストは O(n) の領域を使用する
+        // 長さ n のリストが使う領域は O(n)
         List<ListNode> nodes = [];
         for (int i = 0; i < n; i++) {
             nodes.Add(new ListNode(i));
         }
-        // 長さ n のハッシュテーブルは O(n) の領域を使用する
+        // 長さ n のハッシュテーブルが使う領域は O(n)
         Dictionary<int, string> map = [];
         for (int i = 0; i < n; i++) {
             map.Add(i, i.ToString());
@@ -1266,14 +1266,14 @@ $$
     ```go title="space_complexity.go"
     /* 線形オーダー */
     func spaceLinear(n int) {
-        // 長さ n の配列は O(n) の領域を使用する
+        // 長さ n の配列が使う領域は O(n)
         _ = make([]int, n)
-        // 長さ n のリストは O(n) の領域を使用する
+        // 長さ n のリストが使う領域は O(n)
         var nodes []*node
         for i := 0; i < n; i++ {
             nodes = append(nodes, newNode(i))
         }
-        // 長さ n のハッシュテーブルは O(n) の領域を使用する
+        // 長さ n のハッシュテーブルが使う領域は O(n)
         m := make(map[int]string, n)
         for i := 0; i < n; i++ {
             m[i] = strconv.Itoa(i)
@@ -1286,11 +1286,11 @@ $$
     ```swift title="space_complexity.swift"
     /* 線形オーダー */
     func linear(n: Int) {
-        // 長さ n の配列は O(n) の領域を使用する
+        // 長さ n の配列が使う領域は O(n)
         let nums = Array(repeating: 0, count: n)
-        // 長さ n のリストは O(n) の領域を使用する
+        // 長さ n のリストが使う領域は O(n)
         let nodes = (0 ..< n).map { ListNode(x: $0) }
-        // 長さ n のハッシュテーブルは O(n) の領域を使用する
+        // 長さ n のハッシュテーブルが使う領域は O(n)
         let map = Dictionary(uniqueKeysWithValues: (0 ..< n).map { ($0, "\($0)") })
     }
     ```
@@ -1300,14 +1300,14 @@ $$
     ```javascript title="space_complexity.js"
     /* 線形オーダー */
     function linear(n) {
-        // 長さ n の配列は O(n) の領域を使用する
+        // 長さ n の配列が使う領域は O(n)
         const nums = new Array(n);
-        // 長さ n のリストは O(n) の領域を使用する
+        // 長さ n のリストが使う領域は O(n)
         const nodes = [];
         for (let i = 0; i < n; i++) {
             nodes.push(new ListNode(i));
         }
-        // 長さ n のハッシュテーブルは O(n) の領域を使用する
+        // 長さ n のハッシュテーブルが使う領域は O(n)
         const map = new Map();
         for (let i = 0; i < n; i++) {
             map.set(i, i.toString());
@@ -1320,14 +1320,14 @@ $$
     ```typescript title="space_complexity.ts"
     /* 線形オーダー */
     function linear(n: number): void {
-        // 長さ n の配列は O(n) の領域を使用する
+        // 長さ n の配列が使う領域は O(n)
         const nums = new Array(n);
-        // 長さ n のリストは O(n) の領域を使用する
+        // 長さ n のリストが使う領域は O(n)
         const nodes: ListNode[] = [];
         for (let i = 0; i < n; i++) {
             nodes.push(new ListNode(i));
         }
-        // 長さ n のハッシュテーブルは O(n) の領域を使用する
+        // 長さ n のハッシュテーブルが使う領域は O(n)
         const map = new Map();
         for (let i = 0; i < n; i++) {
             map.set(i, i.toString());
@@ -1340,14 +1340,14 @@ $$
     ```dart title="space_complexity.dart"
     /* 線形オーダー */
     void linear(int n) {
-      // 長さ n の配列は O(n) の領域を使用する
+      // 長さ n の配列が使う領域は O(n)
       List<int> nums = List.filled(n, 0);
-      // 長さ n のリストは O(n) の領域を使用する
+      // 長さ n のリストが使う領域は O(n)
       List<ListNode> nodes = [];
       for (var i = 0; i < n; i++) {
         nodes.add(ListNode(i));
       }
-      // 長さ n のハッシュテーブルは O(n) の領域を使用する
+      // 長さ n のハッシュテーブルが使う領域は O(n)
       Map<int, String> map = HashMap();
       for (var i = 0; i < n; i++) {
         map.putIfAbsent(i, () => i.toString());
@@ -1361,14 +1361,14 @@ $$
     /* 線形オーダー */
     #[allow(unused)]
     fn linear(n: i32) {
-        // 長さ n の配列は O(n) の領域を使用する
+        // 長さ n の配列が使う領域は O(n)
         let mut nums = vec![0; n as usize];
-        // 長さ n のリストは O(n) の領域を使用する
+        // 長さ n のリストが使う領域は O(n)
         let mut nodes = Vec::new();
         for i in 0..n {
             nodes.push(ListNode::new(i))
         }
-        // 長さ n のハッシュテーブルは O(n) の領域を使用する
+        // 長さ n のハッシュテーブルが使う領域は O(n)
         let mut map = HashMap::new();
         for i in 0..n {
             map.insert(i, i.to_string());
@@ -1383,27 +1383,27 @@ $$
     typedef struct {
         int key;
         int val;
-        UT_hash_handle hh; // uthash.h を用いて実装する
+        UT_hash_handle hh; // uthash.h を使って実装
     } HashTable;
 
     /* 線形オーダー */
     void linear(int n) {
-        // 長さ n の配列は O(n) の領域を使用する
+        // 長さ n の配列が使う領域は O(n)
         int *nums = malloc(sizeof(int) * n);
         free(nums);
 
-        // 長さ n のリストは O(n) の領域を使用する
+        // 長さ n のリストが使う領域は O(n)
         ListNode **nodes = malloc(sizeof(ListNode *) * n);
         for (int i = 0; i < n; i++) {
             nodes[i] = newListNode(i);
         }
-        // メモリの解放
+        // メモリを解放
         for (int i = 0; i < n; i++) {
             free(nodes[i]);
         }
         free(nodes);
 
-        // 長さ n のハッシュテーブルは O(n) の領域を使用する
+        // 長さ n のハッシュテーブルが使う領域は O(n)
         HashTable *h = NULL;
         for (int i = 0; i < n; i++) {
             HashTable *tmp = malloc(sizeof(HashTable));
@@ -1412,7 +1412,7 @@ $$
             HASH_ADD_INT(h, key, tmp);
         }
 
-        // メモリの解放
+        // メモリを解放
         HashTable *curr, *tmp;
         HASH_ITER(hh, h, curr, tmp) {
             HASH_DEL(h, curr);
@@ -1426,14 +1426,14 @@ $$
     ```kotlin title="space_complexity.kt"
     /* 線形オーダー */
     fun linear(n: Int) {
-        // 長さ n の配列は O(n) の領域を使用する
+        // 長さ n の配列が使う領域は O(n)
         val nums = Array(n) { 0 }
-        // 長さ n のリストは O(n) の領域を使用する
+        // 長さ n のリストが使う領域は O(n)
         val nodes = mutableListOf<ListNode>()
         for (i in 0..<n) {
             nodes.add(ListNode(i))
         }
-        // 長さ n のハッシュテーブルは O(n) の領域を使用する
+        // 長さ n のハッシュテーブルが使う領域は O(n)
         val map = mutableMapOf<Int, String>()
         for (i in 0..<n) {
             map[i] = i.toString()
@@ -1446,10 +1446,10 @@ $$
     ```ruby title="space_complexity.rb"
     ### 線形オーダー ###
     def linear(n)
-      # 長さ n のリストは O(n) の領域を使用する
+      # 長さ n のリストが使う領域は O(n)
       nums = Array.new(n, 0)
 
-      # 長さ n のハッシュテーブルは O(n) の領域を使用する
+      # 長さ n のハッシュテーブルが使う領域は O(n)
       hmap = {}
       for i in 0...n
         hmap[i] = i.to_s
@@ -1457,12 +1457,12 @@ $$
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20linear%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20%23%20%E9%95%B7%E3%81%95%20n%20%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AF%20O%28n%29%20%E3%81%AE%E9%A0%98%E5%9F%9F%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%0A%20%20%20%20nums%20%3D%20%5B0%5D%20%2A%20n%0A%20%20%20%20%23%20%E9%95%B7%E3%81%95%20n%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AF%20O%28n%29%20%E3%81%AE%E9%A0%98%E5%9F%9F%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%0A%20%20%20%20hmap%20%3D%20dict%5Bint,%20str%5D%28%29%0A%20%20%20%20for%20i%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20hmap%5Bi%5D%20%3D%20str%28i%29%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20linear%28n%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=20&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20linear%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20%23%20%E9%95%B7%E3%81%95%20n%20%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AF%20O%28n%29%20%E3%81%AE%E9%A0%98%E5%9F%9F%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%0A%20%20%20%20nums%20%3D%20%5B0%5D%20%2A%20n%0A%20%20%20%20%23%20%E9%95%B7%E3%81%95%20n%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AF%20O%28n%29%20%E3%81%AE%E9%A0%98%E5%9F%9F%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%0A%20%20%20%20hmap%20%3D%20dict%5Bint,%20str%5D%28%29%0A%20%20%20%20for%20i%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20hmap%5Bi%5D%20%3D%20str%28i%29%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20linear%28n%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=20&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=def%20linear%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20%23%20%E9%95%B7%E3%81%95%20n%20%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%81%8C%E4%BD%BF%E3%81%86%E9%A0%98%E5%9F%9F%E3%81%AF%20O%28n%29%0A%20%20%20%20nums%20%3D%20%5B0%5D%20%2A%20n%0A%20%20%20%20%23%20%E9%95%B7%E3%81%95%20n%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%8C%E4%BD%BF%E3%81%86%E9%A0%98%E5%9F%9F%E3%81%AF%20O%28n%29%0A%20%20%20%20hmap%20%3D%20dict%5Bint,%20str%5D%28%29%0A%20%20%20%20for%20i%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20hmap%5Bi%5D%20%3D%20str%28i%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20linear%28n%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=20&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20linear%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20%23%20%E9%95%B7%E3%81%95%20n%20%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%81%8C%E4%BD%BF%E3%81%86%E9%A0%98%E5%9F%9F%E3%81%AF%20O%28n%29%0A%20%20%20%20nums%20%3D%20%5B0%5D%20%2A%20n%0A%20%20%20%20%23%20%E9%95%B7%E3%81%95%20n%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%8C%E4%BD%BF%E3%81%86%E9%A0%98%E5%9F%9F%E3%81%AF%20O%28n%29%0A%20%20%20%20hmap%20%3D%20dict%5Bint,%20str%5D%28%29%0A%20%20%20%20for%20i%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20hmap%5Bi%5D%20%3D%20str%28i%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20linear%28n%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=20&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-図 2-17 の関数は再帰深度が $n$ で、まだ戻っていない `linear_recur()` が同時に $n$ 個存在するため、スタックフレームに $O(n)$ の空間を使います。
+図 2-17 のように、この関数の再帰の深さは $n$ です。つまり、まだ戻っていない `linear_recur()` の呼び出しが同時に $n$ 個あり、$O(n)$ のスタックフレーム領域を使います。
 
 === "Python"
 
@@ -1617,25 +1617,25 @@ $$
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 441px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20linear_recur%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20print%28%22%E5%86%8D%E5%B8%B0%20n%20%3D%22,%20n%29%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20linear_recur%28n%20-%201%29%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20linear_recur%28n%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=25&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20linear_recur%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20print%28%22%E5%86%8D%E5%B8%B0%20n%20%3D%22,%20n%29%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20linear_recur%28n%20-%201%29%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20linear_recur%28n%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=25&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 441px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=def%20linear_recur%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20print%28%22%E5%86%8D%E5%B8%B0%20n%20%3D%22,%20n%29%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20linear_recur%28n%20-%201%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20linear_recur%28n%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=25&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20linear_recur%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20print%28%22%E5%86%8D%E5%B8%B0%20n%20%3D%22,%20n%29%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20linear_recur%28n%20-%201%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20linear_recur%28n%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=25&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-![再帰関数による線形の空間計算量](space_complexity.assets/space_complexity_recursive_linear.svg){ class="animation-figure" }
+![再帰関数による線形オーダーの空間計算量](space_complexity.assets/space_complexity_recursive_linear.svg){ class="animation-figure" }
 
-<p align="center"> 図 2-17 &nbsp; 再帰関数による線形の空間計算量 </p>
+<p align="center"> 図 2-17 &nbsp; 再帰関数による線形オーダーの空間計算量 </p>
 
-### 3. &nbsp; 二乗のオーダー $O(n^2)$ {data-toc-label="3. &nbsp; 二乗のオーダー"}
+### 3. &nbsp; 二次オーダー $O(n^2)$ {data-toc-label="3. &nbsp; 二次オーダー"}
 
-二乗のオーダーは、要素数が $n$ の二乗に比例する行列やグラフによく見られます。
+行列やグラフなどで要素数が $n$ の二乗に比例する場合には、二次オーダーがよく現れます。
 
 === "Python"
 
     ```python title="space_complexity.py"
     def quadratic(n: int):
         """二次オーダー"""
-        # 二次元リストは O(n^2) の領域を使用する
+        # 二次元リストが使う領域は O(n^2)
         num_matrix = [[0] * n for _ in range(n)]
     ```
 
@@ -1644,7 +1644,7 @@ $$
     ```cpp title="space_complexity.cpp"
     /* 二次オーダー */
     void quadratic(int n) {
-        // 二次元リストは O(n^2) の領域を使用する
+        // 二次元リストが使う領域は O(n^2)
         vector<vector<int>> numMatrix;
         for (int i = 0; i < n; i++) {
             vector<int> tmp;
@@ -1661,9 +1661,9 @@ $$
     ```java title="space_complexity.java"
     /* 二次オーダー */
     void quadratic(int n) {
-        // 行列は O(n^2) の領域を使用する
+        // 行列が使う領域は O(n^2)
         int[][] numMatrix = new int[n][n];
-        // 二次元リストは O(n^2) の領域を使用する
+        // 二次元リストが使う領域は O(n^2)
         List<List<Integer>> numList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             List<Integer> tmp = new ArrayList<>();
@@ -1680,9 +1680,9 @@ $$
     ```csharp title="space_complexity.cs"
     /* 二次オーダー */
     void Quadratic(int n) {
-        // 行列は O(n^2) の領域を使用する
+        // 行列が使う領域は O(n^2)
         int[,] numMatrix = new int[n, n];
-        // 二次元リストは O(n^2) の領域を使用する
+        // 二次元リストが使う領域は O(n^2)
         List<List<int>> numList = [];
         for (int i = 0; i < n; i++) {
             List<int> tmp = [];
@@ -1699,7 +1699,7 @@ $$
     ```go title="space_complexity.go"
     /* 二次オーダー */
     func spaceQuadratic(n int) {
-        // 行列は O(n^2) の領域を使用する
+        // 行列が使う領域は O(n^2)
         numMatrix := make([][]int, n)
         for i := 0; i < n; i++ {
             numMatrix[i] = make([]int, n)
@@ -1712,7 +1712,7 @@ $$
     ```swift title="space_complexity.swift"
     /* 二次オーダー */
     func quadratic(n: Int) {
-        // 二次元リストは O(n^2) の領域を使用する
+        // 二次元リストが使う領域は O(n^2)
         let numList = Array(repeating: Array(repeating: 0, count: n), count: n)
     }
     ```
@@ -1722,11 +1722,11 @@ $$
     ```javascript title="space_complexity.js"
     /* 二次オーダー */
     function quadratic(n) {
-        // 行列は O(n^2) の領域を使用する
+        // 行列が使う領域は O(n^2)
         const numMatrix = Array(n)
             .fill(null)
             .map(() => Array(n).fill(null));
-        // 二次元リストは O(n^2) の領域を使用する
+        // 二次元リストが使う領域は O(n^2)
         const numList = [];
         for (let i = 0; i < n; i++) {
             const tmp = [];
@@ -1743,11 +1743,11 @@ $$
     ```typescript title="space_complexity.ts"
     /* 二次オーダー */
     function quadratic(n: number): void {
-        // 行列は O(n^2) の領域を使用する
+        // 行列が使う領域は O(n^2)
         const numMatrix = Array(n)
             .fill(null)
             .map(() => Array(n).fill(null));
-        // 二次元リストは O(n^2) の領域を使用する
+        // 二次元リストが使う領域は O(n^2)
         const numList = [];
         for (let i = 0; i < n; i++) {
             const tmp = [];
@@ -1764,9 +1764,9 @@ $$
     ```dart title="space_complexity.dart"
     /* 二次オーダー */
     void quadratic(int n) {
-      // 行列は O(n^2) の領域を使用する
+      // 行列が使う領域は O(n^2)
       List<List<int>> numMatrix = List.generate(n, (_) => List.filled(n, 0));
-      // 二次元リストは O(n^2) の領域を使用する
+      // 二次元リストが使う領域は O(n^2)
       List<List<int>> numList = [];
       for (var i = 0; i < n; i++) {
         List<int> tmp = [];
@@ -1784,9 +1784,9 @@ $$
     /* 二次オーダー */
     #[allow(unused)]
     fn quadratic(n: i32) {
-        // 行列は O(n^2) の領域を使用する
+        // 行列が使う領域は O(n^2)
         let num_matrix = vec![vec![0; n as usize]; n as usize];
-        // 二次元リストは O(n^2) の領域を使用する
+        // 二次元リストが使う領域は O(n^2)
         let mut num_list = Vec::new();
         for i in 0..n {
             let mut tmp = Vec::new();
@@ -1803,7 +1803,7 @@ $$
     ```c title="space_complexity.c"
     /* 二次オーダー */
     void quadratic(int n) {
-        // 二次元リストは O(n^2) の領域を使用する
+        // 二次元リストが使う領域は O(n^2)
         int **numMatrix = malloc(sizeof(int *) * n);
         for (int i = 0; i < n; i++) {
             int *tmp = malloc(sizeof(int) * n);
@@ -1813,7 +1813,7 @@ $$
             numMatrix[i] = tmp;
         }
 
-        // メモリの解放
+        // メモリを解放
         for (int i = 0; i < n; i++) {
             free(numMatrix[i]);
         }
@@ -1826,9 +1826,9 @@ $$
     ```kotlin title="space_complexity.kt"
     /* 二次オーダー */
     fun quadratic(n: Int) {
-        // 行列は O(n^2) の領域を使用する
+        // 行列が使う領域は O(n^2)
         val numMatrix = arrayOfNulls<Array<Int>?>(n)
-        // 二次元リストは O(n^2) の領域を使用する
+        // 二次元リストが使う領域は O(n^2)
         val numList = mutableListOf<MutableList<Int>>()
         for (i in 0..<n) {
             val tmp = mutableListOf<Int>()
@@ -1845,17 +1845,17 @@ $$
     ```ruby title="space_complexity.rb"
     ### 二次オーダー ###
     def quadratic(n)
-      # 二次元リストは O(n^2) の領域を使用する
+      # 二次元リストが使う領域は O(n^2)
       Array.new(n) { Array.new(n, 0) }
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 405px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20quadratic%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20%23%20%E4%BA%8C%E6%AC%A1%E5%85%83%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AF%20O%28n%5E2%29%20%E3%81%AE%E9%A0%98%E5%9F%9F%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%0A%20%20%20%20num_matrix%20%3D%20%5B%5B0%5D%20%2A%20n%20for%20_%20in%20range%28n%29%5D%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20quadratic%28n%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=16&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20quadratic%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20%23%20%E4%BA%8C%E6%AC%A1%E5%85%83%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AF%20O%28n%5E2%29%20%E3%81%AE%E9%A0%98%E5%9F%9F%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%0A%20%20%20%20num_matrix%20%3D%20%5B%5B0%5D%20%2A%20n%20for%20_%20in%20range%28n%29%5D%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20quadratic%28n%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=16&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 405px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=def%20quadratic%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20%23%20%E4%BA%8C%E6%AC%A1%E5%85%83%E3%83%AA%E3%82%B9%E3%83%88%E3%81%8C%E4%BD%BF%E3%81%86%E9%A0%98%E5%9F%9F%E3%81%AF%20O%28n%5E2%29%0A%20%20%20%20num_matrix%20%3D%20%5B%5B0%5D%20%2A%20n%20for%20_%20in%20range%28n%29%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20quadratic%28n%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=16&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20quadratic%28n%3A%20int%29%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20%23%20%E4%BA%8C%E6%AC%A1%E5%85%83%E3%83%AA%E3%82%B9%E3%83%88%E3%81%8C%E4%BD%BF%E3%81%86%E9%A0%98%E5%9F%9F%E3%81%AF%20O%28n%5E2%29%0A%20%20%20%20num_matrix%20%3D%20%5B%5B0%5D%20%2A%20n%20for%20_%20in%20range%28n%29%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20quadratic%28n%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=16&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-図 2-18 の関数は再帰深度が $n$ で、各呼び出しで長さ $n$、$n-1$、$\dots$、$2$、$1$ の配列を初期化します。平均の長さは $n / 2$ なので、全体では $O(n^2)$ の空間を使います。
+図 2-18 のように、この関数の再帰の深さは $n$ です。各段で配列を初期化し、その長さは順に $n$、$n-1$、$\dots$、$2$、$1$ です。平均の長さは $n / 2$ なので、全体で $O(n^2)$ の領域を使います。
 
 === "Python"
 
@@ -1864,7 +1864,7 @@ $$
         """二次オーダー（再帰による実装）"""
         if n <= 0:
             return 0
-        # 配列 nums の長さは n, n-1, ..., 2, 1
+        # 配列 nums の長さは順に n, n-1, ..., 2, 1
         nums = [0] * n
         return quadratic_recur(n - 1)
     ```
@@ -1877,7 +1877,7 @@ $$
         if (n <= 0)
             return 0;
         vector<int> nums(n);
-        cout << "再帰 n = " << n << " における nums の長さ = " << nums.size() << endl;
+        cout << "再帰 n = " << n << " での nums の長さ = " << nums.size() << endl;
         return quadraticRecur(n - 1);
     }
     ```
@@ -1889,9 +1889,9 @@ $$
     int quadraticRecur(int n) {
         if (n <= 0)
             return 0;
-        // 配列 nums の長さは n, n-1, ..., 2, 1
+        // 配列 nums の長さは順に n, n-1, ..., 2, 1
         int[] nums = new int[n];
-        System.out.println("再帰 n = " + n + " における nums の長さ = " + nums.length);
+        System.out.println("再帰 n = " + n + " での nums の長さ = " + nums.length);
         return quadraticRecur(n - 1);
     }
     ```
@@ -1903,7 +1903,7 @@ $$
     int QuadraticRecur(int n) {
         if (n <= 0) return 0;
         int[] nums = new int[n];
-        Console.WriteLine("再帰 n = " + n + " における nums の長さ = " + nums.Length);
+        Console.WriteLine("再帰 n = " + n + " での nums の長さ = " + nums.Length);
         return QuadraticRecur(n - 1);
     }
     ```
@@ -1917,7 +1917,7 @@ $$
             return 0
         }
         nums := make([]int, n)
-        fmt.Printf("再帰 n = %d における nums の長さ = %d \n", n, len(nums))
+        fmt.Printf("再帰 n = %d での nums の長さ = %d \n", n, len(nums))
         return spaceQuadraticRecur(n - 1)
     }
     ```
@@ -1931,9 +1931,9 @@ $$
         if n <= 0 {
             return 0
         }
-        // 配列 nums の長さは n, n-1, ..., 2, 1
+        // 配列 nums の長さは順に n, n-1, ..., 2, 1
         let nums = Array(repeating: 0, count: n)
-        print("再帰 n = \(n) における nums の長さ = \(nums.count)")
+        print("再帰 n = \(n) での nums の長さ = \(nums.count)")
         return quadraticRecur(n: n - 1)
     }
     ```
@@ -1945,7 +1945,7 @@ $$
     function quadraticRecur(n) {
         if (n <= 0) return 0;
         const nums = new Array(n);
-        console.log(`再帰 n = ${n} における nums の長さ = ${nums.length}`);
+        console.log(`再帰 n = ${n} での nums の長さ = ${nums.length}`);
         return quadraticRecur(n - 1);
     }
     ```
@@ -1957,7 +1957,7 @@ $$
     function quadraticRecur(n: number): number {
         if (n <= 0) return 0;
         const nums = new Array(n);
-        console.log(`再帰 n = ${n} における nums の長さ = ${nums.length}`);
+        console.log(`再帰 n = ${n} での nums の長さ = ${nums.length}`);
         return quadraticRecur(n - 1);
     }
     ```
@@ -1969,7 +1969,7 @@ $$
     int quadraticRecur(int n) {
       if (n <= 0) return 0;
       List<int> nums = List.filled(n, 0);
-      print('再帰 n = $n における nums の長さ = ${nums.length}');
+      print('再帰 n = $n での nums の長さ = ${nums.length}');
       return quadraticRecur(n - 1);
     }
     ```
@@ -1982,9 +1982,9 @@ $$
         if n <= 0 {
             return 0;
         };
-        // 配列 nums の長さは n, n-1, ..., 2, 1
+        // 配列 nums の長さは順に n, n-1, ..., 2, 1
         let nums = vec![0; n as usize];
-        println!("再帰 n = {} における nums の長さ = {}", n, nums.len());
+        println!("再帰 n = {} での nums の長さ = {}", n, nums.len());
         return quadratic_recur(n - 1);
     }
     ```
@@ -1997,7 +1997,7 @@ $$
         if (n <= 0)
             return 0;
         int *nums = malloc(sizeof(int) * n);
-        printf("再帰 n = %d における nums の長さ = %d\r\n", n, n);
+        printf("再帰 n = %d での nums の長さ = %d\r\n", n, n);
         int res = quadraticRecur(n - 1);
         free(nums);
         return res;
@@ -2011,9 +2011,9 @@ $$
     tailrec fun quadraticRecur(n: Int): Int {
         if (n <= 0)
             return 0
-        // 配列 nums の長さは n, n-1, ..., 2, 1
+        // 配列 nums の長さは順に n, n-1, ..., 2, 1
         val nums = Array(n) { 0 }
-        println("再帰 n = $n における nums の長さ = ${nums.size}")
+        println("再帰 n = $n での nums の長さ = ${nums.size}")
         return quadraticRecur(n - 1)
     }
     ```
@@ -2025,30 +2025,30 @@ $$
     def quadratic_recur(n)
       return 0 unless n > 0
 
-      # 配列 nums の長さは n, n-1, ..., 2, 1
+      # 配列 nums の長さは順に n, n-1, ..., 2, 1
       nums = Array.new(n, 0)
       quadratic_recur(n - 1)
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20quadratic_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%200%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20%23%20%E9%85%8D%E5%88%97%20nums%20%E3%81%AE%E9%95%B7%E3%81%95%E3%81%AF%20n,%20n-1,%20...,%202,%201%0A%20%20%20%20nums%20%3D%20%5B0%5D%20%2A%20n%0A%20%20%20%20return%20quadratic_recur%28n%20-%201%29%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20quadratic_recur%28n%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=28&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20quadratic_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%200%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20%23%20%E9%85%8D%E5%88%97%20nums%20%E3%81%AE%E9%95%B7%E3%81%95%E3%81%AF%20n,%20n-1,%20...,%202,%201%0A%20%20%20%20nums%20%3D%20%5B0%5D%20%2A%20n%0A%20%20%20%20return%20quadratic_recur%28n%20-%201%29%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20quadratic_recur%28n%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=28&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=def%20quadratic_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%200%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20%23%20%E9%85%8D%E5%88%97%20nums%20%E3%81%AE%E9%95%B7%E3%81%95%E3%81%AF%E9%A0%86%E3%81%AB%20n,%20n-1,%20...,%202,%201%0A%20%20%20%20nums%20%3D%20%5B0%5D%20%2A%20n%0A%20%20%20%20return%20quadratic_recur%28n%20-%201%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20quadratic_recur%28n%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=28&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20quadratic_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%200%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20%23%20%E9%85%8D%E5%88%97%20nums%20%E3%81%AE%E9%95%B7%E3%81%95%E3%81%AF%E9%A0%86%E3%81%AB%20n,%20n-1,%20...,%202,%201%0A%20%20%20%20nums%20%3D%20%5B0%5D%20%2A%20n%0A%20%20%20%20return%20quadratic_recur%28n%20-%201%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20quadratic_recur%28n%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=28&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-![再帰関数による二乗の空間計算量](space_complexity.assets/space_complexity_recursive_quadratic.svg){ class="animation-figure" }
+![再帰関数による二次オーダーの空間計算量](space_complexity.assets/space_complexity_recursive_quadratic.svg){ class="animation-figure" }
 
-<p align="center"> 図 2-18 &nbsp; 再帰関数による二乗の空間計算量 </p>
+<p align="center"> 図 2-18 &nbsp; 再帰関数による二次オーダーの空間計算量 </p>
 
-### 4. &nbsp; 指数のオーダー $O(2^n)$ {data-toc-label="4. &nbsp; 指数のオーダー"}
+### 4. &nbsp; 指数オーダー $O(2^n)$ {data-toc-label="4. &nbsp; 指数オーダー"}
 
-指数のオーダーは二分木によく見られます。図 2-19 の、層数が $n$ の「パーフェクト二分木」はノード数が $2^n - 1$ で、$O(2^n)$ の空間を使います。
+二分木では指数オーダーがよく現れます。図 2-19 のように、$n$ 段すべてが埋まった完全二分木のノード数は $2^n - 1$ で、$O(2^n)$ の領域を使います。
 
 === "Python"
 
     ```python title="space_complexity.py"
     def build_tree(n: int) -> TreeNode | None:
-        """指数オーダー（パーフェクト二分木の構築）"""
+        """指数オーダー（すべての葉が同じ深さの完全二分木を構築）"""
         if n == 0:
             return None
         root = TreeNode(0)
@@ -2060,7 +2060,7 @@ $$
 === "C++"
 
     ```cpp title="space_complexity.cpp"
-    /* 指数オーダー（パーフェクト二分木の構築） */
+    /* 指数オーダー（すべての葉が同じ深さの完全二分木を構築） */
     TreeNode *buildTree(int n) {
         if (n == 0)
             return nullptr;
@@ -2074,7 +2074,7 @@ $$
 === "Java"
 
     ```java title="space_complexity.java"
-    /* 指数オーダー（パーフェクト二分木の構築） */
+    /* 指数オーダー（すべての葉が同じ深さの完全二分木を構築） */
     TreeNode buildTree(int n) {
         if (n == 0)
             return null;
@@ -2088,7 +2088,7 @@ $$
 === "C#"
 
     ```csharp title="space_complexity.cs"
-    /* 指数オーダー（パーフェクト二分木の構築） */
+    /* 指数オーダー（すべての葉が同じ深さの完全二分木を構築） */
     TreeNode? BuildTree(int n) {
         if (n == 0) return null;
         TreeNode root = new(0) {
@@ -2102,7 +2102,7 @@ $$
 === "Go"
 
     ```go title="space_complexity.go"
-    /* 指数オーダー（パーフェクト二分木の構築） */
+    /* 指数オーダー（すべての葉が同じ深さの完全二分木を構築） */
     func buildTree(n int) *TreeNode {
         if n == 0 {
             return nil
@@ -2117,7 +2117,7 @@ $$
 === "Swift"
 
     ```swift title="space_complexity.swift"
-    /* 指数オーダー（パーフェクト二分木の構築） */
+    /* 指数オーダー（すべての葉が同じ深さの完全二分木を構築） */
     func buildTree(n: Int) -> TreeNode? {
         if n == 0 {
             return nil
@@ -2132,7 +2132,7 @@ $$
 === "JS"
 
     ```javascript title="space_complexity.js"
-    /* 指数オーダー（パーフェクト二分木の構築） */
+    /* 指数オーダー（すべての葉が同じ深さの完全二分木を構築） */
     function buildTree(n) {
         if (n === 0) return null;
         const root = new TreeNode(0);
@@ -2145,7 +2145,7 @@ $$
 === "TS"
 
     ```typescript title="space_complexity.ts"
-    /* 指数オーダー（パーフェクト二分木の構築） */
+    /* 指数オーダー（すべての葉が同じ深さの完全二分木を構築） */
     function buildTree(n: number): TreeNode | null {
         if (n === 0) return null;
         const root = new TreeNode(0);
@@ -2158,7 +2158,7 @@ $$
 === "Dart"
 
     ```dart title="space_complexity.dart"
-    /* 指数オーダー（パーフェクト二分木の構築） */
+    /* 指数オーダー（すべての葉が同じ深さの完全二分木を構築） */
     TreeNode? buildTree(int n) {
       if (n == 0) return null;
       TreeNode root = TreeNode(0);
@@ -2171,7 +2171,7 @@ $$
 === "Rust"
 
     ```rust title="space_complexity.rs"
-    /* 指数オーダー（パーフェクト二分木の構築） */
+    /* 指数オーダー（すべての葉が同じ深さの完全二分木を構築） */
     fn build_tree(n: i32) -> Option<Rc<RefCell<TreeNode>>> {
         if n == 0 {
             return None;
@@ -2186,7 +2186,7 @@ $$
 === "C"
 
     ```c title="space_complexity.c"
-    /* 指数オーダー（パーフェクト二分木の構築） */
+    /* 指数オーダー（すべての葉が同じ深さの完全二分木を構築） */
     TreeNode *buildTree(int n) {
         if (n == 0)
             return NULL;
@@ -2200,7 +2200,7 @@ $$
 === "Kotlin"
 
     ```kotlin title="space_complexity.kt"
-    /* 指数オーダー（パーフェクト二分木の構築） */
+    /* 指数オーダー（すべての葉が同じ深さの完全二分木を構築） */
     fun buildTree(n: Int): TreeNode? {
         if (n == 0)
             return null
@@ -2214,7 +2214,7 @@ $$
 === "Ruby"
 
     ```ruby title="space_complexity.rb"
-    ### 指数オーダー（パーフェクト二分木の構築）###
+    ### 指数オーダー（すべての葉が同じ深さの完全二分木を構築）###
     def build_tree(n)
       return if n == 0
 
@@ -2225,25 +2225,25 @@ $$
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%B7%A6%E3%81%AE%E5%AD%90%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%8F%B3%E3%81%AE%E5%AD%90%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20build_tree%28n%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%91%E3%83%BC%E3%83%95%E3%82%A7%E3%82%AF%E3%83%88%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E6%A7%8B%E7%AF%89%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20root%20%3D%20TreeNode%280%29%0A%20%20%20%20root.left%20%3D%20build_tree%28n%20-%201%29%0A%20%20%20%20root.right%20%3D%20build_tree%28n%20-%201%29%0A%20%20%20%20return%20root%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20root%20%3D%20build_tree%28n%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=507&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%B7%A6%E3%81%AE%E5%AD%90%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%8F%B3%E3%81%AE%E5%AD%90%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20build_tree%28n%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%91%E3%83%BC%E3%83%95%E3%82%A7%E3%82%AF%E3%83%88%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E6%A7%8B%E7%AF%89%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20root%20%3D%20TreeNode%280%29%0A%20%20%20%20root.left%20%3D%20build_tree%28n%20-%201%29%0A%20%20%20%20root.right%20%3D%20build_tree%28n%20-%201%29%0A%20%20%20%20return%20root%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20root%20%3D%20build_tree%28n%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=507&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%B7%A6%E3%81%AE%E5%AD%90%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%8F%B3%E3%81%AE%E5%AD%90%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20build_tree%28n%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E8%91%89%E3%81%8C%E5%90%8C%E3%81%98%E6%B7%B1%E3%81%95%E3%81%AE%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%88%86%E6%9C%A8%E3%82%92%E6%A7%8B%E7%AF%89%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20root%20%3D%20TreeNode%280%29%0A%20%20%20%20root.left%20%3D%20build_tree%28n%20-%201%29%0A%20%20%20%20root.right%20%3D%20build_tree%28n%20-%201%29%0A%20%20%20%20return%20root%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20root%20%3D%20build_tree%28n%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=507&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%B7%A6%E3%81%AE%E5%AD%90%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%8F%B3%E3%81%AE%E5%AD%90%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20build_tree%28n%3A%20int%29%20-%3E%20TreeNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E8%91%89%E3%81%8C%E5%90%8C%E3%81%98%E6%B7%B1%E3%81%95%E3%81%AE%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%88%86%E6%9C%A8%E3%82%92%E6%A7%8B%E7%AF%89%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20root%20%3D%20TreeNode%280%29%0A%20%20%20%20root.left%20%3D%20build_tree%28n%20-%201%29%0A%20%20%20%20root.right%20%3D%20build_tree%28n%20-%201%29%0A%20%20%20%20return%20root%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%205%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20%23%20%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%0A%20%20%20%20root%20%3D%20build_tree%28n%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=507&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-![パーフェクト二分木による指数の空間計算量](space_complexity.assets/space_complexity_exponential.svg){ class="animation-figure" }
+![全段が埋まった完全二分木の指数オーダーの空間計算量](space_complexity.assets/space_complexity_exponential.svg){ class="animation-figure" }
 
-<p align="center"> 図 2-19 &nbsp; パーフェクト二分木による指数の空間計算量 </p>
+<p align="center"> 図 2-19 &nbsp; 全段が埋まった完全二分木の指数オーダーの空間計算量 </p>
 
-### 5. &nbsp; 対数のオーダー $O(\log n)$ {data-toc-label="5. &nbsp; 対数のオーダー"}
+### 5. &nbsp; 対数オーダー $O(\log n)$ {data-toc-label="5. &nbsp; 対数オーダー"}
 
-対数のオーダーは分割統治によく見られます。たとえばマージソートは、長さ $n$ の配列を各再帰で中央から半分に分け、高さ $\log n$ の再帰木を作るため、スタックフレームに $O(\log n)$ の空間を使います。
+分割統治法では対数オーダーがよく現れます。例えばマージソートでは、長さ $n$ の配列を入力し、再帰のたびに中央で半分に分けます。再帰木の高さは $\log n$ となり、スタックフレーム領域は $O(\log n)$ です。
 
-数値から文字列への変換も例になります。正の整数 $n$ の桁数は $\lfloor \log_{10} n \rfloor + 1$ なので、文字列の長さも $\lfloor \log_{10} n \rfloor + 1$ です。したがって、空間計算量は $O(\log_{10} n + 1) = O(\log n)$ です。
+数値を文字列に変換する場合も例に挙げられます。入力が正整数 $n$ なら桁数は $\lfloor \log_{10} n \rfloor + 1$ なので、対応する文字列の長さは $\lfloor \log_{10} n \rfloor + 1$ です。したがって空間計算量は $O(\log_{10} n + 1) = O(\log n)$ です。
 
 ## 2.4.4 &nbsp; 時間と空間のトレードオフ
 
-理想的には、時間計算量も空間計算量も最適にしたいところです。しかし実際には、両方を同時に最適化するのは非常に難しいことが多いです。
+理想は、アルゴリズムの時間計算量と空間計算量をともに最良にすることです。しかし実際には、両方を同時に最適化することはたいてい困難です。
 
-**時間計算量を減らすには、空間計算量を増やす必要があることが多く、その逆も同様です**。メモリを使って実行を速くする考え方を「空間を使って時間を節約する」、その逆を「時間を使って空間を節約する」と呼びます。
+**時間計算量を小さくするには空間計算量の増加を受け入れる必要があることが多く、その逆も同様です**。メモリを多く使って実行を速める考え方を「空間を使って時間を節約する」といい、その逆を「時間を使って空間を節約する」といいます。
 
-どちらを選ぶかは、何を重視するかによります。多くの場合、空間より時間の方が貴重なため、空間を使って時間を節約する戦略が一般的です。ただし、データ量が非常に多い場合は、空間計算量を抑えることも重要です。
+どちらを選ぶかは、何を重視するかによります。多くの場合、メモリより時間が貴重なので、空間を使って時間を節約するほうが一般的です。もちろん、データ量が非常に大きいときは、空間計算量を抑えることも重要です。

@@ -9,15 +9,15 @@ icon: material/set-split
 
 !!! abstract
 
-    A difficult problem is broken down layer by layer, becoming simpler with each division.
+    A hard problem grows simpler each time we break it down.
     
-    Divide and conquer reveals an important truth: start with the simple parts, and complexity becomes manageable.
+    Divide and conquer shows us why: start with the simple pieces, and even a complex problem becomes manageable.
 
-## Chapter contents
+## In this chapter
 
-- [12.1 &nbsp; Divide and conquer](divide_and_conquer.md)
+- [12.1 &nbsp; Divide-and-conquer algorithms](divide_and_conquer.md)
 - [12.2 &nbsp; Divide-and-conquer search](binary_search_recur.md)
-- [12.3 &nbsp; Building a binary tree](build_binary_tree_problem.md)
-- [12.4 &nbsp; Tower of Hanoi](hanota_problem.md)
+- [12.3 &nbsp; Reconstructing a binary tree](build_binary_tree_problem.md)
+- [12.4 &nbsp; The Tower of Hanoi](hanota_problem.md)
 - [12.5 &nbsp; Summary](summary.md)
 - [12.6 &nbsp; Exercises](exercises.md)

@@ -4,22 +4,22 @@ comments: true
 
 # 4.3 &nbsp; リスト
 
-<u>リスト（list）</u>は抽象的なデータ構造の概念で、順序を持つ要素の集合を表します。要素へのアクセス、更新、追加、削除、走査などの操作をサポートし、利用者は容量の制限を気にする必要がありません。リストは連結リストや配列を使って実装できます。
+<u>リスト（list）</u>は、順序のある要素の集まりを表す抽象的なデータ構造です。容量の上限を利用者が意識せずに、要素へのアクセス、変更、追加、削除、走査などを行えます。リストは連結リストでも配列でも実装できます。
 
-- 連結リストは、要素の追加・削除・検索・更新をサポートし、動的に柔軟に拡張できるため、そのままリストとみなせます。
-- 配列も要素の追加・削除・検索・更新をサポートしますが、長さを変えられないため、長さに制限のあるリストとしかみなせません。
+- 連結リストは、そのままリストとみなせます。要素の追加、削除、探索、変更ができ、必要に応じて柔軟に拡張できます。
+- 配列でも要素の追加、削除、探索、変更はできますが、長さが固定されているため、長さに制限のあるリストとみなせます。
 
-配列でリストを実装すると、**長さを変えられない性質が実用性を下げてしまいます**。通常、保存するデータ量を事前に確定できず、適切な長さを選ぶのが難しいためです。短すぎれば必要な量を格納できず、長すぎればメモリが無駄になります。
+配列でリストを実装する場合、**長さが固定されているとリストの使い勝手が悪くなります**。通常は格納するデータ量が事前にわからず、適切な長さを選びにくいためです。短すぎれば必要なデータが収まらず、長すぎればメモリを無駄にします。
 
-この問題を解決するため、<u>動的配列（dynamic array）</u>でリストを実装できます。動的配列は配列の利点を受け継ぎ、プログラムの実行中に容量を動的に拡張できます。
+この問題を解決するには、<u>動的配列（dynamic array）</u>を使ってリストを実装します。配列の利点を受け継ぎながら、プログラムの実行中に容量を増やせます。
 
-実際、**多くのプログラミング言語の標準ライブラリで提供されるリストは、動的配列で実装されています**。Python の `list`、Java の `ArrayList`、C++ の `vector`、C# の `List` などがその例です。以下では、「リスト」と「動的配列」を同じ概念として扱います。
+実際に、**多くのプログラミング言語の標準ライブラリが提供するリストは、動的配列を使って実装されています**。Python の `list`、Java の `ArrayList`、C++ の `vector`、C# の `List` などがその例です。以下では「リスト」と「動的配列」を同じ意味で使います。
 
-## 4.3.1 &nbsp; リストの主な操作
+## 4.3.1 &nbsp; リストの基本操作
 
-### 1. &nbsp; リストの初期化
+### 1. &nbsp; リストを初期化する
 
-通常は、「初期値なし」と「初期値あり」の二つの方法で初期化します。
+初期化には通常、初期値を指定しない方法と、初期値を与える方法の 2 通りを使います。
 
 === "Python"
 
@@ -47,7 +47,7 @@ comments: true
     /* リストを初期化する */
     // 初期値なし
     List<Integer> emptyNums = new ArrayList<>();
-    // 初期値あり（リストの要素には int のラッパークラス Integer しか使えないため、配列の型は int[] ではなく Integer[] にする必要があることに注意）
+    // 初期値あり（配列の型は Integer[] を使う。int[] は使えない。リストの要素にできるのは int のラッパークラス Integer だからである）
     Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
     List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
     ```
@@ -149,14 +149,14 @@ comments: true
     nums = [1, 3, 2, 5, 4]
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 315px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E5%80%A4%E3%81%AA%E3%81%97%0A%20%20%20%20empty_nums%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E5%80%A4%E3%81%82%E3%82%8A%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E5%80%A4%E3%81%AA%E3%81%97%0A%20%20%20%20empty_nums%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E5%80%A4%E3%81%82%E3%82%8A%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 315px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E5%80%A4%E3%81%AA%E3%81%97%0A%20%20%20%20empty_nums%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E5%80%A4%E3%81%82%E3%82%8A%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E5%80%A4%E3%81%AA%E3%81%97%0A%20%20%20%20empty_nums%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E5%80%A4%E3%81%82%E3%82%8A%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-### 2. &nbsp; 要素へのアクセス
+### 2. &nbsp; 要素にアクセスする
 
-リストの実体は配列なので、要素へのアクセスと更新を $O(1)$ 時間で行え、非常に効率的です。
+このリストの実体は配列なので、要素へのアクセスも更新も $O(1)$ 時間で効率よく行えます。
 
 === "Python"
 
@@ -284,14 +284,14 @@ comments: true
     nums[1] = 0 # インデックス 1 の要素を 0 に更新する
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 369px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20%20%20%20x%20%3D%20nums%5B1%5D%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%201%20%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E6%9B%B4%E6%96%B0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%201%20%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%200%20%E3%81%AB%E6%9B%B4%E6%96%B0&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20%20%20%20x%20%3D%20nums%5B1%5D%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%201%20%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E6%9B%B4%E6%96%B0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%201%20%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%200%20%E3%81%AB%E6%9B%B4%E6%96%B0&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 369px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20%20%20%20x%20%3D%20nums%5B1%5D%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%201%20%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E6%9B%B4%E6%96%B0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%201%20%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%200%20%E3%81%AB%E6%9B%B4%E6%96%B0&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20%20%20%20x%20%3D%20nums%5B1%5D%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%201%20%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E6%9B%B4%E6%96%B0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%201%20%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%200%20%E3%81%AB%E6%9B%B4%E6%96%B0&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
 ### 3. &nbsp; 要素の挿入と削除
 
-配列と比べて、リストは自由に要素を追加・削除できます。末尾への追加の時間計算量は $O(1)$ ですが、要素の挿入と削除の効率は配列と同じで、時間計算量は $O(n)$ です。
+固定長の配列に比べ、リストでは自由に要素を追加・削除できます。末尾への追加の時間計算量は $O(1)$ ですが、途中への挿入や削除の効率は配列と同じで、時間計算量は $O(n)$ です。
 
 === "Python"
 
@@ -307,7 +307,7 @@ comments: true
     nums.append(4)
 
     # 途中に要素を挿入する
-    nums.insert(3, 6)  # インデックス 3 に数値 6 を挿入する
+    nums.insert(3, 6)  # インデックス 3 に 6 を挿入する
 
     # 要素を削除する
     nums.pop(3)  # インデックス 3 の要素を削除する
@@ -327,7 +327,7 @@ comments: true
     nums.push_back(4);
 
     /* 途中に要素を挿入する */
-    nums.insert(nums.begin() + 3, 6); // インデックス 3 に数値 6 を挿入する
+    nums.insert(nums.begin() + 3, 6); // インデックス 3 に 6 を挿入する
 
     /* 要素を削除する */
     nums.erase(nums.begin() + 3); // インデックス 3 の要素を削除する
@@ -347,7 +347,7 @@ comments: true
     nums.add(4);
 
     /* 途中に要素を挿入する */
-    nums.add(3, 6); // インデックス 3 に数値 6 を挿入する
+    nums.add(3, 6); // インデックス 3 に 6 を挿入する
 
     /* 要素を削除する */
     nums.remove(3); // インデックス 3 の要素を削除する
@@ -367,7 +367,7 @@ comments: true
     nums.Add(4);
 
     /* 途中に要素を挿入する */
-    nums.Insert(3, 6); // インデックス 3 に数値 6 を挿入する
+    nums.Insert(3, 6); // インデックス 3 に 6 を挿入する
 
     /* 要素を削除する */
     nums.RemoveAt(3); // インデックス 3 の要素を削除する
@@ -387,7 +387,7 @@ comments: true
     nums = append(nums, 4)
 
     /* 途中に要素を挿入する */
-    nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // インデックス 3 に数値 6 を挿入する
+    nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // インデックス 3 に 6 を挿入する
 
     /* 要素を削除する */
     nums = append(nums[:3], nums[4:]...) // インデックス 3 の要素を削除する
@@ -407,7 +407,7 @@ comments: true
     nums.append(4)
 
     /* 途中に要素を挿入する */
-    nums.insert(6, at: 3) // インデックス 3 に数値 6 を挿入する
+    nums.insert(6, at: 3) // インデックス 3 に 6 を挿入する
 
     /* 要素を削除する */
     nums.remove(at: 3) // インデックス 3 の要素を削除する
@@ -427,7 +427,7 @@ comments: true
     nums.push(4);
 
     /* 途中に要素を挿入する */
-    nums.splice(3, 0, 6); // インデックス 3 に数値 6 を挿入する
+    nums.splice(3, 0, 6); // インデックス 3 に 6 を挿入する
 
     /* 要素を削除する */
     nums.splice(3, 1); // インデックス 3 の要素を削除する
@@ -447,7 +447,7 @@ comments: true
     nums.push(4);
 
     /* 途中に要素を挿入する */
-    nums.splice(3, 0, 6); // インデックス 3 に数値 6 を挿入する
+    nums.splice(3, 0, 6); // インデックス 3 に 6 を挿入する
 
     /* 要素を削除する */
     nums.splice(3, 1); // インデックス 3 の要素を削除する
@@ -467,7 +467,7 @@ comments: true
     nums.add(4);
 
     /* 途中に要素を挿入する */
-    nums.insert(3, 6); // インデックス 3 に数値 6 を挿入する
+    nums.insert(3, 6); // インデックス 3 に 6 を挿入する
 
     /* 要素を削除する */
     nums.removeAt(3); // インデックス 3 の要素を削除する
@@ -487,7 +487,7 @@ comments: true
     nums.push(4);
 
     // 途中に要素を挿入する
-    nums.insert(3, 6); // インデックス 3 に数値 6 を挿入する
+    nums.insert(3, 6); // インデックス 3 に 6 を挿入する
 
     // 要素を削除する
     nums.remove(3); // インデックス 3 の要素を削除する
@@ -513,7 +513,7 @@ comments: true
     nums.add(4)
 
     /* 途中に要素を挿入する */
-    nums.add(3, 6) // インデックス 3 に数値 6 を挿入する
+    nums.add(3, 6) // インデックス 3 に 6 を挿入する
 
     /* 要素を削除する */
     nums.removeAt(3) // インデックス 3 の要素を削除する
@@ -533,20 +533,20 @@ comments: true
     nums << 4
 
     # 途中に要素を挿入する
-    nums.insert(3, 6) # インデックス 3 に数値 6 を挿入する
+    nums.insert(3, 6) # インデックス 3 に 6 を挿入する
 
     # 要素を削除する
     nums.delete_at(3) # インデックス 3 の要素を削除する
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E5%80%A4%E3%81%82%E3%82%8A%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E7%A9%BA%E3%81%AB%E3%81%99%E3%82%8B%0A%20%20%20%20nums.clear()%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9C%AB%E5%B0%BE%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E8%BF%BD%E5%8A%A0%0A%20%20%20%20nums.append(1)%0A%20%20%20%20nums.append(3)%0A%20%20%20%20nums.append(2)%0A%20%20%20%20nums.append(5)%0A%20%20%20%20nums.append(4)%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%80%94%E4%B8%AD%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%BF%E5%85%A5%0A%20%20%20%20nums.insert(3%2C%206)%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%203%20%E3%81%AB%E6%95%B0%E5%80%A4%206%20%E3%82%92%E6%8C%BF%E5%85%A5%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4%0A%20%20%20%20nums.pop(3)%20%20%20%20%20%20%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%203%20%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E5%80%A4%E3%81%82%E3%82%8A%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E7%A9%BA%E3%81%AB%E3%81%99%E3%82%8B%0A%20%20%20%20nums.clear()%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9C%AB%E5%B0%BE%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E8%BF%BD%E5%8A%A0%0A%20%20%20%20nums.append(1)%0A%20%20%20%20nums.append(3)%0A%20%20%20%20nums.append(2)%0A%20%20%20%20nums.append(5)%0A%20%20%20%20nums.append(4)%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%80%94%E4%B8%AD%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%BF%E5%85%A5%0A%20%20%20%20nums.insert(3%2C%206)%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%203%20%E3%81%AB%E6%95%B0%E5%80%A4%206%20%E3%82%92%E6%8C%BF%E5%85%A5%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4%0A%20%20%20%20nums.pop(3)%20%20%20%20%20%20%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%203%20%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E5%80%A4%E3%81%82%E3%82%8A%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E7%A9%BA%E3%81%AB%E3%81%99%E3%82%8B%0A%20%20%20%20nums.clear%28%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9C%AB%E5%B0%BE%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E8%BF%BD%E5%8A%A0%0A%20%20%20%20nums.append%281%29%0A%20%20%20%20nums.append%283%29%0A%20%20%20%20nums.append%282%29%0A%20%20%20%20nums.append%285%29%0A%20%20%20%20nums.append%284%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%80%94%E4%B8%AD%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%BF%E5%85%A5%0A%20%20%20%20nums.insert%283,%206%29%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%203%20%E3%81%AB%E6%95%B0%E5%80%A4%206%20%E3%82%92%E6%8C%BF%E5%85%A5%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4%0A%20%20%20%20nums.pop%283%29%20%20%20%20%20%20%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%203%20%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E6%9C%9F%E5%80%A4%E3%81%82%E3%82%8A%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E7%A9%BA%E3%81%AB%E3%81%99%E3%82%8B%0A%20%20%20%20nums.clear%28%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9C%AB%E5%B0%BE%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E8%BF%BD%E5%8A%A0%0A%20%20%20%20nums.append%281%29%0A%20%20%20%20nums.append%283%29%0A%20%20%20%20nums.append%282%29%0A%20%20%20%20nums.append%285%29%0A%20%20%20%20nums.append%284%29%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%80%94%E4%B8%AD%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%BF%E5%85%A5%0A%20%20%20%20nums.insert%283,%206%29%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%203%20%E3%81%AB%E6%95%B0%E5%80%A4%206%20%E3%82%92%E6%8C%BF%E5%85%A5%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4%0A%20%20%20%20nums.pop%283%29%20%20%20%20%20%20%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%203%20%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
 ### 4. &nbsp; リストの走査
 
-配列と同様に、インデックスを使って走査することも、各要素を直接取り出して走査することもできます。
+配列と同じように、リストはインデックスを使って走査することも、要素を直接順に取り出すこともできます。
 
 === "Python"
 
@@ -741,21 +741,21 @@ comments: true
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 423px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E8%B5%B0%E6%9F%BB%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20i%20in%20range(len(nums))%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20nums%5Bi%5D%0A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E7%9B%B4%E6%8E%A5%E8%B5%B0%E6%9F%BB%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20num&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E8%B5%B0%E6%9F%BB%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20i%20in%20range(len(nums))%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20nums%5Bi%5D%0A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E7%9B%B4%E6%8E%A5%E8%B5%B0%E6%9F%BB%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20num&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 423px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E9%A0%86%E3%81%AB%E3%81%9F%E3%81%A9%E3%82%8B%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20nums%5Bi%5D%0A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%81%8B%E3%82%89%E5%90%84%E8%A6%81%E7%B4%A0%E3%82%92%E7%9B%B4%E6%8E%A5%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%99%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20num&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E9%A0%86%E3%81%AB%E3%81%9F%E3%81%A9%E3%82%8B%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20nums%5Bi%5D%0A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%81%8B%E3%82%89%E5%90%84%E8%A6%81%E7%B4%A0%E3%82%92%E7%9B%B4%E6%8E%A5%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%99%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20num&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
 ### 5. &nbsp; リストの連結
 
-新しいリスト `nums1` を、元のリストの末尾につなげられます。
+新しいリスト `nums1` が与えられたら、元のリストの末尾につなげられます。
 
 === "Python"
 
     ```python title="list.py"
     # 2 つのリストを連結する
     nums1 = [6, 8, 7, 10, 9]
-    nums += nums1  # リスト nums の後ろに nums1 を連結する
+    nums += nums1  # リスト nums1 を nums の末尾に連結する
     ```
 
 === "C++"
@@ -763,7 +763,7 @@ comments: true
     ```cpp title="list.cpp"
     /* 2 つのリストを連結する */
     vector<int> nums1 = {6, 8, 7, 10, 9};
-    // リスト nums の後ろに nums1 を連結する
+    // リスト nums1 を nums の末尾に連結する
     nums.insert(nums.end(), nums1.begin(), nums1.end());
     ```
 
@@ -772,7 +772,7 @@ comments: true
     ```java title="list.java"
     /* 2 つのリストを連結する */
     List<Integer> nums1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
-    nums.addAll(nums1); // リスト nums の後ろに nums1 を連結する
+    nums.addAll(nums1); // リスト nums1 を nums の末尾に連結する
     ```
 
 === "C#"
@@ -780,7 +780,7 @@ comments: true
     ```csharp title="list.cs"
     /* 2 つのリストを連結する */
     List<int> nums1 = [6, 8, 7, 10, 9];
-    nums.AddRange(nums1); // リスト nums の後ろに nums1 を連結する
+    nums.AddRange(nums1); // リスト nums1 を nums の末尾に連結する
     ```
 
 === "Go"
@@ -788,7 +788,7 @@ comments: true
     ```go title="list_test.go"
     /* 2 つのリストを連結する */
     nums1 := []int{6, 8, 7, 10, 9}
-    nums = append(nums, nums1...) // リスト nums の後ろに nums1 を連結する
+    nums = append(nums, nums1...) // リスト nums1 を nums の末尾に連結する
     ```
 
 === "Swift"
@@ -796,7 +796,7 @@ comments: true
     ```swift title="list.swift"
     /* 2 つのリストを連結する */
     let nums1 = [6, 8, 7, 10, 9]
-    nums.append(contentsOf: nums1) // リスト nums の後ろに nums1 を連結する
+    nums.append(contentsOf: nums1) // リスト nums1 を nums の末尾に連結する
     ```
 
 === "JS"
@@ -804,7 +804,7 @@ comments: true
     ```javascript title="list.js"
     /* 2 つのリストを連結する */
     const nums1 = [6, 8, 7, 10, 9];
-    nums.push(...nums1); // リスト nums の後ろに nums1 を連結する
+    nums.push(...nums1); // リスト nums1 を nums の末尾に連結する
     ```
 
 === "TS"
@@ -812,7 +812,7 @@ comments: true
     ```typescript title="list.ts"
     /* 2 つのリストを連結する */
     const nums1: number[] = [6, 8, 7, 10, 9];
-    nums.push(...nums1); // リスト nums の後ろに nums1 を連結する
+    nums.push(...nums1); // リスト nums1 を nums の末尾に連結する
     ```
 
 === "Dart"
@@ -820,7 +820,7 @@ comments: true
     ```dart title="list.dart"
     /* 2 つのリストを連結する */
     List<int> nums1 = [6, 8, 7, 10, 9];
-    nums.addAll(nums1); // リスト nums の後ろに nums1 を連結する
+    nums.addAll(nums1); // リスト nums1 を nums の末尾に連結する
     ```
 
 === "Rust"
@@ -828,7 +828,7 @@ comments: true
     ```rust title="list.rs"
     // 2 つのリストを連結する
     let mut nums1 = vec![6, 8, 7, 10, 9];
-    nums.append(&mut nums1); // append は nums1 の要素をムーブするため、その後 nums1 は空になる
+    nums.append(&mut nums1); // append は nums1 の要素を移動するので、操作後の nums1 は空になる
     ```
 
 === "C"
@@ -842,7 +842,7 @@ comments: true
     ```kotlin title="list.kt"
     /* 2 つのリストを連結する */
     val nums1 = mutableListOf(6, 8, 7, 10, 9)
-    nums.addAll(nums1) // リスト nums の後ろに nums1 を連結する
+    nums.addAll(nums1) // リスト nums1 を nums の末尾に連結する
     ```
 
 === "Ruby"
@@ -853,14 +853,14 @@ comments: true
     nums += nums1
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 333px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E4%BA%8C%E3%81%A4%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E9%80%A3%E7%B5%90%0A%20%20%20%20nums1%20%3D%20%5B6%2C%208%2C%207%2C%2010%2C%209%5D%0A%20%20%20%20nums%20%2B%3D%20nums1%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%20nums1%20%E3%82%92%20nums%20%E3%81%AE%E5%BE%8C%E3%82%8D%E3%81%AB%E9%80%A3%E7%B5%90&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E4%BA%8C%E3%81%A4%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E9%80%A3%E7%B5%90%0A%20%20%20%20nums1%20%3D%20%5B6%2C%208%2C%207%2C%2010%2C%209%5D%0A%20%20%20%20nums%20%2B%3D%20nums1%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%20nums1%20%E3%82%92%20nums%20%E3%81%AE%E5%BE%8C%E3%82%8D%E3%81%AB%E9%80%A3%E7%B5%90&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 333px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%202%20%E3%81%A4%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E9%80%A3%E7%B5%90%0A%20%20%20%20nums1%20%3D%20%5B6,%208,%207,%2010,%209%5D%0A%20%20%20%20nums%20%2B%3D%20nums1%20%20%23%20nums%20%E3%81%AE%E6%9C%AB%E5%B0%BE%E3%81%AB%E3%83%AA%E3%82%B9%E3%83%88%20nums1%20%E3%82%92%E9%80%A3%E7%B5%90&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%202%20%E3%81%A4%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E9%80%A3%E7%B5%90%0A%20%20%20%20nums1%20%3D%20%5B6,%208,%207,%2010,%209%5D%0A%20%20%20%20nums%20%2B%3D%20nums1%20%20%23%20nums%20%E3%81%AE%E6%9C%AB%E5%B0%BE%E3%81%AB%E3%83%AA%E3%82%B9%E3%83%88%20nums1%20%E3%82%92%E9%80%A3%E7%B5%90&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-### 6. &nbsp; リストのソート
+### 6. &nbsp; リストをソートする
 
-リストをソートすると、配列を扱うアルゴリズムの問題でよく問われる「二分探索」や「二つのポインタを使う」アルゴリズムを利用できます。
+リストをソートすると、配列を扱うアルゴリズム問題でよく問われる「二分探索」や「二つのポインタを使う手法」が利用できます。
 
 === "Python"
 
@@ -952,20 +952,20 @@ comments: true
     nums = nums.sort { |a, b| a <=> b } # ソート後、リストの要素は昇順に並ぶ
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 315px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E3%82%BD%E3%83%BC%E3%83%88%0A%20%20%20%20nums.sort()%20%20%23%20%E3%82%BD%E3%83%BC%E3%83%88%E5%BE%8C%E3%81%AF%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%8C%E6%98%87%E9%A0%86%E3%81%AB%E4%B8%A6%E3%81%B6&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E3%82%BD%E3%83%BC%E3%83%88%0A%20%20%20%20nums.sort()%20%20%23%20%E3%82%BD%E3%83%BC%E3%83%88%E5%BE%8C%E3%81%AF%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%8C%E6%98%87%E9%A0%86%E3%81%AB%E4%B8%A6%E3%81%B6&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 315px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E3%82%BD%E3%83%BC%E3%83%88%0A%20%20%20%20nums.sort%28%29%20%20%23%20%E3%82%BD%E3%83%BC%E3%83%88%E3%81%99%E3%82%8B%E3%81%A8%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%8C%E5%B0%8F%E3%81%95%E3%81%84%E9%A0%86%E3%81%AB%E4%B8%A6%E3%81%B6&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E3%82%BD%E3%83%BC%E3%83%88%0A%20%20%20%20nums.sort%28%29%20%20%23%20%E3%82%BD%E3%83%BC%E3%83%88%E3%81%99%E3%82%8B%E3%81%A8%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%8C%E5%B0%8F%E3%81%95%E3%81%84%E9%A0%86%E3%81%AB%E4%B8%A6%E3%81%B6&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
 ## 4.3.2 &nbsp; リストの実装
 
-Java、C++、Python など、多くのプログラミング言語にはリストが用意されています。その実装は比較的複雑で、初期容量や拡張倍率などのパラメータも慎重に設計されています。興味があれば、ソースコードを読んで学んでみてください。
+Java、C++、Python など、多くの言語でリストが用意されています。その実装は複雑で、初期容量や容量拡張の倍率といったパラメータも入念に選ばれています。興味のある方はソースコードを読んでみてください。
 
-リストの仕組みをより深く理解するため、次の三つを設計の要点とする簡単なリストを実装してみましょう。
+リストの仕組みを詳しく理解するために、簡単なリストを実装してみましょう。設計のポイントは次の 3 つです。
 
-- **初期容量**：配列の初期容量を適切に設定します。この例では 10 とします。
-- **要素数の記録**：現在の要素数を記録する変数 `size` を用意し、挿入と削除のたびに更新します。この変数からリストの末尾を特定し、容量拡張が必要かどうか判断できます。
-- **容量拡張の仕組み**：挿入時に容量がいっぱいなら、拡張する必要があります。まず拡張倍率に従って大きな配列を作り、現在の配列の全要素を順に移します。この例では、毎回、容量を元の 2 倍にします。
+- **初期容量**：配列に適切な初期容量を選びます。この例では 10 とします。
+- **要素数の記録**：現在の要素数を記録する変数 `size` を宣言し、挿入や削除のたびに更新します。この値から、リストの末尾の位置や、容量の拡張が必要かどうかがわかります。
+- **容量拡張の仕組み**：要素を挿入するときにリストがいっぱいなら、容量を拡張します。まず拡張倍率に従って大きな配列を作り、今の配列の全要素を順に移します。この例では、拡張するたびに容量をそれまでの 2 倍にします。
 
 === "Python"
 
@@ -976,7 +976,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
         def __init__(self):
             """コンストラクタ"""
             self._capacity: int = 10  # リストの容量
-            self._arr: list[int] = [0] * self._capacity  # 配列（リストの要素を格納する）
+            self._arr: list[int] = [0] * self._capacity  # 配列（リストの要素を格納）
             self._size: int = 0  # リストの長さ（現在の要素数）
             self._extend_ratio: int = 2  # リストの容量を拡張する際の倍率
 
@@ -990,7 +990,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         def get(self, index: int) -> int:
             """要素にアクセスする"""
-            # インデックスが範囲外の場合、例外を送出する。以下も同様
+            # インデックスが範囲外なら例外を送出する。以下も同様
             if index < 0 or index >= self._size:
                 raise IndexError("インデックスが範囲外です")
             return self._arr[index]
@@ -1003,7 +1003,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         def add(self, num: int):
             """末尾に要素を追加する"""
-            # 要素数が容量を超える場合、容量を拡張する
+            # 要素数が容量を超えるときは容量を拡張する
             if self.size() == self.capacity():
                 self.extend_capacity()
             self._arr[self._size] = num
@@ -1013,10 +1013,10 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
             """途中に要素を挿入する"""
             if index < 0 or index >= self._size:
                 raise IndexError("インデックスが範囲外です")
-            # 要素数が容量を超える場合、容量を拡張する
+            # 要素数が容量を超えるときは容量を拡張する
             if self._size == self.capacity():
                 self.extend_capacity()
-            # インデックス index 以降の全要素を後ろに 1 つずらす
+            # インデックス index 以降の要素をすべて後ろに 1 つずらす
             for j in range(self._size - 1, index - 1, -1):
                 self._arr[j + 1] = self._arr[j]
             self._arr[index] = num
@@ -1028,7 +1028,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
             if index < 0 or index >= self._size:
                 raise IndexError("インデックスが範囲外です")
             num = self._arr[index]
-            # インデックス index より後の全要素を前に 1 つずらす
+            # インデックス index より後ろの要素をすべて前に 1 つずらす
             for j in range(index, self._size - 1):
                 self._arr[j] = self._arr[j + 1]
             # 要素数を更新する
@@ -1038,13 +1038,13 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         def extend_capacity(self):
             """リストの容量を拡張する"""
-            # 元の配列の _extend_ratio 倍の長さの配列を新たに作成し、元の配列をコピーする
+            # 元の配列の _extend_ratio 倍の長さの配列を作り、元の配列の内容をコピーする
             self._arr = self._arr + [0] * self.capacity() * (self._extend_ratio - 1)
             # リストの容量を更新する
             self._capacity = len(self._arr)
 
         def to_array(self) -> list[int]:
-            """有効な長さのリストを返す"""
+            """有効な長さの分だけリストを返す"""
             return self._arr[: self._size]
     ```
 
@@ -1054,7 +1054,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
     /* リストクラス */
     class MyList {
       private:
-        int *arr;             // 配列（リストの要素を格納する）
+        int *arr;             // 配列（リストの要素を格納）
         int arrCapacity = 10; // リストの容量
         int arrSize = 0;      // リストの長さ（現在の要素数）
         int extendRatio = 2;   // リストの容量を拡張する際の倍率
@@ -1082,7 +1082,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* 要素にアクセスする */
         int get(int index) {
-            // インデックスが範囲外の場合、例外を送出する。以下も同様
+            // インデックスが範囲外なら例外を送出する。以下も同様
             if (index < 0 || index >= size())
                 throw out_of_range("インデックスが範囲外です");
             return arr[index];
@@ -1097,7 +1097,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* 末尾に要素を追加する */
         void add(int num) {
-            // 要素数が容量を超える場合、容量を拡張する
+            // 要素数が容量を超えるときは容量を拡張する
             if (size() == capacity())
                 extendCapacity();
             arr[size()] = num;
@@ -1109,10 +1109,10 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
         void insert(int index, int num) {
             if (index < 0 || index >= size())
                 throw out_of_range("インデックスが範囲外です");
-            // 要素数が容量を超える場合、容量を拡張する
+            // 要素数が容量を超えるときは容量を拡張する
             if (size() == capacity())
                 extendCapacity();
-            // インデックス index 以降の全要素を後ろに 1 つずらす
+            // インデックス index 以降の要素をすべて後ろに 1 つずらす
             for (int j = size() - 1; j >= index; j--) {
                 arr[j + 1] = arr[j];
             }
@@ -1126,7 +1126,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
             if (index < 0 || index >= size())
                 throw out_of_range("インデックスが範囲外です");
             int num = arr[index];
-            // インデックス index より後の全要素を前に 1 つずらす
+            // インデックス index より後ろの要素をすべて前に 1 つずらす
             for (int j = index; j < size() - 1; j++) {
                 arr[j] = arr[j + 1];
             }
@@ -1138,7 +1138,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* リストの容量を拡張する */
         void extendCapacity() {
-            // 元の配列の extendRatio 倍の長さの新しい配列を作成する
+            // 元の配列の extendRatio 倍の長さの配列を作る
             int newCapacity = capacity() * extendRatio;
             int *tmp = arr;
             arr = new int[newCapacity];
@@ -1153,7 +1153,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* 表示用にリストを Vector に変換する */
         vector<int> toVector() {
-            // 有効な長さの範囲内にあるリストの要素だけを変換する
+            // 有効な範囲内のリスト要素だけを変換する
             vector<int> vec(size());
             for (int i = 0; i < size(); i++) {
                 vec[i] = arr[i];
@@ -1168,7 +1168,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
     ```java title="my_list.java"
     /* リストクラス */
     class MyList {
-        private int[] arr; // 配列（リストの要素を格納する）
+        private int[] arr; // 配列（リストの要素を格納）
         private int capacity = 10; // リストの容量
         private int size = 0; // リストの長さ（現在の要素数）
         private int extendRatio = 2; // リストの容量を拡張する際の倍率
@@ -1190,7 +1190,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* 要素にアクセスする */
         public int get(int index) {
-            // インデックスが範囲外の場合、例外を送出する。以下も同様
+            // インデックスが範囲外なら例外を送出する。以下も同様
             if (index < 0 || index >= size)
                 throw new IndexOutOfBoundsException("インデックスが範囲外です");
             return arr[index];
@@ -1205,7 +1205,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* 末尾に要素を追加する */
         public void add(int num) {
-            // 要素数が容量を超える場合、容量を拡張する
+            // 要素数が容量を超えるときは容量を拡張する
             if (size == capacity())
                 extendCapacity();
             arr[size] = num;
@@ -1217,10 +1217,10 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
         public void insert(int index, int num) {
             if (index < 0 || index >= size)
                 throw new IndexOutOfBoundsException("インデックスが範囲外です");
-            // 要素数が容量を超える場合、容量を拡張する
+            // 要素数が容量を超えるときは容量を拡張する
             if (size == capacity())
                 extendCapacity();
-            // インデックス index 以降の全要素を後ろに 1 つずらす
+            // インデックス index 以降の要素をすべて後ろに 1 つずらす
             for (int j = size - 1; j >= index; j--) {
                 arr[j + 1] = arr[j];
             }
@@ -1234,7 +1234,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
             if (index < 0 || index >= size)
                 throw new IndexOutOfBoundsException("インデックスが範囲外です");
             int num = arr[index];
-            // インデックス index より後の全要素を前に 1 つずらす
+            // インデックス index より後ろの要素をすべて前に 1 つずらす
             for (int j = index; j < size - 1; j++) {
                 arr[j] = arr[j + 1];
             }
@@ -1246,7 +1246,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* リストの容量を拡張する */
         public void extendCapacity() {
-            // 元の配列の extendRatio 倍の長さの配列を新たに作成し、元の配列をコピーする
+            // 元の配列の extendRatio 倍の長さの配列を作り、元の配列の内容をコピーする
             arr = Arrays.copyOf(arr, capacity() * extendRatio);
             // リストの容量を更新する
             capacity = arr.length;
@@ -1255,7 +1255,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
         /* リストを配列に変換する */
         public int[] toArray() {
             int size = size();
-            // 有効な長さの範囲内にあるリストの要素だけを変換する
+            // 有効な範囲内のリスト要素だけを変換する
             int[] arr = new int[size];
             for (int i = 0; i < size; i++) {
                 arr[i] = get(i);
@@ -1270,7 +1270,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
     ```csharp title="my_list.cs"
     /* リストクラス */
     class MyList {
-        private int[] arr;           // 配列（リストの要素を格納する）
+        private int[] arr;           // 配列（リストの要素を格納）
         private int arrCapacity = 10;    // リストの容量
         private int arrSize = 0;         // リストの長さ（現在の要素数）
         private readonly int extendRatio = 2;  // リストの容量を拡張する際の倍率
@@ -1292,7 +1292,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* 要素にアクセスする */
         public int Get(int index) {
-            // インデックスが範囲外の場合、例外を送出する。以下も同様
+            // インデックスが範囲外なら例外を送出する。以下も同様
             if (index < 0 || index >= arrSize)
                 throw new IndexOutOfRangeException("インデックスが範囲外です");
             return arr[index];
@@ -1307,7 +1307,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* 末尾に要素を追加する */
         public void Add(int num) {
-            // 要素数が容量を超える場合、容量を拡張する
+            // 要素数が容量を超えるときは容量を拡張する
             if (arrSize == arrCapacity)
                 ExtendCapacity();
             arr[arrSize] = num;
@@ -1319,10 +1319,10 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
         public void Insert(int index, int num) {
             if (index < 0 || index >= arrSize)
                 throw new IndexOutOfRangeException("インデックスが範囲外です");
-            // 要素数が容量を超える場合、容量を拡張する
+            // 要素数が容量を超えるときは容量を拡張する
             if (arrSize == arrCapacity)
                 ExtendCapacity();
-            // インデックス index 以降の全要素を後ろに 1 つずらす
+            // インデックス index 以降の要素をすべて後ろに 1 つずらす
             for (int j = arrSize - 1; j >= index; j--) {
                 arr[j + 1] = arr[j];
             }
@@ -1336,7 +1336,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
             if (index < 0 || index >= arrSize)
                 throw new IndexOutOfRangeException("インデックスが範囲外です");
             int num = arr[index];
-            // インデックス index より後の全要素を前に 1 つずらす
+            // インデックス index より後ろの要素をすべて前に 1 つずらす
             for (int j = index; j < arrSize - 1; j++) {
                 arr[j] = arr[j + 1];
             }
@@ -1348,7 +1348,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* リストの容量を拡張する */
         public void ExtendCapacity() {
-            // 長さ arrCapacity * extendRatio の配列を新たに作成し、元の配列をコピーする
+            // 長さ arrCapacity * extendRatio の配列を作り、元の配列の内容をコピーする
             Array.Resize(ref arr, arrCapacity * extendRatio);
             // リストの容量を更新する
             arrCapacity = arr.Length;
@@ -1356,7 +1356,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* リストを配列に変換する */
         public int[] ToArray() {
-            // 有効な長さの範囲内にあるリストの要素だけを変換する
+            // 有効な範囲内のリスト要素だけを変換する
             int[] arr = new int[arrSize];
             for (int i = 0; i < arrSize; i++) {
                 arr[i] = Get(i);
@@ -1381,7 +1381,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
     func newMyList() *myList {
         return &myList{
             arrCapacity: 10,              // リストの容量
-            arr:         make([]int, 10), // 配列（リストの要素を格納する）
+            arr:         make([]int, 10), // 配列（リストの要素を格納）
             arrSize:     0,               // リストの長さ（現在の要素数）
             extendRatio: 2,               // リストの容量を拡張する際の倍率
         }
@@ -1399,7 +1399,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
     /* 要素にアクセスする */
     func (l *myList) get(index int) int {
-        // インデックスが範囲外の場合、例外を送出する。以下も同様
+        // インデックスが範囲外なら例外を送出する。以下も同様
         if index < 0 || index >= l.arrSize {
             panic("インデックスが範囲外です")
         }
@@ -1416,7 +1416,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
     /* 末尾に要素を追加する */
     func (l *myList) add(num int) {
-        // 要素数が容量を超える場合、容量を拡張する
+        // 要素数が容量を超えるときは容量を拡張する
         if l.arrSize == l.arrCapacity {
             l.extendCapacity()
         }
@@ -1430,11 +1430,11 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
         if index < 0 || index >= l.arrSize {
             panic("インデックスが範囲外です")
         }
-        // 要素数が容量を超える場合、容量を拡張する
+        // 要素数が容量を超えるときは容量を拡張する
         if l.arrSize == l.arrCapacity {
             l.extendCapacity()
         }
-        // インデックス index 以降の全要素を後ろに 1 つずらす
+        // インデックス index 以降の要素をすべて後ろに 1 つずらす
         for j := l.arrSize - 1; j >= index; j-- {
             l.arr[j+1] = l.arr[j]
         }
@@ -1449,7 +1449,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
             panic("インデックスが範囲外です")
         }
         num := l.arr[index]
-        // インデックス index より後の全要素を前に 1 つずらす
+        // インデックス index より後ろの要素をすべて前に 1 つずらす
         for j := index; j < l.arrSize-1; j++ {
             l.arr[j] = l.arr[j+1]
         }
@@ -1461,15 +1461,15 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
     /* リストの容量を拡張する */
     func (l *myList) extendCapacity() {
-        // 元の配列の extendRatio 倍の長さの配列を新たに作成し、元の配列をコピーする
+        // 元の配列の extendRatio 倍の長さの配列を作り、元の配列の内容をコピーする
         l.arr = append(l.arr, make([]int, l.arrCapacity*(l.extendRatio-1))...)
         // リストの容量を更新する
         l.arrCapacity = len(l.arr)
     }
 
-    /* 有効な長さのリストを返す */
+    /* 有効な長さの分だけリストを返す */
     func (l *myList) toArray() []int {
-        // 有効な長さの範囲内にあるリストの要素だけを変換する
+        // 有効な範囲内のリスト要素だけを変換する
         return l.arr[:l.arrSize]
     }
     ```
@@ -1479,7 +1479,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
     ```swift title="my_list.swift"
     /* リストクラス */
     class MyList {
-        private var arr: [Int] // 配列（リストの要素を格納する）
+        private var arr: [Int] // 配列（リストの要素を格納）
         private var _capacity: Int // リストの容量
         private var _size: Int // リストの長さ（現在の要素数）
         private let extendRatio: Int // リストの容量を拡張する際の倍率
@@ -1504,7 +1504,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* 要素にアクセスする */
         func get(index: Int) -> Int {
-            // インデックスが範囲外の場合、エラーを送出する。以下も同様
+            // インデックスが範囲外ならエラーを送出する。以下も同様
             if index < 0 || index >= size() {
                 fatalError("インデックスが範囲外です")
             }
@@ -1521,7 +1521,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* 末尾に要素を追加する */
         func add(num: Int) {
-            // 要素数が容量を超える場合、容量を拡張する
+            // 要素数が容量を超えるときは容量を拡張する
             if size() == capacity() {
                 extendCapacity()
             }
@@ -1535,11 +1535,11 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
             if index < 0 || index >= size() {
                 fatalError("インデックスが範囲外です")
             }
-            // 要素数が容量を超える場合、容量を拡張する
+            // 要素数が容量を超えるときは容量を拡張する
             if size() == capacity() {
                 extendCapacity()
             }
-            // インデックス index 以降の全要素を後ろに 1 つずらす
+            // インデックス index 以降の要素をすべて後ろに 1 つずらす
             for j in (index ..< size()).reversed() {
                 arr[j + 1] = arr[j]
             }
@@ -1555,7 +1555,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
                 fatalError("インデックスが範囲外です")
             }
             let num = arr[index]
-            // インデックス index より後の全要素を前に 1 つずらす
+            // インデックス index より後ろの要素をすべて前に 1 つずらす
             for j in index ..< (size() - 1) {
                 arr[j] = arr[j + 1]
             }
@@ -1567,7 +1567,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* リストの容量を拡張する */
         func extendCapacity() {
-            // 元の配列の extendRatio 倍の長さの配列を新たに作成し、元の配列をコピーする
+            // 元の配列の extendRatio 倍の長さの配列を作り、元の配列の内容をコピーする
             arr = arr + Array(repeating: 0, count: capacity() * (extendRatio - 1))
             // リストの容量を更新する
             _capacity = arr.count
@@ -1585,7 +1585,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
     ```javascript title="my_list.js"
     /* リストクラス */
     class MyList {
-        #arr = new Array(); // 配列（リストの要素を格納する）
+        #arr = new Array(); // 配列（リストの要素を格納）
         #capacity = 10; // リストの容量
         #size = 0; // リストの長さ（現在の要素数）
         #extendRatio = 2; // リストの容量を拡張する際の倍率
@@ -1607,7 +1607,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* 要素にアクセスする */
         get(index) {
-            // インデックスが範囲外の場合、例外を送出する。以下も同様
+            // インデックスが範囲外なら例外を送出する。以下も同様
             if (index < 0 || index >= this.#size) throw new Error('インデックスが範囲外です');
             return this.#arr[index];
         }
@@ -1620,7 +1620,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* 末尾に要素を追加する */
         add(num) {
-            // 長さが容量に等しい場合、容量を拡張する必要がある
+            // 長さが容量に等しくなったら容量を拡張する
             if (this.#size === this.#capacity) {
                 this.extendCapacity();
             }
@@ -1632,11 +1632,11 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
         /* 途中に要素を挿入する */
         insert(index, num) {
             if (index < 0 || index >= this.#size) throw new Error('インデックスが範囲外です');
-            // 要素数が容量を超える場合、容量を拡張する
+            // 要素数が容量を超えるときは容量を拡張する
             if (this.#size === this.#capacity) {
                 this.extendCapacity();
             }
-            // インデックス index 以降の全要素を後ろに 1 つずらす
+            // インデックス index 以降の要素をすべて後ろに 1 つずらす
             for (let j = this.#size - 1; j >= index; j--) {
                 this.#arr[j + 1] = this.#arr[j];
             }
@@ -1649,7 +1649,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
         remove(index) {
             if (index < 0 || index >= this.#size) throw new Error('インデックスが範囲外です');
             let num = this.#arr[index];
-            // インデックス index より後の全要素を前に 1 つずらす
+            // インデックス index より後ろの要素をすべて前に 1 つずらす
             for (let j = index; j < this.#size - 1; j++) {
                 this.#arr[j] = this.#arr[j + 1];
             }
@@ -1661,7 +1661,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* リストの容量を拡張する */
         extendCapacity() {
-            // 元の配列の extendRatio 倍の長さの配列を新たに作成し、元の配列をコピーする
+            // 元の配列の extendRatio 倍の長さの配列を作り、元の配列の内容をコピーする
             this.#arr = this.#arr.concat(
                 new Array(this.capacity() * (this.#extendRatio - 1))
             );
@@ -1672,7 +1672,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
         /* リストを配列に変換する */
         toArray() {
             let size = this.size();
-            // 有効な長さの範囲内にあるリストの要素だけを変換する
+            // 有効な範囲内のリスト要素だけを変換する
             const arr = new Array(size);
             for (let i = 0; i < size; i++) {
                 arr[i] = this.get(i);
@@ -1687,7 +1687,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
     ```typescript title="my_list.ts"
     /* リストクラス */
     class MyList {
-        private arr: Array<number>; // 配列（リストの要素を格納する）
+        private arr: Array<number>; // 配列（リストの要素を格納）
         private _capacity: number = 10; // リストの容量
         private _size: number = 0; // リストの長さ（現在の要素数）
         private extendRatio: number = 2; // リストの容量を拡張する際の倍率
@@ -1709,7 +1709,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* 要素にアクセスする */
         public get(index: number): number {
-            // インデックスが範囲外の場合、例外を送出する。以下も同様
+            // インデックスが範囲外なら例外を送出する。以下も同様
             if (index < 0 || index >= this._size) throw new Error('インデックスが範囲外です');
             return this.arr[index];
         }
@@ -1722,7 +1722,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* 末尾に要素を追加する */
         public add(num: number): void {
-            // 長さが容量に等しい場合、容量を拡張する必要がある
+            // 長さが容量に等しくなったら容量を拡張する
             if (this._size === this._capacity) this.extendCapacity();
             // 新しい要素をリストの末尾に追加する
             this.arr[this._size] = num;
@@ -1732,11 +1732,11 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
         /* 途中に要素を挿入する */
         public insert(index: number, num: number): void {
             if (index < 0 || index >= this._size) throw new Error('インデックスが範囲外です');
-            // 要素数が容量を超える場合、容量を拡張する
+            // 要素数が容量を超えるときは容量を拡張する
             if (this._size === this._capacity) {
                 this.extendCapacity();
             }
-            // インデックス index 以降の全要素を後ろに 1 つずらす
+            // インデックス index 以降の要素をすべて後ろに 1 つずらす
             for (let j = this._size - 1; j >= index; j--) {
                 this.arr[j + 1] = this.arr[j];
             }
@@ -1749,7 +1749,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
         public remove(index: number): number {
             if (index < 0 || index >= this._size) throw new Error('インデックスが範囲外です');
             let num = this.arr[index];
-            // インデックス index より後の全要素を前に 1 つずらす
+            // インデックス index より後ろの要素をすべて前に 1 つずらす
             for (let j = index; j < this._size - 1; j++) {
                 this.arr[j] = this.arr[j + 1];
             }
@@ -1761,7 +1761,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* リストの容量を拡張する */
         public extendCapacity(): void {
-            // 長さ size の配列を新たに作成し、元の配列をコピーする
+            // 長さ size の配列を作り、元の配列の内容をコピーする
             this.arr = this.arr.concat(
                 new Array(this.capacity() * (this.extendRatio - 1))
             );
@@ -1772,7 +1772,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
         /* リストを配列に変換する */
         public toArray(): number[] {
             let size = this.size();
-            // 有効な長さの範囲内にあるリストの要素だけを変換する
+            // 有効な範囲内のリスト要素だけを変換する
             const arr = new Array(size);
             for (let i = 0; i < size; i++) {
                 arr[i] = this.get(i);
@@ -1787,7 +1787,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
     ```dart title="my_list.dart"
     /* リストクラス */
     class MyList {
-      late List<int> _arr; // 配列（リストの要素を格納する）
+      late List<int> _arr; // 配列（リストの要素を格納）
       int _capacity = 10; // リストの容量
       int _size = 0; // リストの長さ（現在の要素数）
       int _extendRatio = 2; // リストの容量を拡張する際の倍率
@@ -1817,7 +1817,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
       /* 末尾に要素を追加する */
       void add(int _num) {
-        // 要素数が容量を超える場合、容量を拡張する
+        // 要素数が容量を超えるときは容量を拡張する
         if (_size == _capacity) extendCapacity();
         _arr[_size] = _num;
         // 要素数を更新する
@@ -1827,9 +1827,9 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
       /* 途中に要素を挿入する */
       void insert(int index, int _num) {
         if (index >= _size) throw RangeError('インデックスが範囲外です');
-        // 要素数が容量を超える場合、容量を拡張する
+        // 要素数が容量を超えるときは容量を拡張する
         if (_size == _capacity) extendCapacity();
-        // インデックス index 以降の全要素を後ろに 1 つずらす
+        // インデックス index 以降の要素をすべて後ろに 1 つずらす
         for (var j = _size - 1; j >= index; j--) {
           _arr[j + 1] = _arr[j];
         }
@@ -1842,7 +1842,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
       int remove(int index) {
         if (index >= _size) throw RangeError('インデックスが範囲外です');
         int _num = _arr[index];
-        // インデックス index より後の全要素を前に 1 つずらす
+        // インデックス index より後ろの要素をすべて前に 1 つずらす
         for (var j = index; j < _size - 1; j++) {
           _arr[j] = _arr[j + 1];
         }
@@ -1854,9 +1854,9 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
       /* リストの容量を拡張する */
       void extendCapacity() {
-        // 元の配列の _extendRatio 倍の長さの新しい配列を作成する
+        // 元の配列の _extendRatio 倍の長さの配列を作る
         final _newNums = List.filled(_capacity * _extendRatio, 0);
-        // 元の配列を新しい配列にコピーする
+        // 元の配列の内容を新しい配列にコピーする
         List.copyRange(_newNums, 0, _arr);
         // _arr の参照を更新する
         _arr = _newNums;
@@ -1881,7 +1881,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
     /* リストクラス */
     #[allow(dead_code)]
     struct MyList {
-        arr: Vec<i32>,       // 配列（リストの要素を格納する）
+        arr: Vec<i32>,       // 配列（リストの要素を格納）
         capacity: usize,     // リストの容量
         size: usize,         // リストの長さ（現在の要素数）
         extend_ratio: usize, // リストの容量を拡張する際の倍率
@@ -1912,7 +1912,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* 要素にアクセスする */
         pub fn get(&self, index: usize) -> i32 {
-            // インデックスが範囲外の場合、例外を送出する。以下も同様
+            // インデックスが範囲外なら例外を送出する。以下も同様
             if index >= self.size {
                 panic!("インデックスが範囲外です")
             };
@@ -1929,7 +1929,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* 末尾に要素を追加する */
         pub fn add(&mut self, num: i32) {
-            // 要素数が容量を超える場合、容量を拡張する
+            // 要素数が容量を超えるときは容量を拡張する
             if self.size == self.capacity() {
                 self.extend_capacity();
             }
@@ -1943,11 +1943,11 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
             if index >= self.size() {
                 panic!("インデックスが範囲外です")
             };
-            // 要素数が容量を超える場合、容量を拡張する
+            // 要素数が容量を超えるときは容量を拡張する
             if self.size == self.capacity() {
                 self.extend_capacity();
             }
-            // インデックス index 以降の全要素を後ろに 1 つずらす
+            // インデックス index 以降の要素をすべて後ろに 1 つずらす
             for j in (index..self.size).rev() {
                 self.arr[j + 1] = self.arr[j];
             }
@@ -1962,7 +1962,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
                 panic!("インデックスが範囲外です")
             };
             let num = self.arr[index];
-            // インデックス index より後の全要素を前に 1 つずらす
+            // インデックス index より後ろの要素をすべて前に 1 つずらす
             for j in index..self.size - 1 {
                 self.arr[j] = self.arr[j + 1];
             }
@@ -1974,7 +1974,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* リストの容量を拡張する */
         pub fn extend_capacity(&mut self) {
-            // 元の配列の extend_ratio 倍の長さの配列を新たに作成し、元の配列をコピーする
+            // 元の配列の extend_ratio 倍の長さの配列を作り、元の配列の内容をコピーする
             let new_capacity = self.capacity * self.extend_ratio;
             self.arr.resize(new_capacity, 0);
             // リストの容量を更新する
@@ -1983,7 +1983,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* リストを配列に変換する */
         pub fn to_array(&self) -> Vec<i32> {
-            // 有効な長さの範囲内にあるリストの要素だけを変換する
+            // 有効な範囲内のリスト要素だけを変換する
             let mut arr = Vec::new();
             for i in 0..self.size {
                 arr.push(self.get(i));
@@ -1998,10 +1998,10 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
     ```c title="my_list.c"
     /* リストクラス */
     typedef struct {
-        int *arr;        // 配列（リストの要素を格納する）
+        int *arr;        // 配列（リストの要素を格納）
         int capacity;    // リストの容量
-        int size;        // リストのサイズ
-        int extendRatio; // リストを拡張する際の容量の倍率
+        int size;        // リストの長さ
+        int extendRatio; // リストの容量を拡張する際の倍率
     } MyList;
 
     /* コンストラクタ */
@@ -2054,7 +2054,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
     /* 途中に要素を挿入する */
     void insert(MyList *nums, int index, int num) {
         assert(index >= 0 && index < size(nums));
-        // 要素数が容量を超える場合、容量を拡張する
+        // 要素数が容量を超えるときは容量を拡張する
         if (size(nums) == capacity(nums)) {
             extendCapacity(nums); // 容量を拡張する
         }
@@ -2066,7 +2066,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
     }
 
     /* 要素を削除する */
-    // 注意：stdio.h で remove という名前が使われている
+    // 注意：stdio.h では remove という名前がすでに使われている
     int removeItem(MyList *nums, int index) {
         assert(index >= 0 && index < size(nums));
         int num = nums->arr[index];
@@ -2079,19 +2079,19 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
     /* リストの容量を拡張する */
     void extendCapacity(MyList *nums) {
-        // 先に領域を確保する
+        // まず領域を確保する
         int newCapacity = capacity(nums) * nums->extendRatio;
         int *extend = (int *)malloc(sizeof(int) * newCapacity);
         int *temp = nums->arr;
 
-        // 古いデータを新しい領域にコピーする
+        // 元のデータを新しい領域にコピーする
         for (int i = 0; i < size(nums); i++)
             extend[i] = nums->arr[i];
 
-        // 古いデータの領域を解放する
+        // 元の領域を解放する
         free(temp);
 
-        // 新しいデータを参照するよう更新する
+        // 新しいデータへの参照に更新する
         nums->arr = extend;
         nums->capacity = newCapacity;
     }
@@ -2107,7 +2107,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
     ```kotlin title="my_list.kt"
     /* リストクラス */
     class MyList {
-        private var arr: IntArray = intArrayOf() // 配列（リストの要素を格納する）
+        private var arr: IntArray = intArrayOf() // 配列（リストの要素を格納）
         private var capacity: Int = 10 // リストの容量
         private var size: Int = 0 // リストの長さ（現在の要素数）
         private var extendRatio: Int = 2 // リストの容量を拡張する際の倍率
@@ -2129,7 +2129,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* 要素にアクセスする */
         fun get(index: Int): Int {
-            // インデックスが範囲外の場合、例外を送出する。以下も同様
+            // インデックスが範囲外なら例外を送出する。以下も同様
             if (index < 0 || index >= size)
                 throw IndexOutOfBoundsException("インデックスが範囲外です")
             return arr[index]
@@ -2144,7 +2144,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* 末尾に要素を追加する */
         fun add(num: Int) {
-            // 要素数が容量を超える場合、容量を拡張する
+            // 要素数が容量を超えるときは容量を拡張する
             if (size == capacity())
                 extendCapacity()
             arr[size] = num
@@ -2156,10 +2156,10 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
         fun insert(index: Int, num: Int) {
             if (index < 0 || index >= size)
                 throw IndexOutOfBoundsException("インデックスが範囲外です")
-            // 要素数が容量を超える場合、容量を拡張する
+            // 要素数が容量を超えるときは容量を拡張する
             if (size == capacity())
                 extendCapacity()
-            // インデックス index 以降の全要素を後ろに 1 つずらす
+            // インデックス index 以降の要素をすべて後ろに 1 つずらす
             for (j in size - 1 downTo index)
                 arr[j + 1] = arr[j]
             arr[index] = num
@@ -2172,7 +2172,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
             if (index < 0 || index >= size)
                 throw IndexOutOfBoundsException("インデックスが範囲外です")
             val num = arr[index]
-            // インデックス index より後の全要素を前に 1 つずらす
+            // インデックス index より後ろの要素をすべて前に 1 つずらす
             for (j in index..<size - 1)
                 arr[j] = arr[j + 1]
             // 要素数を更新する
@@ -2183,7 +2183,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
         /* リストの容量を拡張する */
         fun extendCapacity() {
-            // 元の配列の extendRatio 倍の長さの配列を新たに作成し、元の配列をコピーする
+            // 元の配列の extendRatio 倍の長さの配列を作り、元の配列の内容をコピーする
             arr = arr.copyOf(capacity() * extendRatio)
             // リストの容量を更新する
             capacity = arr.size
@@ -2192,7 +2192,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
         /* リストを配列に変換する */
         fun toArray(): IntArray {
             val size = size()
-            // 有効な長さの範囲内にあるリストの要素だけを変換する
+            // 有効な範囲内のリスト要素だけを変換する
             val arr = IntArray(size)
             for (i in 0..<size) {
                 arr[i] = get(i)
@@ -2220,7 +2220,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
       ### 要素にアクセスする ###
       def get(index)
-        # インデックスが範囲外の場合、例外を送出する。以下も同様
+        # インデックスが範囲外なら例外を送出する。以下も同様
         raise IndexError, "インデックスが範囲外です" if index < 0 || index >= size
         @arr[index]
       end
@@ -2233,7 +2233,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
       ### 末尾に要素を追加する ###
       def add(num)
-        # 要素数が容量を超える場合、容量を拡張する
+        # 要素数が容量を超えるときは容量を拡張する
         extend_capacity if size == capacity
         @arr[size] = num
 
@@ -2245,10 +2245,10 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
       def insert(index, num)
         raise IndexError, "インデックスが範囲外です" if index < 0 || index >= size
 
-        # 要素数が容量を超える場合、容量を拡張する
+        # 要素数が容量を超えるときは容量を拡張する
         extend_capacity if size == capacity
 
-        # インデックス index 以降の全要素を後ろに 1 つずらす
+        # インデックス index 以降の要素をすべて後ろに 1 つずらす
         for j in (size - 1).downto(index)
           @arr[j + 1] = @arr[j]
         end
@@ -2263,7 +2263,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
         raise IndexError, "インデックスが範囲外です" if index < 0 || index >= size
         num = @arr[index]
 
-        # インデックス index より後の全要素を前に 1 つずらす
+        # インデックス index より後ろの要素をすべて前に 1 つずらす
         for j in index...size
           @arr[j] = @arr[j + 1]
         end
@@ -2277,7 +2277,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
 
       ### リストの容量を拡張する ###
       def extend_capacity
-        # 元の配列の extend_ratio 倍の長さの配列を新たに作成し、元の配列をコピーする
+        # 元の配列の extend_ratio 倍の長さの配列を作り、元の配列の内容をコピーする
         arr = @arr.dup + Array.new(capacity * (@extend_ratio - 1))
         # リストの容量を更新する
         @capacity = arr.length
@@ -2286,7 +2286,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
       ### リストを配列に変換する ###
       def to_array
         sz = size
-        # 有効な長さの範囲内にあるリストの要素だけを変換する
+        # 有効な範囲内のリスト要素だけを変換する
         arr = Array.new(sz)
         for i in 0...sz
           arr[i] = get(i)
@@ -2296,7 +2296,7 @@ Java、C++、Python など、多くのプログラミング言語にはリスト
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20MyList%3A%0A%20%22%22%22%E3%83%AA%E3%82%B9%E3%83%88%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%0A%20def%20__init__%28self%29%3A%0A%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20self._capacity%3A%20int%20%3D%2010%0A%20%20self._arr%3A%20list%5Bint%5D%20%3D%20%5B0%5D%20%2A%20self._capacity%0A%20%20self._size%3A%20int%20%3D%200%0A%20%20self._extend_ratio%3A%20int%20%3D%202%0A%0A%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E9%95%B7%E3%81%95%EF%BC%88%E7%8F%BE%E5%9C%A8%E3%81%AE%E8%A6%81%E7%B4%A0%E6%95%B0%EF%BC%89%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20return%20self._size%0A%0A%20def%20capacity%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E5%AE%B9%E9%87%8F%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20return%20self._capacity%0A%0A%20def%20get%28self,%20index%3A%20int%29%20-%3E%20int%3A%0A%20%20%22%22%22%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%22%22%22%0A%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20raise%20IndexError%28%22%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%8C%E7%AF%84%E5%9B%B2%E5%A4%96%E3%81%A7%E3%81%99%22%29%0A%20%20return%20self._arr%5Bindex%5D%0A%0A%20def%20set%28self,%20num%3A%20int,%20index%3A%20int%29%3A%0A%20%20%22%22%22%E8%A6%81%E7%B4%A0%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%22%22%22%0A%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20raise%20IndexError%28%22%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%8C%E7%AF%84%E5%9B%B2%E5%A4%96%E3%81%A7%E3%81%99%22%29%0A%20%20self._arr%5Bindex%5D%20%3D%20num%0A%0A%20def%20add%28self,%20num%3A%20int%29%3A%0A%20%20%22%22%22%E6%9C%AB%E5%B0%BE%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%22%22%22%0A%20%20if%20self.size%28%29%20%3D%3D%20self.capacity%28%29%3A%0A%20%20%20self.extend_capacity%28%29%0A%20%20self._arr%5Bself._size%5D%20%3D%20num%0A%20%20self._size%20%2B%3D%201%0A%0A%20def%20insert%28self,%20num%3A%20int,%20index%3A%20int%29%3A%0A%20%20%22%22%22%E9%80%94%E4%B8%AD%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%22%22%22%0A%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20raise%20IndexError%28%22%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%8C%E7%AF%84%E5%9B%B2%E5%A4%96%E3%81%A7%E3%81%99%22%29%0A%20%20%20self.extend_capacity%28%29%0A%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20index%20%E4%BB%A5%E9%99%8D%E3%81%AE%E5%85%A8%E8%A6%81%E7%B4%A0%E3%82%92%E5%BE%8C%E3%82%8D%E3%81%AB%201%20%E3%81%A4%E3%81%9A%E3%82%89%E3%81%99%0A%20%20for%20j%20in%20range%28self._size%20-%201,%20index%20-%201,%20-1%29%3A%0A%20%20%20self._arr%5Bj%20%2B%201%5D%20%3D%20self._arr%5Bj%5D%0A%20%20self._arr%5Bindex%5D%20%3D%20num%0A%20%20self._size%20%2B%3D%201%0A%0A%20def%20remove%28self,%20index%3A%20int%29%20-%3E%20int%3A%0A%20%20%22%22%22%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%22%22%22%0A%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20raise%20IndexError%28%22%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%8C%E7%AF%84%E5%9B%B2%E5%A4%96%E3%81%A7%E3%81%99%22%29%0A%20%20num%20%3D%20self._arr%5Bindex%5D%0A%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20i%20%E3%82%88%E3%82%8A%E5%BE%8C%E3%81%AE%E5%85%A8%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8D%E3%81%AB%201%20%E3%81%A4%E3%81%9A%E3%82%89%E3%81%99%0A%20%20for%20j%20in%20range%28index,%20self._size%20-%201%29%3A%0A%20%20%20self._arr%5Bj%5D%20%3D%20self._arr%5Bj%20%2B%201%5D%0A%20%20self._size%20-%3D%201%0A%20%20return%20num%0A%0A%20def%20extend_capacity%28self%29%3A%0A%20%20%22%22%22%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E5%AE%B9%E9%87%8F%E3%82%92%E6%8B%A1%E5%BC%B5%E3%81%99%E3%82%8B%22%22%22%0A%20%20self._arr%20%3D%20self._arr%20%2B%20%5B0%5D%20%2A%20self.capacity%28%29%20%2A%20%28self._extend_ratio%20-%201%29%0A%20%20self._capacity%20%3D%20len%28self._arr%29%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20nums%20%3D%20MyList%28%29%0A%20%23%20%E6%9C%AB%E5%B0%BE%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%0A%20nums.add%281%29%0A%20nums.add%283%29%0A%20nums.add%282%29%0A%20nums.add%285%29%0A%20nums.add%284%29%0A%0A%20%23%20%E9%80%94%E4%B8%AD%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20nums.insert%286,%20index%3D3%29%0A%0A%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%0A%20nums.remove%283%29%0A%0A%20%23%20%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%0A%20num%20%3D%20nums.get%281%29%0A%0A%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%0A%20nums.set%280,%201%29%0A%0A%20%23%20%E5%AE%B9%E9%87%8F%E3%81%AE%E6%8B%A1%E5%BC%B5%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%81%99%E3%82%8B%0A%20for%20i%20in%20range%2810%29%3A%0A%20%20nums.add%28i%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20MyList%3A%0A%20%22%22%22%E3%83%AA%E3%82%B9%E3%83%88%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%0A%20def%20__init__%28self%29%3A%0A%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20self._capacity%3A%20int%20%3D%2010%0A%20%20self._arr%3A%20list%5Bint%5D%20%3D%20%5B0%5D%20%2A%20self._capacity%0A%20%20self._size%3A%20int%20%3D%200%0A%20%20self._extend_ratio%3A%20int%20%3D%202%0A%0A%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E9%95%B7%E3%81%95%EF%BC%88%E7%8F%BE%E5%9C%A8%E3%81%AE%E8%A6%81%E7%B4%A0%E6%95%B0%EF%BC%89%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20return%20self._size%0A%0A%20def%20capacity%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E5%AE%B9%E9%87%8F%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20return%20self._capacity%0A%0A%20def%20get%28self,%20index%3A%20int%29%20-%3E%20int%3A%0A%20%20%22%22%22%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%22%22%22%0A%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20raise%20IndexError%28%22%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%8C%E7%AF%84%E5%9B%B2%E5%A4%96%E3%81%A7%E3%81%99%22%29%0A%20%20return%20self._arr%5Bindex%5D%0A%0A%20def%20set%28self,%20num%3A%20int,%20index%3A%20int%29%3A%0A%20%20%22%22%22%E8%A6%81%E7%B4%A0%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%22%22%22%0A%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20raise%20IndexError%28%22%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%8C%E7%AF%84%E5%9B%B2%E5%A4%96%E3%81%A7%E3%81%99%22%29%0A%20%20self._arr%5Bindex%5D%20%3D%20num%0A%0A%20def%20add%28self,%20num%3A%20int%29%3A%0A%20%20%22%22%22%E6%9C%AB%E5%B0%BE%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%22%22%22%0A%20%20if%20self.size%28%29%20%3D%3D%20self.capacity%28%29%3A%0A%20%20%20self.extend_capacity%28%29%0A%20%20self._arr%5Bself._size%5D%20%3D%20num%0A%20%20self._size%20%2B%3D%201%0A%0A%20def%20insert%28self,%20num%3A%20int,%20index%3A%20int%29%3A%0A%20%20%22%22%22%E9%80%94%E4%B8%AD%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%22%22%22%0A%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20raise%20IndexError%28%22%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%8C%E7%AF%84%E5%9B%B2%E5%A4%96%E3%81%A7%E3%81%99%22%29%0A%20%20%20self.extend_capacity%28%29%0A%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20index%20%E4%BB%A5%E9%99%8D%E3%81%AE%E5%85%A8%E8%A6%81%E7%B4%A0%E3%82%92%E5%BE%8C%E3%82%8D%E3%81%AB%201%20%E3%81%A4%E3%81%9A%E3%82%89%E3%81%99%0A%20%20for%20j%20in%20range%28self._size%20-%201,%20index%20-%201,%20-1%29%3A%0A%20%20%20self._arr%5Bj%20%2B%201%5D%20%3D%20self._arr%5Bj%5D%0A%20%20self._arr%5Bindex%5D%20%3D%20num%0A%20%20self._size%20%2B%3D%201%0A%0A%20def%20remove%28self,%20index%3A%20int%29%20-%3E%20int%3A%0A%20%20%22%22%22%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%22%22%22%0A%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20raise%20IndexError%28%22%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%8C%E7%AF%84%E5%9B%B2%E5%A4%96%E3%81%A7%E3%81%99%22%29%0A%20%20num%20%3D%20self._arr%5Bindex%5D%0A%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20i%20%E3%82%88%E3%82%8A%E5%BE%8C%E3%81%AE%E5%85%A8%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8D%E3%81%AB%201%20%E3%81%A4%E3%81%9A%E3%82%89%E3%81%99%0A%20%20for%20j%20in%20range%28index,%20self._size%20-%201%29%3A%0A%20%20%20self._arr%5Bj%5D%20%3D%20self._arr%5Bj%20%2B%201%5D%0A%20%20self._size%20-%3D%201%0A%20%20return%20num%0A%0A%20def%20extend_capacity%28self%29%3A%0A%20%20%22%22%22%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E5%AE%B9%E9%87%8F%E3%82%92%E6%8B%A1%E5%BC%B5%E3%81%99%E3%82%8B%22%22%22%0A%20%20self._arr%20%3D%20self._arr%20%2B%20%5B0%5D%20%2A%20self.capacity%28%29%20%2A%20%28self._extend_ratio%20-%201%29%0A%20%20self._capacity%20%3D%20len%28self._arr%29%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20nums%20%3D%20MyList%28%29%0A%20%23%20%E6%9C%AB%E5%B0%BE%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%0A%20nums.add%281%29%0A%20nums.add%283%29%0A%20nums.add%282%29%0A%20nums.add%285%29%0A%20nums.add%284%29%0A%0A%20%23%20%E9%80%94%E4%B8%AD%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20nums.insert%286,%20index%3D3%29%0A%0A%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%0A%20nums.remove%283%29%0A%0A%20%23%20%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%0A%20num%20%3D%20nums.get%281%29%0A%0A%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%0A%20nums.set%280,%201%29%0A%0A%20%23%20%E5%AE%B9%E9%87%8F%E3%81%AE%E6%8B%A1%E5%BC%B5%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%81%99%E3%82%8B%0A%20for%20i%20in%20range%2810%29%3A%0A%20%20nums.add%28i%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=class%20MyList%3A%0A%20%22%22%22%E3%83%AA%E3%82%B9%E3%83%88%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%0A%20def%20__init__%28self%29%3A%0A%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20self._capacity%3A%20int%20%3D%2010%0A%20%20self._arr%3A%20list%5Bint%5D%20%3D%20%5B0%5D%20%2A%20self._capacity%0A%20%20self._size%3A%20int%20%3D%200%0A%20%20self._extend_ratio%3A%20int%20%3D%202%0A%0A%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E9%95%B7%E3%81%95%EF%BC%88%E7%8F%BE%E5%9C%A8%E3%81%AE%E8%A6%81%E7%B4%A0%E6%95%B0%EF%BC%89%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20return%20self._size%0A%0A%20def%20capacity%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E5%AE%B9%E9%87%8F%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20return%20self._capacity%0A%0A%20def%20get%28self,%20index%3A%20int%29%20-%3E%20int%3A%0A%20%20%22%22%22%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%22%22%22%0A%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20raise%20IndexError%28%22%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%8C%E7%AF%84%E5%9B%B2%E5%A4%96%E3%81%A7%E3%81%99%22%29%0A%20%20return%20self._arr%5Bindex%5D%0A%0A%20def%20set%28self,%20num%3A%20int,%20index%3A%20int%29%3A%0A%20%20%22%22%22%E8%A6%81%E7%B4%A0%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%22%22%22%0A%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20raise%20IndexError%28%22%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%8C%E7%AF%84%E5%9B%B2%E5%A4%96%E3%81%A7%E3%81%99%22%29%0A%20%20self._arr%5Bindex%5D%20%3D%20num%0A%0A%20def%20add%28self,%20num%3A%20int%29%3A%0A%20%20%22%22%22%E6%9C%AB%E5%B0%BE%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%22%22%22%0A%20%20if%20self.size%28%29%20%3D%3D%20self.capacity%28%29%3A%0A%20%20%20self.extend_capacity%28%29%0A%20%20self._arr%5Bself._size%5D%20%3D%20num%0A%20%20self._size%20%2B%3D%201%0A%0A%20def%20insert%28self,%20num%3A%20int,%20index%3A%20int%29%3A%0A%20%20%22%22%22%E9%80%94%E4%B8%AD%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%22%22%22%0A%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20raise%20IndexError%28%22%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%8C%E7%AF%84%E5%9B%B2%E5%A4%96%E3%81%A7%E3%81%99%22%29%0A%20%20%20self.extend_capacity%28%29%0A%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20index%20%E4%BB%A5%E9%99%8D%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E3%81%99%E3%81%B9%E3%81%A6%E5%BE%8C%E3%82%8D%E3%81%AB%201%20%E3%81%A4%E3%81%9A%E3%82%89%E3%81%99%0A%20%20for%20j%20in%20range%28self._size%20-%201,%20index%20-%201,%20-1%29%3A%0A%20%20%20self._arr%5Bj%20%2B%201%5D%20%3D%20self._arr%5Bj%5D%0A%20%20self._arr%5Bindex%5D%20%3D%20num%0A%20%20self._size%20%2B%3D%201%0A%0A%20def%20remove%28self,%20index%3A%20int%29%20-%3E%20int%3A%0A%20%20%22%22%22%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%22%22%22%0A%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20raise%20IndexError%28%22%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%8C%E7%AF%84%E5%9B%B2%E5%A4%96%E3%81%A7%E3%81%99%22%29%0A%20%20num%20%3D%20self._arr%5Bindex%5D%0A%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20i%20%E3%82%88%E3%82%8A%E5%BE%8C%E3%82%8D%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E3%81%99%E3%81%B9%E3%81%A6%E5%89%8D%E3%81%AB%201%20%E3%81%A4%E3%81%9A%E3%82%89%E3%81%99%0A%20%20for%20j%20in%20range%28index,%20self._size%20-%201%29%3A%0A%20%20%20self._arr%5Bj%5D%20%3D%20self._arr%5Bj%20%2B%201%5D%0A%20%20self._size%20-%3D%201%0A%20%20return%20num%0A%0A%20def%20extend_capacity%28self%29%3A%0A%20%20%22%22%22%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E5%AE%B9%E9%87%8F%E3%82%92%E6%8B%A1%E5%BC%B5%E3%81%99%E3%82%8B%22%22%22%0A%20%20self._arr%20%3D%20self._arr%20%2B%20%5B0%5D%20%2A%20self.capacity%28%29%20%2A%20%28self._extend_ratio%20-%201%29%0A%20%20self._capacity%20%3D%20len%28self._arr%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20nums%20%3D%20MyList%28%29%0A%20%23%20%E6%9C%AB%E5%B0%BE%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%0A%20nums.add%281%29%0A%20nums.add%283%29%0A%20nums.add%282%29%0A%20nums.add%285%29%0A%20nums.add%284%29%0A%0A%20%23%20%E9%80%94%E4%B8%AD%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20nums.insert%286,%20index%3D3%29%0A%0A%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%0A%20nums.remove%283%29%0A%0A%20%23%20%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%0A%20num%20%3D%20nums.get%281%29%0A%0A%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%0A%20nums.set%280,%201%29%0A%0A%20%23%20%E5%AE%B9%E9%87%8F%E6%8B%A1%E5%BC%B5%E3%81%AE%E5%8B%95%E4%BD%9C%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B%0A%20for%20i%20in%20range%2810%29%3A%0A%20%20nums.add%28i%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20MyList%3A%0A%20%22%22%22%E3%83%AA%E3%82%B9%E3%83%88%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%0A%20def%20__init__%28self%29%3A%0A%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20self._capacity%3A%20int%20%3D%2010%0A%20%20self._arr%3A%20list%5Bint%5D%20%3D%20%5B0%5D%20%2A%20self._capacity%0A%20%20self._size%3A%20int%20%3D%200%0A%20%20self._extend_ratio%3A%20int%20%3D%202%0A%0A%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E9%95%B7%E3%81%95%EF%BC%88%E7%8F%BE%E5%9C%A8%E3%81%AE%E8%A6%81%E7%B4%A0%E6%95%B0%EF%BC%89%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20return%20self._size%0A%0A%20def%20capacity%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E5%AE%B9%E9%87%8F%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20return%20self._capacity%0A%0A%20def%20get%28self,%20index%3A%20int%29%20-%3E%20int%3A%0A%20%20%22%22%22%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%22%22%22%0A%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20raise%20IndexError%28%22%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%8C%E7%AF%84%E5%9B%B2%E5%A4%96%E3%81%A7%E3%81%99%22%29%0A%20%20return%20self._arr%5Bindex%5D%0A%0A%20def%20set%28self,%20num%3A%20int,%20index%3A%20int%29%3A%0A%20%20%22%22%22%E8%A6%81%E7%B4%A0%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%22%22%22%0A%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20raise%20IndexError%28%22%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%8C%E7%AF%84%E5%9B%B2%E5%A4%96%E3%81%A7%E3%81%99%22%29%0A%20%20self._arr%5Bindex%5D%20%3D%20num%0A%0A%20def%20add%28self,%20num%3A%20int%29%3A%0A%20%20%22%22%22%E6%9C%AB%E5%B0%BE%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%22%22%22%0A%20%20if%20self.size%28%29%20%3D%3D%20self.capacity%28%29%3A%0A%20%20%20self.extend_capacity%28%29%0A%20%20self._arr%5Bself._size%5D%20%3D%20num%0A%20%20self._size%20%2B%3D%201%0A%0A%20def%20insert%28self,%20num%3A%20int,%20index%3A%20int%29%3A%0A%20%20%22%22%22%E9%80%94%E4%B8%AD%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%22%22%22%0A%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20raise%20IndexError%28%22%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%8C%E7%AF%84%E5%9B%B2%E5%A4%96%E3%81%A7%E3%81%99%22%29%0A%20%20%20self.extend_capacity%28%29%0A%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20index%20%E4%BB%A5%E9%99%8D%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E3%81%99%E3%81%B9%E3%81%A6%E5%BE%8C%E3%82%8D%E3%81%AB%201%20%E3%81%A4%E3%81%9A%E3%82%89%E3%81%99%0A%20%20for%20j%20in%20range%28self._size%20-%201,%20index%20-%201,%20-1%29%3A%0A%20%20%20self._arr%5Bj%20%2B%201%5D%20%3D%20self._arr%5Bj%5D%0A%20%20self._arr%5Bindex%5D%20%3D%20num%0A%20%20self._size%20%2B%3D%201%0A%0A%20def%20remove%28self,%20index%3A%20int%29%20-%3E%20int%3A%0A%20%20%22%22%22%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%22%22%22%0A%20%20if%20index%20%3C%200%20or%20index%20%3E%3D%20self._size%3A%0A%20%20%20raise%20IndexError%28%22%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%8C%E7%AF%84%E5%9B%B2%E5%A4%96%E3%81%A7%E3%81%99%22%29%0A%20%20num%20%3D%20self._arr%5Bindex%5D%0A%20%20%23%20%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20i%20%E3%82%88%E3%82%8A%E5%BE%8C%E3%82%8D%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E3%81%99%E3%81%B9%E3%81%A6%E5%89%8D%E3%81%AB%201%20%E3%81%A4%E3%81%9A%E3%82%89%E3%81%99%0A%20%20for%20j%20in%20range%28index,%20self._size%20-%201%29%3A%0A%20%20%20self._arr%5Bj%5D%20%3D%20self._arr%5Bj%20%2B%201%5D%0A%20%20self._size%20-%3D%201%0A%20%20return%20num%0A%0A%20def%20extend_capacity%28self%29%3A%0A%20%20%22%22%22%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E5%AE%B9%E9%87%8F%E3%82%92%E6%8B%A1%E5%BC%B5%E3%81%99%E3%82%8B%22%22%22%0A%20%20self._arr%20%3D%20self._arr%20%2B%20%5B0%5D%20%2A%20self.capacity%28%29%20%2A%20%28self._extend_ratio%20-%201%29%0A%20%20self._capacity%20%3D%20len%28self._arr%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20nums%20%3D%20MyList%28%29%0A%20%23%20%E6%9C%AB%E5%B0%BE%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%0A%20nums.add%281%29%0A%20nums.add%283%29%0A%20nums.add%282%29%0A%20nums.add%285%29%0A%20nums.add%284%29%0A%0A%20%23%20%E9%80%94%E4%B8%AD%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20nums.insert%286,%20index%3D3%29%0A%0A%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%0A%20nums.remove%283%29%0A%0A%20%23%20%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%0A%20num%20%3D%20nums.get%281%29%0A%0A%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%0A%20nums.set%280,%201%29%0A%0A%20%23%20%E5%AE%B9%E9%87%8F%E6%8B%A1%E5%BC%B5%E3%81%AE%E5%8B%95%E4%BD%9C%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B%0A%20for%20i%20in%20range%2810%29%3A%0A%20%20nums.add%28i%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>

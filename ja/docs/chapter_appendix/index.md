@@ -9,6 +9,6 @@ icon: material/help-circle-outline
 
 ## この章の内容
 
-- [16.1 &nbsp; プログラミング環境のインストール](installation.md)
-- [16.2 &nbsp; 一緒に本書を作りましょう](contribution.md)
+- [16.1 &nbsp; 開発環境のセットアップ](installation.md)
+- [16.2 &nbsp; 本書の執筆に参加する](contribution.md)
 - [16.3 &nbsp; 用語集](terminology.md)

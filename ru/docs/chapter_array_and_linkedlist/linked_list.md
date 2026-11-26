@@ -4,23 +4,23 @@ comments: true
 
 # 4.2 &nbsp; Связный список
 
-Память - общий ресурс для всех программ, и в сложной среде выполнения свободные участки памяти могут быть разбросаны по всему адресному пространству. Мы знаем, что память для хранения массива должна быть непрерывной, а если массив очень велик, в памяти может не оказаться столь большого непрерывного блока. Именно здесь и проявляется преимущество гибкости связного списка.
+Память компьютера служит общим ресурсом для всех программ. В сложной системе её свободные участки могут оказаться разбросаны по разным местам. Для массива нужен непрерывный участок, и если массив очень велик, свободного участка нужного размера может не найтись. В такой ситуации особенно ценна гибкость связного списка.
 
-<u>Связный список (linked list)</u> - это линейная структура данных, в которой каждый элемент представляет собой объект-узел, а сами узлы соединены между собой с помощью ссылок. Ссылка хранит адрес памяти следующего узла, благодаря чему из текущего узла можно перейти к следующему.
+<u>Связный список (linked list)</u> — линейная структура данных, каждый элемент которой представляет собой отдельный объект — узел. Узлы соединены ссылками. Ссылка хранит адрес следующего узла в памяти и позволяет перейти к нему из текущего узла.
 
-Конструкция связного списка позволяет хранить отдельные узлы в разных местах памяти, и их адреса вовсе не обязаны быть последовательными.
+Благодаря такому устройству узлы списка можно хранить в разных местах памяти. Их адреса не обязаны идти подряд.
 
-![Определение и способ хранения связного списка](linked_list.assets/linkedlist_definition.svg){ class="animation-figure" }
+![Устройство связного списка и его размещение в памяти](linked_list.assets/linkedlist_definition.svg){ class="animation-figure" }
 
-<p align="center"> Рисунок 4-5 &nbsp; Определение и способ хранения связного списка </p>
+<p align="center"> Рисунок 4-5 &nbsp; Устройство связного списка и его размещение в памяти </p>
 
-Как видно на рисунке 4-5, базовой единицей связного списка является объект <u>узел (node)</u>. Каждый узел содержит две части данных: значение узла и ссылку на следующий узел.
+Как видно на рисунке, связный список состоит из объектов, называемых <u>узлами (node)</u>. В каждом узле два поля: значение и ссылка на следующий узел.
 
-- Первый узел связного списка называется головным узлом, а последний - хвостовым узлом.
-- Хвостовой узел указывает на пустое значение, которое в Java, C++ и Python обозначается как `null` , `nullptr` и `None` соответственно.
-- В языках, поддерживающих указатели, таких как C, C++, Go и Rust, упомянутую выше ссылку следует заменить на указатель.
+- Первый узел списка называют головой, или головным узлом, а последний — хвостом, или хвостовым узлом.
+- Ссылка в хвостовом узле пуста. В Java, C++ и Python пустая ссылка обозначается соответственно `null`, `nullptr` и `None`.
+- В языках с поддержкой указателей, таких как C, C++, Go и Rust, вместо «ссылки» в приведённом описании следует говорить об «указателе».
 
-Как показано в коде ниже, узел связного списка `ListNode` хранит не только значение, но и дополнительную ссылку (указатель). Поэтому **при одинаковом объеме данных связный список занимает больше памяти, чем массив**.
+Как видно из кода ниже, узел `ListNode` хранит помимо значения ещё и ссылку (указатель). При одинаковом объёме данных **связный список занимает больше памяти, чем массив**.
 
 === "Python"
 
@@ -39,7 +39,7 @@ comments: true
     /* Узел связного списка */
     struct ListNode {
         int val;        // Значение узла
-        ListNode *next; // Указатель на узел-преемник
+        ListNode *next; // Указатель на следующий узел
         ListNode(int x) : val(x), next(nullptr) {
         }
     };
@@ -72,13 +72,13 @@ comments: true
 === "Go"
 
     ```go title=""
-    // ListNode: узел связного списка
+    // ListNode — узел связного списка
     type ListNode struct {
         Val  int       // Значение узла
-        Next *ListNode // Указатель на узел-преемник
+        Next *ListNode // Указатель на следующий узел
     }
 
-    // NewListNode: конструктор узла связного списка
+    // NewListNode — конструктор узла связного списка
     func NewListNode(v int) *ListNode {
         return &ListNode{
             Val:  v,
@@ -151,7 +151,7 @@ comments: true
     #[derive(Debug)]
     pub struct ListNode<T> {
         pub val: T, // Значение узла
-        pub next: Option<Rc<RefCell<ListNode<T>>>>, // Указатель на узел-преемник
+        pub next: Option<Rc<RefCell<ListNode<T>>>>, // Указатель на следующий узел
     }
 
     impl<T> ListNode<T> {
@@ -170,7 +170,7 @@ comments: true
         struct ListNode *next; // Указатель на следующий узел
     } ListNode;
 
-    /* Конструктор, инициализирующий новый узел */
+    /* Конструктор инициализирует новый узел */
     ListNode *newListNode(int val) {
         ListNode *node;
         node = (ListNode *)malloc(sizeof(ListNode));
@@ -208,19 +208,19 @@ comments: true
 
 ### 1. &nbsp; Инициализация связного списка
 
-Построение связного списка состоит из двух шагов: сначала нужно инициализировать объекты всех узлов, затем установить ссылочные связи между ними. После завершения инициализации мы можем, начиная с головы списка, последовательно проходить все узлы по ссылке `next`.
+Создание связного списка состоит из двух шагов: сначала инициализируем отдельные узлы, затем связываем их ссылками. После этого можно посетить все узлы по порядку, начиная с головы и переходя по ссылкам `next`.
 
 === "Python"
 
     ```python title="linked_list.py"
-    # Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4
-    # Инициализация всех узлов
+    # Инициализировать связный список 1 -> 3 -> 2 -> 5 -> 4
+    # Инициализировать узлы
     n0 = ListNode(1)
     n1 = ListNode(3)
     n2 = ListNode(2)
     n3 = ListNode(5)
     n4 = ListNode(4)
-    # Построить ссылки между узлами
+    # Связать узлы ссылками
     n0.next = n1
     n1.next = n2
     n2.next = n3
@@ -230,14 +230,14 @@ comments: true
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация всех узлов
+    /* Инициализировать связный список 1 -> 3 -> 2 -> 5 -> 4 */
+    // Инициализировать узлы
     ListNode *n0 = new ListNode(1);
     ListNode *n1 = new ListNode(3);
     ListNode *n2 = new ListNode(2);
     ListNode *n3 = new ListNode(5);
     ListNode *n4 = new ListNode(4);
-    // Построить ссылки между узлами
+    // Связать узлы ссылками
     n0->next = n1;
     n1->next = n2;
     n2->next = n3;
@@ -247,14 +247,14 @@ comments: true
 === "Java"
 
     ```java title="linked_list.java"
-    /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация всех узлов
+    /* Инициализировать связный список 1 -> 3 -> 2 -> 5 -> 4 */
+    // Инициализировать узлы
     ListNode n0 = new ListNode(1);
     ListNode n1 = new ListNode(3);
     ListNode n2 = new ListNode(2);
     ListNode n3 = new ListNode(5);
     ListNode n4 = new ListNode(4);
-    // Построить ссылки между узлами
+    // Связать узлы ссылками
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -264,14 +264,14 @@ comments: true
 === "C#"
 
     ```csharp title="linked_list.cs"
-    // Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4
-    // Инициализация всех узлов
+    // Инициализировать связный список 1 -> 3 -> 2 -> 5 -> 4
+    // Инициализировать узлы
     ListNode n0 = new(1);
     ListNode n1 = new(3);
     ListNode n2 = new(2);
     ListNode n3 = new(5);
     ListNode n4 = new(4);
-    // Построить ссылки между узлами
+    // Связать узлы ссылками
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -282,14 +282,14 @@ comments: true
 
     ```go title="linked_list.go"
     /* Инициализировать связный список 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация всех узлов
+    // Инициализировать узлы
     n0 := NewListNode(1)
     n1 := NewListNode(3)
     n2 := NewListNode(2)
     n3 := NewListNode(5)
     n4 := NewListNode(4)
 
-    // Построить ссылки между узлами
+    // Связать узлы ссылками
     n0.Next = n1
     n1.Next = n2
     n2.Next = n3
@@ -299,14 +299,14 @@ comments: true
 === "Swift"
 
     ```swift title="linked_list.swift"
-    /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация всех узлов
+    /* Инициализировать связный список 1 -> 3 -> 2 -> 5 -> 4 */
+    // Инициализировать узлы
     let n0 = ListNode(x: 1)
     let n1 = ListNode(x: 3)
     let n2 = ListNode(x: 2)
     let n3 = ListNode(x: 5)
     let n4 = ListNode(x: 4)
-    // Построить ссылки между узлами
+    // Связать узлы ссылками
     n0.next = n1
     n1.next = n2
     n2.next = n3
@@ -316,14 +316,14 @@ comments: true
 === "JS"
 
     ```javascript title="linked_list.js"
-    /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация всех узлов
+    /* Инициализировать связный список 1 -> 3 -> 2 -> 5 -> 4 */
+    // Инициализировать узлы
     const n0 = new ListNode(1);
     const n1 = new ListNode(3);
     const n2 = new ListNode(2);
     const n3 = new ListNode(5);
     const n4 = new ListNode(4);
-    // Построить ссылки между узлами
+    // Связать узлы ссылками
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -333,14 +333,14 @@ comments: true
 === "TS"
 
     ```typescript title="linked_list.ts"
-    /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация всех узлов
+    /* Инициализировать связный список 1 -> 3 -> 2 -> 5 -> 4 */
+    // Инициализировать узлы
     const n0 = new ListNode(1);
     const n1 = new ListNode(3);
     const n2 = new ListNode(2);
     const n3 = new ListNode(5);
     const n4 = new ListNode(4);
-    // Построить ссылки между узлами
+    // Связать узлы ссылками
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -350,14 +350,14 @@ comments: true
 === "Dart"
 
     ```dart title="linked_list.dart"
-    // Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4
-    // Инициализация всех узлов
+    // Инициализировать связный список 1 -> 3 -> 2 -> 5 -> 4
+    // Инициализировать узлы
     ListNode n0 = ListNode(1);
     ListNode n1 = ListNode(3);
     ListNode n2 = ListNode(2);
     ListNode n3 = ListNode(5);
     ListNode n4 = ListNode(4);
-    // Построить ссылки между узлами
+    // Связать узлы ссылками
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -367,15 +367,15 @@ comments: true
 === "Rust"
 
     ```rust title="linked_list.rs"
-    /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация всех узлов
+    /* Инициализировать связный список 1 -> 3 -> 2 -> 5 -> 4 */
+    // Инициализировать узлы
     let n0 = ListNode::new(1);
     let n1 = ListNode::new(3);
     let n2 = ListNode::new(2);
     let n3 = ListNode::new(5);
     let n4 = ListNode::new(4);
 
-    // Построить ссылки между узлами
+    // Связать узлы ссылками
     n0.borrow_mut().next = Some(n1.clone());
     n1.borrow_mut().next = Some(n2.clone());
     n2.borrow_mut().next = Some(n3.clone());
@@ -385,14 +385,14 @@ comments: true
 === "C"
 
     ```c title="linked_list.c"
-    /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация всех узлов
+    /* Инициализировать связный список 1 -> 3 -> 2 -> 5 -> 4 */
+    // Инициализировать узлы
     ListNode *n0 = newListNode(1);
     ListNode *n1 = newListNode(3);
     ListNode *n2 = newListNode(2);
     ListNode *n3 = newListNode(5);
     ListNode *n4 = newListNode(4);
-    // Построить ссылки между узлами
+    // Связать узлы ссылками
     n0->next = n1;
     n1->next = n2;
     n2->next = n3;
@@ -402,15 +402,15 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="linked_list.kt"
-    /* Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4 */
-    // Инициализация всех узлов
+    /* Инициализировать связный список 1 -> 3 -> 2 -> 5 -> 4 */
+    // Инициализировать узлы
     val n0 = ListNode(1)
     val n1 = ListNode(3)
     val n2 = ListNode(2)
     val n3 = ListNode(5)
     val n4 = ListNode(4)
 
-    // Построить ссылки между узлами
+    // Связать узлы ссылками
     n0.next = n1
     n1.next = n2
     n2.next = n3
@@ -420,14 +420,14 @@ comments: true
 === "Ruby"
 
     ```ruby title="linked_list.rb"
-    # Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4
-    # Инициализация всех узлов
+    # Инициализировать связный список 1 -> 3 -> 2 -> 5 -> 4
+    # Инициализировать узлы
     n0 = ListNode.new(1)
     n1 = ListNode.new(3)
     n2 = ListNode.new(2)
     n3 = ListNode.new(5)
     n4 = ListNode.new(4)
-    # Построить ссылки между узлами
+    # Связать узлы ссылками
     n0.next = n1
     n1.next = n2
     n2.next = n3
@@ -436,16 +436,16 @@ comments: true
 
 ??? pythontutor "Визуализация выполнения"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация кода" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D1%8B%D0%B9%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%D1%83%D0%B7%D0%B5%D0%BB%D0%BA%D0%BB%D0%B0%D1%81%D1%81%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D1%8B%D0%B9%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%BA%D0%B0%D0%B6%D0%B4%D1%8B%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%D0%9F%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B8%20%D0%BC%D0%B5%D0%B6%D0%B4%D1%83%20%D1%83%D0%B7%D0%BB%D0%B0%D0%BC%D0%B8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D1%8B%D0%B9%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%D1%83%D0%B7%D0%B5%D0%BB%D0%BA%D0%BB%D0%B0%D1%81%D1%81%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D1%8B%D0%B9%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%BA%D0%B0%D0%B6%D0%B4%D1%8B%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%D0%9F%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B8%20%D0%BC%D0%B5%D0%B6%D0%B4%D1%83%20%D1%83%D0%B7%D0%BB%D0%B0%D0%BC%D0%B8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация выполнения" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%91%D0%BC%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D1%8B%D0%B9%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%0A%20%20%20%20%23%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%91%D0%BC%20%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5%20%D1%83%D0%B7%D0%BB%D1%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%D0%A1%D0%B2%D1%8F%D0%B7%D1%8B%D0%B2%D0%B0%D0%B5%D0%BC%20%D1%83%D0%B7%D0%BB%D1%8B%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%D0%BC%D0%B8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%91%D0%BC%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D1%8B%D0%B9%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%0A%20%20%20%20%23%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%91%D0%BC%20%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5%20%D1%83%D0%B7%D0%BB%D1%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%D0%A1%D0%B2%D1%8F%D0%B7%D1%8B%D0%B2%D0%B0%D0%B5%D0%BC%20%D1%83%D0%B7%D0%BB%D1%8B%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%D0%BC%D0%B8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
 
-Массив в целом - это одна переменная: например, массив `nums` содержит элементы `nums[0]` , `nums[1]` и т.д. Связный список же состоит из множества независимых объектов-узлов. **Обычно в качестве обозначения всего связного списка используют головной узел**. Например, в приведенном выше коде связный список можно обозначить как `n0` .
+Массив целиком представлен одной переменной: например, массив `nums` содержит элементы `nums[0]`, `nums[1]` и так далее. Связный список же состоит из отдельных объектов. **Обычно для обозначения всего списка используют его головной узел**. Например, о списке из приведённого выше кода можно говорить как о списке `n0`.
 
 ### 2. &nbsp; Вставка узла
 
-Вставить узел в связный список очень легко. Как показано на рисунке 4-6, предположим, что мы хотим вставить новый узел `P` между двумя соседними узлами `n0` и `n1`. **Для этого нужно изменить всего две ссылки (указателя)**, а временная сложность будет равна $O(1)$ .
+Вставить узел в связный список просто. Пусть, как на рисунке, между соседними узлами `n0` и `n1` нужно вставить новый узел `P`. Для этого **достаточно изменить две ссылки (указателя)**, что занимает время $O(1)$.
 
-Для сравнения: временная сложность вставки элемента в массив составляет $O(n)$ , и при большом объеме данных это менее эффективно.
+Для сравнения, вставка элемента в массив занимает время $O(n)$ и при большом объёме данных менее эффективна.
 
 ![Пример вставки узла в связный список](linked_list.assets/linkedlist_insert_node.svg){ class="animation-figure" }
 
@@ -455,7 +455,7 @@ comments: true
 
     ```python title="linked_list.py"
     def insert(n0: ListNode, P: ListNode):
-        """Вставка узла P в связный список после узла n0"""
+        """Вставить узел P после узла n0"""
         n1 = n0.next
         P.next = n1
         n0.next = P
@@ -464,7 +464,7 @@ comments: true
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    /* Вставка узла P в связный список после узла n0 */
+    /* Вставить узел P после узла n0 */
     void insert(ListNode *n0, ListNode *P) {
         ListNode *n1 = n0->next;
         P->next = n1;
@@ -475,7 +475,7 @@ comments: true
 === "Java"
 
     ```java title="linked_list.java"
-    /* Вставка узла P в связный список после узла n0 */
+    /* Вставить узел P после узла n0 */
     void insert(ListNode n0, ListNode P) {
         ListNode n1 = n0.next;
         P.next = n1;
@@ -486,7 +486,7 @@ comments: true
 === "C#"
 
     ```csharp title="linked_list.cs"
-    /* Вставка узла P в связный список после узла n0 */
+    /* Вставить узел P после узла n0 */
     void Insert(ListNode n0, ListNode P) {
         ListNode? n1 = n0.next;
         P.next = n1;
@@ -497,7 +497,7 @@ comments: true
 === "Go"
 
     ```go title="linked_list.go"
-    /* Вставка узла P в связный список после узла n0 */
+    /* Вставить узел P после узла n0 */
     func insertNode(n0 *ListNode, P *ListNode) {
         n1 := n0.Next
         P.Next = n1
@@ -508,7 +508,7 @@ comments: true
 === "Swift"
 
     ```swift title="linked_list.swift"
-    /* Вставка узла P в связный список после узла n0 */
+    /* Вставить узел P после узла n0 */
     func insert(n0: ListNode, P: ListNode) {
         let n1 = n0.next
         P.next = n1
@@ -519,7 +519,7 @@ comments: true
 === "JS"
 
     ```javascript title="linked_list.js"
-    /* Вставка узла P в связный список после узла n0 */
+    /* Вставить узел P после узла n0 */
     function insert(n0, P) {
         const n1 = n0.next;
         P.next = n1;
@@ -530,7 +530,7 @@ comments: true
 === "TS"
 
     ```typescript title="linked_list.ts"
-    /* Вставка узла P в связный список после узла n0 */
+    /* Вставить узел P после узла n0 */
     function insert(n0: ListNode, P: ListNode): void {
         const n1 = n0.next;
         P.next = n1;
@@ -541,7 +541,7 @@ comments: true
 === "Dart"
 
     ```dart title="linked_list.dart"
-    /* Вставка узла P в связный список после узла n0 */
+    /* Вставить узел P после узла n0 */
     void insert(ListNode n0, ListNode P) {
       ListNode? n1 = n0.next;
       P.next = n1;
@@ -552,7 +552,7 @@ comments: true
 === "Rust"
 
     ```rust title="linked_list.rs"
-    /* Вставка узла P в связный список после узла n0 */
+    /* Вставить узел P после узла n0 */
     #[allow(non_snake_case)]
     pub fn insert<T>(n0: &Rc<RefCell<ListNode<T>>>, P: Rc<RefCell<ListNode<T>>>) {
         let n1 = n0.borrow_mut().next.take();
@@ -564,7 +564,7 @@ comments: true
 === "C"
 
     ```c title="linked_list.c"
-    /* Вставка узла P в связный список после узла n0 */
+    /* Вставить узел P после узла n0 */
     void insert(ListNode *n0, ListNode *P) {
         ListNode *n1 = n0->next;
         P->next = n1;
@@ -575,7 +575,7 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="linked_list.kt"
-    /* Вставка узла P в связный список после узла n0 */
+    /* Вставить узел P после узла n0 */
     fun insert(n0: ListNode?, p: ListNode?) {
         val n1 = n0?.next
         p?.next = n1
@@ -586,8 +586,8 @@ comments: true
 === "Ruby"
 
     ```ruby title="linked_list.rb"
-    ### Вставка узла _p в связный список после узла n0 ###
-    # В Ruby `p` является встроенной функцией, а `P` — константой, поэтому вместо них можно использовать `_p`
+    ### Вставить узел _p после узла n0 ###
+    # В Ruby `p` — встроенная функция, а `P` — константа, поэтому можно использовать имя `_p`
     def insert(n0, _p)
       n1 = n0.next
       _p.next = n1
@@ -595,26 +595,26 @@ comments: true
     end
     ```
 
-??? pythontutor "Визуализация кода"
+??? pythontutor "Визуализация выполнения"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация кода" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%83%D0%B7%D0%B5%D0%BB-%D0%BF%D1%80%D0%B5%D0%B5%D0%BC%D0%BD%D0%B8%D0%BA%0A%0Adef%20insert%28n0%3A%20ListNode%2C%20P%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22%D0%92%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0%20%D1%83%D0%B7%D0%BB%D0%B0%20P%20%D0%B2%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D1%8B%D0%B9%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%20n0%22%22%22%0A%20%20%20%20n1%20%3D%20n0.next%0A%20%20%20%20P.next%20%3D%20n1%0A%20%20%20%20n0.next%20%3D%20P%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B2%D1%81%D0%B5%D1%85%20%D1%83%D0%B7%D0%BB%D0%BE%D0%B2%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%D0%9F%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B8%20%D0%BC%D0%B5%D0%B6%D0%B4%D1%83%20%D1%83%D0%B7%D0%BB%D0%B0%D0%BC%D0%B8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%D0%92%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20p%20%3D%20ListNode%280%29%0A%20%20%20%20insert%28n0%2C%20p%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=39&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%83%D0%B7%D0%B5%D0%BB-%D0%BF%D1%80%D0%B5%D0%B5%D0%BC%D0%BD%D0%B8%D0%BA%0A%0Adef%20insert%28n0%3A%20ListNode%2C%20P%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22%D0%92%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0%20%D1%83%D0%B7%D0%BB%D0%B0%20P%20%D0%B2%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D1%8B%D0%B9%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%20n0%22%22%22%0A%20%20%20%20n1%20%3D%20n0.next%0A%20%20%20%20P.next%20%3D%20n1%0A%20%20%20%20n0.next%20%3D%20P%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B2%D1%81%D0%B5%D1%85%20%D1%83%D0%B7%D0%BB%D0%BE%D0%B2%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%D0%9F%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B8%20%D0%BC%D0%B5%D0%B6%D0%B4%D1%83%20%D1%83%D0%B7%D0%BB%D0%B0%D0%BC%D0%B8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%D0%92%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20p%20%3D%20ListNode%280%29%0A%20%20%20%20insert%28n0%2C%20p%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=39&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация выполнения" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%0Adef%20insert%28n0%3A%20ListNode,%20P%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22%D0%92%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D1%83%D0%B7%D0%B5%D0%BB%20P%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%20n0%22%22%22%0A%20%20%20%20n1%20%3D%20n0.next%0A%20%20%20%20P.next%20%3D%20n1%0A%20%20%20%20n0.next%20%3D%20P%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%83%D0%B7%D0%BB%D1%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%D0%A1%D0%B2%D1%8F%D0%B7%D0%B0%D1%82%D1%8C%20%D1%83%D0%B7%D0%BB%D1%8B%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%D0%BC%D0%B8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%D0%92%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20p%20%3D%20ListNode%280%29%0A%20%20%20%20insert%28n0,%20p%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=39&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%0Adef%20insert%28n0%3A%20ListNode,%20P%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22%D0%92%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D1%83%D0%B7%D0%B5%D0%BB%20P%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%20n0%22%22%22%0A%20%20%20%20n1%20%3D%20n0.next%0A%20%20%20%20P.next%20%3D%20n1%0A%20%20%20%20n0.next%20%3D%20P%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%83%D0%B7%D0%BB%D1%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%D0%A1%D0%B2%D1%8F%D0%B7%D0%B0%D1%82%D1%8C%20%D1%83%D0%B7%D0%BB%D1%8B%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%D0%BC%D0%B8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%D0%92%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20p%20%3D%20ListNode%280%29%0A%20%20%20%20insert%28n0,%20p%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=39&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
 
 ### 3. &nbsp; Удаление узла
 
-Как показано на рисунке 4-7, удалить узел из связного списка тоже очень просто: **нужно изменить всего одну ссылку (указатель)**.
+Удалить узел из связного списка тоже просто: как видно на рисунке, **достаточно изменить ссылку (указатель) в одном узле**.
 
-Стоит отметить, что хотя после завершения операции удаления узел `P` все еще указывает на `n1` , при обходе связного списка до `P` уже нельзя добраться. Это означает, что `P` фактически больше не принадлежит данному списку.
+Обратите внимание: после удаления узел `P` всё ещё указывает на `n1`. Однако при обходе списка попасть в `P` уже нельзя, то есть `P` больше не принадлежит этому списку.
 
-![Удаление узла из связного списка](linked_list.assets/linkedlist_remove_node.svg){ class="animation-figure" }
+![Удаление узла связного списка](linked_list.assets/linkedlist_remove_node.svg){ class="animation-figure" }
 
-<p align="center"> Рисунок 4-7 &nbsp; Удаление узла из связного списка </p>
+<p align="center"> Рисунок 4-7 &nbsp; Удаление узла связного списка </p>
 
 === "Python"
 
     ```python title="linked_list.py"
     def remove(n0: ListNode):
-        """Удаление первого узла после узла n0 из связного списка"""
+        """Удалить первый узел, следующий за n0"""
         if not n0.next:
             return
         # n0 -> P -> n1
@@ -626,7 +626,7 @@ comments: true
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    /* Удаление первого узла после узла n0 из связного списка */
+    /* Удалить первый узел, следующий за n0 */
     void remove(ListNode *n0) {
         if (n0->next == nullptr)
             return;
@@ -642,7 +642,7 @@ comments: true
 === "Java"
 
     ```java title="linked_list.java"
-    /* Удаление первого узла после узла n0 из связного списка */
+    /* Удалить первый узел, следующий за n0 */
     void remove(ListNode n0) {
         if (n0.next == null)
             return;
@@ -656,7 +656,7 @@ comments: true
 === "C#"
 
     ```csharp title="linked_list.cs"
-    /* Удаление первого узла после узла n0 из связного списка */
+    /* Удалить первый узел, следующий за n0 */
     void Remove(ListNode n0) {
         if (n0.next == null)
             return;
@@ -670,7 +670,7 @@ comments: true
 === "Go"
 
     ```go title="linked_list.go"
-    /* Удаление первого узла после узла n0 из связного списка */
+    /* Удалить первый узел, следующий за n0 */
     func removeItem(n0 *ListNode) {
         if n0.Next == nil {
             return
@@ -685,7 +685,7 @@ comments: true
 === "Swift"
 
     ```swift title="linked_list.swift"
-    /* Удаление первого узла после узла n0 из связного списка */
+    /* Удалить первый узел, следующий за n0 */
     func remove(n0: ListNode) {
         if n0.next == nil {
             return
@@ -700,7 +700,7 @@ comments: true
 === "JS"
 
     ```javascript title="linked_list.js"
-    /* Удаление первого узла после узла n0 из связного списка */
+    /* Удалить первый узел, следующий за n0 */
     function remove(n0) {
         if (!n0.next) return;
         // n0 -> P -> n1
@@ -713,7 +713,7 @@ comments: true
 === "TS"
 
     ```typescript title="linked_list.ts"
-    /* Удаление первого узла после узла n0 из связного списка */
+    /* Удалить первый узел, следующий за n0 */
     function remove(n0: ListNode): void {
         if (!n0.next) {
             return;
@@ -728,7 +728,7 @@ comments: true
 === "Dart"
 
     ```dart title="linked_list.dart"
-    /* Удаление первого узла после узла n0 из связного списка */
+    /* Удалить первый узел, следующий за n0 */
     void remove(ListNode n0) {
       if (n0.next == null) return;
       // n0 -> P -> n1
@@ -741,7 +741,7 @@ comments: true
 === "Rust"
 
     ```rust title="linked_list.rs"
-    /* Удаление первого узла после узла n0 из связного списка */
+    /* Удалить первый узел, следующий за n0 */
     #[allow(non_snake_case)]
     pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
         // n0 -> P -> n1
@@ -756,8 +756,8 @@ comments: true
 === "C"
 
     ```c title="linked_list.c"
-    /* Удаление первого узла после узла n0 из связного списка */
-    // Внимание: stdio.h уже использует ключевое слово remove
+    /* Удалить первый узел, следующий за n0 */
+    // Имя remove уже используется в stdio.h
     void removeItem(ListNode *n0) {
         if (!n0->next)
             return;
@@ -773,7 +773,7 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="linked_list.kt"
-    /* Удаление первого узла после узла n0 из связного списка */
+    /* Удалить первый узел, следующий за n0 */
     fun remove(n0: ListNode?) {
         if (n0?.next == null)
             return
@@ -787,7 +787,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="linked_list.rb"
-    ### Удаление первого узла после узла n0 из связного списка ###
+    ### Удалить первый узел, следующий за n0 ###
     def remove(n0)
       return if n0.next.nil?
 
@@ -798,20 +798,20 @@ comments: true
     end
     ```
 
-??? pythontutor "Визуализация кода"
+??? pythontutor "Визуализация выполнения"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация кода" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%83%D0%B7%D0%B5%D0%BB-%D0%BF%D1%80%D0%B5%D0%B5%D0%BC%D0%BD%D0%B8%D0%BA%0A%0Adef%20remove%28n0%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22%D0%A3%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BF%D0%B5%D1%80%D0%B2%D0%BE%D0%B3%D0%BE%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%20n0%20%D0%B8%D0%B7%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%22%22%22%0A%20%20%20%20if%20not%20n0.next%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20n0%20-%3E%20P%20-%3E%20n1%0A%20%20%20%20P%20%3D%20n0.next%0A%20%20%20%20n1%20%3D%20P.next%0A%20%20%20%20n0.next%20%3D%20n1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B2%D1%81%D0%B5%D1%85%20%D1%83%D0%B7%D0%BB%D0%BE%D0%B2%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%D0%9F%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B8%20%D0%BC%D0%B5%D0%B6%D0%B4%D1%83%20%D1%83%D0%B7%D0%BB%D0%B0%D0%BC%D0%B8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%D0%A3%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20remove%28n0%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%83%D0%B7%D0%B5%D0%BB-%D0%BF%D1%80%D0%B5%D0%B5%D0%BC%D0%BD%D0%B8%D0%BA%0A%0Adef%20remove%28n0%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22%D0%A3%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BF%D0%B5%D1%80%D0%B2%D0%BE%D0%B3%D0%BE%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%20n0%20%D0%B8%D0%B7%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%22%22%22%0A%20%20%20%20if%20not%20n0.next%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20n0%20-%3E%20P%20-%3E%20n1%0A%20%20%20%20P%20%3D%20n0.next%0A%20%20%20%20n1%20%3D%20P.next%0A%20%20%20%20n0.next%20%3D%20n1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B2%D1%81%D0%B5%D1%85%20%D1%83%D0%B7%D0%BB%D0%BE%D0%B2%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%D0%9F%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B8%20%D0%BC%D0%B5%D0%B6%D0%B4%D1%83%20%D1%83%D0%B7%D0%BB%D0%B0%D0%BC%D0%B8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%D0%A3%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20remove%28n0%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация выполнения" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%0Adef%20remove%28n0%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22%D0%A3%D0%B4%D0%B0%D0%BB%D0%B8%D1%82%D1%8C%20%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB,%20%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D0%B7%D0%B0%20n0%22%22%22%0A%20%20%20%20if%20not%20n0.next%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20n0%20-%3E%20P%20-%3E%20n1%0A%20%20%20%20P%20%3D%20n0.next%0A%20%20%20%20n1%20%3D%20P.next%0A%20%20%20%20n0.next%20%3D%20n1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%83%D0%B7%D0%BB%D1%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%D0%A1%D0%B2%D1%8F%D0%B7%D0%B0%D1%82%D1%8C%20%D1%83%D0%B7%D0%BB%D1%8B%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%D0%BC%D0%B8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%D0%A3%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20remove%28n0%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%0Adef%20remove%28n0%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22%D0%A3%D0%B4%D0%B0%D0%BB%D0%B8%D1%82%D1%8C%20%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB,%20%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D0%B7%D0%B0%20n0%22%22%22%0A%20%20%20%20if%20not%20n0.next%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20n0%20-%3E%20P%20-%3E%20n1%0A%20%20%20%20P%20%3D%20n0.next%0A%20%20%20%20n1%20%3D%20P.next%0A%20%20%20%20n0.next%20%3D%20n1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%83%D0%B7%D0%BB%D1%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%D0%A1%D0%B2%D1%8F%D0%B7%D0%B0%D1%82%D1%8C%20%D1%83%D0%B7%D0%BB%D1%8B%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%D0%BC%D0%B8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%D0%A3%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20remove%28n0%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
 
 ### 4. &nbsp; Доступ к узлу
 
-**Доступ к узлам в связном списке менее эффективен**. Как уже обсуждалось в предыдущем разделе, к любому элементу массива можно обратиться за $O(1)$ времени. Со связным списком это не так: программе нужно начать с головного узла и последовательно двигаться дальше, пока не будет найден целевой узел. То есть для доступа к $i$ -му узлу списка нужно выполнить $i - 1$ итераций, а временная сложность составляет $O(n)$ .
+**Доступ к узлу по позиции в связном списке малоэффективен**. Как мы видели в предыдущем разделе, к любому элементу массива можно обратиться за время $O(1)$. В связном списке программа должна начать с головы и переходить от узла к узлу, пока не достигнет нужного. Чтобы добраться до узла с порядковым номером $i$, понадобится $i - 1$ итераций. Временная сложность — $O(n)$.
 
 === "Python"
 
     ```python title="linked_list.py"
     def access(head: ListNode, index: int) -> ListNode | None:
-        """Доступ к узлу с индексом index в связном списке"""
+        """Получить узел списка по индексу index"""
         for _ in range(index):
             if not head:
                 return None
@@ -822,7 +822,7 @@ comments: true
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    /* Доступ к узлу с индексом index в связном списке */
+    /* Получить узел списка по индексу index */
     ListNode *access(ListNode *head, int index) {
         for (int i = 0; i < index; i++) {
             if (head == nullptr)
@@ -836,7 +836,7 @@ comments: true
 === "Java"
 
     ```java title="linked_list.java"
-    /* Доступ к узлу с индексом index в связном списке */
+    /* Получить узел списка по индексу index */
     ListNode access(ListNode head, int index) {
         for (int i = 0; i < index; i++) {
             if (head == null)
@@ -850,7 +850,7 @@ comments: true
 === "C#"
 
     ```csharp title="linked_list.cs"
-    /* Доступ к узлу с индексом index в связном списке */
+    /* Получить узел списка по индексу index */
     ListNode? Access(ListNode? head, int index) {
         for (int i = 0; i < index; i++) {
             if (head == null)
@@ -864,7 +864,7 @@ comments: true
 === "Go"
 
     ```go title="linked_list.go"
-    /* Доступ к узлу с индексом index в связном списке */
+    /* Получить узел списка по индексу index */
     func access(head *ListNode, index int) *ListNode {
         for i := 0; i < index; i++ {
             if head == nil {
@@ -879,7 +879,7 @@ comments: true
 === "Swift"
 
     ```swift title="linked_list.swift"
-    /* Доступ к узлу с индексом index в связном списке */
+    /* Получить узел списка по индексу index */
     func access(head: ListNode, index: Int) -> ListNode? {
         var head: ListNode? = head
         for _ in 0 ..< index {
@@ -895,7 +895,7 @@ comments: true
 === "JS"
 
     ```javascript title="linked_list.js"
-    /* Доступ к узлу с индексом index в связном списке */
+    /* Получить узел списка по индексу index */
     function access(head, index) {
         for (let i = 0; i < index; i++) {
             if (!head) {
@@ -910,7 +910,7 @@ comments: true
 === "TS"
 
     ```typescript title="linked_list.ts"
-    /* Доступ к узлу с индексом index в связном списке */
+    /* Получить узел списка по индексу index */
     function access(head: ListNode | null, index: number): ListNode | null {
         for (let i = 0; i < index; i++) {
             if (!head) {
@@ -925,7 +925,7 @@ comments: true
 === "Dart"
 
     ```dart title="linked_list.dart"
-    /* Доступ к узлу с индексом index в связном списке */
+    /* Получить узел списка по индексу index */
     ListNode? access(ListNode? head, int index) {
       for (var i = 0; i < index; i++) {
         if (head == null) return null;
@@ -938,7 +938,7 @@ comments: true
 === "Rust"
 
     ```rust title="linked_list.rs"
-    /* Доступ к узлу с индексом index в связном списке */
+    /* Получить узел списка по индексу index */
     pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Option<Rc<RefCell<ListNode<T>>>> {
         fn dfs<T>(
             head: Option<&Rc<RefCell<ListNode<T>>>>,
@@ -962,7 +962,7 @@ comments: true
 === "C"
 
     ```c title="linked_list.c"
-    /* Доступ к узлу с индексом index в связном списке */
+    /* Получить узел списка по индексу index */
     ListNode *access(ListNode *head, int index) {
         for (int i = 0; i < index; i++) {
             if (head == NULL)
@@ -976,7 +976,7 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="linked_list.kt"
-    /* Доступ к узлу с индексом index в связном списке */
+    /* Получить узел списка по индексу index */
     fun access(head: ListNode?, index: Int): ListNode? {
         var h = head
         for (i in 0..<index) {
@@ -991,7 +991,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="linked_list.rb"
-    ### Доступ к узлу с индексом index в связном списке ###
+    ### Получить узел списка по индексу index ###
     def access(head, index)
       for i in 0...index
         return nil if head.nil?
@@ -1002,20 +1002,20 @@ comments: true
     end
     ```
 
-??? pythontutor "Визуализация кода"
+??? pythontutor "Визуализация выполнения"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация кода" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%83%D0%B7%D0%B5%D0%BB-%D0%BF%D1%80%D0%B5%D0%B5%D0%BC%D0%BD%D0%B8%D0%BA%0A%0Adef%20access%28head%3A%20ListNode%2C%20index%3A%20int%29%20-%3E%20ListNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%94%D0%BE%D1%81%D1%82%D1%83%D0%BF%20%D0%BA%20%D1%83%D0%B7%D0%BB%D1%83%20%D1%81%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D0%BE%D0%BC%20index%20%D0%B2%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%BC%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B5%22%22%22%0A%20%20%20%20for%20_%20in%20range%28index%29%3A%0A%20%20%20%20%20%20%20%20if%20not%20head%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20return%20head%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B2%D1%81%D0%B5%D1%85%20%D1%83%D0%B7%D0%BB%D0%BE%D0%B2%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%D0%9F%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B8%20%D0%BC%D0%B5%D0%B6%D0%B4%D1%83%20%D1%83%D0%B7%D0%BB%D0%B0%D0%BC%D0%B8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%D0%94%D0%BE%D1%81%D1%82%D1%83%D0%BF%20%D0%BA%20%D1%83%D0%B7%D0%BB%D1%83%0A%20%20%20%20node%20%3D%20access%28n0%2C%203%29%0A%20%20%20%20print%28%22%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%BF%D0%BE%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D1%83%203%20%D0%B2%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%BC%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B5%20%3D%20%7B%7D%22.format%28node.val%29%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%83%D0%B7%D0%B5%D0%BB-%D0%BF%D1%80%D0%B5%D0%B5%D0%BC%D0%BD%D0%B8%D0%BA%0A%0Adef%20access%28head%3A%20ListNode%2C%20index%3A%20int%29%20-%3E%20ListNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%94%D0%BE%D1%81%D1%82%D1%83%D0%BF%20%D0%BA%20%D1%83%D0%B7%D0%BB%D1%83%20%D1%81%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D0%BE%D0%BC%20index%20%D0%B2%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%BC%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B5%22%22%22%0A%20%20%20%20for%20_%20in%20range%28index%29%3A%0A%20%20%20%20%20%20%20%20if%20not%20head%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20return%20head%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B2%D1%81%D0%B5%D1%85%20%D1%83%D0%B7%D0%BB%D0%BE%D0%B2%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%D0%9F%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B8%20%D0%BC%D0%B5%D0%B6%D0%B4%D1%83%20%D1%83%D0%B7%D0%BB%D0%B0%D0%BC%D0%B8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%D0%94%D0%BE%D1%81%D1%82%D1%83%D0%BF%20%D0%BA%20%D1%83%D0%B7%D0%BB%D1%83%0A%20%20%20%20node%20%3D%20access%28n0%2C%203%29%0A%20%20%20%20print%28%22%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%BF%D0%BE%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D1%83%203%20%D0%B2%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%BC%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B5%20%3D%20%7B%7D%22.format%28node.val%29%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация выполнения" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%0Adef%20access%28head%3A%20ListNode,%20index%3A%20int%29%20-%3E%20ListNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D1%83%D0%B7%D0%B5%D0%BB%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%20%D0%BF%D0%BE%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D1%83%20index%22%22%22%0A%20%20%20%20for%20_%20in%20range%28index%29%3A%0A%20%20%20%20%20%20%20%20if%20not%20head%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20return%20head%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%83%D0%B7%D0%BB%D1%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%D0%A1%D0%B2%D1%8F%D0%B7%D0%B0%D1%82%D1%8C%20%D1%83%D0%B7%D0%BB%D1%8B%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%D0%BC%D0%B8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%D0%94%D0%BE%D1%81%D1%82%D1%83%D0%BF%20%D0%BA%20%D1%83%D0%B7%D0%BB%D1%83%0A%20%20%20%20node%20%3D%20access%28n0,%203%29%0A%20%20%20%20print%28%22%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%BF%D0%BE%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D1%83%203%20%3D%20%7B%7D%22.format%28node.val%29%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%0Adef%20access%28head%3A%20ListNode,%20index%3A%20int%29%20-%3E%20ListNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D1%83%D0%B7%D0%B5%D0%BB%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%20%D0%BF%D0%BE%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D1%83%20index%22%22%22%0A%20%20%20%20for%20_%20in%20range%28index%29%3A%0A%20%20%20%20%20%20%20%20if%20not%20head%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20return%20head%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%83%D0%B7%D0%BB%D1%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%D0%A1%D0%B2%D1%8F%D0%B7%D0%B0%D1%82%D1%8C%20%D1%83%D0%B7%D0%BB%D1%8B%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%D0%BC%D0%B8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%D0%94%D0%BE%D1%81%D1%82%D1%83%D0%BF%20%D0%BA%20%D1%83%D0%B7%D0%BB%D1%83%0A%20%20%20%20node%20%3D%20access%28n0,%203%29%0A%20%20%20%20print%28%22%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%BF%D0%BE%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D1%83%203%20%3D%20%7B%7D%22.format%28node.val%29%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
 
 ### 5. &nbsp; Поиск узла
 
-Поиск узла заключается в обходе связного списка, нахождении узла со значением `target` и возврате его индекса в списке. Этот процесс тоже относится к линейному поиску. Код выглядит следующим образом:
+Обойдём связный список, найдём узел со значением `target` и выдадим его индекс в списке. Это тоже линейный поиск. Вот его реализация:
 
 === "Python"
 
     ```python title="linked_list.py"
     def find(head: ListNode, target: int) -> int:
-        """Поиск первого узла со значением target в связном списке"""
+        """Найти первый узел списка со значением target"""
         index = 0
         while head:
             if head.val == target:
@@ -1028,7 +1028,7 @@ comments: true
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    /* Поиск первого узла со значением target в связном списке */
+    /* Найти первый узел списка со значением target */
     int find(ListNode *head, int target) {
         int index = 0;
         while (head != nullptr) {
@@ -1044,7 +1044,7 @@ comments: true
 === "Java"
 
     ```java title="linked_list.java"
-    /* Поиск первого узла со значением target в связном списке */
+    /* Найти первый узел списка со значением target */
     int find(ListNode head, int target) {
         int index = 0;
         while (head != null) {
@@ -1060,7 +1060,7 @@ comments: true
 === "C#"
 
     ```csharp title="linked_list.cs"
-    /* Поиск первого узла со значением target в связном списке */
+    /* Найти первый узел списка со значением target */
     int Find(ListNode? head, int target) {
         int index = 0;
         while (head != null) {
@@ -1076,7 +1076,7 @@ comments: true
 === "Go"
 
     ```go title="linked_list.go"
-    /* Поиск первого узла со значением target в связном списке */
+    /* Найти первый узел списка со значением target */
     func findNode(head *ListNode, target int) int {
         index := 0
         for head != nil {
@@ -1093,7 +1093,7 @@ comments: true
 === "Swift"
 
     ```swift title="linked_list.swift"
-    /* Поиск первого узла со значением target в связном списке */
+    /* Найти первый узел списка со значением target */
     func find(head: ListNode, target: Int) -> Int {
         var head: ListNode? = head
         var index = 0
@@ -1111,7 +1111,7 @@ comments: true
 === "JS"
 
     ```javascript title="linked_list.js"
-    /* Поиск первого узла со значением target в связном списке */
+    /* Найти первый узел списка со значением target */
     function find(head, target) {
         let index = 0;
         while (head !== null) {
@@ -1128,7 +1128,7 @@ comments: true
 === "TS"
 
     ```typescript title="linked_list.ts"
-    /* Поиск первого узла со значением target в связном списке */
+    /* Найти первый узел списка со значением target */
     function find(head: ListNode | null, target: number): number {
         let index = 0;
         while (head !== null) {
@@ -1145,7 +1145,7 @@ comments: true
 === "Dart"
 
     ```dart title="linked_list.dart"
-    /* Поиск первого узла со значением target в связном списке */
+    /* Найти первый узел списка со значением target */
     int find(ListNode? head, int target) {
       int index = 0;
       while (head != null) {
@@ -1162,7 +1162,7 @@ comments: true
 === "Rust"
 
     ```rust title="linked_list.rs"
-    /* Поиск первого узла со значением target в связном списке */
+    /* Найти первый узел списка со значением target */
     pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T) -> i32 {
         fn find<T: PartialEq>(head: Option<&Rc<RefCell<ListNode<T>>>>, target: T, idx: i32) -> i32 {
             if let Some(node) = head {
@@ -1182,7 +1182,7 @@ comments: true
 === "C"
 
     ```c title="linked_list.c"
-    /* Поиск первого узла со значением target в связном списке */
+    /* Найти первый узел списка со значением target */
     int find(ListNode *head, int target) {
         int index = 0;
         while (head) {
@@ -1198,7 +1198,7 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="linked_list.kt"
-    /* Поиск первого узла со значением target в связном списке */
+    /* Найти первый узел списка со значением target */
     fun find(head: ListNode?, target: Int): Int {
         var index = 0
         var h = head
@@ -1215,7 +1215,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="linked_list.rb"
-    ### Поиск первого узла со значением target в связном списке ###
+    ### Найти первый узел списка со значением target ###
     def find(head, target)
       index = 0
       while head
@@ -1228,37 +1228,37 @@ comments: true
     end
     ```
 
-??? pythontutor "Визуализация кода"
+??? pythontutor "Визуализация выполнения"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация кода" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%83%D0%B7%D0%B5%D0%BB-%D0%BF%D1%80%D0%B5%D0%B5%D0%BC%D0%BD%D0%B8%D0%BA%0A%0Adef%20find%28head%3A%20ListNode%2C%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%9F%D0%BE%D0%B8%D1%81%D0%BA%20%D0%BF%D0%B5%D1%80%D0%B2%D0%BE%D0%B3%D0%BE%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%BE%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%20target%20%D0%B2%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%BC%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B5%22%22%22%0A%20%20%20%20index%20%3D%200%0A%20%20%20%20while%20head%3A%0A%20%20%20%20%20%20%20%20if%20head.val%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20index%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20%20%20%20%20index%20%2B%3D%201%0A%20%20%20%20return%20-1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B2%D1%81%D0%B5%D1%85%20%D1%83%D0%B7%D0%BB%D0%BE%D0%B2%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%D0%9F%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B8%20%D0%BC%D0%B5%D0%B6%D0%B4%D1%83%20%D1%83%D0%B7%D0%BB%D0%B0%D0%BC%D0%B8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%B8%D1%81%D0%BA%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20index%20%3D%20find%28n0%2C%202%29%0A%20%20%20%20print%28%22%D0%98%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%BE%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%202%20%D0%B2%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%BC%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B5%20%3D%20%7B%7D%22.format%28index%29%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%83%D0%B7%D0%B5%D0%BB-%D0%BF%D1%80%D0%B5%D0%B5%D0%BC%D0%BD%D0%B8%D0%BA%0A%0Adef%20find%28head%3A%20ListNode%2C%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%9F%D0%BE%D0%B8%D1%81%D0%BA%20%D0%BF%D0%B5%D1%80%D0%B2%D0%BE%D0%B3%D0%BE%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%BE%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%20target%20%D0%B2%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%BC%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B5%22%22%22%0A%20%20%20%20index%20%3D%200%0A%20%20%20%20while%20head%3A%0A%20%20%20%20%20%20%20%20if%20head.val%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20index%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20%20%20%20%20index%20%2B%3D%201%0A%20%20%20%20return%20-1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B2%D1%81%D0%B5%D1%85%20%D1%83%D0%B7%D0%BB%D0%BE%D0%B2%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%D0%9F%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B8%20%D0%BC%D0%B5%D0%B6%D0%B4%D1%83%20%D1%83%D0%B7%D0%BB%D0%B0%D0%BC%D0%B8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%B8%D1%81%D0%BA%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20index%20%3D%20find%28n0%2C%202%29%0A%20%20%20%20print%28%22%D0%98%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%BE%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%202%20%D0%B2%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%BC%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B5%20%3D%20%7B%7D%22.format%28index%29%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация выполнения" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%0Adef%20find%28head%3A%20ListNode,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%9D%D0%B0%D0%B9%D1%82%D0%B8%20%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%20%D1%81%D0%BE%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%20target%22%22%22%0A%20%20%20%20index%20%3D%200%0A%20%20%20%20while%20head%3A%0A%20%20%20%20%20%20%20%20if%20head.val%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20index%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20%20%20%20%20index%20%2B%3D%201%0A%20%20%20%20return%20-1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%83%D0%B7%D0%BB%D1%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%D0%A1%D0%B2%D1%8F%D0%B7%D0%B0%D1%82%D1%8C%20%D1%83%D0%B7%D0%BB%D1%8B%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%D0%BC%D0%B8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%B8%D1%81%D0%BA%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20index%20%3D%20find%28n0,%202%29%0A%20%20%20%20print%28%22%D0%98%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%BE%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%202%20%3D%20%7B%7D%22.format%28index%29%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%0Adef%20find%28head%3A%20ListNode,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%9D%D0%B0%D0%B9%D1%82%D0%B8%20%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%20%D1%81%D0%BE%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%20target%22%22%22%0A%20%20%20%20index%20%3D%200%0A%20%20%20%20while%20head%3A%0A%20%20%20%20%20%20%20%20if%20head.val%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20index%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20%20%20%20%20index%20%2B%3D%201%0A%20%20%20%20return%20-1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%83%D0%B7%D0%BB%D1%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%D0%A1%D0%B2%D1%8F%D0%B7%D0%B0%D1%82%D1%8C%20%D1%83%D0%B7%D0%BB%D1%8B%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%D0%BC%D0%B8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%B8%D1%81%D0%BA%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20index%20%3D%20find%28n0,%202%29%0A%20%20%20%20print%28%22%D0%98%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%D0%BE%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%202%20%3D%20%7B%7D%22.format%28index%29%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
 
-## 4.2.2 &nbsp; Сравнение массива и связного списка
+## 4.2.2 &nbsp; Массив и связный список
 
-В таблице 4-1 обобщаются свойства массива и связного списка, а также сравнивается эффективность соответствующих операций. Поскольку они используют противоположные стратегии хранения, их свойства и эффективность операций тоже во многом противоположны.
+В таблице сопоставлены свойства массивов и связных списков и затраты на операции с ними. Эти структуры используют противоположные подходы к размещению данных в памяти, поэтому их свойства и эффективность разных операций также различаются.
 
 <p align="center"> Таблица 4-1 &nbsp; Сравнение эффективности массива и связного списка </p>
 
 <div class="center-table" markdown>
 
-|               | Массив                                         | Связный список          |
-| ------------- | ---------------------------------------------- | ----------------------- |
-| Способ хранения | Непрерывная область памяти                   | Разрозненная область памяти |
-| Расширение емкости | Длина фиксирована                        | Возможность гибкого расширения       |
-| Эффективность памяти | Элементы занимают меньше памяти, но могут расходовать пространство впустую | Элементы занимают больше памяти |
-| Доступ к элементу | $O(1)$                                      | $O(n)$                  |
-| Добавление элемента | $O(n)$                                    | $O(1)$                  |
-| Удаление элемента | $O(n)$                                     | $O(1)$                  |
+|          | Массив                           | Связный список           |
+| -------- | ------------------------------ | -------------- |
+| Размещение в памяти | Непрерывная область памяти                   | Разрозненные участки памяти   |
+| Увеличение ёмкости | Длина фиксирована                     | Легко расширяется     |
+| Использование памяти | Мало памяти на элемент, но часть места может пустовать | Больше памяти на элемент |
+| Доступ к элементу | $O(1)$                         | $O(n)$         |
+| Добавление элемента | $O(n)$                         | $O(1)$         |
+| Удаление элемента | $O(n)$                         | $O(1)$         |
 
 </div>
 
-## 4.2.3 &nbsp; Распространенные типы связных списков
+## 4.2.3 &nbsp; Распространённые виды связных списков
 
-Как показано на рисунке 4-8, существует три распространенных типа связных списков.
+На рисунке показаны три распространённых вида связных списков.
 
-- **Односвязный список**: это обычный связный список, рассмотренный выше. Узел односвязного списка содержит значение и ссылку на следующий узел. Первый узел называется головным, последний - хвостовым, и хвост указывает на `None` .
-- **Кольцевой (циклический) список**: если заставить хвостовой узел односвязного списка указывать на головной, то есть соединить хвост с головой, получится циклический список. В циклическом списке любой узел можно рассматривать как головной.
-- **Двусвязный список**: по сравнению с односвязным списком двусвязный хранит ссылки в двух направлениях. Определение узла двусвязного списка включает как ссылку на следующий узел, так и ссылку на предыдущий узел. По сравнению с односвязным списком двусвязный более гибок и позволяет обходить список в обе стороны, но за это приходится платить дополнительной памятью.
+- **Односвязный список**. Это уже знакомый нам обычный связный список. Каждый узел хранит значение и ссылку на следующий узел. Первый узел называют головой, последний — хвостом. В хвостовом узле ссылка пуста (`None`).
+- **Кольцевой список**. Если в односвязном списке направить ссылку последнего узла на первый, голова и хвост соединятся и получится кольцевой список. В таком списке любой узел можно принять за голову.
+- **Двусвязный список**. В отличие от односвязного списка, здесь хранятся ссылки в обоих направлениях. Каждый узел содержит ссылки (указатели) и на следующий, и на предыдущий узел. Двусвязный список гибче односвязного: его можно обходить в обе стороны, но для этого требуется больше памяти.
 
 === "Python"
 
@@ -1269,8 +1269,8 @@ comments: true
         def __init__(self, val: int):
             """Конструктор"""
             self.val: int = val  # Значение узла
-            self.next: ListNode | None = None  # Ссылка на узел-преемник
-            self.prev: ListNode | None = None  # Ссылка на узел-предшественник
+            self.next: ListNode | None = None  # Ссылка на следующий узел
+            self.prev: ListNode | None = None  # Ссылка на предыдущий узел
     ```
 
 === "C++"
@@ -1279,8 +1279,8 @@ comments: true
     /* Узел двусвязного списка */
     struct DoublyListNode {
         int val;              // Значение узла
-        DoublyListNode *next; // Указатель на узел-преемник
-        DoublyListNode *prev; // Указатель на узел-предшественник
+        DoublyListNode *next; // Указатель на следующий узел
+        DoublyListNode *prev; // Указатель на предыдущий узел
         DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {
         }
     };
@@ -1292,8 +1292,8 @@ comments: true
     /* Узел двусвязного списка */
     class ListNode {
         int val;       // Значение узла
-        ListNode next; // Ссылка на узел-преемник
-        ListNode prev; // Ссылка на узел-предшественник
+        ListNode next; // Ссылка на следующий узел
+        ListNode prev; // Ссылка на предыдущий узел
 
         ListNode(int val) {
             this.val = val;
@@ -1308,8 +1308,8 @@ comments: true
     /* Узел двусвязного списка */
     public class ListNode(int val) {
         public int val = val;         // Значение узла
-        public ListNode? next = null; // Ссылка на узел-преемник
-        public ListNode? prev = null; // Ссылка на узел-предшественник
+        public ListNode? next = null; // Ссылка на следующий узел
+        public ListNode? prev = null; // Ссылка на предыдущий узел
     }
     ```
 
@@ -1319,11 +1319,11 @@ comments: true
     /* Структура узла двусвязного списка */
     type DoublyListNode struct {
         Val  int             // Значение узла
-        Next *DoublyListNode // Указатель на узел-преемник
-        Prev *DoublyListNode // Указатель на узел-предшественник
+        Next *DoublyListNode // Указатель на следующий узел
+        Prev *DoublyListNode // Указатель на предыдущий узел
     }
 
-    // NewDoublyListNode инициализирует узел двусвязного списка.
+    // Инициализация с помощью NewDoublyListNode
     func NewDoublyListNode(val int) *DoublyListNode {
         return &DoublyListNode{
             Val:  val,
@@ -1339,8 +1339,8 @@ comments: true
     /* Узел двусвязного списка */
     class ListNode {
         var val: Int // Значение узла
-        var next: ListNode? // Ссылка на узел-преемник
-        weak var prev: ListNode? // Ссылка на узел-предшественник
+        var next: ListNode? // Ссылка на следующий узел
+        weak var prev: ListNode? // Ссылка на предыдущий узел
 
         init(val: Int) {
             self.val = val
@@ -1353,8 +1353,8 @@ comments: true
     ```javascript title=""
     /* Узел двусвязного списка */
     class ListNode {
-        prev; // Ссылка на узел-предшественник (указатель)
-        next; // Ссылка на узел-преемник (указатель)
+        prev; // Ссылка (указатель) на предыдущий узел
+        next; // Ссылка (указатель) на следующий узел
         val; // Значение узла
 
         constructor(val) {
@@ -1370,8 +1370,8 @@ comments: true
     ```typescript title=""
     /* Узел двусвязного списка */
     class ListNode {
-        prev: ListNode | null; // Ссылка на узел-предшественник (указатель)
-        next: ListNode | null; // Ссылка на узел-преемник (указатель)
+        prev: ListNode | null; // Ссылка (указатель) на предыдущий узел
+        next: ListNode | null; // Ссылка (указатель) на следующий узел
         val: number; // Значение узла
 
         constructor(val: number) {
@@ -1388,8 +1388,8 @@ comments: true
     /* Узел двусвязного списка */
     class ListNode {
       int val; // Значение узла
-      ListNode? next; // Ссылка на узел-преемник
-      ListNode? prev; // Ссылка на узел-предшественник
+      ListNode? next; // Ссылка на следующий узел
+      ListNode? prev; // Ссылка на предыдущий узел
 
       ListNode(this.val, {this.next, this.prev});
     }
@@ -1404,8 +1404,8 @@ comments: true
     /* Узел двусвязного списка */
     pub struct ListNode<T> {
         pub val: T,                                 // Значение узла
-        pub next: Option<Rc<RefCell<ListNode<T>>>>, // Указатель на узел-преемник
-        pub prev: Option<Rc<RefCell<ListNode<T>>>>, // Указатель на узел-предшественник
+        pub next: Option<Rc<RefCell<ListNode<T>>>>, // Указатель на следующий узел
+        pub prev: Option<Rc<RefCell<ListNode<T>>>>, // Указатель на предыдущий узел
     }
 
     impl<T> ListNode<T> {
@@ -1425,8 +1425,8 @@ comments: true
     /* Узел двусвязного списка */
     typedef struct DoublyListNode {
         int val;                     // Значение узла
-        struct DoublyListNode *next; // Указатель на узел-преемник
-        struct DoublyListNode *prev; // Указатель на узел-предшественник
+        struct DoublyListNode *next; // Указатель на следующий узел
+        struct DoublyListNode *prev; // Указатель на предыдущий узел
     } DoublyListNode;
 
     /* Конструктор */
@@ -1446,8 +1446,8 @@ comments: true
     class ListNode(
         var _val: Int // Значение узла
     ) {
-        var next: ListNode? = null // Ссылка на узел-преемник
-        var prev: ListNode? = null // Ссылка на узел-предшественник
+        var next: ListNode? = null // Ссылка на следующий узел
+        var prev: ListNode? = null // Ссылка на предыдущий узел
     }
     ```
 
@@ -1457,8 +1457,8 @@ comments: true
     ### Узел двусвязного списка ###
     class ListNode
       attr_accessor :val  # Значение узла
-      attr_accessor :next # Ссылка на узел-преемник
-      attr_accessor :prev # Ссылка на узел-предшественник
+      attr_accessor :next # Ссылка на следующий узел
+      attr_accessor :prev # Ссылка на предыдущий узел
 
       ### Конструктор ###
       def initialize(val)
@@ -1467,25 +1467,25 @@ comments: true
     end
     ```
 
-![Распространенные типы связных списков](linked_list.assets/linkedlist_common_types.svg){ class="animation-figure" }
+![Распространённые виды связных списков](linked_list.assets/linkedlist_common_types.svg){ class="animation-figure" }
 
-<p align="center"> Рисунок 4-8 &nbsp; Распространенные типы связных списков </p>
+<p align="center"> Рисунок 4-8 &nbsp; Распространённые виды связных списков </p>
 
-## 4.2.4 &nbsp; Типичные применения связных списков
+## 4.2.4 &nbsp; Применение связных списков
 
-Односвязные списки обычно используются для реализации стеков, очередей, хеш-таблиц и графов.
+Односвязные списки часто используют для реализации стеков, очередей, хеш-таблиц и графов.
 
-- **Стек и очередь**: если операции вставки и удаления выполняются на одном конце связного списка, он проявляет свойства LIFO, соответствующие стеку. Если вставка происходит на одном конце, а удаление на другом, он проявляет свойства FIFO, соответствующие очереди.
-- **Хеш-таблица**: метод цепочек - один из основных способов разрешения коллизий в хеш-таблицах. В этом подходе все конфликтующие элементы помещаются в связный список.
-- **Граф**: список смежности - это распространенный способ представления графа, при котором каждой вершине графа соответствует связный список, а каждый элемент этого списка представляет другую вершину, соединенную с данной.
+- **Стек и очередь**. Если вставлять и удалять элементы с одного конца списка, первым выйдет тот, кто пришёл последним: получается стек. Если добавлять элементы с одного конца, а удалять с другого, они будут выходить в порядке поступления: получается очередь.
+- **Хеш-таблица**. Один из основных способов разрешения коллизий — метод цепочек. Все элементы, для которых произошла коллизия, помещаются в один связный список.
+- **Граф**. Граф часто представляют списками смежности. С каждой вершиной связан список, элементы которого обозначают другие вершины, соединённые с ней.
 
-Двусвязные списки обычно используются там, где нужен быстрый доступ как к предыдущему, так и к следующему элементу.
+Двусвязные списки часто применяются там, где нужен быстрый переход как к предыдущему, так и к следующему элементу.
 
-- **Продвинутые структуры данных**: например, в красно-черных деревьях и B-деревьях нам нужен доступ к родительскому узлу. Этого можно добиться, сохранив в узле ссылку на родителя, по аналогии с двусвязным списком.
-- **История браузера**: когда пользователь в браузере нажимает кнопки «вперед» или «назад», браузеру нужно знать предыдущую и следующую посещенные страницы. Свойства двусвязного списка делают такую операцию простой.
-- **Алгоритм LRU**: в алгоритмах вытеснения из кэша (LRU) нужно быстро находить наименее недавно использованные данные, а также быстро добавлять и удалять узлы. Для этого двусвязный список подходит очень хорошо.
+- **Более сложные структуры данных**. Например, в красно-чёрном дереве или B-дереве может понадобиться перейти от узла к его родителю. Для этого в узле можно хранить обратную ссылку на родителя, как в двусвязном списке.
+- **История браузера**. Когда пользователь нажимает «Назад» или «Вперёд», браузеру нужно найти предыдущую или следующую страницу в истории посещений. Двусвязный список упрощает эти переходы.
+- **Алгоритм LRU**. При вытеснении данных из кеша по правилу LRU требуется быстро находить данные, к которым дольше всего не обращались, а также быстро добавлять и удалять узлы. Для этого хорошо подходит двусвязный список.
 
-Циклические списки часто применяются в сценариях, требующих циклических операций, например при планировании ресурсов в операционной системе.
+Кольцевые списки часто используют для циклических операций, например при распределении ресурсов операционной системой.
 
-- **Алгоритм циклического планирования**: в операционных системах алгоритм циклического планирования - это распространенный алгоритм планирования CPU, который циклически обходит набор процессов. Каждому процессу выделяется квант времени, и когда он исчерпан, CPU переключается на следующий процесс. Такую циклическую операцию удобно реализовать с помощью кольцевого списка.
-- **Буфер данных**: в некоторых реализациях буферов данных также могут использоваться циклические списки. Например, в аудио- и видеоплеерах поток данных может делиться на несколько буферных блоков и помещаться в кольцевой список для обеспечения непрерывного воспроизведения.
+- **Циклическое планирование с квантованием времени**. Это распространённый алгоритм планирования работы процессора. Операционная система по кругу перебирает процессы и выделяет каждому квант времени. Когда квант заканчивается, процессор переключается на следующий процесс. Такой обход удобно реализовать с помощью кольцевого списка.
+- **Буферы данных**. В некоторых реализациях буферов также используются кольцевые списки. Например, аудио- или видеопроигрыватель может разбивать поток данных на блоки и помещать их в кольцевой список для непрерывного воспроизведения.

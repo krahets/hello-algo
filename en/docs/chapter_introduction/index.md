@@ -3,17 +3,17 @@ comments: true
 icon: material/calculator-variant-outline
 ---
 
-# Chapter 1. &nbsp; Getting to know algorithms
+# Chapter 1. &nbsp; Introduction to algorithms
 
 ![Getting to know algorithms](../assets/covers/chapter_introduction.svg){ class="cover-image" }
 
 !!! abstract
 
-    A young woman dances gracefully among the data, the melody of algorithms rippling through her skirt.
+    A young woman dances among strands of data, her skirt swirling to the rhythm of algorithms.
     
-    She invites you to join her. Follow her steps into a world of algorithms filled with logic and beauty.
+    She invites you to dance. Follow her steps into a world of logic and beauty.
 
-## Chapter contents
+## In this chapter
 
 - [1.1 &nbsp; Algorithms are everywhere](algorithms_are_everywhere.md)
 - [1.2 &nbsp; What is an algorithm?](what_is_dsa.md)

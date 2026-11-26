@@ -8,24 +8,24 @@ comments: true
 
 ### 1. &nbsp; Which tasks suit divide and conquer?
 
-A student wants to solve the following tasks by splitting each in half, solving the halves separately, and combining the results.
-For each task, decide whether divide and conquer is suitable, is possible but does not reduce the total work, or is unsuitable because the halves cannot be solved independently. Explain.
+A student wants to split each of the following tasks in half, solve the halves separately, and combine their results.
+Classify each task as “well suited to divide and conquer,” “can be divided without reducing the total work,” or “the halves cannot be solved independently.” Explain your reasoning.
 
 <!-- numbered-subquestions -->
 
 1. Sort an unsorted array.
 2. Find the maximum value in an array.
-3. Execute a sequence of stack operations `push(x)` and `pop()` in order, outputting the element returned by each `pop()`.
+3. Perform a sequence of stack operations `push(x)` and `pop()` in order, and output the element returned by each `pop()`.
 
-??? success "Reference answer"
+??? success "Sample answer"
 
-    1. Suitable: split in half, sort the halves independently, and merge in $O(n)$ time. This is exactly merge sort.
-    2. Possible, but without reducing the total work: the two halves must still examine all $n$ elements between them,
-        taking $O(n)$ time, just like a direct scan.
-    3. The halves cannot be solved independently: the stack contents at the start of the second half depend on the results of the first half.
-        The second half therefore cannot run independently of the first half's result.
+    1. Well suited. Split the array in half, sort the halves independently, and merge them in $O(n)$ time. This is merge sort.
+    2. The task can be divided, but the total work stays the same. Together, the two halves still require examining all $n$ elements,
+        which takes $O(n)$ time, just like a direct scan.
+    3. The halves cannot be solved independently. The contents of the stack at the start of the second half depend on the result of the first,
+        so the two halves cannot run independently without knowing each other’s results.
 
-### 2. &nbsp; How fast exponentiation reduces computation
+### 2. &nbsp; How does exponentiation by squaring save work?
 
 The following recursive function uses divide and conquer to compute $x^n$:
 
@@ -33,7 +33,7 @@ The following recursive function uses divide and conquer to compute $x^n$:
 
     ```python title="fast_power.py"
     def fast_pow(x: int, n: int) -> int:
-        """Fast exponentiation"""
+        """Exponentiation by squaring"""
         if n == 0:
             return 1
         half = fast_pow(x, n // 2)
@@ -45,7 +45,7 @@ The following recursive function uses divide and conquer to compute $x^n$:
 === "C++"
 
     ```cpp title="fast_power.cpp"
-    /* Fast exponentiation */
+    /* Exponentiation by squaring */
     int fastPow(int x, int n) {
         if (n == 0) {
             return 1;
@@ -61,7 +61,7 @@ The following recursive function uses divide and conquer to compute $x^n$:
 === "Java"
 
     ```java title="fast_power.java"
-    /* Fast exponentiation */
+    /* Exponentiation by squaring */
     int fastPow(int x, int n) {
         if (n == 0) {
             return 1;
@@ -77,7 +77,7 @@ The following recursive function uses divide and conquer to compute $x^n$:
 === "C#"
 
     ```csharp title="fast_power.cs"
-    /* Fast exponentiation */
+    /* Exponentiation by squaring */
     int FastPow(int x, int n) {
         if (n == 0) {
             return 1;
@@ -93,7 +93,7 @@ The following recursive function uses divide and conquer to compute $x^n$:
 === "Go"
 
     ```go title="fast_power.go"
-    /* Fast exponentiation */
+    /* Exponentiation by squaring */
     func fastPow(x, n int) int {
         if n == 0 {
             return 1
@@ -109,7 +109,7 @@ The following recursive function uses divide and conquer to compute $x^n$:
 === "Swift"
 
     ```swift title="fast_power.swift"
-    /* Fast exponentiation */
+    /* Exponentiation by squaring */
     func fastPow(x: Int, n: Int) -> Int {
         if n == 0 {
             return 1
@@ -125,7 +125,7 @@ The following recursive function uses divide and conquer to compute $x^n$:
 === "JS"
 
     ```javascript title="fast_power.js"
-    /* Fast exponentiation */
+    /* Exponentiation by squaring */
     function fastPow(x, n) {
         if (n === 0) {
             return 1;
@@ -141,7 +141,7 @@ The following recursive function uses divide and conquer to compute $x^n$:
 === "TS"
 
     ```typescript title="fast_power.ts"
-    /* Fast exponentiation */
+    /* Exponentiation by squaring */
     function fastPow(x: number, n: number): number {
         if (n === 0) {
             return 1;
@@ -157,7 +157,7 @@ The following recursive function uses divide and conquer to compute $x^n$:
 === "Dart"
 
     ```dart title="fast_power.dart"
-    /* Fast exponentiation */
+    /* Exponentiation by squaring */
     int fastPow(int x, int n) {
       if (n == 0) {
         return 1;
@@ -173,7 +173,7 @@ The following recursive function uses divide and conquer to compute $x^n$:
 === "Rust"
 
     ```rust title="fast_power.rs"
-    /* Fast exponentiation */
+    /* Exponentiation by squaring */
     fn fast_pow(x: i32, n: i32) -> i32 {
         if n == 0 {
             return 1;
@@ -189,7 +189,7 @@ The following recursive function uses divide and conquer to compute $x^n$:
 === "C"
 
     ```c title="fast_power.c"
-    /* Fast exponentiation */
+    /* Exponentiation by squaring */
     int fastPow(int x, int n) {
         if (n == 0) {
             return 1;
@@ -205,7 +205,7 @@ The following recursive function uses divide and conquer to compute $x^n$:
 === "Kotlin"
 
     ```kotlin title="fast_power.kt"
-    /* Fast exponentiation */
+    /* Exponentiation by squaring */
     fun fastPow(x: Int, n: Int): Int {
         if (n == 0) {
             return 1
@@ -221,7 +221,7 @@ The following recursive function uses divide and conquer to compute $x^n$:
 === "Ruby"
 
     ```ruby title="fast_power.rb"
-    ### Fast exponentiation ###
+    ### Exponentiation by squaring ###
     def fast_pow(x, n)
       return 1 if n == 0
 
@@ -232,62 +232,62 @@ The following recursive function uses divide and conquer to compute $x^n$:
     end
     ```
 
-Run it with `x = 3` and `n = 5`:
+Let `x = 3` and `n = 5`. Trace the function:
 
 <!-- numbered-subquestions -->
 
-1. What values does `n` take in successive recursive calls?
-2. Starting with the deepest call, what value does each call return?
-3. Why should the recursive result be saved in `half` instead of making the same recursive call on each side of the multiplication?
+1. What values does the argument `n` take in successive recursive calls?
+2. As the calls return, starting with the deepest one, what value does each return?
+3. Why store the recursive result in `half` instead of calling the same subproblem once for each factor?
 
-??? success "Reference answer"
+??? success "Sample answer"
 
-    1. The parameter follows `5 → 2 → 1 → 0`, halving the exponent each time until the base case is reached.
+    1. The argument takes the values `5 → 2 → 1 → 0`. Each call halves the exponent until it reaches the base case.
 
-    2. When `n = 0`, the return value is 1. When `n = 1`, it is $1×1×3=3$.
-        When `n = 2`, it is $3×3=9$; when `n = 5`, it is $9×9×3=243$.
+    2. For `n = 0`, the function returns 1. For `n = 1`, it returns $1×1×3=3$.
+        For `n = 2`, it returns $3×3=9$. For `n = 5`, it returns $9×9×3=243$.
 
-    3. Calling the same subproblem on both sides of the multiplication repeats exactly the same computation.
-        Saving the result in `half` means each level makes only one recursive call, with recursion depth approximately $\log n$.
-        Making two calls would cause substantial repeated computation.
+    3. Calling the same subproblem for each factor would perform exactly the same calculation twice.
+        Saving the result in `half` means each level makes just one recursive call, and the recursion depth is about $\log n$.
+        Making both calls would repeat a great deal of work.
 
-### 3. &nbsp; Splitting traversal sequences into left and right subtrees
+### 3. &nbsp; Separating the left and right subtrees in traversal sequences
 
-A binary tree with distinct node values has these preorder and inorder traversals:
+A binary tree with distinct node values has the following preorder and inorder traversals:
 
 - Preorder: `[A, B, D, E, C]`
 - Inorder: `[D, B, E, A, C]`
 
-Split only at the root level; there is no need to recurse further or draw the entire tree.
+Split the sequences only at the root. You do not need to recurse further or draw the whole tree.
 
 <!-- numbered-subquestions -->
 
-1. What is the root node?
-2. Which parts of the inorder sequence belong to the left and right subtrees?
-3. Which parts of the preorder sequence belong to the left and right subtrees? What are the root's immediate children?
+1. Which node is the root?
+2. Which segments of the inorder traversal represent the left and right subtrees?
+3. Which segments of the preorder traversal represent the left and right subtrees? Which nodes are the root’s immediate children?
 
-??? success "Reference answer"
+??? success "Sample answer"
 
     1. The first node in preorder is the root, so the root is `A`.
 
-    2. `A` splits the inorder sequence into two parts: `[D, B, E]` for the left subtree and `[C]` for the right subtree.
+    2. `A` splits the inorder traversal into two parts: `[D, B, E]` for the left subtree and `[C]` for the right.
 
-    3. The left subtree has three nodes, so the three preorder elements after root `A` belong to the left subtree:
-        `[B, D, E]`. The remaining `[C]` belongs to the right subtree.
-        Thus, the root's left child is `B`, and its right child is `C`.
+    3. The left subtree contains three nodes, so the three preorder elements after the root `A` belong to the left subtree,
+        giving `[B, D, E]`. The remaining segment, `[C]`, belongs to the right subtree.
+        The root’s left child is therefore `B` and its right child is `C`.
 
 ## 12.6.2 &nbsp; Programming exercises
 
-### 1. &nbsp; Fast exponentiation
+### 1. &nbsp; Exponentiation by squaring
 
-Given a real number `x` and an integer `n`, compute $x^n$ without calling a built-in power function.
-Use recursive divide and conquer: halve the exponent at each step and reuse the computed subproblem result.
-For this problem, $x^0=1$, including when `x = 0`. When `n < 0`, `x != 0` is guaranteed, and the answer can be expressed as $(1/x)^{-n}$.
+Given a real number `x` and an integer `n`, compute $x^n$ without calling the language’s built-in power function.
+Use recursive divide and conquer. Halve the exponent at each step and reuse the result of the subproblem.
+For this problem, $x^0=1$ even when `x = 0`. When `n < 0`, you may assume `x != 0` and compute the answer as $(1/x)^{-n}$.
 
 ??? tip "Hints"
 
-    1. When n is 0, the answer is 1.
-    2. After computing x to the power n // 2, save it in half instead of making the recursive call a second time.
-    3. When n < 0, first replace x with 1 / x and n with -n. In C++ or Java, you can convert n to a 64-bit integer first to avoid overflow when negating the smallest 32-bit integer.
+    1. When n is 0, the answer is 1
+    2. Save x raised to the power n // 2 as half to avoid a second recursive call
+    3. If n < 0, first set x to 1 / x and n to -n. In C++ or Java, you can first promote n to a 64-bit integer to avoid overflow when negating the smallest 32-bit integer
 
 [LeetCode](https://leetcode.com/problems/powx-n/){ .rounded-button .exercise-button target="_blank" rel="noopener noreferrer" }

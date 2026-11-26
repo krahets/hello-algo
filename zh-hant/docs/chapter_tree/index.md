@@ -9,16 +9,16 @@ icon: material/graph-outline
 
 !!! abstract
 
-    參天大樹充滿生命力，根深葉茂，分枝扶疏。
+    參天大樹生意盎然，根深葉茂，枝椏舒展。
     
-    它為我們展現了資料分治的生動形態。
+    從枝幹層層分岔的樣子，就能看見資料分治的具體形貌。
 
 ## 本章內容
 
 - [7.1 &nbsp; 二元樹](binary_tree.md)
 - [7.2 &nbsp; 二元樹走訪](binary_tree_traversal.md)
-- [7.3 &nbsp; 二元樹陣列表示](array_representation_of_tree.md)
+- [7.3 &nbsp; 二元樹的陣列表示法](array_representation_of_tree.md)
 - [7.4 &nbsp; 二元搜尋樹](binary_search_tree.md)
-- [7.5 &nbsp; AVL *](avl_tree.md)
+- [7.5 &nbsp; AVL 樹 *](avl_tree.md)
 - [7.6 &nbsp; 小結](summary.md)
 - [7.7 &nbsp; 練習](exercises.md)

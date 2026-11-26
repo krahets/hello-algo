@@ -361,7 +361,7 @@ $$
         }
         if (b == 2) {
             // 当余数为 2 时，不做处理
-            return 3.0.pow(a).toInt() * 2 * 2
+            return 3.0.pow(a).toInt() * 2
         }
         // 当余数为 0 时，不做处理
         return 3.0.pow(a).toInt()

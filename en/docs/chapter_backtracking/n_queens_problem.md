@@ -2,59 +2,59 @@
 comments: true
 ---
 
-# 13.4 &nbsp; N-queens problem
+# 13.4 &nbsp; The n-queens problem
 
 !!! question
 
-    In chess, a queen can attack any piece in the same row, column, or diagonal. Given $n$ queens and an $n \times n$ chessboard, find all arrangements in which no two queens can attack each other.
+    In chess, a queen can attack a piece in the same row, column, or diagonal. Given $n$ queens and an $n \times n$ board, find the arrangements in which no two queens attack each other.
 
-As shown in Figure 13-15, there are two solutions when $n = 4$. From a backtracking perspective, the $n \times n$ board has $n^2$ squares, which provide all possible `choices`. As we place queens one by one, the board changes; its arrangement at any moment is the current `state`.
+As the figure shows, there are two solutions when $n = 4$. In a backtracking search, the $n^2$ squares of the $n \times n$ board constitute the possible choices `choices`. As we place one queen after another, the board changes. Its arrangement at any point is the current state `state`.
 
 ![Solutions to the 4-queens problem](n_queens_problem.assets/solution_4_queens.svg){ class="animation-figure" }
 
 <p align="center"> Figure 13-15 &nbsp; Solutions to the 4-queens problem </p>
 
-Figure 13-16 shows the three constraints: **no two queens may share a row, column, or diagonal**. Diagonals run in two directions: the main-diagonal direction `\` and the antidiagonal direction `/`.
+The figure illustrates three constraints: **no two queens may share a row, a column, or a diagonal**. Diagonals run in two directions: main diagonals `\` and secondary diagonals `/`.
 
-![Constraints of the n-queens problem](n_queens_problem.assets/n_queens_constraints.svg){ class="animation-figure" }
+![Constraints in the n-queens problem](n_queens_problem.assets/n_queens_constraints.svg){ class="animation-figure" }
 
-<p align="center"> Figure 13-16 &nbsp; Constraints of the n-queens problem </p>
+<p align="center"> Figure 13-16 &nbsp; Constraints in the n-queens problem </p>
 
 ### 1. &nbsp; Placing queens row by row
 
-There are as many queens as rows, namely $n$, so we can immediately conclude that **each row must contain exactly one queen**.
+Both the number of queens and the number of rows equal $n$. It follows that **each row must contain exactly one queen**.
 
-We can therefore place queens row by row: start at the first row and place one queen in each row through the last.
+We can therefore place queens row by row, starting at the first row and placing one queen in each row through the last.
 
-Figure 13-17 illustrates this process for 4 queens. To fit the illustration, only one branch from the first row is expanded, and all arrangements violating the column or diagonal constraints are pruned.
+The figure shows row-by-row placement for four queens. To save space, it expands just one branch from the first row. Branches that violate a column or diagonal constraint have been pruned.
 
 ![Placing queens row by row](n_queens_problem.assets/n_queens_placing.svg){ class="animation-figure" }
 
 <p align="center"> Figure 13-17 &nbsp; Placing queens row by row </p>
 
-In essence, **placing queens row by row is itself a form of pruning**: it eliminates every search branch that places multiple queens in the same row.
+In effect, **placing queens row by row prunes the search** by excluding every branch that would place multiple queens in one row.
 
-### 2. &nbsp; Pruning by columns and diagonals
+### 2. &nbsp; Pruning by column and diagonal
 
-To enforce the column constraint, use a Boolean array `cols` of length $n$ to record whether each column contains a queen. Before placing a queen, consult `cols` to prune columns already occupied, and update `cols` as the search proceeds and backtracks.
+To enforce the column constraint, use a Boolean array `cols` of length $n$ to track which columns already contain queens. Before placing a queen, consult `cols` to skip occupied columns. Update `cols` as the search proceeds and backtracks.
 
 !!! tip
 
-    The matrix starts at its top-left corner. Row indices increase downward, and column indices increase to the right.
+    The matrix starts in the upper-left corner. Row indices increase downward and column indices increase to the right.
 
-How do we enforce the diagonal constraints? Let $(row, col)$ be the row and column indices of a square. Along any diagonal in the main-diagonal direction, the row index minus the column index is the same: **$row - col$ is constant along that diagonal**.
+How can we enforce the diagonal constraints? Let $(row, col)$ be the row and column indices of a square. Along any main diagonal, subtracting the column index from the row index always gives the same result: **the value of $row - col$ is constant along a main diagonal**.
 
-Thus, if two squares satisfy $row_1 - col_1 = row_2 - col_2$, they lie on the same main-direction diagonal. Using this property, the array `diags1` in Figure 13-18 records whether each such diagonal contains a queen.
+Thus, if two squares satisfy $row_1 - col_1 = row_2 - col_2$, they lie on the same main diagonal. We can use this property to track which main diagonals contain queens in the array `diags1`, as shown below.
 
-Similarly, **$row + col$ is constant along each antidiagonal**. We can use an array `diags2` to enforce the antidiagonal constraint.
+Similarly, **the value of $row + col$ is constant along a secondary diagonal**. The array `diags2` lets us enforce this constraint as well.
 
-![Enforcing column and diagonal constraints](n_queens_problem.assets/n_queens_cols_diagonals.svg){ class="animation-figure" }
+![Checking column and diagonal constraints](n_queens_problem.assets/n_queens_cols_diagonals.svg){ class="animation-figure" }
 
-<p align="center"> Figure 13-18 &nbsp; Enforcing column and diagonal constraints </p>
+<p align="center"> Figure 13-18 &nbsp; Checking column and diagonal constraints </p>
 
-### 3. &nbsp; Code implementation
+### 3. &nbsp; Implementation
 
-In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and $row + col$ ranges over $[0, 2n - 2]$. There are therefore $2n - 1$ diagonals in each direction, so both `diags1` and `diags2` have length $2n - 1$.
+In a square matrix with $n$ rows, $row - col$ ranges over $[-n + 1, n - 1]$, and $row + col$ ranges over $[0, 2n - 2]$. There are therefore $2n - 1$ diagonals in each direction, so `diags1` and `diags2` each have length $2n - 1$.
 
 === "Python"
 
@@ -69,33 +69,33 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
         diags2: list[bool],
     ):
         """Backtracking: n-queens"""
-        # Record a solution when a queen has been placed in every row
+        # Record the solution once every row has a queen
         if row == n:
             res.append([list(row) for row in state])
             return
-        # Iterate over all columns
+        # Try each column
         for col in range(n):
-            # Calculate the main-diagonal and anti-diagonal indices for this square
+            # Find the two diagonals through this square
             diag1 = row - col + n - 1
             diag2 = row + col
-            # Prune: the square must have no queen in its column, main diagonal, or anti-diagonal
+            # Prune if the column or either diagonal already has a queen
             if not cols[col] and not diags1[diag1] and not diags2[diag2]:
-                # Try: place a queen on this square
+                # Try placing a queen on this square
                 state[row][col] = "Q"
                 cols[col] = diags1[diag1] = diags2[diag2] = True
                 # Place a queen in the next row
                 backtrack(row + 1, n, state, res, cols, diags1, diags2)
-                # Backtrack: restore this square to empty
+                # Backtrack: clear this square
                 state[row][col] = "#"
                 cols[col] = diags1[diag1] = diags2[diag2] = False
 
     def n_queens(n: int) -> list[list[list[str]]]:
         """Solve the n-queens problem"""
-        # Initialize an n*n board, where 'Q' represents a queen and '#' represents an empty square
+        # Set up an n-by-n board with 'Q' for a queen and '#' for an empty square
         state = [["#" for _ in range(n)] for _ in range(n)]
-        cols = [False] * n  # Track whether a column contains a queen
-        diags1 = [False] * (2 * n - 1)  # Track whether a main diagonal contains a queen
-        diags2 = [False] * (2 * n - 1)  # Track whether an anti-diagonal contains a queen
+        cols = [False] * n  # Track occupied columns
+        diags1 = [False] * (2 * n - 1)  # Track occupied main diagonals
+        diags2 = [False] * (2 * n - 1)  # Track occupied secondary diagonals
         res = []
         backtrack(0, n, state, res, cols, diags1, diags2)
 
@@ -108,24 +108,24 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
     /* Backtracking: n-queens */
     void backtrack(int row, int n, vector<vector<string>> &state, vector<vector<vector<string>>> &res, vector<bool> &cols,
                    vector<bool> &diags1, vector<bool> &diags2) {
-        // Record a solution when a queen has been placed in every row
+        // Record the solution once every row has a queen
         if (row == n) {
             res.push_back(state);
             return;
         }
-        // Iterate over all columns
+        // Try each column
         for (int col = 0; col < n; col++) {
-            // Calculate the main-diagonal and anti-diagonal indices for this square
+            // Find the two diagonals through this square
             int diag1 = row - col + n - 1;
             int diag2 = row + col;
-            // Prune: the square must have no queen in its column, main diagonal, or anti-diagonal
+            // Prune if the column or either diagonal already has a queen
             if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-                // Try: place a queen on this square
+                // Try placing a queen on this square
                 state[row][col] = "Q";
                 cols[col] = diags1[diag1] = diags2[diag2] = true;
                 // Place a queen in the next row
                 backtrack(row + 1, n, state, res, cols, diags1, diags2);
-                // Backtrack: restore this square to empty
+                // Backtrack: clear this square
                 state[row][col] = "#";
                 cols[col] = diags1[diag1] = diags2[diag2] = false;
             }
@@ -134,11 +134,11 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
 
     /* Solve the n-queens problem */
     vector<vector<vector<string>>> nQueens(int n) {
-        // Initialize an n*n board, where 'Q' represents a queen and '#' represents an empty square
+        // Set up an n-by-n board with 'Q' for a queen and '#' for an empty square
         vector<vector<string>> state(n, vector<string>(n, "#"));
-        vector<bool> cols(n, false);           // Track whether a column contains a queen
-        vector<bool> diags1(2 * n - 1, false); // Track whether a main diagonal contains a queen
-        vector<bool> diags2(2 * n - 1, false); // Track whether an anti-diagonal contains a queen
+        vector<bool> cols(n, false);           // Track occupied columns
+        vector<bool> diags1(2 * n - 1, false); // Track occupied main diagonals
+        vector<bool> diags2(2 * n - 1, false); // Track occupied secondary diagonals
         vector<vector<vector<string>>> res;
 
         backtrack(0, n, state, res, cols, diags1, diags2);
@@ -153,7 +153,7 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
     /* Backtracking: n-queens */
     void backtrack(int row, int n, List<List<String>> state, List<List<List<String>>> res,
             boolean[] cols, boolean[] diags1, boolean[] diags2) {
-        // Record a solution when a queen has been placed in every row
+        // Record the solution once every row has a queen
         if (row == n) {
             List<List<String>> copyState = new ArrayList<>();
             for (List<String> sRow : state) {
@@ -162,19 +162,19 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
             res.add(copyState);
             return;
         }
-        // Iterate over all columns
+        // Try each column
         for (int col = 0; col < n; col++) {
-            // Calculate the main-diagonal and anti-diagonal indices for this square
+            // Find the two diagonals through this square
             int diag1 = row - col + n - 1;
             int diag2 = row + col;
-            // Prune: the square must have no queen in its column, main diagonal, or anti-diagonal
+            // Prune if the column or either diagonal already has a queen
             if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-                // Try: place a queen on this square
+                // Try placing a queen on this square
                 state.get(row).set(col, "Q");
                 cols[col] = diags1[diag1] = diags2[diag2] = true;
                 // Place a queen in the next row
                 backtrack(row + 1, n, state, res, cols, diags1, diags2);
-                // Backtrack: restore this square to empty
+                // Backtrack: clear this square
                 state.get(row).set(col, "#");
                 cols[col] = diags1[diag1] = diags2[diag2] = false;
             }
@@ -183,7 +183,7 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
 
     /* Solve the n-queens problem */
     List<List<List<String>>> nQueens(int n) {
-        // Initialize an n*n board, where 'Q' represents a queen and '#' represents an empty square
+        // Set up an n-by-n board with 'Q' for a queen and '#' for an empty square
         List<List<String>> state = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             List<String> row = new ArrayList<>();
@@ -192,9 +192,9 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
             }
             state.add(row);
         }
-        boolean[] cols = new boolean[n]; // Track whether a column contains a queen
-        boolean[] diags1 = new boolean[2 * n - 1]; // Track whether a main diagonal contains a queen
-        boolean[] diags2 = new boolean[2 * n - 1]; // Track whether an anti-diagonal contains a queen
+        boolean[] cols = new boolean[n]; // Track occupied columns
+        boolean[] diags1 = new boolean[2 * n - 1]; // Track occupied main diagonals
+        boolean[] diags2 = new boolean[2 * n - 1]; // Track occupied secondary diagonals
         List<List<List<String>>> res = new ArrayList<>();
 
         backtrack(0, n, state, res, cols, diags1, diags2);
@@ -209,7 +209,7 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
     /* Backtracking: n-queens */
     void Backtrack(int row, int n, List<List<string>> state, List<List<List<string>>> res,
             bool[] cols, bool[] diags1, bool[] diags2) {
-        // Record a solution when a queen has been placed in every row
+        // Record the solution once every row has a queen
         if (row == n) {
             List<List<string>> copyState = [];
             foreach (List<string> sRow in state) {
@@ -218,19 +218,19 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
             res.Add(copyState);
             return;
         }
-        // Iterate over all columns
+        // Try each column
         for (int col = 0; col < n; col++) {
-            // Calculate the main-diagonal and anti-diagonal indices for this square
+            // Find the two diagonals through this square
             int diag1 = row - col + n - 1;
             int diag2 = row + col;
-            // Prune: the square must have no queen in its column, main diagonal, or anti-diagonal
+            // Prune if the column or either diagonal already has a queen
             if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-                // Try: place a queen on this square
+                // Try placing a queen on this square
                 state[row][col] = "Q";
                 cols[col] = diags1[diag1] = diags2[diag2] = true;
                 // Place a queen in the next row
                 Backtrack(row + 1, n, state, res, cols, diags1, diags2);
-                // Backtrack: restore this square to empty
+                // Backtrack: clear this square
                 state[row][col] = "#";
                 cols[col] = diags1[diag1] = diags2[diag2] = false;
             }
@@ -239,7 +239,7 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
 
     /* Solve the n-queens problem */
     List<List<List<string>>> NQueens(int n) {
-        // Initialize an n*n board, where 'Q' represents a queen and '#' represents an empty square
+        // Set up an n-by-n board with 'Q' for a queen and '#' for an empty square
         List<List<string>> state = [];
         for (int i = 0; i < n; i++) {
             List<string> row = [];
@@ -248,9 +248,9 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
             }
             state.Add(row);
         }
-        bool[] cols = new bool[n]; // Track whether a column contains a queen
-        bool[] diags1 = new bool[2 * n - 1]; // Track whether a main diagonal contains a queen
-        bool[] diags2 = new bool[2 * n - 1]; // Track whether an anti-diagonal contains a queen
+        bool[] cols = new bool[n]; // Track occupied columns
+        bool[] diags1 = new bool[2 * n - 1]; // Track occupied main diagonals
+        bool[] diags2 = new bool[2 * n - 1]; // Track occupied secondary diagonals
         List<List<List<string>>> res = [];
 
         Backtrack(0, n, state, res, cols, diags1, diags2);
@@ -264,7 +264,7 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
     ```go title="n_queens.go"
     /* Backtracking: n-queens */
     func backtrack(row, n int, state *[][]string, res *[][][]string, cols, diags1, diags2 *[]bool) {
-        // Record a solution when a queen has been placed in every row
+        // Record the solution once every row has a queen
         if row == n {
             newState := make([][]string, len(*state))
             for i, _ := range newState {
@@ -275,19 +275,19 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
             *res = append(*res, newState)
             return
         }
-        // Iterate over all columns
+        // Try each column
         for col := 0; col < n; col++ {
-            // Calculate the main-diagonal and anti-diagonal indices for this square
+            // Find the two diagonals through this square
             diag1 := row - col + n - 1
             diag2 := row + col
-            // Prune: the square must have no queen in its column, main diagonal, or anti-diagonal
+            // Prune if the column or either diagonal already has a queen
             if !(*cols)[col] && !(*diags1)[diag1] && !(*diags2)[diag2] {
-                // Try: place a queen on this square
+                // Try placing a queen on this square
                 (*state)[row][col] = "Q"
                 (*cols)[col], (*diags1)[diag1], (*diags2)[diag2] = true, true, true
                 // Place a queen in the next row
                 backtrack(row+1, n, state, res, cols, diags1, diags2)
-                // Backtrack: restore this square to empty
+                // Backtrack: clear this square
                 (*state)[row][col] = "#"
                 (*cols)[col], (*diags1)[diag1], (*diags2)[diag2] = false, false, false
             }
@@ -296,7 +296,7 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
 
     /* Solve the n-queens problem */
     func nQueens(n int) [][][]string {
-        // Initialize an n*n board, where 'Q' represents a queen and '#' represents an empty square
+        // Set up an n-by-n board with 'Q' for a queen and '#' for an empty square
         state := make([][]string, n)
         for i := 0; i < n; i++ {
             row := make([]string, n)
@@ -305,7 +305,7 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
             }
             state[i] = row
         }
-        // Track whether a column contains a queen
+        // Track occupied columns
         cols := make([]bool, n)
         diags1 := make([]bool, 2*n-1)
         diags2 := make([]bool, 2*n-1)
@@ -320,26 +320,26 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
     ```swift title="n_queens.swift"
     /* Backtracking: n-queens */
     func backtrack(row: Int, n: Int, state: inout [[String]], res: inout [[[String]]], cols: inout [Bool], diags1: inout [Bool], diags2: inout [Bool]) {
-        // Record a solution when a queen has been placed in every row
+        // Record the solution once every row has a queen
         if row == n {
             res.append(state)
             return
         }
-        // Iterate over all columns
+        // Try each column
         for col in 0 ..< n {
-            // Calculate the main-diagonal and anti-diagonal indices for this square
+            // Find the two diagonals through this square
             let diag1 = row - col + n - 1
             let diag2 = row + col
-            // Prune: the square must have no queen in its column, main diagonal, or anti-diagonal
+            // Prune if the column or either diagonal already has a queen
             if !cols[col] && !diags1[diag1] && !diags2[diag2] {
-                // Try: place a queen on this square
+                // Try placing a queen on this square
                 state[row][col] = "Q"
                 cols[col] = true
                 diags1[diag1] = true
                 diags2[diag2] = true
                 // Place a queen in the next row
                 backtrack(row: row + 1, n: n, state: &state, res: &res, cols: &cols, diags1: &diags1, diags2: &diags2)
-                // Backtrack: restore this square to empty
+                // Backtrack: clear this square
                 state[row][col] = "#"
                 cols[col] = false
                 diags1[diag1] = false
@@ -350,11 +350,11 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
 
     /* Solve the n-queens problem */
     func nQueens(n: Int) -> [[[String]]] {
-        // Initialize an n*n board, where 'Q' represents a queen and '#' represents an empty square
+        // Set up an n-by-n board with 'Q' for a queen and '#' for an empty square
         var state = Array(repeating: Array(repeating: "#", count: n), count: n)
-        var cols = Array(repeating: false, count: n) // Track whether a column contains a queen
-        var diags1 = Array(repeating: false, count: 2 * n - 1) // Track whether a main diagonal contains a queen
-        var diags2 = Array(repeating: false, count: 2 * n - 1) // Track whether an anti-diagonal contains a queen
+        var cols = Array(repeating: false, count: n) // Track occupied columns
+        var diags1 = Array(repeating: false, count: 2 * n - 1) // Track occupied main diagonals
+        var diags2 = Array(repeating: false, count: 2 * n - 1) // Track occupied secondary diagonals
         var res: [[[String]]] = []
 
         backtrack(row: 0, n: n, state: &state, res: &res, cols: &cols, diags1: &diags1, diags2: &diags2)
@@ -368,24 +368,24 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
     ```javascript title="n_queens.js"
     /* Backtracking: n-queens */
     function backtrack(row, n, state, res, cols, diags1, diags2) {
-        // Record a solution when a queen has been placed in every row
+        // Record the solution once every row has a queen
         if (row === n) {
             res.push(state.map((row) => row.slice()));
             return;
         }
-        // Iterate over all columns
+        // Try each column
         for (let col = 0; col < n; col++) {
-            // Calculate the main-diagonal and anti-diagonal indices for this square
+            // Find the two diagonals through this square
             const diag1 = row - col + n - 1;
             const diag2 = row + col;
-            // Prune: the square must have no queen in its column, main diagonal, or anti-diagonal
+            // Prune if the column or either diagonal already has a queen
             if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-                // Try: place a queen on this square
+                // Try placing a queen on this square
                 state[row][col] = 'Q';
                 cols[col] = diags1[diag1] = diags2[diag2] = true;
                 // Place a queen in the next row
                 backtrack(row + 1, n, state, res, cols, diags1, diags2);
-                // Backtrack: restore this square to empty
+                // Backtrack: clear this square
                 state[row][col] = '#';
                 cols[col] = diags1[diag1] = diags2[diag2] = false;
             }
@@ -394,11 +394,11 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
 
     /* Solve the n-queens problem */
     function nQueens(n) {
-        // Initialize an n*n board, where 'Q' represents a queen and '#' represents an empty square
+        // Set up an n-by-n board with 'Q' for a queen and '#' for an empty square
         const state = Array.from({ length: n }, () => Array(n).fill('#'));
-        const cols = Array(n).fill(false); // Track whether a column contains a queen
-        const diags1 = Array(2 * n - 1).fill(false); // Track whether a main diagonal contains a queen
-        const diags2 = Array(2 * n - 1).fill(false); // Track whether an anti-diagonal contains a queen
+        const cols = Array(n).fill(false); // Track occupied columns
+        const diags1 = Array(2 * n - 1).fill(false); // Track occupied main diagonals
+        const diags2 = Array(2 * n - 1).fill(false); // Track occupied secondary diagonals
         const res = [];
 
         backtrack(0, n, state, res, cols, diags1, diags2);
@@ -419,24 +419,24 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
         diags1: boolean[],
         diags2: boolean[]
     ): void {
-        // Record a solution when a queen has been placed in every row
+        // Record the solution once every row has a queen
         if (row === n) {
             res.push(state.map((row) => row.slice()));
             return;
         }
-        // Iterate over all columns
+        // Try each column
         for (let col = 0; col < n; col++) {
-            // Calculate the main-diagonal and anti-diagonal indices for this square
+            // Find the two diagonals through this square
             const diag1 = row - col + n - 1;
             const diag2 = row + col;
-            // Prune: the square must have no queen in its column, main diagonal, or anti-diagonal
+            // Prune if the column or either diagonal already has a queen
             if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-                // Try: place a queen on this square
+                // Try placing a queen on this square
                 state[row][col] = 'Q';
                 cols[col] = diags1[diag1] = diags2[diag2] = true;
                 // Place a queen in the next row
                 backtrack(row + 1, n, state, res, cols, diags1, diags2);
-                // Backtrack: restore this square to empty
+                // Backtrack: clear this square
                 state[row][col] = '#';
                 cols[col] = diags1[diag1] = diags2[diag2] = false;
             }
@@ -445,11 +445,11 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
 
     /* Solve the n-queens problem */
     function nQueens(n: number): string[][][] {
-        // Initialize an n*n board, where 'Q' represents a queen and '#' represents an empty square
+        // Set up an n-by-n board with 'Q' for a queen and '#' for an empty square
         const state = Array.from({ length: n }, () => Array(n).fill('#'));
-        const cols = Array(n).fill(false); // Track whether a column contains a queen
-        const diags1 = Array(2 * n - 1).fill(false); // Track whether a main diagonal contains a queen
-        const diags2 = Array(2 * n - 1).fill(false); // Track whether an anti-diagonal contains a queen
+        const cols = Array(n).fill(false); // Track occupied columns
+        const diags1 = Array(2 * n - 1).fill(false); // Track occupied main diagonals
+        const diags2 = Array(2 * n - 1).fill(false); // Track occupied secondary diagonals
         const res: string[][][] = [];
 
         backtrack(0, n, state, res, cols, diags1, diags2);
@@ -470,7 +470,7 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
       List<bool> diags1,
       List<bool> diags2,
     ) {
-      // Record a solution when a queen has been placed in every row
+      // Record the solution once every row has a queen
       if (row == n) {
         List<List<String>> copyState = [];
         for (List<String> sRow in state) {
@@ -479,21 +479,21 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
         res.add(copyState);
         return;
       }
-      // Iterate over all columns
+      // Try each column
       for (int col = 0; col < n; col++) {
-        // Calculate the main-diagonal and anti-diagonal indices for this square
+        // Find the two diagonals through this square
         int diag1 = row - col + n - 1;
         int diag2 = row + col;
-        // Prune: the square must have no queen in its column, main diagonal, or anti-diagonal
+        // Prune if the column or either diagonal already has a queen
         if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-          // Try: place a queen on this square
+          // Try placing a queen on this square
           state[row][col] = "Q";
           cols[col] = true;
           diags1[diag1] = true;
           diags2[diag2] = true;
           // Place a queen in the next row
           backtrack(row + 1, n, state, res, cols, diags1, diags2);
-          // Backtrack: restore this square to empty
+          // Backtrack: clear this square
           state[row][col] = "#";
           cols[col] = false;
           diags1[diag1] = false;
@@ -504,11 +504,11 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
 
     /* Solve the n-queens problem */
     List<List<List<String>>> nQueens(int n) {
-      // Initialize an n*n board, where 'Q' represents a queen and '#' represents an empty square
+      // Set up an n-by-n board with 'Q' for a queen and '#' for an empty square
       List<List<String>> state = List.generate(n, (index) => List.filled(n, "#"));
-      List<bool> cols = List.filled(n, false); // Track whether a column contains a queen
-      List<bool> diags1 = List.filled(2 * n - 1, false); // Track whether a main diagonal contains a queen
-      List<bool> diags2 = List.filled(2 * n - 1, false); // Track whether an anti-diagonal contains a queen
+      List<bool> cols = List.filled(n, false); // Track occupied columns
+      List<bool> diags1 = List.filled(2 * n - 1, false); // Track occupied main diagonals
+      List<bool> diags2 = List.filled(2 * n - 1, false); // Track occupied secondary diagonals
       List<List<List<String>>> res = [];
 
       backtrack(0, n, state, res, cols, diags1, diags2);
@@ -530,24 +530,24 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
         diags1: &mut [bool],
         diags2: &mut [bool],
     ) {
-        // Record a solution when a queen has been placed in every row
+        // Record the solution once every row has a queen
         if row == n {
             res.push(state.clone());
             return;
         }
-        // Iterate over all columns
+        // Try each column
         for col in 0..n {
-            // Calculate the main-diagonal and anti-diagonal indices for this square
+            // Find the two diagonals through this square
             let diag1 = row + n - 1 - col;
             let diag2 = row + col;
-            // Prune: the square must have no queen in its column, main diagonal, or anti-diagonal
+            // Prune if the column or either diagonal already has a queen
             if !cols[col] && !diags1[diag1] && !diags2[diag2] {
-                // Try: place a queen on this square
+                // Try placing a queen on this square
                 state[row][col] = "Q".into();
                 (cols[col], diags1[diag1], diags2[diag2]) = (true, true, true);
                 // Place a queen in the next row
                 backtrack(row + 1, n, state, res, cols, diags1, diags2);
-                // Backtrack: restore this square to empty
+                // Backtrack: clear this square
                 state[row][col] = "#".into();
                 (cols[col], diags1[diag1], diags2[diag2]) = (false, false, false);
             }
@@ -556,11 +556,11 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
 
     /* Solve the n-queens problem */
     fn n_queens(n: usize) -> Vec<Vec<Vec<String>>> {
-        // Initialize an n*n board, where 'Q' represents a queen and '#' represents an empty square
+        // Set up an n-by-n board with 'Q' for a queen and '#' for an empty square
         let mut state: Vec<Vec<String>> = vec![vec!["#".to_string(); n]; n];
-        let mut cols = vec![false; n]; // Track whether a column contains a queen
-        let mut diags1 = vec![false; 2 * n - 1]; // Track whether a main diagonal contains a queen
-        let mut diags2 = vec![false; 2 * n - 1]; // Track whether an anti-diagonal contains a queen
+        let mut cols = vec![false; n]; // Track occupied columns
+        let mut diags1 = vec![false; 2 * n - 1]; // Track occupied main diagonals
+        let mut diags2 = vec![false; 2 * n - 1]; // Track occupied secondary diagonals
         let mut res: Vec<Vec<Vec<String>>> = Vec::new();
 
         backtrack(
@@ -583,7 +583,7 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
     /* Backtracking: n-queens */
     void backtrack(int row, int n, char state[MAX_SIZE][MAX_SIZE], char ***res, int *resSize, bool cols[MAX_SIZE],
                    bool diags1[2 * MAX_SIZE - 1], bool diags2[2 * MAX_SIZE - 1]) {
-        // Record a solution when a queen has been placed in every row
+        // Record the solution once every row has a queen
         if (row == n) {
             res[*resSize] = (char **)malloc(sizeof(char *) * n);
             for (int i = 0; i < n; ++i) {
@@ -593,19 +593,19 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
             (*resSize)++;
             return;
         }
-        // Iterate over all columns
+        // Try each column
         for (int col = 0; col < n; col++) {
-            // Calculate the main-diagonal and anti-diagonal indices for this square
+            // Find the two diagonals through this square
             int diag1 = row - col + n - 1;
             int diag2 = row + col;
-            // Prune: the square must have no queen in its column, main diagonal, or anti-diagonal
+            // Prune if the column or either diagonal already has a queen
             if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-                // Try: place a queen on this square
+                // Try placing a queen on this square
                 state[row][col] = 'Q';
                 cols[col] = diags1[diag1] = diags2[diag2] = true;
                 // Place a queen in the next row
                 backtrack(row + 1, n, state, res, resSize, cols, diags1, diags2);
-                // Backtrack: restore this square to empty
+                // Backtrack: clear this square
                 state[row][col] = '#';
                 cols[col] = diags1[diag1] = diags2[diag2] = false;
             }
@@ -615,16 +615,16 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
     /* Solve the n-queens problem */
     char ***nQueens(int n, int *returnSize) {
         char state[MAX_SIZE][MAX_SIZE];
-        // Initialize an n*n board, where 'Q' represents a queen and '#' represents an empty square
+        // Set up an n-by-n board with 'Q' for a queen and '#' for an empty square
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
                 state[i][j] = '#';
             }
             state[i][n] = '\0';
         }
-        bool cols[MAX_SIZE] = {false};           // Track whether a column contains a queen
-        bool diags1[2 * MAX_SIZE - 1] = {false}; // Track whether a main diagonal contains a queen
-        bool diags2[2 * MAX_SIZE - 1] = {false}; // Track whether an anti-diagonal contains a queen
+        bool cols[MAX_SIZE] = {false};           // Track occupied columns
+        bool diags1[2 * MAX_SIZE - 1] = {false}; // Track occupied main diagonals
+        bool diags2[2 * MAX_SIZE - 1] = {false}; // Track occupied secondary diagonals
 
         char ***res = (char ***)malloc(sizeof(char **) * MAX_SIZE);
         *returnSize = 0;
@@ -646,7 +646,7 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
         diags1: BooleanArray,
         diags2: BooleanArray
     ) {
-        // Record a solution when a queen has been placed in every row
+        // Record the solution once every row has a queen
         if (row == n) {
             val copyState = mutableListOf<MutableList<String>>()
             for (sRow in state) {
@@ -655,21 +655,21 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
             res.add(copyState)
             return
         }
-        // Iterate over all columns
+        // Try each column
         for (col in 0..<n) {
-            // Calculate the main-diagonal and anti-diagonal indices for this square
+            // Find the two diagonals through this square
             val diag1 = row - col + n - 1
             val diag2 = row + col
-            // Prune: the square must have no queen in its column, main diagonal, or anti-diagonal
+            // Prune if the column or either diagonal already has a queen
             if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-                // Try: place a queen on this square
+                // Try placing a queen on this square
                 state[row][col] = "Q"
                 diags2[diag2] = true
                 diags1[diag1] = diags2[diag2]
                 cols[col] = diags1[diag1]
                 // Place a queen in the next row
                 backtrack(row + 1, n, state, res, cols, diags1, diags2)
-                // Backtrack: restore this square to empty
+                // Backtrack: clear this square
                 state[row][col] = "#"
                 diags2[diag2] = false
                 diags1[diag1] = diags2[diag2]
@@ -680,7 +680,7 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
 
     /* Solve the n-queens problem */
     fun nQueens(n: Int): MutableList<MutableList<MutableList<String>>?> {
-        // Initialize an n*n board, where 'Q' represents a queen and '#' represents an empty square
+        // Set up an n-by-n board with 'Q' for a queen and '#' for an empty square
         val state = mutableListOf<MutableList<String>>()
         for (i in 0..<n) {
             val row = mutableListOf<String>()
@@ -689,9 +689,9 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
             }
             state.add(row)
         }
-        val cols = BooleanArray(n) // Track whether a column contains a queen
-        val diags1 = BooleanArray(2 * n - 1) // Track whether a main diagonal contains a queen
-        val diags2 = BooleanArray(2 * n - 1) // Track whether an anti-diagonal contains a queen
+        val cols = BooleanArray(n) // Track occupied columns
+        val diags1 = BooleanArray(2 * n - 1) // Track occupied main diagonals
+        val diags2 = BooleanArray(2 * n - 1) // Track occupied secondary diagonals
         val res = mutableListOf<MutableList<MutableList<String>>?>()
 
         backtrack(0, n, state, res, cols, diags1, diags2)
@@ -705,25 +705,25 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
     ```ruby title="n_queens.rb"
     ### Backtracking: n-queens ###
     def backtrack(row, n, state, res, cols, diags1, diags2)
-      # Record a solution when a queen has been placed in every row
+      # Record the solution once every row has a queen
       if row == n
         res << state.map { |row| row.dup }
         return
       end
 
-      # Iterate over all columns
+      # Try each column
       for col in 0...n
-        # Calculate the main-diagonal and anti-diagonal indices for this square
+        # Find the two diagonals through this square
         diag1 = row - col + n - 1
         diag2 = row + col
-        # Prune: the square must have no queen in its column, main diagonal, or anti-diagonal
+        # Prune if the column or either diagonal already has a queen
         if !cols[col] && !diags1[diag1] && !diags2[diag2]
-          # Try: place a queen on this square
+          # Try placing a queen on this square
           state[row][col] = "Q"
           cols[col] = diags1[diag1] = diags2[diag2] = true
           # Place a queen in the next row
           backtrack(row + 1, n, state, res, cols, diags1, diags2)
-          # Backtrack: restore this square to empty
+          # Backtrack: clear this square
           state[row][col] = "#"
           cols[col] = diags1[diag1] = diags2[diag2] = false
         end
@@ -732,11 +732,11 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
 
     ### Solve the n-queens problem ###
     def n_queens(n)
-      # Initialize an n*n board, where 'Q' represents a queen and '#' represents an empty square
+      # Set up an n-by-n board with 'Q' for a queen and '#' for an empty square
       state = Array.new(n) { Array.new(n, "#") }
-      cols = Array.new(n, false) # Track whether a column contains a queen
-      diags1 = Array.new(2 * n - 1, false) # Track whether a main diagonal contains a queen
-      diags2 = Array.new(2 * n - 1, false) # Track whether an anti-diagonal contains a queen
+      cols = Array.new(n, false) # Track occupied columns
+      diags1 = Array.new(2 * n - 1, false) # Track occupied main diagonals
+      diags2 = Array.new(2 * n - 1, false) # Track occupied secondary diagonals
       res = []
       backtrack(0, n, state, res, cols, diags1, diags2)
 
@@ -746,9 +746,9 @@ In a square matrix of order $n$, $row - col$ ranges over $[-n + 1, n - 1]$, and 
 
 ??? pythontutor "Visualize execution"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20backtrack%28%0A%20%20%20%20row%3A%20int,%0A%20%20%20%20n%3A%20int,%0A%20%20%20%20state%3A%20list%5Blist%5Bstr%5D%5D,%0A%20%20%20%20res%3A%20list%5Blist%5Blist%5Bstr%5D%5D%5D,%0A%20%20%20%20cols%3A%20list%5Bbool%5D,%0A%20%20%20%20diags1%3A%20list%5Bbool%5D,%0A%20%20%20%20diags2%3A%20list%5Bbool%5D,%0A%29%3A%0A%20%20%20%20%22%22%22Backtracking%3A%20N-queens%22%22%22%0A%20%20%20%20%23%20Record%20a%20solution%20when%20a%20queen%20has%20been%20placed%20in%20every%20row%0A%20%20%20%20if%20row%20%3D%3D%20n%3A%0A%20%20%20%20%20%20%20%20res.append%28%5Blist%28row%29%20for%20row%20in%20state%5D%29%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20Iterate%20over%20all%20columns%0A%20%20%20%20for%20col%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20%23%20Calculate%20the%20main-diagonal%20and%20anti-diagonal%20indices%20for%20this%20square%0A%20%20%20%20%20%20%20%20diag1%20%3D%20row%20-%20col%20%2B%20n%20-%201%0A%20%20%20%20%20%20%20%20diag2%20%3D%20row%20%2B%20col%0A%20%20%20%20%20%20%20%20%23%20Prune%3A%20the%20square%20must%20have%20no%20queen%20in%20its%20column,%20main%20diagonal,%20or%20anti-diagonal%0A%20%20%20%20%20%20%20%20if%20not%20cols%5Bcol%5D%20and%20not%20diags1%5Bdiag1%5D%20and%20not%20diags2%5Bdiag2%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Try%3A%20place%20a%20queen%20on%20this%20square%0A%20%20%20%20%20%20%20%20%20%20%20%20state%5Brow%5D%5Bcol%5D%20%3D%20%22Q%22%0A%20%20%20%20%20%20%20%20%20%20%20%20cols%5Bcol%5D%20%3D%20diags1%5Bdiag1%5D%20%3D%20diags2%5Bdiag2%5D%20%3D%20True%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Place%20a%20queen%20in%20the%20next%20row%0A%20%20%20%20%20%20%20%20%20%20%20%20backtrack%28row%20%2B%201,%20n,%20state,%20res,%20cols,%20diags1,%20diags2%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Backtrack%3A%20restore%20this%20square%20to%20empty%0A%20%20%20%20%20%20%20%20%20%20%20%20state%5Brow%5D%5Bcol%5D%20%3D%20%22%23%22%0A%20%20%20%20%20%20%20%20%20%20%20%20cols%5Bcol%5D%20%3D%20diags1%5Bdiag1%5D%20%3D%20diags2%5Bdiag2%5D%20%3D%20False%0A%0A%0Adef%20n_queens%28n%3A%20int%29%20-%3E%20list%5Blist%5Blist%5Bstr%5D%5D%5D%3A%0A%20%20%20%20%22%22%22Solve%20the%20N-queens%20problem%22%22%22%0A%20%20%20%20%23%20Initialize%20an%20n%2An%20board,%20where%20%27Q%27%20represents%20a%20queen%20and%20%27%23%27%20represents%20an%20empty%20square%0A%20%20%20%20state%20%3D%20%5B%5B%22%23%22%20for%20_%20in%20range%28n%29%5D%20for%20_%20in%20range%28n%29%5D%0A%20%20%20%20cols%20%3D%20%5BFalse%5D%20%2A%20n%20%20%23%20Track%20whether%20a%20column%20contains%20a%20queen%0A%20%20%20%20diags1%20%3D%20%5BFalse%5D%20%2A%20%282%20%2A%20n%20-%201%29%20%20%23%20Track%20whether%20a%20main%20diagonal%20contains%20a%20queen%0A%20%20%20%20diags2%20%3D%20%5BFalse%5D%20%2A%20%282%20%2A%20n%20-%201%29%20%20%23%20Track%20whether%20an%20anti-diagonal%20contains%20a%20queen%0A%20%20%20%20res%20%3D%20%5B%5D%0A%20%20%20%20backtrack%280,%20n,%20state,%20res,%20cols,%20diags1,%20diags2%29%0A%0A%20%20%20%20return%20res%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%204%0A%20%20%20%20res%20%3D%20n_queens%28n%29%0A%0A%20%20%20%20print%28f%22The%20input%20board%20has%20width%20and%20height%20%7Bn%7D%22%29%0A%20%20%20%20print%28f%22Number%20of%20ways%20to%20place%20the%20queens%3A%20%7Blen%28res%29%7D%22%29%0A%20%20%20%20for%20state%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%22--------------------%22%29%0A%20%20%20%20%20%20%20%20for%20row%20in%20state%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28row%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=61&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20backtrack%28%0A%20%20%20%20row%3A%20int,%0A%20%20%20%20n%3A%20int,%0A%20%20%20%20state%3A%20list%5Blist%5Bstr%5D%5D,%0A%20%20%20%20res%3A%20list%5Blist%5Blist%5Bstr%5D%5D%5D,%0A%20%20%20%20cols%3A%20list%5Bbool%5D,%0A%20%20%20%20diags1%3A%20list%5Bbool%5D,%0A%20%20%20%20diags2%3A%20list%5Bbool%5D,%0A%29%3A%0A%20%20%20%20%22%22%22Backtracking%3A%20N-queens%22%22%22%0A%20%20%20%20%23%20Record%20a%20solution%20when%20a%20queen%20has%20been%20placed%20in%20every%20row%0A%20%20%20%20if%20row%20%3D%3D%20n%3A%0A%20%20%20%20%20%20%20%20res.append%28%5Blist%28row%29%20for%20row%20in%20state%5D%29%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20Iterate%20over%20all%20columns%0A%20%20%20%20for%20col%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20%23%20Calculate%20the%20main-diagonal%20and%20anti-diagonal%20indices%20for%20this%20square%0A%20%20%20%20%20%20%20%20diag1%20%3D%20row%20-%20col%20%2B%20n%20-%201%0A%20%20%20%20%20%20%20%20diag2%20%3D%20row%20%2B%20col%0A%20%20%20%20%20%20%20%20%23%20Prune%3A%20the%20square%20must%20have%20no%20queen%20in%20its%20column,%20main%20diagonal,%20or%20anti-diagonal%0A%20%20%20%20%20%20%20%20if%20not%20cols%5Bcol%5D%20and%20not%20diags1%5Bdiag1%5D%20and%20not%20diags2%5Bdiag2%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Try%3A%20place%20a%20queen%20on%20this%20square%0A%20%20%20%20%20%20%20%20%20%20%20%20state%5Brow%5D%5Bcol%5D%20%3D%20%22Q%22%0A%20%20%20%20%20%20%20%20%20%20%20%20cols%5Bcol%5D%20%3D%20diags1%5Bdiag1%5D%20%3D%20diags2%5Bdiag2%5D%20%3D%20True%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Place%20a%20queen%20in%20the%20next%20row%0A%20%20%20%20%20%20%20%20%20%20%20%20backtrack%28row%20%2B%201,%20n,%20state,%20res,%20cols,%20diags1,%20diags2%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Backtrack%3A%20restore%20this%20square%20to%20empty%0A%20%20%20%20%20%20%20%20%20%20%20%20state%5Brow%5D%5Bcol%5D%20%3D%20%22%23%22%0A%20%20%20%20%20%20%20%20%20%20%20%20cols%5Bcol%5D%20%3D%20diags1%5Bdiag1%5D%20%3D%20diags2%5Bdiag2%5D%20%3D%20False%0A%0A%0Adef%20n_queens%28n%3A%20int%29%20-%3E%20list%5Blist%5Blist%5Bstr%5D%5D%5D%3A%0A%20%20%20%20%22%22%22Solve%20the%20N-queens%20problem%22%22%22%0A%20%20%20%20%23%20Initialize%20an%20n%2An%20board,%20where%20%27Q%27%20represents%20a%20queen%20and%20%27%23%27%20represents%20an%20empty%20square%0A%20%20%20%20state%20%3D%20%5B%5B%22%23%22%20for%20_%20in%20range%28n%29%5D%20for%20_%20in%20range%28n%29%5D%0A%20%20%20%20cols%20%3D%20%5BFalse%5D%20%2A%20n%20%20%23%20Track%20whether%20a%20column%20contains%20a%20queen%0A%20%20%20%20diags1%20%3D%20%5BFalse%5D%20%2A%20%282%20%2A%20n%20-%201%29%20%20%23%20Track%20whether%20a%20main%20diagonal%20contains%20a%20queen%0A%20%20%20%20diags2%20%3D%20%5BFalse%5D%20%2A%20%282%20%2A%20n%20-%201%29%20%20%23%20Track%20whether%20an%20anti-diagonal%20contains%20a%20queen%0A%20%20%20%20res%20%3D%20%5B%5D%0A%20%20%20%20backtrack%280,%20n,%20state,%20res,%20cols,%20diags1,%20diags2%29%0A%0A%20%20%20%20return%20res%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%204%0A%20%20%20%20res%20%3D%20n_queens%28n%29%0A%0A%20%20%20%20print%28f%22The%20input%20board%20has%20width%20and%20height%20%7Bn%7D%22%29%0A%20%20%20%20print%28f%22Number%20of%20ways%20to%20place%20the%20queens%3A%20%7Blen%28res%29%7D%22%29%0A%20%20%20%20for%20state%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%22--------------------%22%29%0A%20%20%20%20%20%20%20%20for%20row%20in%20state%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28row%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=61&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20backtrack%28%0A%20%20%20%20row%3A%20int,%0A%20%20%20%20n%3A%20int,%0A%20%20%20%20state%3A%20list%5Blist%5Bstr%5D%5D,%0A%20%20%20%20res%3A%20list%5Blist%5Blist%5Bstr%5D%5D%5D,%0A%20%20%20%20cols%3A%20list%5Bbool%5D,%0A%20%20%20%20diags1%3A%20list%5Bbool%5D,%0A%20%20%20%20diags2%3A%20list%5Bbool%5D,%0A%29%3A%0A%20%20%20%20%22%22%22Backtracking%3A%20N-queens%22%22%22%0A%20%20%20%20%23%20Record%20the%20solution%20once%20every%20row%20has%20a%20queen%0A%20%20%20%20if%20row%20%3D%3D%20n%3A%0A%20%20%20%20%20%20%20%20res.append%28%5Blist%28row%29%20for%20row%20in%20state%5D%29%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20Try%20each%20column%0A%20%20%20%20for%20col%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20%23%20Find%20the%20two%20diagonals%20through%20this%20square%0A%20%20%20%20%20%20%20%20diag1%20%3D%20row%20-%20col%20%2B%20n%20-%201%0A%20%20%20%20%20%20%20%20diag2%20%3D%20row%20%2B%20col%0A%20%20%20%20%20%20%20%20%23%20Prune%20if%20the%20column%20or%20either%20diagonal%20already%20has%20a%20queen%0A%20%20%20%20%20%20%20%20if%20not%20cols%5Bcol%5D%20and%20not%20diags1%5Bdiag1%5D%20and%20not%20diags2%5Bdiag2%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Try%20placing%20a%20queen%20on%20this%20square%0A%20%20%20%20%20%20%20%20%20%20%20%20state%5Brow%5D%5Bcol%5D%20%3D%20%22Q%22%0A%20%20%20%20%20%20%20%20%20%20%20%20cols%5Bcol%5D%20%3D%20diags1%5Bdiag1%5D%20%3D%20diags2%5Bdiag2%5D%20%3D%20True%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Place%20a%20queen%20in%20the%20next%20row%0A%20%20%20%20%20%20%20%20%20%20%20%20backtrack%28row%20%2B%201,%20n,%20state,%20res,%20cols,%20diags1,%20diags2%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Backtrack%3A%20clear%20this%20square%0A%20%20%20%20%20%20%20%20%20%20%20%20state%5Brow%5D%5Bcol%5D%20%3D%20%22%23%22%0A%20%20%20%20%20%20%20%20%20%20%20%20cols%5Bcol%5D%20%3D%20diags1%5Bdiag1%5D%20%3D%20diags2%5Bdiag2%5D%20%3D%20False%0A%0A%0Adef%20n_queens%28n%3A%20int%29%20-%3E%20list%5Blist%5Blist%5Bstr%5D%5D%5D%3A%0A%20%20%20%20%22%22%22Solve%20the%20N-queens%20problem%22%22%22%0A%20%20%20%20%23%20Set%20up%20an%20n-by-n%20board%20with%20%27Q%27%20for%20a%20queen%20and%20%27%23%27%20for%20an%20empty%20square%0A%20%20%20%20state%20%3D%20%5B%5B%22%23%22%20for%20_%20in%20range%28n%29%5D%20for%20_%20in%20range%28n%29%5D%0A%20%20%20%20cols%20%3D%20%5BFalse%5D%20%2A%20n%20%20%23%20Track%20occupied%20columns%0A%20%20%20%20diags1%20%3D%20%5BFalse%5D%20%2A%20%282%20%2A%20n%20-%201%29%20%20%23%20Track%20occupied%20main%20diagonals%0A%20%20%20%20diags2%20%3D%20%5BFalse%5D%20%2A%20%282%20%2A%20n%20-%201%29%20%20%23%20Track%20occupied%20secondary%20diagonals%0A%20%20%20%20res%20%3D%20%5B%5D%0A%20%20%20%20backtrack%280,%20n,%20state,%20res,%20cols,%20diags1,%20diags2%29%0A%0A%20%20%20%20return%20res%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%204%0A%20%20%20%20res%20%3D%20n_queens%28n%29%0A%0A%20%20%20%20print%28f%22Board%20side%20length%3A%20%7Bn%7D%22%29%0A%20%20%20%20print%28f%22Found%20%7Blen%28res%29%7D%20queen%20arrangements%22%29%0A%20%20%20%20for%20state%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%22--------------------%22%29%0A%20%20%20%20%20%20%20%20for%20row%20in%20state%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28row%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=61&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20backtrack%28%0A%20%20%20%20row%3A%20int,%0A%20%20%20%20n%3A%20int,%0A%20%20%20%20state%3A%20list%5Blist%5Bstr%5D%5D,%0A%20%20%20%20res%3A%20list%5Blist%5Blist%5Bstr%5D%5D%5D,%0A%20%20%20%20cols%3A%20list%5Bbool%5D,%0A%20%20%20%20diags1%3A%20list%5Bbool%5D,%0A%20%20%20%20diags2%3A%20list%5Bbool%5D,%0A%29%3A%0A%20%20%20%20%22%22%22Backtracking%3A%20N-queens%22%22%22%0A%20%20%20%20%23%20Record%20the%20solution%20once%20every%20row%20has%20a%20queen%0A%20%20%20%20if%20row%20%3D%3D%20n%3A%0A%20%20%20%20%20%20%20%20res.append%28%5Blist%28row%29%20for%20row%20in%20state%5D%29%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20Try%20each%20column%0A%20%20%20%20for%20col%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20%23%20Find%20the%20two%20diagonals%20through%20this%20square%0A%20%20%20%20%20%20%20%20diag1%20%3D%20row%20-%20col%20%2B%20n%20-%201%0A%20%20%20%20%20%20%20%20diag2%20%3D%20row%20%2B%20col%0A%20%20%20%20%20%20%20%20%23%20Prune%20if%20the%20column%20or%20either%20diagonal%20already%20has%20a%20queen%0A%20%20%20%20%20%20%20%20if%20not%20cols%5Bcol%5D%20and%20not%20diags1%5Bdiag1%5D%20and%20not%20diags2%5Bdiag2%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Try%20placing%20a%20queen%20on%20this%20square%0A%20%20%20%20%20%20%20%20%20%20%20%20state%5Brow%5D%5Bcol%5D%20%3D%20%22Q%22%0A%20%20%20%20%20%20%20%20%20%20%20%20cols%5Bcol%5D%20%3D%20diags1%5Bdiag1%5D%20%3D%20diags2%5Bdiag2%5D%20%3D%20True%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Place%20a%20queen%20in%20the%20next%20row%0A%20%20%20%20%20%20%20%20%20%20%20%20backtrack%28row%20%2B%201,%20n,%20state,%20res,%20cols,%20diags1,%20diags2%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Backtrack%3A%20clear%20this%20square%0A%20%20%20%20%20%20%20%20%20%20%20%20state%5Brow%5D%5Bcol%5D%20%3D%20%22%23%22%0A%20%20%20%20%20%20%20%20%20%20%20%20cols%5Bcol%5D%20%3D%20diags1%5Bdiag1%5D%20%3D%20diags2%5Bdiag2%5D%20%3D%20False%0A%0A%0Adef%20n_queens%28n%3A%20int%29%20-%3E%20list%5Blist%5Blist%5Bstr%5D%5D%5D%3A%0A%20%20%20%20%22%22%22Solve%20the%20N-queens%20problem%22%22%22%0A%20%20%20%20%23%20Set%20up%20an%20n-by-n%20board%20with%20%27Q%27%20for%20a%20queen%20and%20%27%23%27%20for%20an%20empty%20square%0A%20%20%20%20state%20%3D%20%5B%5B%22%23%22%20for%20_%20in%20range%28n%29%5D%20for%20_%20in%20range%28n%29%5D%0A%20%20%20%20cols%20%3D%20%5BFalse%5D%20%2A%20n%20%20%23%20Track%20occupied%20columns%0A%20%20%20%20diags1%20%3D%20%5BFalse%5D%20%2A%20%282%20%2A%20n%20-%201%29%20%20%23%20Track%20occupied%20main%20diagonals%0A%20%20%20%20diags2%20%3D%20%5BFalse%5D%20%2A%20%282%20%2A%20n%20-%201%29%20%20%23%20Track%20occupied%20secondary%20diagonals%0A%20%20%20%20res%20%3D%20%5B%5D%0A%20%20%20%20backtrack%280,%20n,%20state,%20res,%20cols,%20diags1,%20diags2%29%0A%0A%20%20%20%20return%20res%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%204%0A%20%20%20%20res%20%3D%20n_queens%28n%29%0A%0A%20%20%20%20print%28f%22Board%20side%20length%3A%20%7Bn%7D%22%29%0A%20%20%20%20print%28f%22Found%20%7Blen%28res%29%7D%20queen%20arrangements%22%29%0A%20%20%20%20for%20state%20in%20res%3A%0A%20%20%20%20%20%20%20%20print%28%22--------------------%22%29%0A%20%20%20%20%20%20%20%20for%20row%20in%20state%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28row%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=61&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-We place a queen in each of $n$ rows. Considering the column constraint, the successive rows have $n$, $n-1$, $\dots$, $2$, and $1$ choices, giving $O(n!)$ time. Recording a solution requires copying the matrix `state` and appending the copy to `res`, which takes $O(n^2)$ time. **The overall time complexity is therefore $O(n! \cdot n^2)$**. In practice, diagonal pruning greatly reduces the search space, so the search is often faster than this bound suggests.
+We make $n$ placements, one per row. The column constraint leaves $n$, $n-1$, $\dots$, $2$, and $1$ choices in successive rows, taking $O(n!)$ time. To record a solution, we copy the matrix `state` into `res`. Each copy takes $O(n^2)$ time, giving an **overall time complexity of $O(n! \cdot n^2)$**. In practice, diagonal pruning can shrink the search space considerably, so the search often runs faster than this bound suggests.
 
-The array `state` uses $O(n^2)$ space, while `cols`, `diags1`, and `diags2` each use $O(n)$ space. The maximum recursion depth is $n$, requiring $O(n)$ space for stack frames. **The space complexity is therefore $O(n^2)$**.
+The array `state` takes $O(n^2)$ space, while `cols`, `diags1`, and `diags2` each take $O(n)$ space. The maximum recursion depth is $n$, requiring $O(n)$ space for stack frames. The **space complexity is therefore $O(n^2)$**.

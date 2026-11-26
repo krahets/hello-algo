@@ -9,11 +9,11 @@ icon: material/book-open-outline
 
 !!! abstract
 
-    Algorithms are like a beautiful symphony, with each line of code flowing to its rhythm.
+    Algorithms are like a symphony, each line of code flowing in rhythm.
     
-    May this book play softly in your mind, leaving a melody that is both distinctive and lasting.
+    May this book play softly in your mind and leave a melody all its own.
 
-## Chapter contents
+## In this chapter
 
 - [0.1 &nbsp; About this book](about_the_book.md)
 - [0.2 &nbsp; How to use this book](suggestions.md)

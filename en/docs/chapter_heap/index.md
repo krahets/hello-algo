@@ -9,13 +9,13 @@ icon: material/family-tree
 
 !!! abstract
 
-    Heaps resemble mountain ranges, rising in layers of varied shapes.
+    Heaps are like mountain ranges, their peaks rising in tiers of different shapes.
     
-    The peaks stand at different heights, yet the highest always catches the eye first.
+    The summits stand at different heights, and the highest is always the first to catch the eye.
 
-## Chapter contents
+## In this chapter
 
-- [8.1 &nbsp; Heaps](heap.md)
+- [8.1 &nbsp; Heap](heap.md)
 - [8.2 &nbsp; Building a heap](build_heap.md)
 - [8.3 &nbsp; The top-k problem](top_k.md)
 - [8.4 &nbsp; Summary](summary.md)

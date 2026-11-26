@@ -4,16 +4,16 @@ comments: true
 
 # 9.2 &nbsp; Basic graph operations
 
-Basic graph operations fall into two categories: operations on edges and operations on vertices. Their implementations differ depending on whether the graph is represented by an adjacency matrix or an adjacency list.
+Basic graph operations act on either edges or vertices. Their implementations depend on whether we use an adjacency matrix or an adjacency list.
 
 ## 9.2.1 &nbsp; Adjacency matrix implementation
 
-For an undirected graph with $n$ vertices, the operations are implemented as shown in Figure 9-7.
+For an undirected graph with $n$ vertices, Figure 9-7 illustrates the following operations.
 
-- **Add or remove an edge**: Modify the corresponding entry in the adjacency matrix directly, taking $O(1)$ time. Since the graph is undirected, update the edge in both directions.
-- **Add a vertex**: Append one row and one column to the adjacency matrix and fill them with $0$, taking $O(n)$ time.
-- **Remove a vertex**: Delete the corresponding row and column from the adjacency matrix. The worst case occurs when deleting the first row and column: $(n-1)^2$ entries must be shifted up and to the left, taking $O(n^2)$ time.
-- **Initialize the graph**: Given $n$ vertices, initialize the vertex list `vertices` of length $n$ in $O(n)$ time, then initialize the $n \times n$ adjacency matrix `adjMat` in $O(n^2)$ time.
+- **Add or remove an edge**: Update the corresponding adjacency matrix entries directly in $O(1)$ time. Since the graph is undirected, update the entries for both directions.
+- **Add a vertex**: Append a row and a column to the adjacency matrix, filling both with $0$. This takes $O(n)$ time.
+- **Remove a vertex**: Remove its row and column from the adjacency matrix. The worst case is removing the first row and column, which shifts $(n-1)^2$ elements up and to the left and takes $O(n^2)$ time.
+- **Initialize**: Given $n$ vertices, initialize the vertex list `vertices` of length $n$ in $O(n)$ time and the $n \times n$ adjacency matrix `adjMat` in $O(n^2)$ time.
 
 === "<1>"
     ![Initializing an adjacency matrix and adding or removing edges and vertices](graph_operations.assets/adjacency_matrix_step1_initialization.svg){ class="animation-figure" }
@@ -32,30 +32,30 @@ For an undirected graph with $n$ vertices, the operations are implemented as sho
 
 <p align="center"> Figure 9-7 &nbsp; Initializing an adjacency matrix and adding or removing edges and vertices </p>
 
-The following code implements a graph using an adjacency matrix:
+The following code implements a graph using an adjacency matrix.
 
 === "Python"
 
     ```python title="graph_adjacency_matrix.py"
     class GraphAdjMat:
-        """Undirected graph class implemented with an adjacency matrix"""
+        """Undirected graph represented by an adjacency matrix"""
 
         def __init__(self, vertices: list[int], edges: list[list[int]]):
             """Constructor"""
-            # Vertex list: elements are vertex values, and indices are vertex indices
+            # Vertex list: each element holds a vertex value, and its position is the vertex index
             self.vertices: list[int] = []
-            # Adjacency matrix: row and column indices correspond to vertex indices
+            # Adjacency matrix: row and column indices are vertex indices
             self.adj_mat: list[list[int]] = []
             # Add a vertex
             for val in vertices:
                 self.add_vertex(val)
             # Add an edge
-            # Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+            # The entries in edges are vertex indices, that is, indices into vertices
             for e in edges:
                 self.add_edge(e[0], e[1])
 
         def size(self) -> int:
-            """Get the number of vertices"""
+            """Get the vertex count"""
             return len(self.vertices)
 
         def add_vertex(self, val: int):
@@ -74,28 +74,28 @@ The following code implements a graph using an adjacency matrix:
             """Remove a vertex"""
             if index >= self.size():
                 raise IndexError()
-            # Remove the vertex at index `index` from the vertex list
+            # Remove the vertex at the specified index from the vertex list
             self.vertices.pop(index)
-            # Remove row `index` from the adjacency matrix
+            # Remove the row at the specified index from the adjacency matrix
             self.adj_mat.pop(index)
-            # Remove column `index` from the adjacency matrix
+            # Remove the column at the specified index from the adjacency matrix
             for row in self.adj_mat:
                 row.pop(index)
 
         def add_edge(self, i: int, j: int):
             """Add an edge"""
-            # Parameters i and j are element indices in vertices
-            # Handle out-of-bounds or equal indices
+            # Parameters i and j are indices into vertices
+            # Check for out-of-bounds or equal indices
             if i < 0 or j < 0 or i >= self.size() or j >= self.size() or i == j:
                 raise IndexError()
-            # For an undirected graph, the adjacency matrix is symmetric about its main diagonal: entries (i, j) and (j, i) are equal
+            # An undirected graph has a symmetric adjacency matrix: (i, j) == (j, i)
             self.adj_mat[i][j] = 1
             self.adj_mat[j][i] = 1
 
         def remove_edge(self, i: int, j: int):
             """Remove an edge"""
-            # Parameters i and j are element indices in vertices
-            # Handle out-of-bounds or equal indices
+            # Parameters i and j are indices into vertices
+            # Check for out-of-bounds or equal indices
             if i < 0 or j < 0 or i >= self.size() or j >= self.size() or i == j:
                 raise IndexError()
             self.adj_mat[i][j] = 0
@@ -111,10 +111,10 @@ The following code implements a graph using an adjacency matrix:
 === "C++"
 
     ```cpp title="graph_adjacency_matrix.cpp"
-    /* Undirected graph class implemented with an adjacency matrix */
+    /* Undirected graph represented by an adjacency matrix */
     class GraphAdjMat {
-        vector<int> vertices;       // Vertex list: elements are vertex values, and indices are vertex indices
-        vector<vector<int>> adjMat; // Adjacency matrix: row and column indices correspond to vertex indices
+        vector<int> vertices;       // Vertex list: each element holds a vertex value, and its position is the vertex index
+        vector<vector<int>> adjMat; // Adjacency matrix: row and column indices are vertex indices
 
       public:
         /* Constructor */
@@ -124,13 +124,13 @@ The following code implements a graph using an adjacency matrix:
                 addVertex(val);
             }
             // Add an edge
-            // Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+            // The entries in edges are vertex indices, that is, indices into vertices
             for (const vector<int> &edge : edges) {
                 addEdge(edge[0], edge[1]);
             }
         }
 
-        /* Get the number of vertices */
+        /* Get the vertex count */
         int size() const {
             return vertices.size();
         }
@@ -151,36 +151,36 @@ The following code implements a graph using an adjacency matrix:
         /* Remove a vertex */
         void removeVertex(int index) {
             if (index >= size()) {
-                throw out_of_range("Invalid vertex");
+                throw out_of_range("Vertex does not exist");
             }
-            // Remove the vertex at index `index` from the vertex list
+            // Remove the vertex at the specified index from the vertex list
             vertices.erase(vertices.begin() + index);
-            // Remove row `index` from the adjacency matrix
+            // Remove the row at the specified index from the adjacency matrix
             adjMat.erase(adjMat.begin() + index);
-            // Remove column `index` from the adjacency matrix
+            // Remove the column at the specified index from the adjacency matrix
             for (vector<int> &row : adjMat) {
                 row.erase(row.begin() + index);
             }
         }
 
         /* Add an edge */
-        // Parameters i and j are element indices in vertices
+        // Parameters i and j are indices into vertices
         void addEdge(int i, int j) {
-            // Handle out-of-bounds or equal indices
+            // Check for out-of-bounds or equal indices
             if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) {
-                throw out_of_range("Invalid vertex");
+                throw out_of_range("Vertex does not exist");
             }
-            // For an undirected graph, the adjacency matrix is symmetric about its main diagonal: entries (i, j) and (j, i) are equal
+            // An undirected graph has a symmetric adjacency matrix: (i, j) == (j, i)
             adjMat[i][j] = 1;
             adjMat[j][i] = 1;
         }
 
         /* Remove an edge */
-        // Parameters i and j are element indices in vertices
+        // Parameters i and j are indices into vertices
         void removeEdge(int i, int j) {
-            // Handle out-of-bounds or equal indices
+            // Check for out-of-bounds or equal indices
             if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) {
-                throw out_of_range("Invalid vertex");
+                throw out_of_range("Vertex does not exist");
             }
             adjMat[i][j] = 0;
             adjMat[j][i] = 0;
@@ -199,10 +199,10 @@ The following code implements a graph using an adjacency matrix:
 === "Java"
 
     ```java title="graph_adjacency_matrix.java"
-    /* Undirected graph class implemented with an adjacency matrix */
+    /* Undirected graph represented by an adjacency matrix */
     class GraphAdjMat {
-        List<Integer> vertices; // Vertex list: elements are vertex values, and indices are vertex indices
-        List<List<Integer>> adjMat; // Adjacency matrix: row and column indices correspond to vertex indices
+        List<Integer> vertices; // Vertex list: each element holds a vertex value, and its position is the vertex index
+        List<List<Integer>> adjMat; // Adjacency matrix: row and column indices are vertex indices
 
         /* Constructor */
         public GraphAdjMat(int[] vertices, int[][] edges) {
@@ -213,13 +213,13 @@ The following code implements a graph using an adjacency matrix:
                 addVertex(val);
             }
             // Add an edge
-            // Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+            // The entries in edges are vertex indices, that is, indices into vertices
             for (int[] e : edges) {
                 addEdge(e[0], e[1]);
             }
         }
 
-        /* Get the number of vertices */
+        /* Get the vertex count */
         public int size() {
             return vertices.size();
         }
@@ -245,31 +245,31 @@ The following code implements a graph using an adjacency matrix:
         public void removeVertex(int index) {
             if (index >= size())
                 throw new IndexOutOfBoundsException();
-            // Remove the vertex at index `index` from the vertex list
+            // Remove the vertex at the specified index from the vertex list
             vertices.remove(index);
-            // Remove row `index` from the adjacency matrix
+            // Remove the row at the specified index from the adjacency matrix
             adjMat.remove(index);
-            // Remove column `index` from the adjacency matrix
+            // Remove the column at the specified index from the adjacency matrix
             for (List<Integer> row : adjMat) {
                 row.remove(index);
             }
         }
 
         /* Add an edge */
-        // Parameters i and j are element indices in vertices
+        // Parameters i and j are indices into vertices
         public void addEdge(int i, int j) {
-            // Handle out-of-bounds or equal indices
+            // Check for out-of-bounds or equal indices
             if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
                 throw new IndexOutOfBoundsException();
-            // For an undirected graph, the adjacency matrix is symmetric about its main diagonal: entries (i, j) and (j, i) are equal
+            // An undirected graph has a symmetric adjacency matrix: (i, j) == (j, i)
             adjMat.get(i).set(j, 1);
             adjMat.get(j).set(i, 1);
         }
 
         /* Remove an edge */
-        // Parameters i and j are element indices in vertices
+        // Parameters i and j are indices into vertices
         public void removeEdge(int i, int j) {
-            // Handle out-of-bounds or equal indices
+            // Check for out-of-bounds or equal indices
             if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
                 throw new IndexOutOfBoundsException();
             adjMat.get(i).set(j, 0);
@@ -289,10 +289,10 @@ The following code implements a graph using an adjacency matrix:
 === "C#"
 
     ```csharp title="graph_adjacency_matrix.cs"
-    /* Undirected graph class implemented with an adjacency matrix */
+    /* Undirected graph represented by an adjacency matrix */
     class GraphAdjMat {
-        List<int> vertices;     // Vertex list: elements are vertex values, and indices are vertex indices
-        List<List<int>> adjMat; // Adjacency matrix: row and column indices correspond to vertex indices
+        List<int> vertices;     // Vertex list: each element holds a vertex value, and its position is the vertex index
+        List<List<int>> adjMat; // Adjacency matrix: row and column indices are vertex indices
 
         /* Constructor */
         public GraphAdjMat(int[] vertices, int[][] edges) {
@@ -303,13 +303,13 @@ The following code implements a graph using an adjacency matrix:
                 AddVertex(val);
             }
             // Add an edge
-            // Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+            // The entries in edges are vertex indices, that is, indices into vertices
             foreach (int[] e in edges) {
                 AddEdge(e[0], e[1]);
             }
         }
 
-        /* Get the number of vertices */
+        /* Get the vertex count */
         int Size() {
             return vertices.Count;
         }
@@ -335,31 +335,31 @@ The following code implements a graph using an adjacency matrix:
         public void RemoveVertex(int index) {
             if (index >= Size())
                 throw new IndexOutOfRangeException();
-            // Remove the vertex at index `index` from the vertex list
+            // Remove the vertex at the specified index from the vertex list
             vertices.RemoveAt(index);
-            // Remove row `index` from the adjacency matrix
+            // Remove the row at the specified index from the adjacency matrix
             adjMat.RemoveAt(index);
-            // Remove column `index` from the adjacency matrix
+            // Remove the column at the specified index from the adjacency matrix
             foreach (List<int> row in adjMat) {
                 row.RemoveAt(index);
             }
         }
 
         /* Add an edge */
-        // Parameters i and j are element indices in vertices
+        // Parameters i and j are indices into vertices
         public void AddEdge(int i, int j) {
-            // Handle out-of-bounds or equal indices
+            // Check for out-of-bounds or equal indices
             if (i < 0 || j < 0 || i >= Size() || j >= Size() || i == j)
                 throw new IndexOutOfRangeException();
-            // For an undirected graph, the adjacency matrix is symmetric about its main diagonal: entries (i, j) and (j, i) are equal
+            // An undirected graph has a symmetric adjacency matrix: (i, j) == (j, i)
             adjMat[i][j] = 1;
             adjMat[j][i] = 1;
         }
 
         /* Remove an edge */
-        // Parameters i and j are element indices in vertices
+        // Parameters i and j are indices into vertices
         public void RemoveEdge(int i, int j) {
-            // Handle out-of-bounds or equal indices
+            // Check for out-of-bounds or equal indices
             if (i < 0 || j < 0 || i >= Size() || j >= Size() || i == j)
                 throw new IndexOutOfRangeException();
             adjMat[i][j] = 0;
@@ -379,17 +379,17 @@ The following code implements a graph using an adjacency matrix:
 === "Go"
 
     ```go title="graph_adjacency_matrix.go"
-    /* Undirected graph type implemented with an adjacency matrix */
+    /* Undirected graph represented by an adjacency matrix */
     type graphAdjMat struct {
-        // Vertex list: elements are vertex values, and indices are vertex indices
+        // Vertex list: each element holds a vertex value, and its position is the vertex index
         vertices []int
-        // Adjacency matrix: row and column indices correspond to vertex indices
+        // Adjacency matrix: row and column indices are vertex indices
         adjMat [][]int
     }
 
     /* Constructor */
     func newGraphAdjMat(vertices []int, edges [][]int) *graphAdjMat {
-        // Allocate the adjacency matrix for all vertices
+        // Add a vertex
         n := len(vertices)
         adjMat := make([][]int, n)
         for i := range adjMat {
@@ -400,15 +400,15 @@ The following code implements a graph using an adjacency matrix:
             vertices: vertices,
             adjMat:   adjMat,
         }
-        // Add all edges
-        // Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+        // Add an edge
+        // The entries in edges are vertex indices, that is, indices into vertices
         for i := range edges {
             g.addEdge(edges[i][0], edges[i][1])
         }
         return g
     }
 
-    /* Get the number of vertices */
+    /* Get the vertex count */
     func (g *graphAdjMat) size() int {
         return len(g.vertices)
     }
@@ -432,34 +432,34 @@ The following code implements a graph using an adjacency matrix:
         if index >= g.size() {
             return
         }
-        // Remove the vertex at index `index` from the vertex list
+        // Remove the vertex at the specified index from the vertex list
         g.vertices = append(g.vertices[:index], g.vertices[index+1:]...)
-        // Remove row `index` from the adjacency matrix
+        // Remove the row at the specified index from the adjacency matrix
         g.adjMat = append(g.adjMat[:index], g.adjMat[index+1:]...)
-        // Remove column `index` from the adjacency matrix
+        // Remove the column at the specified index from the adjacency matrix
         for i := range g.adjMat {
             g.adjMat[i] = append(g.adjMat[i][:index], g.adjMat[i][index+1:]...)
         }
     }
 
     /* Add an edge */
-    // Parameters i and j are element indices in vertices
+    // Parameters i and j are indices into vertices
     func (g *graphAdjMat) addEdge(i, j int) {
-        // Check for out-of-bounds or equal indices (the constructed error is not returned)
+        // Check for out-of-bounds or equal indices
         if i < 0 || j < 0 || i >= g.size() || j >= g.size() || i == j {
-            fmt.Errorf("%s", "Index out of bounds")
+            fmt.Errorf("%s", "Index Out Of Bounds Exception")
         }
-        // For an undirected graph, the adjacency matrix is symmetric about its main diagonal: entries (i, j) and (j, i) are equal
+        // An undirected graph has a symmetric adjacency matrix: (i, j) == (j, i)
         g.adjMat[i][j] = 1
         g.adjMat[j][i] = 1
     }
 
     /* Remove an edge */
-    // Parameters i and j are element indices in vertices
+    // Parameters i and j are indices into vertices
     func (g *graphAdjMat) removeEdge(i, j int) {
-        // Check for out-of-bounds or equal indices (the constructed error is not returned)
+        // Check for out-of-bounds or equal indices
         if i < 0 || j < 0 || i >= g.size() || j >= g.size() || i == j {
-            fmt.Errorf("%s", "Index out of bounds")
+            fmt.Errorf("%s", "Index Out Of Bounds Exception")
         }
         g.adjMat[i][j] = 0
         g.adjMat[j][i] = 0
@@ -478,27 +478,27 @@ The following code implements a graph using an adjacency matrix:
 === "Swift"
 
     ```swift title="graph_adjacency_matrix.swift"
-    /* Undirected graph class implemented with an adjacency matrix */
+    /* Undirected graph represented by an adjacency matrix */
     class GraphAdjMat {
-        private var vertices: [Int] // Vertex list: elements are vertex values, and indices are vertex indices
-        private var adjMat: [[Int]] // Adjacency matrix: row and column indices correspond to vertex indices
+        private var vertices: [Int] // Vertex list: each element holds a vertex value, and its position is the vertex index
+        private var adjMat: [[Int]] // Adjacency matrix: row and column indices are vertex indices
 
         /* Constructor */
         init(vertices: [Int], edges: [[Int]]) {
             self.vertices = []
             adjMat = []
-            // Add all vertices
+            // Add a vertex
             for val in vertices {
                 addVertex(val: val)
             }
-            // Add all edges
-            // Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+            // Add an edge
+            // The entries in edges are vertex indices, that is, indices into vertices
             for e in edges {
                 addEdge(i: e[0], j: e[1])
             }
         }
 
-        /* Get the number of vertices */
+        /* Get the vertex count */
         func size() -> Int {
             vertices.count
         }
@@ -520,36 +520,36 @@ The following code implements a graph using an adjacency matrix:
         /* Remove a vertex */
         func removeVertex(index: Int) {
             if index >= size() {
-                fatalError("Invalid index")
+                fatalError("Index out of bounds")
             }
-            // Remove the vertex at index `index` from the vertex list
+            // Remove the vertex at the specified index from the vertex list
             vertices.remove(at: index)
-            // Remove row `index` from the adjacency matrix
+            // Remove the row at the specified index from the adjacency matrix
             adjMat.remove(at: index)
-            // Remove column `index` from the adjacency matrix
+            // Remove the column at the specified index from the adjacency matrix
             for i in adjMat.indices {
                 adjMat[i].remove(at: index)
             }
         }
 
         /* Add an edge */
-        // Parameters i and j are element indices in vertices
+        // Parameters i and j are indices into vertices
         func addEdge(i: Int, j: Int) {
-            // Handle out-of-bounds or equal indices
+            // Check for out-of-bounds or equal indices
             if i < 0 || j < 0 || i >= size() || j >= size() || i == j {
-                fatalError("Invalid index")
+                fatalError("Index out of bounds")
             }
-            // For an undirected graph, the adjacency matrix is symmetric about its main diagonal: entries (i, j) and (j, i) are equal
+            // An undirected graph has a symmetric adjacency matrix: (i, j) == (j, i)
             adjMat[i][j] = 1
             adjMat[j][i] = 1
         }
 
         /* Remove an edge */
-        // Parameters i and j are element indices in vertices
+        // Parameters i and j are indices into vertices
         func removeEdge(i: Int, j: Int) {
-            // Handle out-of-bounds or equal indices
+            // Check for out-of-bounds or equal indices
             if i < 0 || j < 0 || i >= size() || j >= size() || i == j {
-                fatalError("Invalid index")
+                fatalError("Index out of bounds")
             }
             adjMat[i][j] = 0
             adjMat[j][i] = 0
@@ -568,10 +568,10 @@ The following code implements a graph using an adjacency matrix:
 === "JS"
 
     ```javascript title="graph_adjacency_matrix.js"
-    /* Undirected graph class implemented with an adjacency matrix */
+    /* Undirected graph represented by an adjacency matrix */
     class GraphAdjMat {
-        vertices; // Vertex list: elements are vertex values, and indices are vertex indices
-        adjMat; // Adjacency matrix: row and column indices correspond to vertex indices
+        vertices; // Vertex list: each element holds a vertex value, and its position is the vertex index
+        adjMat; // Adjacency matrix: row and column indices are vertex indices
 
         /* Constructor */
         constructor(vertices, edges) {
@@ -582,13 +582,13 @@ The following code implements a graph using an adjacency matrix:
                 this.addVertex(val);
             }
             // Add an edge
-            // Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+            // The entries in edges are vertex indices, that is, indices into vertices
             for (const e of edges) {
                 this.addEdge(e[0], e[1]);
             }
         }
 
-        /* Get the number of vertices */
+        /* Get the vertex count */
         size() {
             return this.vertices.length;
         }
@@ -613,37 +613,37 @@ The following code implements a graph using an adjacency matrix:
         /* Remove a vertex */
         removeVertex(index) {
             if (index >= this.size()) {
-                throw new RangeError('Index out of bounds');
+                throw new RangeError('Index Out Of Bounds Exception');
             }
-            // Remove the vertex at index `index` from the vertex list
+            // Remove the vertex at the specified index from the vertex list
             this.vertices.splice(index, 1);
 
-            // Remove row `index` from the adjacency matrix
+            // Remove the row at the specified index from the adjacency matrix
             this.adjMat.splice(index, 1);
-            // Remove column `index` from the adjacency matrix
+            // Remove the column at the specified index from the adjacency matrix
             for (const row of this.adjMat) {
                 row.splice(index, 1);
             }
         }
 
         /* Add an edge */
-        // Parameters i and j are element indices in vertices
+        // Parameters i and j are indices into vertices
         addEdge(i, j) {
-            // Handle out-of-bounds or equal indices
+            // Check for out-of-bounds or equal indices
             if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
-                throw new RangeError('Index out of bounds');
+                throw new RangeError('Index Out Of Bounds Exception');
             }
-            // In an undirected graph, the adjacency matrix is symmetric about its main diagonal: (i, j) === (j, i)
+            // An undirected graph has a symmetric adjacency matrix: (i, j) === (j, i)
             this.adjMat[i][j] = 1;
             this.adjMat[j][i] = 1;
         }
 
         /* Remove an edge */
-        // Parameters i and j are element indices in vertices
+        // Parameters i and j are indices into vertices
         removeEdge(i, j) {
-            // Handle out-of-bounds or equal indices
+            // Check for out-of-bounds or equal indices
             if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
-                throw new RangeError('Index out of bounds');
+                throw new RangeError('Index Out Of Bounds Exception');
             }
             this.adjMat[i][j] = 0;
             this.adjMat[j][i] = 0;
@@ -660,10 +660,10 @@ The following code implements a graph using an adjacency matrix:
 === "TS"
 
     ```typescript title="graph_adjacency_matrix.ts"
-    /* Undirected graph class implemented with an adjacency matrix */
+    /* Undirected graph represented by an adjacency matrix */
     class GraphAdjMat {
-        vertices: number[]; // Vertex list: elements are vertex values, and indices are vertex indices
-        adjMat: number[][]; // Adjacency matrix: row and column indices correspond to vertex indices
+        vertices: number[]; // Vertex list: each element holds a vertex value, and its position is the vertex index
+        adjMat: number[][]; // Adjacency matrix: row and column indices are vertex indices
 
         /* Constructor */
         constructor(vertices: number[], edges: number[][]) {
@@ -674,13 +674,13 @@ The following code implements a graph using an adjacency matrix:
                 this.addVertex(val);
             }
             // Add an edge
-            // Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+            // The entries in edges are vertex indices, that is, indices into vertices
             for (const e of edges) {
                 this.addEdge(e[0], e[1]);
             }
         }
 
-        /* Get the number of vertices */
+        /* Get the vertex count */
         size(): number {
             return this.vertices.length;
         }
@@ -705,37 +705,37 @@ The following code implements a graph using an adjacency matrix:
         /* Remove a vertex */
         removeVertex(index: number): void {
             if (index >= this.size()) {
-                throw new RangeError('Index out of bounds');
+                throw new RangeError('Index Out Of Bounds Exception');
             }
-            // Remove the vertex at index `index` from the vertex list
+            // Remove the vertex at the specified index from the vertex list
             this.vertices.splice(index, 1);
 
-            // Remove row `index` from the adjacency matrix
+            // Remove the row at the specified index from the adjacency matrix
             this.adjMat.splice(index, 1);
-            // Remove column `index` from the adjacency matrix
+            // Remove the column at the specified index from the adjacency matrix
             for (const row of this.adjMat) {
                 row.splice(index, 1);
             }
         }
 
         /* Add an edge */
-        // Parameters i and j are element indices in vertices
+        // Parameters i and j are indices into vertices
         addEdge(i: number, j: number): void {
-            // Handle out-of-bounds or equal indices
+            // Check for out-of-bounds or equal indices
             if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
-                throw new RangeError('Index out of bounds');
+                throw new RangeError('Index Out Of Bounds Exception');
             }
-            // In an undirected graph, the adjacency matrix is symmetric about its main diagonal: (i, j) === (j, i)
+            // An undirected graph has a symmetric adjacency matrix: (i, j) === (j, i)
             this.adjMat[i][j] = 1;
             this.adjMat[j][i] = 1;
         }
 
         /* Remove an edge */
-        // Parameters i and j are element indices in vertices
+        // Parameters i and j are indices into vertices
         removeEdge(i: number, j: number): void {
-            // Handle out-of-bounds or equal indices
+            // Check for out-of-bounds or equal indices
             if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
-                throw new RangeError('Index out of bounds');
+                throw new RangeError('Index Out Of Bounds Exception');
             }
             this.adjMat[i][j] = 0;
             this.adjMat[j][i] = 0;
@@ -752,10 +752,10 @@ The following code implements a graph using an adjacency matrix:
 === "Dart"
 
     ```dart title="graph_adjacency_matrix.dart"
-    /* Undirected graph class implemented with an adjacency matrix */
+    /* Undirected graph represented by an adjacency matrix */
     class GraphAdjMat {
-      List<int> vertices = []; // Vertex entries: each element is a vertex value, and its index is the vertex index
-      List<List<int>> adjMat = []; //Adjacency matrix: row and column indices correspond to vertex indices
+      List<int> vertices = []; // Vertex entries: each value is a vertex value, and its position is the vertex index
+      List<List<int>> adjMat = []; //Adjacency matrix: row and column indices are vertex indices
 
       /* Constructor */
       GraphAdjMat(List<int> vertices, List<List<int>> edges) {
@@ -766,13 +766,13 @@ The following code implements a graph using an adjacency matrix:
           addVertex(val);
         }
         // Add an edge
-        // Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+        // The entries in edges are vertex indices, that is, indices into vertices
         for (List<int> e in edges) {
           addEdge(e[0], e[1]);
         }
       }
 
-      /* Get the number of vertices */
+      /* Get the vertex count */
       int size() {
         return vertices.length;
       }
@@ -796,32 +796,32 @@ The following code implements a graph using an adjacency matrix:
         if (index >= size()) {
           throw IndexError;
         }
-        // Remove the vertex at index `index` from the vertex list
+        // Remove the vertex at the specified index from the vertex list
         vertices.removeAt(index);
-        // Remove row `index` from the adjacency matrix
+        // Remove the row at the specified index from the adjacency matrix
         adjMat.removeAt(index);
-        // Remove column `index` from the adjacency matrix
+        // Remove the column at the specified index from the adjacency matrix
         for (List<int> row in adjMat) {
           row.removeAt(index);
         }
       }
 
       /* Add an edge */
-      // Parameters i and j are element indices in vertices
+      // Parameters i and j are indices into vertices
       void addEdge(int i, int j) {
-        // Handle out-of-bounds or equal indices
+        // Check for out-of-bounds or equal indices
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) {
           throw IndexError;
         }
-        // For an undirected graph, the adjacency matrix is symmetric about its main diagonal: entries (i, j) and (j, i) are equal
+        // An undirected graph has a symmetric adjacency matrix: (i, j) == (j, i)
         adjMat[i][j] = 1;
         adjMat[j][i] = 1;
       }
 
       /* Remove an edge */
-      // Parameters i and j are element indices in vertices
+      // Parameters i and j are indices into vertices
       void removeEdge(int i, int j) {
-        // Handle out-of-bounds or equal indices
+        // Check for out-of-bounds or equal indices
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) {
           throw IndexError;
         }
@@ -841,11 +841,11 @@ The following code implements a graph using an adjacency matrix:
 === "Rust"
 
     ```rust title="graph_adjacency_matrix.rs"
-    /* Undirected graph type implemented with an adjacency matrix */
+    /* Undirected graph type represented by an adjacency matrix */
     pub struct GraphAdjMat {
-        // Vertex list: elements are vertex values, and indices are vertex indices
+        // Vertex list: each element holds a vertex value, and its position is the vertex index
         pub vertices: Vec<i32>,
-        // Adjacency matrix: row and column indices correspond to vertex indices
+        // Adjacency matrix: row and column indices are vertex indices
         pub adj_mat: Vec<Vec<i32>>,
     }
 
@@ -861,7 +861,7 @@ The following code implements a graph using an adjacency matrix:
                 graph.add_vertex(val);
             }
             // Add an edge
-            // Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+            // The entries in edges are vertex indices, that is, indices into vertices
             for edge in edges {
                 graph.add_edge(edge[0], edge[1])
             }
@@ -869,7 +869,7 @@ The following code implements a graph using an adjacency matrix:
             graph
         }
 
-        /* Get the number of vertices */
+        /* Get the vertex count */
         pub fn size(&self) -> usize {
             self.vertices.len()
         }
@@ -890,13 +890,13 @@ The following code implements a graph using an adjacency matrix:
         /* Remove a vertex */
         pub fn remove_vertex(&mut self, index: usize) {
             if index >= self.size() {
-                panic!("Invalid vertex index")
+                panic!("index error")
             }
-            // Remove the vertex at index `index` from the vertex list
+            // Remove the vertex at the specified index from the vertex list
             self.vertices.remove(index);
-            // Remove row `index` from the adjacency matrix
+            // Remove the row at the specified index from the adjacency matrix
             self.adj_mat.remove(index);
-            // Remove column `index` from the adjacency matrix
+            // Remove the column at the specified index from the adjacency matrix
             for row in self.adj_mat.iter_mut() {
                 row.remove(index);
             }
@@ -904,23 +904,23 @@ The following code implements a graph using an adjacency matrix:
 
         /* Add an edge */
         pub fn add_edge(&mut self, i: usize, j: usize) {
-            // Parameters i and j are element indices in vertices
-            // Handle out-of-bounds or equal indices
+            // Parameters i and j are indices into vertices
+            // Check for out-of-bounds or equal indices
             if i >= self.size() || j >= self.size() || i == j {
-                panic!("Invalid vertex index")
+                panic!("index error")
             }
-            // For an undirected graph, the adjacency matrix is symmetric about its main diagonal: entries (i, j) and (j, i) are equal
+            // An undirected graph has a symmetric adjacency matrix: (i, j) == (j, i)
             self.adj_mat[i][j] = 1;
             self.adj_mat[j][i] = 1;
         }
 
         /* Remove an edge */
-        // Parameters i and j are element indices in vertices
+        // Parameters i and j are indices into vertices
         pub fn remove_edge(&mut self, i: usize, j: usize) {
-            // Parameters i and j are element indices in vertices
-            // Handle out-of-bounds or equal indices
+            // Parameters i and j are indices into vertices
+            // Check for out-of-bounds or equal indices
             if i >= self.size() || j >= self.size() || i == j {
-                panic!("Invalid vertex index")
+                panic!("index error")
             }
             self.adj_mat[i][j] = 0;
             self.adj_mat[j][i] = 0;
@@ -942,7 +942,7 @@ The following code implements a graph using an adjacency matrix:
 === "C"
 
     ```c title="graph_adjacency_matrix.c"
-    /* Undirected graph structure implemented with an adjacency matrix */
+    /* Structure for an undirected graph represented by an adjacency matrix */
     typedef struct {
         int vertices[MAX_SIZE];
         int adjMat[MAX_SIZE][MAX_SIZE];
@@ -972,7 +972,7 @@ The following code implements a graph using an adjacency matrix:
             fprintf(stderr, "The graph has reached its maximum number of vertices\n");
             return;
         }
-        // Add the vertex at index n and set row n and column n to zero
+        // Add the nth vertex and set row n and column n to zero
         int n = graph->size;
         graph->vertices[n] = val;
         for (int i = 0; i <= n; i++) {
@@ -987,17 +987,17 @@ The following code implements a graph using an adjacency matrix:
             fprintf(stderr, "Vertex index out of bounds\n");
             return;
         }
-        // Remove the vertex at index `index` from the vertex list
+        // Remove the vertex at the specified index from the vertex list
         for (int i = index; i < graph->size - 1; i++) {
             graph->vertices[i] = graph->vertices[i + 1];
         }
-        // Remove row `index` from the adjacency matrix
+        // Remove the row at the specified index from the adjacency matrix
         for (int i = index; i < graph->size - 1; i++) {
             for (int j = 0; j < graph->size; j++) {
                 graph->adjMat[i][j] = graph->adjMat[i + 1][j];
             }
         }
-        // Remove column `index` from the adjacency matrix
+        // Remove the column at the specified index from the adjacency matrix
         for (int i = 0; i < graph->size; i++) {
             for (int j = index; j < graph->size - 1; j++) {
                 graph->adjMat[i][j] = graph->adjMat[i][j + 1];
@@ -1007,7 +1007,7 @@ The following code implements a graph using an adjacency matrix:
     }
 
     /* Add an edge */
-    // Parameters i and j are element indices in vertices
+    // Parameters i and j are indices into vertices
     void addEdge(GraphAdjMat *graph, int i, int j) {
         if (i < 0 || j < 0 || i >= graph->size || j >= graph->size || i == j) {
             fprintf(stderr, "Edge endpoint indices are out of bounds or equal\n");
@@ -1018,7 +1018,7 @@ The following code implements a graph using an adjacency matrix:
     }
 
     /* Remove an edge */
-    // Parameters i and j are element indices in vertices
+    // Parameters i and j are indices into vertices
     void removeEdge(GraphAdjMat *graph, int i, int j) {
         if (i < 0 || j < 0 || i >= graph->size || j >= graph->size || i == j) {
             fprintf(stderr, "Edge endpoint indices are out of bounds or equal\n");
@@ -1042,10 +1042,10 @@ The following code implements a graph using an adjacency matrix:
 === "Kotlin"
 
     ```kotlin title="graph_adjacency_matrix.kt"
-    /* Undirected graph class implemented with an adjacency matrix */
+    /* Undirected graph represented by an adjacency matrix */
     class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
-        val vertices = mutableListOf<Int>() // Vertex list: elements are vertex values, and indices are vertex indices
-        val adjMat = mutableListOf<MutableList<Int>>() // Adjacency matrix: row and column indices correspond to vertex indices
+        val vertices = mutableListOf<Int>() // Vertex list: each element holds a vertex value, and its position is the vertex index
+        val adjMat = mutableListOf<MutableList<Int>>() // Adjacency matrix: row and column indices are vertex indices
 
         /* Constructor */
         init {
@@ -1054,13 +1054,13 @@ The following code implements a graph using an adjacency matrix:
                 addVertex(vertex)
             }
             // Add an edge
-            // Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+            // The entries in edges are vertex indices, that is, indices into vertices
             for (edge in edges) {
                 addEdge(edge[0], edge[1])
             }
         }
 
-        /* Get the number of vertices */
+        /* Get the vertex count */
         fun size(): Int {
             return vertices.size
         }
@@ -1086,31 +1086,31 @@ The following code implements a graph using an adjacency matrix:
         fun removeVertex(index: Int) {
             if (index >= size())
                 throw IndexOutOfBoundsException()
-            // Remove the vertex at index `index` from the vertex list
+            // Remove the vertex at the specified index from the vertex list
             vertices.removeAt(index)
-            // Remove row `index` from the adjacency matrix
+            // Remove the row at the specified index from the adjacency matrix
             adjMat.removeAt(index)
-            // Remove column `index` from the adjacency matrix
+            // Remove the column at the specified index from the adjacency matrix
             for (row in adjMat) {
                 row.removeAt(index)
             }
         }
 
         /* Add an edge */
-        // Parameters i and j are element indices in vertices
+        // Parameters i and j are indices into vertices
         fun addEdge(i: Int, j: Int) {
-            // Handle out-of-bounds or equal indices
+            // Check for out-of-bounds or equal indices
             if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
                 throw IndexOutOfBoundsException()
-            // For an undirected graph, the adjacency matrix is symmetric about its main diagonal: entries (i, j) and (j, i) are equal
+            // An undirected graph has a symmetric adjacency matrix: (i, j) == (j, i)
             adjMat[i][j] = 1
             adjMat[j][i] = 1
         }
 
         /* Remove an edge */
-        // Parameters i and j are element indices in vertices
+        // Parameters i and j are indices into vertices
         fun removeEdge(i: Int, j: Int) {
-            // Handle out-of-bounds or equal indices
+            // Check for out-of-bounds or equal indices
             if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
                 throw IndexOutOfBoundsException()
             adjMat[i][j] = 0
@@ -1130,22 +1130,22 @@ The following code implements a graph using an adjacency matrix:
 === "Ruby"
 
     ```ruby title="graph_adjacency_matrix.rb"
-    ### Undirected graph class implemented with an adjacency matrix ###
+    ### Undirected graph represented by an adjacency matrix ###
     class GraphAdjMat
       def initialize(vertices, edges)
         ### Constructor ###
-        # Vertex list: elements are vertex values, and indices are vertex indices
+        # Vertex list: each element holds a vertex value, and its position is the vertex index
         @vertices = []
-        # Adjacency matrix: row and column indices correspond to vertex indices
+        # Adjacency matrix: row and column indices are vertex indices
         @adj_mat = []
         # Add a vertex
         vertices.each { |val| add_vertex(val) }
         # Add an edge
-        # Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+        # The entries in edges are vertex indices, that is, indices into vertices
         edges.each { |e| add_edge(e[0], e[1]) }
       end
 
-      ### Get the number of vertices ###
+      ### Get the vertex count ###
       def size
         @vertices.length
       end
@@ -1166,30 +1166,30 @@ The following code implements a graph using an adjacency matrix:
       def remove_vertex(index)
         raise IndexError if index >= size
 
-        # Remove the vertex at index `index` from the vertex list
+        # Remove the vertex at the specified index from the vertex list
         @vertices.delete_at(index)
-        # Remove row `index` from the adjacency matrix
+        # Remove the row at the specified index from the adjacency matrix
         @adj_mat.delete_at(index)
-        # Remove column `index` from the adjacency matrix
+        # Remove the column at the specified index from the adjacency matrix
         @adj_mat.each { |row| row.delete_at(index) }
       end
 
       ### Add an edge ###
       def add_edge(i, j)
-        # Parameters i and j are element indices in vertices
-        # Handle out-of-bounds or equal indices
+        # Parameters i and j are indices into vertices
+        # Check for out-of-bounds or equal indices
         if i < 0 || j < 0 || i >= size || j >= size || i == j
           raise IndexError
         end
-        # For an undirected graph, the adjacency matrix is symmetric about its main diagonal: entries (i, j) and (j, i) are equal
+        # An undirected graph has a symmetric adjacency matrix: (i, j) == (j, i)
         @adj_mat[i][j] = 1
         @adj_mat[j][i] = 1
       end
 
       ### Remove an edge ###
       def remove_edge(i, j)
-        # Parameters i and j are element indices in vertices
-        # Handle out-of-bounds or equal indices
+        # Parameters i and j are indices into vertices
+        # Check for out-of-bounds or equal indices
         if i < 0 || j < 0 || i >= size || j >= size || i == j
           raise IndexError
         end
@@ -1208,18 +1208,18 @@ The following code implements a graph using an adjacency matrix:
 
 ??? pythontutor "Visualize execution"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20GraphAdjMat%3A%0A%20%20%20%20%22%22%22Undirected%20graph%20class%20implemented%20with%20an%20adjacency%20matrix%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20vertices%3A%20list%5Bint%5D,%20edges%3A%20list%5Blist%5Bint%5D%5D%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20self.vertices%3A%20list%5Bint%5D%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20self.adj_mat%3A%20list%5Blist%5Bint%5D%5D%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20%23%20Add%20a%20vertex%0A%20%20%20%20%20%20%20%20for%20val%20in%20vertices%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.add_vertex%28val%29%0A%20%20%20%20%20%20%20%20%23%20Add%20an%20edge%0A%20%20%20%20%20%20%20%20for%20e%20in%20edges%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.add_edge%28e%5B0%5D,%20e%5B1%5D%29%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20number%20of%20vertices%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self.vertices%29%0A%0A%20%20%20%20def%20add_vertex%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Add%20a%20vertex%22%22%22%0A%20%20%20%20%20%20%20%20n%20%3D%20self.size%28%29%0A%20%20%20%20%20%20%20%20%23%20Append%20the%20new%20vertex%20value%20to%20the%20vertex%20list%0A%20%20%20%20%20%20%20%20self.vertices.append%28val%29%0A%20%20%20%20%20%20%20%20%23%20Add%20a%20row%20to%20the%20adjacency%20matrix%0A%20%20%20%20%20%20%20%20new_row%20%3D%20%5B0%5D%20%2A%20n%0A%20%20%20%20%20%20%20%20self.adj_mat.append%28new_row%29%0A%20%20%20%20%20%20%20%20%23%20Add%20a%20column%20to%20the%20adjacency%20matrix%0A%20%20%20%20%20%20%20%20for%20row%20in%20self.adj_mat%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20row.append%280%29%0A%0A%20%20%20%20def%20remove_vertex%28self,%20index%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Remove%20a%20vertex%22%22%22%0A%20%20%20%20%20%20%20%20if%20index%20%3E%3D%20self.size%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%29%0A%20%20%20%20%20%20%20%20%23%20Remove%20the%20vertex%20at%20index%20%60index%60%20from%20the%20vertex%20list%0A%20%20%20%20%20%20%20%20self.vertices.pop%28index%29%0A%20%20%20%20%20%20%20%20%23%20Remove%20row%20%60index%60%20from%20the%20adjacency%20matrix%0A%20%20%20%20%20%20%20%20self.adj_mat.pop%28index%29%0A%20%20%20%20%20%20%20%20%23%20Remove%20column%20%60index%60%20from%20the%20adjacency%20matrix%0A%20%20%20%20%20%20%20%20for%20row%20in%20self.adj_mat%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20row.pop%28index%29%0A%0A%20%20%20%20def%20add_edge%28self,%20i%3A%20int,%20j%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Add%20an%20edge%22%22%22%0A%20%20%20%20%20%20%20%20%23%20Handle%20out-of-bounds%20or%20equal%20indices%0A%20%20%20%20%20%20%20%20if%20i%20%3C%200%20or%20j%20%3C%200%20or%20i%20%3E%3D%20self.size%28%29%20or%20j%20%3E%3D%20self.size%28%29%20or%20i%20%3D%3D%20j%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%29%0A%20%20%20%20%20%20%20%20self.adj_mat%5Bi%5D%5Bj%5D%20%3D%201%0A%20%20%20%20%20%20%20%20self.adj_mat%5Bj%5D%5Bi%5D%20%3D%201%0A%0A%20%20%20%20def%20remove_edge%28self,%20i%3A%20int,%20j%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Remove%20an%20edge%22%22%22%0A%20%20%20%20%20%20%20%20%23%20Handle%20out-of-bounds%20or%20equal%20indices%0A%20%20%20%20%20%20%20%20if%20i%20%3C%200%20or%20j%20%3C%200%20or%20i%20%3E%3D%20self.size%28%29%20or%20j%20%3E%3D%20self.size%28%29%20or%20i%20%3D%3D%20j%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%29%0A%20%20%20%20%20%20%20%20self.adj_mat%5Bi%5D%5Bj%5D%20%3D%200%0A%20%20%20%20%20%20%20%20self.adj_mat%5Bj%5D%5Bi%5D%20%3D%200%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20undirected%20graph%0A%20%20%20%20vertices%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20edges%20%3D%20%5B%5B0,%201%5D,%20%5B0,%203%5D,%20%5B1,%202%5D,%20%5B2,%203%5D,%20%5B2,%204%5D,%20%5B3,%204%5D%5D%0A%20%20%20%20graph%20%3D%20GraphAdjMat%28vertices,%20edges%29%0A%0A%20%20%20%20%23%20Add%20an%20edge%0A%20%20%20%20%23%20Vertices%201%20and%202%20have%20indices%200%20and%202,%20respectively%0A%20%20%20%20graph.add_edge%280,%202%29%0A%0A%20%20%20%20%23%20Remove%20an%20edge%0A%20%20%20%20%23%20Vertices%201%20and%203%20have%20indices%200%20and%201,%20respectively%0A%20%20%20%20graph.remove_edge%280,%201%29%0A%0A%20%20%20%20%23%20Add%20a%20vertex%0A%20%20%20%20graph.add_vertex%286%29%0A%0A%20%20%20%20%23%20Remove%20a%20vertex%0A%20%20%20%20%23%20Vertex%203%20has%20index%201%0A%20%20%20%20graph.remove_vertex%281%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20GraphAdjMat%3A%0A%20%20%20%20%22%22%22Undirected%20graph%20class%20implemented%20with%20an%20adjacency%20matrix%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20vertices%3A%20list%5Bint%5D,%20edges%3A%20list%5Blist%5Bint%5D%5D%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20self.vertices%3A%20list%5Bint%5D%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20self.adj_mat%3A%20list%5Blist%5Bint%5D%5D%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20%23%20Add%20a%20vertex%0A%20%20%20%20%20%20%20%20for%20val%20in%20vertices%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.add_vertex%28val%29%0A%20%20%20%20%20%20%20%20%23%20Add%20an%20edge%0A%20%20%20%20%20%20%20%20for%20e%20in%20edges%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.add_edge%28e%5B0%5D,%20e%5B1%5D%29%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20number%20of%20vertices%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self.vertices%29%0A%0A%20%20%20%20def%20add_vertex%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Add%20a%20vertex%22%22%22%0A%20%20%20%20%20%20%20%20n%20%3D%20self.size%28%29%0A%20%20%20%20%20%20%20%20%23%20Append%20the%20new%20vertex%20value%20to%20the%20vertex%20list%0A%20%20%20%20%20%20%20%20self.vertices.append%28val%29%0A%20%20%20%20%20%20%20%20%23%20Add%20a%20row%20to%20the%20adjacency%20matrix%0A%20%20%20%20%20%20%20%20new_row%20%3D%20%5B0%5D%20%2A%20n%0A%20%20%20%20%20%20%20%20self.adj_mat.append%28new_row%29%0A%20%20%20%20%20%20%20%20%23%20Add%20a%20column%20to%20the%20adjacency%20matrix%0A%20%20%20%20%20%20%20%20for%20row%20in%20self.adj_mat%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20row.append%280%29%0A%0A%20%20%20%20def%20remove_vertex%28self,%20index%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Remove%20a%20vertex%22%22%22%0A%20%20%20%20%20%20%20%20if%20index%20%3E%3D%20self.size%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%29%0A%20%20%20%20%20%20%20%20%23%20Remove%20the%20vertex%20at%20index%20%60index%60%20from%20the%20vertex%20list%0A%20%20%20%20%20%20%20%20self.vertices.pop%28index%29%0A%20%20%20%20%20%20%20%20%23%20Remove%20row%20%60index%60%20from%20the%20adjacency%20matrix%0A%20%20%20%20%20%20%20%20self.adj_mat.pop%28index%29%0A%20%20%20%20%20%20%20%20%23%20Remove%20column%20%60index%60%20from%20the%20adjacency%20matrix%0A%20%20%20%20%20%20%20%20for%20row%20in%20self.adj_mat%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20row.pop%28index%29%0A%0A%20%20%20%20def%20add_edge%28self,%20i%3A%20int,%20j%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Add%20an%20edge%22%22%22%0A%20%20%20%20%20%20%20%20%23%20Handle%20out-of-bounds%20or%20equal%20indices%0A%20%20%20%20%20%20%20%20if%20i%20%3C%200%20or%20j%20%3C%200%20or%20i%20%3E%3D%20self.size%28%29%20or%20j%20%3E%3D%20self.size%28%29%20or%20i%20%3D%3D%20j%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%29%0A%20%20%20%20%20%20%20%20self.adj_mat%5Bi%5D%5Bj%5D%20%3D%201%0A%20%20%20%20%20%20%20%20self.adj_mat%5Bj%5D%5Bi%5D%20%3D%201%0A%0A%20%20%20%20def%20remove_edge%28self,%20i%3A%20int,%20j%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Remove%20an%20edge%22%22%22%0A%20%20%20%20%20%20%20%20%23%20Handle%20out-of-bounds%20or%20equal%20indices%0A%20%20%20%20%20%20%20%20if%20i%20%3C%200%20or%20j%20%3C%200%20or%20i%20%3E%3D%20self.size%28%29%20or%20j%20%3E%3D%20self.size%28%29%20or%20i%20%3D%3D%20j%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%29%0A%20%20%20%20%20%20%20%20self.adj_mat%5Bi%5D%5Bj%5D%20%3D%200%0A%20%20%20%20%20%20%20%20self.adj_mat%5Bj%5D%5Bi%5D%20%3D%200%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20undirected%20graph%0A%20%20%20%20vertices%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20edges%20%3D%20%5B%5B0,%201%5D,%20%5B0,%203%5D,%20%5B1,%202%5D,%20%5B2,%203%5D,%20%5B2,%204%5D,%20%5B3,%204%5D%5D%0A%20%20%20%20graph%20%3D%20GraphAdjMat%28vertices,%20edges%29%0A%0A%20%20%20%20%23%20Add%20an%20edge%0A%20%20%20%20%23%20Vertices%201%20and%202%20have%20indices%200%20and%202,%20respectively%0A%20%20%20%20graph.add_edge%280,%202%29%0A%0A%20%20%20%20%23%20Remove%20an%20edge%0A%20%20%20%20%23%20Vertices%201%20and%203%20have%20indices%200%20and%201,%20respectively%0A%20%20%20%20graph.remove_edge%280,%201%29%0A%0A%20%20%20%20%23%20Add%20a%20vertex%0A%20%20%20%20graph.add_vertex%286%29%0A%0A%20%20%20%20%23%20Remove%20a%20vertex%0A%20%20%20%20%23%20Vertex%203%20has%20index%201%0A%20%20%20%20graph.remove_vertex%281%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20GraphAdjMat%3A%0A%20%20%20%20%22%22%22Undirected%20graph%20represented%20by%20an%20adjacency%20matrix%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20vertices%3A%20list%5Bint%5D,%20edges%3A%20list%5Blist%5Bint%5D%5D%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20self.vertices%3A%20list%5Bint%5D%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20self.adj_mat%3A%20list%5Blist%5Bint%5D%5D%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20%23%20Add%20a%20vertex%0A%20%20%20%20%20%20%20%20for%20val%20in%20vertices%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.add_vertex%28val%29%0A%20%20%20%20%20%20%20%20%23%20Add%20an%20edge%0A%20%20%20%20%20%20%20%20for%20e%20in%20edges%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.add_edge%28e%5B0%5D,%20e%5B1%5D%29%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20vertex%20count%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self.vertices%29%0A%0A%20%20%20%20def%20add_vertex%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Add%20a%20vertex%22%22%22%0A%20%20%20%20%20%20%20%20n%20%3D%20self.size%28%29%0A%20%20%20%20%20%20%20%20%23%20Append%20the%20new%20vertex%20value%20to%20the%20vertex%20list%0A%20%20%20%20%20%20%20%20self.vertices.append%28val%29%0A%20%20%20%20%20%20%20%20%23%20Add%20a%20row%20to%20the%20adjacency%20matrix%0A%20%20%20%20%20%20%20%20new_row%20%3D%20%5B0%5D%20%2A%20n%0A%20%20%20%20%20%20%20%20self.adj_mat.append%28new_row%29%0A%20%20%20%20%20%20%20%20%23%20Add%20a%20column%20to%20the%20adjacency%20matrix%0A%20%20%20%20%20%20%20%20for%20row%20in%20self.adj_mat%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20row.append%280%29%0A%0A%20%20%20%20def%20remove_vertex%28self,%20index%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Remove%20a%20vertex%22%22%22%0A%20%20%20%20%20%20%20%20if%20index%20%3E%3D%20self.size%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%29%0A%20%20%20%20%20%20%20%20%23%20Remove%20the%20vertex%20at%20the%20specified%20index%20from%20the%20vertex%20list%0A%20%20%20%20%20%20%20%20self.vertices.pop%28index%29%0A%20%20%20%20%20%20%20%20%23%20Remove%20the%20row%20at%20the%20specified%20index%20from%20the%20adjacency%20matrix%0A%20%20%20%20%20%20%20%20self.adj_mat.pop%28index%29%0A%20%20%20%20%20%20%20%20%23%20Remove%20the%20column%20at%20the%20specified%20index%20from%20the%20adjacency%20matrix%0A%20%20%20%20%20%20%20%20for%20row%20in%20self.adj_mat%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20row.pop%28index%29%0A%0A%20%20%20%20def%20add_edge%28self,%20i%3A%20int,%20j%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Add%20an%20edge%22%22%22%0A%20%20%20%20%20%20%20%20%23%20Check%20for%20out-of-bounds%20or%20equal%20indices%0A%20%20%20%20%20%20%20%20if%20i%20%3C%200%20or%20j%20%3C%200%20or%20i%20%3E%3D%20self.size%28%29%20or%20j%20%3E%3D%20self.size%28%29%20or%20i%20%3D%3D%20j%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%29%0A%20%20%20%20%20%20%20%20self.adj_mat%5Bi%5D%5Bj%5D%20%3D%201%0A%20%20%20%20%20%20%20%20self.adj_mat%5Bj%5D%5Bi%5D%20%3D%201%0A%0A%20%20%20%20def%20remove_edge%28self,%20i%3A%20int,%20j%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Remove%20an%20edge%22%22%22%0A%20%20%20%20%20%20%20%20%23%20Check%20for%20out-of-bounds%20or%20equal%20indices%0A%20%20%20%20%20%20%20%20if%20i%20%3C%200%20or%20j%20%3C%200%20or%20i%20%3E%3D%20self.size%28%29%20or%20j%20%3E%3D%20self.size%28%29%20or%20i%20%3D%3D%20j%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%29%0A%20%20%20%20%20%20%20%20self.adj_mat%5Bi%5D%5Bj%5D%20%3D%200%0A%20%20%20%20%20%20%20%20self.adj_mat%5Bj%5D%5Bi%5D%20%3D%200%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20an%20undirected%20graph%0A%20%20%20%20vertices%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20edges%20%3D%20%5B%5B0,%201%5D,%20%5B0,%203%5D,%20%5B1,%202%5D,%20%5B2,%203%5D,%20%5B2,%204%5D,%20%5B3,%204%5D%5D%0A%20%20%20%20graph%20%3D%20GraphAdjMat%28vertices,%20edges%29%0A%0A%20%20%20%20%23%20Add%20an%20edge%0A%20%20%20%20%23%20Vertices%201%20and%202%20have%20indices%200%20and%202,%20respectively%0A%20%20%20%20graph.add_edge%280,%202%29%0A%0A%20%20%20%20%23%20Remove%20an%20edge%0A%20%20%20%20%23%20Vertices%201%20and%203%20have%20indices%200%20and%201,%20respectively%0A%20%20%20%20graph.remove_edge%280,%201%29%0A%0A%20%20%20%20%23%20Add%20a%20vertex%0A%20%20%20%20graph.add_vertex%286%29%0A%0A%20%20%20%20%23%20Remove%20a%20vertex%0A%20%20%20%20%23%20Vertex%203%20has%20index%201%0A%20%20%20%20graph.remove_vertex%281%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20GraphAdjMat%3A%0A%20%20%20%20%22%22%22Undirected%20graph%20represented%20by%20an%20adjacency%20matrix%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20vertices%3A%20list%5Bint%5D,%20edges%3A%20list%5Blist%5Bint%5D%5D%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20self.vertices%3A%20list%5Bint%5D%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20self.adj_mat%3A%20list%5Blist%5Bint%5D%5D%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20%23%20Add%20a%20vertex%0A%20%20%20%20%20%20%20%20for%20val%20in%20vertices%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.add_vertex%28val%29%0A%20%20%20%20%20%20%20%20%23%20Add%20an%20edge%0A%20%20%20%20%20%20%20%20for%20e%20in%20edges%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.add_edge%28e%5B0%5D,%20e%5B1%5D%29%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20vertex%20count%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self.vertices%29%0A%0A%20%20%20%20def%20add_vertex%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Add%20a%20vertex%22%22%22%0A%20%20%20%20%20%20%20%20n%20%3D%20self.size%28%29%0A%20%20%20%20%20%20%20%20%23%20Append%20the%20new%20vertex%20value%20to%20the%20vertex%20list%0A%20%20%20%20%20%20%20%20self.vertices.append%28val%29%0A%20%20%20%20%20%20%20%20%23%20Add%20a%20row%20to%20the%20adjacency%20matrix%0A%20%20%20%20%20%20%20%20new_row%20%3D%20%5B0%5D%20%2A%20n%0A%20%20%20%20%20%20%20%20self.adj_mat.append%28new_row%29%0A%20%20%20%20%20%20%20%20%23%20Add%20a%20column%20to%20the%20adjacency%20matrix%0A%20%20%20%20%20%20%20%20for%20row%20in%20self.adj_mat%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20row.append%280%29%0A%0A%20%20%20%20def%20remove_vertex%28self,%20index%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Remove%20a%20vertex%22%22%22%0A%20%20%20%20%20%20%20%20if%20index%20%3E%3D%20self.size%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%29%0A%20%20%20%20%20%20%20%20%23%20Remove%20the%20vertex%20at%20the%20specified%20index%20from%20the%20vertex%20list%0A%20%20%20%20%20%20%20%20self.vertices.pop%28index%29%0A%20%20%20%20%20%20%20%20%23%20Remove%20the%20row%20at%20the%20specified%20index%20from%20the%20adjacency%20matrix%0A%20%20%20%20%20%20%20%20self.adj_mat.pop%28index%29%0A%20%20%20%20%20%20%20%20%23%20Remove%20the%20column%20at%20the%20specified%20index%20from%20the%20adjacency%20matrix%0A%20%20%20%20%20%20%20%20for%20row%20in%20self.adj_mat%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20row.pop%28index%29%0A%0A%20%20%20%20def%20add_edge%28self,%20i%3A%20int,%20j%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Add%20an%20edge%22%22%22%0A%20%20%20%20%20%20%20%20%23%20Check%20for%20out-of-bounds%20or%20equal%20indices%0A%20%20%20%20%20%20%20%20if%20i%20%3C%200%20or%20j%20%3C%200%20or%20i%20%3E%3D%20self.size%28%29%20or%20j%20%3E%3D%20self.size%28%29%20or%20i%20%3D%3D%20j%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%29%0A%20%20%20%20%20%20%20%20self.adj_mat%5Bi%5D%5Bj%5D%20%3D%201%0A%20%20%20%20%20%20%20%20self.adj_mat%5Bj%5D%5Bi%5D%20%3D%201%0A%0A%20%20%20%20def%20remove_edge%28self,%20i%3A%20int,%20j%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Remove%20an%20edge%22%22%22%0A%20%20%20%20%20%20%20%20%23%20Check%20for%20out-of-bounds%20or%20equal%20indices%0A%20%20%20%20%20%20%20%20if%20i%20%3C%200%20or%20j%20%3C%200%20or%20i%20%3E%3D%20self.size%28%29%20or%20j%20%3E%3D%20self.size%28%29%20or%20i%20%3D%3D%20j%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%29%0A%20%20%20%20%20%20%20%20self.adj_mat%5Bi%5D%5Bj%5D%20%3D%200%0A%20%20%20%20%20%20%20%20self.adj_mat%5Bj%5D%5Bi%5D%20%3D%200%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20an%20undirected%20graph%0A%20%20%20%20vertices%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20edges%20%3D%20%5B%5B0,%201%5D,%20%5B0,%203%5D,%20%5B1,%202%5D,%20%5B2,%203%5D,%20%5B2,%204%5D,%20%5B3,%204%5D%5D%0A%20%20%20%20graph%20%3D%20GraphAdjMat%28vertices,%20edges%29%0A%0A%20%20%20%20%23%20Add%20an%20edge%0A%20%20%20%20%23%20Vertices%201%20and%202%20have%20indices%200%20and%202,%20respectively%0A%20%20%20%20graph.add_edge%280,%202%29%0A%0A%20%20%20%20%23%20Remove%20an%20edge%0A%20%20%20%20%23%20Vertices%201%20and%203%20have%20indices%200%20and%201,%20respectively%0A%20%20%20%20graph.remove_edge%280,%201%29%0A%0A%20%20%20%20%23%20Add%20a%20vertex%0A%20%20%20%20graph.add_vertex%286%29%0A%0A%20%20%20%20%23%20Remove%20a%20vertex%0A%20%20%20%20%23%20Vertex%203%20has%20index%201%0A%20%20%20%20graph.remove_vertex%281%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
 ## 9.2.2 &nbsp; Adjacency list implementation
 
-For an undirected graph with $n$ vertices and $m$ edges, the operations can be implemented as shown in Figure 9-8.
+For an undirected graph with $n$ vertices and $m$ edges, we can implement each operation as shown below.
 
-- **Add an edge**: Append the edge to the linked list of the corresponding vertex, taking $O(1)$ time. Since the graph is undirected, add the edge in both directions.
-- **Remove an edge**: Find and remove the specified edge in the corresponding vertex's linked list, taking $O(m)$ time. For an undirected graph, remove the edge in both directions.
-- **Add a vertex**: Add a linked list to the adjacency list with the new vertex as its head node, taking $O(1)$ time.
-- **Remove a vertex**: Traverse the entire adjacency list and remove every edge involving the specified vertex, taking $O(n + m)$ time.
-- **Initialize the graph**: Create $n$ vertices and $2m$ edge entries in the adjacency list, taking $O(n + m)$ time.
+- **Add an edge**: Append the edge to the list for each endpoint in $O(1)$ time. Since the graph is undirected, add entries in both directions.
+- **Remove an edge**: Find and remove the specified edge in the corresponding lists in $O(m)$ time. In an undirected graph, remove the entries for both directions.
+- **Add a vertex**: Add a linked list to the adjacency list, using the new vertex as its head. This takes $O(1)$ time.
+- **Remove a vertex**: Traverse the entire adjacency list and remove every edge incident to the vertex. This takes $O(n + m)$ time.
+- **Initialize**: Create $n$ vertices and $2m$ edges in the adjacency list in $O(n + m)$ time.
 
 === "<1>"
     ![Initializing an adjacency list and adding or removing edges and vertices](graph_operations.assets/adjacency_list_step1_initialization.svg){ class="animation-figure" }
@@ -1238,22 +1238,22 @@ For an undirected graph with $n$ vertices and $m$ edges, the operations can be i
 
 <p align="center"> Figure 9-8 &nbsp; Initializing an adjacency list and adding or removing edges and vertices </p>
 
-The following code implements an adjacency list, with these differences from Figure 9-8.
+The following code implements an adjacency list. It differs from Figure 9-8 in two ways.
 
-- To make adding and removing vertices easier and simplify the code, we use lists (dynamic arrays) in place of linked lists.
-- A hash table stores the adjacency list. Each `key` is a vertex instance, and its `value` is the list (linked list) of adjacent vertices.
+- To simplify the code and make vertices easy to add and remove, we use lists (dynamic arrays) in place of linked lists.
+- We store the adjacency list in a hash table. Each `key` is a vertex instance, and its `value` is the list of adjacent vertices (the linked list in the figure).
 
-We also use the `Vertex` class to represent vertices in the adjacency list. If we identified vertices by list indices, as in the adjacency matrix, deleting the vertex at index $i$ would require traversing the entire adjacency list and subtracting $1$ from every index greater than $i$. This would be inefficient. When each vertex is a unique `Vertex` instance, deleting one vertex requires no changes to the other vertices.
+We also use the `Vertex` class to represent vertices in the adjacency list. Suppose we identified vertices by list index, as we did in the adjacency matrix. Removing the vertex at index $i$ would require scanning the entire adjacency list and decreasing every index greater than $i$ by $1$, which is inefficient. When each vertex is a distinct `Vertex` instance, removing one vertex leaves the identities of all others unchanged.
 
 === "Python"
 
     ```python title="graph_adjacency_list.py"
     class GraphAdjList:
-        """Undirected graph class implemented with an adjacency list"""
+        """Undirected graph represented by an adjacency list"""
 
         def __init__(self, edges: list[list[Vertex]]):
             """Constructor"""
-            # Adjacency list: key is a vertex, value is the list of all its neighbors
+            # Adjacency list: each vertex maps to its neighbors
             self.adj_list = dict[Vertex, list[Vertex]]()
             # Add all vertices and edges
             for edge in edges:
@@ -1262,14 +1262,14 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
                 self.add_edge(edge[0], edge[1])
 
         def size(self) -> int:
-            """Get the number of vertices"""
+            """Get the vertex count"""
             return len(self.adj_list)
 
         def add_edge(self, vet1: Vertex, vet2: Vertex):
             """Add an edge"""
             if vet1 not in self.adj_list or vet2 not in self.adj_list or vet1 == vet2:
                 raise ValueError()
-            # Add edge vet1 - vet2
+            # Add the edge vet1 - vet2
             self.adj_list[vet1].append(vet2)
             self.adj_list[vet2].append(vet1)
 
@@ -1277,7 +1277,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
             """Remove an edge"""
             if vet1 not in self.adj_list or vet2 not in self.adj_list or vet1 == vet2:
                 raise ValueError()
-            # Remove edge vet1 - vet2
+            # Remove the edge vet1 - vet2
             self.adj_list[vet1].remove(vet2)
             self.adj_list[vet2].remove(vet1)
 
@@ -1285,16 +1285,16 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
             """Add a vertex"""
             if vet in self.adj_list:
                 return
-            # Add a new list to the adjacency list
+            # Add a new linked list to the adjacency list
             self.adj_list[vet] = []
 
         def remove_vertex(self, vet: Vertex):
             """Remove a vertex"""
             if vet not in self.adj_list:
                 raise ValueError()
-            # Remove the list corresponding to vertex vet from the adjacency list
+            # Remove the linked list for vertex vet from the adjacency list
             self.adj_list.pop(vet)
-            # Traverse the lists of the other vertices and remove all edges incident to vet
+            # Traverse the other vertices' lists and remove every edge incident to vet
             for vertex in self.adj_list:
                 if vet in self.adj_list[vertex]:
                     self.adj_list[vertex].remove(vet)
@@ -1310,13 +1310,13 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
 === "C++"
 
     ```cpp title="graph_adjacency_list.cpp"
-    /* Undirected graph class implemented with an adjacency list */
+    /* Undirected graph represented by an adjacency list */
     class GraphAdjList {
       public:
-        // Adjacency list: key is a vertex, value is the list of all its neighbors
+        // Adjacency list: each vertex maps to its neighbors
         unordered_map<Vertex *, vector<Vertex *>> adjList;
 
-        /* Remove the specified vertex from the vector */
+        /* Remove the specified node from the vector */
         void remove(vector<Vertex *> &vec, Vertex *vet) {
             for (int i = 0; i < vec.size(); i++) {
                 if (vec[i] == vet) {
@@ -1336,7 +1336,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
             }
         }
 
-        /* Get the number of vertices */
+        /* Get the vertex count */
         int size() {
             return adjList.size();
         }
@@ -1344,8 +1344,8 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         /* Add an edge */
         void addEdge(Vertex *vet1, Vertex *vet2) {
             if (!adjList.count(vet1) || !adjList.count(vet2) || vet1 == vet2)
-                throw invalid_argument("Invalid vertex");
-            // Add edge vet1 - vet2
+                throw invalid_argument("Vertex does not exist");
+            // Add the edge vet1 - vet2
             adjList[vet1].push_back(vet2);
             adjList[vet2].push_back(vet1);
         }
@@ -1353,8 +1353,8 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         /* Remove an edge */
         void removeEdge(Vertex *vet1, Vertex *vet2) {
             if (!adjList.count(vet1) || !adjList.count(vet2) || vet1 == vet2)
-                throw invalid_argument("Invalid vertex");
-            // Remove edge vet1 - vet2
+                throw invalid_argument("Vertex does not exist");
+            // Remove the edge vet1 - vet2
             remove(adjList[vet1], vet2);
             remove(adjList[vet2], vet1);
         }
@@ -1363,17 +1363,17 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         void addVertex(Vertex *vet) {
             if (adjList.count(vet))
                 return;
-            // Add a new list to the adjacency list
+            // Add a new linked list to the adjacency list
             adjList[vet] = vector<Vertex *>();
         }
 
         /* Remove a vertex */
         void removeVertex(Vertex *vet) {
             if (!adjList.count(vet))
-                throw invalid_argument("Invalid vertex");
-            // Remove the list corresponding to vertex vet from the adjacency list
+                throw invalid_argument("Vertex does not exist");
+            // Remove the linked list for vertex vet from the adjacency list
             adjList.erase(vet);
-            // Traverse the lists of the other vertices and remove all edges incident to vet
+            // Traverse the other vertices' lists and remove every edge incident to vet
             for (auto &adj : adjList) {
                 remove(adj.second, vet);
             }
@@ -1395,9 +1395,9 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
 === "Java"
 
     ```java title="graph_adjacency_list.java"
-    /* Undirected graph class implemented with an adjacency list */
+    /* Undirected graph represented by an adjacency list */
     class GraphAdjList {
-        // Adjacency list: key is a vertex, value is the list of all its neighbors
+        // Adjacency list: each vertex maps to its neighbors
         Map<Vertex, List<Vertex>> adjList;
 
         /* Constructor */
@@ -1411,7 +1411,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
             }
         }
 
-        /* Get the number of vertices */
+        /* Get the vertex count */
         public int size() {
             return adjList.size();
         }
@@ -1420,7 +1420,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         public void addEdge(Vertex vet1, Vertex vet2) {
             if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
                 throw new IllegalArgumentException();
-            // Add edge vet1 - vet2
+            // Add the edge vet1 - vet2
             adjList.get(vet1).add(vet2);
             adjList.get(vet2).add(vet1);
         }
@@ -1429,7 +1429,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         public void removeEdge(Vertex vet1, Vertex vet2) {
             if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
                 throw new IllegalArgumentException();
-            // Remove edge vet1 - vet2
+            // Remove the edge vet1 - vet2
             adjList.get(vet1).remove(vet2);
             adjList.get(vet2).remove(vet1);
         }
@@ -1438,7 +1438,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         public void addVertex(Vertex vet) {
             if (adjList.containsKey(vet))
                 return;
-            // Add a new list to the adjacency list
+            // Add a new linked list to the adjacency list
             adjList.put(vet, new ArrayList<>());
         }
 
@@ -1446,9 +1446,9 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         public void removeVertex(Vertex vet) {
             if (!adjList.containsKey(vet))
                 throw new IllegalArgumentException();
-            // Remove the list corresponding to vertex vet from the adjacency list
+            // Remove the linked list for vertex vet from the adjacency list
             adjList.remove(vet);
-            // Traverse the lists of the other vertices and remove all edges incident to vet
+            // Traverse the other vertices' lists and remove every edge incident to vet
             for (List<Vertex> list : adjList.values()) {
                 list.remove(vet);
             }
@@ -1470,9 +1470,9 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
 === "C#"
 
     ```csharp title="graph_adjacency_list.cs"
-    /* Undirected graph class implemented with an adjacency list */
+    /* Undirected graph represented by an adjacency list */
     class GraphAdjList {
-        // Adjacency list: key is a vertex, value is the list of all its neighbors
+        // Adjacency list: each vertex maps to its neighbors
         public Dictionary<Vertex, List<Vertex>> adjList;
 
         /* Constructor */
@@ -1486,7 +1486,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
             }
         }
 
-        /* Get the number of vertices */
+        /* Get the vertex count */
         int Size() {
             return adjList.Count;
         }
@@ -1495,7 +1495,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         public void AddEdge(Vertex vet1, Vertex vet2) {
             if (!adjList.ContainsKey(vet1) || !adjList.ContainsKey(vet2) || vet1 == vet2)
                 throw new InvalidOperationException();
-            // Add edge vet1 - vet2
+            // Add the edge vet1 - vet2
             adjList[vet1].Add(vet2);
             adjList[vet2].Add(vet1);
         }
@@ -1504,7 +1504,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         public void RemoveEdge(Vertex vet1, Vertex vet2) {
             if (!adjList.ContainsKey(vet1) || !adjList.ContainsKey(vet2) || vet1 == vet2)
                 throw new InvalidOperationException();
-            // Remove edge vet1 - vet2
+            // Remove the edge vet1 - vet2
             adjList[vet1].Remove(vet2);
             adjList[vet2].Remove(vet1);
         }
@@ -1513,7 +1513,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         public void AddVertex(Vertex vet) {
             if (adjList.ContainsKey(vet))
                 return;
-            // Add a new list to the adjacency list
+            // Add a new linked list to the adjacency list
             adjList.Add(vet, []);
         }
 
@@ -1521,9 +1521,9 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         public void RemoveVertex(Vertex vet) {
             if (!adjList.ContainsKey(vet))
                 throw new InvalidOperationException();
-            // Remove the list corresponding to vertex vet from the adjacency list
+            // Remove the linked list for vertex vet from the adjacency list
             adjList.Remove(vet);
-            // Traverse the lists of the other vertices and remove all edges incident to vet
+            // Traverse the other vertices' lists and remove every edge incident to vet
             foreach (List<Vertex> list in adjList.Values) {
                 list.Remove(vet);
             }
@@ -1545,9 +1545,9 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
 === "Go"
 
     ```go title="graph_adjacency_list.go"
-    /* Undirected graph type implemented with an adjacency list */
+    /* Undirected graph represented by an adjacency list */
     type graphAdjList struct {
-        // Adjacency list: key is a vertex, value is the list of all its neighbors
+        // Adjacency list: each vertex maps to its neighbors
         adjList map[Vertex][]Vertex
     }
 
@@ -1565,7 +1565,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         return g
     }
 
-    /* Get the number of vertices */
+    /* Get the vertex count */
     func (g *graphAdjList) size() int {
         return len(g.adjList)
     }
@@ -1577,7 +1577,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         if !ok1 || !ok2 || vet1 == vet2 {
             panic("error")
         }
-        // Add edge vet1 - vet2 by appending each vertex to the other vertex's neighbor list
+        // Add the edge vet1 - vet2 using an anonymous struct{}
         g.adjList[vet1] = append(g.adjList[vet1], vet2)
         g.adjList[vet2] = append(g.adjList[vet2], vet1)
     }
@@ -1589,7 +1589,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         if !ok1 || !ok2 || vet1 == vet2 {
             panic("error")
         }
-        // Remove edge vet1 - vet2
+        // Remove the edge vet1 - vet2
         g.adjList[vet1] = DeleteSliceElms(g.adjList[vet1], vet2)
         g.adjList[vet2] = DeleteSliceElms(g.adjList[vet2], vet1)
     }
@@ -1600,7 +1600,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         if ok {
             return
         }
-        // Add a new list to the adjacency list
+        // Add a new linked list to the adjacency list
         g.adjList[vet] = make([]Vertex, 0)
     }
 
@@ -1610,9 +1610,9 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         if !ok {
             panic("error")
         }
-        // Remove the list corresponding to vertex vet from the adjacency list
+        // Remove the linked list for vertex vet from the adjacency list
         delete(g.adjList, vet)
-        // Traverse the lists of the other vertices and remove all edges incident to vet
+        // Traverse the other vertices' lists and remove every edge incident to vet
         for v, list := range g.adjList {
             g.adjList[v] = DeleteSliceElms(list, vet)
         }
@@ -1636,9 +1636,9 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
 === "Swift"
 
     ```swift title="graph_adjacency_list.swift"
-    /* Undirected graph class implemented with an adjacency list */
+    /* Undirected graph represented by an adjacency list */
     class GraphAdjList {
-        // Adjacency list: key is a vertex, value is the list of all its neighbors
+        // Adjacency list: each vertex maps to its neighbors
         public private(set) var adjList: [Vertex: [Vertex]]
 
         /* Constructor */
@@ -1652,7 +1652,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
             }
         }
 
-        /* Get the number of vertices */
+        /* Get the vertex count */
         public func size() -> Int {
             adjList.count
         }
@@ -1660,9 +1660,9 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         /* Add an edge */
         public func addEdge(vet1: Vertex, vet2: Vertex) {
             if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
-                fatalError("Invalid arguments")
+                fatalError("Invalid argument")
             }
-            // Add edge vet1 - vet2
+            // Add the edge vet1 - vet2
             adjList[vet1]?.append(vet2)
             adjList[vet2]?.append(vet1)
         }
@@ -1670,9 +1670,9 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         /* Remove an edge */
         public func removeEdge(vet1: Vertex, vet2: Vertex) {
             if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
-                fatalError("Invalid arguments")
+                fatalError("Invalid argument")
             }
-            // Remove edge vet1 - vet2
+            // Remove the edge vet1 - vet2
             adjList[vet1]?.removeAll { $0 == vet2 }
             adjList[vet2]?.removeAll { $0 == vet1 }
         }
@@ -1682,18 +1682,18 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
             if adjList[vet] != nil {
                 return
             }
-            // Add a new list to the adjacency list
+            // Add a new linked list to the adjacency list
             adjList[vet] = []
         }
 
         /* Remove a vertex */
         public func removeVertex(vet: Vertex) {
             if adjList[vet] == nil {
-                fatalError("Invalid arguments")
+                fatalError("Invalid argument")
             }
-            // Remove the list corresponding to vertex vet from the adjacency list
+            // Remove the linked list for vertex vet from the adjacency list
             adjList.removeValue(forKey: vet)
-            // Traverse the lists of the other vertices and remove all edges incident to vet
+            // Traverse the other vertices' lists and remove every edge incident to vet
             for key in adjList.keys {
                 adjList[key]?.removeAll { $0 == vet }
             }
@@ -1713,9 +1713,9 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
 === "JS"
 
     ```javascript title="graph_adjacency_list.js"
-    /* Undirected graph class implemented with an adjacency list */
+    /* Undirected graph represented by an adjacency list */
     class GraphAdjList {
-        // Adjacency list: key is a vertex, value is the list of all its neighbors
+        // Adjacency list: each vertex maps to its neighbors
         adjList;
 
         /* Constructor */
@@ -1729,7 +1729,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
             }
         }
 
-        /* Get the number of vertices */
+        /* Get the vertex count */
         size() {
             return this.adjList.size;
         }
@@ -1741,9 +1741,9 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
                 !this.adjList.has(vet2) ||
                 vet1 === vet2
             ) {
-                throw new Error('Invalid argument');
+                throw new Error('Illegal Argument Exception');
             }
-            // Add edge vet1 - vet2
+            // Add the edge vet1 - vet2
             this.adjList.get(vet1).push(vet2);
             this.adjList.get(vet2).push(vet1);
         }
@@ -1756,9 +1756,9 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
                 vet1 === vet2 ||
                 this.adjList.get(vet1).indexOf(vet2) === -1
             ) {
-                throw new Error('Invalid argument');
+                throw new Error('Illegal Argument Exception');
             }
-            // Remove edge vet1 - vet2
+            // Remove the edge vet1 - vet2
             this.adjList.get(vet1).splice(this.adjList.get(vet1).indexOf(vet2), 1);
             this.adjList.get(vet2).splice(this.adjList.get(vet2).indexOf(vet1), 1);
         }
@@ -1766,18 +1766,18 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         /* Add a vertex */
         addVertex(vet) {
             if (this.adjList.has(vet)) return;
-            // Add a new list to the adjacency list
+            // Add a new linked list to the adjacency list
             this.adjList.set(vet, []);
         }
 
         /* Remove a vertex */
         removeVertex(vet) {
             if (!this.adjList.has(vet)) {
-                throw new Error('Invalid argument');
+                throw new Error('Illegal Argument Exception');
             }
-            // Remove the list corresponding to vertex vet from the adjacency list
+            // Remove the linked list for vertex vet from the adjacency list
             this.adjList.delete(vet);
-            // Traverse the lists of the other vertices and remove all edges incident to vet
+            // Traverse the other vertices' lists and remove every edge incident to vet
             for (const set of this.adjList.values()) {
                 const index = set.indexOf(vet);
                 if (index > -1) {
@@ -1803,9 +1803,9 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
 === "TS"
 
     ```typescript title="graph_adjacency_list.ts"
-    /* Undirected graph class implemented with an adjacency list */
+    /* Undirected graph represented by an adjacency list */
     class GraphAdjList {
-        // Adjacency list: key is a vertex, value is the list of all its neighbors
+        // Adjacency list: each vertex maps to its neighbors
         adjList: Map<Vertex, Vertex[]>;
 
         /* Constructor */
@@ -1819,7 +1819,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
             }
         }
 
-        /* Get the number of vertices */
+        /* Get the vertex count */
         size(): number {
             return this.adjList.size;
         }
@@ -1831,9 +1831,9 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
                 !this.adjList.has(vet2) ||
                 vet1 === vet2
             ) {
-                throw new Error('Invalid argument');
+                throw new Error('Illegal Argument Exception');
             }
-            // Add edge vet1 - vet2
+            // Add the edge vet1 - vet2
             this.adjList.get(vet1).push(vet2);
             this.adjList.get(vet2).push(vet1);
         }
@@ -1846,9 +1846,9 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
                 vet1 === vet2 ||
                 this.adjList.get(vet1).indexOf(vet2) === -1
             ) {
-                throw new Error('Invalid argument');
+                throw new Error('Illegal Argument Exception');
             }
-            // Remove edge vet1 - vet2
+            // Remove the edge vet1 - vet2
             this.adjList.get(vet1).splice(this.adjList.get(vet1).indexOf(vet2), 1);
             this.adjList.get(vet2).splice(this.adjList.get(vet2).indexOf(vet1), 1);
         }
@@ -1856,18 +1856,18 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         /* Add a vertex */
         addVertex(vet: Vertex): void {
             if (this.adjList.has(vet)) return;
-            // Add a new list to the adjacency list
+            // Add a new linked list to the adjacency list
             this.adjList.set(vet, []);
         }
 
         /* Remove a vertex */
         removeVertex(vet: Vertex): void {
             if (!this.adjList.has(vet)) {
-                throw new Error('Invalid argument');
+                throw new Error('Illegal Argument Exception');
             }
-            // Remove the list corresponding to vertex vet from the adjacency list
+            // Remove the linked list for vertex vet from the adjacency list
             this.adjList.delete(vet);
-            // Traverse the lists of the other vertices and remove all edges incident to vet
+            // Traverse the other vertices' lists and remove every edge incident to vet
             for (const set of this.adjList.values()) {
                 const index: number = set.indexOf(vet);
                 if (index > -1) {
@@ -1893,9 +1893,9 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
 === "Dart"
 
     ```dart title="graph_adjacency_list.dart"
-    /* Undirected graph class implemented with an adjacency list */
+    /* Undirected graph represented by an adjacency list */
     class GraphAdjList {
-      // Adjacency list: key is a vertex, value is the list of all its neighbors
+      // Adjacency list: each vertex maps to its neighbors
       Map<Vertex, List<Vertex>> adjList = {};
 
       /* Constructor */
@@ -1907,7 +1907,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         }
       }
 
-      /* Get the number of vertices */
+      /* Get the vertex count */
       int size() {
         return adjList.length;
       }
@@ -1919,7 +1919,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
             vet1 == vet2) {
           throw ArgumentError;
         }
-        // Add edge vet1 - vet2
+        // Add the edge vet1 - vet2
         adjList[vet1]!.add(vet2);
         adjList[vet2]!.add(vet1);
       }
@@ -1931,7 +1931,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
             vet1 == vet2) {
           throw ArgumentError;
         }
-        // Remove edge vet1 - vet2
+        // Remove the edge vet1 - vet2
         adjList[vet1]!.remove(vet2);
         adjList[vet2]!.remove(vet1);
       }
@@ -1939,7 +1939,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
       /* Add a vertex */
       void addVertex(Vertex vet) {
         if (adjList.containsKey(vet)) return;
-        // Add a new list to the adjacency list
+        // Add a new linked list to the adjacency list
         adjList[vet] = [];
       }
 
@@ -1948,9 +1948,9 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         if (!adjList.containsKey(vet)) {
           throw ArgumentError;
         }
-        // Remove the list corresponding to vertex vet from the adjacency list
+        // Remove the linked list for vertex vet from the adjacency list
         adjList.remove(vet);
-        // Traverse the lists of the other vertices and remove all edges incident to vet
+        // Traverse the other vertices' lists and remove every edge incident to vet
         adjList.forEach((key, value) {
           value.remove(vet);
         });
@@ -1973,10 +1973,10 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
 === "Rust"
 
     ```rust title="graph_adjacency_list.rs"
-    /* Undirected graph type implemented with an adjacency list */
+    /* Undirected graph type represented by an adjacency list */
     pub struct GraphAdjList {
-        // Adjacency list: key is a vertex, value is the list of all its neighbors
-        pub adj_list: HashMap<Vertex, Vec<Vertex>>, // A HashSet<Vertex> may be a better choice for the neighbor collection
+        // Adjacency list: each vertex maps to its neighbors
+        pub adj_list: HashMap<Vertex, Vec<Vertex>>, // Would HashSet<Vertex> be a better choice for the values?
     }
 
     impl GraphAdjList {
@@ -1995,7 +1995,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
             graph
         }
 
-        /* Get the number of vertices */
+        /* Get the vertex count */
         #[allow(unused)]
         pub fn size(&self) -> usize {
             self.adj_list.len()
@@ -2004,9 +2004,9 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         /* Add an edge */
         pub fn add_edge(&mut self, vet1: Vertex, vet2: Vertex) {
             if vet1 == vet2 {
-                panic!("Vertices must be distinct");
+                panic!("value error");
             }
-            // Add edge vet1 - vet2
+            // Add the edge vet1 - vet2
             self.adj_list.entry(vet1).or_default().push(vet2);
             self.adj_list.entry(vet2).or_default().push(vet1);
         }
@@ -2015,9 +2015,9 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         #[allow(unused)]
         pub fn remove_edge(&mut self, vet1: Vertex, vet2: Vertex) {
             if vet1 == vet2 {
-                panic!("Vertices must be distinct");
+                panic!("value error");
             }
-            // Remove edge vet1 - vet2
+            // Remove the edge vet1 - vet2
             self.adj_list
                 .entry(vet1)
                 .and_modify(|v| v.retain(|&e| e != vet2));
@@ -2031,16 +2031,16 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
             if self.adj_list.contains_key(&vet) {
                 return;
             }
-            // Add a new neighbor list to the adjacency list
+            // Add a new linked list to the adjacency list
             self.adj_list.insert(vet, vec![]);
         }
 
         /* Remove a vertex */
         #[allow(unused)]
         pub fn remove_vertex(&mut self, vet: Vertex) {
-            // Remove the neighbor list for vertex vet from the adjacency list
+            // Remove the linked list for vertex vet from the adjacency list
             self.adj_list.remove(&vet);
-            // Traverse the other neighbor lists and remove every edge incident to vet
+            // Traverse the other vertices' lists and remove every edge incident to vet
             for list in self.adj_list.values_mut() {
                 list.retain(|&v| v != vet);
             }
@@ -2060,13 +2060,13 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
 === "C"
 
     ```c title="graph_adjacency_list.c"
-    /* Adjacency-list node structure */
+    /* Node structure */
     typedef struct AdjListNode {
         Vertex *vertex;           // Vertex
         struct AdjListNode *next; // Next node
     } AdjListNode;
 
-    /* Find the list node corresponding to a vertex */
+    /* Find the node for a vertex */
     AdjListNode *findNode(GraphAdjList *graph, Vertex *vet) {
         for (int i = 0; i < graph->size; i++) {
             if (graph->heads[i]->vertex == vet) {
@@ -2080,7 +2080,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
     void addEdgeHelper(AdjListNode *head, Vertex *vet) {
         AdjListNode *node = (AdjListNode *)malloc(sizeof(AdjListNode));
         node->vertex = vet;
-        // Insert at the front of the neighbor list
+        // Insert at the head
         node->next = head->next;
         head->next = node;
     }
@@ -2098,14 +2098,14 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
             return;
         // Remove the node corresponding to vet from the linked list
         pre->next = cur->next;
-        // Free memory
+        // Free the memory
         free(cur);
     }
 
-    /* Undirected graph structure implemented with an adjacency list */
+    /* Undirected graph represented by an adjacency list */
     typedef struct {
-        AdjListNode *heads[MAX_SIZE]; // Array of list heads
-        int size;                     // Number of vertices
+        AdjListNode *heads[MAX_SIZE]; // Array of nodes
+        int size;                     // Number of nodes
     } GraphAdjList;
 
     /* Constructor */
@@ -2138,7 +2138,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         free(graph);
     }
 
-    /* Find the list node corresponding to a vertex */
+    /* Find the node for a vertex */
     AdjListNode *findNode(GraphAdjList *graph, Vertex *vet) {
         for (int i = 0; i < graph->size; i++) {
             if (graph->heads[i]->vertex == vet) {
@@ -2153,7 +2153,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         AdjListNode *head1 = findNode(graph, vet1);
         AdjListNode *head2 = findNode(graph, vet2);
         assert(head1 != NULL && head2 != NULL && head1 != head2);
-        // Add edge vet1 - vet2
+        // Add the edge vet1 - vet2
         addEdgeHelper(head1, vet2);
         addEdgeHelper(head2, vet1);
     }
@@ -2163,7 +2163,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         AdjListNode *head1 = findNode(graph, vet1);
         AdjListNode *head2 = findNode(graph, vet2);
         assert(head1 != NULL && head2 != NULL);
-        // Remove edge vet1 - vet2
+        // Remove the edge vet1 - vet2
         removeEdgeHelper(head1, head2->vertex);
         removeEdgeHelper(head2, head1->vertex);
     }
@@ -2177,7 +2177,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         AdjListNode *head = (AdjListNode *)malloc(sizeof(AdjListNode));
         head->vertex = vet;
         head->next = NULL;
-        // Add a new list to the adjacency list
+        // Add a new linked list to the adjacency list
         graph->heads[graph->size++] = head;
     }
 
@@ -2185,7 +2185,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
     void removeVertex(GraphAdjList *graph, Vertex *vet) {
         AdjListNode *node = findNode(graph, vet);
         assert(node != NULL);
-        // Shift subsequent vertices forward to fill the gap
+        // Shift the following vertices forward to fill the gap
         int i;
         for (i = 0; i < graph->size; i++) {
             if (graph->heads[i] == node)
@@ -2195,7 +2195,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
             graph->heads[j] = graph->heads[j + 1];
         }
         graph->size--;
-        // Traverse the lists of the other vertices and remove all edges incident to vet
+        // Traverse the other vertices' lists and remove every edge incident to vet
         for (int i = 0; i < graph->size; i++) {
             AdjListNode *cur = graph->heads[i];
             while (cur->next != NULL) {
@@ -2208,7 +2208,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
                 }
             }
         }
-        // Remove the list corresponding to vertex vet from the adjacency list
+        // Remove the linked list for vertex vet from the adjacency list
         while (node != NULL) {
             AdjListNode *next = node->next;
             free(node);
@@ -2221,9 +2221,9 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
 === "Kotlin"
 
     ```kotlin title="graph_adjacency_list.kt"
-    /* Undirected graph class implemented with an adjacency list */
+    /* Undirected graph represented by an adjacency list */
     class GraphAdjList(edges: Array<Array<Vertex?>>) {
-        // Adjacency list: key is a vertex, value is the list of all its neighbors
+        // Adjacency list: each vertex maps to its neighbors
         val adjList = HashMap<Vertex, MutableList<Vertex>>()
 
         /* Constructor */
@@ -2236,7 +2236,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
             }
         }
 
-        /* Get the number of vertices */
+        /* Get the vertex count */
         fun size(): Int {
             return adjList.size
         }
@@ -2245,7 +2245,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         fun addEdge(vet1: Vertex, vet2: Vertex) {
             if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
                 throw IllegalArgumentException()
-            // Add edge vet1 - vet2
+            // Add the edge vet1 - vet2
             adjList[vet1]?.add(vet2)
             adjList[vet2]?.add(vet1)
         }
@@ -2254,7 +2254,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         fun removeEdge(vet1: Vertex, vet2: Vertex) {
             if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
                 throw IllegalArgumentException()
-            // Remove edge vet1 - vet2
+            // Remove the edge vet1 - vet2
             adjList[vet1]?.remove(vet2)
             adjList[vet2]?.remove(vet1)
         }
@@ -2263,7 +2263,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         fun addVertex(vet: Vertex) {
             if (adjList.containsKey(vet))
                 return
-            // Add a new list to the adjacency list
+            // Add a new linked list to the adjacency list
             adjList[vet] = mutableListOf()
         }
 
@@ -2271,9 +2271,9 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         fun removeVertex(vet: Vertex) {
             if (!adjList.containsKey(vet))
                 throw IllegalArgumentException()
-            // Remove the list corresponding to vertex vet from the adjacency list
+            // Remove the linked list for vertex vet from the adjacency list
             adjList.remove(vet)
-            // Traverse the lists of the other vertices and remove all edges incident to vet
+            // Traverse the other vertices' lists and remove every edge incident to vet
             for (list in adjList.values) {
                 list.remove(vet)
             }
@@ -2296,13 +2296,13 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
 === "Ruby"
 
     ```ruby title="graph_adjacency_list.rb"
-    ### Undirected graph class implemented with an adjacency list ###
+    ### Undirected graph represented by an adjacency list ###
     class GraphAdjList
       attr_reader :adj_list
       
       ### Constructor ###
       def initialize(edges)
-        # Adjacency list: key is a vertex, value is the list of all its neighbors
+        # Adjacency list: each vertex maps to its neighbors
         @adj_list = {}
         # Add all vertices and edges
         for edge in edges
@@ -2312,7 +2312,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
         end
       end
 
-      ### Get the number of vertices ###
+      ### Get the vertex count ###
       def size
         @adj_list.length
       end
@@ -2329,7 +2329,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
       def remove_edge(vet1, vet2)
         raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2) || vet1 == vet2
 
-        # Remove edge vet1 - vet2
+        # Remove the edge vet1 - vet2
         @adj_list[vet1].delete(vet2)
         @adj_list[vet2].delete(vet1)
       end
@@ -2338,7 +2338,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
       def add_vertex(vet)
         return if @adj_list.include?(vet)
 
-        # Add a new neighbor list to the adjacency list
+        # Add a new linked list to the adjacency list
         @adj_list[vet] = []
       end
 
@@ -2346,9 +2346,9 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
       def remove_vertex(vet)
         raise ArgumentError unless @adj_list.include?(vet)
 
-        # Remove the neighbor list for vertex vet from the adjacency list
+        # Remove the linked list for vertex vet from the adjacency list
         @adj_list.delete(vet)
-        # Traverse the other neighbor lists and remove all edges incident to vet
+        # Traverse the other vertices' lists and remove every edge incident to vet
         for vertex in @adj_list
           @adj_list[vertex.first].delete(vet) if @adj_list[vertex.first].include?(vet)
         end
@@ -2367,12 +2367,12 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
 
 ??? pythontutor "Visualize execution"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20Vertex%3A%0A%20%20%20%20%22%22%22Vertex%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%0Adef%20vals_to_vets%28vals%3A%20list%5Bint%5D%29%20-%3E%20list%5B%22Vertex%22%5D%3A%0A%20%20%20%20%22%22%22Given%20the%20list%20of%20values%20vals,%20return%20the%20list%20of%20vertices%20vets%22%22%22%0A%20%20%20%20return%20%5BVertex%28val%29%20for%20val%20in%20vals%5D%0A%0A%0Aclass%20GraphAdjList%3A%0A%20%20%20%20%22%22%22Undirected%20graph%20class%20implemented%20with%20an%20adjacency%20list%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20edges%3A%20list%5Blist%5BVertex%5D%5D%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20self.adj_list%20%3D%20dict%5BVertex,%20list%5BVertex%5D%5D%28%29%0A%20%20%20%20%20%20%20%20%23%20Add%20all%20vertices%20and%20edges%0A%20%20%20%20%20%20%20%20for%20edge%20in%20edges%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.add_vertex%28edge%5B0%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20self.add_vertex%28edge%5B1%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20self.add_edge%28edge%5B0%5D,%20edge%5B1%5D%29%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20number%20of%20vertices%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self.adj_list%29%0A%0A%20%20%20%20def%20add_edge%28self,%20vet1%3A%20Vertex,%20vet2%3A%20Vertex%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Add%20an%20edge%22%22%22%0A%20%20%20%20%20%20%20%20if%20vet1%20not%20in%20self.adj_list%20or%20vet2%20not%20in%20self.adj_list%20or%20vet1%20%3D%3D%20vet2%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20ValueError%28%29%0A%20%20%20%20%20%20%20%20%23%20Add%20edge%20vet1%20-%20vet2%0A%20%20%20%20%20%20%20%20self.adj_list%5Bvet1%5D.append%28vet2%29%0A%20%20%20%20%20%20%20%20self.adj_list%5Bvet2%5D.append%28vet1%29%0A%0A%20%20%20%20def%20remove_edge%28self,%20vet1%3A%20Vertex,%20vet2%3A%20Vertex%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Remove%20an%20edge%22%22%22%0A%20%20%20%20%20%20%20%20if%20vet1%20not%20in%20self.adj_list%20or%20vet2%20not%20in%20self.adj_list%20or%20vet1%20%3D%3D%20vet2%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20ValueError%28%29%0A%20%20%20%20%20%20%20%20%23%20Remove%20edge%20vet1%20-%20vet2%0A%20%20%20%20%20%20%20%20self.adj_list%5Bvet1%5D.remove%28vet2%29%0A%20%20%20%20%20%20%20%20self.adj_list%5Bvet2%5D.remove%28vet1%29%0A%0A%20%20%20%20def%20add_vertex%28self,%20vet%3A%20Vertex%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Add%20a%20vertex%22%22%22%0A%20%20%20%20%20%20%20%20if%20vet%20in%20self.adj_list%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20%20%20%23%20Add%20a%20new%20list%20to%20the%20adjacency%20list%0A%20%20%20%20%20%20%20%20self.adj_list%5Bvet%5D%20%3D%20%5B%5D%0A%0A%20%20%20%20def%20remove_vertex%28self,%20vet%3A%20Vertex%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Remove%20a%20vertex%22%22%22%0A%20%20%20%20%20%20%20%20if%20vet%20not%20in%20self.adj_list%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20ValueError%28%29%0A%20%20%20%20%20%20%20%20%23%20Remove%20the%20list%20corresponding%20to%20vertex%20vet%20from%20the%20adjacency%20list%0A%20%20%20%20%20%20%20%20self.adj_list.pop%28vet%29%0A%20%20%20%20%20%20%20%20%23%20Traverse%20the%20lists%20of%20the%20other%20vertices%20and%20remove%20all%20edges%20incident%20to%20vet%0A%20%20%20%20%20%20%20%20for%20vertex%20in%20self.adj_list%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20vet%20in%20self.adj_list%5Bvertex%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20self.adj_list%5Bvertex%5D.remove%28vet%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20undirected%20graph%0A%20%20%20%20v%20%3D%20vals_to_vets%28%5B1,%203,%202,%205,%204%5D%29%0A%20%20%20%20edges%20%3D%20%5B%0A%20%20%20%20%20%20%20%20%5Bv%5B0%5D,%20v%5B1%5D%5D,%0A%20%20%20%20%20%20%20%20%5Bv%5B0%5D,%20v%5B3%5D%5D,%0A%20%20%20%20%20%20%20%20%5Bv%5B1%5D,%20v%5B2%5D%5D,%0A%20%20%20%20%20%20%20%20%5Bv%5B2%5D,%20v%5B3%5D%5D,%0A%20%20%20%20%20%20%20%20%5Bv%5B2%5D,%20v%5B4%5D%5D,%0A%20%20%20%20%20%20%20%20%5Bv%5B3%5D,%20v%5B4%5D%5D,%0A%20%20%20%20%5D%0A%20%20%20%20graph%20%3D%20GraphAdjList%28edges%29%0A%20%20%20%20del%20edges%0A%0A%20%20%20%20%23%20Add%20an%20edge%0A%20%20%20%20graph.add_edge%28v%5B0%5D,%20v%5B2%5D%29%0A%0A%20%20%20%20%23%20Remove%20an%20edge%0A%20%20%20%20graph.remove_edge%28v%5B0%5D,%20v%5B1%5D%29%0A%0A%20%20%20%20%23%20Add%20a%20vertex%0A%20%20%20%20v5%20%3D%20Vertex%286%29%0A%20%20%20%20graph.add_vertex%28v5%29%0A%0A%20%20%20%20%23%20Remove%20a%20vertex%0A%20%20%20%20graph.remove_vertex%28v%5B1%5D%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=39&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20Vertex%3A%0A%20%20%20%20%22%22%22Vertex%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%0Adef%20vals_to_vets%28vals%3A%20list%5Bint%5D%29%20-%3E%20list%5B%22Vertex%22%5D%3A%0A%20%20%20%20%22%22%22Given%20the%20list%20of%20values%20vals,%20return%20the%20list%20of%20vertices%20vets%22%22%22%0A%20%20%20%20return%20%5BVertex%28val%29%20for%20val%20in%20vals%5D%0A%0A%0Aclass%20GraphAdjList%3A%0A%20%20%20%20%22%22%22Undirected%20graph%20class%20implemented%20with%20an%20adjacency%20list%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20edges%3A%20list%5Blist%5BVertex%5D%5D%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20self.adj_list%20%3D%20dict%5BVertex,%20list%5BVertex%5D%5D%28%29%0A%20%20%20%20%20%20%20%20%23%20Add%20all%20vertices%20and%20edges%0A%20%20%20%20%20%20%20%20for%20edge%20in%20edges%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.add_vertex%28edge%5B0%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20self.add_vertex%28edge%5B1%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20self.add_edge%28edge%5B0%5D,%20edge%5B1%5D%29%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20number%20of%20vertices%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self.adj_list%29%0A%0A%20%20%20%20def%20add_edge%28self,%20vet1%3A%20Vertex,%20vet2%3A%20Vertex%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Add%20an%20edge%22%22%22%0A%20%20%20%20%20%20%20%20if%20vet1%20not%20in%20self.adj_list%20or%20vet2%20not%20in%20self.adj_list%20or%20vet1%20%3D%3D%20vet2%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20ValueError%28%29%0A%20%20%20%20%20%20%20%20%23%20Add%20edge%20vet1%20-%20vet2%0A%20%20%20%20%20%20%20%20self.adj_list%5Bvet1%5D.append%28vet2%29%0A%20%20%20%20%20%20%20%20self.adj_list%5Bvet2%5D.append%28vet1%29%0A%0A%20%20%20%20def%20remove_edge%28self,%20vet1%3A%20Vertex,%20vet2%3A%20Vertex%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Remove%20an%20edge%22%22%22%0A%20%20%20%20%20%20%20%20if%20vet1%20not%20in%20self.adj_list%20or%20vet2%20not%20in%20self.adj_list%20or%20vet1%20%3D%3D%20vet2%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20ValueError%28%29%0A%20%20%20%20%20%20%20%20%23%20Remove%20edge%20vet1%20-%20vet2%0A%20%20%20%20%20%20%20%20self.adj_list%5Bvet1%5D.remove%28vet2%29%0A%20%20%20%20%20%20%20%20self.adj_list%5Bvet2%5D.remove%28vet1%29%0A%0A%20%20%20%20def%20add_vertex%28self,%20vet%3A%20Vertex%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Add%20a%20vertex%22%22%22%0A%20%20%20%20%20%20%20%20if%20vet%20in%20self.adj_list%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20%20%20%23%20Add%20a%20new%20list%20to%20the%20adjacency%20list%0A%20%20%20%20%20%20%20%20self.adj_list%5Bvet%5D%20%3D%20%5B%5D%0A%0A%20%20%20%20def%20remove_vertex%28self,%20vet%3A%20Vertex%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Remove%20a%20vertex%22%22%22%0A%20%20%20%20%20%20%20%20if%20vet%20not%20in%20self.adj_list%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20ValueError%28%29%0A%20%20%20%20%20%20%20%20%23%20Remove%20the%20list%20corresponding%20to%20vertex%20vet%20from%20the%20adjacency%20list%0A%20%20%20%20%20%20%20%20self.adj_list.pop%28vet%29%0A%20%20%20%20%20%20%20%20%23%20Traverse%20the%20lists%20of%20the%20other%20vertices%20and%20remove%20all%20edges%20incident%20to%20vet%0A%20%20%20%20%20%20%20%20for%20vertex%20in%20self.adj_list%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20vet%20in%20self.adj_list%5Bvertex%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20self.adj_list%5Bvertex%5D.remove%28vet%29%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20undirected%20graph%0A%20%20%20%20v%20%3D%20vals_to_vets%28%5B1,%203,%202,%205,%204%5D%29%0A%20%20%20%20edges%20%3D%20%5B%0A%20%20%20%20%20%20%20%20%5Bv%5B0%5D,%20v%5B1%5D%5D,%0A%20%20%20%20%20%20%20%20%5Bv%5B0%5D,%20v%5B3%5D%5D,%0A%20%20%20%20%20%20%20%20%5Bv%5B1%5D,%20v%5B2%5D%5D,%0A%20%20%20%20%20%20%20%20%5Bv%5B2%5D,%20v%5B3%5D%5D,%0A%20%20%20%20%20%20%20%20%5Bv%5B2%5D,%20v%5B4%5D%5D,%0A%20%20%20%20%20%20%20%20%5Bv%5B3%5D,%20v%5B4%5D%5D,%0A%20%20%20%20%5D%0A%20%20%20%20graph%20%3D%20GraphAdjList%28edges%29%0A%20%20%20%20del%20edges%0A%0A%20%20%20%20%23%20Add%20an%20edge%0A%20%20%20%20graph.add_edge%28v%5B0%5D,%20v%5B2%5D%29%0A%0A%20%20%20%20%23%20Remove%20an%20edge%0A%20%20%20%20graph.remove_edge%28v%5B0%5D,%20v%5B1%5D%29%0A%0A%20%20%20%20%23%20Add%20a%20vertex%0A%20%20%20%20v5%20%3D%20Vertex%286%29%0A%20%20%20%20graph.add_vertex%28v5%29%0A%0A%20%20%20%20%23%20Remove%20a%20vertex%0A%20%20%20%20graph.remove_vertex%28v%5B1%5D%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=39&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=class%20Vertex%3A%0A%20%20%20%20%22%22%22Vertex%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%0Adef%20vals_to_vets%28vals%3A%20list%5Bint%5D%29%20-%3E%20list%5B%22Vertex%22%5D%3A%0A%20%20%20%20%22%22%22Convert%20the%20list%20of%20values%20vals%20to%20a%20list%20of%20vertices%20vets%22%22%22%0A%20%20%20%20return%20%5BVertex%28val%29%20for%20val%20in%20vals%5D%0A%0A%0Aclass%20GraphAdjList%3A%0A%20%20%20%20%22%22%22Undirected%20graph%20represented%20by%20an%20adjacency%20list%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20edges%3A%20list%5Blist%5BVertex%5D%5D%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20self.adj_list%20%3D%20dict%5BVertex,%20list%5BVertex%5D%5D%28%29%0A%20%20%20%20%20%20%20%20%23%20Add%20all%20vertices%20and%20edges%0A%20%20%20%20%20%20%20%20for%20edge%20in%20edges%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.add_vertex%28edge%5B0%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20self.add_vertex%28edge%5B1%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20self.add_edge%28edge%5B0%5D,%20edge%5B1%5D%29%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20vertex%20count%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self.adj_list%29%0A%0A%20%20%20%20def%20add_edge%28self,%20vet1%3A%20Vertex,%20vet2%3A%20Vertex%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Add%20an%20edge%22%22%22%0A%20%20%20%20%20%20%20%20if%20vet1%20not%20in%20self.adj_list%20or%20vet2%20not%20in%20self.adj_list%20or%20vet1%20%3D%3D%20vet2%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20ValueError%28%29%0A%20%20%20%20%20%20%20%20%23%20Add%20the%20edge%20vet1%20-%20vet2%0A%20%20%20%20%20%20%20%20self.adj_list%5Bvet1%5D.append%28vet2%29%0A%20%20%20%20%20%20%20%20self.adj_list%5Bvet2%5D.append%28vet1%29%0A%0A%20%20%20%20def%20remove_edge%28self,%20vet1%3A%20Vertex,%20vet2%3A%20Vertex%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Remove%20an%20edge%22%22%22%0A%20%20%20%20%20%20%20%20if%20vet1%20not%20in%20self.adj_list%20or%20vet2%20not%20in%20self.adj_list%20or%20vet1%20%3D%3D%20vet2%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20ValueError%28%29%0A%20%20%20%20%20%20%20%20%23%20Remove%20the%20edge%20vet1%20-%20vet2%0A%20%20%20%20%20%20%20%20self.adj_list%5Bvet1%5D.remove%28vet2%29%0A%20%20%20%20%20%20%20%20self.adj_list%5Bvet2%5D.remove%28vet1%29%0A%0A%20%20%20%20def%20add_vertex%28self,%20vet%3A%20Vertex%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Add%20a%20vertex%22%22%22%0A%20%20%20%20%20%20%20%20if%20vet%20in%20self.adj_list%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20%20%20%23%20Add%20a%20new%20linked%20list%20to%20the%20adjacency%20list%0A%20%20%20%20%20%20%20%20self.adj_list%5Bvet%5D%20%3D%20%5B%5D%0A%0A%20%20%20%20def%20remove_vertex%28self,%20vet%3A%20Vertex%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Remove%20a%20vertex%22%22%22%0A%20%20%20%20%20%20%20%20if%20vet%20not%20in%20self.adj_list%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20ValueError%28%29%0A%20%20%20%20%20%20%20%20%23%20Remove%20the%20linked%20list%20for%20vertex%20vet%20from%20the%20adjacency%20list%0A%20%20%20%20%20%20%20%20self.adj_list.pop%28vet%29%0A%20%20%20%20%20%20%20%20%23%20Traverse%20the%20other%20vertices%27%20lists%20and%20remove%20every%20edge%20incident%20to%20vet%0A%20%20%20%20%20%20%20%20for%20vertex%20in%20self.adj_list%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20vet%20in%20self.adj_list%5Bvertex%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20self.adj_list%5Bvertex%5D.remove%28vet%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20an%20undirected%20graph%0A%20%20%20%20v%20%3D%20vals_to_vets%28%5B1,%203,%202,%205,%204%5D%29%0A%20%20%20%20edges%20%3D%20%5B%0A%20%20%20%20%20%20%20%20%5Bv%5B0%5D,%20v%5B1%5D%5D,%0A%20%20%20%20%20%20%20%20%5Bv%5B0%5D,%20v%5B3%5D%5D,%0A%20%20%20%20%20%20%20%20%5Bv%5B1%5D,%20v%5B2%5D%5D,%0A%20%20%20%20%20%20%20%20%5Bv%5B2%5D,%20v%5B3%5D%5D,%0A%20%20%20%20%20%20%20%20%5Bv%5B2%5D,%20v%5B4%5D%5D,%0A%20%20%20%20%20%20%20%20%5Bv%5B3%5D,%20v%5B4%5D%5D,%0A%20%20%20%20%5D%0A%20%20%20%20graph%20%3D%20GraphAdjList%28edges%29%0A%20%20%20%20del%20edges%0A%0A%20%20%20%20%23%20Add%20an%20edge%0A%20%20%20%20graph.add_edge%28v%5B0%5D,%20v%5B2%5D%29%0A%0A%20%20%20%20%23%20Remove%20an%20edge%0A%20%20%20%20graph.remove_edge%28v%5B0%5D,%20v%5B1%5D%29%0A%0A%20%20%20%20%23%20Add%20a%20vertex%0A%20%20%20%20v5%20%3D%20Vertex%286%29%0A%20%20%20%20graph.add_vertex%28v5%29%0A%0A%20%20%20%20%23%20Remove%20a%20vertex%0A%20%20%20%20graph.remove_vertex%28v%5B1%5D%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=39&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20Vertex%3A%0A%20%20%20%20%22%22%22Vertex%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%0Adef%20vals_to_vets%28vals%3A%20list%5Bint%5D%29%20-%3E%20list%5B%22Vertex%22%5D%3A%0A%20%20%20%20%22%22%22Convert%20the%20list%20of%20values%20vals%20to%20a%20list%20of%20vertices%20vets%22%22%22%0A%20%20%20%20return%20%5BVertex%28val%29%20for%20val%20in%20vals%5D%0A%0A%0Aclass%20GraphAdjList%3A%0A%20%20%20%20%22%22%22Undirected%20graph%20represented%20by%20an%20adjacency%20list%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20edges%3A%20list%5Blist%5BVertex%5D%5D%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Constructor%22%22%22%0A%20%20%20%20%20%20%20%20self.adj_list%20%3D%20dict%5BVertex,%20list%5BVertex%5D%5D%28%29%0A%20%20%20%20%20%20%20%20%23%20Add%20all%20vertices%20and%20edges%0A%20%20%20%20%20%20%20%20for%20edge%20in%20edges%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.add_vertex%28edge%5B0%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20self.add_vertex%28edge%5B1%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20self.add_edge%28edge%5B0%5D,%20edge%5B1%5D%29%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22Get%20the%20vertex%20count%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self.adj_list%29%0A%0A%20%20%20%20def%20add_edge%28self,%20vet1%3A%20Vertex,%20vet2%3A%20Vertex%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Add%20an%20edge%22%22%22%0A%20%20%20%20%20%20%20%20if%20vet1%20not%20in%20self.adj_list%20or%20vet2%20not%20in%20self.adj_list%20or%20vet1%20%3D%3D%20vet2%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20ValueError%28%29%0A%20%20%20%20%20%20%20%20%23%20Add%20the%20edge%20vet1%20-%20vet2%0A%20%20%20%20%20%20%20%20self.adj_list%5Bvet1%5D.append%28vet2%29%0A%20%20%20%20%20%20%20%20self.adj_list%5Bvet2%5D.append%28vet1%29%0A%0A%20%20%20%20def%20remove_edge%28self,%20vet1%3A%20Vertex,%20vet2%3A%20Vertex%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Remove%20an%20edge%22%22%22%0A%20%20%20%20%20%20%20%20if%20vet1%20not%20in%20self.adj_list%20or%20vet2%20not%20in%20self.adj_list%20or%20vet1%20%3D%3D%20vet2%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20ValueError%28%29%0A%20%20%20%20%20%20%20%20%23%20Remove%20the%20edge%20vet1%20-%20vet2%0A%20%20%20%20%20%20%20%20self.adj_list%5Bvet1%5D.remove%28vet2%29%0A%20%20%20%20%20%20%20%20self.adj_list%5Bvet2%5D.remove%28vet1%29%0A%0A%20%20%20%20def%20add_vertex%28self,%20vet%3A%20Vertex%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Add%20a%20vertex%22%22%22%0A%20%20%20%20%20%20%20%20if%20vet%20in%20self.adj_list%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%0A%20%20%20%20%20%20%20%20%23%20Add%20a%20new%20linked%20list%20to%20the%20adjacency%20list%0A%20%20%20%20%20%20%20%20self.adj_list%5Bvet%5D%20%3D%20%5B%5D%0A%0A%20%20%20%20def%20remove_vertex%28self,%20vet%3A%20Vertex%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22Remove%20a%20vertex%22%22%22%0A%20%20%20%20%20%20%20%20if%20vet%20not%20in%20self.adj_list%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20ValueError%28%29%0A%20%20%20%20%20%20%20%20%23%20Remove%20the%20linked%20list%20for%20vertex%20vet%20from%20the%20adjacency%20list%0A%20%20%20%20%20%20%20%20self.adj_list.pop%28vet%29%0A%20%20%20%20%20%20%20%20%23%20Traverse%20the%20other%20vertices%27%20lists%20and%20remove%20every%20edge%20incident%20to%20vet%0A%20%20%20%20%20%20%20%20for%20vertex%20in%20self.adj_list%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20vet%20in%20self.adj_list%5Bvertex%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20self.adj_list%5Bvertex%5D.remove%28vet%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20an%20undirected%20graph%0A%20%20%20%20v%20%3D%20vals_to_vets%28%5B1,%203,%202,%205,%204%5D%29%0A%20%20%20%20edges%20%3D%20%5B%0A%20%20%20%20%20%20%20%20%5Bv%5B0%5D,%20v%5B1%5D%5D,%0A%20%20%20%20%20%20%20%20%5Bv%5B0%5D,%20v%5B3%5D%5D,%0A%20%20%20%20%20%20%20%20%5Bv%5B1%5D,%20v%5B2%5D%5D,%0A%20%20%20%20%20%20%20%20%5Bv%5B2%5D,%20v%5B3%5D%5D,%0A%20%20%20%20%20%20%20%20%5Bv%5B2%5D,%20v%5B4%5D%5D,%0A%20%20%20%20%20%20%20%20%5Bv%5B3%5D,%20v%5B4%5D%5D,%0A%20%20%20%20%5D%0A%20%20%20%20graph%20%3D%20GraphAdjList%28edges%29%0A%20%20%20%20del%20edges%0A%0A%20%20%20%20%23%20Add%20an%20edge%0A%20%20%20%20graph.add_edge%28v%5B0%5D,%20v%5B2%5D%29%0A%0A%20%20%20%20%23%20Remove%20an%20edge%0A%20%20%20%20graph.remove_edge%28v%5B0%5D,%20v%5B1%5D%29%0A%0A%20%20%20%20%23%20Add%20a%20vertex%0A%20%20%20%20v5%20%3D%20Vertex%286%29%0A%20%20%20%20graph.add_vertex%28v5%29%0A%0A%20%20%20%20%23%20Remove%20a%20vertex%0A%20%20%20%20graph.remove_vertex%28v%5B1%5D%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=39&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-## 9.2.3 &nbsp; Comparing efficiency
+## 9.2.3 &nbsp; Efficiency comparison
 
-For a graph with $n$ vertices and $m$ edges, Table 9-2 compares the time and space efficiency of adjacency matrices and adjacency lists. Here, "adjacency list (linked lists)" refers to the implementation in this section, while "adjacency list (hash tables)" specifically refers to an implementation in which every linked list is replaced by a hash table.
+Consider a graph with $n$ vertices and $m$ edges. Table 9-2 compares the time and space costs of an adjacency matrix and an adjacency list. “Adjacency list (linked lists)” corresponds to the implementation described here. “Adjacency list (hash tables)” means that every linked list has been replaced with a hash table.
 
 <p align="center"> Table 9-2 &nbsp; Comparing adjacency matrices and adjacency lists </p>
 
@@ -2389,4 +2389,4 @@ For a graph with $n$ vertices and $m$ edges, Table 9-2 compares the time and spa
 
 </div>
 
-Table 9-2 suggests that an adjacency list using hash tables is the most efficient in both time and space. In practice, however, edge operations in an adjacency matrix are faster: each requires only a single array access or assignment. Overall, an adjacency matrix trades space for time, while an adjacency list trades time for space.
+The adjacency list with hash tables appears to offer the best time and space efficiency in the table. In practice, however, edge operations are faster in an adjacency matrix because each takes just one array access or assignment. Overall, an adjacency matrix trades space for time, while an adjacency list trades time for space.

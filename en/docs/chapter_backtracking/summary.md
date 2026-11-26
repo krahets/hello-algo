@@ -6,22 +6,22 @@ comments: true
 
 ### 1. &nbsp; Key takeaways
 
-- Backtracking is fundamentally exhaustive search. It traverses the solution space depth first to find solutions meeting the requirements, records them when found, and continues until all solutions are found or traversal is complete.
-- Backtracking alternates between trying a choice and undoing it. It explores choices through depth-first search; when a constraint is violated, it undoes the last choice, restores the previous state, and tries another choice. Trying and undoing are opposite operations.
-- Backtracking problems usually have multiple constraints that enable pruning. Pruning stops unnecessary branches early and can greatly improve search efficiency.
-- Backtracking is mainly used for search and constraint satisfaction problems. It can also solve combinatorial optimization problems, though more efficient or more effective approaches often exist.
-- The permutations problem asks for every possible ordering of a collection's elements. An array tracks whether each element has been selected, pruning branches that select the same element again and ensuring each is used only once.
-- If the input contains equal elements, permutation generation produces duplicate results. We must try each value only once per round, usually by using a hash set.
-- The subset sum problem asks for all subsets of a collection whose sum equals a target. Subsets disregard order, but the search generates all orderings, producing duplicates. Sorting the data before backtracking and using a variable to mark each round's starting index allows us to prune duplicate-generating branches.
-- Equal elements also produce duplicate subsets. Because the array is sorted, we can prune by comparing adjacent elements, ensuring that each value is tried only once per round.
-- The $n$-queens problem asks for arrangements of $n$ queens on an $n \times n$ chessboard such that no two queens can attack each other. It imposes row, column, and both diagonal constraints. Placing queens row by row ensures exactly one queen per row.
-- Column and diagonal constraints are handled similarly. An array records whether each column contains a queen, indicating whether a chosen square is valid. Two more arrays track queens on diagonals in each direction. The main challenge is identifying the relationship between row and column indices for squares on the same diagonal.
+- Backtracking is a form of exhaustive search. It explores the solution space depth first, recording each solution that satisfies the conditions, until it has found all solutions or exhausted the search.
+- The search alternates between trying choices and backtracking. It explores choices depth first. If a constraint fails, it undoes the last choice, restores the previous state, and tries another choice. Trying a choice and undoing it move in opposite directions.
+- Backtracking problems often have several constraints that can serve as pruning rules. Cutting off unproductive branches early can make the search much more efficient.
+- Backtracking is especially useful for search and constraint satisfaction problems. It can also solve combinatorial optimization problems, although other methods often run faster or give better results.
+- The permutations problem asks for every ordering of a given collection of elements. An array tracks which elements have already been chosen. Pruning branches that would reuse an element ensures that each element is chosen only once.
+- If the input contains equal values, the permutation search can produce duplicates. Try each distinct value only once per round, typically by tracking the values tried in a hash set.
+- Subset sum asks for every subset whose elements add up to a target. Order does not matter in a subset, but the search generates different orderings and thus duplicates. Sort the input before backtracking and use a variable to mark the starting index for each round. This prunes branches that would generate duplicate subsets.
+- Equal array elements can also produce duplicate subsets. Because the array is sorted, we can prune by comparing adjacent elements, ensuring that each distinct value is tried only once per round.
+- The $n$-queens problem asks how to place $n$ queens on an $n \times n$ board so that no two attack each other. We must check rows, columns, main diagonals, and secondary diagonals. Placing one queen per row enforces the row constraint.
+- The column and diagonal constraints work similarly. Track occupied columns in an array to check whether a candidate square is valid. Two more arrays track occupied main and secondary diagonals. The challenge is to identify the relationship between the row and column indices of squares on the same diagonal in each direction.
 
 ### 2. &nbsp; Q & A
 
 **Q**: How are backtracking and recursion related?
 
-Broadly speaking, backtracking is an algorithmic strategy, while recursion is a tool.
+Backtracking is an algorithmic strategy. Recursion is a tool for implementing algorithms.
 
-- Backtracking is usually implemented recursively. It is one application of recursion, specifically to search problems.
-- Recursion expresses the idea of decomposing a problem into subproblems. It is commonly used in divide and conquer, backtracking, and dynamic programming (memoized recursion).
+- Backtracking is usually implemented with recursion. It is one application of recursion, specifically to search problems.
+- Recursion expresses a problem in terms of subproblems. It is common in divide and conquer, backtracking, and dynamic programming (through memoized recursion).

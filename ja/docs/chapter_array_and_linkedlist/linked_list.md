@@ -4,23 +4,23 @@ comments: true
 
 # 4.2 &nbsp; 連結リスト
 
-メモリ空間はすべてのプログラムが利用する共通の資源です。複雑なシステムの実行環境では、空き領域がメモリの各所に散らばっていることがあります。配列には連続したメモリ領域が必要ですが、配列が非常に大きいと、それだけの連続領域を確保できないかもしれません。このようなとき、連結リストの柔軟性が活きてきます。
+メモリ領域はすべてのプログラムが利用する資源です。複雑なシステム環境では空き領域がメモリのあちこちに散らばることがあります。配列を格納する領域は連続していなければならないため、非常に大きな配列では、必要な長さの連続領域を確保できないかもしれません。こんなときに連結リストの柔軟性が生きます。
 
-<u>連結リスト（linked list）</u>は、各要素がノードオブジェクトであり、ノード同士が「参照」でつながる線形データ構造です。参照には次のノードのメモリアドレスが記録されており、それを使って現在のノードから次のノードへアクセスできます。
+<u>連結リスト（linked list）</u>は線形データ構造の一種で、各要素はノードというオブジェクトです。ノードどうしは「参照」でつながっています。参照には次のノードのメモリアドレスが記録されており、現在のノードから次のノードにアクセスできます。
 
-この設計により、各ノードをメモリの各所に分散して格納でき、メモリアドレスが連続している必要はありません。
+この仕組みにより、連結リストのノードはメモリのあちこちに分けて配置できます。アドレスが連続している必要はありません。
 
 ![連結リストの定義と格納方法](linked_list.assets/linkedlist_definition.svg){ class="animation-figure" }
 
 <p align="center"> 図 4-5 &nbsp; 連結リストの定義と格納方法 </p>
 
-図 4-5 のように、連結リストを構成する単位は<u>ノード（node）</u>オブジェクトです。各ノードは、ノードの「値」と次のノードを指す「参照」という二つのデータを持ちます。
+図 4-5 で連結リストを構成する単位は、<u>ノード（node）</u>と呼ばれるオブジェクトです。各ノードは自分の「値」と、次のノードを指す「参照」の 2 つを持ちます。
 
-- 最初のノードを「先頭ノード」、最後のノードを「末尾ノード」と呼びます。
-- 末尾ノードは「空」を指します。これは Java、C++、Python でそれぞれ `null`、`nullptr`、`None` と表します。
-- C、C++、Go、Rust などのポインタをサポートする言語では、上記の「参照」は「ポインタ」と読み替えます。
+- リストの最初のノードを「先頭ノード」、最後のノードを「末尾ノード」と呼びます。
+- 末尾ノードが指すのは「空」で、Java、C++、Python ではそれぞれ `null`、`nullptr`、`None` と書きます。
+- C、C++、Go、Rust など、ポインタを扱う言語では、ここでの「参照」を「ポインタ」と読み替えます。
 
-次のコードのように、連結リストのノード `ListNode` は、値に加えて参照（ポインタ）も保存する必要があります。そのため、同じデータ量なら、**連結リストは配列より多くのメモリを使います**。
+次のコードのように、連結リストのノード `ListNode` は値に加えて参照（ポインタ）を 1 つ保持します。そのため、データ量が同じなら、**連結リストは配列より多くのメモリを使います**。
 
 === "Python"
 
@@ -39,7 +39,7 @@ comments: true
     /* 連結リストのノード */
     struct ListNode {
         int val;        // ノードの値
-        ListNode *next; // 後続ノードへのポインタ
+        ListNode *next; // 次のノードへのポインタ
         ListNode(int x) : val(x), next(nullptr) {
         }
     };
@@ -75,10 +75,10 @@ comments: true
     // ListNode は連結リストのノード
     type ListNode struct {
         Val  int       // ノードの値
-        Next *ListNode // 後続ノードへのポインタ
+        Next *ListNode // 次のノードへのポインタ
     }
 
-    // NewListNode は連結リストのノードのコンストラクタ
+    // NewListNode は連結リストのノードを作るコンストラクタ
     func NewListNode(v int) *ListNode {
         return &ListNode{
             Val:  v,
@@ -151,7 +151,7 @@ comments: true
     #[derive(Debug)]
     pub struct ListNode<T> {
         pub val: T, // ノードの値
-        pub next: Option<Rc<RefCell<ListNode<T>>>>, // 後続ノードへのポインタ
+        pub next: Option<Rc<RefCell<ListNode<T>>>>, // 次のノードへのポインタ
     }
 
     impl<T> ListNode<T> {
@@ -164,13 +164,13 @@ comments: true
 === "C"
 
     ```c title=""
-    /* 連結リストのノードの構造体 */
+    /* 連結リストのノードを表す構造体 */
     typedef struct ListNode {
         int val;               // ノードの値
         struct ListNode *next; // 次のノードへのポインタ
     } ListNode;
 
-    /* コンストラクタ：新しいノードを初期化する */
+    /* 新しいノードを初期化するコンストラクタ */
     ListNode *newListNode(int val) {
         ListNode *node;
         node = (ListNode *)malloc(sizeof(ListNode));
@@ -204,11 +204,11 @@ comments: true
     end
     ```
 
-## 4.2.1 &nbsp; 連結リストの主な操作
+## 4.2.1 &nbsp; 連結リストの基本操作
 
-### 1. &nbsp; 連結リストの初期化
+### 1. &nbsp; 連結リストを初期化する
 
-連結リストは二つの手順で作ります。まず各ノードオブジェクトを初期化し、次にノード間の参照関係を構築します。初期化後は、先頭ノードから `next` の参照をたどり、すべてのノードを順に訪問できます。
+連結リストを作るには、まず個々のノードを初期化し、次に参照でノードどうしをつなぎます。初期化が済んだら、先頭ノードから参照 `next` をたどってすべてのノードを順に訪問できます。
 
 === "Python"
 
@@ -434,22 +434,22 @@ comments: true
     n3.next = n4
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__(self%2C%20val%3A%20int)%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%AC%A1%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%20%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20%E5%90%84%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20n0%20%3D%20ListNode(1)%0A%20%20%20%20n1%20%3D%20ListNode(3)%0A%20%20%20%20n2%20%3D%20ListNode(2)%0A%20%20%20%20n3%20%3D%20ListNode(5)%0A%20%20%20%20n4%20%3D%20ListNode(4)%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%E3%82%92%E8%A8%AD%E5%AE%9A%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__(self%2C%20val%3A%20int)%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%AC%A1%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%20%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20%E5%90%84%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20n0%20%3D%20ListNode(1)%0A%20%20%20%20n1%20%3D%20ListNode(3)%0A%20%20%20%20n2%20%3D%20ListNode(2)%0A%20%20%20%20n3%20%3D%20ListNode(5)%0A%20%20%20%20n4%20%3D%20ListNode(4)%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%E3%82%92%E8%A8%AD%E5%AE%9A%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E8%A1%A8%E3%81%99%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%AC%A1%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%20%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20%E5%90%84%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E5%8F%82%E7%85%A7%E3%81%A7%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E3%81%A4%E3%81%AA%E3%81%90%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E8%A1%A8%E3%81%99%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%AC%A1%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%20%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20%E5%90%84%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E5%8F%82%E7%85%A7%E3%81%A7%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E3%81%A4%E3%81%AA%E3%81%90%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-配列は全体で一つの変数です。たとえば配列 `nums` は、`nums[0]` や `nums[1]` などの要素を含みます。一方、連結リストは複数の独立したノードオブジェクトからなります。**通常は先頭ノードで連結リスト全体を表します**。たとえば、上のコードの連結リストは、連結リスト `n0` と呼べます。
+配列は全体で 1 つの変数です。たとえば、配列 `nums` には `nums[0]` や `nums[1]` といった要素が含まれます。一方、連結リストは独立した複数のノードオブジェクトで構成されます。**通常は先頭ノードで連結リスト全体を表します**。たとえば、上のコードのリストは「連結リスト `n0`」と書けます。
 
-### 2. &nbsp; ノードの挿入
+### 2. &nbsp; ノードを挿入する
 
-連結リストへのノードの挿入は簡単です。図 4-6 のように、隣り合うノード `n0` と `n1` の間に新しいノード `P` を挿入するには、**二つのノード参照（ポインタ）を変更するだけ**で済み、時間計算量は $O(1)$ です。
+連結リストへのノードの挿入は簡単です。図 4-6 のように、隣り合うノード `n0` と `n1` の間に新しいノード `P` を挿入するには、**ノードの参照（ポインタ）を 2 つ書き換えるだけで済みます**。時間計算量は $O(1)$ です。
 
-対して、配列への要素の挿入は時間計算量が $O(n)$ であり、データ量が大きいと非効率になります。
+これに対し、配列への要素の挿入は時間計算量が $O(n)$ で、データ量が大きいと効率が低くなります。
 
-![連結リストへのノードの挿入例](linked_list.assets/linkedlist_insert_node.svg){ class="animation-figure" }
+![連結リストにノードを挿入する例](linked_list.assets/linkedlist_insert_node.svg){ class="animation-figure" }
 
-<p align="center"> 図 4-6 &nbsp; 連結リストへのノードの挿入例 </p>
+<p align="center"> 図 4-6 &nbsp; 連結リストにノードを挿入する例 </p>
 
 === "Python"
 
@@ -587,7 +587,7 @@ comments: true
 
     ```ruby title="linked_list.rb"
     ### 連結リストのノード n0 の直後にノード _p を挿入する ###
-    # Ruby では `p` は組み込み関数、`P` は定数なので、代わりに `_p` を使える
+    # Ruby の `p` は組み込み関数、`P` は定数なので、代わりに `_p` を使える
     def insert(n0, _p)
       n1 = n0.next
       _p.next = n1
@@ -595,16 +595,16 @@ comments: true
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B6%9A%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20insert%28n0%3A%20ListNode,%20P%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%20n0%20%E3%81%AE%E7%9B%B4%E5%BE%8C%E3%81%AB%E3%83%8E%E3%83%BC%E3%83%89%20P%20%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20n1%20%3D%20n0.next%0A%20%20%20%20P.next%20%3D%20n1%0A%20%20%20%20n0.next%20%3D%20P%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E5%90%84%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20%20%20%20p%20%3D%20ListNode%280%29%0A%20%20%20%20insert%28n0,%20p%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=39&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B6%9A%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20insert%28n0%3A%20ListNode,%20P%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%20n0%20%E3%81%AE%E7%9B%B4%E5%BE%8C%E3%81%AB%E3%83%8E%E3%83%BC%E3%83%89%20P%20%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20n1%20%3D%20n0.next%0A%20%20%20%20P.next%20%3D%20n1%0A%20%20%20%20n0.next%20%3D%20P%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E5%90%84%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20%20%20%20p%20%3D%20ListNode%280%29%0A%20%20%20%20insert%28n0,%20p%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=39&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%AC%A1%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20insert%28n0%3A%20ListNode,%20P%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%20n0%20%E3%81%AE%E7%9B%B4%E5%BE%8C%E3%81%AB%E3%83%8E%E3%83%BC%E3%83%89%20P%20%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20n1%20%3D%20n0.next%0A%20%20%20%20P.next%20%3D%20n1%0A%20%20%20%20n0.next%20%3D%20P%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E5%90%84%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20%20%20%20p%20%3D%20ListNode%280%29%0A%20%20%20%20insert%28n0,%20p%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=39&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%AC%A1%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20insert%28n0%3A%20ListNode,%20P%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%20n0%20%E3%81%AE%E7%9B%B4%E5%BE%8C%E3%81%AB%E3%83%8E%E3%83%BC%E3%83%89%20P%20%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20n1%20%3D%20n0.next%0A%20%20%20%20P.next%20%3D%20n1%0A%20%20%20%20n0.next%20%3D%20P%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E5%90%84%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20%20%20%20p%20%3D%20ListNode%280%29%0A%20%20%20%20insert%28n0,%20p%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=39&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-### 3. &nbsp; ノードの削除
+### 3. &nbsp; ノードを削除する
 
-図 4-7 のように、連結リストからのノードの削除も簡単で、**一つのノードの参照（ポインタ）を変更するだけ**です。
+図 4-7 のように、連結リストからノードを削除するのも簡単です。**ノードの参照（ポインタ）を 1 つ書き換えるだけで済みます**。
 
-削除後もノード `P` は `n1` を指していますが、この連結リストを走査しても `P` には到達できなくなることに注意してください。つまり、`P` はもはやこの連結リストに属していません。
+削除が済んでもノード `P` はまだ `n1` を指しています。しかし、このリストをたどっても `P` にはもう到達できません。つまり `P` はすでにリストから外れています。
 
 ![連結リストからのノードの削除](linked_list.assets/linkedlist_remove_node.svg){ class="animation-figure" }
 
@@ -614,7 +614,7 @@ comments: true
 
     ```python title="linked_list.py"
     def remove(n0: ListNode):
-        """連結リストのノード n0 の直後のノードを削除する"""
+        """連結リストのノード n0 の直後にあるノードを削除する"""
         if not n0.next:
             return
         # n0 -> P -> n1
@@ -626,7 +626,7 @@ comments: true
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    /* 連結リストのノード n0 の直後のノードを削除する */
+    /* 連結リストのノード n0 の直後にあるノードを削除する */
     void remove(ListNode *n0) {
         if (n0->next == nullptr)
             return;
@@ -642,7 +642,7 @@ comments: true
 === "Java"
 
     ```java title="linked_list.java"
-    /* 連結リストのノード n0 の直後のノードを削除する */
+    /* 連結リストのノード n0 の直後にあるノードを削除する */
     void remove(ListNode n0) {
         if (n0.next == null)
             return;
@@ -656,7 +656,7 @@ comments: true
 === "C#"
 
     ```csharp title="linked_list.cs"
-    /* 連結リストのノード n0 の直後のノードを削除する */
+    /* 連結リストのノード n0 の直後にあるノードを削除する */
     void Remove(ListNode n0) {
         if (n0.next == null)
             return;
@@ -670,7 +670,7 @@ comments: true
 === "Go"
 
     ```go title="linked_list.go"
-    /* 連結リストのノード n0 の直後のノードを削除する */
+    /* 連結リストのノード n0 の直後にあるノードを削除する */
     func removeItem(n0 *ListNode) {
         if n0.Next == nil {
             return
@@ -685,7 +685,7 @@ comments: true
 === "Swift"
 
     ```swift title="linked_list.swift"
-    /* 連結リストのノード n0 の直後のノードを削除する */
+    /* 連結リストのノード n0 の直後にあるノードを削除する */
     func remove(n0: ListNode) {
         if n0.next == nil {
             return
@@ -700,7 +700,7 @@ comments: true
 === "JS"
 
     ```javascript title="linked_list.js"
-    /* 連結リストのノード n0 の直後のノードを削除する */
+    /* 連結リストのノード n0 の直後にあるノードを削除する */
     function remove(n0) {
         if (!n0.next) return;
         // n0 -> P -> n1
@@ -713,7 +713,7 @@ comments: true
 === "TS"
 
     ```typescript title="linked_list.ts"
-    /* 連結リストのノード n0 の直後のノードを削除する */
+    /* 連結リストのノード n0 の直後にあるノードを削除する */
     function remove(n0: ListNode): void {
         if (!n0.next) {
             return;
@@ -728,7 +728,7 @@ comments: true
 === "Dart"
 
     ```dart title="linked_list.dart"
-    /* 連結リストのノード n0 の直後のノードを削除する */
+    /* 連結リストのノード n0 の直後にあるノードを削除する */
     void remove(ListNode n0) {
       if (n0.next == null) return;
       // n0 -> P -> n1
@@ -741,7 +741,7 @@ comments: true
 === "Rust"
 
     ```rust title="linked_list.rs"
-    /* 連結リストのノード n0 の直後のノードを削除する */
+    /* 連結リストのノード n0 の直後にあるノードを削除する */
     #[allow(non_snake_case)]
     pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
         // n0 -> P -> n1
@@ -756,8 +756,8 @@ comments: true
 === "C"
 
     ```c title="linked_list.c"
-    /* 連結リストのノード n0 の直後のノードを削除する */
-    // 注意：stdio.h で remove という名前が使われている
+    /* 連結リストのノード n0 の直後にあるノードを削除する */
+    // 注意：stdio.h では remove という名前がすでに使われている
     void removeItem(ListNode *n0) {
         if (!n0->next)
             return;
@@ -773,7 +773,7 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="linked_list.kt"
-    /* 連結リストのノード n0 の直後のノードを削除する */
+    /* 連結リストのノード n0 の直後にあるノードを削除する */
     fun remove(n0: ListNode?) {
         if (n0?.next == null)
             return
@@ -787,7 +787,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="linked_list.rb"
-    ### 連結リストのノード n0 の直後のノードを削除する ###
+    ### 連結リストのノード n0 の直後にあるノードを削除する ###
     def remove(n0)
       return if n0.next.nil?
 
@@ -798,14 +798,14 @@ comments: true
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B6%9A%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20remove%28n0%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%20n0%20%E3%81%AE%E7%9B%B4%E5%BE%8C%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20if%20not%20n0.next%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20n0%20-%3E%20P%20-%3E%20n1%0A%20%20%20%20P%20%3D%20n0.next%0A%20%20%20%20n1%20%3D%20P.next%0A%20%20%20%20n0.next%20%3D%20n1%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E5%90%84%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%0A%20%20%20%20remove%28n0%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B6%9A%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20remove%28n0%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%20n0%20%E3%81%AE%E7%9B%B4%E5%BE%8C%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20if%20not%20n0.next%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20n0%20-%3E%20P%20-%3E%20n1%0A%20%20%20%20P%20%3D%20n0.next%0A%20%20%20%20n1%20%3D%20P.next%0A%20%20%20%20n0.next%20%3D%20n1%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E5%90%84%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%0A%20%20%20%20remove%28n0%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%AC%A1%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20remove%28n0%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%20n0%20%E3%81%AE%E7%9B%B4%E5%BE%8C%E3%81%AB%E3%81%82%E3%82%8B%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20if%20not%20n0.next%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20n0%20-%3E%20P%20-%3E%20n1%0A%20%20%20%20P%20%3D%20n0.next%0A%20%20%20%20n1%20%3D%20P.next%0A%20%20%20%20n0.next%20%3D%20n1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E5%90%84%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%0A%20%20%20%20remove%28n0%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%AC%A1%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20remove%28n0%3A%20ListNode%29%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%20n0%20%E3%81%AE%E7%9B%B4%E5%BE%8C%E3%81%AB%E3%81%82%E3%82%8B%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20if%20not%20n0.next%3A%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%23%20n0%20-%3E%20P%20-%3E%20n1%0A%20%20%20%20P%20%3D%20n0.next%0A%20%20%20%20n1%20%3D%20P.next%0A%20%20%20%20n0.next%20%3D%20n1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E5%90%84%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%0A%20%20%20%20remove%28n0%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-### 4. &nbsp; ノードへのアクセス
+### 4. &nbsp; ノードにアクセスする
 
-**連結リストのノードへのアクセスは効率が低くなります**。前の節で説明したように、配列では任意の要素に $O(1)$ 時間でアクセスできます。連結リストでは、先頭ノードから順にたどり、目的のノードを見つける必要があります。つまり、$i$ 番目のノードにアクセスするには $i - 1$ 回ループする必要があり、時間計算量は $O(n)$ です。
+**連結リストで指定位置のノードにアクセスする効率は高くありません**。前節のように、配列ならどの要素にも $O(1)$ 時間でアクセスできます。連結リストでは、先頭ノードから出発し、目的のノードが見つかるまで 1 つずつたどる必要があります。つまり $i$ 番目のノードにアクセスするにはループを $i - 1$ 回繰り返すので、時間計算量は $O(n)$ です。
 
 === "Python"
 
@@ -1002,20 +1002,20 @@ comments: true
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B6%9A%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20access%28head%3A%20ListNode,%20index%3A%20int%29%20-%3E%20ListNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20index%20%E3%81%AB%E3%81%82%E3%82%8B%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20for%20_%20in%20range%28index%29%3A%0A%20%20%20%20%20%20%20%20if%20not%20head%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20return%20head%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E5%90%84%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%0A%20%20%20%20node%20%3D%20access%28n0,%203%29%0A%20%20%20%20print%28%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%203%20%E3%81%AB%E3%81%82%E3%82%8B%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%20%3D%20%7B%7D%22.format%28node.val%29%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B6%9A%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20access%28head%3A%20ListNode,%20index%3A%20int%29%20-%3E%20ListNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20index%20%E3%81%AB%E3%81%82%E3%82%8B%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20for%20_%20in%20range%28index%29%3A%0A%20%20%20%20%20%20%20%20if%20not%20head%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20return%20head%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E5%90%84%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%0A%20%20%20%20node%20%3D%20access%28n0,%203%29%0A%20%20%20%20print%28%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%203%20%E3%81%AB%E3%81%82%E3%82%8B%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%20%3D%20%7B%7D%22.format%28node.val%29%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%AC%A1%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20access%28head%3A%20ListNode,%20index%3A%20int%29%20-%3E%20ListNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20index%20%E3%81%AB%E3%81%82%E3%82%8B%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20for%20_%20in%20range%28index%29%3A%0A%20%20%20%20%20%20%20%20if%20not%20head%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20return%20head%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E5%90%84%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%0A%20%20%20%20node%20%3D%20access%28n0,%203%29%0A%20%20%20%20print%28%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%203%20%E3%81%AB%E3%81%82%E3%82%8B%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%20%3D%20%7B%7D%22.format%28node.val%29%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%AC%A1%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20access%28head%3A%20ListNode,%20index%3A%20int%29%20-%3E%20ListNode%20%7C%20None%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20index%20%E3%81%AB%E3%81%82%E3%82%8B%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20for%20_%20in%20range%28index%29%3A%0A%20%20%20%20%20%20%20%20if%20not%20head%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20return%20head%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E5%90%84%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%0A%20%20%20%20node%20%3D%20access%28n0,%203%29%0A%20%20%20%20print%28%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%203%20%E3%81%AB%E3%81%82%E3%82%8B%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%20%3D%20%7B%7D%22.format%28node.val%29%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-### 5. &nbsp; ノードの探索
+### 5. &nbsp; ノードを探す
 
-連結リストを走査して値が `target` のノードを探し、そのノードのインデックスを返します。これも線形探索です。コードを次に示します。
+連結リストを走査して、値が `target` のノードを探し、リスト内でのインデックスを出力します。これも線形探索です。コードは以下のとおりです。
 
 === "Python"
 
     ```python title="linked_list.py"
     def find(head: ListNode, target: int) -> int:
-        """連結リストから値が target である最初のノードを探索する"""
+        """連結リストから値が target の最初のノードを探す"""
         index = 0
         while head:
             if head.val == target:
@@ -1028,7 +1028,7 @@ comments: true
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    /* 連結リストから値が target である最初のノードを探索する */
+    /* 連結リストから値が target の最初のノードを探す */
     int find(ListNode *head, int target) {
         int index = 0;
         while (head != nullptr) {
@@ -1044,7 +1044,7 @@ comments: true
 === "Java"
 
     ```java title="linked_list.java"
-    /* 連結リストから値が target である最初のノードを探索する */
+    /* 連結リストから値が target の最初のノードを探す */
     int find(ListNode head, int target) {
         int index = 0;
         while (head != null) {
@@ -1060,7 +1060,7 @@ comments: true
 === "C#"
 
     ```csharp title="linked_list.cs"
-    /* 連結リストから値が target である最初のノードを探索する */
+    /* 連結リストから値が target の最初のノードを探す */
     int Find(ListNode? head, int target) {
         int index = 0;
         while (head != null) {
@@ -1076,7 +1076,7 @@ comments: true
 === "Go"
 
     ```go title="linked_list.go"
-    /* 連結リストから値が target である最初のノードを探索する */
+    /* 連結リストから値が target の最初のノードを探す */
     func findNode(head *ListNode, target int) int {
         index := 0
         for head != nil {
@@ -1093,7 +1093,7 @@ comments: true
 === "Swift"
 
     ```swift title="linked_list.swift"
-    /* 連結リストから値が target である最初のノードを探索する */
+    /* 連結リストから値が target の最初のノードを探す */
     func find(head: ListNode, target: Int) -> Int {
         var head: ListNode? = head
         var index = 0
@@ -1111,7 +1111,7 @@ comments: true
 === "JS"
 
     ```javascript title="linked_list.js"
-    /* 連結リストから値が target である最初のノードを探索する */
+    /* 連結リストから値が target の最初のノードを探す */
     function find(head, target) {
         let index = 0;
         while (head !== null) {
@@ -1128,7 +1128,7 @@ comments: true
 === "TS"
 
     ```typescript title="linked_list.ts"
-    /* 連結リストから値が target である最初のノードを探索する */
+    /* 連結リストから値が target の最初のノードを探す */
     function find(head: ListNode | null, target: number): number {
         let index = 0;
         while (head !== null) {
@@ -1145,7 +1145,7 @@ comments: true
 === "Dart"
 
     ```dart title="linked_list.dart"
-    /* 連結リストから値が target である最初のノードを探索する */
+    /* 連結リストから値が target の最初のノードを探す */
     int find(ListNode? head, int target) {
       int index = 0;
       while (head != null) {
@@ -1162,7 +1162,7 @@ comments: true
 === "Rust"
 
     ```rust title="linked_list.rs"
-    /* 連結リストから値が target である最初のノードを探索する */
+    /* 連結リストから値が target の最初のノードを探す */
     pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T) -> i32 {
         fn find<T: PartialEq>(head: Option<&Rc<RefCell<ListNode<T>>>>, target: T, idx: i32) -> i32 {
             if let Some(node) = head {
@@ -1182,7 +1182,7 @@ comments: true
 === "C"
 
     ```c title="linked_list.c"
-    /* 連結リストから値が target である最初のノードを探索する */
+    /* 連結リストから値が target の最初のノードを探す */
     int find(ListNode *head, int target) {
         int index = 0;
         while (head) {
@@ -1198,7 +1198,7 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="linked_list.kt"
-    /* 連結リストから値が target である最初のノードを探索する */
+    /* 連結リストから値が target の最初のノードを探す */
     fun find(head: ListNode?, target: Int): Int {
         var index = 0
         var h = head
@@ -1215,7 +1215,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="linked_list.rb"
-    ### 連結リストから値が target である最初のノードを探索する ###
+    ### 連結リストから値が target の最初のノードを探す ###
     def find(head, target)
       index = 0
       while head
@@ -1228,14 +1228,14 @@ comments: true
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B6%9A%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20find%28head%3A%20ListNode,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%8B%E3%82%89%E5%80%A4%E3%81%8C%20target%20%E3%81%A7%E3%81%82%E3%82%8B%E6%9C%80%E5%88%9D%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8E%A2%E7%B4%A2%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20index%20%3D%200%0A%20%20%20%20while%20head%3A%0A%20%20%20%20%20%20%20%20if%20head.val%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20index%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20%20%20%20%20index%20%2B%3D%201%0A%20%20%20%20return%20-1%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E5%90%84%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8E%A2%E7%B4%A2%E3%81%99%E3%82%8B%0A%20%20%20%20index%20%3D%20find%28n0,%202%29%0A%20%20%20%20print%28%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E5%86%85%E3%81%A7%E5%80%A4%E3%81%8C%202%20%E3%81%A7%E3%81%82%E3%82%8B%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20%3D%20%7B%7D%22.format%28index%29%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B6%9A%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20find%28head%3A%20ListNode,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%8B%E3%82%89%E5%80%A4%E3%81%8C%20target%20%E3%81%A7%E3%81%82%E3%82%8B%E6%9C%80%E5%88%9D%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8E%A2%E7%B4%A2%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20index%20%3D%200%0A%20%20%20%20while%20head%3A%0A%20%20%20%20%20%20%20%20if%20head.val%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20index%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20%20%20%20%20index%20%2B%3D%201%0A%20%20%20%20return%20-1%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E5%90%84%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8E%A2%E7%B4%A2%E3%81%99%E3%82%8B%0A%20%20%20%20index%20%3D%20find%28n0,%202%29%0A%20%20%20%20print%28%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E5%86%85%E3%81%A7%E5%80%A4%E3%81%8C%202%20%E3%81%A7%E3%81%82%E3%82%8B%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20%3D%20%7B%7D%22.format%28index%29%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%AC%A1%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20find%28head%3A%20ListNode,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%8B%E3%82%89%E5%80%A4%E3%81%8C%20target%20%E3%81%AE%E6%9C%80%E5%88%9D%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8E%A2%E3%81%99%22%22%22%0A%20%20%20%20index%20%3D%200%0A%20%20%20%20while%20head%3A%0A%20%20%20%20%20%20%20%20if%20head.val%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20index%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20%20%20%20%20index%20%2B%3D%201%0A%20%20%20%20return%20-1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E5%90%84%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8E%A2%E3%81%99%0A%20%20%20%20index%20%3D%20find%28n0,%202%29%0A%20%20%20%20print%28%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%A7%E5%80%A4%E3%81%8C%202%20%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20%3D%20%7B%7D%22.format%28index%29%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%AC%A1%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0Adef%20find%28head%3A%20ListNode,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%8B%E3%82%89%E5%80%A4%E3%81%8C%20target%20%E3%81%AE%E6%9C%80%E5%88%9D%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8E%A2%E3%81%99%22%22%22%0A%20%20%20%20index%20%3D%200%0A%20%20%20%20while%20head%3A%0A%20%20%20%20%20%20%20%20if%20head.val%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20index%0A%20%20%20%20%20%20%20%20head%20%3D%20head.next%0A%20%20%20%20%20%20%20%20index%20%2B%3D%201%0A%20%20%20%20return%20-1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E5%90%84%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%8E%A2%E3%81%99%0A%20%20%20%20index%20%3D%20find%28n0,%202%29%0A%20%20%20%20print%28%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%A7%E5%80%A4%E3%81%8C%202%20%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20%3D%20%7B%7D%22.format%28index%29%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=34&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
 ## 4.2.2 &nbsp; 配列と連結リストの比較
 
-表 4-1 に、配列と連結リストの特徴と操作効率をまとめます。両者は対照的な格納戦略を取るため、性質や操作効率も対照的になります。
+表 4-1 は、配列と連結リストの特徴と操作の効率を比較したものです。両者は対照的な格納方法を取るので、性質や操作の効率にも対照的な特徴が現れます。
 
 <p align="center"> 表 4-1 &nbsp; 配列と連結リストの効率の比較 </p>
 
@@ -1244,21 +1244,21 @@ comments: true
 |          | 配列                           | 連結リスト           |
 | -------- | ------------------------------ | -------------- |
 | 格納方法 | 連続したメモリ領域                   | 分散したメモリ領域   |
-| 容量の拡張 | 長さは変更できない                     | 柔軟に拡張できる     |
-| メモリ効率 | 要素の使用量は少ないが、空間が無駄になることもある | 要素のメモリ使用量が多い |
-| 要素へのアクセス | $O(1)$                         | $O(n)$         |
+| 容量の拡張 | 長さは固定                     | 柔軟に拡張可能     |
+| メモリ効率 | 要素あたりのメモリは少ないが、領域が無駄になることがある | 要素あたりのメモリが多い |
+| 要素にアクセスする | $O(1)$                         | $O(n)$         |
 | 要素の追加 | $O(n)$                         | $O(1)$         |
-| 要素の削除 | $O(n)$                         | $O(1)$         |
+| 要素を削除する | $O(n)$                         | $O(1)$         |
 
 </div>
 
-## 4.2.3 &nbsp; 連結リストの主な種類
+## 4.2.3 &nbsp; 代表的な連結リストの種類
 
-図 4-8 のように、代表的な連結リストには 3 種類あります。
+図 4-8 に示すように、代表的な連結リストには 3 つの種類があります。
 
-- **単方向連結リスト**：これまで説明した通常の連結リストです。各ノードは、値と次のノードへの参照の二つを持ちます。最初のノードを先頭ノード、最後のノードを末尾ノードと呼び、末尾ノードは空の `None` を指します。
-- **循環連結リスト**：単方向連結リストの末尾ノードを先頭ノードに向け、末尾と先頭をつなぐと、循環連結リストになります。循環連結リストでは、任意のノードを先頭とみなせます。
-- **双方向連結リスト**：単方向連結リストと異なり、両方向の参照を記録します。ノードには、後続ノード（次のノード）と先行ノード（前のノード）の両方への参照（ポインタ）を持たせます。単方向連結リストより柔軟で、どちらの方向にも走査できますが、その分メモリ使用量も増えます。
+- **単方向連結リスト**：これまでに説明した通常の連結リストです。各ノードが持つのは、値と次のノードへの参照の 2 つです。最初のノードを先頭ノード、最後のノードを末尾ノードと呼び、末尾ノードは空を表す `None` を指します。
+- **循環連結リスト**：単方向連結リストの末尾ノードが先頭ノードを指すようにして両端をつなぐと、循環連結リストになります。循環連結リストでは、どのノードも先頭とみなせます。
+- **双方向連結リスト**：単方向連結リストと違い、双方向連結リストは 2 方向の参照を記録します。各ノードの定義には、後続ノード（次のノード）と先行ノード（前のノード）への参照（ポインタ）が含まれます。単方向連結リストより柔軟で、どちらの方向にもたどれますが、その分多くのメモリを使います。
 
 === "Python"
 
@@ -1269,7 +1269,7 @@ comments: true
         def __init__(self, val: int):
             """コンストラクタ"""
             self.val: int = val  # ノードの値
-            self.next: ListNode | None = None  # 後続ノードへの参照
+            self.next: ListNode | None = None  # 次のノードへの参照
             self.prev: ListNode | None = None  # 前のノードへの参照
     ```
 
@@ -1279,7 +1279,7 @@ comments: true
     /* 双方向連結リストのノード */
     struct DoublyListNode {
         int val;              // ノードの値
-        DoublyListNode *next; // 後続ノードへのポインタ
+        DoublyListNode *next; // 次のノードへのポインタ
         DoublyListNode *prev; // 前のノードへのポインタ
         DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {
         }
@@ -1292,7 +1292,7 @@ comments: true
     /* 双方向連結リストのノード */
     class ListNode {
         int val;       // ノードの値
-        ListNode next; // 後続ノードへの参照
+        ListNode next; // 次のノードへの参照
         ListNode prev; // 前のノードへの参照
 
         ListNode(int val) {
@@ -1308,7 +1308,7 @@ comments: true
     /* 双方向連結リストのノード */
     public class ListNode(int val) {
         public int val = val;         // ノードの値
-        public ListNode? next = null; // 後続ノードへの参照
+        public ListNode? next = null; // 次のノードへの参照
         public ListNode? prev = null; // 前のノードへの参照
     }
     ```
@@ -1316,14 +1316,14 @@ comments: true
 === "Go"
 
     ```go title=""
-    /* 双方向連結リストのノード構造体 */
+    /* 双方向連結リストのノードを表す構造体 */
     type DoublyListNode struct {
         Val  int             // ノードの値
-        Next *DoublyListNode // 後続ノードへのポインタ
-        Prev *DoublyListNode // 先行ノードへのポインタ
+        Next *DoublyListNode // 次のノードへのポインタ
+        Prev *DoublyListNode // 前のノードへのポインタ
     }
 
-    // NewDoublyListNode で初期化
+    // NewDoublyListNode で初期化する
     func NewDoublyListNode(val int) *DoublyListNode {
         return &DoublyListNode{
             Val:  val,
@@ -1339,7 +1339,7 @@ comments: true
     /* 双方向連結リストのノード */
     class ListNode {
         var val: Int // ノードの値
-        var next: ListNode? // 後続ノードへの参照
+        var next: ListNode? // 次のノードへの参照
         weak var prev: ListNode? // 前のノードへの参照
 
         init(val: Int) {
@@ -1354,7 +1354,7 @@ comments: true
     /* 双方向連結リストのノード */
     class ListNode {
         prev; // 前のノードへの参照（ポインタ）
-        next; // 後続ノードへの参照（ポインタ）
+        next; // 次のノードへの参照（ポインタ）
         val; // ノードの値
 
         constructor(val) {
@@ -1371,7 +1371,7 @@ comments: true
     /* 双方向連結リストのノード */
     class ListNode {
         prev: ListNode | null; // 前のノードへの参照（ポインタ）
-        next: ListNode | null; // 後続ノードへの参照（ポインタ）
+        next: ListNode | null; // 次のノードへの参照（ポインタ）
         val: number; // ノードの値
 
         constructor(val: number) {
@@ -1388,7 +1388,7 @@ comments: true
     /* 双方向連結リストのノード */
     class ListNode {
       int val; // ノードの値
-      ListNode? next; // 後続ノードへの参照
+      ListNode? next; // 次のノードへの参照
       ListNode? prev; // 前のノードへの参照
 
       ListNode(this.val, {this.next, this.prev});
@@ -1404,7 +1404,7 @@ comments: true
     /* 双方向連結リストのノード */
     pub struct ListNode<T> {
         pub val: T,                                 // ノードの値
-        pub next: Option<Rc<RefCell<ListNode<T>>>>, // 後続ノードへのポインタ
+        pub next: Option<Rc<RefCell<ListNode<T>>>>, // 次のノードへのポインタ
         pub prev: Option<Rc<RefCell<ListNode<T>>>>, // 前のノードへのポインタ
     }
 
@@ -1425,7 +1425,7 @@ comments: true
     /* 双方向連結リストのノード */
     typedef struct DoublyListNode {
         int val;                     // ノードの値
-        struct DoublyListNode *next; // 後続ノードへのポインタ
+        struct DoublyListNode *next; // 次のノードへのポインタ
         struct DoublyListNode *prev; // 前のノードへのポインタ
     } DoublyListNode;
 
@@ -1446,7 +1446,7 @@ comments: true
     class ListNode(
         var _val: Int // ノードの値
     ) {
-        var next: ListNode? = null // 後続ノードへの参照
+        var next: ListNode? = null // 次のノードへの参照
         var prev: ListNode? = null // 前のノードへの参照
     }
     ```
@@ -1457,7 +1457,7 @@ comments: true
     ### 双方向連結リストのノード ###
     class ListNode
       attr_accessor :val  # ノードの値
-      attr_accessor :next # 後続ノードへの参照
+      attr_accessor :next # 次のノードへの参照
       attr_accessor :prev # 前のノードへの参照
 
       ### コンストラクタ ###
@@ -1467,25 +1467,25 @@ comments: true
     end
     ```
 
-![連結リストの主な種類](linked_list.assets/linkedlist_common_types.svg){ class="animation-figure" }
+![代表的な連結リストの種類](linked_list.assets/linkedlist_common_types.svg){ class="animation-figure" }
 
-<p align="center"> 図 4-8 &nbsp; 連結リストの主な種類 </p>
+<p align="center"> 図 4-8 &nbsp; 代表的な連結リストの種類 </p>
 
 ## 4.2.4 &nbsp; 連結リストの代表的な用途
 
 単方向連結リストは、スタック、キュー、ハッシュテーブル、グラフなどの実装によく使われます。
 
-- **スタックとキュー**：挿入と削除をどちらも同じ端で行うと、先入れ後出しの性質になり、スタックに対応します。一方の端で挿入し、もう一方の端で削除すると、先入れ先出しの性質になり、キューに対応します。
-- **ハッシュテーブル**：チェイン法は、ハッシュ衝突を解決する代表的な方法の一つです。衝突したすべての要素を、一つの連結リストに格納します。
-- **グラフ**：隣接リストは、グラフを表す代表的な方法です。各頂点に連結リストを対応させ、その各要素で、当該頂点につながる別の頂点を表します。
+- **スタックとキュー**：挿入と削除をどちらもリストの同じ端で行うと、先に入れたものが後で出るスタックになります。一方の端で挿入し、もう一方の端で削除すると、先に入れたものが先に出るキューになります。
+- **ハッシュテーブル**：ハッシュの衝突を解決する代表的な方法の 1 つがチェイン法です。この方法では、衝突したすべての要素を 1 つの連結リストに格納します。
+- **グラフ**：グラフを表す一般的な方法に隣接リストがあります。各頂点に連結リストを対応付け、リストの各要素で、その頂点とつながるほかの頂点を表します。
 
-双方向連結リストは、前後の要素をすばやく見つける必要がある場面でよく使われます。
+双方向連結リストは、前後の要素をすばやく見つけたい場面でよく使われます。
 
-- **高度なデータ構造**：たとえば赤黒木や B 木では、ノードの親にアクセスする必要があります。ノードに親への参照を保存すれば実現でき、双方向連結リストと似た考え方です。
-- **ブラウザの履歴**：ユーザーが進むボタンや戻るボタンを押すと、Web ブラウザは前後に閲覧したページを知る必要があります。双方向連結リストの性質により、この操作を簡単に実現できます。
-- **LRU アルゴリズム**：キャッシュの置換（LRU）アルゴリズムでは、最後に使われてから最も時間がたったデータをすばやく見つけ、ノードを高速に追加・削除する必要があります。双方向連結リストはこの用途に適しています。
+- **高度なデータ構造**：たとえば赤黒木や B 木では、ノードからその親ノードにアクセスする必要があります。双方向連結リストと同じように、ノードに親ノードへの参照を持たせることで実現できます。
+- **ブラウザの履歴**：利用者が「進む」や「戻る」を押したとき、ブラウザは訪問履歴の前後のページを特定する必要があります。双方向連結リストの性質を利用すると、この操作を簡単に実現できます。
+- **LRU アルゴリズム**：キャッシュからデータを追い出す LRU アルゴリズムでは、最後に使われてから最も時間がたったデータをすばやく見つけ、ノードを高速に追加・削除する必要があります。双方向連結リストが適した場面です。
 
 循環連結リストは、OS の資源スケジューリングなど、周期的な操作が必要な場面でよく使われます。
 
-- **ラウンドロビンスケジューリング**：OS でよく使われる CPU スケジューリングの方法で、一群のプロセスを順に繰り返し処理します。各プロセスにタイムスライスを割り当て、それを使い切ると CPU は次のプロセスに切り替わります。この循環的な操作は、循環連結リストで実装できます。
-- **データバッファ**：データバッファの実装にも循環連結リストを使うことがあります。たとえば音声や動画のプレイヤーでは、データストリームを複数のバッファブロックに分け、循環連結リストに格納して、途切れない再生を実現できます。
+- **ラウンドロビン・スケジューリング**：OS で広く使われる CPU スケジューリング方式で、一連のプロセスを順に繰り返し処理します。各プロセスに一定の実行時間（タイムスライス）を割り当て、使い切ったら CPU は次のプロセスに切り替わります。この巡回は循環連結リストで実現できます。
+- **データバッファ**：データバッファの実装にも循環連結リストを使うことがあります。たとえば音声や動画のプレーヤーでは、ストリームを複数のバッファブロックに分けて循環連結リストに格納することで、途切れのない再生を実現できます。

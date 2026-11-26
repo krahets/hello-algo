@@ -10,5 +10,5 @@ icon: material/help-circle-outline
 ## Содержание главы
 
 - [16.1 &nbsp; Установка среды программирования](installation.md)
-- [16.2 &nbsp; Присоединяйтесь к созданию книги](contribution.md)
-- [16.3 &nbsp; Глоссарий](terminology.md)
+- [16.2 &nbsp; Как принять участие в работе над книгой](contribution.md)
+- [16.3 &nbsp; Словарь терминов](terminology.md)

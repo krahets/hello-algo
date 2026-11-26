@@ -4,52 +4,52 @@ comments: true
 
 # 14.6 &nbsp; 編集距離問題
 
-編集距離は Levenshtein 距離とも呼ばれ、一方の文字列をもう一方に変換するために必要な最小の変更回数を表します。情報検索や自然言語処理で、二つの列の類似度を測るためによく使われます。
+編集距離はレーベンシュタイン距離（Levenshtein 距離）とも呼ばれ、一方の文字列をもう一方に変えるのに必要な最少の編集回数を指します。情報検索や自然言語処理では、2 つの列の類似度を測るためによく使われます。
 
 !!! question "問題"
 
-    二つの文字列 $s$ と $t$ が与えられます。$s$ を $t$ に変換するための最小の編集回数を返してください。
+    2 つの文字列 $s$ と $t$ を受け取り、$s$ を $t$ に変換するのに必要な最少編集回数を返してください。
     
-    文字列には、文字を一つ挿入する、文字を一つ削除する、文字を任意の文字に置き換える、という 3 種類の編集操作を行えます。
+    文字列に対してできる編集操作は、1 文字の挿入、1 文字の削除、1 文字を任意の 1 文字に置き換える置換の 3 種類です。
 
-図 14-27 のように、`kitten` を `sitting` に変換するには、置換 2 回と挿入 1 回の計 3 回が必要です。`hello` を `algo` に変換するには、置換 2 回と削除 1 回の計 3 回が必要です。
+図 14-27 のように、`kitten` から `sitting` への変換には置換 2 回と追加 1 回の計 3 回、`hello` から `algo` への変換には置換 2 回と削除 1 回の計 3 回の編集が必要です。
 
-![編集距離のデータ例](edit_distance_problem.assets/edit_distance_example.svg){ class="animation-figure" }
+![編集距離の例](edit_distance_problem.assets/edit_distance_example.svg){ class="animation-figure" }
 
-<p align="center"> 図 14-27 &nbsp; 編集距離のデータ例 </p>
+<p align="center"> 図 14-27 &nbsp; 編集距離の例 </p>
 
-**編集距離問題は、決定木モデルで自然に説明できます**。文字列が木のノードに対応し、1 回の判断（編集操作）が辺に対応します。
+**編集距離問題は決定木で自然に表せます**。文字列が木のノードに、各段階の選択（1 回の編集操作）が木の辺に対応します。
 
-図 14-28 のように、操作を制限しなければ各ノードから多くの辺が伸び、各辺が一つの操作に対応します。つまり、`hello` から `algo` への変換には、多くの経路が考えられます。
+図 14-28 のように、操作を制限しなければ、各ノードからは多数の辺が伸び、それぞれが 1 つの操作を表します。つまり、`hello` から `algo` に至る経路は数多くあります。
 
 決定木の観点では、この問題の目標はノード `hello` とノード `algo` の間の最短経路を求めることです。
 
-![決定木モデルによる編集距離問題の表現](edit_distance_problem.assets/edit_distance_decision_tree.svg){ class="animation-figure" }
+![決定木で表した編集距離問題](edit_distance_problem.assets/edit_distance_decision_tree.svg){ class="animation-figure" }
 
-<p align="center"> 図 14-28 &nbsp; 決定木モデルによる編集距離問題の表現 </p>
+<p align="center"> 図 14-28 &nbsp; 決定木で表した編集距離問題 </p>
 
 ### 1. &nbsp; 動的計画法の考え方
 
-**第 1 段階：各回の選択を考えて状態を定義し、$dp$ テーブルを作る**
+**手順 1：各段階の選択を考え、状態を定義して $dp$ テーブルを作る**
 
-各回の選択は、文字列 $s$ に編集操作を 1 回行うことです。
+各段階で、文字列 $s$ に適用する編集操作を 1 つ選びます。
 
-部分問題を作るには、編集するたびに問題を小さくしていきたいところです。文字列 $s$ と $t$ の長さをそれぞれ $n$ と $m$ とし、まず末尾の文字 $s[n-1]$ と $t[m-1]$ を考えます。
+部分問題を作るには、編集に伴って問題が小さくなるように考えます。文字列 $s$ と $t$ の長さをそれぞれ $n$、$m$ とし、まず末尾の文字 $s[n-1]$ と $t[m-1]$ に注目します。
 
-- $s[n-1]$ と $t[m-1]$ が同じなら、それらを飛ばして $s[n-2]$ と $t[m-2]$ を考えられます。
-- $s[n-1]$ と $t[m-1]$ が異なるなら、$s$ に編集（挿入、削除、置換）を 1 回行って末尾の文字を一致させ、それらを飛ばして、より小さな問題を考えます。
+- $s[n-1]$ と $t[m-1]$ が同じなら、この 2 文字を飛ばして $s[n-2]$ と $t[m-2]$ を考えられます。
+- $s[n-1]$ と $t[m-1]$ が異なるなら、$s$ に 1 回の編集（挿入、削除、置換）を施します。末尾を一致させれば、一致した文字を飛ばしてより小さな問題に進めます。
 
-つまり、文字列 $s$ に対する各回の判断（編集操作）によって、$s$ と $t$ のまだ対応させていない文字が変わります。そこで、現在考えている $s$ の $i$ 番目と $t$ の $j$ 番目の文字を状態とし、$[i, j]$ と表します。
+つまり、文字列 $s$ に対する各段階の選択（編集操作）によって、$s$ と $t$ でまだ照合が必要な文字が変わります。そこで状態を、現在 $s$ と $t$ で考えている $i$ 番目と $j$ 番目の文字に対応させ、$[i, j]$ と表します。
 
-状態 $[i, j]$ の部分問題は、**$s$ の先頭 $i$ 文字を $t$ の先頭 $j$ 文字に変換するための最小編集回数**です。
+状態 $[i, j]$ の部分問題は、**$s$ の先頭 $i$ 文字を $t$ の先頭 $j$ 文字に変えるための最少編集回数を求めることです**。
 
-これで、$(n+1) \times (m+1)$ の二次元の $dp$ テーブルが得られます。
+これで、大きさ $(n+1) \times (m+1)$ の 2 次元の $dp$ テーブルが得られます。
 
-**第 2 段階：最適部分構造を見つけ、状態遷移式を導く**
+**手順 2：最適部分構造を見つけ、状態遷移式を導く**
 
-部分問題 $dp[i, j]$ に対応する二つの文字列の末尾は、$s[i-1]$ と $t[j-1]$ です。編集操作によって、図 14-29 の 3 通りに分けられます。
+部分問題 $dp[i, j]$ に対応する 2 つの文字列の末尾は $s[i-1]$ と $t[j-1]$ です。編集操作に応じて、図 14-29 の 3 通りに分けられます。
 
-1. $s[i-1]$ の後ろに $t[j-1]$ を挿入すると、残る部分問題は $dp[i, j-1]$ です。
+1. $s[i-1]$ の直後に $t[j-1]$ を追加すると、残る部分問題は $dp[i, j-1]$ です。
 2. $s[i-1]$ を削除すると、残る部分問題は $dp[i-1, j]$ です。
 3. $s[i-1]$ を $t[j-1]$ に置換すると、残る部分問題は $dp[i-1, j-1]$ です。
 
@@ -57,25 +57,25 @@ comments: true
 
 <p align="center"> 図 14-29 &nbsp; 編集距離の状態遷移 </p>
 
-ここから最適部分構造が得られます。$dp[i, j]$ の最小編集回数は、$dp[i, j-1]$、$dp[i-1, j]$、$dp[i-1, j-1]$ の三つの最小編集回数のうち、最も小さいものに、今回の編集 $1$ 回を加えた値です。状態遷移式は次のようになります。
+以上から最適部分構造がわかります。$dp[i, j]$ の最少編集回数は、$dp[i, j-1]$、$dp[i-1, j]$、$dp[i-1, j-1]$ の最少編集回数のうち最も小さい値に、今回の編集回数 $1$ を加えた値です。対応する状態遷移式は次のとおりです。
 
 $$
 dp[i, j] = \min(dp[i, j-1], dp[i-1, j], dp[i-1, j-1]) + 1
 $$
 
-**$s[i-1]$ と $t[j-1]$ が同じなら、その文字を編集する必要はありません**。この場合の状態遷移式は次のとおりです。
+ただし、**$s[i-1]$ と $t[j-1]$ が同じ場合は、この文字を編集する必要はありません**。この場合の状態遷移式は次のとおりです。
 
 $$
 dp[i, j] = dp[i-1, j-1]
 $$
 
-**第 3 段階：境界条件と状態遷移の順序を決める**
+**手順 3：境界条件と状態遷移の順序を決める**
 
-両方の文字列が空なら編集回数は $0$、すなわち $dp[0, 0] = 0$ です。$s$ が空で $t$ が空でないなら、最小編集回数は $t$ の長さなので、先頭行は $dp[0, j] = j$ です。$s$ が空でなく $t$ が空なら、最小編集回数は $s$ の長さなので、先頭列は $dp[i, 0] = i$ です。
+両方の文字列が空なら、編集回数は $0$、つまり $dp[0, 0] = 0$ です。$s$ が空で $t$ が空でなければ、最少編集回数は $t$ の長さに等しく、先頭行は $dp[0, j] = j$ となります。$s$ が空でなく $t$ が空なら、最少編集回数は $s$ の長さに等しく、先頭列は $dp[i, 0] = i$ となります。
 
-状態遷移式から、解 $dp[i, j]$ は左、上、左上の解に依存します。したがって、二重ループで $dp$ テーブル全体を順方向に走査すれば十分です。
+状態遷移式を見ると、解 $dp[i, j]$ は左、上、左上の解に依存します。したがって、二重ループで $dp$ テーブル全体を先頭から順に走査すれば十分です。
 
-### 2. &nbsp; コードの実装
+### 2. &nbsp; 実装
 
 === "Python"
 
@@ -93,10 +93,10 @@ $$
         for i in range(1, n + 1):
             for j in range(1, m + 1):
                 if s[i - 1] == t[j - 1]:
-                    # 2 つの文字が等しい場合、その 2 文字をスキップする
+                    # 2 文字が等しければ、両方とも読み飛ばす
                     dp[i][j] = dp[i - 1][j - 1]
                 else:
-                    # 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                    # 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                     dp[i][j] = min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]) + 1
         return dp[n][m]
     ```
@@ -119,10 +119,10 @@ $$
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
                 if (s[i - 1] == t[j - 1]) {
-                    // 2 つの文字が等しい場合、その 2 文字をスキップする
+                    // 2 文字が等しければ、両方とも読み飛ばす
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
-                    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                    // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                     dp[i][j] = min(min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
                 }
             }
@@ -149,10 +149,10 @@ $$
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
                 if (s.charAt(i - 1) == t.charAt(j - 1)) {
-                    // 2 つの文字が等しい場合、その 2 文字をスキップする
+                    // 2 文字が等しければ、両方とも読み飛ばす
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
-                    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                    // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                     dp[i][j] = Math.min(Math.min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
                 }
             }
@@ -179,10 +179,10 @@ $$
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
                 if (s[i - 1] == t[j - 1]) {
-                    // 2 つの文字が等しい場合、その 2 文字をスキップする
+                    // 2 文字が等しければ、両方とも読み飛ばす
                     dp[i, j] = dp[i - 1, j - 1];
                 } else {
-                    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                    // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                     dp[i, j] = Math.Min(Math.Min(dp[i, j - 1], dp[i - 1, j]), dp[i - 1, j - 1]) + 1;
                 }
             }
@@ -213,10 +213,10 @@ $$
         for i := 1; i <= n; i++ {
             for j := 1; j <= m; j++ {
                 if s[i-1] == t[j-1] {
-                    // 2 つの文字が等しい場合、その 2 文字をスキップする
+                    // 2 文字が等しければ、両方とも読み飛ばす
                     dp[i][j] = dp[i-1][j-1]
                 } else {
-                    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                    // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                     dp[i][j] = MinInt(MinInt(dp[i][j-1], dp[i-1][j]), dp[i-1][j-1]) + 1
                 }
             }
@@ -244,10 +244,10 @@ $$
         for i in 1 ... n {
             for j in 1 ... m {
                 if s.utf8CString[i - 1] == t.utf8CString[j - 1] {
-                    // 2 つの文字が等しい場合、その 2 文字をスキップする
+                    // 2 文字が等しければ、両方とも読み飛ばす
                     dp[i][j] = dp[i - 1][j - 1]
                 } else {
-                    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                    // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                     dp[i][j] = min(min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1
                 }
             }
@@ -275,10 +275,10 @@ $$
         for (let i = 1; i <= n; i++) {
             for (let j = 1; j <= m; j++) {
                 if (s.charAt(i - 1) === t.charAt(j - 1)) {
-                    // 2 つの文字が等しい場合、その 2 文字をスキップする
+                    // 2 文字が等しければ、両方とも読み飛ばす
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
-                    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                    // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                     dp[i][j] =
                         Math.min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]) + 1;
                 }
@@ -309,10 +309,10 @@ $$
         for (let i = 1; i <= n; i++) {
             for (let j = 1; j <= m; j++) {
                 if (s.charAt(i - 1) === t.charAt(j - 1)) {
-                    // 2 つの文字が等しい場合、その 2 文字をスキップする
+                    // 2 文字が等しければ、両方とも読み飛ばす
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
-                    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                    // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                     dp[i][j] =
                         Math.min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]) + 1;
                 }
@@ -340,10 +340,10 @@ $$
       for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
           if (s[i - 1] == t[j - 1]) {
-            // 2 つの文字が等しい場合、その 2 文字をスキップする
+            // 2 文字が等しければ、両方とも読み飛ばす
             dp[i][j] = dp[i - 1][j - 1];
           } else {
-            // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+            // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
             dp[i][j] = min(min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
           }
         }
@@ -370,10 +370,10 @@ $$
         for i in 1..=n {
             for j in 1..=m {
                 if s.chars().nth(i - 1) == t.chars().nth(j - 1) {
-                    // 2 つの文字が等しい場合、その 2 文字をスキップする
+                    // 2 文字が等しければ、両方とも読み飛ばす
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
-                    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                    // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                     dp[i][j] =
                         std::cmp::min(std::cmp::min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
                 }
@@ -403,10 +403,10 @@ $$
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
                 if (s[i - 1] == t[j - 1]) {
-                    // 2 つの文字が等しい場合、その 2 文字をスキップする
+                    // 2 文字が等しければ、両方とも読み飛ばす
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
-                    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                    // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                     dp[i][j] = myMin(myMin(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
                 }
             }
@@ -439,10 +439,10 @@ $$
         for (i in 1..n) {
             for (j in 1..m) {
                 if (s[i - 1] == t[j - 1]) {
-                    // 2 つの文字が等しい場合、その 2 文字をスキップする
+                    // 2 文字が等しければ、両方とも読み飛ばす
                     dp[i][j] = dp[i - 1][j - 1]
                 } else {
-                    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                    // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                     dp[i][j] = min(min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1
                 }
             }
@@ -465,10 +465,10 @@ $$
       for i in 1...(n + 1)
         for j in 1...(m +1)
           if s[i - 1] == t[j - 1]
-            # 2 つの文字が等しい場合、その 2 文字をスキップする
+            # 2 文字が等しければ、両方とも読み飛ばす
             dp[i][j] = dp[i - 1][j - 1]
           else
-            # 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+            # 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
             dp[i][j] = [dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]].min + 1
           end
         end
@@ -477,71 +477,71 @@ $$
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20edit_distance_dp%28s%3A%20str,%20t%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%B7%A8%E9%9B%86%E8%B7%9D%E9%9B%A2%EF%BC%9A%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%22%22%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%20%20%20%20dp%20%3D%20%5B%5B0%5D%20%2A%20%28m%20%2B%201%29%20for%20_%20in%20range%28n%20%2B%201%29%5D%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E5%85%88%E9%A0%AD%E8%A1%8C%E3%81%A8%E5%85%88%E9%A0%AD%E5%88%97%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%5B0%5D%20%3D%20i%0A%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5B0%5D%5Bj%5D%20%3D%20j%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E6%AE%8B%E3%82%8A%E3%81%AE%E8%A1%8C%E3%81%A8%E5%88%97%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20s%5Bi%20-%201%5D%20%3D%3D%20t%5Bj%20-%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%202%20%E3%81%A4%E3%81%AE%E6%96%87%E5%AD%97%E3%81%8C%E7%AD%89%E3%81%97%E3%81%84%E5%A0%B4%E5%90%88%E3%80%81%E3%81%9D%E3%81%AE%202%20%E6%96%87%E5%AD%97%E3%82%92%E3%82%B9%E3%82%AD%E3%83%83%E3%83%97%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Bj%5D%20%3D%20dp%5Bi%20-%201%5D%5Bj%20-%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E6%9C%80%E5%B0%8F%E7%B7%A8%E9%9B%86%E5%9B%9E%E6%95%B0%20%3D%20%E6%8C%BF%E5%85%A5%E3%80%81%E5%89%8A%E9%99%A4%E3%80%81%E7%BD%AE%E6%8F%9B%E3%81%AE%203%20%E6%93%8D%E4%BD%9C%E3%81%A7%E3%81%AE%E6%9C%80%E5%B0%8F%E7%B7%A8%E9%9B%86%E5%9B%9E%E6%95%B0%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Bj%5D%20%3D%20min%28dp%5Bi%5D%5Bj%20-%201%5D,%20dp%5Bi%20-%201%5D%5Bj%5D,%20dp%5Bi%20-%201%5D%5Bj%20-%201%5D%29%20%2B%201%0A%20%20%20%20return%20dp%5Bn%5D%5Bm%5D%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20s%20%3D%20%22bag%22%0A%20%20%20%20t%20%3D%20%22pack%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%0A%20%20%20%20%23%20%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%0A%20%20%20%20res%20%3D%20edit_distance_dp%28s,%20t%29%0A%20%20%20%20print%28f%22%7Bs%7D%20%E3%82%92%20%7Bt%7D%20%E3%81%AB%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%E6%9C%80%E4%BD%8E%20%7Bres%7D%20%E5%9B%9E%E3%81%AE%E7%B7%A8%E9%9B%86%E3%81%8C%E5%BF%85%E8%A6%81%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20edit_distance_dp%28s%3A%20str,%20t%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%B7%A8%E9%9B%86%E8%B7%9D%E9%9B%A2%EF%BC%9A%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%22%22%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%20%20%20%20dp%20%3D%20%5B%5B0%5D%20%2A%20%28m%20%2B%201%29%20for%20_%20in%20range%28n%20%2B%201%29%5D%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E5%85%88%E9%A0%AD%E8%A1%8C%E3%81%A8%E5%85%88%E9%A0%AD%E5%88%97%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%5B0%5D%20%3D%20i%0A%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5B0%5D%5Bj%5D%20%3D%20j%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E6%AE%8B%E3%82%8A%E3%81%AE%E8%A1%8C%E3%81%A8%E5%88%97%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20s%5Bi%20-%201%5D%20%3D%3D%20t%5Bj%20-%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%202%20%E3%81%A4%E3%81%AE%E6%96%87%E5%AD%97%E3%81%8C%E7%AD%89%E3%81%97%E3%81%84%E5%A0%B4%E5%90%88%E3%80%81%E3%81%9D%E3%81%AE%202%20%E6%96%87%E5%AD%97%E3%82%92%E3%82%B9%E3%82%AD%E3%83%83%E3%83%97%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Bj%5D%20%3D%20dp%5Bi%20-%201%5D%5Bj%20-%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E6%9C%80%E5%B0%8F%E7%B7%A8%E9%9B%86%E5%9B%9E%E6%95%B0%20%3D%20%E6%8C%BF%E5%85%A5%E3%80%81%E5%89%8A%E9%99%A4%E3%80%81%E7%BD%AE%E6%8F%9B%E3%81%AE%203%20%E6%93%8D%E4%BD%9C%E3%81%A7%E3%81%AE%E6%9C%80%E5%B0%8F%E7%B7%A8%E9%9B%86%E5%9B%9E%E6%95%B0%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Bj%5D%20%3D%20min%28dp%5Bi%5D%5Bj%20-%201%5D,%20dp%5Bi%20-%201%5D%5Bj%5D,%20dp%5Bi%20-%201%5D%5Bj%20-%201%5D%29%20%2B%201%0A%20%20%20%20return%20dp%5Bn%5D%5Bm%5D%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20s%20%3D%20%22bag%22%0A%20%20%20%20t%20%3D%20%22pack%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%0A%20%20%20%20%23%20%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%0A%20%20%20%20res%20%3D%20edit_distance_dp%28s,%20t%29%0A%20%20%20%20print%28f%22%7Bs%7D%20%E3%82%92%20%7Bt%7D%20%E3%81%AB%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%E6%9C%80%E4%BD%8E%20%7Bres%7D%20%E5%9B%9E%E3%81%AE%E7%B7%A8%E9%9B%86%E3%81%8C%E5%BF%85%E8%A6%81%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=def%20edit_distance_dp%28s%3A%20str,%20t%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%B7%A8%E9%9B%86%E8%B7%9D%E9%9B%A2%EF%BC%9A%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%22%22%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%20%20%20%20dp%20%3D%20%5B%5B0%5D%20%2A%20%28m%20%2B%201%29%20for%20_%20in%20range%28n%20%2B%201%29%5D%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E5%85%88%E9%A0%AD%E8%A1%8C%E3%81%A8%E5%85%88%E9%A0%AD%E5%88%97%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%5B0%5D%20%3D%20i%0A%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5B0%5D%5Bj%5D%20%3D%20j%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E6%AE%8B%E3%82%8A%E3%81%AE%E8%A1%8C%E3%81%A8%E5%88%97%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20s%5Bi%20-%201%5D%20%3D%3D%20t%5Bj%20-%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%202%20%E6%96%87%E5%AD%97%E3%81%8C%E7%AD%89%E3%81%97%E3%81%91%E3%82%8C%E3%81%B0%E3%80%81%E4%B8%A1%E6%96%B9%E3%81%A8%E3%82%82%E8%AA%AD%E3%81%BF%E9%A3%9B%E3%81%B0%E3%81%99%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Bj%5D%20%3D%20dp%5Bi%20-%201%5D%5Bj%20-%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E6%9C%80%E5%B0%91%E7%B7%A8%E9%9B%86%E5%9B%9E%E6%95%B0%20%3D%20%E6%8C%BF%E5%85%A5%E3%83%BB%E5%89%8A%E9%99%A4%E3%83%BB%E7%BD%AE%E6%8F%9B%E3%81%AE%E5%90%84%E5%A0%B4%E5%90%88%E3%81%AE%E7%B7%A8%E9%9B%86%E5%9B%9E%E6%95%B0%E3%81%AE%E6%9C%80%E5%B0%8F%E5%80%A4%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Bj%5D%20%3D%20min%28dp%5Bi%5D%5Bj%20-%201%5D,%20dp%5Bi%20-%201%5D%5Bj%5D,%20dp%5Bi%20-%201%5D%5Bj%20-%201%5D%29%20%2B%201%0A%20%20%20%20return%20dp%5Bn%5D%5Bm%5D%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20s%20%3D%20%22bag%22%0A%20%20%20%20t%20%3D%20%22pack%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%0A%20%20%20%20%23%20%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%0A%20%20%20%20res%20%3D%20edit_distance_dp%28s,%20t%29%0A%20%20%20%20print%28f%22%E6%96%87%E5%AD%97%E5%88%97%20%7Bs%7D%20%E3%82%92%20%7Bt%7D%20%E3%81%AB%E5%A4%89%E3%81%88%E3%82%8B%E3%81%AB%E3%81%AF%E6%9C%80%E4%BD%8E%20%7Bres%7D%20%E5%9B%9E%E3%81%AE%E7%B7%A8%E9%9B%86%E3%81%8C%E5%BF%85%E8%A6%81%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20edit_distance_dp%28s%3A%20str,%20t%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%B7%A8%E9%9B%86%E8%B7%9D%E9%9B%A2%EF%BC%9A%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%22%22%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%20%20%20%20dp%20%3D%20%5B%5B0%5D%20%2A%20%28m%20%2B%201%29%20for%20_%20in%20range%28n%20%2B%201%29%5D%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E5%85%88%E9%A0%AD%E8%A1%8C%E3%81%A8%E5%85%88%E9%A0%AD%E5%88%97%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bi%5D%5B0%5D%20%3D%20i%0A%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5B0%5D%5Bj%5D%20%3D%20j%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E6%AE%8B%E3%82%8A%E3%81%AE%E8%A1%8C%E3%81%A8%E5%88%97%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20s%5Bi%20-%201%5D%20%3D%3D%20t%5Bj%20-%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%202%20%E6%96%87%E5%AD%97%E3%81%8C%E7%AD%89%E3%81%97%E3%81%91%E3%82%8C%E3%81%B0%E3%80%81%E4%B8%A1%E6%96%B9%E3%81%A8%E3%82%82%E8%AA%AD%E3%81%BF%E9%A3%9B%E3%81%B0%E3%81%99%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Bj%5D%20%3D%20dp%5Bi%20-%201%5D%5Bj%20-%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E6%9C%80%E5%B0%91%E7%B7%A8%E9%9B%86%E5%9B%9E%E6%95%B0%20%3D%20%E6%8C%BF%E5%85%A5%E3%83%BB%E5%89%8A%E9%99%A4%E3%83%BB%E7%BD%AE%E6%8F%9B%E3%81%AE%E5%90%84%E5%A0%B4%E5%90%88%E3%81%AE%E7%B7%A8%E9%9B%86%E5%9B%9E%E6%95%B0%E3%81%AE%E6%9C%80%E5%B0%8F%E5%80%A4%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bi%5D%5Bj%5D%20%3D%20min%28dp%5Bi%5D%5Bj%20-%201%5D,%20dp%5Bi%20-%201%5D%5Bj%5D,%20dp%5Bi%20-%201%5D%5Bj%20-%201%5D%29%20%2B%201%0A%20%20%20%20return%20dp%5Bn%5D%5Bm%5D%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20s%20%3D%20%22bag%22%0A%20%20%20%20t%20%3D%20%22pack%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%0A%20%20%20%20%23%20%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%0A%20%20%20%20res%20%3D%20edit_distance_dp%28s,%20t%29%0A%20%20%20%20print%28f%22%E6%96%87%E5%AD%97%E5%88%97%20%7Bs%7D%20%E3%82%92%20%7Bt%7D%20%E3%81%AB%E5%A4%89%E3%81%88%E3%82%8B%E3%81%AB%E3%81%AF%E6%9C%80%E4%BD%8E%20%7Bres%7D%20%E5%9B%9E%E3%81%AE%E7%B7%A8%E9%9B%86%E3%81%8C%E5%BF%85%E8%A6%81%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-図 14-30 のように、編集距離問題の状態遷移はナップサック問題によく似ており、どちらも二次元の表を埋める過程と捉えられます。
+図 14-30 のように、編集距離の状態遷移はナップサック問題のものとよく似ています。どちらも 2 次元の表を埋める過程とみなせます。
 
 === "<1>"
-    ![編集距離を動的計画法で求める流れ](edit_distance_problem.assets/edit_distance_dp_step1.svg){ class="animation-figure" }
+    ![動的計画法で編集距離を求める手順](edit_distance_problem.assets/edit_distance_dp_step1.svg){ class="animation-figure" }
 
 === "<2>"
-    ![編集距離を動的計画法で求める流れ：手順 2](edit_distance_problem.assets/edit_distance_dp_step2.svg){ class="animation-figure" }
+    ![edit_distance_dp_step2](edit_distance_problem.assets/edit_distance_dp_step2.svg){ class="animation-figure" }
 
 === "<3>"
-    ![編集距離を動的計画法で求める流れ：手順 3](edit_distance_problem.assets/edit_distance_dp_step3.svg){ class="animation-figure" }
+    ![edit_distance_dp_step3](edit_distance_problem.assets/edit_distance_dp_step3.svg){ class="animation-figure" }
 
 === "<4>"
-    ![編集距離を動的計画法で求める流れ：手順 4](edit_distance_problem.assets/edit_distance_dp_step4.svg){ class="animation-figure" }
+    ![edit_distance_dp_step4](edit_distance_problem.assets/edit_distance_dp_step4.svg){ class="animation-figure" }
 
 === "<5>"
-    ![編集距離を動的計画法で求める流れ：手順 5](edit_distance_problem.assets/edit_distance_dp_step5.svg){ class="animation-figure" }
+    ![edit_distance_dp_step5](edit_distance_problem.assets/edit_distance_dp_step5.svg){ class="animation-figure" }
 
 === "<6>"
-    ![編集距離を動的計画法で求める流れ：手順 6](edit_distance_problem.assets/edit_distance_dp_step6.svg){ class="animation-figure" }
+    ![edit_distance_dp_step6](edit_distance_problem.assets/edit_distance_dp_step6.svg){ class="animation-figure" }
 
 === "<7>"
-    ![編集距離を動的計画法で求める流れ：手順 7](edit_distance_problem.assets/edit_distance_dp_step7.svg){ class="animation-figure" }
+    ![edit_distance_dp_step7](edit_distance_problem.assets/edit_distance_dp_step7.svg){ class="animation-figure" }
 
 === "<8>"
-    ![編集距離を動的計画法で求める流れ：手順 8](edit_distance_problem.assets/edit_distance_dp_step8.svg){ class="animation-figure" }
+    ![edit_distance_dp_step8](edit_distance_problem.assets/edit_distance_dp_step8.svg){ class="animation-figure" }
 
 === "<9>"
-    ![編集距離を動的計画法で求める流れ：手順 9](edit_distance_problem.assets/edit_distance_dp_step9.svg){ class="animation-figure" }
+    ![edit_distance_dp_step9](edit_distance_problem.assets/edit_distance_dp_step9.svg){ class="animation-figure" }
 
 === "<10>"
-    ![編集距離を動的計画法で求める流れ：手順 10](edit_distance_problem.assets/edit_distance_dp_step10.svg){ class="animation-figure" }
+    ![edit_distance_dp_step10](edit_distance_problem.assets/edit_distance_dp_step10.svg){ class="animation-figure" }
 
 === "<11>"
-    ![編集距離を動的計画法で求める流れ：手順 11](edit_distance_problem.assets/edit_distance_dp_step11.svg){ class="animation-figure" }
+    ![edit_distance_dp_step11](edit_distance_problem.assets/edit_distance_dp_step11.svg){ class="animation-figure" }
 
 === "<12>"
-    ![編集距離を動的計画法で求める流れ：手順 12](edit_distance_problem.assets/edit_distance_dp_step12.svg){ class="animation-figure" }
+    ![edit_distance_dp_step12](edit_distance_problem.assets/edit_distance_dp_step12.svg){ class="animation-figure" }
 
 === "<13>"
-    ![編集距離を動的計画法で求める流れ：手順 13](edit_distance_problem.assets/edit_distance_dp_step13.svg){ class="animation-figure" }
+    ![edit_distance_dp_step13](edit_distance_problem.assets/edit_distance_dp_step13.svg){ class="animation-figure" }
 
 === "<14>"
-    ![編集距離を動的計画法で求める流れ：手順 14](edit_distance_problem.assets/edit_distance_dp_step14.svg){ class="animation-figure" }
+    ![edit_distance_dp_step14](edit_distance_problem.assets/edit_distance_dp_step14.svg){ class="animation-figure" }
 
 === "<15>"
-    ![編集距離を動的計画法で求める流れ：手順 15](edit_distance_problem.assets/edit_distance_dp_step15.svg){ class="animation-figure" }
+    ![edit_distance_dp_step15](edit_distance_problem.assets/edit_distance_dp_step15.svg){ class="animation-figure" }
 
-<p align="center"> 図 14-30 &nbsp; 編集距離を動的計画法で求める流れ </p>
+<p align="center"> 図 14-30 &nbsp; 動的計画法で編集距離を求める手順 </p>
 
-### 3. &nbsp; 空間の最適化
+### 3. &nbsp; 使用メモリの削減
 
-$dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j-1]$ から遷移します。順方向に走査すると左上の $dp[i-1, j-1]$ が失われ、逆方向では $dp[i, j-1]$ を先に計算できません。そのため、どちらの順序もそのままでは使えません。
+$dp[i,j]$ は上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j-1]$ から求めます。しかし、昇順に走査すると左上の $dp[i-1, j-1]$ が失われ、降順に走査すると $dp[i, j-1]$ を先に求められません。そのままではどちらの順序も使えません。
 
-そこで、変数 `leftup` に左上の解 $dp[i-1, j-1]$ を一時保存すれば、左と上の解だけを考えればよくなります。これは個数制限なしナップサック問題と同じ状況なので、順方向に走査できます。コードを次に示します。
+そこで変数 `leftup` に左上の解 $dp[i-1, j-1]$ を一時保存しておけば、あとは左と上の解だけを考えれば済みます。個数制限なしナップサック問題と同じ状況になり、昇順に走査できます。コードは次のとおりです。
 
 === "Python"
 
     ```python title="edit_distance.py"
     def edit_distance_dp_comp(s: str, t: str) -> int:
-        """編集距離：空間を最適化した動的計画法"""
+        """編集距離：使用メモリを削減した動的計画法"""
         n, m = len(s), len(t)
         dp = [0] * (m + 1)
         # 状態遷移：先頭行
@@ -556,19 +556,19 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
             for j in range(1, m + 1):
                 temp = dp[j]
                 if s[i - 1] == t[j - 1]:
-                    # 2 つの文字が等しい場合、その 2 文字をスキップする
+                    # 2 文字が等しければ、両方とも読み飛ばす
                     dp[j] = leftup
                 else:
-                    # 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                    # 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                     dp[j] = min(dp[j - 1], dp[j], leftup) + 1
-                leftup = temp  # 次の反復の dp[i-1, j-1] に更新する
+                leftup = temp  # 次の反復で使う dp[i-1, j-1] に更新する
         return dp[m]
     ```
 
 === "C++"
 
     ```cpp title="edit_distance.cpp"
-    /* 編集距離：空間を最適化した動的計画法 */
+    /* 編集距離：使用メモリを削減した動的計画法 */
     int editDistanceDPComp(string s, string t) {
         int n = s.length(), m = t.length();
         vector<int> dp(m + 1, 0);
@@ -585,13 +585,13 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
             for (int j = 1; j <= m; j++) {
                 int temp = dp[j];
                 if (s[i - 1] == t[j - 1]) {
-                    // 2 つの文字が等しい場合、その 2 文字をスキップする
+                    // 2 文字が等しければ、両方とも読み飛ばす
                     dp[j] = leftup;
                 } else {
-                    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                    // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                     dp[j] = min(min(dp[j - 1], dp[j]), leftup) + 1;
                 }
-                leftup = temp; // 次の反復の dp[i-1, j-1] に更新する
+                leftup = temp; // 次の反復で使う dp[i-1, j-1] に更新する
             }
         }
         return dp[m];
@@ -601,7 +601,7 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
 === "Java"
 
     ```java title="edit_distance.java"
-    /* 編集距離：空間を最適化した動的計画法 */
+    /* 編集距離：使用メモリを削減した動的計画法 */
     int editDistanceDPComp(String s, String t) {
         int n = s.length(), m = t.length();
         int[] dp = new int[m + 1];
@@ -618,13 +618,13 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
             for (int j = 1; j <= m; j++) {
                 int temp = dp[j];
                 if (s.charAt(i - 1) == t.charAt(j - 1)) {
-                    // 2 つの文字が等しい場合、その 2 文字をスキップする
+                    // 2 文字が等しければ、両方とも読み飛ばす
                     dp[j] = leftup;
                 } else {
-                    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                    // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                     dp[j] = Math.min(Math.min(dp[j - 1], dp[j]), leftup) + 1;
                 }
-                leftup = temp; // 次の反復の dp[i-1, j-1] に更新する
+                leftup = temp; // 次の反復で使う dp[i-1, j-1] に更新する
             }
         }
         return dp[m];
@@ -634,7 +634,7 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
 === "C#"
 
     ```csharp title="edit_distance.cs"
-    /* 編集距離：空間を最適化した動的計画法 */
+    /* 編集距離：使用メモリを削減した動的計画法 */
     int EditDistanceDPComp(string s, string t) {
         int n = s.Length, m = t.Length;
         int[] dp = new int[m + 1];
@@ -651,13 +651,13 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
             for (int j = 1; j <= m; j++) {
                 int temp = dp[j];
                 if (s[i - 1] == t[j - 1]) {
-                    // 2 つの文字が等しい場合、その 2 文字をスキップする
+                    // 2 文字が等しければ、両方とも読み飛ばす
                     dp[j] = leftup;
                 } else {
-                    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                    // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                     dp[j] = Math.Min(Math.Min(dp[j - 1], dp[j]), leftup) + 1;
                 }
-                leftup = temp; // 次の反復の dp[i-1, j-1] に更新する
+                leftup = temp; // 次の反復で使う dp[i-1, j-1] に更新する
             }
         }
         return dp[m];
@@ -667,7 +667,7 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
 === "Go"
 
     ```go title="edit_distance.go"
-    /* 編集距離：空間を最適化した動的計画法 */
+    /* 編集距離：使用メモリを削減した動的計画法 */
     func editDistanceDPComp(s string, t string) int {
         n := len(s)
         m := len(t)
@@ -685,13 +685,13 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
             for j := 1; j <= m; j++ {
                 temp := dp[j]
                 if s[i-1] == t[j-1] {
-                    // 2 つの文字が等しい場合、その 2 文字をスキップする
+                    // 2 文字が等しければ、両方とも読み飛ばす
                     dp[j] = leftUp
                 } else {
-                    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                    // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                     dp[j] = MinInt(MinInt(dp[j-1], dp[j]), leftUp) + 1
                 }
-                leftUp = temp // 次の反復の dp[i-1, j-1] に更新する
+                leftUp = temp // 次の反復で使う dp[i-1, j-1] に更新する
             }
         }
         return dp[m]
@@ -701,7 +701,7 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
 === "Swift"
 
     ```swift title="edit_distance.swift"
-    /* 編集距離：空間を最適化した動的計画法 */
+    /* 編集距離：使用メモリを削減した動的計画法 */
     func editDistanceDPComp(s: String, t: String) -> Int {
         let n = s.utf8CString.count
         let m = t.utf8CString.count
@@ -719,13 +719,13 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
             for j in 1 ... m {
                 let temp = dp[j]
                 if s.utf8CString[i - 1] == t.utf8CString[j - 1] {
-                    // 2 つの文字が等しい場合、その 2 文字をスキップする
+                    // 2 文字が等しければ、両方とも読み飛ばす
                     dp[j] = leftup
                 } else {
-                    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                    // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                     dp[j] = min(min(dp[j - 1], dp[j]), leftup) + 1
                 }
-                leftup = temp // 次の反復の dp[i-1, j-1] に更新する
+                leftup = temp // 次の反復で使う dp[i-1, j-1] に更新する
             }
         }
         return dp[m]
@@ -735,7 +735,7 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
 === "JS"
 
     ```javascript title="edit_distance.js"
-    /* 編集距離：空間を最適化した動的計画法 */
+    /* 編集距離：使用メモリを削減した動的計画法 */
     function editDistanceDPComp(s, t) {
         const n = s.length,
             m = t.length;
@@ -753,13 +753,13 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
             for (let j = 1; j <= m; j++) {
                 const temp = dp[j];
                 if (s.charAt(i - 1) === t.charAt(j - 1)) {
-                    // 2 つの文字が等しい場合、その 2 文字をスキップする
+                    // 2 文字が等しければ、両方とも読み飛ばす
                     dp[j] = leftup;
                 } else {
-                    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                    // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                     dp[j] = Math.min(dp[j - 1], dp[j], leftup) + 1;
                 }
-                leftup = temp; // 次の反復の dp[i-1, j-1] に更新する
+                leftup = temp; // 次の反復で使う dp[i-1, j-1] に更新する
             }
         }
         return dp[m];
@@ -769,7 +769,7 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
 === "TS"
 
     ```typescript title="edit_distance.ts"
-    /* 編集距離：空間を最適化した動的計画法 */
+    /* 編集距離：使用メモリを削減した動的計画法 */
     function editDistanceDPComp(s: string, t: string): number {
         const n = s.length,
             m = t.length;
@@ -787,13 +787,13 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
             for (let j = 1; j <= m; j++) {
                 const temp = dp[j];
                 if (s.charAt(i - 1) === t.charAt(j - 1)) {
-                    // 2 つの文字が等しい場合、その 2 文字をスキップする
+                    // 2 文字が等しければ、両方とも読み飛ばす
                     dp[j] = leftup;
                 } else {
-                    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                    // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                     dp[j] = Math.min(dp[j - 1], dp[j], leftup) + 1;
                 }
-                leftup = temp; // 次の反復の dp[i-1, j-1] に更新する
+                leftup = temp; // 次の反復で使う dp[i-1, j-1] に更新する
             }
         }
         return dp[m];
@@ -803,7 +803,7 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
 === "Dart"
 
     ```dart title="edit_distance.dart"
-    /* 編集距離：空間を最適化した動的計画法 */
+    /* 編集距離：使用メモリを削減した動的計画法 */
     int editDistanceDPComp(String s, String t) {
       int n = s.length, m = t.length;
       List<int> dp = List.filled(m + 1, 0);
@@ -820,13 +820,13 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
         for (int j = 1; j <= m; j++) {
           int temp = dp[j];
           if (s[i - 1] == t[j - 1]) {
-            // 2 つの文字が等しい場合、その 2 文字をスキップする
+            // 2 文字が等しければ、両方とも読み飛ばす
             dp[j] = leftup;
           } else {
-            // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+            // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
             dp[j] = min(min(dp[j - 1], dp[j]), leftup) + 1;
           }
-          leftup = temp; // 次の反復の dp[i-1, j-1] に更新する
+          leftup = temp; // 次の反復で使う dp[i-1, j-1] に更新する
         }
       }
       return dp[m];
@@ -836,7 +836,7 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
 === "Rust"
 
     ```rust title="edit_distance.rs"
-    /* 編集距離：空間を最適化した動的計画法 */
+    /* 編集距離：使用メモリを削減した動的計画法 */
     fn edit_distance_dp_comp(s: &str, t: &str) -> i32 {
         let (n, m) = (s.len(), t.len());
         let mut dp = vec![0; m + 1];
@@ -853,13 +853,13 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
             for j in 1..=m {
                 let temp = dp[j];
                 if s.chars().nth(i - 1) == t.chars().nth(j - 1) {
-                    // 2 つの文字が等しい場合、その 2 文字をスキップする
+                    // 2 文字が等しければ、両方とも読み飛ばす
                     dp[j] = leftup;
                 } else {
-                    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                    // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                     dp[j] = std::cmp::min(std::cmp::min(dp[j - 1], dp[j]), leftup) + 1;
                 }
-                leftup = temp; // 次の反復の dp[i-1, j-1] に更新する
+                leftup = temp; // 次の反復で使う dp[i-1, j-1] に更新する
             }
         }
         dp[m]
@@ -869,7 +869,7 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
 === "C"
 
     ```c title="edit_distance.c"
-    /* 編集距離：空間を最適化した動的計画法 */
+    /* 編集距離：使用メモリを削減した動的計画法 */
     int editDistanceDPComp(char *s, char *t, int n, int m) {
         int *dp = calloc(m + 1, sizeof(int));
         // 状態遷移：先頭行
@@ -885,13 +885,13 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
             for (int j = 1; j <= m; j++) {
                 int temp = dp[j];
                 if (s[i - 1] == t[j - 1]) {
-                    // 2 つの文字が等しい場合、その 2 文字をスキップする
+                    // 2 文字が等しければ、両方とも読み飛ばす
                     dp[j] = leftup;
                 } else {
-                    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                    // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                     dp[j] = myMin(myMin(dp[j - 1], dp[j]), leftup) + 1;
                 }
-                leftup = temp; // 次の反復の dp[i-1, j-1] に更新する
+                leftup = temp; // 次の反復で使う dp[i-1, j-1] に更新する
             }
         }
         int res = dp[m];
@@ -904,7 +904,7 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
 === "Kotlin"
 
     ```kotlin title="edit_distance.kt"
-    /* 編集距離：空間を最適化した動的計画法 */
+    /* 編集距離：使用メモリを削減した動的計画法 */
     fun editDistanceDPComp(s: String, t: String): Int {
         val n = s.length
         val m = t.length
@@ -922,13 +922,13 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
             for (j in 1..m) {
                 val temp = dp[j]
                 if (s[i - 1] == t[j - 1]) {
-                    // 2 つの文字が等しい場合、その 2 文字をスキップする
+                    // 2 文字が等しければ、両方とも読み飛ばす
                     dp[j] = leftup
                 } else {
-                    // 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+                    // 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
                     dp[j] = min(min(dp[j - 1], dp[j]), leftup) + 1
                 }
-                leftup = temp // 次の反復の dp[i-1, j-1] に更新する
+                leftup = temp // 次の反復で使う dp[i-1, j-1] に更新する
             }
         }
         return dp[m]
@@ -938,7 +938,7 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
 === "Ruby"
 
     ```ruby title="edit_distance.rb"
-    ### 編集距離：空間を最適化した動的計画法 ###
+    ### 編集距離：使用メモリを削減した動的計画法 ###
     def edit_distance_dp_comp(s, t)
       n, m = s.length, t.length
       dp = Array.new(m + 1, 0)
@@ -953,20 +953,20 @@ $dp[i,j]$ は、上の $dp[i-1, j]$、左の $dp[i, j-1]$、左上の $dp[i-1, j
         for j in 1...(m + 1)
           temp = dp[j]
           if s[i - 1] == t[j - 1]
-            # 2 つの文字が等しい場合、その 2 文字をスキップする
+            # 2 文字が等しければ、両方とも読み飛ばす
             dp[j] = leftup
           else
-            # 最小編集回数 = 挿入、削除、置換の 3 操作での最小編集回数 + 1
+            # 最少編集回数 = 挿入・削除・置換の各場合の編集回数の最小値 + 1
             dp[j] = [dp[j - 1], dp[j], leftup].min + 1
           end
-          leftup = temp # 次の反復の dp[i-1, j-1] に更新する
+          leftup = temp # 次の反復で使う dp[i-1, j-1] に更新する
         end
       end
       dp[m]
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20edit_distance_dp_comp%28s%3A%20str,%20t%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%B7%A8%E9%9B%86%E8%B7%9D%E9%9B%A2%EF%BC%9A%E7%A9%BA%E9%96%93%E3%82%92%E6%9C%80%E9%81%A9%E5%8C%96%E3%81%97%E3%81%9F%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%22%22%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%20%20%20%20dp%20%3D%20%5B0%5D%20%2A%20%28m%20%2B%201%29%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E5%85%88%E9%A0%AD%E8%A1%8C%0A%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bj%5D%20%3D%20j%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E6%AE%8B%E3%82%8A%E3%81%AE%E8%A1%8C%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E5%85%88%E9%A0%AD%E5%88%97%0A%20%20%20%20%20%20%20%20leftup%20%3D%20dp%5B0%5D%20%20%23%20dp%5Bi-1,%20j-1%5D%20%E3%82%92%E4%B8%80%E6%99%82%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20dp%5B0%5D%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E6%AE%8B%E3%82%8A%E3%81%AE%E5%88%97%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20temp%20%3D%20dp%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20s%5Bi%20-%201%5D%20%3D%3D%20t%5Bj%20-%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%202%20%E3%81%A4%E3%81%AE%E6%96%87%E5%AD%97%E3%81%8C%E7%AD%89%E3%81%97%E3%81%84%E5%A0%B4%E5%90%88%E3%80%81%E3%81%9D%E3%81%AE%202%20%E6%96%87%E5%AD%97%E3%82%92%E3%82%B9%E3%82%AD%E3%83%83%E3%83%97%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bj%5D%20%3D%20leftup%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E6%9C%80%E5%B0%8F%E7%B7%A8%E9%9B%86%E5%9B%9E%E6%95%B0%20%3D%20%E6%8C%BF%E5%85%A5%E3%80%81%E5%89%8A%E9%99%A4%E3%80%81%E7%BD%AE%E6%8F%9B%E3%81%AE%203%20%E6%93%8D%E4%BD%9C%E3%81%A7%E3%81%AE%E6%9C%80%E5%B0%8F%E7%B7%A8%E9%9B%86%E5%9B%9E%E6%95%B0%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bj%5D%20%3D%20min%28dp%5Bj%20-%201%5D,%20dp%5Bj%5D,%20leftup%29%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20leftup%20%3D%20temp%20%20%23%20%E6%AC%A1%E3%81%AE%E5%8F%8D%E5%BE%A9%E3%81%AE%20dp%5Bi-1,%20j-1%5D%20%E3%81%AB%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%0A%20%20%20%20return%20dp%5Bm%5D%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20s%20%3D%20%22bag%22%0A%20%20%20%20t%20%3D%20%22pack%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%0A%20%20%20%20%23%20%E7%A9%BA%E9%96%93%E3%82%92%E6%9C%80%E9%81%A9%E5%8C%96%E3%81%97%E3%81%9F%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%0A%20%20%20%20res%20%3D%20edit_distance_dp_comp%28s,%20t%29%0A%20%20%20%20print%28f%22%7Bs%7D%20%E3%82%92%20%7Bt%7D%20%E3%81%AB%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%E6%9C%80%E4%BD%8E%20%7Bres%7D%20%E5%9B%9E%E3%81%AE%E7%B7%A8%E9%9B%86%E3%81%8C%E5%BF%85%E8%A6%81%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20edit_distance_dp_comp%28s%3A%20str,%20t%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%B7%A8%E9%9B%86%E8%B7%9D%E9%9B%A2%EF%BC%9A%E7%A9%BA%E9%96%93%E3%82%92%E6%9C%80%E9%81%A9%E5%8C%96%E3%81%97%E3%81%9F%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%22%22%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%20%20%20%20dp%20%3D%20%5B0%5D%20%2A%20%28m%20%2B%201%29%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E5%85%88%E9%A0%AD%E8%A1%8C%0A%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bj%5D%20%3D%20j%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E6%AE%8B%E3%82%8A%E3%81%AE%E8%A1%8C%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E5%85%88%E9%A0%AD%E5%88%97%0A%20%20%20%20%20%20%20%20leftup%20%3D%20dp%5B0%5D%20%20%23%20dp%5Bi-1,%20j-1%5D%20%E3%82%92%E4%B8%80%E6%99%82%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20dp%5B0%5D%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E6%AE%8B%E3%82%8A%E3%81%AE%E5%88%97%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20temp%20%3D%20dp%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20s%5Bi%20-%201%5D%20%3D%3D%20t%5Bj%20-%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%202%20%E3%81%A4%E3%81%AE%E6%96%87%E5%AD%97%E3%81%8C%E7%AD%89%E3%81%97%E3%81%84%E5%A0%B4%E5%90%88%E3%80%81%E3%81%9D%E3%81%AE%202%20%E6%96%87%E5%AD%97%E3%82%92%E3%82%B9%E3%82%AD%E3%83%83%E3%83%97%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bj%5D%20%3D%20leftup%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E6%9C%80%E5%B0%8F%E7%B7%A8%E9%9B%86%E5%9B%9E%E6%95%B0%20%3D%20%E6%8C%BF%E5%85%A5%E3%80%81%E5%89%8A%E9%99%A4%E3%80%81%E7%BD%AE%E6%8F%9B%E3%81%AE%203%20%E6%93%8D%E4%BD%9C%E3%81%A7%E3%81%AE%E6%9C%80%E5%B0%8F%E7%B7%A8%E9%9B%86%E5%9B%9E%E6%95%B0%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bj%5D%20%3D%20min%28dp%5Bj%20-%201%5D,%20dp%5Bj%5D,%20leftup%29%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20leftup%20%3D%20temp%20%20%23%20%E6%AC%A1%E3%81%AE%E5%8F%8D%E5%BE%A9%E3%81%AE%20dp%5Bi-1,%20j-1%5D%20%E3%81%AB%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%0A%20%20%20%20return%20dp%5Bm%5D%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20s%20%3D%20%22bag%22%0A%20%20%20%20t%20%3D%20%22pack%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%0A%20%20%20%20%23%20%E7%A9%BA%E9%96%93%E3%82%92%E6%9C%80%E9%81%A9%E5%8C%96%E3%81%97%E3%81%9F%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%0A%20%20%20%20res%20%3D%20edit_distance_dp_comp%28s,%20t%29%0A%20%20%20%20print%28f%22%7Bs%7D%20%E3%82%92%20%7Bt%7D%20%E3%81%AB%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%E6%9C%80%E4%BD%8E%20%7Bres%7D%20%E5%9B%9E%E3%81%AE%E7%B7%A8%E9%9B%86%E3%81%8C%E5%BF%85%E8%A6%81%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=def%20edit_distance_dp_comp%28s%3A%20str,%20t%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%B7%A8%E9%9B%86%E8%B7%9D%E9%9B%A2%EF%BC%9A%E4%BD%BF%E7%94%A8%E3%83%A1%E3%83%A2%E3%83%AA%E3%82%92%E5%89%8A%E6%B8%9B%E3%81%97%E3%81%9F%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%22%22%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%20%20%20%20dp%20%3D%20%5B0%5D%20%2A%20%28m%20%2B%201%29%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E5%85%88%E9%A0%AD%E8%A1%8C%0A%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bj%5D%20%3D%20j%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E6%AE%8B%E3%82%8A%E3%81%AE%E8%A1%8C%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E5%85%88%E9%A0%AD%E5%88%97%0A%20%20%20%20%20%20%20%20leftup%20%3D%20dp%5B0%5D%20%20%23%20dp%5Bi-1,%20j-1%5D%20%E3%82%92%E4%B8%80%E6%99%82%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20dp%5B0%5D%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E6%AE%8B%E3%82%8A%E3%81%AE%E5%88%97%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20temp%20%3D%20dp%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20s%5Bi%20-%201%5D%20%3D%3D%20t%5Bj%20-%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%202%20%E6%96%87%E5%AD%97%E3%81%8C%E7%AD%89%E3%81%97%E3%81%91%E3%82%8C%E3%81%B0%E3%80%81%E4%B8%A1%E6%96%B9%E3%81%A8%E3%82%82%E8%AA%AD%E3%81%BF%E9%A3%9B%E3%81%B0%E3%81%99%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bj%5D%20%3D%20leftup%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E6%9C%80%E5%B0%91%E7%B7%A8%E9%9B%86%E5%9B%9E%E6%95%B0%20%3D%20%E6%8C%BF%E5%85%A5%E3%83%BB%E5%89%8A%E9%99%A4%E3%83%BB%E7%BD%AE%E6%8F%9B%E3%81%AE%E5%90%84%E5%A0%B4%E5%90%88%E3%81%AE%E7%B7%A8%E9%9B%86%E5%9B%9E%E6%95%B0%E3%81%AE%E6%9C%80%E5%B0%8F%E5%80%A4%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bj%5D%20%3D%20min%28dp%5Bj%20-%201%5D,%20dp%5Bj%5D,%20leftup%29%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20leftup%20%3D%20temp%20%20%23%20%E6%AC%A1%E3%81%AE%E5%8F%8D%E5%BE%A9%E3%81%A7%E4%BD%BF%E3%81%86%20dp%5Bi-1,%20j-1%5D%20%E3%81%AB%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%0A%20%20%20%20return%20dp%5Bm%5D%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20s%20%3D%20%22bag%22%0A%20%20%20%20t%20%3D%20%22pack%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%0A%20%20%20%20%23%20%E4%BD%BF%E7%94%A8%E3%83%A1%E3%83%A2%E3%83%AA%E3%82%92%E5%89%8A%E6%B8%9B%E3%81%97%E3%81%9F%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%0A%20%20%20%20res%20%3D%20edit_distance_dp_comp%28s,%20t%29%0A%20%20%20%20print%28f%22%E6%96%87%E5%AD%97%E5%88%97%20%7Bs%7D%20%E3%82%92%20%7Bt%7D%20%E3%81%AB%E5%A4%89%E3%81%88%E3%82%8B%E3%81%AB%E3%81%AF%E6%9C%80%E4%BD%8E%20%7Bres%7D%20%E5%9B%9E%E3%81%AE%E7%B7%A8%E9%9B%86%E3%81%8C%E5%BF%85%E8%A6%81%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20edit_distance_dp_comp%28s%3A%20str,%20t%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%B7%A8%E9%9B%86%E8%B7%9D%E9%9B%A2%EF%BC%9A%E4%BD%BF%E7%94%A8%E3%83%A1%E3%83%A2%E3%83%AA%E3%82%92%E5%89%8A%E6%B8%9B%E3%81%97%E3%81%9F%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%22%22%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%20%20%20%20dp%20%3D%20%5B0%5D%20%2A%20%28m%20%2B%201%29%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E5%85%88%E9%A0%AD%E8%A1%8C%0A%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20dp%5Bj%5D%20%3D%20j%0A%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E6%AE%8B%E3%82%8A%E3%81%AE%E8%A1%8C%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E5%85%88%E9%A0%AD%E5%88%97%0A%20%20%20%20%20%20%20%20leftup%20%3D%20dp%5B0%5D%20%20%23%20dp%5Bi-1,%20j-1%5D%20%E3%82%92%E4%B8%80%E6%99%82%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20dp%5B0%5D%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%23%20%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%EF%BC%9A%E6%AE%8B%E3%82%8A%E3%81%AE%E5%88%97%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%281,%20m%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20temp%20%3D%20dp%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20s%5Bi%20-%201%5D%20%3D%3D%20t%5Bj%20-%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%202%20%E6%96%87%E5%AD%97%E3%81%8C%E7%AD%89%E3%81%97%E3%81%91%E3%82%8C%E3%81%B0%E3%80%81%E4%B8%A1%E6%96%B9%E3%81%A8%E3%82%82%E8%AA%AD%E3%81%BF%E9%A3%9B%E3%81%B0%E3%81%99%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bj%5D%20%3D%20leftup%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E6%9C%80%E5%B0%91%E7%B7%A8%E9%9B%86%E5%9B%9E%E6%95%B0%20%3D%20%E6%8C%BF%E5%85%A5%E3%83%BB%E5%89%8A%E9%99%A4%E3%83%BB%E7%BD%AE%E6%8F%9B%E3%81%AE%E5%90%84%E5%A0%B4%E5%90%88%E3%81%AE%E7%B7%A8%E9%9B%86%E5%9B%9E%E6%95%B0%E3%81%AE%E6%9C%80%E5%B0%8F%E5%80%A4%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dp%5Bj%5D%20%3D%20min%28dp%5Bj%20-%201%5D,%20dp%5Bj%5D,%20leftup%29%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20leftup%20%3D%20temp%20%20%23%20%E6%AC%A1%E3%81%AE%E5%8F%8D%E5%BE%A9%E3%81%A7%E4%BD%BF%E3%81%86%20dp%5Bi-1,%20j-1%5D%20%E3%81%AB%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%0A%20%20%20%20return%20dp%5Bm%5D%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20s%20%3D%20%22bag%22%0A%20%20%20%20t%20%3D%20%22pack%22%0A%20%20%20%20n,%20m%20%3D%20len%28s%29,%20len%28t%29%0A%0A%20%20%20%20%23%20%E4%BD%BF%E7%94%A8%E3%83%A1%E3%83%A2%E3%83%AA%E3%82%92%E5%89%8A%E6%B8%9B%E3%81%97%E3%81%9F%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95%0A%20%20%20%20res%20%3D%20edit_distance_dp_comp%28s,%20t%29%0A%20%20%20%20print%28f%22%E6%96%87%E5%AD%97%E5%88%97%20%7Bs%7D%20%E3%82%92%20%7Bt%7D%20%E3%81%AB%E5%A4%89%E3%81%88%E3%82%8B%E3%81%AB%E3%81%AF%E6%9C%80%E4%BD%8E%20%7Bres%7D%20%E5%9B%9E%E3%81%AE%E7%B7%A8%E9%9B%86%E3%81%8C%E5%BF%85%E8%A6%81%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>

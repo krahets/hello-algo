@@ -9,15 +9,15 @@ icon: material/sort-ascending
 
 !!! abstract
 
-    排序猶如一把將混亂變為秩序的魔法鑰匙，使我們能以更高效的方式理解與處理資料。
+    排序就像一把魔法鑰匙，能讓雜亂的資料井然有序，讓我們更有效率地理解與處理資料。
 
-    無論是簡單的升序，還是複雜的分類排列，排序都向我們展示了資料的和諧美感。
+    無論是簡單地由小到大排列，還是依複雜規則分類排序，都能讓我們看見資料排列的和諧之美。
 
 ## 本章內容
 
 - [11.1 &nbsp; 排序演算法](sorting_algorithm.md)
 - [11.2 &nbsp; 選擇排序](selection_sort.md)
-- [11.3 &nbsp; 泡沫排序](bubble_sort.md)
+- [11.3 &nbsp; 氣泡排序](bubble_sort.md)
 - [11.4 &nbsp; 插入排序](insertion_sort.md)
 - [11.5 &nbsp; 快速排序](quick_sort.md)
 - [11.6 &nbsp; 合併排序](merge_sort.md)

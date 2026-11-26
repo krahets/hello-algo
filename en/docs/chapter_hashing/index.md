@@ -5,17 +5,17 @@ icon: material/table-search
 
 # Chapter 6. &nbsp; Hash tables
 
-![Hash tables](../assets/covers/chapter_hashing.svg){ class="cover-image" }
+![Hash table](../assets/covers/chapter_hashing.svg){ class="cover-image" }
 
 !!! abstract
 
-    In the world of computers, a hash table is like a knowledgeable librarian.
+    In the world of computing, a hash table is like a librarian who knows the collection well.
     
-    Knowing how to calculate a call number lets the librarian find the desired book quickly.
+    The librarian can work out a book’s call number and quickly find the book.
 
-## Chapter contents
+## In this chapter
 
-- [6.1 &nbsp; Hash tables](hash_map.md)
+- [6.1 &nbsp; Hash table](hash_map.md)
 - [6.2 &nbsp; Hash collisions](hash_collision.md)
 - [6.3 &nbsp; Hash algorithms](hash_algorithm.md)
 - [6.4 &nbsp; Summary](summary.md)

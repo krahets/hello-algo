@@ -4,37 +4,37 @@ comments: true
 
 # 6.1 &nbsp; 雜湊表
 
-<u>雜湊表（hash table）</u>，又稱<u>散列表</u>，它透過建立鍵 `key` 與值 `value` 之間的對映，實現高效的元素查詢。具體而言，我們向雜湊表中輸入一個鍵 `key` ，則可以在 $O(1)$ 時間內獲取對應的值 `value` 。
+<u>雜湊表（hash table）</u>又稱<u>散列表</u>，透過建立鍵 `key` 與值 `value` 的對應關係，讓我們能有效率地查詢元素。具體來說，將鍵 `key` 輸入雜湊表，就能在 $O(1)$ 的時間內取得對應的值 `value`。
 
-如圖 6-1 所示，給定 $n$ 個學生，每個學生都有“姓名”和“學號”兩項資料。假如我們希望實現“輸入一個學號，返回對應的姓名”的查詢功能，則可以採用圖 6-1 所示的雜湊表來實現。
+假設有 $n$ 位學生，每位學生都有「姓名」與「學號」兩項資料。如果希望輸入學號就能查到並回傳對應的姓名，可以使用圖 6-1 的雜湊表。
 
 ![雜湊表的抽象表示](hash_map.assets/hash_table_lookup.svg){ class="animation-figure" }
 
 <p align="center"> 圖 6-1 &nbsp; 雜湊表的抽象表示 </p>
 
-除雜湊表外，陣列和鏈結串列也可以實現查詢功能，它們的效率對比如表 6-1 所示。
+除了雜湊表，陣列與鏈結串列也能用來查詢元素。表 6-1 比較三者的操作效率。
 
-- **新增元素**：僅需將元素新增至陣列（鏈結串列）的尾部即可，使用 $O(1)$ 時間。
-- **查詢元素**：由於陣列（鏈結串列）是亂序的，因此需要走訪其中的所有元素，使用 $O(n)$ 時間。
-- **刪除元素**：需要先查詢到元素，再從陣列（鏈結串列）中刪除，使用 $O(n)$ 時間。
+- **新增元素**：只需將元素加到陣列（或鏈結串列）的尾端，需要 $O(1)$ 的時間。
+- **查詢元素**：陣列（或鏈結串列）中的元素沒有排序，因此需要逐一走訪所有元素，花費 $O(n)$ 的時間。
+- **刪除元素**：必須先找到元素，再從陣列（或鏈結串列）中刪除，需要 $O(n)$ 的時間。
 
-<p align="center"> 表 6-1 &nbsp; 元素查詢效率對比 </p>
+<p align="center"> 表 6-1 &nbsp; 元素查詢效率比較 </p>
 
 <div class="center-table" markdown>
 
 |          | 陣列   | 鏈結串列   | 雜湊表 |
 | -------- | ------ | ------ | ------ |
-| 查詢元素 | $O(n)$ | $O(n)$ | $O(1)$ |
+| 查找元素 | $O(n)$ | $O(n)$ | $O(1)$ |
 | 新增元素 | $O(1)$ | $O(1)$ | $O(1)$ |
 | 刪除元素 | $O(n)$ | $O(n)$ | $O(1)$ |
 
 </div>
 
-觀察發現，**在雜湊表中進行增刪查改的時間複雜度都是 $O(1)$** ，非常高效。
+從表中可以看出，**雜湊表的新增、刪除、查詢和更新操作，時間複雜度都是 $O(1)$**，效率很高。
 
-## 6.1.1 &nbsp; 雜湊表常用操作
+## 6.1.1 &nbsp; 雜湊表的常用操作
 
-雜湊表的常見操作包括：初始化、查詢操作、新增鍵值對和刪除鍵值對等，示例程式碼如下：
+雜湊表的常用操作包括初始化、查詢、新增鍵值對和刪除鍵值對。以下是程式碼範例：
 
 === "Python"
 
@@ -51,11 +51,11 @@ comments: true
     hmap[10583] = "小鴨"
 
     # 查詢操作
-    # 向雜湊表中輸入鍵 key ，得到值 value
+    # 輸入鍵 key，從雜湊表取得對應的值 value
     name: str = hmap[15937]
 
     # 刪除操作
-    # 在雜湊表中刪除鍵值對 (key, value)
+    # 從雜湊表刪除鍵值對 (key, value)
     hmap.pop(10583)
     ```
 
@@ -74,11 +74,11 @@ comments: true
     map[10583] = "小鴨";
 
     /* 查詢操作 */
-    // 向雜湊表中輸入鍵 key ，得到值 value
+    // 輸入鍵 key，從雜湊表取得對應的值 value
     string name = map[15937];
 
     /* 刪除操作 */
-    // 在雜湊表中刪除鍵值對 (key, value)
+    // 從雜湊表刪除鍵值對 (key, value)
     map.erase(10583);
     ```
 
@@ -97,11 +97,11 @@ comments: true
     map.put(10583, "小鴨");
 
     /* 查詢操作 */
-    // 向雜湊表中輸入鍵 key ，得到值 value
+    // 輸入鍵 key，從雜湊表取得對應的值 value
     String name = map.get(15937);
 
     /* 刪除操作 */
-    // 在雜湊表中刪除鍵值對 (key, value)
+    // 從雜湊表刪除鍵值對 (key, value)
     map.remove(10583);
     ```
 
@@ -120,11 +120,11 @@ comments: true
     };
 
     /* 查詢操作 */
-    // 向雜湊表中輸入鍵 key ，得到值 value
+    // 輸入鍵 key，從雜湊表取得對應的值 value
     string name = map[15937];
 
     /* 刪除操作 */
-    // 在雜湊表中刪除鍵值對 (key, value)
+    // 從雜湊表刪除鍵值對 (key, value)
     map.Remove(10583);
     ```
 
@@ -143,11 +143,11 @@ comments: true
     hmap[10583] = "小鴨"
 
     /* 查詢操作 */
-    // 向雜湊表中輸入鍵 key ，得到值 value
+    // 輸入鍵 key，從雜湊表取得對應的值 value
     name := hmap[15937]
 
     /* 刪除操作 */
-    // 在雜湊表中刪除鍵值對 (key, value)
+    // 從雜湊表刪除鍵值對 (key, value)
     delete(hmap, 10583)
     ```
 
@@ -166,11 +166,11 @@ comments: true
     map[10583] = "小鴨"
 
     /* 查詢操作 */
-    // 向雜湊表中輸入鍵 key ，得到值 value
+    // 輸入鍵 key，從雜湊表取得對應的值 value
     let name = map[15937]!
 
     /* 刪除操作 */
-    // 在雜湊表中刪除鍵值對 (key, value)
+    // 從雜湊表刪除鍵值對 (key, value)
     map.removeValue(forKey: 10583)
     ```
 
@@ -189,11 +189,11 @@ comments: true
     map.set(10583, '小鴨');
 
     /* 查詢操作 */
-    // 向雜湊表中輸入鍵 key ，得到值 value
+    // 輸入鍵 key，從雜湊表取得對應的值 value
     let name = map.get(15937);
 
     /* 刪除操作 */
-    // 在雜湊表中刪除鍵值對 (key, value)
+    // 從雜湊表刪除鍵值對 (key, value)
     map.delete(10583);
     ```
 
@@ -212,11 +212,11 @@ comments: true
     map.set(10583, '小鴨');
 
     /* 查詢操作 */
-    // 向雜湊表中輸入鍵 key ，得到值 value
+    // 輸入鍵 key，從雜湊表取得對應的值 value
     let name = map.get(15937);
 
     /* 刪除操作 */
-    // 在雜湊表中刪除鍵值對 (key, value)
+    // 從雜湊表刪除鍵值對 (key, value)
     map.delete(10583);
     ```
 
@@ -235,11 +235,11 @@ comments: true
     map[10583] = "小鴨";
 
     /* 查詢操作 */
-    // 向雜湊表中輸入鍵 key ，得到值 value
+    // 輸入鍵 key，從雜湊表取得對應的值 value
     final String? name = map[15937];
 
     /* 刪除操作 */
-    // 在雜湊表中刪除鍵值對 (key, value)
+    // 從雜湊表刪除鍵值對 (key, value)
     map.remove(10583);
     ```
 
@@ -260,18 +260,18 @@ comments: true
     map.insert(10583, "小鴨");
 
     // 查詢操作
-    // 向雜湊表中輸入鍵 key ，得到值 value
+    // 輸入鍵 key，從雜湊表取得對應的值 value
     let name = map.get(&15937).copied().unwrap();
 
     // 刪除操作
-    // 在雜湊表中刪除鍵值對 (key, value)
+    // 從雜湊表刪除鍵值對 (key, value)
     _ = map.remove(&10583);
     ```
 
 === "C"
 
     ```c title="hash_map.c"
-    // C 未提供內建雜湊表
+    // C 沒有內建的雜湊表
     ```
 
 === "Kotlin"
@@ -289,11 +289,11 @@ comments: true
     map[10583] = "小鴨"
 
     /* 查詢操作 */
-    // 向雜湊表中輸入鍵 key ，得到值 value
+    // 輸入鍵 key，從雜湊表取得對應的值 value
     val name = map[15937]
 
     /* 刪除操作 */
-    // 在雜湊表中刪除鍵值對 (key, value)
+    // 從雜湊表刪除鍵值對 (key, value)
     map.remove(10583)
     ```
 
@@ -312,20 +312,20 @@ comments: true
     hmap[10583] = "小鴨"
 
     # 查詢操作
-    # 向雜湊表中輸入鍵 key ，得到值 value
+    # 輸入鍵 key，從雜湊表取得對應的值 value
     name = hmap[15937]
 
     # 刪除操作
-    # 在雜湊表中刪除鍵值對 (key, value)
+    # 從雜湊表刪除鍵值對 (key, value)
     hmap.delete(10583)
     ```
 
-??? pythontutor "視覺化執行"
+??? pythontutor "執行視覺化示範"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="視覺化執行" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E6%96%B0%E5%A2%9E%E9%8D%B5%E5%80%BC%E5%B0%8D%20%28key%2C%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%9B%89%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B4%A8%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%90%91%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E8%BC%B8%E5%85%A5%E9%8D%B5%20key%20%EF%BC%8C%E5%BE%97%E5%88%B0%E5%80%BC%20value%0A%20%20%20%20name%20%3D%20hmap%5B15937%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E5%88%AA%E9%99%A4%E9%8D%B5%E5%80%BC%E5%B0%8D%20%28key%2C%20value%29%0A%20%20%20%20hmap.pop%2810583%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E6%96%B0%E5%A2%9E%E9%8D%B5%E5%80%BC%E5%B0%8D%20%28key%2C%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%9B%89%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B4%A8%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%90%91%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E8%BC%B8%E5%85%A5%E9%8D%B5%20key%20%EF%BC%8C%E5%BE%97%E5%88%B0%E5%80%BC%20value%0A%20%20%20%20name%20%3D%20hmap%5B15937%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E5%88%AA%E9%99%A4%E9%8D%B5%E5%80%BC%E5%B0%8D%20%28key%2C%20value%29%0A%20%20%20%20hmap.pop%2810583%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="執行視覺化示範" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E6%96%B0%E5%A2%9E%E9%8D%B5%E5%80%BC%E5%B0%8D%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%9B%89%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B4%A8%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E7%94%A8%E9%8D%B5%20key%20%E6%9F%A5%E8%A9%A2%E9%9B%9C%E6%B9%8A%E8%A1%A8%EF%BC%8C%E5%8F%96%E5%BE%97%E5%B0%8D%E6%87%89%E7%9A%84%E5%80%BC%20value%0A%20%20%20%20name%20%3D%20hmap%5B15937%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%BE%9E%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E5%88%AA%E9%99%A4%E9%8D%B5%E5%80%BC%E5%B0%8D%20%28key,%20value%29%0A%20%20%20%20hmap.pop%2810583%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E6%96%B0%E5%A2%9E%E9%8D%B5%E5%80%BC%E5%B0%8D%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%9B%89%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B4%A8%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E7%94%A8%E9%8D%B5%20key%20%E6%9F%A5%E8%A9%A2%E9%9B%9C%E6%B9%8A%E8%A1%A8%EF%BC%8C%E5%8F%96%E5%BE%97%E5%B0%8D%E6%87%89%E7%9A%84%E5%80%BC%20value%0A%20%20%20%20name%20%3D%20hmap%5B15937%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%BE%9E%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E5%88%AA%E9%99%A4%E9%8D%B5%E5%80%BC%E5%B0%8D%20%28key,%20value%29%0A%20%20%20%20hmap.pop%2810583%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
 
-雜湊表有三種常用的走訪方式：走訪鍵值對、走訪鍵和走訪值。示例程式碼如下：
+走訪雜湊表有三種常見方式：走訪鍵值對、只走訪鍵、只走訪值。以下是程式碼範例：
 
 === "Python"
 
@@ -335,11 +335,11 @@ comments: true
     for key, value in hmap.items():
         print(key, "->", value)
 
-    # 單獨走訪鍵 key
+    # 只走訪鍵 key
     for key in hmap.keys():
         print(key)
 
-    # 單獨走訪值 value
+    # 只走訪值 value
     for val in hmap.values():
         print(val)
     ```
@@ -368,12 +368,12 @@ comments: true
         System.out.println(kv.getKey() + " -> " + kv.getValue());
     }
 
-    // 單獨走訪鍵 key
+    // 只走訪鍵 key
     for (int key : map.keySet()) {
         System.out.println(key);
     }
 
-    // 單獨走訪值 value
+    // 只走訪值 value
     for (String val : map.values()) {
         System.out.println(val);
     }
@@ -388,12 +388,12 @@ comments: true
         Console.WriteLine(kv.Key + " -> " + kv.Value);
     }
 
-    // 單獨走訪鍵 key
+    // 只走訪鍵 key
     foreach (int key in map.Keys) {
         Console.WriteLine(key);
     }
 
-    // 單獨走訪值 value
+    // 只走訪值 value
     foreach (string val in map.Values) {
         Console.WriteLine(val);
     }
@@ -408,12 +408,12 @@ comments: true
         fmt.Println(key, "->", value)
     }
 
-    // 單獨走訪鍵 key
+    // 只走訪鍵 key
     for key := range hmap {
         fmt.Println(key)
     }
 
-    // 單獨走訪值 value
+    // 只走訪值 value
     for _, value := range hmap {
         fmt.Println(value)
     }
@@ -428,12 +428,12 @@ comments: true
         print("\(key) -> \(value)")
     }
 
-    // 單獨走訪鍵 key
+    // 只走訪鍵 key
     for key in map.keys {
         print(key)
     }
 
-    // 單獨走訪值 value
+    // 只走訪值 value
     for value in map.values {
         print(value)
     }
@@ -448,12 +448,12 @@ comments: true
         console.info(k + ' -> ' + v);
     }
 
-    // 單獨走訪鍵 key
+    // 只走訪鍵 key
     for (const k of map.keys()) {
         console.info(k);
     }
 
-    // 單獨走訪值 value
+    // 只走訪值 value
     for (const v of map.values()) {
         console.info(v);
     }
@@ -468,12 +468,12 @@ comments: true
         console.info(k + ' -> ' + v);
     }
 
-    // 單獨走訪鍵 key
+    // 只走訪鍵 key
     for (const k of map.keys()) {
         console.info(k);
     }
 
-    // 單獨走訪值 value
+    // 只走訪值 value
     for (const v of map.values()) {
         console.info(v);
     }
@@ -486,10 +486,10 @@ comments: true
     // 走訪鍵值對 key->value
     map.forEach((key, value) => print("$key -> $value"));
 
-    // 單獨走訪鍵 key
+    // 只走訪鍵 key
     map.keys.forEach((key) => print(key));
 
-    // 單獨走訪值 value
+    // 只走訪值 value
     map.values.forEach((value) => print(value));
     ```
 
@@ -502,12 +502,12 @@ comments: true
         println!("{key} -> {value}");
     }
 
-    // 單獨走訪鍵 key
+    // 只走訪鍵 key
     for key in map.keys() {
         println!("{key}");
     }
 
-    // 單獨走訪值 value
+    // 只走訪值 value
     for value in map.values() {
         println!("{value}");
     }
@@ -516,7 +516,7 @@ comments: true
 === "C"
 
     ```c title="hash_map.c"
-    // C 未提供內建雜湊表
+    // C 沒有內建的雜湊表
     ```
 
 === "Kotlin"
@@ -528,12 +528,12 @@ comments: true
         println("$key -> $value")
     }
 
-    // 單獨走訪鍵 key
+    // 只走訪鍵 key
     for (key in map.keys) {
         println(key)
     }
 
-    // 單獨走訪值 value
+    // 只走訪值 value
     for (_val in map.values) {
         println(_val)
     }
@@ -546,42 +546,42 @@ comments: true
     # 走訪鍵值對 key->value
     hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
 
-    # 單獨走訪鍵 key
+    # 只走訪鍵 key
     hmap.keys.each { |key| puts key }
 
-    # 單獨走訪值 value
+    # 只走訪值 value
     hmap.values.each { |val| puts val }
     ```
 
-??? pythontutor "視覺化執行"
+??? pythontutor "執行視覺化示範"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="視覺化執行" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E6%96%B0%E5%A2%9E%E9%8D%B5%E5%80%BC%E5%B0%8D%20%28key%2C%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%9B%89%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B4%A8%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%B5%B0%E8%A8%AA%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20%23%20%E8%B5%B0%E8%A8%AA%E9%8D%B5%E5%80%BC%E5%B0%8D%20key-%3Evalue%0A%20%20%20%20for%20key%2C%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%2C%20%22-%3E%22%2C%20value%29%0A%20%20%20%20%23%20%E5%96%AE%E7%8D%A8%E8%B5%B0%E8%A8%AA%E9%8D%B5%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20%E5%96%AE%E7%8D%A8%E8%B5%B0%E8%A8%AA%E5%80%BC%20value%0A%20%20%20%20for%20val%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28val%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=8&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E6%96%B0%E5%A2%9E%E9%8D%B5%E5%80%BC%E5%B0%8D%20%28key%2C%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%9B%89%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B4%A8%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%B5%B0%E8%A8%AA%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20%23%20%E8%B5%B0%E8%A8%AA%E9%8D%B5%E5%80%BC%E5%B0%8D%20key-%3Evalue%0A%20%20%20%20for%20key%2C%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%2C%20%22-%3E%22%2C%20value%29%0A%20%20%20%20%23%20%E5%96%AE%E7%8D%A8%E8%B5%B0%E8%A8%AA%E9%8D%B5%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20%E5%96%AE%E7%8D%A8%E8%B5%B0%E8%A8%AA%E5%80%BC%20value%0A%20%20%20%20for%20val%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28val%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=8&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="執行視覺化示範" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E6%96%B0%E5%A2%9E%E9%8D%B5%E5%80%BC%E5%B0%8D%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%9B%89%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B4%A8%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%B5%B0%E8%A8%AA%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20%23%20%E8%B5%B0%E8%A8%AA%E9%8D%B5%E5%80%BC%E5%B0%8D%20key-%3Evalue%0A%20%20%20%20for%20key,%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key,%20%22-%3E%22,%20value%29%0A%20%20%20%20%23%20%E5%8F%AA%E8%B5%B0%E8%A8%AA%E9%8D%B5%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20%E5%8F%AA%E8%B5%B0%E8%A8%AA%E5%80%BC%20value%0A%20%20%20%20for%20val%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28val%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=8&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E6%96%B0%E5%A2%9E%E9%8D%B5%E5%80%BC%E5%B0%8D%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%9B%89%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B4%A8%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%B5%B0%E8%A8%AA%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20%23%20%E8%B5%B0%E8%A8%AA%E9%8D%B5%E5%80%BC%E5%B0%8D%20key-%3Evalue%0A%20%20%20%20for%20key,%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key,%20%22-%3E%22,%20value%29%0A%20%20%20%20%23%20%E5%8F%AA%E8%B5%B0%E8%A8%AA%E9%8D%B5%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20%E5%8F%AA%E8%B5%B0%E8%A8%AA%E5%80%BC%20value%0A%20%20%20%20for%20val%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28val%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=8&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
 
-## 6.1.2 &nbsp; 雜湊表簡單實現
+## 6.1.2 &nbsp; 實作簡單的雜湊表
 
-我們先考慮最簡單的情況，**僅用一個陣列來實現雜湊表**。在雜湊表中，我們將陣列中的每個空位稱為<u>桶（bucket）</u>，每個桶可儲存一個鍵值對。因此，查詢操作就是找到 `key` 對應的桶，並在桶中獲取 `value` 。
+先考慮最簡單的情況：**只用一個陣列實作雜湊表**。在雜湊表中，陣列裡的每個位置稱為一個<u>桶（bucket）</u>，每個桶可存放一個鍵值對。要查詢資料，只需找到 `key` 對應的桶，再從桶中取得 `value`。
 
-那麼，如何基於 `key` 定位對應的桶呢？這是透過<u>雜湊函式（hash function）</u>實現的。雜湊函式的作用是將一個較大的輸入空間對映到一個較小的輸出空間。在雜湊表中，輸入空間是所有 `key` ，輸出空間是所有桶（陣列索引）。換句話說，輸入一個 `key` ，**我們可以透過雜湊函式得到該 `key` 對應的鍵值對在陣列中的儲存位置**。
+該如何根據 `key` 找到對應的桶呢？這就要用到<u>雜湊函式（hash function）</u>。雜湊函式會將較大的輸入空間對應到較小的輸出空間。在雜湊表中，輸入空間包含所有的 `key`，輸出空間則涵蓋所有的桶（陣列索引）。換句話說，輸入一個 `key`，**就能用雜湊函式算出 `key` 對應的鍵值對在陣列中的存放位置**。
 
-輸入一個 `key` ，雜湊函式的計算過程分為以下兩步。
+輸入一個 `key` 後，雜湊函式的計算過程可分為兩步。
 
-1. 透過某種雜湊演算法 `hash()` 計算得到雜湊值。
-2. 將雜湊值對桶數量（陣列長度）`capacity` 取模，從而獲取該 `key` 對應的桶（陣列索引）`index` 。
+1. 用某個雜湊演算法 `hash()` 算出雜湊值。
+2. 將雜湊值除以桶數（陣列長度）`capacity`，取其餘數，得到 `key` 對應的桶索引（陣列索引）`index`。
 
 ```shell
 index = hash(key) % capacity
 ```
 
-隨後，我們就可以利用 `index` 在雜湊表中訪問對應的桶，從而獲取 `value` 。
+接著，就能用 `index` 存取雜湊表中對應的桶，取得 `value`。
 
-設陣列長度 `capacity = 100`、雜湊演算法 `hash(key) = key` ，易得雜湊函式為 `key % 100` 。圖 6-2 以 `key` 學號和 `value` 姓名為例，展示了雜湊函式的工作原理。
+假設陣列長度 `capacity = 100`，雜湊演算法為 `hash(key) = key`，便可得出雜湊函式 `key % 100`。圖 6-2 以學號作為 `key`、姓名作為 `value`，說明雜湊函式如何運作。
 
-![雜湊函式工作原理](hash_map.assets/hash_function.svg){ class="animation-figure" }
+![雜湊函式的運作原理](hash_map.assets/hash_function.svg){ class="animation-figure" }
 
-<p align="center"> 圖 6-2 &nbsp; 雜湊函式工作原理 </p>
+<p align="center"> 圖 6-2 &nbsp; 雜湊函式的運作原理 </p>
 
-以下程式碼實現了一個簡單雜湊表。其中，我們將 `key` 和 `value` 封裝成一個類別 `Pair` ，以表示鍵值對。
+以下程式碼實作了一個簡單的雜湊表。我們將 `key` 和 `value` 封裝成一個類別 `Pair`，用它來表示鍵值對。
 
 === "Python"
 
@@ -594,11 +594,11 @@ index = hash(key) % capacity
             self.val = val
 
     class ArrayHashMap:
-        """基於陣列實現的雜湊表"""
+        """以陣列實作的雜湊表"""
 
         def __init__(self):
-            """建構子"""
-            # 初始化陣列，包含 100 個桶
+            """建構方法"""
+            # 初始化包含 100 個桶的陣列
             self.buckets: list[Pair | None] = [None] * 100
 
         def hash_func(self, key: int) -> int:
@@ -615,7 +615,7 @@ index = hash(key) % capacity
             return pair.val
 
         def put(self, key: int, val: str):
-            """新增和更新操作"""
+            """新增與更新操作"""
             pair = Pair(key, val)
             index: int = self.hash_func(key)
             self.buckets[index] = pair
@@ -623,11 +623,11 @@ index = hash(key) % capacity
         def remove(self, key: int):
             """刪除操作"""
             index: int = self.hash_func(key)
-            # 置為 None ，代表刪除
+            # 設為 None，表示刪除
             self.buckets[index] = None
 
         def entry_set(self) -> list[Pair]:
-            """獲取所有鍵值對"""
+            """取得所有鍵值對"""
             result: list[Pair] = []
             for pair in self.buckets:
                 if pair is not None:
@@ -635,7 +635,7 @@ index = hash(key) % capacity
             return result
 
         def key_set(self) -> list[int]:
-            """獲取所有鍵"""
+            """取得所有鍵"""
             result = []
             for pair in self.buckets:
                 if pair is not None:
@@ -643,7 +643,7 @@ index = hash(key) % capacity
             return result
 
         def value_set(self) -> list[str]:
-            """獲取所有值"""
+            """取得所有值"""
             result = []
             for pair in self.buckets:
                 if pair is not None:
@@ -651,7 +651,7 @@ index = hash(key) % capacity
             return result
 
         def print(self):
-            """列印雜湊表"""
+            """印出雜湊表"""
             for pair in self.buckets:
                 if pair is not None:
                     print(pair.key, "->", pair.val)
@@ -671,14 +671,14 @@ index = hash(key) % capacity
         }
     };
 
-    /* 基於陣列實現的雜湊表 */
+    /* 以陣列實作的雜湊表 */
     class ArrayHashMap {
       private:
         vector<Pair *> buckets;
 
       public:
         ArrayHashMap() {
-            // 初始化陣列，包含 100 個桶
+            // 初始化包含 100 個桶的陣列
             buckets = vector<Pair *>(100);
         }
 
@@ -715,12 +715,12 @@ index = hash(key) % capacity
         /* 刪除操作 */
         void remove(int key) {
             int index = hashFunc(key);
-            // 釋放記憶體並置為 nullptr
+            // 釋放記憶體並設為 nullptr
             delete buckets[index];
             buckets[index] = nullptr;
         }
 
-        /* 獲取所有鍵值對 */
+        /* 取得所有鍵值對 */
         vector<Pair *> pairSet() {
             vector<Pair *> pairSet;
             for (Pair *pair : buckets) {
@@ -731,7 +731,7 @@ index = hash(key) % capacity
             return pairSet;
         }
 
-        /* 獲取所有鍵 */
+        /* 取得所有鍵 */
         vector<int> keySet() {
             vector<int> keySet;
             for (Pair *pair : buckets) {
@@ -742,7 +742,7 @@ index = hash(key) % capacity
             return keySet;
         }
 
-        /* 獲取所有值 */
+        /* 取得所有值 */
         vector<string> valueSet() {
             vector<string> valueSet;
             for (Pair *pair : buckets) {
@@ -753,7 +753,7 @@ index = hash(key) % capacity
             return valueSet;
         }
 
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         void print() {
             for (Pair *kv : pairSet()) {
                 cout << kv->key << " -> " << kv->val << endl;
@@ -776,12 +776,12 @@ index = hash(key) % capacity
         }
     }
 
-    /* 基於陣列實現的雜湊表 */
+    /* 以陣列實作的雜湊表 */
     class ArrayHashMap {
         private List<Pair> buckets;
 
         public ArrayHashMap() {
-            // 初始化陣列，包含 100 個桶
+            // 初始化包含 100 個桶的陣列
             buckets = new ArrayList<>();
             for (int i = 0; i < 100; i++) {
                 buckets.add(null);
@@ -813,11 +813,11 @@ index = hash(key) % capacity
         /* 刪除操作 */
         public void remove(int key) {
             int index = hashFunc(key);
-            // 置為 null ，代表刪除
+            // 設為 null，表示刪除
             buckets.set(index, null);
         }
 
-        /* 獲取所有鍵值對 */
+        /* 取得所有鍵值對 */
         public List<Pair> pairSet() {
             List<Pair> pairSet = new ArrayList<>();
             for (Pair pair : buckets) {
@@ -827,7 +827,7 @@ index = hash(key) % capacity
             return pairSet;
         }
 
-        /* 獲取所有鍵 */
+        /* 取得所有鍵 */
         public List<Integer> keySet() {
             List<Integer> keySet = new ArrayList<>();
             for (Pair pair : buckets) {
@@ -837,7 +837,7 @@ index = hash(key) % capacity
             return keySet;
         }
 
-        /* 獲取所有值 */
+        /* 取得所有值 */
         public List<String> valueSet() {
             List<String> valueSet = new ArrayList<>();
             for (Pair pair : buckets) {
@@ -847,7 +847,7 @@ index = hash(key) % capacity
             return valueSet;
         }
 
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         public void print() {
             for (Pair kv : pairSet()) {
                 System.out.println(kv.key + " -> " + kv.val);
@@ -865,11 +865,11 @@ index = hash(key) % capacity
         public string val = val;
     }
 
-    /* 基於陣列實現的雜湊表 */
+    /* 以陣列實作的雜湊表 */
     class ArrayHashMap {
         List<Pair?> buckets;
         public ArrayHashMap() {
-            // 初始化陣列，包含 100 個桶
+            // 初始化包含 100 個桶的陣列
             buckets = [];
             for (int i = 0; i < 100; i++) {
                 buckets.Add(null);
@@ -900,11 +900,11 @@ index = hash(key) % capacity
         /* 刪除操作 */
         public void Remove(int key) {
             int index = HashFunc(key);
-            // 置為 null ，代表刪除
+            // 設為 null，表示刪除
             buckets[index] = null;
         }
 
-        /* 獲取所有鍵值對 */
+        /* 取得所有鍵值對 */
         public List<Pair> PairSet() {
             List<Pair> pairSet = [];
             foreach (Pair? pair in buckets) {
@@ -914,7 +914,7 @@ index = hash(key) % capacity
             return pairSet;
         }
 
-        /* 獲取所有鍵 */
+        /* 取得所有鍵 */
         public List<int> KeySet() {
             List<int> keySet = [];
             foreach (Pair? pair in buckets) {
@@ -924,7 +924,7 @@ index = hash(key) % capacity
             return keySet;
         }
 
-        /* 獲取所有值 */
+        /* 取得所有值 */
         public List<string> ValueSet() {
             List<string> valueSet = [];
             foreach (Pair? pair in buckets) {
@@ -934,7 +934,7 @@ index = hash(key) % capacity
             return valueSet;
         }
 
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         public void Print() {
             foreach (Pair kv in PairSet()) {
                 Console.WriteLine(kv.key + " -> " + kv.val);
@@ -952,14 +952,14 @@ index = hash(key) % capacity
         val string
     }
 
-    /* 基於陣列實現的雜湊表 */
+    /* 以陣列實作的雜湊表 */
     type arrayHashMap struct {
         buckets []*pair
     }
 
     /* 初始化雜湊表 */
     func newArrayHashMap() *arrayHashMap {
-        // 初始化陣列，包含 100 個桶
+        // 初始化包含 100 個桶的陣列
         buckets := make([]*pair, 100)
         return &arrayHashMap{buckets: buckets}
     }
@@ -990,11 +990,11 @@ index = hash(key) % capacity
     /* 刪除操作 */
     func (a *arrayHashMap) remove(key int) {
         index := a.hashFunc(key)
-        // 置為 nil ，代表刪除
+        // 設為 nil，表示刪除
         a.buckets[index] = nil
     }
 
-    /* 獲取所有鍵對 */
+    /* 取得所有鍵值對 */
     func (a *arrayHashMap) pairSet() []*pair {
         var pairs []*pair
         for _, pair := range a.buckets {
@@ -1005,7 +1005,7 @@ index = hash(key) % capacity
         return pairs
     }
 
-    /* 獲取所有鍵 */
+    /* 取得所有鍵 */
     func (a *arrayHashMap) keySet() []int {
         var keys []int
         for _, pair := range a.buckets {
@@ -1016,7 +1016,7 @@ index = hash(key) % capacity
         return keys
     }
 
-    /* 獲取所有值 */
+    /* 取得所有值 */
     func (a *arrayHashMap) valueSet() []string {
         var values []string
         for _, pair := range a.buckets {
@@ -1027,7 +1027,7 @@ index = hash(key) % capacity
         return values
     }
 
-    /* 列印雜湊表 */
+    /* 印出雜湊表 */
     func (a *arrayHashMap) print() {
         for _, pair := range a.buckets {
             if pair != nil {
@@ -1055,12 +1055,12 @@ index = hash(key) % capacity
         }
     }
 
-    /* 基於陣列實現的雜湊表 */
+    /* 以陣列實作的雜湊表 */
     class ArrayHashMap {
         private var buckets: [Pair?]
 
         init() {
-            // 初始化陣列，包含 100 個桶
+            // 初始化包含 100 個桶的陣列
             buckets = Array(repeating: nil, count: 100)
         }
 
@@ -1087,26 +1087,26 @@ index = hash(key) % capacity
         /* 刪除操作 */
         func remove(key: Int) {
             let index = hashFunc(key: key)
-            // 置為 nil ，代表刪除
+            // 設為 nil，表示刪除
             buckets[index] = nil
         }
 
-        /* 獲取所有鍵值對 */
+        /* 取得所有鍵值對 */
         func pairSet() -> [Pair] {
             buckets.compactMap { $0 }
         }
 
-        /* 獲取所有鍵 */
+        /* 取得所有鍵 */
         func keySet() -> [Int] {
             buckets.compactMap { $0?.key }
         }
 
-        /* 獲取所有值 */
+        /* 取得所有值 */
         func valueSet() -> [String] {
             buckets.compactMap { $0?.val }
         }
 
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         func print() {
             for pair in pairSet() {
                 Swift.print("\(pair.key) -> \(pair.val)")
@@ -1126,11 +1126,11 @@ index = hash(key) % capacity
         }
     }
 
-    /* 基於陣列實現的雜湊表 */
+    /* 以陣列實作的雜湊表 */
     class ArrayHashMap {
         #buckets;
         constructor() {
-            // 初始化陣列，包含 100 個桶
+            // 初始化包含 100 個桶的陣列
             this.#buckets = new Array(100).fill(null);
         }
 
@@ -1156,11 +1156,11 @@ index = hash(key) % capacity
         /* 刪除操作 */
         delete(key) {
             let index = this.#hashFunc(key);
-            // 置為 null ，代表刪除
+            // 設為 null，表示刪除
             this.#buckets[index] = null;
         }
 
-        /* 獲取所有鍵值對 */
+        /* 取得所有鍵值對 */
         entries() {
             let arr = [];
             for (let i = 0; i < this.#buckets.length; i++) {
@@ -1171,7 +1171,7 @@ index = hash(key) % capacity
             return arr;
         }
 
-        /* 獲取所有鍵 */
+        /* 取得所有鍵 */
         keys() {
             let arr = [];
             for (let i = 0; i < this.#buckets.length; i++) {
@@ -1182,7 +1182,7 @@ index = hash(key) % capacity
             return arr;
         }
 
-        /* 獲取所有值 */
+        /* 取得所有值 */
         values() {
             let arr = [];
             for (let i = 0; i < this.#buckets.length; i++) {
@@ -1193,7 +1193,7 @@ index = hash(key) % capacity
             return arr;
         }
 
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         print() {
             let pairSet = this.entries();
             for (const pair of pairSet) {
@@ -1217,12 +1217,12 @@ index = hash(key) % capacity
         }
     }
 
-    /* 基於陣列實現的雜湊表 */
+    /* 以陣列實作的雜湊表 */
     class ArrayHashMap {
         private readonly buckets: (Pair | null)[];
 
         constructor() {
-            // 初始化陣列，包含 100 個桶
+            // 初始化包含 100 個桶的陣列
             this.buckets = new Array(100).fill(null);
         }
 
@@ -1248,11 +1248,11 @@ index = hash(key) % capacity
         /* 刪除操作 */
         public delete(key: number) {
             let index = this.hashFunc(key);
-            // 置為 null ，代表刪除
+            // 設為 null，表示刪除
             this.buckets[index] = null;
         }
 
-        /* 獲取所有鍵值對 */
+        /* 取得所有鍵值對 */
         public entries(): (Pair | null)[] {
             let arr: (Pair | null)[] = [];
             for (let i = 0; i < this.buckets.length; i++) {
@@ -1263,7 +1263,7 @@ index = hash(key) % capacity
             return arr;
         }
 
-        /* 獲取所有鍵 */
+        /* 取得所有鍵 */
         public keys(): (number | undefined)[] {
             let arr: (number | undefined)[] = [];
             for (let i = 0; i < this.buckets.length; i++) {
@@ -1274,7 +1274,7 @@ index = hash(key) % capacity
             return arr;
         }
 
-        /* 獲取所有值 */
+        /* 取得所有值 */
         public values(): (string | undefined)[] {
             let arr: (string | undefined)[] = [];
             for (let i = 0; i < this.buckets.length; i++) {
@@ -1285,7 +1285,7 @@ index = hash(key) % capacity
             return arr;
         }
 
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         public print() {
             let pairSet = this.entries();
             for (const pair of pairSet) {
@@ -1305,12 +1305,12 @@ index = hash(key) % capacity
       Pair(this.key, this.val);
     }
 
-    /* 基於陣列實現的雜湊表 */
+    /* 以陣列實作的雜湊表 */
     class ArrayHashMap {
       late List<Pair?> _buckets;
 
       ArrayHashMap() {
-        // 初始化陣列，包含 100 個桶
+        // 初始化包含 100 個桶的陣列
         _buckets = List.filled(100, null);
       }
 
@@ -1343,7 +1343,7 @@ index = hash(key) % capacity
         _buckets[index] = null;
       }
 
-      /* 獲取所有鍵值對 */
+      /* 取得所有鍵值對 */
       List<Pair> pairSet() {
         List<Pair> pairSet = [];
         for (final Pair? pair in _buckets) {
@@ -1354,7 +1354,7 @@ index = hash(key) % capacity
         return pairSet;
       }
 
-      /* 獲取所有鍵 */
+      /* 取得所有鍵 */
       List<int> keySet() {
         List<int> keySet = [];
         for (final Pair? pair in _buckets) {
@@ -1365,7 +1365,7 @@ index = hash(key) % capacity
         return keySet;
       }
 
-      /* 獲取所有值 */
+      /* 取得所有值 */
       List<String> values() {
         List<String> valueSet = [];
         for (final Pair? pair in _buckets) {
@@ -1376,7 +1376,7 @@ index = hash(key) % capacity
         return valueSet;
       }
 
-      /* 列印雜湊表 */
+      /* 印出雜湊表 */
       void printHashMap() {
         for (final Pair kv in pairSet()) {
           print("${kv.key} -> ${kv.val}");
@@ -1395,14 +1395,14 @@ index = hash(key) % capacity
         pub val: String,
     }
 
-    /* 基於陣列實現的雜湊表 */
+    /* 以陣列實作的雜湊表 */
     pub struct ArrayHashMap {
         buckets: Vec<Option<Pair>>,
     }
 
     impl ArrayHashMap {
         pub fn new() -> ArrayHashMap {
-            // 初始化陣列，包含 100 個桶
+            // 初始化包含 100 個桶的陣列
             Self {
                 buckets: vec![None; 100],
             }
@@ -1431,11 +1431,11 @@ index = hash(key) % capacity
         /* 刪除操作 */
         pub fn remove(&mut self, key: i32) {
             let index = self.hash_func(key);
-            // 置為 None ，代表刪除
+            // 設為 None，表示刪除
             self.buckets[index] = None;
         }
 
-        /* 獲取所有鍵值對 */
+        /* 取得所有鍵值對 */
         pub fn entry_set(&self) -> Vec<&Pair> {
             self.buckets
                 .iter()
@@ -1443,7 +1443,7 @@ index = hash(key) % capacity
                 .collect()
         }
 
-        /* 獲取所有鍵 */
+        /* 取得所有鍵 */
         pub fn key_set(&self) -> Vec<&i32> {
             self.buckets
                 .iter()
@@ -1451,7 +1451,7 @@ index = hash(key) % capacity
                 .collect()
         }
 
-        /* 獲取所有值 */
+        /* 取得所有值 */
         pub fn value_set(&self) -> Vec<&String> {
             self.buckets
                 .iter()
@@ -1459,7 +1459,7 @@ index = hash(key) % capacity
                 .collect()
         }
 
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         pub fn print(&self) {
             for pair in self.entry_set() {
                 println!("{} -> {}", pair.key, pair.val);
@@ -1477,12 +1477,12 @@ index = hash(key) % capacity
         char *val;
     } Pair;
 
-    /* 基於陣列實現的雜湊表 */
+    /* 以陣列實作的雜湊表 */
     typedef struct {
         Pair *buckets[MAX_SIZE];
     } ArrayHashMap;
 
-    /* 建構子 */
+    /* 建構函式 */
     ArrayHashMap *newArrayHashMap() {
         ArrayHashMap *hmap = malloc(sizeof(ArrayHashMap));
         for (int i=0; i < MAX_SIZE; i++) {
@@ -1491,7 +1491,7 @@ index = hash(key) % capacity
         return hmap;
     }
 
-    /* 析構函式 */
+    /* 解構函式 */
     void delArrayHashMap(ArrayHashMap *hmap) {
         for (int i = 0; i < MAX_SIZE; i++) {
             if (hmap->buckets[i] != NULL) {
@@ -1521,12 +1521,12 @@ index = hash(key) % capacity
         hmap->buckets[index] = NULL;
     }
 
-    /* 獲取所有鍵值對 */
+    /* 取得所有鍵值對 */
     void pairSet(ArrayHashMap *hmap, MapSet *set) {
         Pair *entries;
         int i = 0, index = 0;
         int total = 0;
-        /* 統計有效鍵值對數量 */
+        /* 計算有效鍵值對的數量 */
         for (i = 0; i < MAX_SIZE; i++) {
             if (hmap->buckets[i] != NULL) {
                 total++;
@@ -1545,12 +1545,12 @@ index = hash(key) % capacity
         set->len = total;
     }
 
-    /* 獲取所有鍵 */
+    /* 取得所有鍵 */
     void keySet(ArrayHashMap *hmap, MapSet *set) {
         int *keys;
         int i = 0, index = 0;
         int total = 0;
-        /* 統計有效鍵值對數量 */
+        /* 計算有效鍵值對的數量 */
         for (i = 0; i < MAX_SIZE; i++) {
             if (hmap->buckets[i] != NULL) {
                 total++;
@@ -1567,12 +1567,12 @@ index = hash(key) % capacity
         set->len = total;
     }
 
-    /* 獲取所有值 */
+    /* 取得所有值 */
     void valueSet(ArrayHashMap *hmap, MapSet *set) {
         char **vals;
         int i = 0, index = 0;
         int total = 0;
-        /* 統計有效鍵值對數量 */
+        /* 計算有效鍵值對的數量 */
         for (i = 0; i < MAX_SIZE; i++) {
             if (hmap->buckets[i] != NULL) {
                 total++;
@@ -1589,7 +1589,7 @@ index = hash(key) % capacity
         set->len = total;
     }
 
-    /* 列印雜湊表 */
+    /* 印出雜湊表 */
     void print(ArrayHashMap *hmap) {
         int i;
         MapSet set;
@@ -1611,9 +1611,9 @@ index = hash(key) % capacity
         var _val: String
     )
 
-    /* 基於陣列實現的雜湊表 */
+    /* 以陣列實作的雜湊表 */
     class ArrayHashMap {
-        // 初始化陣列，包含 100 個桶
+        // 初始化包含 100 個桶的陣列
         private val buckets = arrayOfNulls<Pair>(100)
 
         /* 雜湊函式 */
@@ -1639,11 +1639,11 @@ index = hash(key) % capacity
         /* 刪除操作 */
         fun remove(key: Int) {
             val index = hashFunc(key)
-            // 置為 null ，代表刪除
+            // 設為 null，表示刪除
             buckets[index] = null
         }
 
-        /* 獲取所有鍵值對 */
+        /* 取得所有鍵值對 */
         fun pairSet(): MutableList<Pair> {
             val pairSet = mutableListOf<Pair>()
             for (pair in buckets) {
@@ -1653,7 +1653,7 @@ index = hash(key) % capacity
             return pairSet
         }
 
-        /* 獲取所有鍵 */
+        /* 取得所有鍵 */
         fun keySet(): MutableList<Int> {
             val keySet = mutableListOf<Int>()
             for (pair in buckets) {
@@ -1663,7 +1663,7 @@ index = hash(key) % capacity
             return keySet
         }
 
-        /* 獲取所有值 */
+        /* 取得所有值 */
         fun valueSet(): MutableList<String> {
             val valueSet = mutableListOf<String>()
             for (pair in buckets) {
@@ -1673,7 +1673,7 @@ index = hash(key) % capacity
             return valueSet
         }
 
-        /* 列印雜湊表 */
+        /* 印出雜湊表 */
         fun print() {
             for (kv in pairSet()) {
                 val key = kv.key
@@ -1697,11 +1697,11 @@ index = hash(key) % capacity
       end
     end
 
-    ### 基於陣列實現的雜湊表 ###
+    ### 以陣列實作的雜湊表 ###
     class ArrayHashMap
-      ### 建構子 ###
+      ### 建構方法 ###
       def initialize
-        # 初始化陣列，包含 100 個桶
+        # 初始化包含 100 個桶的陣列
         @buckets = Array.new(100)
       end
 
@@ -1729,68 +1729,68 @@ index = hash(key) % capacity
       ### 刪除操作 ###
       def remove(key)
         index = hash_func(key)
-        # 置為 nil ，代表刪除
+        # 設為 nil，表示刪除
         @buckets[index] = nil
       end
 
-      ### 獲取所有鍵值對 ###
+      ### 取得所有鍵值對 ###
       def entry_set
         result = []
         @buckets.each { |pair| result << pair unless pair.nil? }
         result
       end
 
-      ### 獲取所有鍵 ###
+      ### 取得所有鍵 ###
       def key_set
         result = []
         @buckets.each { |pair| result << pair.key unless pair.nil? }
         result
       end
 
-      ### 獲取所有值 ###
+      ### 取得所有值 ###
       def value_set
         result = []
         @buckets.each { |pair| result << pair.val unless pair.nil? }
         result
       end
 
-      ### 列印雜湊表 ###
+      ### 印出雜湊表 ###
       def print
         @buckets.each { |pair| puts "#{pair.key} -> #{pair.val}" unless pair.nil? }
       end
     end
     ```
 
-??? pythontutor "視覺化執行"
+??? pythontutor "執行視覺化示範"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="視覺化執行" src="https://pythontutor.com/iframe-embed.html#code=class%20Pair%3A%0A%20%20%20%20%22%22%22%E9%8D%B5%E5%80%BC%E5%B0%8D%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20key%3A%20int%2C%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20self.key%20%3D%20key%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%0A%0Aclass%20ArrayHashMap%3A%0A%20%20%20%20%22%22%22%E5%9F%BA%E6%96%BC%E9%99%A3%E5%88%97%E5%AF%A6%E7%8F%BE%E7%9A%84%E9%9B%9C%E6%B9%8A%E8%A1%A8%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%BB%BA%E6%A7%8B%E5%AD%90%22%22%22%0A%20%20%20%20%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%99%A3%E5%88%97%EF%BC%8C%E5%8C%85%E5%90%AB%2020%20%E5%80%8B%E6%A1%B6%0A%20%20%20%20%20%20%20%20self.buckets%3A%20list%5BPair%20%7C%20None%5D%20%3D%20%5BNone%5D%20%2A%2020%0A%0A%20%20%20%20def%20hash_func%28self%2C%20key%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E9%9B%9C%E6%B9%8A%E5%87%BD%E5%BC%8F%22%22%22%0A%20%20%20%20%20%20%20%20index%20%3D%20key%20%25%2020%0A%20%20%20%20%20%20%20%20return%20index%0A%0A%20%20%20%20def%20get%28self%2C%20key%3A%20int%29%20-%3E%20str%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20pair%3A%20Pair%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20if%20pair%20is%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20return%20pair.val%0A%0A%20%20%20%20def%20put%28self%2C%20key%3A%20int%2C%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20pair%20%3D%20Pair%28key%2C%20val%29%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20self.buckets%5Bindex%5D%20%3D%20pair%0A%0A%20%20%20%20def%20remove%28self%2C%20key%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20%23%20%E7%BD%AE%E7%82%BA%20None%20%EF%BC%8C%E4%BB%A3%E8%A1%A8%E5%88%AA%E9%99%A4%0A%20%20%20%20%20%20%20%20self.buckets%5Bindex%5D%20%3D%20None%0A%0A%20%20%20%20def%20entry_set%28self%29%20-%3E%20list%5BPair%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E7%8D%B2%E5%8F%96%E6%89%80%E6%9C%89%E9%8D%B5%E5%80%BC%E5%B0%8D%22%22%22%0A%20%20%20%20%20%20%20%20result%3A%20list%5BPair%5D%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20key_set%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E7%8D%B2%E5%8F%96%E6%89%80%E6%9C%89%E9%8D%B5%22%22%22%0A%20%20%20%20%20%20%20%20result%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair.key%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20value_set%28self%29%20-%3E%20list%5Bstr%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E7%8D%B2%E5%8F%96%E6%89%80%E6%9C%89%E5%80%BC%22%22%22%0A%20%20%20%20%20%20%20%20result%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair.val%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20print%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%97%E5%8D%B0%E9%9B%9C%E6%B9%8A%E8%A1%A8%22%22%22%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%28pair.key%2C%20%22-%3E%22%2C%20pair.val%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20ArrayHashMap%28%29%0A%0A%20%20%20%20%23%20%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%0A%20%20%20%20hmap.put%2812836%2C%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hmap.put%2815937%2C%20%22%E5%B0%8F%E5%9B%89%22%29%0A%20%20%20%20hmap.put%2816750%2C%20%22%E5%B0%8F%E7%AE%97%22%29%0A%20%20%20%20hmap.put%2813276%2C%20%22%E5%B0%8F%E6%B3%95%22%29%0A%20%20%20%20hmap.put%2810583%2C%20%22%E5%B0%8F%E9%B4%A8%22%29%0A%0A%20%20%20%20%23%20%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20name%20%3D%20hmap.get%2815937%29%0A%0A%20%20%20%20%23%20%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20hmap.remove%2810583%29%0A%0A%20%20%20%20%23%20%E8%B5%B0%E8%A8%AA%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20print%28%22%5Cn%E8%B5%B0%E8%A8%AA%E9%8D%B5%E5%80%BC%E5%B0%8D%20Key-%3EValue%22%29%0A%20%20%20%20for%20pair%20in%20hmap.entry_set%28%29%3A%0A%20%20%20%20%20%20%20%20print%28pair.key%2C%20%22-%3E%22%2C%20pair.val%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20Pair%3A%0A%20%20%20%20%22%22%22%E9%8D%B5%E5%80%BC%E5%B0%8D%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20key%3A%20int%2C%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20self.key%20%3D%20key%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%0A%0Aclass%20ArrayHashMap%3A%0A%20%20%20%20%22%22%22%E5%9F%BA%E6%96%BC%E9%99%A3%E5%88%97%E5%AF%A6%E7%8F%BE%E7%9A%84%E9%9B%9C%E6%B9%8A%E8%A1%A8%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%BB%BA%E6%A7%8B%E5%AD%90%22%22%22%0A%20%20%20%20%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%99%A3%E5%88%97%EF%BC%8C%E5%8C%85%E5%90%AB%2020%20%E5%80%8B%E6%A1%B6%0A%20%20%20%20%20%20%20%20self.buckets%3A%20list%5BPair%20%7C%20None%5D%20%3D%20%5BNone%5D%20%2A%2020%0A%0A%20%20%20%20def%20hash_func%28self%2C%20key%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E9%9B%9C%E6%B9%8A%E5%87%BD%E5%BC%8F%22%22%22%0A%20%20%20%20%20%20%20%20index%20%3D%20key%20%25%2020%0A%20%20%20%20%20%20%20%20return%20index%0A%0A%20%20%20%20def%20get%28self%2C%20key%3A%20int%29%20-%3E%20str%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20pair%3A%20Pair%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20if%20pair%20is%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20return%20pair.val%0A%0A%20%20%20%20def%20put%28self%2C%20key%3A%20int%2C%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20pair%20%3D%20Pair%28key%2C%20val%29%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20self.buckets%5Bindex%5D%20%3D%20pair%0A%0A%20%20%20%20def%20remove%28self%2C%20key%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20%23%20%E7%BD%AE%E7%82%BA%20None%20%EF%BC%8C%E4%BB%A3%E8%A1%A8%E5%88%AA%E9%99%A4%0A%20%20%20%20%20%20%20%20self.buckets%5Bindex%5D%20%3D%20None%0A%0A%20%20%20%20def%20entry_set%28self%29%20-%3E%20list%5BPair%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E7%8D%B2%E5%8F%96%E6%89%80%E6%9C%89%E9%8D%B5%E5%80%BC%E5%B0%8D%22%22%22%0A%20%20%20%20%20%20%20%20result%3A%20list%5BPair%5D%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20key_set%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E7%8D%B2%E5%8F%96%E6%89%80%E6%9C%89%E9%8D%B5%22%22%22%0A%20%20%20%20%20%20%20%20result%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair.key%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20value_set%28self%29%20-%3E%20list%5Bstr%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E7%8D%B2%E5%8F%96%E6%89%80%E6%9C%89%E5%80%BC%22%22%22%0A%20%20%20%20%20%20%20%20result%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair.val%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20print%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%97%E5%8D%B0%E9%9B%9C%E6%B9%8A%E8%A1%A8%22%22%22%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%28pair.key%2C%20%22-%3E%22%2C%20pair.val%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20ArrayHashMap%28%29%0A%0A%20%20%20%20%23%20%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%0A%20%20%20%20hmap.put%2812836%2C%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hmap.put%2815937%2C%20%22%E5%B0%8F%E5%9B%89%22%29%0A%20%20%20%20hmap.put%2816750%2C%20%22%E5%B0%8F%E7%AE%97%22%29%0A%20%20%20%20hmap.put%2813276%2C%20%22%E5%B0%8F%E6%B3%95%22%29%0A%20%20%20%20hmap.put%2810583%2C%20%22%E5%B0%8F%E9%B4%A8%22%29%0A%0A%20%20%20%20%23%20%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20name%20%3D%20hmap.get%2815937%29%0A%0A%20%20%20%20%23%20%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20hmap.remove%2810583%29%0A%0A%20%20%20%20%23%20%E8%B5%B0%E8%A8%AA%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20print%28%22%5Cn%E8%B5%B0%E8%A8%AA%E9%8D%B5%E5%80%BC%E5%B0%8D%20Key-%3EValue%22%29%0A%20%20%20%20for%20pair%20in%20hmap.entry_set%28%29%3A%0A%20%20%20%20%20%20%20%20print%28pair.key%2C%20%22-%3E%22%2C%20pair.val%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="執行視覺化示範" src="https://pythontutor.com/iframe-embed.html#code=class%20Pair%3A%0A%20%20%20%20%22%22%22%E9%8D%B5%E5%80%BC%E5%B0%8D%22%22%22%0A%20%20%20%20def%20__init__%28self,%20key%3A%20int,%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20self.key%20%3D%20key%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%0A%0Aclass%20ArrayHashMap%3A%0A%20%20%20%20%22%22%22%E4%BB%A5%E9%99%A3%E5%88%97%E5%AF%A6%E4%BD%9C%E7%9A%84%E9%9B%9C%E6%B9%8A%E8%A1%A8%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%BB%BA%E6%A7%8B%E6%96%B9%E6%B3%95%22%22%22%0A%20%20%20%20%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8C%85%E5%90%AB%2020%20%E5%80%8B%E6%A1%B6%E7%9A%84%E9%99%A3%E5%88%97%0A%20%20%20%20%20%20%20%20self.buckets%3A%20list%5BPair%20%7C%20None%5D%20%3D%20%5BNone%5D%20%2A%2020%0A%0A%20%20%20%20def%20hash_func%28self,%20key%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E9%9B%9C%E6%B9%8A%E5%87%BD%E5%BC%8F%22%22%22%0A%20%20%20%20%20%20%20%20index%20%3D%20key%20%25%2020%0A%20%20%20%20%20%20%20%20return%20index%0A%0A%20%20%20%20def%20get%28self,%20key%3A%20int%29%20-%3E%20str%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20pair%3A%20Pair%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20if%20pair%20is%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20return%20pair.val%0A%0A%20%20%20%20def%20put%28self,%20key%3A%20int,%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20pair%20%3D%20Pair%28key,%20val%29%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20self.buckets%5Bindex%5D%20%3D%20pair%0A%0A%20%20%20%20def%20remove%28self,%20key%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20%23%20%E8%A8%AD%E7%82%BA%20None%EF%BC%8C%E8%A1%A8%E7%A4%BA%E5%88%AA%E9%99%A4%0A%20%20%20%20%20%20%20%20self.buckets%5Bindex%5D%20%3D%20None%0A%0A%20%20%20%20def%20entry_set%28self%29%20-%3E%20list%5BPair%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%8F%96%E5%BE%97%E6%89%80%E6%9C%89%E9%8D%B5%E5%80%BC%E5%B0%8D%22%22%22%0A%20%20%20%20%20%20%20%20result%3A%20list%5BPair%5D%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20key_set%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%8F%96%E5%BE%97%E6%89%80%E6%9C%89%E9%8D%B5%22%22%22%0A%20%20%20%20%20%20%20%20result%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair.key%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20value_set%28self%29%20-%3E%20list%5Bstr%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%8F%96%E5%BE%97%E6%89%80%E6%9C%89%E5%80%BC%22%22%22%0A%20%20%20%20%20%20%20%20result%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair.val%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20print%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%8D%B0%E5%87%BA%E9%9B%9C%E6%B9%8A%E8%A1%A8%22%22%22%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%28pair.key,%20%22-%3E%22,%20pair.val%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20ArrayHashMap%28%29%0A%0A%20%20%20%20%23%20%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%0A%20%20%20%20hmap.put%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hmap.put%2815937,%20%22%E5%B0%8F%E5%9B%89%22%29%0A%20%20%20%20hmap.put%2816750,%20%22%E5%B0%8F%E7%AE%97%22%29%0A%20%20%20%20hmap.put%2813276,%20%22%E5%B0%8F%E6%B3%95%22%29%0A%20%20%20%20hmap.put%2810583,%20%22%E5%B0%8F%E9%B4%A8%22%29%0A%0A%20%20%20%20%23%20%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20name%20%3D%20hmap.get%2815937%29%0A%0A%20%20%20%20%23%20%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20hmap.remove%2810583%29%0A%0A%20%20%20%20%23%20%E8%B5%B0%E8%A8%AA%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20print%28%22%5Cn%E8%B5%B0%E8%A8%AA%E9%8D%B5%E5%80%BC%E5%B0%8D%20Key-%3EValue%22%29%0A%20%20%20%20for%20pair%20in%20hmap.entry_set%28%29%3A%0A%20%20%20%20%20%20%20%20print%28pair.key,%20%22-%3E%22,%20pair.val%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20Pair%3A%0A%20%20%20%20%22%22%22%E9%8D%B5%E5%80%BC%E5%B0%8D%22%22%22%0A%20%20%20%20def%20__init__%28self,%20key%3A%20int,%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20self.key%20%3D%20key%0A%20%20%20%20%20%20%20%20self.val%20%3D%20val%0A%0A%0Aclass%20ArrayHashMap%3A%0A%20%20%20%20%22%22%22%E4%BB%A5%E9%99%A3%E5%88%97%E5%AF%A6%E4%BD%9C%E7%9A%84%E9%9B%9C%E6%B9%8A%E8%A1%A8%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%BB%BA%E6%A7%8B%E6%96%B9%E6%B3%95%22%22%22%0A%20%20%20%20%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8C%85%E5%90%AB%2020%20%E5%80%8B%E6%A1%B6%E7%9A%84%E9%99%A3%E5%88%97%0A%20%20%20%20%20%20%20%20self.buckets%3A%20list%5BPair%20%7C%20None%5D%20%3D%20%5BNone%5D%20%2A%2020%0A%0A%20%20%20%20def%20hash_func%28self,%20key%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E9%9B%9C%E6%B9%8A%E5%87%BD%E5%BC%8F%22%22%22%0A%20%20%20%20%20%20%20%20index%20%3D%20key%20%25%2020%0A%20%20%20%20%20%20%20%20return%20index%0A%0A%20%20%20%20def%20get%28self,%20key%3A%20int%29%20-%3E%20str%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20pair%3A%20Pair%20%3D%20self.buckets%5Bindex%5D%0A%20%20%20%20%20%20%20%20if%20pair%20is%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20%20%20%20%20return%20pair.val%0A%0A%20%20%20%20def%20put%28self,%20key%3A%20int,%20val%3A%20str%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20pair%20%3D%20Pair%28key,%20val%29%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20self.buckets%5Bindex%5D%20%3D%20pair%0A%0A%20%20%20%20def%20remove%28self,%20key%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%22%22%22%0A%20%20%20%20%20%20%20%20index%3A%20int%20%3D%20self.hash_func%28key%29%0A%20%20%20%20%20%20%20%20%23%20%E8%A8%AD%E7%82%BA%20None%EF%BC%8C%E8%A1%A8%E7%A4%BA%E5%88%AA%E9%99%A4%0A%20%20%20%20%20%20%20%20self.buckets%5Bindex%5D%20%3D%20None%0A%0A%20%20%20%20def%20entry_set%28self%29%20-%3E%20list%5BPair%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%8F%96%E5%BE%97%E6%89%80%E6%9C%89%E9%8D%B5%E5%80%BC%E5%B0%8D%22%22%22%0A%20%20%20%20%20%20%20%20result%3A%20list%5BPair%5D%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20key_set%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%8F%96%E5%BE%97%E6%89%80%E6%9C%89%E9%8D%B5%22%22%22%0A%20%20%20%20%20%20%20%20result%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair.key%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20value_set%28self%29%20-%3E%20list%5Bstr%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%8F%96%E5%BE%97%E6%89%80%E6%9C%89%E5%80%BC%22%22%22%0A%20%20%20%20%20%20%20%20result%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20result.append%28pair.val%29%0A%20%20%20%20%20%20%20%20return%20result%0A%0A%20%20%20%20def%20print%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%8D%B0%E5%87%BA%E9%9B%9C%E6%B9%8A%E8%A1%A8%22%22%22%0A%20%20%20%20%20%20%20%20for%20pair%20in%20self.buckets%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20pair%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%28pair.key,%20%22-%3E%22,%20pair.val%29%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20ArrayHashMap%28%29%0A%0A%20%20%20%20%23%20%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%0A%20%20%20%20hmap.put%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hmap.put%2815937,%20%22%E5%B0%8F%E5%9B%89%22%29%0A%20%20%20%20hmap.put%2816750,%20%22%E5%B0%8F%E7%AE%97%22%29%0A%20%20%20%20hmap.put%2813276,%20%22%E5%B0%8F%E6%B3%95%22%29%0A%20%20%20%20hmap.put%2810583,%20%22%E5%B0%8F%E9%B4%A8%22%29%0A%0A%20%20%20%20%23%20%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20name%20%3D%20hmap.get%2815937%29%0A%0A%20%20%20%20%23%20%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20hmap.remove%2810583%29%0A%0A%20%20%20%20%23%20%E8%B5%B0%E8%A8%AA%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20print%28%22%5Cn%E8%B5%B0%E8%A8%AA%E9%8D%B5%E5%80%BC%E5%B0%8D%20Key-%3EValue%22%29%0A%20%20%20%20for%20pair%20in%20hmap.entry_set%28%29%3A%0A%20%20%20%20%20%20%20%20print%28pair.key,%20%22-%3E%22,%20pair.val%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
 
-## 6.1.3 &nbsp; 雜湊衝突與擴容
+## 6.1.3 &nbsp; 雜湊碰撞與容量擴充
 
-從本質上看，雜湊函式的作用是將所有 `key` 構成的輸入空間對映到陣列所有索引構成的輸出空間，而輸入空間往往遠大於輸出空間。因此，**理論上一定存在“多個輸入對應相同輸出”的情況**。
+雜湊函式的作用，是將所有 `key` 構成的輸入空間，對應到陣列所有索引構成的輸出空間。輸入空間往往遠大於輸出空間，因此**理論上一定會有多個輸入對應到同一個輸出**。
 
-對於上述示例中的雜湊函式，當輸入的 `key` 後兩位相同時，雜湊函式的輸出結果也相同。例如，查詢學號為 12836 和 20336 的兩個學生時，我們得到：
+以前例的雜湊函式來說，只要輸入的 `key` 末兩位相同，輸出也會相同。例如，查詢學號為 12836 和 20336 的兩位學生時，會得到以下結果：
 
 ```shell
 12836 % 100 = 36
 20336 % 100 = 36
 ```
 
-如圖 6-3 所示，兩個學號指向了同一個姓名，這顯然是不對的。我們將這種多個輸入對應同一輸出的情況稱為<u>雜湊衝突（hash collision）</u>。
+如圖 6-3 所示，兩個學號指向了同一個姓名，結果顯然有誤。這種多個輸入對應到同一個輸出的情況，稱為<u>雜湊碰撞（hash collision）</u>。
 
-![雜湊衝突示例](hash_map.assets/hash_collision.svg){ class="animation-figure" }
+![雜湊碰撞範例](hash_map.assets/hash_collision.svg){ class="animation-figure" }
 
-<p align="center"> 圖 6-3 &nbsp; 雜湊衝突示例 </p>
+<p align="center"> 圖 6-3 &nbsp; 雜湊碰撞範例 </p>
 
-容易想到，雜湊表容量 $n$ 越大，多個 `key` 被分配到同一個桶中的機率就越低，衝突就越少。因此，**我們可以透過擴容雜湊表來減少雜湊衝突**。
+雜湊表的容量 $n$ 越大，多個 `key` 被分配到同一個桶的機率就越低，碰撞也就越少。因此，**我們可以透過擴充雜湊表的容量來減少碰撞**。
 
-如圖 6-4 所示，擴容前鍵值對 `(136, A)` 和 `(236, D)` 發生衝突，擴容後衝突消失。
+如圖 6-4 所示，擴充容量前，鍵值對 `(136, A)` 與 `(236, D)` 發生碰撞。擴充後，碰撞便消失了。
 
-![雜湊表擴容](hash_map.assets/hash_table_reshash.svg){ class="animation-figure" }
+![擴充雜湊表容量](hash_map.assets/hash_table_reshash.svg){ class="animation-figure" }
 
-<p align="center"> 圖 6-4 &nbsp; 雜湊表擴容 </p>
+<p align="center"> 圖 6-4 &nbsp; 擴充雜湊表容量 </p>
 
-類似於陣列擴容，雜湊表擴容需將所有鍵值對從原雜湊表遷移至新雜湊表，非常耗時；並且由於雜湊表容量 `capacity` 改變，我們需要透過雜湊函式來重新計算所有鍵值對的儲存位置，這進一步增加了擴容過程的計算開銷。為此，程式語言通常會預留足夠大的雜湊表容量，防止頻繁擴容。
+和擴充陣列一樣，擴充雜湊表的容量也必須把所有鍵值對從舊表搬到新表，相當耗時。此外，雜湊表的容量 `capacity` 改變後，還要用雜湊函式重新計算所有鍵值對的存放位置，進一步增加擴充時的運算成本。因此，程式語言通常會為雜湊表預留夠大的容量，以免頻繁擴充。
 
-<u>負載因子（load factor）</u>是雜湊表的一個重要概念，其定義為雜湊表的元素數量除以桶數量，用於衡量雜湊衝突的嚴重程度，**也常作為雜湊表擴容的觸發條件**。例如在 Java 中，當負載因子超過 $0.75$ 時，系統會將雜湊表擴容至原先的 $2$ 倍。
+<u>負載因子（load factor）</u>是雜湊表的重要概念，定義為表中的元素數量除以桶數。它可用來衡量雜湊碰撞的嚴重程度，**也常用來判斷何時該擴充雜湊表的容量**。例如在 Java 中，當負載因子超過 $0.75$ 時，系統就會將雜湊表的容量擴充為原來的 $2$ 倍。

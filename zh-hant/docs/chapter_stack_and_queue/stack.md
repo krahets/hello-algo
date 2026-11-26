@@ -4,58 +4,58 @@ comments: true
 
 # 5.1 &nbsp; 堆疊
 
-<u>堆疊（stack）</u>是一種遵循先入後出邏輯的線性資料結構。
+<u>堆疊（stack）</u>是一種遵循先進後出原則的線性資料結構。
 
-我們可以將堆疊類比為桌面上的一疊盤子，規定每次只能移動一個盤子，那麼想取出底部的盤子，則需要先將上面的盤子依次移走。我們將盤子替換為各種型別的元素（如整數、字元、物件等），就得到了堆疊這種資料結構。
+想像桌上有一疊盤子，每次只能移動一個。想拿到底下的盤子，就得先把上面的盤子一個個移開。將盤子換成整數、字元或物件等各種類型的元素，就得到了堆疊這種資料結構。
 
-如圖 5-1 所示，我們把堆積疊元素的頂部稱為“堆疊頂”，底部稱為“堆疊底”。將把元素新增到堆疊頂的操作叫作“入堆疊”，刪除堆疊頂元素的操作叫作“出堆疊”。
+如圖 5-1 所示，元素疊起來的最上方稱為「堆疊頂端」，最下方稱為「堆疊底端」。在頂端加入元素稱為「推入」，移除頂端元素則稱為「彈出」。
 
-![堆疊的先入後出規則](stack.assets/stack_operations.svg){ class="animation-figure" }
+![堆疊的先進後出原則](stack.assets/stack_operations.svg){ class="animation-figure" }
 
-<p align="center"> 圖 5-1 &nbsp; 堆疊的先入後出規則 </p>
+<p align="center"> 圖 5-1 &nbsp; 堆疊的先進後出原則 </p>
 
 ## 5.1.1 &nbsp; 堆疊的常用操作
 
-堆疊的常用操作如表 5-1 所示，具體的方法名需要根據所使用的程式語言來確定。在此，我們以常見的 `push()`、`pop()`、`peek()` 命名為例。
+表 5-1 列出堆疊的常用操作。方法名稱依程式語言而異，這裡以常見的 `push()`、`pop()` 和 `peek()` 為例。
 
 <p align="center"> 表 5-1 &nbsp; 堆疊的操作效率 </p>
 
 <div class="center-table" markdown>
 
-| 方法     | 描述                   | 時間複雜度 |
+| 方法     | 說明                   | 時間複雜度 |
 | -------- | ---------------------- | ---------- |
-| `push()` | 元素入堆疊（新增至堆疊頂） | $O(1)$     |
-| `pop()`  | 堆疊頂元素出堆疊           | $O(1)$     |
-| `peek()` | 訪問堆疊頂元素           | $O(1)$     |
+| `push()` | 推入元素（加到堆疊頂端） | $O(1)$     |
+| `pop()`  | 彈出堆疊頂端的元素           | $O(1)$     |
+| `peek()` | 讀取堆疊頂端的元素           | $O(1)$     |
 
 </div>
 
-通常情況下，我們可以直接使用程式語言內建的堆疊類別。然而，某些語言可能沒有專門提供堆疊類別，這時我們可以將該語言的“陣列”或“鏈結串列”當作堆疊來使用，並在程式邏輯上忽略與堆疊無關的操作。
+通常可以直接使用程式語言內建的堆疊類別。有些語言沒有專用的堆疊類別，這時可以把該語言提供的陣列或鏈結串列當作堆疊使用，在程式中只採用與堆疊有關的操作。
 
 === "Python"
 
     ```python title="stack.py"
     # 初始化堆疊
-    # Python 沒有內建的堆疊類別，可以把 list 當作堆疊來使用
+    # Python 沒有內建堆疊類別，可以用 list 當作堆疊
     stack: list[int] = []
 
-    # 元素入堆疊
+    # 將元素推入堆疊
     stack.append(1)
     stack.append(3)
     stack.append(2)
     stack.append(5)
     stack.append(4)
 
-    # 訪問堆疊頂元素
+    # 讀取堆疊頂端的元素
     peek: int = stack[-1]
 
-    # 元素出堆疊
+    # 從堆疊彈出元素
     pop: int = stack.pop()
 
-    # 獲取堆疊的長度
+    # 取得堆疊長度
     size: int = len(stack)
 
-    # 判斷是否為空
+    # 判斷堆疊是否為空
     is_empty: bool = len(stack) == 0
     ```
 
@@ -65,23 +65,23 @@ comments: true
     /* 初始化堆疊 */
     stack<int> stack;
 
-    /* 元素入堆疊 */
+    /* 將元素推入堆疊 */
     stack.push(1);
     stack.push(3);
     stack.push(2);
     stack.push(5);
     stack.push(4);
 
-    /* 訪問堆疊頂元素 */
+    /* 讀取堆疊頂端的元素 */
     int top = stack.top();
 
-    /* 元素出堆疊 */
-    stack.pop(); // 無返回值
+    /* 移除堆疊頂端的元素 */
+    stack.pop(); // 沒有回傳值
 
-    /* 獲取堆疊的長度 */
+    /* 取得堆疊長度 */
     int size = stack.size();
 
-    /* 判斷是否為空 */
+    /* 判斷堆疊是否為空 */
     bool empty = stack.empty();
     ```
 
@@ -91,23 +91,23 @@ comments: true
     /* 初始化堆疊 */
     Stack<Integer> stack = new Stack<>();
 
-    /* 元素入堆疊 */
+    /* 將元素推入堆疊 */
     stack.push(1);
     stack.push(3);
     stack.push(2);
     stack.push(5);
     stack.push(4);
 
-    /* 訪問堆疊頂元素 */
+    /* 讀取堆疊頂端的元素 */
     int peek = stack.peek();
 
-    /* 元素出堆疊 */
+    /* 從堆疊彈出元素 */
     int pop = stack.pop();
 
-    /* 獲取堆疊的長度 */
+    /* 取得堆疊長度 */
     int size = stack.size();
 
-    /* 判斷是否為空 */
+    /* 判斷堆疊是否為空 */
     boolean isEmpty = stack.isEmpty();
     ```
 
@@ -117,23 +117,23 @@ comments: true
     /* 初始化堆疊 */
     Stack<int> stack = new();
 
-    /* 元素入堆疊 */
+    /* 將元素推入堆疊 */
     stack.Push(1);
     stack.Push(3);
     stack.Push(2);
     stack.Push(5);
     stack.Push(4);
 
-    /* 訪問堆疊頂元素 */
+    /* 讀取堆疊頂端的元素 */
     int peek = stack.Peek();
 
-    /* 元素出堆疊 */
+    /* 從堆疊彈出元素 */
     int pop = stack.Pop();
 
-    /* 獲取堆疊的長度 */
+    /* 取得堆疊長度 */
     int size = stack.Count;
 
-    /* 判斷是否為空 */
+    /* 判斷堆疊是否為空 */
     bool isEmpty = stack.Count == 0;
     ```
 
@@ -141,27 +141,27 @@ comments: true
 
     ```go title="stack_test.go"
     /* 初始化堆疊 */
-    // 在 Go 中，推薦將 Slice 當作堆疊來使用
+    // 在 Go 中，建議用切片（slice）當作堆疊
     var stack []int
 
-    /* 元素入堆疊 */
+    /* 將元素推入堆疊 */
     stack = append(stack, 1)
     stack = append(stack, 3)
     stack = append(stack, 2)
     stack = append(stack, 5)
     stack = append(stack, 4)
 
-    /* 訪問堆疊頂元素 */
+    /* 讀取堆疊頂端的元素 */
     peek := stack[len(stack)-1]
 
-    /* 元素出堆疊 */
+    /* 從堆疊彈出元素 */
     pop := stack[len(stack)-1]
     stack = stack[:len(stack)-1]
 
-    /* 獲取堆疊的長度 */
+    /* 取得堆疊長度 */
     size := len(stack)
 
-    /* 判斷是否為空 */
+    /* 判斷堆疊是否為空 */
     isEmpty := len(stack) == 0
     ```
 
@@ -169,26 +169,26 @@ comments: true
 
     ```swift title="stack.swift"
     /* 初始化堆疊 */
-    // Swift 沒有內建的堆疊類別，可以把 Array 當作堆疊來使用
+    // Swift 沒有內建堆疊類別，可以用 Array 當作堆疊
     var stack: [Int] = []
 
-    /* 元素入堆疊 */
+    /* 將元素推入堆疊 */
     stack.append(1)
     stack.append(3)
     stack.append(2)
     stack.append(5)
     stack.append(4)
 
-    /* 訪問堆疊頂元素 */
+    /* 讀取堆疊頂端的元素 */
     let peek = stack.last!
 
-    /* 元素出堆疊 */
+    /* 從堆疊彈出元素 */
     let pop = stack.removeLast()
 
-    /* 獲取堆疊的長度 */
+    /* 取得堆疊長度 */
     let size = stack.count
 
-    /* 判斷是否為空 */
+    /* 判斷堆疊是否為空 */
     let isEmpty = stack.isEmpty
     ```
 
@@ -196,26 +196,26 @@ comments: true
 
     ```javascript title="stack.js"
     /* 初始化堆疊 */
-    // JavaScript 沒有內建的堆疊類別，可以把 Array 當作堆疊來使用
+    // JavaScript 沒有內建堆疊類別，可以用 Array 當作堆疊
     const stack = [];
 
-    /* 元素入堆疊 */
+    /* 將元素推入堆疊 */
     stack.push(1);
     stack.push(3);
     stack.push(2);
     stack.push(5);
     stack.push(4);
 
-    /* 訪問堆疊頂元素 */
+    /* 讀取堆疊頂端的元素 */
     const peek = stack[stack.length - 1];
 
-    /* 元素出堆疊 */
+    /* 從堆疊彈出元素 */
     const pop = stack.pop();
 
-    /* 獲取堆疊的長度 */
+    /* 取得堆疊長度 */
     const size = stack.length;
 
-    /* 判斷是否為空 */
+    /* 判斷堆疊是否為空 */
     const isEmpty = stack.length === 0;
     ```
 
@@ -223,26 +223,26 @@ comments: true
 
     ```typescript title="stack.ts"
     /* 初始化堆疊 */
-    // TypeScript 沒有內建的堆疊類別，可以把 Array 當作堆疊來使用
+    // TypeScript 沒有內建堆疊類別，可以用 Array 當作堆疊
     const stack: number[] = [];
 
-    /* 元素入堆疊 */
+    /* 將元素推入堆疊 */
     stack.push(1);
     stack.push(3);
     stack.push(2);
     stack.push(5);
     stack.push(4);
 
-    /* 訪問堆疊頂元素 */
+    /* 讀取堆疊頂端的元素 */
     const peek = stack[stack.length - 1];
 
-    /* 元素出堆疊 */
+    /* 從堆疊彈出元素 */
     const pop = stack.pop();
 
-    /* 獲取堆疊的長度 */
+    /* 取得堆疊長度 */
     const size = stack.length;
 
-    /* 判斷是否為空 */
+    /* 判斷堆疊是否為空 */
     const isEmpty = stack.length === 0;
     ```
 
@@ -250,26 +250,26 @@ comments: true
 
     ```dart title="stack.dart"
     /* 初始化堆疊 */
-    // Dart 沒有內建的堆疊類別，可以把 List 當作堆疊來使用
+    // Dart 沒有內建堆疊類別，可以用 List 當作堆疊
     final List<int> stack = [];
 
-    /* 元素入堆疊 */
+    /* 將元素推入堆疊 */
     stack.add(1);
     stack.add(3);
     stack.add(2);
     stack.add(5);
     stack.add(4);
 
-    /* 訪問堆疊頂元素 */
+    /* 讀取堆疊頂端的元素 */
     final int peek = stack.last;
 
-    /* 元素出堆疊 */
+    /* 從堆疊彈出元素 */
     final int pop = stack.removeLast();
 
-    /* 獲取堆疊的長度 */
+    /* 取得堆疊長度 */
     final int size = stack.length;
 
-    /* 判斷是否為空 */
+    /* 判斷堆疊是否為空 */
     final bool isEmpty = stack.isEmpty;
     ```
 
@@ -277,23 +277,23 @@ comments: true
 
     ```rust title="stack.rs"
     // 初始化堆疊
-    // 在 Rust 中，推薦將 Vec 當作堆疊來使用
+    // 在 Rust 中，建議用 Vec 當作堆疊
     let mut stack: Vec<i32> = Vec::new();
 
-    // 元素入堆疊
+    // 將元素推入堆疊
     stack.push(1);
     stack.push(3);
     stack.push(2);
     stack.push(5);
     stack.push(4);
 
-    // 訪問堆疊頂元素
+    // 讀取堆疊頂端的元素
     let peek = stack.last().unwrap();
 
-    // 元素出堆疊
+    // 從堆疊彈出元素
     let pop = stack.pop().unwrap();
 
-    // 獲取堆疊的長度
+    // 取得堆疊長度
     let size = stack.len();
 
     // 判斷堆疊是否為空
@@ -303,7 +303,7 @@ comments: true
 === "C"
 
     ```c title="stack.c"
-    // C 未提供內建堆疊
+    // C 沒有內建堆疊
     ```
 
 === "Kotlin"
@@ -312,23 +312,23 @@ comments: true
     /* 初始化堆疊 */
     val stack = Stack<Int>()
 
-    /* 元素入堆疊 */
+    /* 將元素推入堆疊 */
     stack.push(1)
     stack.push(3)
     stack.push(2)
     stack.push(5)
     stack.push(4)
 
-    /* 訪問堆疊頂元素 */
+    /* 讀取堆疊頂端的元素 */
     val peek = stack.peek()
 
-    /* 元素出堆疊 */
+    /* 從堆疊彈出元素 */
     val pop = stack.pop()
 
-    /* 獲取堆疊的長度 */
+    /* 取得堆疊長度 */
     val size = stack.size
 
-    /* 判斷是否為空 */
+    /* 判斷堆疊是否為空 */
     val isEmpty = stack.isEmpty()
     ```
 
@@ -336,48 +336,48 @@ comments: true
 
     ```ruby title="stack.rb"
     # 初始化堆疊
-    # Ruby 沒有內建的堆疊類別，可以把 Array 當作堆疊來使用
+    # Ruby 沒有內建堆疊類別，可以用 Array 當作堆疊
     stack = []
 
-    # 元素入堆疊
+    # 將元素推入堆疊
     stack << 1
     stack << 3
     stack << 2
     stack << 5
     stack << 4
 
-    # 訪問堆疊頂元素
+    # 讀取堆疊頂端的元素
     peek = stack.last
 
-    # 元素出堆疊
+    # 從堆疊彈出元素
     pop = stack.pop
 
-    # 獲取堆疊的長度
+    # 取得堆疊長度
     size = stack.length
 
-    # 判斷是否為空
+    # 判斷堆疊是否為空
     is_empty = stack.empty?
     ```
 
-??? pythontutor "視覺化執行"
+??? pythontutor "執行視覺化示範"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="視覺化執行" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%A0%86%E7%96%8A%0A%20%20%20%20%23%20Python%20%E6%B2%92%E6%9C%89%E5%85%A7%E5%BB%BA%E7%9A%84%E5%A0%86%E7%96%8A%E9%A1%9E%E5%88%A5%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%8A%8A%20list%20%E7%95%B6%E4%BD%9C%E5%A0%86%E7%96%8A%E4%BE%86%E4%BD%BF%E7%94%A8%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E5%A0%86%E7%96%8A%0A%20%20%20%20stack.append%281%29%0A%20%20%20%20stack.append%283%29%0A%20%20%20%20stack.append%282%29%0A%20%20%20%20stack.append%285%29%0A%20%20%20%20stack.append%284%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%20stack%20%3D%22%2C%20stack%29%0A%0A%20%20%20%20%23%20%E8%A8%AA%E5%95%8F%E5%A0%86%E7%96%8A%E9%A0%82%E5%85%83%E7%B4%A0%0A%20%20%20%20peek%20%3D%20stack%5B-1%5D%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E9%A0%82%E5%85%83%E7%B4%A0%20peek%20%3D%22%2C%20peek%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E5%A0%86%E7%96%8A%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E5%87%BA%E5%A0%86%E7%96%8A%E5%85%83%E7%B4%A0%20pop%20%3D%22%2C%20pop%29%0A%20%20%20%20print%28%22%E5%87%BA%E5%A0%86%E7%96%8A%E5%BE%8C%20stack%20%3D%22%2C%20stack%29%0A%0A%20%20%20%20%23%20%E7%8D%B2%E5%8F%96%E5%A0%86%E7%96%8A%E7%9A%84%E9%95%B7%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28stack%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E7%9A%84%E9%95%B7%E5%BA%A6%20size%20%3D%22%2C%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%B7%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28stack%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%20%3D%22%2C%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%A0%86%E7%96%8A%0A%20%20%20%20%23%20Python%20%E6%B2%92%E6%9C%89%E5%85%A7%E5%BB%BA%E7%9A%84%E5%A0%86%E7%96%8A%E9%A1%9E%E5%88%A5%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%8A%8A%20list%20%E7%95%B6%E4%BD%9C%E5%A0%86%E7%96%8A%E4%BE%86%E4%BD%BF%E7%94%A8%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E5%A0%86%E7%96%8A%0A%20%20%20%20stack.append%281%29%0A%20%20%20%20stack.append%283%29%0A%20%20%20%20stack.append%282%29%0A%20%20%20%20stack.append%285%29%0A%20%20%20%20stack.append%284%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%20stack%20%3D%22%2C%20stack%29%0A%0A%20%20%20%20%23%20%E8%A8%AA%E5%95%8F%E5%A0%86%E7%96%8A%E9%A0%82%E5%85%83%E7%B4%A0%0A%20%20%20%20peek%20%3D%20stack%5B-1%5D%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E9%A0%82%E5%85%83%E7%B4%A0%20peek%20%3D%22%2C%20peek%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E5%A0%86%E7%96%8A%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E5%87%BA%E5%A0%86%E7%96%8A%E5%85%83%E7%B4%A0%20pop%20%3D%22%2C%20pop%29%0A%20%20%20%20print%28%22%E5%87%BA%E5%A0%86%E7%96%8A%E5%BE%8C%20stack%20%3D%22%2C%20stack%29%0A%0A%20%20%20%20%23%20%E7%8D%B2%E5%8F%96%E5%A0%86%E7%96%8A%E7%9A%84%E9%95%B7%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28stack%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E7%9A%84%E9%95%B7%E5%BA%A6%20size%20%3D%22%2C%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%B7%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28stack%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%20%3D%22%2C%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="執行視覺化示範" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%A0%86%E7%96%8A%0A%20%20%20%20%23%20Python%20%E6%B2%92%E6%9C%89%E5%85%A7%E5%BB%BA%E7%9A%84%E5%A0%86%E7%96%8A%E9%A1%9E%E5%88%A5%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%8A%8A%20list%20%E7%95%B6%E4%BD%9C%E5%A0%86%E7%96%8A%E4%BD%BF%E7%94%A8%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%0A%20%20%20%20%23%20%E5%B0%87%E5%85%83%E7%B4%A0%E6%8E%A8%E5%85%A5%E5%A0%86%E7%96%8A%0A%20%20%20%20stack.append%281%29%0A%20%20%20%20stack.append%283%29%0A%20%20%20%20stack.append%282%29%0A%20%20%20%20stack.append%285%29%0A%20%20%20%20stack.append%284%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%20stack%20%3D%22,%20stack%29%0A%0A%20%20%20%20%23%20%E8%AE%80%E5%8F%96%E5%A0%86%E7%96%8A%E9%A0%82%E7%AB%AF%E7%9A%84%E5%85%83%E7%B4%A0%0A%20%20%20%20peek%20%3D%20stack%5B-1%5D%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E9%A0%82%E7%AB%AF%E7%9A%84%E5%85%83%E7%B4%A0%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20%E5%BE%9E%E5%A0%86%E7%96%8A%E5%BD%88%E5%87%BA%E5%85%83%E7%B4%A0%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E5%BD%88%E5%87%BA%E7%9A%84%E5%85%83%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22%E5%BD%88%E5%87%BA%E5%85%83%E7%B4%A0%E5%BE%8C%20stack%20%3D%22,%20stack%29%0A%0A%20%20%20%20%23%20%E5%8F%96%E5%BE%97%E5%A0%86%E7%96%8A%E7%9A%84%E9%95%B7%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28stack%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E9%95%B7%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%B7%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28stack%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%20%3D%22,%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%A0%86%E7%96%8A%0A%20%20%20%20%23%20Python%20%E6%B2%92%E6%9C%89%E5%85%A7%E5%BB%BA%E7%9A%84%E5%A0%86%E7%96%8A%E9%A1%9E%E5%88%A5%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%8A%8A%20list%20%E7%95%B6%E4%BD%9C%E5%A0%86%E7%96%8A%E4%BD%BF%E7%94%A8%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%0A%20%20%20%20%23%20%E5%B0%87%E5%85%83%E7%B4%A0%E6%8E%A8%E5%85%A5%E5%A0%86%E7%96%8A%0A%20%20%20%20stack.append%281%29%0A%20%20%20%20stack.append%283%29%0A%20%20%20%20stack.append%282%29%0A%20%20%20%20stack.append%285%29%0A%20%20%20%20stack.append%284%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%20stack%20%3D%22,%20stack%29%0A%0A%20%20%20%20%23%20%E8%AE%80%E5%8F%96%E5%A0%86%E7%96%8A%E9%A0%82%E7%AB%AF%E7%9A%84%E5%85%83%E7%B4%A0%0A%20%20%20%20peek%20%3D%20stack%5B-1%5D%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E9%A0%82%E7%AB%AF%E7%9A%84%E5%85%83%E7%B4%A0%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20%E5%BE%9E%E5%A0%86%E7%96%8A%E5%BD%88%E5%87%BA%E5%85%83%E7%B4%A0%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E5%BD%88%E5%87%BA%E7%9A%84%E5%85%83%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22%E5%BD%88%E5%87%BA%E5%85%83%E7%B4%A0%E5%BE%8C%20stack%20%3D%22,%20stack%29%0A%0A%20%20%20%20%23%20%E5%8F%96%E5%BE%97%E5%A0%86%E7%96%8A%E7%9A%84%E9%95%B7%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28stack%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E9%95%B7%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%B7%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28stack%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%20%3D%22,%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
 
-## 5.1.2 &nbsp; 堆疊的實現
+## 5.1.2 &nbsp; 堆疊的實作
 
-為了深入瞭解堆疊的執行機制，我們來嘗試自己實現一個堆疊類別。
+為了進一步瞭解堆疊的運作方式，我們來試著實作一個堆疊類別。
 
-堆疊遵循先入後出的原則，因此我們只能在堆疊頂新增或刪除元素。然而，陣列和鏈結串列都可以在任意位置新增和刪除元素，**因此堆疊可以視為一種受限制的陣列或鏈結串列**。換句話說，我們可以“遮蔽”陣列或鏈結串列的部分無關操作，使其對外表現的邏輯符合堆疊的特性。
+堆疊遵循先進後出的原則，因此只能在頂端加入或刪除元素。陣列和鏈結串列則可以在任意位置加入或刪除元素，**因此可以把堆疊看成操作受限的陣列或鏈結串列**。換句話說，只要隱藏陣列或鏈結串列中與堆疊無關的操作，對外提供的操作就能符合堆疊的特性。
 
-### 1. &nbsp; 基於鏈結串列的實現
+### 1. &nbsp; 以鏈結串列實作
 
-使用鏈結串列實現堆疊時，我們可以將鏈結串列的頭節點視為堆疊頂，尾節點視為堆疊底。
+用鏈結串列實作堆疊時，可以將頭節點當作堆疊頂端，將尾節點當作堆疊底端。
 
-如圖 5-2 所示，對於入堆疊操作，我們只需將元素插入鏈結串列頭部，這種節點插入方法被稱為“頭插法”。而對於出堆疊操作，只需將頭節點從鏈結串列中刪除即可。
+如圖 5-2 所示，推入元素時，只需在串列前端插入節點，這種做法稱為「頭插法」。彈出元素時，只需刪除串列的頭節點。
 
 === "<1>"
-    ![基於鏈結串列實現堆疊的入堆疊出堆疊操作](stack.assets/linkedlist_stack_step1.svg){ class="animation-figure" }
+    ![以鏈結串列實作堆疊的推入與彈出](stack.assets/linkedlist_stack_step1.svg){ class="animation-figure" }
 
 === "<2>"
     ![linkedlist_stack_push](stack.assets/linkedlist_stack_step2_push.svg){ class="animation-figure" }
@@ -385,23 +385,23 @@ comments: true
 === "<3>"
     ![linkedlist_stack_pop](stack.assets/linkedlist_stack_step3_pop.svg){ class="animation-figure" }
 
-<p align="center"> 圖 5-2 &nbsp; 基於鏈結串列實現堆疊的入堆疊出堆疊操作 </p>
+<p align="center"> 圖 5-2 &nbsp; 以鏈結串列實作堆疊的推入與彈出 </p>
 
-以下是基於鏈結串列實現堆疊的示例程式碼：
+以下是用鏈結串列實作堆疊的範例程式碼：
 
 === "Python"
 
     ```python title="linkedlist_stack.py"
     class LinkedListStack:
-        """基於鏈結串列實現的堆疊"""
+        """以鏈結串列實作堆疊"""
 
         def __init__(self):
-            """建構子"""
+            """初始化方法"""
             self._peek: ListNode | None = None
             self._size: int = 0
 
         def size(self) -> int:
-            """獲取堆疊的長度"""
+            """取得堆疊長度"""
             return self._size
 
         def is_empty(self) -> bool:
@@ -409,27 +409,27 @@ comments: true
             return self._size == 0
 
         def push(self, val: int):
-            """入堆疊"""
+            """推入堆疊"""
             node = ListNode(val)
             node.next = self._peek
             self._peek = node
             self._size += 1
 
         def pop(self) -> int:
-            """出堆疊"""
+            """彈出堆疊頂端的元素"""
             num = self.peek()
             self._peek = self._peek.next
             self._size -= 1
             return num
 
         def peek(self) -> int:
-            """訪問堆疊頂元素"""
+            """讀取堆疊頂端的元素"""
             if self.is_empty():
                 raise IndexError("堆疊為空")
             return self._peek.val
 
         def to_list(self) -> list[int]:
-            """轉化為串列用於列印"""
+            """轉成串列以便輸出"""
             arr = []
             node = self._peek
             while node:
@@ -442,11 +442,11 @@ comments: true
 === "C++"
 
     ```cpp title="linkedlist_stack.cpp"
-    /* 基於鏈結串列實現的堆疊 */
+    /* 以鏈結串列實作堆疊 */
     class LinkedListStack {
       private:
-        ListNode *stackTop; // 將頭節點作為堆疊頂
-        int stkSize;        // 堆疊的長度
+        ListNode *stackTop; // 以首節點作為堆疊頂端
+        int stkSize;        // 堆疊長度
 
       public:
         LinkedListStack() {
@@ -455,11 +455,11 @@ comments: true
         }
 
         ~LinkedListStack() {
-            // 走訪鏈結串列刪除節點，釋放記憶體
+            // 走訪鏈結串列，逐一刪除節點並釋放記憶體
             freeMemoryLinkedList(stackTop);
         }
 
-        /* 獲取堆疊的長度 */
+        /* 取得堆疊長度 */
         int size() {
             return stkSize;
         }
@@ -469,7 +469,7 @@ comments: true
             return size() == 0;
         }
 
-        /* 入堆疊 */
+        /* 推入堆疊 */
         void push(int num) {
             ListNode *node = new ListNode(num);
             node->next = stackTop;
@@ -477,25 +477,25 @@ comments: true
             stkSize++;
         }
 
-        /* 出堆疊 */
+        /* 彈出堆疊頂端的元素 */
         int pop() {
             int num = top();
             ListNode *tmp = stackTop;
             stackTop = stackTop->next;
-            // 釋放記憶體
+            // 釋放已移除節點的記憶體
             delete tmp;
             stkSize--;
             return num;
         }
 
-        /* 訪問堆疊頂元素 */
+        /* 讀取堆疊頂端的元素 */
         int top() {
             if (isEmpty())
                 throw out_of_range("堆疊為空");
             return stackTop->val;
         }
 
-        /* 將 List 轉化為 Array 並返回 */
+        /* 將鏈結串列轉成 vector 並回傳 */
         vector<int> toVector() {
             ListNode *node = stackTop;
             vector<int> res(size());
@@ -511,16 +511,16 @@ comments: true
 === "Java"
 
     ```java title="linkedlist_stack.java"
-    /* 基於鏈結串列實現的堆疊 */
+    /* 以鏈結串列實作堆疊 */
     class LinkedListStack {
-        private ListNode stackPeek; // 將頭節點作為堆疊頂
-        private int stkSize = 0; // 堆疊的長度
+        private ListNode stackPeek; // 以首節點作為堆疊頂端
+        private int stkSize = 0; // 堆疊長度
 
         public LinkedListStack() {
             stackPeek = null;
         }
 
-        /* 獲取堆疊的長度 */
+        /* 取得堆疊長度 */
         public int size() {
             return stkSize;
         }
@@ -530,7 +530,7 @@ comments: true
             return size() == 0;
         }
 
-        /* 入堆疊 */
+        /* 推入堆疊 */
         public void push(int num) {
             ListNode node = new ListNode(num);
             node.next = stackPeek;
@@ -538,7 +538,7 @@ comments: true
             stkSize++;
         }
 
-        /* 出堆疊 */
+        /* 彈出堆疊頂端的元素 */
         public int pop() {
             int num = peek();
             stackPeek = stackPeek.next;
@@ -546,14 +546,14 @@ comments: true
             return num;
         }
 
-        /* 訪問堆疊頂元素 */
+        /* 讀取堆疊頂端的元素 */
         public int peek() {
             if (isEmpty())
                 throw new IndexOutOfBoundsException();
             return stackPeek.val;
         }
 
-        /* 將 List 轉化為 Array 並返回 */
+        /* 將鏈結串列轉成陣列並回傳 */
         public int[] toArray() {
             ListNode node = stackPeek;
             int[] res = new int[size()];
@@ -569,16 +569,16 @@ comments: true
 === "C#"
 
     ```csharp title="linkedlist_stack.cs"
-    /* 基於鏈結串列實現的堆疊 */
+    /* 以鏈結串列實作堆疊 */
     class LinkedListStack {
-        ListNode? stackPeek;  // 將頭節點作為堆疊頂
-        int stkSize = 0;   // 堆疊的長度
+        ListNode? stackPeek;  // 以首節點作為堆疊頂端
+        int stkSize = 0;   // 堆疊長度
 
         public LinkedListStack() {
             stackPeek = null;
         }
 
-        /* 獲取堆疊的長度 */
+        /* 取得堆疊長度 */
         public int Size() {
             return stkSize;
         }
@@ -588,7 +588,7 @@ comments: true
             return Size() == 0;
         }
 
-        /* 入堆疊 */
+        /* 推入堆疊 */
         public void Push(int num) {
             ListNode node = new(num) {
                 next = stackPeek
@@ -597,7 +597,7 @@ comments: true
             stkSize++;
         }
 
-        /* 出堆疊 */
+        /* 彈出堆疊頂端的元素 */
         public int Pop() {
             int num = Peek();
             stackPeek = stackPeek!.next;
@@ -605,14 +605,14 @@ comments: true
             return num;
         }
 
-        /* 訪問堆疊頂元素 */
+        /* 讀取堆疊頂端的元素 */
         public int Peek() {
             if (IsEmpty())
                 throw new Exception();
             return stackPeek!.val;
         }
 
-        /* 將 List 轉化為 Array 並返回 */
+        /* 將鏈結串列轉成陣列並回傳 */
         public int[] ToArray() {
             if (stackPeek == null)
                 return [];
@@ -631,9 +631,9 @@ comments: true
 === "Go"
 
     ```go title="linkedlist_stack.go"
-    /* 基於鏈結串列實現的堆疊 */
+    /* 以鏈結串列實作堆疊 */
     type linkedListStack struct {
-        // 使用內建包 list 來實現堆疊
+        // 使用標準函式庫的 list 套件實作堆疊
         data *list.List
     }
 
@@ -644,12 +644,12 @@ comments: true
         }
     }
 
-    /* 入堆疊 */
+    /* 推入堆疊 */
     func (s *linkedListStack) push(value int) {
         s.data.PushBack(value)
     }
 
-    /* 出堆疊 */
+    /* 彈出堆疊頂端的元素 */
     func (s *linkedListStack) pop() any {
         if s.isEmpty() {
             return nil
@@ -659,7 +659,7 @@ comments: true
         return e.Value
     }
 
-    /* 訪問堆疊頂元素 */
+    /* 讀取堆疊頂端的元素 */
     func (s *linkedListStack) peek() any {
         if s.isEmpty() {
             return nil
@@ -668,7 +668,7 @@ comments: true
         return e.Value
     }
 
-    /* 獲取堆疊的長度 */
+    /* 取得堆疊長度 */
     func (s *linkedListStack) size() int {
         return s.data.Len()
     }
@@ -678,7 +678,7 @@ comments: true
         return s.data.Len() == 0
     }
 
-    /* 獲取 List 用於列印 */
+    /* 回傳 list.List 的指標以便輸出 */
     func (s *linkedListStack) toList() *list.List {
         return s.data
     }
@@ -687,16 +687,16 @@ comments: true
 === "Swift"
 
     ```swift title="linkedlist_stack.swift"
-    /* 基於鏈結串列實現的堆疊 */
+    /* 以鏈結串列實作堆疊 */
     class LinkedListStack {
-        private var _peek: ListNode? // 將頭節點作為堆疊頂
-        private var _size: Int // 堆疊的長度
+        private var _peek: ListNode? // 以首節點作為堆疊頂端
+        private var _size: Int // 堆疊長度
 
         init() {
             _size = 0
         }
 
-        /* 獲取堆疊的長度 */
+        /* 取得堆疊長度 */
         func size() -> Int {
             _size
         }
@@ -706,7 +706,7 @@ comments: true
             size() == 0
         }
 
-        /* 入堆疊 */
+        /* 推入堆疊 */
         func push(num: Int) {
             let node = ListNode(x: num)
             node.next = _peek
@@ -714,7 +714,7 @@ comments: true
             _size += 1
         }
 
-        /* 出堆疊 */
+        /* 彈出堆疊頂端的元素 */
         @discardableResult
         func pop() -> Int {
             let num = peek()
@@ -723,7 +723,7 @@ comments: true
             return num
         }
 
-        /* 訪問堆疊頂元素 */
+        /* 讀取堆疊頂端的元素 */
         func peek() -> Int {
             if isEmpty() {
                 fatalError("堆疊為空")
@@ -731,7 +731,7 @@ comments: true
             return _peek!.val
         }
 
-        /* 將 List 轉化為 Array 並返回 */
+        /* 將鏈結串列轉成陣列並回傳 */
         func toArray() -> [Int] {
             var node = _peek
             var res = Array(repeating: 0, count: size())
@@ -747,16 +747,16 @@ comments: true
 === "JS"
 
     ```javascript title="linkedlist_stack.js"
-    /* 基於鏈結串列實現的堆疊 */
+    /* 以鏈結串列實作堆疊 */
     class LinkedListStack {
-        #stackPeek; // 將頭節點作為堆疊頂
-        #stkSize = 0; // 堆疊的長度
+        #stackPeek; // 以首節點作為堆疊頂端
+        #stkSize = 0; // 堆疊長度
 
         constructor() {
             this.#stackPeek = null;
         }
 
-        /* 獲取堆疊的長度 */
+        /* 取得堆疊長度 */
         get size() {
             return this.#stkSize;
         }
@@ -766,7 +766,7 @@ comments: true
             return this.size === 0;
         }
 
-        /* 入堆疊 */
+        /* 推入堆疊 */
         push(num) {
             const node = new ListNode(num);
             node.next = this.#stackPeek;
@@ -774,7 +774,7 @@ comments: true
             this.#stkSize++;
         }
 
-        /* 出堆疊 */
+        /* 彈出堆疊頂端的元素 */
         pop() {
             const num = this.peek();
             this.#stackPeek = this.#stackPeek.next;
@@ -782,13 +782,13 @@ comments: true
             return num;
         }
 
-        /* 訪問堆疊頂元素 */
+        /* 讀取堆疊頂端的元素 */
         peek() {
             if (!this.#stackPeek) throw new Error('堆疊為空');
             return this.#stackPeek.val;
         }
 
-        /* 將鏈結串列轉化為 Array 並返回 */
+        /* 將鏈結串列轉成陣列並回傳 */
         toArray() {
             let node = this.#stackPeek;
             const res = new Array(this.size);
@@ -804,16 +804,16 @@ comments: true
 === "TS"
 
     ```typescript title="linkedlist_stack.ts"
-    /* 基於鏈結串列實現的堆疊 */
+    /* 以鏈結串列實作堆疊 */
     class LinkedListStack {
-        private stackPeek: ListNode | null; // 將頭節點作為堆疊頂
-        private stkSize: number = 0; // 堆疊的長度
+        private stackPeek: ListNode | null; // 以首節點作為堆疊頂端
+        private stkSize: number = 0; // 堆疊長度
 
         constructor() {
             this.stackPeek = null;
         }
 
-        /* 獲取堆疊的長度 */
+        /* 取得堆疊長度 */
         get size(): number {
             return this.stkSize;
         }
@@ -823,7 +823,7 @@ comments: true
             return this.size === 0;
         }
 
-        /* 入堆疊 */
+        /* 推入堆疊 */
         push(num: number): void {
             const node = new ListNode(num);
             node.next = this.stackPeek;
@@ -831,7 +831,7 @@ comments: true
             this.stkSize++;
         }
 
-        /* 出堆疊 */
+        /* 彈出堆疊頂端的元素 */
         pop(): number {
             const num = this.peek();
             if (!this.stackPeek) throw new Error('堆疊為空');
@@ -840,13 +840,13 @@ comments: true
             return num;
         }
 
-        /* 訪問堆疊頂元素 */
+        /* 讀取堆疊頂端的元素 */
         peek(): number {
             if (!this.stackPeek) throw new Error('堆疊為空');
             return this.stackPeek.val;
         }
 
-        /* 將鏈結串列轉化為 Array 並返回 */
+        /* 將鏈結串列轉成陣列並回傳 */
         toArray(): number[] {
             let node = this.stackPeek;
             const res = new Array<number>(this.size);
@@ -862,16 +862,16 @@ comments: true
 === "Dart"
 
     ```dart title="linkedlist_stack.dart"
-    /* 基於鏈結串列類別實現的堆疊 */
+    /* 以鏈結串列類別實作堆疊 */
     class LinkedListStack {
-      ListNode? _stackPeek; // 將頭節點作為堆疊頂
-      int _stkSize = 0; // 堆疊的長度
+      ListNode? _stackPeek; // 以首節點作為堆疊頂端
+      int _stkSize = 0; // 堆疊長度
 
       LinkedListStack() {
         _stackPeek = null;
       }
 
-      /* 獲取堆疊的長度 */
+      /* 取得堆疊長度 */
       int size() {
         return _stkSize;
       }
@@ -881,7 +881,7 @@ comments: true
         return _stkSize == 0;
       }
 
-      /* 入堆疊 */
+      /* 推入堆疊 */
       void push(int _num) {
         final ListNode node = ListNode(_num);
         node.next = _stackPeek;
@@ -889,7 +889,7 @@ comments: true
         _stkSize++;
       }
 
-      /* 出堆疊 */
+      /* 彈出堆疊頂端的元素 */
       int pop() {
         final int _num = peek();
         _stackPeek = _stackPeek!.next;
@@ -897,7 +897,7 @@ comments: true
         return _num;
       }
 
-      /* 訪問堆疊頂元素 */
+      /* 讀取堆疊頂端的元素 */
       int peek() {
         if (_stackPeek == null) {
           throw Exception("堆疊為空");
@@ -905,7 +905,7 @@ comments: true
         return _stackPeek!.val;
       }
 
-      /* 將鏈結串列轉化為 List 並返回 */
+      /* 將鏈結串列轉成 List 並回傳 */
       List<int> toList() {
         ListNode? node = _stackPeek;
         List<int> list = [];
@@ -922,11 +922,11 @@ comments: true
 === "Rust"
 
     ```rust title="linkedlist_stack.rs"
-    /* 基於鏈結串列實現的堆疊 */
+    /* 以鏈結串列實作堆疊 */
     #[allow(dead_code)]
     pub struct LinkedListStack<T> {
-        stack_peek: Option<Rc<RefCell<ListNode<T>>>>, // 將頭節點作為堆疊頂
-        stk_size: usize,                              // 堆疊的長度
+        stack_peek: Option<Rc<RefCell<ListNode<T>>>>, // 以首節點作為堆疊頂端
+        stk_size: usize,                              // 堆疊長度
     }
 
     impl<T: Copy> LinkedListStack<T> {
@@ -937,7 +937,7 @@ comments: true
             }
         }
 
-        /* 獲取堆疊的長度 */
+        /* 取得堆疊長度 */
         pub fn size(&self) -> usize {
             return self.stk_size;
         }
@@ -947,7 +947,7 @@ comments: true
             return self.size() == 0;
         }
 
-        /* 入堆疊 */
+        /* 推入堆疊 */
         pub fn push(&mut self, num: T) {
             let node = ListNode::new(num);
             node.borrow_mut().next = self.stack_peek.take();
@@ -955,7 +955,7 @@ comments: true
             self.stk_size += 1;
         }
 
-        /* 出堆疊 */
+        /* 彈出堆疊頂端的元素 */
         pub fn pop(&mut self) -> Option<T> {
             self.stack_peek.take().map(|old_head| {
                 self.stack_peek = old_head.borrow_mut().next.take();
@@ -965,12 +965,12 @@ comments: true
             })
         }
 
-        /* 訪問堆疊頂元素 */
+        /* 取得堆疊頂端節點的參照 */
         pub fn peek(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
             self.stack_peek.as_ref()
         }
 
-        /* 將 List 轉化為 Array 並返回 */
+        /* 將鏈結串列轉成 Vec 並回傳 */
         pub fn to_array(&self) -> Vec<T> {
             fn _to_array<T: Sized + Copy>(head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
                 if let Some(node) = head {
@@ -989,13 +989,13 @@ comments: true
 === "C"
 
     ```c title="linkedlist_stack.c"
-    /* 基於鏈結串列實現的堆疊 */
+    /* 以鏈結串列實作堆疊 */
     typedef struct {
-        ListNode *top; // 將頭節點作為堆疊頂
-        int size;      // 堆疊的長度
+        ListNode *top; // 以首節點作為堆疊頂端
+        int size;      // 堆疊長度
     } LinkedListStack;
 
-    /* 建構子 */
+    /* 建立堆疊 */
     LinkedListStack *newLinkedListStack() {
         LinkedListStack *s = malloc(sizeof(LinkedListStack));
         s->top = NULL;
@@ -1003,7 +1003,7 @@ comments: true
         return s;
     }
 
-    /* 析構函式 */
+    /* 釋放堆疊的記憶體 */
     void delLinkedListStack(LinkedListStack *s) {
         while (s->top) {
             ListNode *n = s->top->next;
@@ -1013,7 +1013,7 @@ comments: true
         free(s);
     }
 
-    /* 獲取堆疊的長度 */
+    /* 取得堆疊長度 */
     int size(LinkedListStack *s) {
         return s->size;
     }
@@ -1023,16 +1023,16 @@ comments: true
         return size(s) == 0;
     }
 
-    /* 入堆疊 */
+    /* 推入堆疊 */
     void push(LinkedListStack *s, int num) {
         ListNode *node = (ListNode *)malloc(sizeof(ListNode));
-        node->next = s->top; // 更新新加節點指標域
-        node->val = num;     // 更新新加節點資料域
-        s->top = node;       // 更新堆疊頂
-        s->size++;           // 更新堆疊大小
+        node->next = s->top; // 將新節點的 next 指標設為原本的堆疊頂端
+        node->val = num;     // 將 num 存入新節點的資料欄位
+        s->top = node;       // 更新堆疊頂端
+        s->size++;           // 更新堆疊的元素個數
     }
 
-    /* 訪問堆疊頂元素 */
+    /* 讀取堆疊頂端的元素 */
     int peek(LinkedListStack *s) {
         if (s->size == 0) {
             printf("堆疊為空\n");
@@ -1041,12 +1041,12 @@ comments: true
         return s->top->val;
     }
 
-    /* 出堆疊 */
+    /* 彈出堆疊頂端的元素 */
     int pop(LinkedListStack *s) {
         int val = peek(s);
         ListNode *tmp = s->top;
         s->top = s->top->next;
-        // 釋放記憶體
+        // 釋放已移除節點的記憶體
         free(tmp);
         s->size--;
         return val;
@@ -1056,13 +1056,13 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="linkedlist_stack.kt"
-    /* 基於鏈結串列實現的堆疊 */
+    /* 以鏈結串列實作堆疊 */
     class LinkedListStack(
-        private var stackPeek: ListNode? = null, // 將頭節點作為堆疊頂
-        private var stkSize: Int = 0 // 堆疊的長度
+        private var stackPeek: ListNode? = null, // 以首節點作為堆疊頂端
+        private var stkSize: Int = 0 // 堆疊長度
     ) {
 
-        /* 獲取堆疊的長度 */
+        /* 取得堆疊長度 */
         fun size(): Int {
             return stkSize
         }
@@ -1072,7 +1072,7 @@ comments: true
             return size() == 0
         }
 
-        /* 入堆疊 */
+        /* 推入堆疊 */
         fun push(num: Int) {
             val node = ListNode(num)
             node.next = stackPeek
@@ -1080,7 +1080,7 @@ comments: true
             stkSize++
         }
 
-        /* 出堆疊 */
+        /* 彈出堆疊頂端的元素 */
         fun pop(): Int? {
             val num = peek()
             stackPeek = stackPeek?.next
@@ -1088,13 +1088,13 @@ comments: true
             return num
         }
 
-        /* 訪問堆疊頂元素 */
+        /* 讀取堆疊頂端的元素 */
         fun peek(): Int? {
             if (isEmpty()) throw IndexOutOfBoundsException()
             return stackPeek?._val
         }
 
-        /* 將 List 轉化為 Array 並返回 */
+        /* 將鏈結串列轉成陣列並回傳 */
         fun toArray(): IntArray {
             var node = stackPeek
             val res = IntArray(size())
@@ -1110,11 +1110,11 @@ comments: true
 === "Ruby"
 
     ```ruby title="linkedlist_stack.rb"
-    ### 基於鏈結串列實現的堆疊 ###
+    ### 以鏈結串列實作堆疊 ###
     class LinkedListStack
       attr_reader :size
 
-      ### 建構子 ###
+      ### 初始化方法 ###
       def initialize
         @size = 0
       end
@@ -1124,7 +1124,7 @@ comments: true
         @peek.nil?
       end
 
-      ### 入堆疊 ###
+      ### 推入堆疊 ###
       def push(val)
         node = ListNode.new(val)
         node.next = @peek
@@ -1132,7 +1132,7 @@ comments: true
         @size += 1
       end
 
-      ### 出堆疊 ###
+      ### 彈出堆疊頂端的元素 ###
       def pop
         num = peek
         @peek = @peek.next
@@ -1140,14 +1140,14 @@ comments: true
         num
       end
 
-      ### 訪問堆疊頂元素 ###
+      ### 讀取堆疊頂端的元素 ###
       def peek
         raise IndexError, '堆疊為空' if is_empty?
 
         @peek.val
       end
 
-      ### 將鏈結串列轉化為 Array 並反回 ###
+      ### 將鏈結串列轉成 Array 並回傳 ###
       def to_array
         arr = []
         node = @peek
@@ -1160,17 +1160,17 @@ comments: true
     end
     ```
 
-??? pythontutor "視覺化執行"
+??? pythontutor "執行視覺化示範"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="視覺化執行" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%E7%AF%80%E9%BB%9E%E9%A1%9E%E5%88%A5%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E7%AF%80%E9%BB%9E%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B9%BC%E7%AF%80%E9%BB%9E%E5%BC%95%E7%94%A8%0A%0A%0Aclass%20LinkedListStack%3A%0A%20%20%20%20%22%22%22%E5%9F%BA%E6%96%BC%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%E5%AF%A6%E7%8F%BE%E7%9A%84%E5%A0%86%E7%96%8A%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%BB%BA%E6%A7%8B%E5%AD%90%22%22%22%0A%20%20%20%20%20%20%20%20self._peek%3A%20ListNode%20%7C%20None%20%3D%20None%0A%20%20%20%20%20%20%20%20self._size%3A%20int%20%3D%200%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E7%8D%B2%E5%8F%96%E5%A0%86%E7%96%8A%E7%9A%84%E9%95%B7%E5%BA%A6%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._size%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%A4%E6%96%B7%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%22%22%22%0A%20%20%20%20%20%20%20%20return%20not%20self._peek%0A%0A%20%20%20%20def%20push%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%85%A5%E5%A0%86%E7%96%8A%22%22%22%0A%20%20%20%20%20%20%20%20node%20%3D%20ListNode%28val%29%0A%20%20%20%20%20%20%20%20node.next%20%3D%20self._peek%0A%20%20%20%20%20%20%20%20self._peek%20%3D%20node%0A%20%20%20%20%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%87%BA%E5%A0%86%E7%96%8A%22%22%22%0A%20%20%20%20%20%20%20%20num%20%3D%20self.peek%28%29%0A%20%20%20%20%20%20%20%20self._peek%20%3D%20self._peek.next%0A%20%20%20%20%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20%20%20%20%20return%20num%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%A8%AA%E5%95%8F%E5%A0%86%E7%96%8A%E9%A0%82%E5%85%83%E7%B4%A0%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E5%A0%86%E7%96%8A%E7%82%BA%E7%A9%BA%22%29%0A%20%20%20%20%20%20%20%20return%20self._peek.val%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%BD%89%E5%8C%96%E7%82%BA%E4%B8%B2%E5%88%97%E7%94%A8%E6%96%BC%E5%88%97%E5%8D%B0%22%22%22%0A%20%20%20%20%20%20%20%20arr%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20node%20%3D%20self._peek%0A%20%20%20%20%20%20%20%20while%20node%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20arr.append%28node.val%29%0A%20%20%20%20%20%20%20%20%20%20%20%20node%20%3D%20node.next%0A%20%20%20%20%20%20%20%20arr.reverse%28%29%0A%20%20%20%20%20%20%20%20return%20arr%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%A0%86%E7%96%8A%0A%20%20%20%20stack%20%3D%20LinkedListStack%28%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E5%A0%86%E7%96%8A%0A%20%20%20%20stack.push%281%29%0A%20%20%20%20stack.push%283%29%0A%20%20%20%20stack.push%282%29%0A%20%20%20%20stack.push%285%29%0A%20%20%20%20stack.push%284%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%20stack%20%3D%22%2C%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E8%A8%AA%E5%95%8F%E5%A0%86%E7%96%8A%E9%A0%82%E5%85%83%E7%B4%A0%0A%20%20%20%20peek%20%3D%20stack.peek%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E9%A0%82%E5%85%83%E7%B4%A0%20peek%20%3D%22%2C%20peek%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E5%A0%86%E7%96%8A%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E5%87%BA%E5%A0%86%E7%96%8A%E5%85%83%E7%B4%A0%20pop%20%3D%22%2C%20pop%29%0A%20%20%20%20print%28%22%E5%87%BA%E5%A0%86%E7%96%8A%E5%BE%8C%20stack%20%3D%22%2C%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E7%8D%B2%E5%8F%96%E5%A0%86%E7%96%8A%E7%9A%84%E9%95%B7%E5%BA%A6%0A%20%20%20%20size%20%3D%20stack.size%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E7%9A%84%E9%95%B7%E5%BA%A6%20size%20%3D%22%2C%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%B7%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20stack.is_empty%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%20%3D%22%2C%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%E7%AF%80%E9%BB%9E%E9%A1%9E%E5%88%A5%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E7%AF%80%E9%BB%9E%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B9%BC%E7%AF%80%E9%BB%9E%E5%BC%95%E7%94%A8%0A%0A%0Aclass%20LinkedListStack%3A%0A%20%20%20%20%22%22%22%E5%9F%BA%E6%96%BC%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%E5%AF%A6%E7%8F%BE%E7%9A%84%E5%A0%86%E7%96%8A%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%BB%BA%E6%A7%8B%E5%AD%90%22%22%22%0A%20%20%20%20%20%20%20%20self._peek%3A%20ListNode%20%7C%20None%20%3D%20None%0A%20%20%20%20%20%20%20%20self._size%3A%20int%20%3D%200%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E7%8D%B2%E5%8F%96%E5%A0%86%E7%96%8A%E7%9A%84%E9%95%B7%E5%BA%A6%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._size%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%A4%E6%96%B7%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%22%22%22%0A%20%20%20%20%20%20%20%20return%20not%20self._peek%0A%0A%20%20%20%20def%20push%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%85%A5%E5%A0%86%E7%96%8A%22%22%22%0A%20%20%20%20%20%20%20%20node%20%3D%20ListNode%28val%29%0A%20%20%20%20%20%20%20%20node.next%20%3D%20self._peek%0A%20%20%20%20%20%20%20%20self._peek%20%3D%20node%0A%20%20%20%20%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%87%BA%E5%A0%86%E7%96%8A%22%22%22%0A%20%20%20%20%20%20%20%20num%20%3D%20self.peek%28%29%0A%20%20%20%20%20%20%20%20self._peek%20%3D%20self._peek.next%0A%20%20%20%20%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20%20%20%20%20return%20num%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%A8%AA%E5%95%8F%E5%A0%86%E7%96%8A%E9%A0%82%E5%85%83%E7%B4%A0%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E5%A0%86%E7%96%8A%E7%82%BA%E7%A9%BA%22%29%0A%20%20%20%20%20%20%20%20return%20self._peek.val%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%BD%89%E5%8C%96%E7%82%BA%E4%B8%B2%E5%88%97%E7%94%A8%E6%96%BC%E5%88%97%E5%8D%B0%22%22%22%0A%20%20%20%20%20%20%20%20arr%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20node%20%3D%20self._peek%0A%20%20%20%20%20%20%20%20while%20node%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20arr.append%28node.val%29%0A%20%20%20%20%20%20%20%20%20%20%20%20node%20%3D%20node.next%0A%20%20%20%20%20%20%20%20arr.reverse%28%29%0A%20%20%20%20%20%20%20%20return%20arr%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%A0%86%E7%96%8A%0A%20%20%20%20stack%20%3D%20LinkedListStack%28%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E5%A0%86%E7%96%8A%0A%20%20%20%20stack.push%281%29%0A%20%20%20%20stack.push%283%29%0A%20%20%20%20stack.push%282%29%0A%20%20%20%20stack.push%285%29%0A%20%20%20%20stack.push%284%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%20stack%20%3D%22%2C%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E8%A8%AA%E5%95%8F%E5%A0%86%E7%96%8A%E9%A0%82%E5%85%83%E7%B4%A0%0A%20%20%20%20peek%20%3D%20stack.peek%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E9%A0%82%E5%85%83%E7%B4%A0%20peek%20%3D%22%2C%20peek%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E5%A0%86%E7%96%8A%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E5%87%BA%E5%A0%86%E7%96%8A%E5%85%83%E7%B4%A0%20pop%20%3D%22%2C%20pop%29%0A%20%20%20%20print%28%22%E5%87%BA%E5%A0%86%E7%96%8A%E5%BE%8C%20stack%20%3D%22%2C%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E7%8D%B2%E5%8F%96%E5%A0%86%E7%96%8A%E7%9A%84%E9%95%B7%E5%BA%A6%0A%20%20%20%20size%20%3D%20stack.size%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E7%9A%84%E9%95%B7%E5%BA%A6%20size%20%3D%22%2C%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%B7%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20stack.is_empty%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%20%3D%22%2C%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="執行視覺化示範" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%E7%9A%84%E7%AF%80%E9%BB%9E%E9%A1%9E%E5%88%A5%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E7%AF%80%E9%BB%9E%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%8C%87%E5%90%91%E4%B8%8B%E4%B8%80%E5%80%8B%E7%AF%80%E9%BB%9E%E7%9A%84%E5%8F%83%E7%85%A7%0A%0A%0Aclass%20LinkedListStack%3A%0A%20%20%20%20%22%22%22%E4%BB%A5%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%E5%AF%A6%E4%BD%9C%E5%A0%86%E7%96%8A%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95%22%22%22%0A%20%20%20%20%20%20%20%20self._peek%3A%20ListNode%20%7C%20None%20%3D%20None%0A%20%20%20%20%20%20%20%20self._size%3A%20int%20%3D%200%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%8F%96%E5%BE%97%E5%A0%86%E7%96%8A%E9%95%B7%E5%BA%A6%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._size%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%A4%E6%96%B7%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%22%22%22%0A%20%20%20%20%20%20%20%20return%20not%20self._peek%0A%0A%20%20%20%20def%20push%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%8E%A8%E5%85%A5%E5%A0%86%E7%96%8A%22%22%22%0A%20%20%20%20%20%20%20%20node%20%3D%20ListNode%28val%29%0A%20%20%20%20%20%20%20%20node.next%20%3D%20self._peek%0A%20%20%20%20%20%20%20%20self._peek%20%3D%20node%0A%20%20%20%20%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%BD%88%E5%87%BA%E5%A0%86%E7%96%8A%E9%A0%82%E7%AB%AF%E7%9A%84%E5%85%83%E7%B4%A0%22%22%22%0A%20%20%20%20%20%20%20%20num%20%3D%20self.peek%28%29%0A%20%20%20%20%20%20%20%20self._peek%20%3D%20self._peek.next%0A%20%20%20%20%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20%20%20%20%20return%20num%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%AE%80%E5%8F%96%E5%A0%86%E7%96%8A%E9%A0%82%E7%AB%AF%E7%9A%84%E5%85%83%E7%B4%A0%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E5%A0%86%E7%96%8A%E7%82%BA%E7%A9%BA%22%29%0A%20%20%20%20%20%20%20%20return%20self._peek.val%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%BD%89%E6%88%90%E4%B8%B2%E5%88%97%E4%BB%A5%E4%BE%BF%E8%BC%B8%E5%87%BA%22%22%22%0A%20%20%20%20%20%20%20%20arr%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20node%20%3D%20self._peek%0A%20%20%20%20%20%20%20%20while%20node%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20arr.append%28node.val%29%0A%20%20%20%20%20%20%20%20%20%20%20%20node%20%3D%20node.next%0A%20%20%20%20%20%20%20%20arr.reverse%28%29%0A%20%20%20%20%20%20%20%20return%20arr%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%A0%86%E7%96%8A%0A%20%20%20%20stack%20%3D%20LinkedListStack%28%29%0A%0A%20%20%20%20%23%20%E5%B0%87%E5%85%83%E7%B4%A0%E6%8E%A8%E5%85%A5%E5%A0%86%E7%96%8A%0A%20%20%20%20stack.push%281%29%0A%20%20%20%20stack.push%283%29%0A%20%20%20%20stack.push%282%29%0A%20%20%20%20stack.push%285%29%0A%20%20%20%20stack.push%284%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E8%AE%80%E5%8F%96%E5%A0%86%E7%96%8A%E9%A0%82%E7%AB%AF%E7%9A%84%E5%85%83%E7%B4%A0%0A%20%20%20%20peek%20%3D%20stack.peek%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E9%A0%82%E7%AB%AF%E5%85%83%E7%B4%A0%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20%E5%BE%9E%E5%A0%86%E7%96%8A%E5%BD%88%E5%87%BA%E5%85%83%E7%B4%A0%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E5%BD%88%E5%87%BA%E7%9A%84%E5%85%83%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22%E5%BD%88%E5%87%BA%E5%BE%8C%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E5%8F%96%E5%BE%97%E5%A0%86%E7%96%8A%E9%95%B7%E5%BA%A6%0A%20%20%20%20size%20%3D%20stack.size%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E9%95%B7%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%B7%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20stack.is_empty%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%20%3D%22,%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%E7%9A%84%E7%AF%80%E9%BB%9E%E9%A1%9E%E5%88%A5%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E7%AF%80%E9%BB%9E%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%8C%87%E5%90%91%E4%B8%8B%E4%B8%80%E5%80%8B%E7%AF%80%E9%BB%9E%E7%9A%84%E5%8F%83%E7%85%A7%0A%0A%0Aclass%20LinkedListStack%3A%0A%20%20%20%20%22%22%22%E4%BB%A5%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%E5%AF%A6%E4%BD%9C%E5%A0%86%E7%96%8A%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95%22%22%22%0A%20%20%20%20%20%20%20%20self._peek%3A%20ListNode%20%7C%20None%20%3D%20None%0A%20%20%20%20%20%20%20%20self._size%3A%20int%20%3D%200%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%8F%96%E5%BE%97%E5%A0%86%E7%96%8A%E9%95%B7%E5%BA%A6%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._size%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%A4%E6%96%B7%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%22%22%22%0A%20%20%20%20%20%20%20%20return%20not%20self._peek%0A%0A%20%20%20%20def%20push%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%8E%A8%E5%85%A5%E5%A0%86%E7%96%8A%22%22%22%0A%20%20%20%20%20%20%20%20node%20%3D%20ListNode%28val%29%0A%20%20%20%20%20%20%20%20node.next%20%3D%20self._peek%0A%20%20%20%20%20%20%20%20self._peek%20%3D%20node%0A%20%20%20%20%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%BD%88%E5%87%BA%E5%A0%86%E7%96%8A%E9%A0%82%E7%AB%AF%E7%9A%84%E5%85%83%E7%B4%A0%22%22%22%0A%20%20%20%20%20%20%20%20num%20%3D%20self.peek%28%29%0A%20%20%20%20%20%20%20%20self._peek%20%3D%20self._peek.next%0A%20%20%20%20%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20%20%20%20%20return%20num%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%AE%80%E5%8F%96%E5%A0%86%E7%96%8A%E9%A0%82%E7%AB%AF%E7%9A%84%E5%85%83%E7%B4%A0%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E5%A0%86%E7%96%8A%E7%82%BA%E7%A9%BA%22%29%0A%20%20%20%20%20%20%20%20return%20self._peek.val%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%BD%89%E6%88%90%E4%B8%B2%E5%88%97%E4%BB%A5%E4%BE%BF%E8%BC%B8%E5%87%BA%22%22%22%0A%20%20%20%20%20%20%20%20arr%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20node%20%3D%20self._peek%0A%20%20%20%20%20%20%20%20while%20node%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20arr.append%28node.val%29%0A%20%20%20%20%20%20%20%20%20%20%20%20node%20%3D%20node.next%0A%20%20%20%20%20%20%20%20arr.reverse%28%29%0A%20%20%20%20%20%20%20%20return%20arr%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%A0%86%E7%96%8A%0A%20%20%20%20stack%20%3D%20LinkedListStack%28%29%0A%0A%20%20%20%20%23%20%E5%B0%87%E5%85%83%E7%B4%A0%E6%8E%A8%E5%85%A5%E5%A0%86%E7%96%8A%0A%20%20%20%20stack.push%281%29%0A%20%20%20%20stack.push%283%29%0A%20%20%20%20stack.push%282%29%0A%20%20%20%20stack.push%285%29%0A%20%20%20%20stack.push%284%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E8%AE%80%E5%8F%96%E5%A0%86%E7%96%8A%E9%A0%82%E7%AB%AF%E7%9A%84%E5%85%83%E7%B4%A0%0A%20%20%20%20peek%20%3D%20stack.peek%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E9%A0%82%E7%AB%AF%E5%85%83%E7%B4%A0%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20%E5%BE%9E%E5%A0%86%E7%96%8A%E5%BD%88%E5%87%BA%E5%85%83%E7%B4%A0%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E5%BD%88%E5%87%BA%E7%9A%84%E5%85%83%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22%E5%BD%88%E5%87%BA%E5%BE%8C%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E5%8F%96%E5%BE%97%E5%A0%86%E7%96%8A%E9%95%B7%E5%BA%A6%0A%20%20%20%20size%20%3D%20stack.size%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E9%95%B7%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%B7%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20stack.is_empty%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%20%3D%22,%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
 
-### 2. &nbsp; 基於陣列的實現
+### 2. &nbsp; 以陣列實作
 
-使用陣列實現堆疊時，我們可以將陣列的尾部作為堆疊頂。如圖 5-3 所示，入堆疊與出堆疊操作分別對應在陣列尾部新增元素與刪除元素，時間複雜度都為 $O(1)$ 。
+用陣列實作堆疊時，可以將陣列尾端當作堆疊頂端。如圖 5-3 所示，推入與彈出分別是在陣列尾端加入與刪除元素，時間複雜度都是 $O(1)$。
 
 === "<1>"
-    ![基於陣列實現堆疊的入堆疊出堆疊操作](stack.assets/array_stack_step1.svg){ class="animation-figure" }
+    ![以陣列實作堆疊的推入與彈出](stack.assets/array_stack_step1.svg){ class="animation-figure" }
 
 === "<2>"
     ![array_stack_push](stack.assets/array_stack_step2_push.svg){ class="animation-figure" }
@@ -1178,22 +1178,22 @@ comments: true
 === "<3>"
     ![array_stack_pop](stack.assets/array_stack_step3_pop.svg){ class="animation-figure" }
 
-<p align="center"> 圖 5-3 &nbsp; 基於陣列實現堆疊的入堆疊出堆疊操作 </p>
+<p align="center"> 圖 5-3 &nbsp; 以陣列實作堆疊的推入與彈出 </p>
 
-由於入堆疊的元素可能會源源不斷地增加，因此我們可以使用動態陣列，這樣就無須自行處理陣列擴容問題。以下為示例程式碼：
+由於推入的元素可能持續增加，可以使用動態陣列，省去自行處理陣列容量擴充的工作。範例程式碼如下：
 
 === "Python"
 
     ```python title="array_stack.py"
     class ArrayStack:
-        """基於陣列實現的堆疊"""
+        """以陣列實作堆疊"""
 
         def __init__(self):
-            """建構子"""
+            """初始化方法"""
             self._stack: list[int] = []
 
         def size(self) -> int:
-            """獲取堆疊的長度"""
+            """取得堆疊長度"""
             return len(self._stack)
 
         def is_empty(self) -> bool:
@@ -1201,36 +1201,36 @@ comments: true
             return self.size() == 0
 
         def push(self, item: int):
-            """入堆疊"""
+            """推入堆疊"""
             self._stack.append(item)
 
         def pop(self) -> int:
-            """出堆疊"""
+            """彈出堆疊頂端的元素"""
             if self.is_empty():
                 raise IndexError("堆疊為空")
             return self._stack.pop()
 
         def peek(self) -> int:
-            """訪問堆疊頂元素"""
+            """讀取堆疊頂端的元素"""
             if self.is_empty():
                 raise IndexError("堆疊為空")
             return self._stack[-1]
 
         def to_list(self) -> list[int]:
-            """返回串列用於列印"""
+            """回傳串列以便輸出"""
             return self._stack
     ```
 
 === "C++"
 
     ```cpp title="array_stack.cpp"
-    /* 基於陣列實現的堆疊 */
+    /* 以陣列實作堆疊 */
     class ArrayStack {
       private:
         vector<int> stack;
 
       public:
-        /* 獲取堆疊的長度 */
+        /* 取得堆疊長度 */
         int size() {
             return stack.size();
         }
@@ -1240,26 +1240,26 @@ comments: true
             return stack.size() == 0;
         }
 
-        /* 入堆疊 */
+        /* 推入堆疊 */
         void push(int num) {
             stack.push_back(num);
         }
 
-        /* 出堆疊 */
+        /* 彈出堆疊頂端的元素 */
         int pop() {
             int num = top();
             stack.pop_back();
             return num;
         }
 
-        /* 訪問堆疊頂元素 */
+        /* 讀取堆疊頂端的元素 */
         int top() {
             if (isEmpty())
                 throw out_of_range("堆疊為空");
             return stack.back();
         }
 
-        /* 返回 Vector */
+        /* 回傳 vector */
         vector<int> toVector() {
             return stack;
         }
@@ -1269,7 +1269,7 @@ comments: true
 === "Java"
 
     ```java title="array_stack.java"
-    /* 基於陣列實現的堆疊 */
+    /* 以陣列實作堆疊 */
     class ArrayStack {
         private ArrayList<Integer> stack;
 
@@ -1278,7 +1278,7 @@ comments: true
             stack = new ArrayList<>();
         }
 
-        /* 獲取堆疊的長度 */
+        /* 取得堆疊長度 */
         public int size() {
             return stack.size();
         }
@@ -1288,26 +1288,26 @@ comments: true
             return size() == 0;
         }
 
-        /* 入堆疊 */
+        /* 推入堆疊 */
         public void push(int num) {
             stack.add(num);
         }
 
-        /* 出堆疊 */
+        /* 彈出堆疊頂端的元素 */
         public int pop() {
             if (isEmpty())
                 throw new IndexOutOfBoundsException();
             return stack.remove(size() - 1);
         }
 
-        /* 訪問堆疊頂元素 */
+        /* 讀取堆疊頂端的元素 */
         public int peek() {
             if (isEmpty())
                 throw new IndexOutOfBoundsException();
             return stack.get(size() - 1);
         }
 
-        /* 將 List 轉化為 Array 並返回 */
+        /* 將串列轉成陣列並回傳 */
         public Object[] toArray() {
             return stack.toArray();
         }
@@ -1317,7 +1317,7 @@ comments: true
 === "C#"
 
     ```csharp title="array_stack.cs"
-    /* 基於陣列實現的堆疊 */
+    /* 以陣列實作堆疊 */
     class ArrayStack {
         List<int> stack;
         public ArrayStack() {
@@ -1325,7 +1325,7 @@ comments: true
             stack = [];
         }
 
-        /* 獲取堆疊的長度 */
+        /* 取得堆疊長度 */
         public int Size() {
             return stack.Count;
         }
@@ -1335,12 +1335,12 @@ comments: true
             return Size() == 0;
         }
 
-        /* 入堆疊 */
+        /* 推入堆疊 */
         public void Push(int num) {
             stack.Add(num);
         }
 
-        /* 出堆疊 */
+        /* 彈出堆疊頂端的元素 */
         public int Pop() {
             if (IsEmpty())
                 throw new Exception();
@@ -1349,14 +1349,14 @@ comments: true
             return val;
         }
 
-        /* 訪問堆疊頂元素 */
+        /* 讀取堆疊頂端的元素 */
         public int Peek() {
             if (IsEmpty())
                 throw new Exception();
             return stack[Size() - 1];
         }
 
-        /* 將 List 轉化為 Array 並返回 */
+        /* 將串列轉成陣列並回傳 */
         public int[] ToArray() {
             return [.. stack];
         }
@@ -1366,7 +1366,7 @@ comments: true
 === "Go"
 
     ```go title="array_stack.go"
-    /* 基於陣列實現的堆疊 */
+    /* 以陣列實作堆疊 */
     type arrayStack struct {
         data []int // 資料
     }
@@ -1374,12 +1374,12 @@ comments: true
     /* 初始化堆疊 */
     func newArrayStack() *arrayStack {
         return &arrayStack{
-            // 設定堆疊的長度為 0，容量為 16
+            // 將堆疊長度設為 0，容量設為 16
             data: make([]int, 0, 16),
         }
     }
 
-    /* 堆疊的長度 */
+    /* 堆疊長度 */
     func (s *arrayStack) size() int {
         return len(s.data)
     }
@@ -1389,20 +1389,20 @@ comments: true
         return s.size() == 0
     }
 
-    /* 入堆疊 */
+    /* 推入堆疊 */
     func (s *arrayStack) push(v int) {
-        // 切片會自動擴容
+        // 切片會自動擴充容量
         s.data = append(s.data, v)
     }
 
-    /* 出堆疊 */
+    /* 彈出堆疊頂端的元素 */
     func (s *arrayStack) pop() any {
         val := s.peek()
         s.data = s.data[:len(s.data)-1]
         return val
     }
 
-    /* 獲取堆疊頂元素 */
+    /* 讀取堆疊頂端的元素 */
     func (s *arrayStack) peek() any {
         if s.isEmpty() {
             return nil
@@ -1411,7 +1411,7 @@ comments: true
         return val
     }
 
-    /* 獲取 Slice 用於列印 */
+    /* 回傳切片以便輸出 */
     func (s *arrayStack) toSlice() []int {
         return s.data
     }
@@ -1420,16 +1420,16 @@ comments: true
 === "Swift"
 
     ```swift title="array_stack.swift"
-    /* 基於陣列實現的堆疊 */
+    /* 以陣列實作堆疊 */
     class ArrayStack {
         private var stack: [Int]
 
         init() {
-            // 初始化串列（動態陣列）
+            // 初始化動態陣列
             stack = []
         }
 
-        /* 獲取堆疊的長度 */
+        /* 取得堆疊長度 */
         func size() -> Int {
             stack.count
         }
@@ -1439,12 +1439,12 @@ comments: true
             stack.isEmpty
         }
 
-        /* 入堆疊 */
+        /* 推入堆疊 */
         func push(num: Int) {
             stack.append(num)
         }
 
-        /* 出堆疊 */
+        /* 彈出堆疊頂端的元素 */
         @discardableResult
         func pop() -> Int {
             if isEmpty() {
@@ -1453,7 +1453,7 @@ comments: true
             return stack.removeLast()
         }
 
-        /* 訪問堆疊頂元素 */
+        /* 讀取堆疊頂端的元素 */
         func peek() -> Int {
             if isEmpty() {
                 fatalError("堆疊為空")
@@ -1461,7 +1461,7 @@ comments: true
             return stack.last!
         }
 
-        /* 將 List 轉化為 Array 並返回 */
+        /* 以陣列形式回傳堆疊內容 */
         func toArray() -> [Int] {
             stack
         }
@@ -1471,14 +1471,14 @@ comments: true
 === "JS"
 
     ```javascript title="array_stack.js"
-    /* 基於陣列實現的堆疊 */
+    /* 以陣列實作堆疊 */
     class ArrayStack {
         #stack;
         constructor() {
             this.#stack = [];
         }
 
-        /* 獲取堆疊的長度 */
+        /* 取得堆疊長度 */
         get size() {
             return this.#stack.length;
         }
@@ -1488,24 +1488,24 @@ comments: true
             return this.#stack.length === 0;
         }
 
-        /* 入堆疊 */
+        /* 推入堆疊 */
         push(num) {
             this.#stack.push(num);
         }
 
-        /* 出堆疊 */
+        /* 彈出堆疊頂端的元素 */
         pop() {
             if (this.isEmpty()) throw new Error('堆疊為空');
             return this.#stack.pop();
         }
 
-        /* 訪問堆疊頂元素 */
+        /* 讀取堆疊頂端的元素 */
         top() {
             if (this.isEmpty()) throw new Error('堆疊為空');
             return this.#stack[this.#stack.length - 1];
         }
 
-        /* 返回 Array */
+        /* 回傳陣列 */
         toArray() {
             return this.#stack;
         }
@@ -1515,14 +1515,14 @@ comments: true
 === "TS"
 
     ```typescript title="array_stack.ts"
-    /* 基於陣列實現的堆疊 */
+    /* 以陣列實作堆疊 */
     class ArrayStack {
         private stack: number[];
         constructor() {
             this.stack = [];
         }
 
-        /* 獲取堆疊的長度 */
+        /* 取得堆疊長度 */
         get size(): number {
             return this.stack.length;
         }
@@ -1532,24 +1532,24 @@ comments: true
             return this.stack.length === 0;
         }
 
-        /* 入堆疊 */
+        /* 推入堆疊 */
         push(num: number): void {
             this.stack.push(num);
         }
 
-        /* 出堆疊 */
+        /* 彈出堆疊頂端的元素 */
         pop(): number | undefined {
             if (this.isEmpty()) throw new Error('堆疊為空');
             return this.stack.pop();
         }
 
-        /* 訪問堆疊頂元素 */
+        /* 讀取堆疊頂端的元素 */
         top(): number | undefined {
             if (this.isEmpty()) throw new Error('堆疊為空');
             return this.stack[this.stack.length - 1];
         }
 
-        /* 返回 Array */
+        /* 回傳陣列 */
         toArray() {
             return this.stack;
         }
@@ -1559,14 +1559,14 @@ comments: true
 === "Dart"
 
     ```dart title="array_stack.dart"
-    /* 基於陣列實現的堆疊 */
+    /* 以陣列實作堆疊 */
     class ArrayStack {
       late List<int> _stack;
       ArrayStack() {
         _stack = [];
       }
 
-      /* 獲取堆疊的長度 */
+      /* 取得堆疊長度 */
       int size() {
         return _stack.length;
       }
@@ -1576,12 +1576,12 @@ comments: true
         return _stack.isEmpty;
       }
 
-      /* 入堆疊 */
+      /* 推入堆疊 */
       void push(int _num) {
         _stack.add(_num);
       }
 
-      /* 出堆疊 */
+      /* 彈出堆疊頂端的元素 */
       int pop() {
         if (isEmpty()) {
           throw Exception("堆疊為空");
@@ -1589,7 +1589,7 @@ comments: true
         return _stack.removeLast();
       }
 
-      /* 訪問堆疊頂元素 */
+      /* 讀取堆疊頂端的元素 */
       int peek() {
         if (isEmpty()) {
           throw Exception("堆疊為空");
@@ -1597,7 +1597,7 @@ comments: true
         return _stack.last;
       }
 
-      /* 將堆疊轉化為 Array 並返回 */
+      /* 以 List 形式回傳堆疊內容 */
       List<int> toArray() => _stack;
     }
     ```
@@ -1605,7 +1605,7 @@ comments: true
 === "Rust"
 
     ```rust title="array_stack.rs"
-    /* 基於陣列實現的堆疊 */
+    /* 以陣列實作堆疊 */
     struct ArrayStack<T> {
         stack: Vec<T>,
     }
@@ -1618,7 +1618,7 @@ comments: true
             }
         }
 
-        /* 獲取堆疊的長度 */
+        /* 取得堆疊長度 */
         fn size(&self) -> usize {
             self.stack.len()
         }
@@ -1628,17 +1628,17 @@ comments: true
             self.size() == 0
         }
 
-        /* 入堆疊 */
+        /* 推入堆疊 */
         fn push(&mut self, num: T) {
             self.stack.push(num);
         }
 
-        /* 出堆疊 */
+        /* 彈出堆疊頂端的元素 */
         fn pop(&mut self) -> Option<T> {
             self.stack.pop()
         }
 
-        /* 訪問堆疊頂元素 */
+        /* 取得堆疊頂端元素的參照 */
         fn peek(&self) -> Option<&T> {
             if self.is_empty() {
                 panic!("堆疊為空")
@@ -1646,7 +1646,7 @@ comments: true
             self.stack.last()
         }
 
-        /* 返回 &Vec */
+        /* 回傳 Vec 的參照（&Vec） */
         fn to_array(&self) -> &Vec<T> {
             &self.stack
         }
@@ -1656,28 +1656,28 @@ comments: true
 === "C"
 
     ```c title="array_stack.c"
-    /* 基於陣列實現的堆疊 */
+    /* 以陣列實作堆疊 */
     typedef struct {
         int *data;
         int size;
     } ArrayStack;
 
-    /* 建構子 */
+    /* 建立堆疊 */
     ArrayStack *newArrayStack() {
         ArrayStack *stack = malloc(sizeof(ArrayStack));
-        // 初始化一個大容量，避免擴容
+        // 一開始就配置較大的容量，以免之後需要擴充
         stack->data = malloc(sizeof(int) * MAX_SIZE);
         stack->size = 0;
         return stack;
     }
 
-    /* 析構函式 */
+    /* 釋放堆疊的記憶體 */
     void delArrayStack(ArrayStack *stack) {
         free(stack->data);
         free(stack);
     }
 
-    /* 獲取堆疊的長度 */
+    /* 取得堆疊長度 */
     int size(ArrayStack *stack) {
         return stack->size;
     }
@@ -1687,7 +1687,7 @@ comments: true
         return stack->size == 0;
     }
 
-    /* 入堆疊 */
+    /* 推入堆疊 */
     void push(ArrayStack *stack, int num) {
         if (stack->size == MAX_SIZE) {
             printf("堆疊已滿\n");
@@ -1697,7 +1697,7 @@ comments: true
         stack->size++;
     }
 
-    /* 訪問堆疊頂元素 */
+    /* 讀取堆疊頂端的元素 */
     int peek(ArrayStack *stack) {
         if (stack->size == 0) {
             printf("堆疊為空\n");
@@ -1706,7 +1706,7 @@ comments: true
         return stack->data[stack->size - 1];
     }
 
-    /* 出堆疊 */
+    /* 彈出堆疊頂端的元素 */
     int pop(ArrayStack *stack) {
         int val = peek(stack);
         stack->size--;
@@ -1717,12 +1717,12 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="array_stack.kt"
-    /* 基於陣列實現的堆疊 */
+    /* 以陣列實作堆疊 */
     class ArrayStack {
         // 初始化串列（動態陣列）
         private val stack = mutableListOf<Int>()
 
-        /* 獲取堆疊的長度 */
+        /* 取得堆疊長度 */
         fun size(): Int {
             return stack.size
         }
@@ -1732,24 +1732,24 @@ comments: true
             return size() == 0
         }
 
-        /* 入堆疊 */
+        /* 推入堆疊 */
         fun push(num: Int) {
             stack.add(num)
         }
 
-        /* 出堆疊 */
+        /* 彈出堆疊頂端的元素 */
         fun pop(): Int {
             if (isEmpty()) throw IndexOutOfBoundsException()
             return stack.removeAt(size() - 1)
         }
 
-        /* 訪問堆疊頂元素 */
+        /* 讀取堆疊頂端的元素 */
         fun peek(): Int {
             if (isEmpty()) throw IndexOutOfBoundsException()
             return stack[size() - 1]
         }
 
-        /* 將 List 轉化為 Array 並返回 */
+        /* 將串列轉成陣列並回傳 */
         fun toArray(): Array<Any> {
             return stack.toTypedArray()
         }
@@ -1759,14 +1759,14 @@ comments: true
 === "Ruby"
 
     ```ruby title="array_stack.rb"
-    ### 基於陣列實現的堆疊 ###
+    ### 以陣列實作堆疊 ###
     class ArrayStack
-      ### 建構子 ###
+      ### 初始化方法 ###
       def initialize
         @stack = []
       end
 
-      ### 獲取堆疊的長度 ###
+      ### 取得堆疊長度 ###
       def size
         @stack.length
       end
@@ -1776,63 +1776,63 @@ comments: true
         @stack.empty?
       end
 
-      ### 入堆疊 ###
+      ### 推入堆疊 ###
       def push(item)
         @stack << item
       end
 
-      ### 出堆疊 ###
+      ### 彈出堆疊頂端的元素 ###
       def pop
         raise IndexError, '堆疊為空' if is_empty?
 
         @stack.pop
       end
 
-      ### 訪問堆疊頂元素 ###
+      ### 讀取堆疊頂端的元素 ###
       def peek
         raise IndexError, '堆疊為空' if is_empty?
 
         @stack.last
       end
 
-      ### 返回串列用於列印 ###
+      ### 回傳陣列以便輸出 ###
       def to_array
         @stack
       end
     end
     ```
 
-??? pythontutor "視覺化執行"
+??? pythontutor "執行視覺化示範"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="視覺化執行" src="https://pythontutor.com/iframe-embed.html#code=class%20ArrayStack%3A%0A%20%20%20%20%22%22%22%E5%9F%BA%E6%96%BC%E9%99%A3%E5%88%97%E5%AF%A6%E7%8F%BE%E7%9A%84%E5%A0%86%E7%96%8A%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%BB%BA%E6%A7%8B%E5%AD%90%22%22%22%0A%20%20%20%20%20%20%20%20self._stack%3A%20list%5Bint%5D%20%3D%20%5B%5D%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E7%8D%B2%E5%8F%96%E5%A0%86%E7%96%8A%E7%9A%84%E9%95%B7%E5%BA%A6%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self._stack%29%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%A4%E6%96%B7%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._stack%20%3D%3D%20%5B%5D%0A%0A%20%20%20%20def%20push%28self%2C%20item%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%85%A5%E5%A0%86%E7%96%8A%22%22%22%0A%20%20%20%20%20%20%20%20self._stack.append%28item%29%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%87%BA%E5%A0%86%E7%96%8A%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E5%A0%86%E7%96%8A%E7%82%BA%E7%A9%BA%22%29%0A%20%20%20%20%20%20%20%20return%20self._stack.pop%28%29%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%A8%AA%E5%95%8F%E5%A0%86%E7%96%8A%E9%A0%82%E5%85%83%E7%B4%A0%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E5%A0%86%E7%96%8A%E7%82%BA%E7%A9%BA%22%29%0A%20%20%20%20%20%20%20%20return%20self._stack%5B-1%5D%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%BF%94%E5%9B%9E%E4%B8%B2%E5%88%97%E7%94%A8%E6%96%BC%E5%88%97%E5%8D%B0%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._stack%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%A0%86%E7%96%8A%0A%20%20%20%20stack%20%3D%20ArrayStack%28%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E5%A0%86%E7%96%8A%0A%20%20%20%20stack.push%281%29%0A%20%20%20%20stack.push%283%29%0A%20%20%20%20stack.push%282%29%0A%20%20%20%20stack.push%285%29%0A%20%20%20%20stack.push%284%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%20stack%20%3D%22%2C%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E8%A8%AA%E5%95%8F%E5%A0%86%E7%96%8A%E9%A0%82%E5%85%83%E7%B4%A0%0A%20%20%20%20peek%20%3D%20stack.peek%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E9%A0%82%E5%85%83%E7%B4%A0%20peek%20%3D%22%2C%20peek%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E5%A0%86%E7%96%8A%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E5%87%BA%E5%A0%86%E7%96%8A%E5%85%83%E7%B4%A0%20pop%20%3D%22%2C%20pop%29%0A%20%20%20%20print%28%22%E5%87%BA%E5%A0%86%E7%96%8A%E5%BE%8C%20stack%20%3D%22%2C%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E7%8D%B2%E5%8F%96%E5%A0%86%E7%96%8A%E7%9A%84%E9%95%B7%E5%BA%A6%0A%20%20%20%20size%20%3D%20stack.size%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E7%9A%84%E9%95%B7%E5%BA%A6%20size%20%3D%22%2C%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%B7%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20stack.is_empty%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%20%3D%22%2C%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ArrayStack%3A%0A%20%20%20%20%22%22%22%E5%9F%BA%E6%96%BC%E9%99%A3%E5%88%97%E5%AF%A6%E7%8F%BE%E7%9A%84%E5%A0%86%E7%96%8A%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%BB%BA%E6%A7%8B%E5%AD%90%22%22%22%0A%20%20%20%20%20%20%20%20self._stack%3A%20list%5Bint%5D%20%3D%20%5B%5D%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E7%8D%B2%E5%8F%96%E5%A0%86%E7%96%8A%E7%9A%84%E9%95%B7%E5%BA%A6%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self._stack%29%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%A4%E6%96%B7%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._stack%20%3D%3D%20%5B%5D%0A%0A%20%20%20%20def%20push%28self%2C%20item%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%85%A5%E5%A0%86%E7%96%8A%22%22%22%0A%20%20%20%20%20%20%20%20self._stack.append%28item%29%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%87%BA%E5%A0%86%E7%96%8A%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E5%A0%86%E7%96%8A%E7%82%BA%E7%A9%BA%22%29%0A%20%20%20%20%20%20%20%20return%20self._stack.pop%28%29%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%A8%AA%E5%95%8F%E5%A0%86%E7%96%8A%E9%A0%82%E5%85%83%E7%B4%A0%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E5%A0%86%E7%96%8A%E7%82%BA%E7%A9%BA%22%29%0A%20%20%20%20%20%20%20%20return%20self._stack%5B-1%5D%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%BF%94%E5%9B%9E%E4%B8%B2%E5%88%97%E7%94%A8%E6%96%BC%E5%88%97%E5%8D%B0%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._stack%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%A0%86%E7%96%8A%0A%20%20%20%20stack%20%3D%20ArrayStack%28%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E5%A0%86%E7%96%8A%0A%20%20%20%20stack.push%281%29%0A%20%20%20%20stack.push%283%29%0A%20%20%20%20stack.push%282%29%0A%20%20%20%20stack.push%285%29%0A%20%20%20%20stack.push%284%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%20stack%20%3D%22%2C%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E8%A8%AA%E5%95%8F%E5%A0%86%E7%96%8A%E9%A0%82%E5%85%83%E7%B4%A0%0A%20%20%20%20peek%20%3D%20stack.peek%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E9%A0%82%E5%85%83%E7%B4%A0%20peek%20%3D%22%2C%20peek%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E5%A0%86%E7%96%8A%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E5%87%BA%E5%A0%86%E7%96%8A%E5%85%83%E7%B4%A0%20pop%20%3D%22%2C%20pop%29%0A%20%20%20%20print%28%22%E5%87%BA%E5%A0%86%E7%96%8A%E5%BE%8C%20stack%20%3D%22%2C%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E7%8D%B2%E5%8F%96%E5%A0%86%E7%96%8A%E7%9A%84%E9%95%B7%E5%BA%A6%0A%20%20%20%20size%20%3D%20stack.size%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E7%9A%84%E9%95%B7%E5%BA%A6%20size%20%3D%22%2C%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%B7%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20stack.is_empty%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%20%3D%22%2C%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="執行視覺化示範" src="https://pythontutor.com/iframe-embed.html#code=class%20ArrayStack%3A%0A%20%20%20%20%22%22%22%E4%BB%A5%E9%99%A3%E5%88%97%E5%AF%A6%E4%BD%9C%E5%A0%86%E7%96%8A%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95%22%22%22%0A%20%20%20%20%20%20%20%20self._stack%3A%20list%5Bint%5D%20%3D%20%5B%5D%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%8F%96%E5%BE%97%E5%A0%86%E7%96%8A%E9%95%B7%E5%BA%A6%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self._stack%29%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%A4%E6%96%B7%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._stack%20%3D%3D%20%5B%5D%0A%0A%20%20%20%20def%20push%28self,%20item%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%8E%A8%E5%85%A5%E5%A0%86%E7%96%8A%22%22%22%0A%20%20%20%20%20%20%20%20self._stack.append%28item%29%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%BD%88%E5%87%BA%E5%A0%86%E7%96%8A%E9%A0%82%E7%AB%AF%E7%9A%84%E5%85%83%E7%B4%A0%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E5%A0%86%E7%96%8A%E7%82%BA%E7%A9%BA%22%29%0A%20%20%20%20%20%20%20%20return%20self._stack.pop%28%29%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%AE%80%E5%8F%96%E5%A0%86%E7%96%8A%E9%A0%82%E7%AB%AF%E7%9A%84%E5%85%83%E7%B4%A0%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E5%A0%86%E7%96%8A%E7%82%BA%E7%A9%BA%22%29%0A%20%20%20%20%20%20%20%20return%20self._stack%5B-1%5D%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%9B%9E%E5%82%B3%E4%B8%B2%E5%88%97%E4%BB%A5%E4%BE%BF%E8%BC%B8%E5%87%BA%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._stack%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%A0%86%E7%96%8A%0A%20%20%20%20stack%20%3D%20ArrayStack%28%29%0A%0A%20%20%20%20%23%20%E5%B0%87%E5%85%83%E7%B4%A0%E6%8E%A8%E5%85%A5%E5%A0%86%E7%96%8A%0A%20%20%20%20stack.push%281%29%0A%20%20%20%20stack.push%283%29%0A%20%20%20%20stack.push%282%29%0A%20%20%20%20stack.push%285%29%0A%20%20%20%20stack.push%284%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E8%AE%80%E5%8F%96%E5%A0%86%E7%96%8A%E9%A0%82%E7%AB%AF%E7%9A%84%E5%85%83%E7%B4%A0%0A%20%20%20%20peek%20%3D%20stack.peek%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E9%A0%82%E7%AB%AF%E5%85%83%E7%B4%A0%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20%E5%BE%9E%E5%A0%86%E7%96%8A%E5%BD%88%E5%87%BA%E5%85%83%E7%B4%A0%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E5%BD%88%E5%87%BA%E7%9A%84%E5%85%83%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22%E5%BD%88%E5%87%BA%E5%BE%8C%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E5%8F%96%E5%BE%97%E5%A0%86%E7%96%8A%E9%95%B7%E5%BA%A6%0A%20%20%20%20size%20%3D%20stack.size%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E9%95%B7%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%B7%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20stack.is_empty%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%20%3D%22,%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ArrayStack%3A%0A%20%20%20%20%22%22%22%E4%BB%A5%E9%99%A3%E5%88%97%E5%AF%A6%E4%BD%9C%E5%A0%86%E7%96%8A%22%22%22%0A%0A%20%20%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95%22%22%22%0A%20%20%20%20%20%20%20%20self._stack%3A%20list%5Bint%5D%20%3D%20%5B%5D%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%8F%96%E5%BE%97%E5%A0%86%E7%96%8A%E9%95%B7%E5%BA%A6%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self._stack%29%0A%0A%20%20%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%88%A4%E6%96%B7%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._stack%20%3D%3D%20%5B%5D%0A%0A%20%20%20%20def%20push%28self,%20item%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E6%8E%A8%E5%85%A5%E5%A0%86%E7%96%8A%22%22%22%0A%20%20%20%20%20%20%20%20self._stack.append%28item%29%0A%0A%20%20%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%BD%88%E5%87%BA%E5%A0%86%E7%96%8A%E9%A0%82%E7%AB%AF%E7%9A%84%E5%85%83%E7%B4%A0%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E5%A0%86%E7%96%8A%E7%82%BA%E7%A9%BA%22%29%0A%20%20%20%20%20%20%20%20return%20self._stack.pop%28%29%0A%0A%20%20%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%AE%80%E5%8F%96%E5%A0%86%E7%96%8A%E9%A0%82%E7%AB%AF%E7%9A%84%E5%85%83%E7%B4%A0%22%22%22%0A%20%20%20%20%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20IndexError%28%22%E5%A0%86%E7%96%8A%E7%82%BA%E7%A9%BA%22%29%0A%20%20%20%20%20%20%20%20return%20self._stack%5B-1%5D%0A%0A%20%20%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%9B%9E%E5%82%B3%E4%B8%B2%E5%88%97%E4%BB%A5%E4%BE%BF%E8%BC%B8%E5%87%BA%22%22%22%0A%20%20%20%20%20%20%20%20return%20self._stack%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%A0%86%E7%96%8A%0A%20%20%20%20stack%20%3D%20ArrayStack%28%29%0A%0A%20%20%20%20%23%20%E5%B0%87%E5%85%83%E7%B4%A0%E6%8E%A8%E5%85%A5%E5%A0%86%E7%96%8A%0A%20%20%20%20stack.push%281%29%0A%20%20%20%20stack.push%283%29%0A%20%20%20%20stack.push%282%29%0A%20%20%20%20stack.push%285%29%0A%20%20%20%20stack.push%284%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E8%AE%80%E5%8F%96%E5%A0%86%E7%96%8A%E9%A0%82%E7%AB%AF%E7%9A%84%E5%85%83%E7%B4%A0%0A%20%20%20%20peek%20%3D%20stack.peek%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E9%A0%82%E7%AB%AF%E5%85%83%E7%B4%A0%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20%E5%BE%9E%E5%A0%86%E7%96%8A%E5%BD%88%E5%87%BA%E5%85%83%E7%B4%A0%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E5%BD%88%E5%87%BA%E7%9A%84%E5%85%83%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22%E5%BD%88%E5%87%BA%E5%BE%8C%20stack%20%3D%22,%20stack.to_list%28%29%29%0A%0A%20%20%20%20%23%20%E5%8F%96%E5%BE%97%E5%A0%86%E7%96%8A%E9%95%B7%E5%BA%A6%0A%20%20%20%20size%20%3D%20stack.size%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E9%95%B7%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%B7%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20stack.is_empty%28%29%0A%20%20%20%20print%28%22%E5%A0%86%E7%96%8A%E6%98%AF%E5%90%A6%E7%82%BA%E7%A9%BA%20%3D%22,%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
 
-## 5.1.3 &nbsp; 兩種實現對比
+## 5.1.3 &nbsp; 兩種實作方式的比較
 
-**支持操作**
+**支援的操作**
 
-兩種實現都支持堆疊定義中的各項操作。陣列實現額外支持隨機訪問，但這已超出了堆疊的定義範疇，因此一般不會用到。
+兩種實作都支援堆疊定義中的各項操作。陣列額外支援隨機存取，但這超出堆疊的定義範圍，因此通常用不到。
 
 **時間效率**
 
-在基於陣列的實現中，入堆疊和出堆疊操作都在預先分配好的連續記憶體中進行，具有很好的快取本地性，因此效率較高。然而，如果入堆疊時超出陣列容量，會觸發擴容機制，導致該次入堆疊操作的時間複雜度變為 $O(n)$ 。
+以陣列實作時，推入和彈出都在預先配置好的連續記憶體空間中進行，記憶體存取具有良好的區域性，有利於利用快取，因此效率較高。不過，如果推入元素時超出陣列容量，就必須擴充容量，使這一次推入的時間複雜度變為 $O(n)$。
 
-在基於鏈結串列的實現中，鏈結串列的擴容非常靈活，不存在上述陣列擴容時效率降低的問題。但是，入堆疊操作需要初始化節點物件並修改指標，因此效率相對較低。不過，如果入堆疊元素本身就是節點物件，那麼可以省去初始化步驟，從而提高效率。
+以鏈結串列實作時，擴充串列很有彈性，不會遇到陣列擴充容量時效率下降的問題。不過，推入元素時需要初始化節點物件並修改指標，因此效率相對較低。如果要推入的元素本身就是節點物件，就能省去初始化的步驟，提高效率。
 
-綜上所述，當入堆疊與出堆疊操作的元素是基本資料型別時，例如 `int` 或 `double` ，我們可以得出以下結論。
+綜合以上比較，如果推入和彈出的元素屬於基本資料型別，例如 `int` 或 `double`，就能得到以下結論。
 
-- 基於陣列實現的堆疊在觸發擴容時效率會降低，但由於擴容是低頻操作，因此平均效率更高。
-- 基於鏈結串列實現的堆疊可以提供更加穩定的效率表現。
+- 以陣列實作的堆疊在擴充容量時效率會下降，但因為不常需要擴充，所以平均效率較高。
+- 以鏈結串列實作的堆疊，執行效率較為穩定。
 
 **空間效率**
 
-在初始化串列時，系統會為串列分配“初始容量”，該容量可能超出實際需求；並且，擴容機制通常是按照特定倍率（例如 2 倍）進行擴容的，擴容後的容量也可能超出實際需求。因此，**基於陣列實現的堆疊可能造成一定的空間浪費**。
+初始化動態陣列時，系統會為它配置「初始容量」，這個容量可能超過實際需求。之後擴充容量時，通常會按固定倍數（例如 2 倍）擴充，新容量也可能超過實際需求。因此，**以陣列實作的堆疊可能會浪費部分空間**。
 
-然而，由於鏈結串列節點需要額外儲存指標，**因此鏈結串列節點佔用的空間相對較大**。
+不過，鏈結串列的節點需要額外儲存指標，**因此每個節點占用的空間相對較大**。
 
-綜上，我們不能簡單地確定哪種實現更加節省記憶體，需要針對具體情況進行分析。
+由此可見，哪一種實作較省記憶體，仍要視實際情況而定。
 
-## 5.1.4 &nbsp; 堆疊的典型應用
+## 5.1.4 &nbsp; 堆疊的常見應用
 
-- **瀏覽器中的後退與前進、軟體中的撤銷與反撤銷**。每當我們開啟新的網頁，瀏覽器就會對上一個網頁執行入堆疊，這樣我們就可以通過後退操作回到上一個網頁。後退操作實際上是在執行出堆疊。如果要同時支持後退和前進，那麼需要兩個堆疊來配合實現。
-- **程式記憶體管理**。每次呼叫函式時，系統都會在堆疊頂新增一個堆疊幀，用於記錄函式的上下文資訊。在遞迴函式中，向下遞推階段會不斷執行入堆疊操作，而向上回溯階段則會不斷執行出堆疊操作。
+- **瀏覽器的上一頁與下一頁、軟體的復原與重做**。每當我們開啟新網頁，瀏覽器就會將前一個網頁推入堆疊，這樣一來，按下「上一頁」就能回到前一頁。這個動作實際上就是從堆疊彈出網頁。要同時支援上一頁和下一頁，則需要搭配使用兩個堆疊。
+- **程式的記憶體管理**。每次呼叫函式，系統都會在堆疊頂端加入一個堆疊框架，用來記錄這次函式呼叫的執行狀態。在遞迴函式中，逐層呼叫時會不斷推入堆疊框架，逐層回溯時則會依序彈出。

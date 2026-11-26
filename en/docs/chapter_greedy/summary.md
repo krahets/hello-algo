@@ -4,15 +4,15 @@ comments: true
 
 # 15.5 &nbsp; Summary
 
-### 1. &nbsp; Key takeaways
+### 1. &nbsp; Key points
 
-- Greedy algorithms are commonly used for optimization. At each decision point, they make a locally optimal choice in the hope of reaching a globally optimal solution.
-- A greedy algorithm repeatedly makes greedy choices, turning the problem into a smaller subproblem at each step until it is solved.
-- Greedy algorithms are easy to implement and efficient. Their time complexity is usually lower than that of dynamic programming.
-- For some coin denominations, a greedy algorithm is guaranteed to find an optimal coin change solution. For others, it may produce a very poor solution.
-- Problems suited to greedy algorithms have two properties: the greedy-choice property and optimal substructure. The greedy-choice property establishes that the strategy works.
-- Proving the greedy-choice property can be difficult for complex problems. Disproving it is often easier, as coin change illustrates.
-- Solving a greedy problem involves three main steps: analyze the problem, choose a greedy strategy, and prove correctness. Choosing the strategy is the central step, while proving correctness is often the hardest.
-- The fractional knapsack problem extends 0-1 knapsack by allowing fractions of items, making a greedy solution possible. The strategy can be proved correct by contradiction.
-- The maximum capacity problem can be solved by exhaustive search in $O(n^2)$ time. A greedy strategy that moves the shorter wall inward at each step reduces this to $O(n)$.
-- For the maximum product cutting problem, we derived two greedy strategies: continue splitting integers $\geq 4$, and favor factors of $3$. The implementation uses exponentiation, so its time complexity depends on the exponentiation method, usually $O(1)$ or $O(\log n)$.
+- Greedy algorithms typically solve optimization problems by making a locally optimal choice at each decision point in the hope of reaching a global optimum.
+- A greedy algorithm makes one choice after another. Each choice reduces the problem to a smaller subproblem, and the process continues until the problem is solved.
+- Greedy algorithms are easy to implement and efficient. They usually have lower time complexity than dynamic programming.
+- For some sets of coin denominations, greedy coin change is guaranteed to find an optimal solution. For other sets, it can give a very poor solution.
+- Problems suited to greedy algorithms have two properties: the greedy-choice property and optimal substructure. The greedy-choice property is what makes the greedy strategy valid.
+- For some complex problems, the greedy-choice property is difficult to prove. It can be easier to disprove, as the coin change example shows.
+- Solving a greedy problem involves three main steps: analyze the problem, choose a greedy strategy, and prove correctness. Choosing the strategy is the central step, and proving correctness is often the hardest part.
+- Fractional knapsack extends 0-1 knapsack by allowing a fraction of an item to be taken. This makes a greedy solution possible. Its correctness can be proved by contradiction.
+- An exhaustive search for maximum capacity takes $O(n^2)$ time. Moving the pointer at the shorter board inward at each step gives a greedy strategy that reduces the time to $O(n)$.
+- For the maximum product after cutting, we derived two greedy rules: keep splitting integers $\geq 4$, and favor factors of $3$. The code uses exponentiation, so its time complexity depends on the implementation of that operation, usually $O(1)$ or $O(\log n)$.

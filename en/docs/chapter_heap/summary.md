@@ -4,18 +4,18 @@ comments: true
 
 # 8.4 &nbsp; Summary
 
-### 1. &nbsp; Key takeaways
+### 1. &nbsp; Key points
 
-- A heap is a complete binary tree. Depending on its ordering condition, it is either a max heap or a min heap. The root holds the largest or smallest element, respectively.
-- A priority queue removes elements according to their priority and is usually implemented with a heap.
-- Common heap operations and their time complexities include insertion in $O(\log n)$, removing the root in $O(\log n)$, and accessing the root in $O(1)$.
-- Complete binary trees are well suited to array representation, so heaps are usually stored in arrays.
-- Sifting restores the heap property and is used during both insertion and removal.
-- Building a heap from $n$ input elements can be optimized to $O(n)$ time.
-- Top-k is a classic algorithm problem that a heap can solve efficiently in $O(n \log k)$ time.
+- A heap is a complete binary tree. Its ordering rule makes it either a max-heap, whose root holds the maximum, or a min-heap, whose root holds the minimum.
+- A priority queue removes elements in priority order. A heap is a common implementation.
+- Common heap operations include pushing an element in $O(\log n)$ time, popping the root in $O(\log n)$ time, and accessing the root in $O(1)$ time.
+- Arrays are well suited to complete binary trees, so heaps are usually stored in arrays.
+- Heapifying maintains the heap property and is used both when pushing and when popping.
+- Building a heap from $n$ input elements can take as little as $O(n)$ time.
+- The top-k problem is a classic algorithm problem that a heap can solve efficiently in $O(n \log k)$ time.
 
 ### 2. &nbsp; Q & A
 
-**Q**: Is the heap data structure the same concept as the heap in memory management?
+**Q**: Is the heap data structure the same as the heap used in memory management?
 
-No; they simply share a name. In computer memory, the heap is used for dynamic memory allocation, allowing a running program to store data. A program can request heap memory for structures such as objects and arrays. When that data is no longer needed, the memory must be released to prevent leaks. Compared with stack memory, heap memory requires more careful management; misuse can lead to memory leaks, dangling pointers, and other problems.
+The two concepts just happen to share a name. In a computer system, heap memory supports dynamic allocation: a running program can request space for data such as objects and arrays. When the data is no longer needed, the allocated memory must be released to prevent leaks. Heap memory requires more care to manage and use than stack memory. Misuse can lead to memory leaks and dangling pointers.

@@ -6,85 +6,85 @@ comments: true
 
 ## 3.6.1 &nbsp; Check your understanding
 
-### 1. &nbsp; Relationships between data in everyday situations
+### 1. &nbsp; Data relationships in everyday situations
 
-For each situation below, choose a linear, tree, or network structure based on the relationships between the data, and explain your choice:
-
-<!-- numbered-subquestions -->
-
-1. Students stand in a line, each concerned only with the people immediately in front of and behind them.
-2. A school is organized in a hierarchy: school → grade → class.
-3. City roads connect intersections. An intersection can lead to several others, and the roads may form cycles.
-
-??? success "Reference answer"
-
-    1. A linear structure. Apart from the first and last people, each person has exactly one neighbor in front and one behind, forming a line of relationships.
-
-    2. A tree structure. Each class belongs to a grade, and each grade belongs to the school, forming a hierarchy from top to bottom.
-
-    3. A network structure. An intersection can connect to several others, and routes can form cycles. These relationships cannot be arranged in a single sequence or a strict hierarchy.
-
-        To identify a structure, first examine the relationships between its elements, rather than how much memory it occupies.
-
-### 2. &nbsp; Storing a logical sequence in memory
-
-Consider two simplified memory layouts for storing the logical sequence `A → B → C`:
-
-- Layout A: `A, B, C` are stored in memory cells numbered `20, 21, 22`, respectively.
-- Layout B: `A, B, C` are stored in cells numbered `20, 7, 31`, respectively. `A` records the location of `B`, and `B` records the location of `C`.
+For each scenario, examine the relationships between elements. Choose a linear, tree, or network structure and explain your reasoning.
 
 <!-- numbered-subquestions -->
 
-1. Which layout uses contiguous storage, and which uses noncontiguous storage?
-2. Which layout is more like an array, and which is more like a linked list?
-3. The cell numbers in layout B are not in ascending order. Why can it still represent the logical sequence `A → B → C`?
+1. Students stand in a single line. Each student cares only about the people immediately in front of and behind them.
+2. A school is organized into levels: school → grade → class.
+3. City streets connect intersections. One intersection can lead to several others, and routes may form cycles.
 
-??? success "Reference answer"
+??? success "Sample answer"
 
-    1. Layout A uses consecutive memory cells, so its storage is contiguous. In layout B, nodes occupy separate locations, so its storage is noncontiguous.
+    1. The line is a linear structure. Except at the two ends, each student has one neighbor in front and one behind, so the relationships form a single sequence.
 
-    2. Layout A is more like an array; layout B is more like a linked list.
+    2. The school has a tree structure. Each class belongs to one grade, and each grade belongs to the school, forming a hierarchy from top to bottom.
 
-    3. The logical order is determined by the links recorded between nodes, not by the numerical order of their memory cell numbers.
-        The location stored in `A` leads to `B`, and the location stored in `B` leads to `C`, so we can still visit `A, B, C` in sequence.
+    3. The streets form a network. An intersection can connect to several others, and routes can form cycles, so the relationships do not fit a single sequence or a strict hierarchy.
 
-        This also shows that logical and physical structure are two ways of looking at the same data.
+        To identify a structure, first examine how the elements relate to one another. How much memory they occupy is a separate question.
 
-### 3. &nbsp; Data types and structures in homework records
+### 2. &nbsp; How is logical order represented in memory?
 
-A study group records whether four students have submitted their homework, in seating order:
+Consider two simplified memory layouts that represent the logical order `A → B → C`.
+
+- Layout A stores `A, B, C` in memory cells `20, 21, 22`, respectively.
+- Layout B stores `A, B, C` in memory cells `20, 7, 31`, respectively. In addition, `A` records the location of `B`, and `B` records the location of `C`.
+
+<!-- numbered-subquestions -->
+
+1. Which layout uses contiguous storage? Which uses noncontiguous storage?
+2. Which layout more closely resembles an array, and which a linked list?
+3. The memory cell numbers in layout B are out of order. How can they still represent the logical order `A → B → C`?
+
+??? success "Sample answer"
+
+    1. Layout A uses consecutive memory cells, so its storage is contiguous. The nodes in layout B occupy scattered locations, so its storage is noncontiguous.
+
+    2. Layout A more closely resembles an array, and layout B a linked list.
+
+    3. The links recorded between nodes determine their logical order, regardless of the numerical order of the memory cells.
+        The location stored in `A` leads to `B`, and the location stored in `B` leads to `C`. You can therefore still visit `A, B, C` in order.
+
+        Logical and physical structure thus describe two different aspects of the same data.
+
+### 3. &nbsp; Data types and structures in a homework record
+
+A study group records whether four students turned in their homework, in seating order, and obtains the following:
 
 `[true, false, true, true]`
 
 <!-- numbered-subquestions -->
 
-1. Which basic data type is suitable for each element?
-2. These four elements form a sequence in seating order. What logical structure does this use?
-3. If the group later records homework scores instead, as `[90, 0, 85, 100]`, has the type of content changed, or the way it is organized? Explain.
+1. Which basic data type suits each element?
+2. What logical structure do the four elements form when arranged in seating order?
+3. Suppose the group switches to recording each student's homework score, `[90, 0, 85, 100]`. Does this change the type of data or the way it is organized? Explain.
 
-??? success "Reference answer"
+??? success "Sample answer"
 
-    1. Each element represents only yes or no, so the Boolean type `bool` is appropriate.
+    1. Each element represents only yes or no, so the Boolean type `bool` is a good fit.
 
     2. The elements form a linear structure in seating order and can be stored in an array.
 
-    3. The content type has changed: the elements are now integers instead of Boolean values. Their organization has not changed.
-        The data still forms a sequence in seating order and can still use the linear structure of an array.
+    3. The type of data changes from Boolean values to integers. The organization stays the same:
+        the values still form a sequence in seating order, so an array is still a suitable linear structure.
 
-        A basic data type describes what is stored; a data structure describes how the data is organized.
+        A basic data type describes what is stored. A data structure describes how the data is organized.
 
 ## 3.6.2 &nbsp; Programming exercises
 
-### 1. &nbsp; Counting ones in a binary representation
+### 1. &nbsp; Count the ones in a binary representation
 
 Given a nonnegative integer `n`, count the ones in its binary representation.
 
-Use bitwise operations. Do not convert the binary representation to a string or use a built-in function that counts the ones directly.
+Use bitwise operations. Do not convert the number to a binary string or use a built-in function that counts ones directly.
 
 ??? tip "Hints"
 
-    1. n & 1 extracts the rightmost bit of n, allowing you to check whether it is 1.
-    2. Shifting right by one bit discards the current rightmost bit; most languages use the >> operator.
-    3. After implementing the method that checks each bit and shifts right, observe that n & (n - 1) changes the rightmost 1 in n to 0.
+    1. Use n & 1 to extract the rightmost bit of n and check whether it is 1.
+    2. Shifting right by one discards the current rightmost bit. Most languages use the >> operator.
+    3. After implementing the method that checks each bit and shifts right, observe what n & (n - 1) does: it clears the rightmost 1 in n.
 
 [LeetCode](https://leetcode.com/problems/number-of-1-bits/){ .rounded-button .exercise-button target="_blank" rel="noopener noreferrer" }

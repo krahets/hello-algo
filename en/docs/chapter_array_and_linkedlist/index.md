@@ -9,11 +9,11 @@ icon: material/view-list-outline
 
 !!! abstract
 
-    The world of data structures is like a solid brick wall.
+    Imagine the world of data structures as a solid brick wall.
 
-    In an array, the bricks line up neatly, each right beside the next. In a linked list, the bricks are scattered, with connecting vines weaving freely through the gaps.
+    The bricks of an array lie in neat rows, each pressed against the next. The bricks of a linked list are scattered, joined by vines that wind freely through the gaps.
 
-## Chapter contents
+## In this chapter
 
 - [4.1 &nbsp; Arrays](array.md)
 - [4.2 &nbsp; Linked lists](linked_list.md)

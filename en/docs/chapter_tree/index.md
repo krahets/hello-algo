@@ -9,16 +9,16 @@ icon: material/graph-outline
 
 !!! abstract
 
-    A towering tree brims with life, its roots deep, its leaves lush, and its branches spreading wide.
+    A towering tree teems with life, its roots deep, its foliage dense, its branches spreading.
     
-    It gives vivid form to the idea of dividing data to conquer a problem.
+    Its branching form shows how data can be divided and conquered.
 
-## Chapter contents
+## In this chapter
 
-- [7.1 &nbsp; Binary trees](binary_tree.md)
-- [7.2 &nbsp; Traversing a binary tree](binary_tree_traversal.md)
-- [7.3 &nbsp; Array representation of a binary tree](array_representation_of_tree.md)
-- [7.4 &nbsp; Binary search trees](binary_search_tree.md)
+- [7.1 &nbsp; Binary tree](binary_tree.md)
+- [7.2 &nbsp; Binary tree traversal](binary_tree_traversal.md)
+- [7.3 &nbsp; Representing binary trees with arrays](array_representation_of_tree.md)
+- [7.4 &nbsp; Binary search tree](binary_search_tree.md)
 - [7.5 &nbsp; AVL trees *](avl_tree.md)
 - [7.6 &nbsp; Summary](summary.md)
 - [7.7 &nbsp; Exercises](exercises.md)

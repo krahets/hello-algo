@@ -5,13 +5,13 @@ icon: material/timer-sand
 
 # 第 2 章 &nbsp; 計算量の解析
 
-![計算量の解析](../assets/covers/chapter_complexity_analysis.svg){ class="cover-image" }
+![計算量解析](../assets/covers/chapter_complexity_analysis.svg){ class="cover-image" }
 
 !!! abstract "概要"
 
-    計算量の解析は、広大なアルゴリズムの宇宙で時空を案内するガイドのようです。
+    計算量解析は、アルゴリズムという広大な宇宙を旅するときの時空の案内役です。
     
-    時間と空間という二つの次元を深く探り、より洗練された解法を見つける手助けをしてくれます。
+    時間と空間という 2 つの次元を深く探り、より洗練された解法を見つける手助けをしてくれます。
 
 ## この章の内容
 

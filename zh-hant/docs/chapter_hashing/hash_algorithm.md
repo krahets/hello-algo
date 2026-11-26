@@ -4,53 +4,53 @@ comments: true
 
 # 6.3 &nbsp; 雜湊演算法
 
-前兩節介紹了雜湊表的工作原理和雜湊衝突的處理方法。然而無論是開放定址還是鏈式位址，**它們只能保證雜湊表可以在發生衝突時正常工作，而無法減少雜湊衝突的發生**。
+前兩節介紹了雜湊表的運作原理，以及處理雜湊碰撞的方法。無論是開放定址法還是鏈結法，**都只能確保雜湊表在發生碰撞時正常運作，無法減少碰撞發生的次數**。
 
-如果雜湊衝突過於頻繁，雜湊表的效能則會急劇劣化。如圖 6-8 所示，對於鏈式位址雜湊表，理想情況下鍵值對均勻分佈在各個桶中，達到最佳查詢效率；最差情況下所有鍵值對都儲存到同一個桶中，時間複雜度退化至 $O(n)$ 。
+雜湊碰撞若過於頻繁，雜湊表的效能就會大幅下降。如圖 6-8 所示，採用鏈結法時，理想的情況是鍵值對均勻分布在各個桶中，查詢效率最高。最差的情況是所有鍵值對都集中在同一個桶中，查詢的時間複雜度會退化為 $O(n)$。
 
-![雜湊衝突的最佳情況與最差情況](hash_algorithm.assets/hash_collision_best_worst_condition.svg){ class="animation-figure" }
+![雜湊碰撞的最佳與最差情況](hash_algorithm.assets/hash_collision_best_worst_condition.svg){ class="animation-figure" }
 
-<p align="center"> 圖 6-8 &nbsp; 雜湊衝突的最佳情況與最差情況 </p>
+<p align="center"> 圖 6-8 &nbsp; 雜湊碰撞的最佳與最差情況 </p>
 
-**鍵值對的分佈情況由雜湊函式決定**。回憶雜湊函式的計算步驟，先計算雜湊值，再對陣列長度取模：
+**雜湊函式決定鍵值對的分布**。回想一下，雜湊函式會先算出雜湊值，再把它除以陣列長度，取其餘數：
 
 ```shell
 index = hash(key) % capacity
 ```
 
-觀察以上公式，當雜湊表容量 `capacity` 固定時，**雜湊演算法 `hash()` 決定了輸出值**，進而決定了鍵值對在雜湊表中的分佈情況。
+從上式可看出，當雜湊表的容量 `capacity` 固定時，**輸出值由雜湊演算法 `hash()` 決定**，進而決定鍵值對在雜湊表中的分布。
 
-這意味著，為了降低雜湊衝突的發生機率，我們應當將注意力集中在雜湊演算法 `hash()` 的設計上。
+由此可知，要降低雜湊碰撞的機率，就應該從雜湊演算法 `hash()` 的設計著手。
 
 ## 6.3.1 &nbsp; 雜湊演算法的目標
 
-為了實現“既快又穩”的雜湊表資料結構，雜湊演算法應具備以下特點。
+要實作一個又快又穩的雜湊表，雜湊演算法應具備以下特性。
 
-- **確定性**：對於相同的輸入，雜湊演算法應始終產生相同的輸出。這樣才能確保雜湊表是可靠的。
-- **效率高**：計算雜湊值的過程應該足夠快。計算開銷越小，雜湊表的實用性越高。
-- **均勻分佈**：雜湊演算法應使得鍵值對均勻分佈在雜湊表中。分佈越均勻，雜湊衝突的機率就越低。
+- **確定性**：只要輸入相同，雜湊演算法就應該每次都產生相同的輸出。這樣才能確保雜湊表可靠。
+- **效率高**：計算雜湊值的速度要夠快。計算成本越低，雜湊表就越實用。
+- **均勻分布**：雜湊演算法應讓鍵值對均勻分布在雜湊表中。分布越均勻，發生雜湊碰撞的機率就越低。
 
-實際上，雜湊演算法除了可以用於實現雜湊表，還廣泛應用於其他領域中。
+除了用來實作雜湊表，雜湊演算法也廣泛應用在其他領域。
 
-- **密碼儲存**：為了保護使用者密碼的安全，系統通常不會直接儲存使用者的明文密碼，而是儲存密碼的雜湊值。當用戶輸入密碼時，系統會對輸入的密碼計算雜湊值，然後與儲存的雜湊值進行比較。如果兩者匹配，那麼密碼就被視為正確。
-- **資料完整性檢查**：資料傳送方可以計算資料的雜湊值並將其一同傳送；接收方可以重新計算接收到的資料的雜湊值，並與接收到的雜湊值進行比較。如果兩者匹配，那麼資料就被視為完整。
+- **密碼儲存**：為了保護使用者的密碼，系統通常只儲存密碼的雜湊值，不直接儲存明文密碼。當使用者輸入密碼時，系統會算出該密碼的雜湊值，再與先前儲存的雜湊值比對。兩者相符，就視為密碼正確。
+- **資料完整性檢查**：傳送端可以算出資料的雜湊值，連同資料一起送出。接收端收到資料後，可以重新計算雜湊值，再與收到的雜湊值比對。兩者相符，就視為資料完整。
 
-對於密碼學的相關應用，為了防止從雜湊值推導出原始密碼等逆向工程，雜湊演算法需要具備更高等級的安全特性。
+用在密碼學上時，為了防止有人從雜湊值反推出原始密碼或進行類似的逆向工程，雜湊演算法需要具備更高等級的安全特性。
 
-- **單向性**：無法透過雜湊值反推出關於輸入資料的任何資訊。
-- **抗碰撞性**：應當極難找到兩個不同的輸入，使得它們的雜湊值相同。
-- **雪崩效應**：輸入的微小變化應當導致輸出的顯著且不可預測的變化。
+- **單向性**：無法從雜湊值反推出任何關於輸入資料的資訊。
+- **抗碰撞性**：要找到兩個不同的輸入，使它們產生相同的雜湊值，應該極為困難。
+- **雪崩效應**：輸入的微小變化，應使輸出產生顯著且無法預測的變化。
 
-請注意，**“均勻分佈”與“抗碰撞性”是兩個獨立的概念**，滿足均勻分佈不一定滿足抗碰撞性。例如，在隨機輸入 `key` 下，雜湊函式 `key % 100` 可以產生均勻分佈的輸出。然而該雜湊演算法過於簡單，所有後兩位相等的 `key` 的輸出都相同，因此我們可以很容易地從雜湊值反推出可用的 `key` ，從而破解密碼。
+請留意，**「均勻分布」與「抗碰撞性」是兩個獨立的概念**。即使分布均勻，也不一定具備抗碰撞性。例如，對隨機輸入的 `key` 而言，雜湊函式 `key % 100` 可以產生均勻分布的輸出。然而，這個雜湊演算法過於簡單，只要 `key` 的末兩位相同，輸出就相同。因此，我們很容易從雜湊值反推出一個可用的 `key`，藉此破解密碼。
 
 ## 6.3.2 &nbsp; 雜湊演算法的設計
 
-雜湊演算法的設計是一個需要考慮許多因素的複雜問題。然而對於某些要求不高的場景，我們也能設計一些簡單的雜湊演算法。
+設計雜湊演算法相當複雜，需要考量許多因素。不過，在要求不高的使用情境中，我們也能自己設計簡單的雜湊演算法。
 
-- **加法雜湊**：對輸入的每個字元的 ASCII 碼進行相加，將得到的總和作為雜湊值。
-- **乘法雜湊**：利用乘法的不相關性，每輪乘以一個常數，將各個字元的 ASCII 碼累積到雜湊值中。
-- **互斥或雜湊**：將輸入資料的每個元素透過互斥或操作累積到一個雜湊值中。
-- **旋轉雜湊**：將每個字元的 ASCII 碼累積到一個雜湊值中，每次累積之前都會對雜湊值進行旋轉操作。
+- **加法雜湊**：將輸入中各字元的 ASCII 碼相加，以總和作為雜湊值。
+- **乘法雜湊**：利用乘法降低關聯性，每一輪先將目前的雜湊值乘上一個常數，再加上當前字元的 ASCII 碼。
+- **互斥或雜湊**：依序對輸入資料的各個元素做互斥或運算，逐步累積出一個雜湊值。
+- **旋轉雜湊**：將各字元的 ASCII 碼累加到雜湊值中，每次累加前，都先對目前的雜湊值做位元旋轉。
 
 === "Python"
 
@@ -642,16 +642,16 @@ index = hash(key) % capacity
     end
     ```
 
-??? pythontutor "視覺化執行"
+??? pythontutor "執行視覺化示範"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="視覺化執行" src="https://pythontutor.com/iframe-embed.html#code=def%20add_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%8A%A0%E6%B3%95%E9%9B%9C%E6%B9%8A%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%2B%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20mul_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%B9%98%E6%B3%95%E9%9B%9C%E6%B9%8A%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%2031%20%2A%20hash%20%2B%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20xor_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%92%E6%96%A5%E6%88%96%E9%9B%9C%E6%B9%8A%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%5E%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20rot_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%97%8B%E8%BD%89%E9%9B%9C%E6%B9%8A%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%20%28hash%20%3C%3C%204%29%20%5E%20%28hash%20%3E%3E%2028%29%20%5E%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20key%20%3D%20%22Hello%20%E6%BC%94%E7%AE%97%E6%B3%95%22%0A%0A%20%20%20%20hash%20%3D%20add_hash%28key%29%0A%20%20%20%20print%28f%22%E5%8A%A0%E6%B3%95%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20mul_hash%28key%29%0A%20%20%20%20print%28f%22%E4%B9%98%E6%B3%95%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20xor_hash%28key%29%0A%20%20%20%20print%28f%22%E4%BA%92%E6%96%A5%E6%88%96%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20rot_hash%28key%29%0A%20%20%20%20print%28f%22%E6%97%8B%E8%BD%89%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash%7D%22%29%0A&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20add_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%8A%A0%E6%B3%95%E9%9B%9C%E6%B9%8A%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%2B%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20mul_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%B9%98%E6%B3%95%E9%9B%9C%E6%B9%8A%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%2031%20%2A%20hash%20%2B%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20xor_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%92%E6%96%A5%E6%88%96%E9%9B%9C%E6%B9%8A%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%5E%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20rot_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%97%8B%E8%BD%89%E9%9B%9C%E6%B9%8A%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%20%28hash%20%3C%3C%204%29%20%5E%20%28hash%20%3E%3E%2028%29%20%5E%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20key%20%3D%20%22Hello%20%E6%BC%94%E7%AE%97%E6%B3%95%22%0A%0A%20%20%20%20hash%20%3D%20add_hash%28key%29%0A%20%20%20%20print%28f%22%E5%8A%A0%E6%B3%95%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20mul_hash%28key%29%0A%20%20%20%20print%28f%22%E4%B9%98%E6%B3%95%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20xor_hash%28key%29%0A%20%20%20%20print%28f%22%E4%BA%92%E6%96%A5%E6%88%96%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20rot_hash%28key%29%0A%20%20%20%20print%28f%22%E6%97%8B%E8%BD%89%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash%7D%22%29%0A&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="執行視覺化示範" src="https://pythontutor.com/iframe-embed.html#code=def%20add_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%8A%A0%E6%B3%95%E9%9B%9C%E6%B9%8A%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%2B%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20mul_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%B9%98%E6%B3%95%E9%9B%9C%E6%B9%8A%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%2031%20%2A%20hash%20%2B%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20xor_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%92%E6%96%A5%E6%88%96%E9%9B%9C%E6%B9%8A%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%5E%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20rot_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%97%8B%E8%BD%89%E9%9B%9C%E6%B9%8A%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%20%28hash%20%3C%3C%204%29%20%5E%20%28hash%20%3E%3E%2028%29%20%5E%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20key%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%0A%20%20%20%20hash%20%3D%20add_hash%28key%29%0A%20%20%20%20print%28f%22%E5%8A%A0%E6%B3%95%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20mul_hash%28key%29%0A%20%20%20%20print%28f%22%E4%B9%98%E6%B3%95%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20xor_hash%28key%29%0A%20%20%20%20print%28f%22%E4%BA%92%E6%96%A5%E6%88%96%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20rot_hash%28key%29%0A%20%20%20%20print%28f%22%E6%97%8B%E8%BD%89%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash%7D%22%29%0A&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20add_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%8A%A0%E6%B3%95%E9%9B%9C%E6%B9%8A%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%2B%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20mul_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%B9%98%E6%B3%95%E9%9B%9C%E6%B9%8A%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%2031%20%2A%20hash%20%2B%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20xor_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%92%E6%96%A5%E6%88%96%E9%9B%9C%E6%B9%8A%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%5E%3D%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0Adef%20rot_hash%28key%3A%20str%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%97%8B%E8%BD%89%E9%9B%9C%E6%B9%8A%22%22%22%0A%20%20%20%20hash%20%3D%200%0A%20%20%20%20modulus%20%3D%201000000007%0A%20%20%20%20for%20c%20in%20key%3A%0A%20%20%20%20%20%20%20%20hash%20%3D%20%28hash%20%3C%3C%204%29%20%5E%20%28hash%20%3E%3E%2028%29%20%5E%20ord%28c%29%0A%20%20%20%20return%20hash%20%25%20modulus%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20key%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%0A%20%20%20%20hash%20%3D%20add_hash%28key%29%0A%20%20%20%20print%28f%22%E5%8A%A0%E6%B3%95%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20mul_hash%28key%29%0A%20%20%20%20print%28f%22%E4%B9%98%E6%B3%95%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20xor_hash%28key%29%0A%20%20%20%20print%28f%22%E4%BA%92%E6%96%A5%E6%88%96%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash%7D%22%29%0A%0A%20%20%20%20hash%20%3D%20rot_hash%28key%29%0A%20%20%20%20print%28f%22%E6%97%8B%E8%BD%89%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash%7D%22%29%0A&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=6&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
 
-觀察發現，每種雜湊演算法的最後一步都是對大質數 $1000000007$ 取模，以確保雜湊值在合適的範圍內。值得思考的是，為什麼要強調對質數取模，或者說對合數取模的弊端是什麼？這是一個有趣的問題。
+這幾種雜湊演算法的最後一步，都是對大質數 $1000000007$ 取餘數，確保雜湊值落在適當範圍內。為什麼要特別選用質數？換句話說，對合數取餘數有什麼缺點？這個問題值得思考。
 
-先給出結論：**使用大質數作為模數，可以最大化地保證雜湊值的均勻分佈**。因為質數不與其他數字存在公約數，可以減少因取模操作而產生的週期性模式，從而避免雜湊衝突。
+先說結論：**使用大質數作為模數，最能讓雜湊值均勻分布**。原理在於，質數與其他數沒有大於 1 的公因數，因此能減少取餘數時出現的週期性規律，進而避免雜湊碰撞。
 
-舉個例子，假設我們選擇合數 $9$ 作為模數，它可以被 $3$ 整除，那麼所有可以被 $3$ 整除的 `key` 都會被對映到 $0$、$3$、$6$ 這三個雜湊值。
+舉例來說，假設我們選用合數 $9$ 作為模數，它可以被 $3$ 整除，那麼所有能被 $3$ 整除的 `key` 都會對應到 $0$、$3$、$6$ 這三個雜湊值之一。
 
 $$
 \begin{aligned}
@@ -661,7 +661,7 @@ $$
 \end{aligned}
 $$
 
-如果輸入 `key` 恰好滿足這種等差數列的資料分佈，那麼雜湊值就會出現聚堆積，從而加重雜湊衝突。現在，假設將 `modulus` 替換為質數 $13$ ，由於 `key` 和 `modulus` 之間不存在公約數，因此輸出的雜湊值的均勻性會明顯提升。
+如果輸入的 `key` 恰好按這種等差數列分布，雜湊值就會集中在少數位置，使碰撞更頻繁。現在假設把 `modulus` 換成質數 $13$，由於 `key` 與 `modulus` 沒有大於 1 的公因數，輸出的雜湊值就會分布得更均勻。
 
 $$
 \begin{aligned}
@@ -671,21 +671,21 @@ $$
 \end{aligned}
 $$
 
-值得說明的是，如果能夠保證 `key` 是隨機均勻分佈的，那麼選擇質數或者合數作為模數都可以，它們都能輸出均勻分佈的雜湊值。而當 `key` 的分佈存在某種週期性時，對合數取模更容易出現聚集現象。
+如果能確定 `key` 是均勻隨機分布的，選擇質數或合數作為模數都可以，兩者都能產生均勻分布的雜湊值。但如果 `key` 的分布具有某種週期性，對合數取餘數時就更容易出現集中的現象。
 
-總而言之，我們通常選取質數作為模數，並且這個質數最好足夠大，以儘可能消除週期性模式，提升雜湊演算法的穩健性。
+因此，我們通常選擇質數作為模數，而且這個質數最好夠大，以便盡可能消除週期性規律，讓雜湊演算法更穩定。
 
-## 6.3.3 &nbsp; 常見雜湊演算法
+## 6.3.3 &nbsp; 常見的雜湊演算法
 
-不難發現，以上介紹的簡單雜湊演算法都比較“脆弱”，遠遠沒有達到雜湊演算法的設計目標。例如，由於加法和互斥或滿足交換律，因此加法雜湊和互斥或雜湊無法區分內容相同但順序不同的字串，這可能會加劇雜湊衝突，並引起一些安全問題。
+前面介紹的簡單雜湊演算法都相當「脆弱」，距離設計目標還很遠。例如，加法和互斥或運算都滿足交換律，因此加法雜湊與互斥或雜湊無法區分字元組成相同、排列順序不同的字串。這可能使雜湊碰撞更頻繁，也可能引發安全問題。
 
-在實際中，我們通常會用一些標準雜湊演算法，例如 MD5、SHA-1、SHA-2 和 SHA-3 等。它們可以將任意長度的輸入資料對映到恆定長度的雜湊值。
+實務上常用標準的雜湊演算法，例如 MD5、SHA-1、SHA-2 和 SHA-3。這些演算法能將任意長度的輸入資料對應到固定長度的雜湊值。
 
-近一個世紀以來，雜湊演算法處在不斷升級與最佳化的過程中。一部分研究人員努力提升雜湊演算法的效能，另一部分研究人員和駭客則致力於尋找雜湊演算法的安全性問題。表 6-2 展示了在實際應用中常見的雜湊演算法。
+近一個世紀以來，雜湊演算法持續演進與改良。有些研究人員致力於提升演算法的效能，另一些研究人員和駭客則設法找出其中的安全問題。表 6-2 列出實務上常見的雜湊演算法。
 
-- MD5 和 SHA-1 已多次被成功攻擊，因此它們被各類安全應用棄用。
-- SHA-2 系列中的 SHA-256 是最安全的雜湊演算法之一，仍未出現成功的攻擊案例，因此常用在各類安全應用與協議中。
-- SHA-3 相較 SHA-2 的實現開銷更低、計算效率更高，但目前使用覆蓋度不如 SHA-2 系列。
+- MD5 和 SHA-1 已多次遭到成功攻擊，因此各類安全應用都已棄用它們。
+- SHA-2 系列中的 SHA-256 是最安全的雜湊演算法之一，至今仍無攻擊成功的案例，因此常用於各類安全應用與通訊協定。
+- 與 SHA-2 相比，SHA-3 的實作成本較低、運算效率較高，但目前的普及程度仍不及 SHA-2 系列。
 
 <p align="center"> 表 6-2 &nbsp; 常見的雜湊演算法 </p>
 
@@ -695,24 +695,24 @@ $$
 | -------- | ------------------------------ | ---------------- | ---------------------------- | ------------------- |
 | 推出時間 | 1992                           | 1995             | 2002                         | 2008                |
 | 輸出長度 | 128 bit                        | 160 bit          | 256/512 bit                  | 224/256/384/512 bit |
-| 雜湊衝突 | 較多                           | 較多             | 很少                         | 很少                |
-| 安全等級 | 低，已被成功攻擊               | 低，已被成功攻擊 | 高                           | 高                  |
-| 應用     | 已被棄用，仍用於資料完整性檢查 | 已被棄用         | 加密貨幣交易驗證、數字簽名等 | 可用於替代 SHA-2    |
+| 雜湊碰撞 | 較多                           | 較多             | 很少                         | 很少                |
+| 安全等級 | 低，曾遭成功攻擊               | 低，曾遭成功攻擊 | 高                           | 高                  |
+| 應用     | 已棄用，仍用於檢查資料完整性 | 已棄用         | 驗證加密貨幣交易、數位簽章等 | 可用來取代 SHA-2    |
 
 </div>
 
 ## 6.3.4 &nbsp; 資料結構的雜湊值
 
-我們知道，雜湊表的 `key` 可以是整數、小數或字串等資料型別。程式語言通常會為這些資料型別提供內建的雜湊演算法，用於計算雜湊表中的桶索引。以 Python 為例，我們可以呼叫 `hash()` 函式來計算各種資料型別的雜湊值。
+我們知道，雜湊表的 `key` 可以是整數、小數或字串等資料型別。程式語言通常會為這些型別提供內建的雜湊演算法，用來計算雜湊表中的桶索引。以 Python 為例，我們可以呼叫 `hash()` 函式，算出各種資料型別的雜湊值。
 
-- 整數和布林量的雜湊值就是其本身。
-- 浮點數和字串的雜湊值計算較為複雜，有興趣的讀者請自行學習。
-- 元組的雜湊值是對其中每一個元素進行雜湊，然後將這些雜湊值組合起來，得到單一的雜湊值。
-- 物件的雜湊值基於其記憶體位址生成。透過重寫物件的雜湊方法，可實現基於內容生成雜湊值。
+- 整數和布林值的雜湊值就是它們本身的數值。
+- 浮點數和字串的雜湊值計算方式較複雜，有興趣的讀者可以自行深入了解。
+- 計算元組的雜湊值時，先分別算出各元素的雜湊值，再將這些值組合成一個雜湊值。
+- 物件的雜湊值是根據其記憶體位址產生的。我們也可以覆寫物件的雜湊方法，改以物件的內容產生雜湊值。
 
 !!! tip
 
-    請注意，不同程式語言的內建雜湊值計算函式的定義和方法不同。
+    請留意，各種程式語言對內建雜湊函式的定義與計算方式各有不同。
 
 === "Python"
 
@@ -724,18 +724,18 @@ $$
 
     bol = True
     hash_bol = hash(bol)
-    print(f"布林量 {bol} 的雜湊值為 {hash_bol}")
-    # 布林量 True 的雜湊值為 1
+    print(f"布林值 {bol} 的雜湊值為 {hash_bol}")
+    # 布林值 True 的雜湊值為 1
 
     dec = 3.14159
     hash_dec = hash(dec)
     print(f"小數 {dec} 的雜湊值為 {hash_dec}")
     # 小數 3.14159 的雜湊值為 326484311674566659
 
-    str = "Hello 演算法"
+    str = "Hello 算法"
     hash_str = hash(str)
-    print(f"字串“{str}”的雜湊值為 {hash_str}")
-    # 字串“Hello 演算法”的雜湊值為 4617003410720528961
+    print(f"字串「{str}」的雜湊值為 {hash_str}")
+    # 字串「Hello 算法」的雜湊值為 4617003410720528961
 
     tup = (12836, "小哈")
     hash_tup = hash(tup)
@@ -758,21 +758,21 @@ $$
 
     bool bol = true;
     size_t hashBol = hash<bool>()(bol);
-    cout << "布林量 " << bol << " 的雜湊值為 " << hashBol << "\n";
-    // 布林量 1 的雜湊值為 1
+    cout << "布林值 " << bol << " 的雜湊值為 " << hashBol << "\n";
+    // 布林值 1 的雜湊值為 1
 
     double dec = 3.14159;
     size_t hashDec = hash<double>()(dec);
     cout << "小數 " << dec << " 的雜湊值為 " << hashDec << "\n";
     // 小數 3.14159 的雜湊值為 4614256650576692846
 
-    string str = "Hello 演算法";
+    string str = "Hello 算法";
     size_t hashStr = hash<string>()(str);
-    cout << "字串“" << str << "”的雜湊值為 " << hashStr << "\n";
-    // 字串“Hello 演算法”的雜湊值為 15466937326284535026
+    cout << "字串「" << str << "」的雜湊值為 " << hashStr << "\n";
+    // 字串「Hello 算法」的雜湊值為 15466937326284535026
 
-    // 在 C++ 中，內建 std::hash() 僅提供基本資料型別和部分標準庫型別（如 std::string）的雜湊值計算
-    // 陣列、物件的雜湊值計算需要自行實現
+    // 在 C++ 中，內建的 std::hash() 只支援基本資料型別與部分標準函式庫型別（例如 std::string）的雜湊值計算
+    // 若要計算陣列與物件的雜湊值，必須自行實作
     ```
 
 === "Java"
@@ -785,18 +785,18 @@ $$
 
     boolean bol = true;
     int hashBol = Boolean.hashCode(bol);
-    System.out.println("布林量 " + bol + " 的雜湊值為 " + hashBol);
-    // 布林量 true 的雜湊值為 1231
+    System.out.println("布林值 " + bol + " 的雜湊值為 " + hashBol);
+    // 布林值 true 的雜湊值為 1231
 
     double dec = 3.14159;
     int hashDec = Double.hashCode(dec);
     System.out.println("小數 " + dec + " 的雜湊值為 " + hashDec);
     // 小數 3.14159 的雜湊值為 -1340954729
 
-    String str = "Hello 演算法";
+    String str = "Hello 算法";
     int hashStr = str.hashCode();
-    System.out.println("字串“" + str + "”的雜湊值為 " + hashStr);
-    // 字串“Hello 演算法”的雜湊值為 -1067619900
+    System.out.println("字串「" + str + "」的雜湊值為 " + hashStr);
+    // 字串「Hello 算法」的雜湊值為 -727081396
 
     Object[] arr = { 12836, "小哈" };
     int hashArr = Arrays.hashCode(arr);
@@ -819,18 +819,18 @@ $$
 
     bool bol = true;
     int hashBol = bol.GetHashCode();
-    Console.WriteLine("布林量 " + bol + " 的雜湊值為 " + hashBol);
-    // 布林量 True 的雜湊值為 1
+    Console.WriteLine("布林值 " + bol + " 的雜湊值為 " + hashBol);
+    // 布林值 True 的雜湊值為 1
 
     double dec = 3.14159;
     int hashDec = dec.GetHashCode();
     Console.WriteLine("小數 " + dec + " 的雜湊值為 " + hashDec);
     // 小數 3.14159 的雜湊值為 -1340954729
 
-    string str = "Hello 演算法";
+    string str = "Hello 算法";
     int hashStr = str.GetHashCode();
-    Console.WriteLine("字串“" + str + "”的雜湊值為 " + hashStr);
-    // 字串“Hello 演算法”的雜湊值為 -586107568
+    Console.WriteLine("字串「" + str + "」的雜湊值為 " + hashStr);
+    // 字串「Hello 算法」的雜湊值為 -586107568
 
     object[] arr = [12836, "小哈"];
     int hashArr = arr.GetHashCode();
@@ -846,7 +846,7 @@ $$
 === "Go"
 
     ```go title="built_in_hash.go"
-    // Go 未提供內建 hash code 函式
+    // Go 沒有內建的雜湊碼函式
     ```
 
 === "Swift"
@@ -859,18 +859,18 @@ $$
 
     let bol = true
     let hashBol = bol.hashValue
-    print("布林量 \(bol) 的雜湊值為 \(hashBol)")
-    // 布林量 true 的雜湊值為 -4431640247352757451
+    print("布林值 \(bol) 的雜湊值為 \(hashBol)")
+    // 布林值 true 的雜湊值為 -4431640247352757451
 
     let dec = 3.14159
     let hashDec = dec.hashValue
     print("小數 \(dec) 的雜湊值為 \(hashDec)")
     // 小數 3.14159 的雜湊值為 -2465384235396674631
 
-    let str = "Hello 演算法"
+    let str = "Hello 算法"
     let hashStr = str.hashValue
-    print("字串“\(str)”的雜湊值為 \(hashStr)")
-    // 字串“Hello 演算法”的雜湊值為 -7850626797806988787
+    print("字串「\(str)」的雜湊值為 \(hashStr)")
+    // 字串「Hello 算法」的雜湊值為 -7850626797806988787
 
     let arr = [AnyHashable(12836), AnyHashable("小哈")]
     let hashArr = arr.hashValue
@@ -886,13 +886,13 @@ $$
 === "JS"
 
     ```javascript title="built_in_hash.js"
-    // JavaScript 未提供內建 hash code 函式
+    // JavaScript 沒有內建的雜湊碼函式
     ```
 
 === "TS"
 
     ```typescript title="built_in_hash.ts"
-    // TypeScript 未提供內建 hash code 函式
+    // TypeScript 沒有內建的雜湊碼函式
     ```
 
 === "Dart"
@@ -905,18 +905,18 @@ $$
 
     bool bol = true;
     int hashBol = bol.hashCode;
-    print("布林量 $bol 的雜湊值為 $hashBol");
-    // 布林量 true 的雜湊值為 1231
+    print("布林值 $bol 的雜湊值為 $hashBol");
+    // 布林值 true 的雜湊值為 1231
 
     double dec = 3.14159;
     int hashDec = dec.hashCode;
     print("小數 $dec 的雜湊值為 $hashDec");
     // 小數 3.14159 的雜湊值為 2570631074981783
 
-    String str = "Hello 演算法";
+    String str = "Hello 算法";
     int hashStr = str.hashCode;
-    print("字串“$str”的雜湊值為 $hashStr");
-    // 字串“Hello 演算法”的雜湊值為 544745643
+    print("字串「$str」的雜湊值為 $hashStr");
+    // 字串「Hello 算法」的雜湊值為 468167534
 
     List arr = [12836, "小哈"];
     int hashArr = arr.hashCode;
@@ -946,8 +946,8 @@ $$
     let mut bol_hasher = DefaultHasher::new();
     bol.hash(&mut bol_hasher);
     let hash_bol = bol_hasher.finish();
-    println!("布林量 {} 的雜湊值為 {}", bol, hash_bol);
-    // 布林量 true 的雜湊值為 4952851536318644461
+    println!("布林值 {} 的雜湊值為 {}", bol, hash_bol);
+    // 布林值 true 的雜湊值為 4952851536318644461
 
     let dec: f32 = 3.14159;
     let mut dec_hasher = DefaultHasher::new();
@@ -956,12 +956,12 @@ $$
     println!("小數 {} 的雜湊值為 {}", dec, hash_dec);
     // 小數 3.14159 的雜湊值為 2566941990314602357
 
-    let str = "Hello 演算法";
+    let str = "Hello 算法";
     let mut str_hasher = DefaultHasher::new();
     str.hash(&mut str_hasher);
     let hash_str = str_hasher.finish();
-    println!("字串“{}”的雜湊值為 {}", str, hash_str);
-    // 字串“Hello 演算法”的雜湊值為 14554651044579956997
+    println!("字串「{}」的雜湊值為 {}", str, hash_str);
+    // 字串「Hello 算法」的雜湊值為 16092673739211250988
 
     let tup = (&12836, &"小哈");
     let mut tup_hasher = DefaultHasher::new();
@@ -974,14 +974,14 @@ $$
     let mut node_hasher = DefaultHasher::new();
     node.borrow().val.hash(&mut node_hasher);
     let hash_node = node_hasher.finish();
-    println!("節點 {:?} 中節點值的雜湊值為 {}", node, hash_node);
-    // 節點 RefCell { value: ListNode { val: 42, next: None } } 中節點值的雜湊值為 15387811073369036852
+    println!("節點 {:?} 中所存值的雜湊值為 {}", node, hash_node);
+    // 節點 RefCell { value: ListNode { val: 42, next: None } } 中所存值的雜湊值為 15387811073369036852
     ```
 
 === "C"
 
     ```c title="built_in_hash.c"
-    // C 未提供內建 hash code 函式
+    // C 沒有內建的雜湊碼函式
     ```
 
 === "Kotlin"
@@ -994,18 +994,18 @@ $$
 
     val bol = true
     val hashBol = bol.hashCode()
-    println("布林量 $bol 的雜湊值為 $hashBol")
-    // 布林量 true 的雜湊值為 1231
+    println("布林值 $bol 的雜湊值為 $hashBol")
+    // 布林值 true 的雜湊值為 1231
 
     val dec = 3.14159
     val hashDec = dec.hashCode()
     println("小數 $dec 的雜湊值為 $hashDec")
     // 小數 3.14159 的雜湊值為 -1340954729
 
-    val str = "Hello 演算法"
+    val str = "Hello 算法"
     val hashStr = str.hashCode()
-    println("字串“$str”的雜湊值為 $hashStr")
-    // 字串“Hello 演算法”的雜湊值為 -1067619900
+    println("字串「$str」的雜湊值為 $hashStr")
+    // 字串「Hello 算法」的雜湊值為 -727081396
 
     val arr = arrayOf<Any>(12836, "小哈")
     val hashArr = arr.contentHashCode()
@@ -1028,18 +1028,18 @@ $$
 
     bol = true
     hash_bol = bol.hash
-    puts "布林量 #{bol} 的雜湊值為 #{hash_bol}"
-    # 布林量 true 的雜湊值為 -1617938112149317027
+    puts "布林值 #{bol} 的雜湊值為 #{hash_bol}"
+    # 布林值 true 的雜湊值為 -1617938112149317027
 
     dec = 3.14159
     hash_dec = dec.hash
     puts "小數 #{dec} 的雜湊值為 #{hash_dec}"
     # 小數 3.14159 的雜湊值為 -1479186995943067893
 
-    str = "Hello 演算法"
+    str = "Hello 算法"
     hash_str = str.hash
-    puts "字串“#{str}”的雜湊值為 #{hash_str}"
-    # 字串“Hello 演算法”的雜湊值為 -4075943250025831763
+    puts "字串「#{str}」的雜湊值為 #{hash_str}"
+    # 字串「Hello 算法」的雜湊值為 -4075943250025831763
 
     arr = [12836, '小哈']
     hash_arr = arr.hash
@@ -1052,13 +1052,13 @@ $$
     # 節點物件 #<ListNode:0x000078133140ab70> 的雜湊值為 4302940560806366381
     ```
 
-??? pythontutor "視覺化執行"
+??? pythontutor "執行視覺化示範"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="視覺化執行" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%E7%AF%80%E9%BB%9E%E9%A1%9E%E5%88%A5%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E7%AF%80%E9%BB%9E%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B9%BC%E7%AF%80%E9%BB%9E%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20print%28f%22%E6%95%B4%E6%95%B8%20%7Bnum%7D%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_num%7D%22%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B8%203%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20print%28f%22%E5%B8%83%E6%9E%97%E9%87%8F%20%7Bbol%7D%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_bol%7D%22%29%0A%20%20%20%20%23%20%E5%B8%83%E6%9E%97%E9%87%8F%20True%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20print%28f%22%E5%B0%8F%E6%95%B8%20%7Bdec%7D%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_dec%7D%22%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B8%203.14159%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E6%BC%94%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20print%28f%22%E5%AD%97%E4%B8%B2%E2%80%9C%7Bstr%7D%E2%80%9D%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_str%7D%22%29%0A%20%20%20%20%23%20%E5%AD%97%E4%B8%B2%E2%80%9CHello%20%E6%BC%94%E7%AE%97%E6%B3%95%E2%80%9D%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836%2C%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20print%28f%22%E5%85%83%E7%B5%84%20%7Btup%7D%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_tup%7D%22%29%0A%20%20%20%20%23%20%E5%85%83%E7%B5%84%20%2812836%2C%20%27%E5%B0%8F%E5%93%88%27%29%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20print%28f%22%E7%AF%80%E9%BB%9E%E7%89%A9%E4%BB%B6%20%7Bobj%7D%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_obj%7D%22%29%0A%20%20%20%20%23%20%E7%AF%80%E9%BB%9E%E7%89%A9%E4%BB%B6%20%3Cmodules.list_node.ListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20274267521%0A&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%E7%AF%80%E9%BB%9E%E9%A1%9E%E5%88%A5%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E7%AF%80%E9%BB%9E%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B9%BC%E7%AF%80%E9%BB%9E%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20print%28f%22%E6%95%B4%E6%95%B8%20%7Bnum%7D%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_num%7D%22%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B8%203%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20print%28f%22%E5%B8%83%E6%9E%97%E9%87%8F%20%7Bbol%7D%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_bol%7D%22%29%0A%20%20%20%20%23%20%E5%B8%83%E6%9E%97%E9%87%8F%20True%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20print%28f%22%E5%B0%8F%E6%95%B8%20%7Bdec%7D%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_dec%7D%22%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B8%203.14159%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E6%BC%94%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20print%28f%22%E5%AD%97%E4%B8%B2%E2%80%9C%7Bstr%7D%E2%80%9D%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_str%7D%22%29%0A%20%20%20%20%23%20%E5%AD%97%E4%B8%B2%E2%80%9CHello%20%E6%BC%94%E7%AE%97%E6%B3%95%E2%80%9D%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836%2C%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20print%28f%22%E5%85%83%E7%B5%84%20%7Btup%7D%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_tup%7D%22%29%0A%20%20%20%20%23%20%E5%85%83%E7%B5%84%20%2812836%2C%20%27%E5%B0%8F%E5%93%88%27%29%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20print%28f%22%E7%AF%80%E9%BB%9E%E7%89%A9%E4%BB%B6%20%7Bobj%7D%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_obj%7D%22%29%0A%20%20%20%20%23%20%E7%AF%80%E9%BB%9E%E7%89%A9%E4%BB%B6%20%3Cmodules.list_node.ListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20274267521%0A&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="執行視覺化示範" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%E7%9A%84%E7%AF%80%E9%BB%9E%E9%A1%9E%E5%88%A5%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E7%AF%80%E9%BB%9E%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%8C%87%E5%90%91%E4%B8%8B%E4%B8%80%E5%80%8B%E7%AF%80%E9%BB%9E%E7%9A%84%E5%8F%83%E7%85%A7%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20print%28f%22%E6%95%B4%E6%95%B8%20%7Bnum%7D%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_num%7D%22%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B8%203%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20print%28f%22%E5%B8%83%E6%9E%97%E5%80%BC%20%7Bbol%7D%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_bol%7D%22%29%0A%20%20%20%20%23%20%E5%B8%83%E6%9E%97%E5%80%BC%20True%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20print%28f%22%E5%B0%8F%E6%95%B8%20%7Bdec%7D%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_dec%7D%22%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B8%203.14159%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20print%28f%22%E5%AD%97%E4%B8%B2%E3%80%8C%7Bstr%7D%E3%80%8D%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_str%7D%22%29%0A%20%20%20%20%23%20%E5%AD%97%E4%B8%B2%E3%80%8CHello%20%E7%AE%97%E6%B3%95%E3%80%8D%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20print%28f%22%E5%85%83%E7%B5%84%20%7Btup%7D%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_tup%7D%22%29%0A%20%20%20%20%23%20%E5%85%83%E7%B5%84%20%2812836,%20%27%E5%B0%8F%E5%93%88%27%29%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20print%28f%22%E7%AF%80%E9%BB%9E%E7%89%A9%E4%BB%B6%20%7Bobj%7D%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_obj%7D%22%29%0A%20%20%20%20%23%20%E7%AF%80%E9%BB%9E%E7%89%A9%E4%BB%B6%20%3Cmodules.list_node.ListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20274267521%0A&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%E7%9A%84%E7%AF%80%E9%BB%9E%E9%A1%9E%E5%88%A5%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E7%AF%80%E9%BB%9E%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%8C%87%E5%90%91%E4%B8%8B%E4%B8%80%E5%80%8B%E7%AF%80%E9%BB%9E%E7%9A%84%E5%8F%83%E7%85%A7%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20print%28f%22%E6%95%B4%E6%95%B8%20%7Bnum%7D%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_num%7D%22%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B8%203%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20print%28f%22%E5%B8%83%E6%9E%97%E5%80%BC%20%7Bbol%7D%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_bol%7D%22%29%0A%20%20%20%20%23%20%E5%B8%83%E6%9E%97%E5%80%BC%20True%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20print%28f%22%E5%B0%8F%E6%95%B8%20%7Bdec%7D%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_dec%7D%22%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B8%203.14159%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20print%28f%22%E5%AD%97%E4%B8%B2%E3%80%8C%7Bstr%7D%E3%80%8D%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_str%7D%22%29%0A%20%20%20%20%23%20%E5%AD%97%E4%B8%B2%E3%80%8CHello%20%E7%AE%97%E6%B3%95%E3%80%8D%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20print%28f%22%E5%85%83%E7%B5%84%20%7Btup%7D%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_tup%7D%22%29%0A%20%20%20%20%23%20%E5%85%83%E7%B5%84%20%2812836,%20%27%E5%B0%8F%E5%93%88%27%29%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20print%28f%22%E7%AF%80%E9%BB%9E%E7%89%A9%E4%BB%B6%20%7Bobj%7D%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20%7Bhash_obj%7D%22%29%0A%20%20%20%20%23%20%E7%AF%80%E9%BB%9E%E7%89%A9%E4%BB%B6%20%3Cmodules.list_node.ListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20274267521%0A&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
 
-在許多程式語言中，**只有不可變物件才可作為雜湊表的 `key`** 。假如我們將串列（動態陣列）作為 `key` ，當串列的內容發生變化時，它的雜湊值也隨之改變，我們就無法在雜湊表中查詢到原先的 `value` 了。
+在許多程式語言中，**只有不可變物件才能當作雜湊表的 `key`**。假設以串列（動態陣列）作為 `key`，更改串列內容後，雜湊值也會跟著改變，我們就無法從雜湊表查到原來的 `value`。
 
-雖然自定義物件（比如鏈結串列節點）的成員變數是可變的，但它是可雜湊的。**這是因為物件的雜湊值通常是基於記憶體位址生成的**，即使物件的內容發生了變化，但它的記憶體位址不變，雜湊值仍然是不變的。
+自訂物件（例如鏈結串列節點）的成員變數雖然可以改變，物件本身仍可計算雜湊值。**這是因為物件的雜湊值通常是根據記憶體位址產生的**。即使物件內容改變，記憶體位址仍然相同，雜湊值也就維持不變。
 
-細心的你可能發現在不同控制檯中執行程式時，輸出的雜湊值是不同的。**這是因為 Python 直譯器在每次啟動時，都會為字串雜湊函式加入一個隨機的鹽（salt）值**。這種做法可以有效防止 HashDoS 攻擊，提升雜湊演算法的安全性。
+你可能會發現，在不同的主控台中執行程式，輸出的雜湊值會不同。**這是因為 Python 直譯器每次啟動時，都會在字串雜湊函式中加入一個隨機的鹽值（salt）**。這種做法能有效防範 HashDoS 攻擊，提升雜湊演算法的安全性。

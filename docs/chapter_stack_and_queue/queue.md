@@ -1656,7 +1656,7 @@ comments: true
 
     /* 入队 */
     func (q *arrayQueue) push(num int) {
-        // 当 rear == queCapacity 表示队列已满
+        // 当 queSize == queCapacity 表示队列已满
         if q.queSize == q.queCapacity {
             return
         }

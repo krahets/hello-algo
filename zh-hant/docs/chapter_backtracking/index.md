@@ -3,15 +3,15 @@ comments: true
 icon: material/map-marker-path
 ---
 
-# 第 13 章 &nbsp; 回溯
+# 第 13 章 &nbsp; 回溯法
 
 ![回溯](../assets/covers/chapter_backtracking.svg){ class="cover-image" }
 
 !!! abstract
 
-    我們如同迷宮中的探索者，在前進的道路上可能會遇到困難。
+    我們就像在迷宮中探路的人，前進途中難免遇到阻礙。
     
-    回溯的力量讓我們能夠重新開始，不斷嘗試，最終找到通往光明的出口。
+    回溯讓我們得以退回岔路，重新嘗試，直到找到通往光明的出口。
 
 ## 本章內容
 

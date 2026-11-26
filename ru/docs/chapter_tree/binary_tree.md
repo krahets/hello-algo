@@ -4,7 +4,7 @@ comments: true
 
 # 7.1 &nbsp; Двоичное дерево
 
-<u>Двоичное дерево (binary tree)</u> - это нелинейная структура данных, представляющая отношения между «предками» и «потомками» и отражающая логику «разделяй и властвуй». Подобно связному списку, базовой единицей двоичного дерева является узел. Каждый узел содержит значение, ссылку на левого дочернего узла и ссылку на правого дочернего узла.
+<u>Двоичное дерево (binary tree)</u> — нелинейная структура данных, которая описывает отношения между предками и потомками и воплощает идею разделения задачи на две части по принципу «разделяй и властвуй». Как и в связном списке, его основной элемент — узел. В узле хранятся значение и ссылки на левого и правого потомков.
 
 === "Python"
 
@@ -13,8 +13,8 @@ comments: true
         """Класс узла двоичного дерева"""
         def __init__(self, val: int):
             self.val: int = val                # Значение узла
-            self.left: TreeNode | None = None  # Ссылка на левый дочерний узел
-            self.right: TreeNode | None = None # Ссылка на правый дочерний узел
+            self.left: TreeNode | None = None  # Ссылка на левого потомка
+            self.right: TreeNode | None = None # Ссылка на правого потомка
     ```
 
 === "C++"
@@ -23,8 +23,8 @@ comments: true
     /* Структура узла двоичного дерева */
     struct TreeNode {
         int val;          // Значение узла
-        TreeNode *left;   // Указатель на левый дочерний узел
-        TreeNode *right;  // Указатель на правый дочерний узел
+        TreeNode *left;   // Указатель на левого потомка
+        TreeNode *right;  // Указатель на правого потомка
         TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
     };
     ```
@@ -35,8 +35,8 @@ comments: true
     /* Класс узла двоичного дерева */
     class TreeNode {
         int val;         // Значение узла
-        TreeNode left;   // Ссылка на левый дочерний узел
-        TreeNode right;  // Ссылка на правый дочерний узел
+        TreeNode left;   // Ссылка на левого потомка
+        TreeNode right;  // Ссылка на правого потомка
         TreeNode(int x) { val = x; }
     }
     ```
@@ -47,8 +47,8 @@ comments: true
     /* Класс узла двоичного дерева */
     class TreeNode(int? x) {
         public int? val = x;    // Значение узла
-        public TreeNode? left;  // Ссылка на левый дочерний узел
-        public TreeNode? right; // Ссылка на правый дочерний узел
+        public TreeNode? left;  // Ссылка на левого потомка
+        public TreeNode? right; // Ссылка на правого потомка
     }
     ```
 
@@ -64,8 +64,8 @@ comments: true
     /* Конструктор */
     func NewTreeNode(v int) *TreeNode {
         return &TreeNode{
-            Left:  nil, // Указатель на левый дочерний узел
-            Right: nil, // Указатель на правый дочерний узел
+            Left:  nil, // Указатель на левого потомка
+            Right: nil, // Указатель на правого потомка
             Val:   v,   // Значение узла
         }
     }
@@ -77,8 +77,8 @@ comments: true
     /* Класс узла двоичного дерева */
     class TreeNode {
         var val: Int // Значение узла
-        var left: TreeNode? // Ссылка на левый дочерний узел
-        var right: TreeNode? // Ссылка на правый дочерний узел
+        var left: TreeNode? // Ссылка на левого потомка
+        var right: TreeNode? // Ссылка на правого потомка
 
         init(x: Int) {
             val = x
@@ -92,8 +92,8 @@ comments: true
     /* Класс узла двоичного дерева */
     class TreeNode {
         val; // Значение узла
-        left; // Указатель на левый дочерний узел
-        right; // Указатель на правый дочерний узел
+        left; // Указатель на левого потомка
+        right; // Указатель на правого потомка
         constructor(val, left, right) {
             this.val = val === undefined ? 0 : val;
             this.left = left === undefined ? null : left;
@@ -113,8 +113,8 @@ comments: true
 
         constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
             this.val = val === undefined ? 0 : val; // Значение узла
-            this.left = left === undefined ? null : left; // Ссылка на левый дочерний узел
-            this.right = right === undefined ? null : right; // Ссылка на правый дочерний узел
+            this.left = left === undefined ? null : left; // Ссылка на левого потомка
+            this.right = right === undefined ? null : right; // Ссылка на правого потомка
         }
     }
     ```
@@ -125,8 +125,8 @@ comments: true
     /* Класс узла двоичного дерева */
     class TreeNode {
       int val;         // Значение узла
-      TreeNode? left;  // Ссылка на левый дочерний узел
-      TreeNode? right; // Ссылка на правый дочерний узел
+      TreeNode? left;  // Ссылка на левого потомка
+      TreeNode? right; // Ссылка на правого потомка
       TreeNode(this.val, [this.left, this.right]);
     }
     ```
@@ -140,8 +140,8 @@ comments: true
     /* Структура узла двоичного дерева */
     struct TreeNode {
         val: i32,                               // Значение узла
-        left: Option<Rc<RefCell<TreeNode>>>,    // Ссылка на левый дочерний узел
-        right: Option<Rc<RefCell<TreeNode>>>,   // Ссылка на правый дочерний узел
+        left: Option<Rc<RefCell<TreeNode>>>,    // Ссылка на левого потомка
+        right: Option<Rc<RefCell<TreeNode>>>,   // Ссылка на правого потомка
     }
 
     impl TreeNode {
@@ -162,8 +162,8 @@ comments: true
     /* Структура узла двоичного дерева */
     typedef struct TreeNode {
         int val;                // Значение узла
-        struct TreeNode *left;  // Указатель на левый дочерний узел
-        struct TreeNode *right; // Указатель на правый дочерний узел
+        struct TreeNode *left;  // Указатель на левого потомка
+        struct TreeNode *right; // Указатель на правого потомка
     } TreeNode;
 
     /* Конструктор */
@@ -183,8 +183,8 @@ comments: true
     ```kotlin title=""
     /* Класс узла двоичного дерева */
     class TreeNode(val _val: Int) {  // Значение узла
-        var left: TreeNode? = null   // Ссылка на левый дочерний узел
-        var right: TreeNode? = null  // Ссылка на правый дочерний узел
+        var left: TreeNode? = null   // Ссылка на левого потомка
+        var right: TreeNode? = null  // Ссылка на правого потомка
     }
     ```
 
@@ -194,8 +194,8 @@ comments: true
     ### Класс узла двоичного дерева ###
     class TreeNode
       attr_accessor :val    # Значение узла
-      attr_accessor :left   # Ссылка на левый дочерний узел
-      attr_accessor :right  # Ссылка на правый дочерний узел
+      attr_accessor :left   # Ссылка на левого потомка
+      attr_accessor :right  # Ссылка на правого потомка
 
       def initialize(val)
         @val = val
@@ -203,40 +203,40 @@ comments: true
     end
     ```
 
-Каждый узел имеет две ссылки (указателя), которые соответственно указывают на <u>левого дочернего узла (left-child node)</u> и <u>правого дочернего узла (right-child node)</u>. Данный узел называется <u>родительским узлом (parent node)</u> для этих двух дочерних узлов. Если задан некоторый узел двоичного дерева, то дерево, образованное его левым дочерним узлом и всеми узлами ниже него, называется <u>левым поддеревом (left subtree)</u> этого узла. Аналогично определяется <u>правое поддерево (right subtree)</u>.
+В каждом узле есть две ссылки (указателя) — на <u>левого потомка (left-child node)</u> и на <u>правого потомка (right-child node)</u>. Сам узел называется их <u>родителем (parent node)</u>. Дерево, образованное левым потомком выбранного узла и всеми его потомками, называется <u>левым поддеревом (left subtree)</u> этого узла. Аналогично определяется <u>правое поддерево (right subtree)</u>.
 
-**Узлы, не имеющие дочерних узлов, называют листьями, а все остальные узлы содержат дочерние узлы и непустые поддеревья**. Как показано на рисунке 7-1, если рассматривать «узел 2» как родительский, то его левым и правым дочерними узлами будут «узел 4» и «узел 5». Левое поддерево - это «узел 4 и дерево ниже него», а правое поддерево - это «узел 5 и дерево ниже него».
+**В двоичном дереве у каждого узла, кроме листьев, есть потомки и непустые поддеревья**. На рисунке 7-1 у узла 2 как родителя левый потомок — узел 4, а правый — узел 5. Левое поддерево образуют узел 4 и все узлы под ним, правое — узел 5 и все узлы под ним.
 
-![Родительский узел, дочерние узлы и поддеревья](binary_tree.assets/binary_tree_definition.svg){ class="animation-figure" }
+![Родитель, потомки и поддеревья](binary_tree.assets/binary_tree_definition.svg){ class="animation-figure" }
 
-<p align="center"> Рисунок 7-1 &nbsp; Родительский узел, дочерние узлы и поддеревья </p>
+<p align="center"> Рисунок 7-1 &nbsp; Родитель, потомки и поддеревья </p>
 
-## 7.1.1 &nbsp; Распространенные термины двоичного дерева
+## 7.1.1 &nbsp; Основные понятия двоичного дерева
 
-Распространенные термины двоичного дерева показаны на рисунке 7-2.
+На рисунке показаны основные понятия, связанные с двоичным деревом.
 
-- <u>Корневой узел (root node)</u>: узел, расположенный на верхнем уровне двоичного дерева и не имеющий родительского узла.
-- <u>Листовой узел (leaf node)</u>: узел без дочерних узлов. Оба его указателя направлены на `None` .
-- <u>Ребро (edge)</u>: отрезок, соединяющий два узла, то есть ссылка (указатель) между узлами.
-- <u>Уровень (level)</u> узла: увеличивается сверху вниз. Уровень корневого узла равен 1 .
-- <u>Степень (degree)</u> узла: число дочерних узлов данного узла. В двоичном дереве возможны степени 0, 1, 2 .
-- <u>Высота (height)</u> двоичного дерева: число ребер от корневого узла до самого удаленного листового узла.
-- <u>Глубина (depth)</u> узла: число ребер от корневого узла до данного узла.
-- <u>Высота (height)</u> узла: число ребер от самого удаленного листового узла до данного узла.
+- <u>Корень (root node)</u> — узел на верхнем уровне двоичного дерева, у которого нет родителя.
+- <u>Лист (leaf node)</u> — узел без потомков. Оба его указателя имеют значение `None`.
+- <u>Ребро (edge)</u> — линия, соединяющая два узла. В структуре данных ей соответствует ссылка (указатель) на узел.
+- <u>Уровень (level)</u> узла отсчитывается сверху вниз. Корень находится на уровне 1.
+- <u>Степень (degree)</u> узла — число его непосредственных потомков. В двоичном дереве возможны значения 0, 1 и 2.
+- <u>Высота (height)</u> двоичного дерева — число рёбер от корня до самого удалённого листа.
+- <u>Глубина (depth)</u> узла — число рёбер на пути от корня до этого узла.
+- <u>Высота (height)</u> узла — число рёбер между ним и самым удалённым листом его поддерева.
 
-![Распространенные термины двоичного дерева](binary_tree.assets/binary_tree_terminology.svg){ class="animation-figure" }
+![Основные понятия двоичного дерева](binary_tree.assets/binary_tree_terminology.svg){ class="animation-figure" }
 
-<p align="center"> Рисунок 7-2 &nbsp; Распространенные термины двоичного дерева </p>
+<p align="center"> Рисунок 7-2 &nbsp; Основные понятия двоичного дерева </p>
 
 !!! tip
 
-    Обычно под «высотой» и «глубиной» понимают «число пройденных ребер», но в некоторых задачах или учебниках их могут определять как «число пройденных узлов». В таком случае и высоту, и глубину нужно увеличить на 1 .
+    Обычно высоту и глубину измеряют числом рёбер на пути. В некоторых задачах и учебниках вместо этого считают узлы пути. При таком определении значения высоты и глубины увеличиваются на 1.
 
-## 7.1.2 &nbsp; Базовые операции двоичного дерева
+## 7.1.2 &nbsp; Основные операции с двоичным деревом
 
 ### 1. &nbsp; Инициализация двоичного дерева
 
-Как и в связном списке, сначала инициализируются узлы, а затем между ними строятся ссылки (указатели).
+Как и в связном списке, сначала создаём узлы, затем связываем их ссылками (указателями).
 
 === "Python"
 
@@ -248,7 +248,7 @@ comments: true
     n3 = TreeNode(val=3)
     n4 = TreeNode(val=4)
     n5 = TreeNode(val=5)
-    # Построить связи между узлами (указатели)
+    # Связать узлы ссылками (указателями)
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -259,13 +259,13 @@ comments: true
 
     ```cpp title="binary_tree.cpp"
     /* Инициализация двоичного дерева */
-    // Инициализация узла
+    // Инициализация узлов
     TreeNode *n1 = new TreeNode(1);
     TreeNode *n2 = new TreeNode(2);
     TreeNode *n3 = new TreeNode(3);
     TreeNode *n4 = new TreeNode(4);
     TreeNode *n5 = new TreeNode(5);
-    // Построить связи между узлами (указатели)
+    // Связать узлы ссылками (указателями)
     n1->left = n2;
     n1->right = n3;
     n2->left = n4;
@@ -276,13 +276,13 @@ comments: true
 
     ```java title="binary_tree.java"
     /* Инициализация двоичного дерева */
-    // Инициализация узла
+    // Инициализация узлов
     TreeNode n1 = new TreeNode(1);
     TreeNode n2 = new TreeNode(2);
     TreeNode n3 = new TreeNode(3);
     TreeNode n4 = new TreeNode(4);
     TreeNode n5 = new TreeNode(5);
-    // Построить связи между узлами (указатели)
+    // Связать узлы ссылками (указателями)
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -293,13 +293,13 @@ comments: true
 
     ```csharp title="binary_tree.cs"
     /* Инициализация двоичного дерева */
-    // Инициализация узла
+    // Инициализация узлов
     TreeNode n1 = new(1);
     TreeNode n2 = new(2);
     TreeNode n3 = new(3);
     TreeNode n4 = new(4);
     TreeNode n5 = new(5);
-    // Построить связи между узлами (указатели)
+    // Связать узлы ссылками (указателями)
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -310,13 +310,13 @@ comments: true
 
     ```go title="binary_tree.go"
     /* Инициализация двоичного дерева */
-    // Инициализация узла
+    // Инициализация узлов
     n1 := NewTreeNode(1)
     n2 := NewTreeNode(2)
     n3 := NewTreeNode(3)
     n4 := NewTreeNode(4)
     n5 := NewTreeNode(5)
-    // Построить связи между узлами (указатели)
+    // Связать узлы ссылками (указателями)
     n1.Left = n2
     n1.Right = n3
     n2.Left = n4
@@ -327,13 +327,13 @@ comments: true
 
     ```swift title="binary_tree.swift"
     /* Инициализация двоичного дерева */
-    // Инициализация узла
+    // Инициализация узлов
     let n1 = TreeNode(x: 1)
     let n2 = TreeNode(x: 2)
     let n3 = TreeNode(x: 3)
     let n4 = TreeNode(x: 4)
     let n5 = TreeNode(x: 5)
-    // Построить связи между узлами (указатели)
+    // Связать узлы ссылками (указателями)
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -344,13 +344,13 @@ comments: true
 
     ```javascript title="binary_tree.js"
     /* Инициализация двоичного дерева */
-    // Инициализация узла
+    // Инициализация узлов
     let n1 = new TreeNode(1),
         n2 = new TreeNode(2),
         n3 = new TreeNode(3),
         n4 = new TreeNode(4),
         n5 = new TreeNode(5);
-    // Построить связи между узлами (указатели)
+    // Связать узлы ссылками (указателями)
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -361,13 +361,13 @@ comments: true
 
     ```typescript title="binary_tree.ts"
     /* Инициализация двоичного дерева */
-    // Инициализация узла
+    // Инициализация узлов
     let n1 = new TreeNode(1),
         n2 = new TreeNode(2),
         n3 = new TreeNode(3),
         n4 = new TreeNode(4),
         n5 = new TreeNode(5);
-    // Построить связи между узлами (указатели)
+    // Связать узлы ссылками (указателями)
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -384,7 +384,7 @@ comments: true
     TreeNode n3 = TreeNode(3);
     TreeNode n4 = TreeNode(4);
     TreeNode n5 = TreeNode(5);
-    // Построить связи между узлами (указатели)
+    // Связать узлы ссылками (указателями)
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -395,13 +395,13 @@ comments: true
 
     ```rust title="binary_tree.rs"
     /* Инициализация двоичного дерева */
-    // Инициализация узла
+    // Инициализация узлов
     let n1 = TreeNode::new(1);
     let n2 = TreeNode::new(2);
     let n3 = TreeNode::new(3);
     let n4 = TreeNode::new(4);
     let n5 = TreeNode::new(5);
-    // Построить связи между узлами (указатели)
+    // Связать узлы ссылками (указателями)
     n1.borrow_mut().left = Some(Rc::clone(&n2));
     n1.borrow_mut().right = Some(Rc::clone(&n3));
     n2.borrow_mut().left = Some(Rc::clone(&n4));
@@ -412,13 +412,13 @@ comments: true
 
     ```c title="binary_tree.c"
     /* Инициализация двоичного дерева */
-    // Инициализация узла
+    // Инициализация узлов
     TreeNode *n1 = newTreeNode(1);
     TreeNode *n2 = newTreeNode(2);
     TreeNode *n3 = newTreeNode(3);
     TreeNode *n4 = newTreeNode(4);
     TreeNode *n5 = newTreeNode(5);
-    // Построить связи между узлами (указатели)
+    // Связать узлы ссылками (указателями)
     n1->left = n2;
     n1->right = n3;
     n2->left = n4;
@@ -429,13 +429,13 @@ comments: true
 
     ```kotlin title="binary_tree.kt"
     /* Инициализация двоичного дерева */
-    // Инициализация узла
+    // Инициализация узлов
     val n1 = TreeNode(1)
     val n2 = TreeNode(2)
     val n3 = TreeNode(3)
     val n4 = TreeNode(4)
     val n5 = TreeNode(5)
-    // Построить связи между узлами (указатели)
+    // Связать узлы ссылками (указателями)
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -452,7 +452,7 @@ comments: true
     n3 = TreeNode.new(3)
     n4 = TreeNode.new(4)
     n5 = TreeNode.new(5)
-    # Построить связи между узлами (указатели)
+    # Связать узлы ссылками (указателями)
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -461,23 +461,23 @@ comments: true
 
 ??? pythontutor "Визуализация выполнения"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация кода" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BB%D0%B5%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B0%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%D0%9F%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B8%20%D0%BC%D0%B5%D0%B6%D0%B4%D1%83%20%D1%83%D0%B7%D0%BB%D0%B0%D0%BC%D0%B8%20%28%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D0%B8%29%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BB%D0%B5%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B0%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%D0%9F%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B8%20%D0%BC%D0%B5%D0%B6%D0%B4%D1%83%20%D1%83%D0%B7%D0%BB%D0%B0%D0%BC%D0%B8%20%28%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D0%B8%29%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация выполнения" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BB%D0%B5%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BC%D0%BA%D0%B0%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BC%D0%BA%D0%B0%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%91%D0%BC%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%0A%20%20%20%20%23%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%91%D0%BC%20%D1%83%D0%B7%D0%BB%D1%8B%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%D0%A1%D0%B2%D1%8F%D0%B7%D1%8B%D0%B2%D0%B0%D0%B5%D0%BC%20%D1%83%D0%B7%D0%BB%D1%8B%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%D0%BC%D0%B8%20%28%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8F%D0%BC%D0%B8%29%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BB%D0%B5%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BC%D0%BA%D0%B0%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BC%D0%BA%D0%B0%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%91%D0%BC%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%0A%20%20%20%20%23%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%91%D0%BC%20%D1%83%D0%B7%D0%BB%D1%8B%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%D0%A1%D0%B2%D1%8F%D0%B7%D1%8B%D0%B2%D0%B0%D0%B5%D0%BC%20%D1%83%D0%B7%D0%BB%D1%8B%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%D0%BC%D0%B8%20%28%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8F%D0%BC%D0%B8%29%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
 
 ### 2. &nbsp; Вставка и удаление узлов
 
-Как и в связном списке, вставка и удаление узлов в двоичном дереве могут выполняться через изменение указателей. На рисунке 7-3 приведен пример.
+Как и в связном списке, для вставки и удаления узлов двоичного дерева достаточно изменить указатели. Пример показан на рисунке.
 
-![Вставка и удаление узлов в двоичном дереве](binary_tree.assets/binary_tree_add_remove.svg){ class="animation-figure" }
+![Вставка и удаление узла в двоичном дереве](binary_tree.assets/binary_tree_add_remove.svg){ class="animation-figure" }
 
-<p align="center"> Рисунок 7-3 &nbsp; Вставка и удаление узлов в двоичном дереве </p>
+<p align="center"> Рисунок 7-3 &nbsp; Вставка и удаление узла в двоичном дереве </p>
 
 === "Python"
 
     ```python title="binary_tree.py"
     # Вставка и удаление узлов
     P = TreeNode(0)
-    # Вставить узел P между n1 -> n2
+    # Вставить узел P между n1 и n2
     n1.left = P
     P.left = n2
     # Удалить узел P
@@ -489,7 +489,7 @@ comments: true
     ```cpp title="binary_tree.cpp"
     /* Вставка и удаление узлов */
     TreeNode *P = new TreeNode(0);
-    // Вставить узел P между n1 -> n2
+    // Вставить узел P между n1 и n2
     n1->left = P;
     P->left = n2;
     // Удалить узел P
@@ -502,7 +502,7 @@ comments: true
     ```java title="binary_tree.java"
     /* Вставка и удаление узлов */
     TreeNode P = new TreeNode(0);
-    // Вставить узел P между n1 -> n2
+    // Вставить узел P между n1 и n2
     n1.left = P;
     P.left = n2;
     // Удалить узел P
@@ -514,7 +514,7 @@ comments: true
     ```csharp title="binary_tree.cs"
     /* Вставка и удаление узлов */
     TreeNode P = new(0);
-    // Вставить узел P между n1 -> n2
+    // Вставить узел P между n1 и n2
     n1.left = P;
     P.left = n2;
     // Удалить узел P
@@ -525,7 +525,7 @@ comments: true
 
     ```go title="binary_tree.go"
     /* Вставка и удаление узлов */
-    // Вставить узел P между n1 -> n2
+    // Вставить узел P между n1 и n2
     p := NewTreeNode(0)
     n1.Left = p
     p.Left = n2
@@ -538,7 +538,7 @@ comments: true
     ```swift title="binary_tree.swift"
     /* Вставка и удаление узлов */
     let P = TreeNode(x: 0)
-    // Вставить узел P между n1 -> n2
+    // Вставить узел P между n1 и n2
     n1.left = P
     P.left = n2
     // Удалить узел P
@@ -550,7 +550,7 @@ comments: true
     ```javascript title="binary_tree.js"
     /* Вставка и удаление узлов */
     const P = new TreeNode(0);
-    // Вставить узел P между n1 -> n2
+    // Вставить узел P между n1 и n2
     n1.left = P;
     P.left = n2;
     // Удалить узел P
@@ -562,7 +562,7 @@ comments: true
     ```typescript title="binary_tree.ts"
     /* Вставка и удаление узлов */
     const P = new TreeNode(0);
-    // Вставить узел P между n1 -> n2
+    // Вставить узел P между n1 и n2
     n1.left = P;
     P.left = n2;
     // Удалить узел P
@@ -574,7 +574,7 @@ comments: true
     ```dart title="binary_tree.dart"
     /* Вставка и удаление узлов */
     TreeNode p = TreeNode(0);
-    // Вставить узел P между n1 -> n2
+    // Вставить узел P между n1 и n2
     n1.left = p;
     p.left = n2;
     // Удалить узел P
@@ -586,7 +586,7 @@ comments: true
     ```rust title="binary_tree.rs"
     /* Вставка и удаление узлов */
     let p = TreeNode::new(0);
-    // Вставить узел P между n1 -> n2
+    // Вставить узел P между n1 и n2
     p.borrow_mut().left = Some(Rc::clone(&n2));
     n1.borrow_mut().left = Some(Rc::clone(&p));
     // Удалить узел P
@@ -599,7 +599,7 @@ comments: true
     ```c title="binary_tree.c"
     /* Вставка и удаление узлов */
     TreeNode *P = newTreeNode(0);
-    // Вставить узел P между n1 -> n2
+    // Вставить узел P между n1 и n2
     n1->left = P;
     P->left = n2;
     // Удалить узел P
@@ -613,7 +613,7 @@ comments: true
     ```kotlin title="binary_tree.kt"
     /* Вставка и удаление узлов */
     val P = TreeNode(0)
-    // Вставить узел P между n1 -> n2
+    // Вставить узел P между n1 и n2
     n1.left = P
     P.left = n2
     // Удалить узел P
@@ -625,7 +625,7 @@ comments: true
     ```ruby title="binary_tree.rb"
     # Вставка и удаление узлов
     _p = TreeNode.new(0)
-    # Вставить узел _p между n1 -> n2
+    # Вставить узел _p между n1 и n2
     n1.left = _p
     _p.left = n2
     # Удаление узла
@@ -634,30 +634,30 @@ comments: true
 
 ??? pythontutor "Визуализация выполнения"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация кода" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BB%D0%B5%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B0%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%D0%9F%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B8%20%D0%BC%D0%B5%D0%B6%D0%B4%D1%83%20%D1%83%D0%B7%D0%BB%D0%B0%D0%BC%D0%B8%20%28%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D0%B8%29%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5%0A%0A%20%20%20%20%23%20%D0%92%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0%20%D0%B8%20%D1%83%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%BE%D0%B2%0A%20%20%20%20P%20%3D%20TreeNode%280%29%0A%20%20%20%20%23%20%D0%92%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D1%83%D0%B7%D0%B5%D0%BB%20P%20%D0%BC%D0%B5%D0%B6%D0%B4%D1%83%20n1%20-%3E%20n2%0A%20%20%20%20n1.left%20%3D%20P%0A%20%20%20%20P.left%20%3D%20n2%0A%20%20%20%20%23%20%D0%A3%D0%B4%D0%B0%D0%BB%D0%B8%D1%82%D1%8C%20%D1%83%D0%B7%D0%B5%D0%BB%20P%0A%20%20%20%20n1.left%20%3D%20n2&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=37&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BB%D0%B5%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B0%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%B9%20%D1%83%D0%B7%D0%B5%D0%BB%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%83%D0%B7%D0%B5%D0%BB%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%D0%9F%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B8%20%D0%BC%D0%B5%D0%B6%D0%B4%D1%83%20%D1%83%D0%B7%D0%BB%D0%B0%D0%BC%D0%B8%20%28%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D0%B8%29%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5%0A%0A%20%20%20%20%23%20%D0%92%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0%20%D0%B8%20%D1%83%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%BE%D0%B2%0A%20%20%20%20P%20%3D%20TreeNode%280%29%0A%20%20%20%20%23%20%D0%92%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D1%83%D0%B7%D0%B5%D0%BB%20P%20%D0%BC%D0%B5%D0%B6%D0%B4%D1%83%20n1%20-%3E%20n2%0A%20%20%20%20n1.left%20%3D%20P%0A%20%20%20%20P.left%20%3D%20n2%0A%20%20%20%20%23%20%D0%A3%D0%B4%D0%B0%D0%BB%D0%B8%D1%82%D1%8C%20%D1%83%D0%B7%D0%B5%D0%BB%20P%0A%20%20%20%20n1.left%20%3D%20n2&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=37&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация выполнения" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BB%D0%B5%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BC%D0%BA%D0%B0%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BC%D0%BA%D0%B0%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%91%D0%BC%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%0A%20%20%20%20%23%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%91%D0%BC%20%D1%83%D0%B7%D0%BB%D1%8B%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%D0%A1%D0%B2%D1%8F%D0%B7%D1%8B%D0%B2%D0%B0%D0%B5%D0%BC%20%D1%83%D0%B7%D0%BB%D1%8B%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%D0%BC%D0%B8%20%28%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8F%D0%BC%D0%B8%29%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5%0A%0A%20%20%20%20%23%20%D0%92%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0%20%D0%B8%20%D1%83%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20P%20%3D%20TreeNode%280%29%0A%20%20%20%20%23%20%D0%92%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D1%8F%D0%B5%D0%BC%20%D1%83%D0%B7%D0%B5%D0%BB%20P%20%D0%BC%D0%B5%D0%B6%D0%B4%D1%83%20n1%20%D0%B8%20n2%0A%20%20%20%20n1.left%20%3D%20P%0A%20%20%20%20P.left%20%3D%20n2%0A%20%20%20%20%23%20%D0%A3%D0%B4%D0%B0%D0%BB%D1%8F%D0%B5%D0%BC%20%D1%83%D0%B7%D0%B5%D0%BB%20P%0A%20%20%20%20n1.left%20%3D%20n2&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=37&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%D0%9A%D0%BB%D0%B0%D1%81%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BB%D0%B5%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BC%D0%BA%D0%B0%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BC%D0%BA%D0%B0%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%91%D0%BC%20%D0%B4%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%0A%20%20%20%20%23%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%91%D0%BC%20%D1%83%D0%B7%D0%BB%D1%8B%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%D0%A1%D0%B2%D1%8F%D0%B7%D1%8B%D0%B2%D0%B0%D0%B5%D0%BC%20%D1%83%D0%B7%D0%BB%D1%8B%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%D0%BC%D0%B8%20%28%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8F%D0%BC%D0%B8%29%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5%0A%0A%20%20%20%20%23%20%D0%92%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0%20%D0%B8%20%D1%83%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B7%D0%BB%D0%B0%0A%20%20%20%20P%20%3D%20TreeNode%280%29%0A%20%20%20%20%23%20%D0%92%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D1%8F%D0%B5%D0%BC%20%D1%83%D0%B7%D0%B5%D0%BB%20P%20%D0%BC%D0%B5%D0%B6%D0%B4%D1%83%20n1%20%D0%B8%20n2%0A%20%20%20%20n1.left%20%3D%20P%0A%20%20%20%20P.left%20%3D%20n2%0A%20%20%20%20%23%20%D0%A3%D0%B4%D0%B0%D0%BB%D1%8F%D0%B5%D0%BC%20%D1%83%D0%B7%D0%B5%D0%BB%20P%0A%20%20%20%20n1.left%20%3D%20n2&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=37&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
 
 !!! tip
 
-    Стоит помнить, что вставка узла может изменить исходную логическую структуру двоичного дерева, а удаление узла обычно означает удаление этого узла вместе со всеми его поддеревьями. Поэтому в двоичном дереве операции вставки и удаления обычно являются частью более крупного набора операций, который и реализует осмысленное действие.
+    Вставка может изменить исходную логическую структуру дерева, а при удалении узла обычно удаляются и все его поддеревья. Поэтому на практике вставка и удаление в двоичном дереве обычно представляют собой несколько согласованных действий, которые вместе дают нужный результат.
 
-## 7.1.3 &nbsp; Распространенные типы двоичных деревьев
+## 7.1.3 &nbsp; Основные виды двоичных деревьев
 
-### 1. &nbsp; Идеальное двоичное дерево
+### 1. &nbsp; Совершенное двоичное дерево
 
-Как показано на рисунке 7-4, <u>идеальное двоичное дерево (perfect binary tree)</u> полностью заполнено на всех уровнях. В идеальном двоичном дереве степень листовых узлов равна $0$ , а у всех остальных узлов степень равна $2$. Если высота дерева равна $h$ , то общее число узлов равно $2^{h+1} - 1$ , что образует стандартную экспоненциальную зависимость и отражает часто встречающееся в природе явление клеточного деления.
+В <u>совершенном двоичном дереве (perfect binary tree)</u> все уровни заполнены целиком, как на рисунке 7-4. Степень листьев равна $0$, степень всех остальных узлов — $2$. При высоте $h$ общее число узлов равно $2^{h+1} - 1$. Такая экспоненциальная зависимость напоминает деление клеток в природе.
 
 !!! tip
 
-    В китайскоязычном сообществе идеальное двоичное дерево часто называют <u>полностью заполненным двоичным деревом</u>.
+    В китайской литературе совершенное двоичное дерево часто называют <u>«полностью заполненным двоичным деревом»</u>.
 
-![Идеальное двоичное дерево](binary_tree.assets/perfect_binary_tree.svg){ class="animation-figure" }
+![Совершенное двоичное дерево](binary_tree.assets/perfect_binary_tree.svg){ class="animation-figure" }
 
-<p align="center"> Рисунок 7-4 &nbsp; Идеальное двоичное дерево </p>
+<p align="center"> Рисунок 7-4 &nbsp; Совершенное двоичное дерево </p>
 
 ### 2. &nbsp; Полное двоичное дерево
 
-Как показано на рисунке 7-5, <u>полное двоичное дерево (complete binary tree)</u> допускает неполное заполнение только на самом нижнем уровне, причем узлы этого уровня должны непрерывно заполняться слева направо. Стоит отметить, что идеальное двоичное дерево тоже является полным двоичным деревом.
+В <u>полном двоичном дереве (complete binary tree)</u>, показанном ниже, только последний уровень может быть заполнен частично. Узлы этого уровня должны занимать последовательные позиции слева направо. Заметьте, что любое совершенное двоичное дерево также является полным.
 
 ![Полное двоичное дерево](binary_tree.assets/complete_binary_tree.svg){ class="animation-figure" }
 
@@ -665,7 +665,7 @@ comments: true
 
 ### 3. &nbsp; Строгое двоичное дерево
 
-Как показано на рисунке 7-6, <u>строгое двоичное дерево (full binary tree)</u> имеет у всех нелистовых узлов ровно двух дочерних узлов.
+В <u>строгом двоичном дереве (full binary tree)</u> каждый узел, кроме листьев, имеет двух потомков, как показано на рисунке.
 
 ![Строгое двоичное дерево](binary_tree.assets/full_binary_tree.svg){ class="animation-figure" }
 
@@ -673,7 +673,7 @@ comments: true
 
 ### 4. &nbsp; Сбалансированное двоичное дерево
 
-Как показано на рисунке 7-7, в <u>сбалансированном двоичном дереве (balanced binary tree)</u> для любого узла абсолютное значение разности высот левого и правого поддеревьев не превышает 1 .
+В <u>сбалансированном двоичном дереве (balanced binary tree)</u> для любого узла модуль разности высот левого и правого поддеревьев не превышает 1, как показано на рисунке.
 
 ![Сбалансированное двоичное дерево](binary_tree.assets/balanced_binary_tree.svg){ class="animation-figure" }
 
@@ -681,26 +681,26 @@ comments: true
 
 ## 7.1.4 &nbsp; Вырождение двоичного дерева
 
-На рисунке 7-8 показаны идеальная структура двоичного дерева и вырожденная структура. Когда каждый уровень двоичного дерева полностью заполнен узлами, мы получаем «идеальное двоичное дерево». Когда же все узлы смещаются к одной стороне, двоичное дерево вырождается в «связный список».
+На рисунке показаны идеальная и вырожденная формы двоичного дерева. Если каждый уровень заполнен целиком, дерево совершенно. Если все узлы отклонены в одну сторону, дерево вырождается в связный список.
 
-- Идеальное двоичное дерево соответствует лучшему случаю и позволяет в полной мере раскрыть преимущества подхода «разделяй и властвуй».
-- Связный список представляет противоположную крайность: все операции становятся линейными, а временная сложность деградирует до $O(n)$ .
+- Совершенное двоичное дерево — идеальный случай, в котором полностью проявляются преимущества принципа «разделяй и властвуй».
+- Связный список — другая крайность. Все операции становятся линейными, и их временная сложность возрастает до $O(n)$.
 
-![Лучший и худший случаи структуры двоичного дерева](binary_tree.assets/binary_tree_best_worst_cases.svg){ class="animation-figure" }
+![Лучшая и худшая формы двоичного дерева](binary_tree.assets/binary_tree_best_worst_cases.svg){ class="animation-figure" }
 
-<p align="center"> Рисунок 7-8 &nbsp; Лучший и худший случаи структуры двоичного дерева </p>
+<p align="center"> Рисунок 7-8 &nbsp; Лучшая и худшая формы двоичного дерева </p>
 
-Как показано в таблице 7-1, в лучшем и худшем случаях число листовых узлов, общее число узлов, высота и другие характеристики двоичного дерева достигают максимума или минимума.
+Как видно из таблицы, в лучшем и худшем случаях число листьев, общее число узлов, высота дерева и другие характеристики достигают максимальных или минимальных значений.
 
-<p align="center"> Таблица 7-1 &nbsp; Лучший и худший случаи структуры двоичного дерева </p>
+<p align="center"> Таблица 7-1 &nbsp; Лучшая и худшая формы двоичного дерева </p>
 
 <div class="center-table" markdown>
 
-|                             | Идеальное двоичное дерево | Связный список |
-| --------------------------- | ------------------------- | -------------- |
-| Число узлов на уровне $i$   | $2^{i-1}$                 | $1$            |
-| Число листьев у дерева высоты $h$ | $2^h$              | $1$            |
-| Общее число узлов у дерева высоты $h$ | $2^{h+1} - 1$ | $h + 1$        |
-| Высота дерева с $n$ узлами  | $\log_2 (n+1) - 1$        | $n - 1$        |
+|                             | Совершенное двоичное дерево         | Связный список    |
+| --------------------------- | ------------------ | ------- |
+| Число узлов на уровне $i$         | $2^{i-1}$          | $1$     |
+| Число листьев в дереве высоты $h$ | $2^h$              | $1$     |
+| Общее число узлов в дереве высоты $h$   | $2^{h+1} - 1$      | $h + 1$ |
+| Высота дерева из $n$ узлов   | $\log_2 (n+1) - 1$ | $n - 1$ |
 
 </div>

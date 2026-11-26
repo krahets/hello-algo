@@ -11,9 +11,9 @@ icon: material/timer-sand
 
     Complexity analysis is our guide to time and space in the vast universe of algorithms.
     
-    It leads us to explore these two dimensions in depth as we search for more elegant solutions.
+    It helps us explore both dimensions in search of more elegant solutions.
 
-## Chapter contents
+## In this chapter
 
 - [2.1 &nbsp; Evaluating algorithm efficiency](performance_evaluation.md)
 - [2.2 &nbsp; Iteration and recursion](iteration_and_recursion.md)

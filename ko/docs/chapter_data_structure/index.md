@@ -7,11 +7,11 @@ icon: material/shape-outline
 
 ![자료 구조](../assets/covers/chapter_data_structure.svg){ class="cover-image" }
 
-!!! abstract "이 장을 시작하며"
+!!! abstract
 
-    자료 구조는 튼튼하면서도 다양한 형태를 지닌 뼈대와 같다.
+    자료 구조는 여러 형태를 갖춘 튼튼한 뼈대와 같다.
     
-    데이터를 질서 있게 조직하는 설계도를 제공하며, 알고리즘은 그 토대 위에서 생동감을 얻는다.
+    데이터를 질서 있게 조직할 밑그림을 제공하고, 알고리즘은 그 위에서 비로소 움직이기 시작한다.
 
 ## 이 장의 내용
 

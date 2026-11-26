@@ -4,7 +4,7 @@ comments: true
 
 # 5.3 &nbsp; Deques
 
-A queue allows removal only at the front and insertion only at the rear. As shown below, a <u>double-ended queue</u>, or deque, is more flexible: elements can be added or removed at either end.
+An ordinary queue allows removal only at the front and insertion only at the rear. A <u>double-ended queue (deque)</u> is more flexible: as shown below, it allows insertion and removal at either end.
 
 ![Deque operations](deque.assets/deque_operations.svg){ class="animation-figure" }
 
@@ -12,13 +12,13 @@ A queue allows removal only at the front and insertion only at the rear. As show
 
 ## 5.3.1 &nbsp; Common deque operations
 
-Table 5-3 lists common operations. Actual method names depend on the programming language.
+Table 5-3 lists common deque operations. The method names depend on the programming language.
 
-<p align="center"> Table 5-3 &nbsp; Efficiency of deque operations </p>
+<p align="center"> Table 5-3 &nbsp; Time complexity of deque operations </p>
 
 <div class="center-table" markdown>
 
-| Method         | Description             | Time complexity |
+| Method name         | Description             | Time complexity |
 | -------------- | ---------------- | ---------- |
 | `push_first()` | Add an element at the front | $O(1)$     |
 | `push_last()`  | Add an element at the rear | $O(1)$     |
@@ -29,7 +29,7 @@ Table 5-3 lists common operations. Actual method names depend on the programming
 
 </div>
 
-Again, we can use a deque class already provided by the programming language:
+As with an ordinary queue, you can use the deque class your programming language provides:
 
 === "Python"
 
@@ -39,20 +39,20 @@ Again, we can use a deque class already provided by the programming language:
     # Initialize the deque
     deq: deque[int] = deque()
 
-    # Enqueue elements
-    deq.append(2)  # Add to the rear
+    # Add elements to the deque
+    deq.append(2)  # Add at the rear
     deq.append(5)
     deq.append(4)
-    deq.appendleft(3)  # Add to the front
+    deq.appendleft(3)  # Add at the front
     deq.appendleft(1)
 
-    # Access an element
+    # Peek at the front and rear elements
     front: int = deq[0]  # Front element
     rear: int = deq[-1]  # Rear element
 
-    # Dequeue an element
-    pop_front: int = deq.popleft()  # Dequeue the front element
-    pop_rear: int = deq.pop()  # Dequeue the rear element
+    # Remove elements from both ends
+    pop_front: int = deq.popleft()  # Remove and return the front element
+    pop_rear: int = deq.pop()  # Remove and return the rear element
 
     # Get the deque size
     size: int = len(deq)
@@ -67,20 +67,20 @@ Again, we can use a deque class already provided by the programming language:
     /* Initialize the deque */
     deque<int> deque;
 
-    /* Enqueue elements */
-    deque.push_back(2); // Add to the rear
+    /* Add elements to the deque */
+    deque.push_back(2); // Add at the rear
     deque.push_back(5);
     deque.push_back(4);
-    deque.push_front(3); // Add to the front
+    deque.push_front(3); // Add at the front
     deque.push_front(1);
 
-    /* Access an element */
+    /* Peek at the front and rear elements */
     int front = deque.front(); // Front element
     int back = deque.back(); // Rear element
 
-    /* Dequeue an element */
-    deque.pop_front(); // Dequeue the front element
-    deque.pop_back(); // Dequeue the rear element
+    /* Remove elements from both ends */
+    deque.pop_front(); // Remove the front element
+    deque.pop_back(); // Remove the rear element
 
     /* Get the deque size */
     int size = deque.size();
@@ -95,20 +95,20 @@ Again, we can use a deque class already provided by the programming language:
     /* Initialize the deque */
     Deque<Integer> deque = new LinkedList<>();
 
-    /* Enqueue elements */
-    deque.offerLast(2); // Add to the rear
+    /* Add elements to the deque */
+    deque.offerLast(2); // Add at the rear
     deque.offerLast(5);
     deque.offerLast(4);
-    deque.offerFirst(3); // Add to the front
+    deque.offerFirst(3); // Add at the front
     deque.offerFirst(1);
 
-    /* Access an element */
+    /* Peek at the front and rear elements */
     int peekFirst = deque.peekFirst(); // Front element
     int peekLast = deque.peekLast(); // Rear element
 
-    /* Dequeue an element */
-    int popFirst = deque.pollFirst(); // Dequeue the front element
-    int popLast = deque.pollLast(); // Dequeue the rear element
+    /* Remove elements from both ends */
+    int popFirst = deque.pollFirst(); // Remove and return the front element
+    int popLast = deque.pollLast(); // Remove and return the rear element
 
     /* Get the deque size */
     int size = deque.size();
@@ -121,23 +121,23 @@ Again, we can use a deque class already provided by the programming language:
 
     ```csharp title="deque.cs"
     /* Initialize the deque */
-    // In C#, use the linked list LinkedList as a deque
+    // Use a LinkedList as a deque in C#
     LinkedList<int> deque = new();
 
-    /* Enqueue elements */
-    deque.AddLast(2);   // Add to the rear
+    /* Add elements to the deque */
+    deque.AddLast(2);   // Add at the rear
     deque.AddLast(5);
     deque.AddLast(4);
-    deque.AddFirst(3);  // Add to the front
+    deque.AddFirst(3);  // Add at the front
     deque.AddFirst(1);
 
-    /* Access an element */
+    /* Peek at the front and rear elements */
     int? peekFirst = deque.First?.Value;  // Front element
     int? peekLast = deque.Last?.Value;    // Rear element
 
-    /* Dequeue an element */
-    deque.RemoveFirst();  // Dequeue the front element
-    deque.RemoveLast();   // Dequeue the rear element
+    /* Remove elements from both ends */
+    deque.RemoveFirst();  // Remove the front element
+    deque.RemoveLast();   // Remove the rear element
 
     /* Get the deque size */
     int size = deque.Count;
@@ -150,23 +150,23 @@ Again, we can use a deque class already provided by the programming language:
 
     ```go title="deque_test.go"
     /* Initialize the deque */
-    // In Go, list can be used as a deque
+    // Use Go's list.List as a deque
     deque := list.New()
 
-    /* Enqueue elements */
-    deque.PushBack(2) // Add to the rear
+    /* Add elements to the deque */
+    deque.PushBack(2) // Add at the rear
     deque.PushBack(5)
     deque.PushBack(4)
-    deque.PushFront(3) // Add to the front
+    deque.PushFront(3) // Add at the front
     deque.PushFront(1)
 
-    /* Access an element */
+    /* Peek at the front and rear elements */
     front := deque.Front() // Front element
     rear := deque.Back() // Rear element
 
-    /* Dequeue an element */
-    deque.Remove(front) // Dequeue the front element
-    deque.Remove(rear) // Dequeue the rear element
+    /* Remove elements from both ends */
+    deque.Remove(front) // Remove the front element
+    deque.Remove(rear) // Remove the rear element
 
     /* Get the deque size */
     size := deque.Len()
@@ -179,24 +179,24 @@ Again, we can use a deque class already provided by the programming language:
 
     ```swift title="deque.swift"
     /* Initialize the deque */
-    // The Swift standard library has no built-in deque class; Array can be used as a deque
+    // Swift has no built-in deque class, so use an Array as a deque
     var deque: [Int] = []
 
-    /* Enqueue elements */
-    deque.append(2) // Add to the rear
+    /* Add elements to the deque */
+    deque.append(2) // Add at the rear
     deque.append(5)
     deque.append(4)
-    deque.insert(3, at: 0) // Add to the front
+    deque.insert(3, at: 0) // Add at the front
     deque.insert(1, at: 0)
 
-    /* Access an element */
+    /* Peek at the front and rear elements */
     let peekFirst = deque.first! // Front element
     let peekLast = deque.last! // Rear element
 
-    /* Dequeue an element */
-    // When using Array to simulate a deque, removeFirst has O(n) complexity
-    let popFirst = deque.removeFirst() // Dequeue the front element
-    let popLast = deque.removeLast() // Dequeue the rear element
+    /* Remove elements from both ends */
+    // With an Array, removeFirst takes O(n) time
+    let popFirst = deque.removeFirst() // Remove and return the front element
+    let popLast = deque.removeLast() // Remove and return the rear element
 
     /* Get the deque size */
     let size = deque.count
@@ -209,23 +209,23 @@ Again, we can use a deque class already provided by the programming language:
 
     ```javascript title="deque.js"
     /* Initialize the deque */
-    // JavaScript has no built-in deque; use an Array as a deque
+    // JavaScript has no built-in deque, so use an Array as a deque
     const deque = [];
 
-    /* Enqueue elements */
+    /* Add elements to the deque */
     deque.push(2);
     deque.push(5);
     deque.push(4);
-    // Note: because this uses an array, unshift() has O(n) time complexity
+    // unshift() takes O(n) time because the deque uses an array
     deque.unshift(3);
     deque.unshift(1);
 
-    /* Access an element */
+    /* Peek at the front and rear elements */
     const peekFirst = deque[0];
     const peekLast = deque[deque.length - 1];
 
-    /* Dequeue an element */
-    // Note: because this uses an array, shift() has O(n) time complexity
+    /* Remove elements from both ends */
+    // shift() takes O(n) time because the deque uses an array
     const popFront = deque.shift();
     const popBack = deque.pop();
 
@@ -240,23 +240,23 @@ Again, we can use a deque class already provided by the programming language:
 
     ```typescript title="deque.ts"
     /* Initialize the deque */
-    // TypeScript has no built-in deque; use an Array as a deque instead
+    // TypeScript has no built-in deque, so use an Array as a deque
     const deque: number[] = [];
 
-    /* Enqueue elements */
+    /* Add elements to the deque */
     deque.push(2);
     deque.push(5);
     deque.push(4);
-    // Note: because this uses an array, unshift() has O(n) time complexity
+    // unshift() takes O(n) time because the deque uses an array
     deque.unshift(3);
     deque.unshift(1);
 
-    /* Access an element */
+    /* Peek at the front and rear elements */
     const peekFirst: number = deque[0];
     const peekLast: number = deque[deque.length - 1];
 
-    /* Dequeue an element */
-    // Note: because this uses an array, shift() has O(n) time complexity
+    /* Remove elements from both ends */
+    // shift() takes O(n) time because the deque uses an array
     const popFront: number = deque.shift() as number;
     const popBack: number = deque.pop() as number;
 
@@ -271,23 +271,23 @@ Again, we can use a deque class already provided by the programming language:
 
     ```dart title="deque.dart"
     /* Initialize the deque */
-    // In Dart, Queue is defined as a deque
+    // Dart defines Queue as a double-ended queue
     final Queue<int> deque = Queue();
 
-    /* Enqueue elements */
-    deque.addLast(2); // Add to the rear
+    /* Add elements to the deque */
+    deque.addLast(2); // Add at the rear
     deque.addLast(5);
     deque.addLast(4);
-    deque.addFirst(3); // Add to the front
+    deque.addFirst(3); // Add at the front
     deque.addFirst(1);
 
-    /* Access an element */
+    /* Peek at the front and rear elements */
     final int peekFirst = deque.first; // Front element
     final int peekLast = deque.last; // Rear element
 
-    /* Dequeue an element */
-    final int popFirst = deque.removeFirst(); // Dequeue the front element
-    final int popLast = deque.removeLast(); // Dequeue the rear element
+    /* Remove elements from both ends */
+    final int popFirst = deque.removeFirst(); // Remove and return the front element
+    final int popLast = deque.removeLast(); // Remove and return the rear element
 
     /* Get the deque size */
     final int size = deque.length;
@@ -302,20 +302,20 @@ Again, we can use a deque class already provided by the programming language:
     // Initialize the deque
     let mut deque: VecDeque<i32> = VecDeque::new();
 
-    /* Enqueue elements */
-    deque.push_back(2); // Add to the rear
+    /* Add elements to the deque */
+    deque.push_back(2); // Add at the rear
     deque.push_back(5);
     deque.push_back(4);
-    deque.push_front(3); // Add to the front
+    deque.push_front(3); // Add at the front
     deque.push_front(1);
 
-    // Access an element
+    // Peek at the front and rear elements
     let peek_first = deque.front().unwrap(); // Front element
     let peek_last = deque.back().unwrap(); // Rear element
 
-    // Dequeue an element
-    let pop_first = deque.pop_front().unwrap(); // Dequeue the front element
-    let pop_last = deque.pop_back().unwrap(); // Dequeue the rear element
+    // Remove elements from both ends
+    let pop_first = deque.pop_front().unwrap(); // Remove and return the front element
+    let pop_last = deque.pop_back().unwrap(); // Remove and return the rear element
 
     // Get the deque size
     let size = deque.len();
@@ -327,7 +327,7 @@ Again, we can use a deque class already provided by the programming language:
 === "C"
 
     ```c title="deque.c"
-    // C provides no built-in deque
+    // C has no built-in deque
     ```
 
 === "Kotlin"
@@ -336,20 +336,20 @@ Again, we can use a deque class already provided by the programming language:
     /* Initialize the deque */
     val deque = LinkedList<Int>()
 
-    /* Enqueue elements */
-    deque.offerLast(2) // Add to the rear
+    /* Add elements to the deque */
+    deque.offerLast(2) // Add at the rear
     deque.offerLast(5)
     deque.offerLast(4)
-    deque.offerFirst(3) // Add to the front
+    deque.offerFirst(3) // Add at the front
     deque.offerFirst(1)
 
-    /* Access an element */
+    /* Peek at the front and rear elements */
     val peekFirst = deque.peekFirst() // Front element
     val peekLast = deque.peekLast() // Rear element
 
-    /* Dequeue an element */
-    val popFirst = deque.pollFirst() // Dequeue the front element
-    val popLast = deque.pollLast() // Dequeue the rear element
+    /* Remove elements from both ends */
+    val popFirst = deque.pollFirst() // Remove and return the front element
+    val popLast = deque.pollLast() // Remove and return the rear element
 
     /* Get the deque size */
     val size = deque.size
@@ -362,23 +362,23 @@ Again, we can use a deque class already provided by the programming language:
 
     ```ruby title="deque.rb"
     # Initialize the deque
-    # Ruby has no built-in deque class; use an Array as a deque
+    # Ruby has no built-in deque, so use an Array as a deque
     deque = []
 
-    # Enqueue elements
+    # Add elements to the deque
     deque << 2
     deque << 5
     deque << 4
-    # Note that Array#unshift has O(n) time complexity because the underlying structure is an array
+    # Array#unshift takes O(n) time because the deque uses an array
     deque.unshift(3)
     deque.unshift(1)
 
-    # Access an element
+    # Peek at the front and rear elements
     peek_first = deque.first
     peek_last = deque.last
 
-    # Dequeue an element
-    # Note that Array#shift has O(n) time complexity because the underlying structure is an array
+    # Remove elements from both ends
+    # Array#shift takes O(n) time because the deque uses an array
     pop_front = deque.shift
     pop_back = deque.pop
 
@@ -391,23 +391,23 @@ Again, we can use a deque class already provided by the programming language:
 
 ??? pythontutor "Visualize execution"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20a%20deque%0A%20%20%20%20deq%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20Enqueue%20elements%0A%20%20%20%20deq.append%282%29%20%20%23%20Add%20at%20the%20rear%0A%20%20%20%20deq.append%285%29%0A%20%20%20%20deq.append%284%29%0A%20%20%20%20deq.appendleft%283%29%20%20%23%20Add%20at%20the%20front%0A%20%20%20%20deq.appendleft%281%29%0A%20%20%20%20print%28%22Deque%3A%20deque%20%3D%22%2C%20deq%29%0A%0A%20%20%20%20%23%20Access%20elements%0A%20%20%20%20front%20%3D%20deq%5B0%5D%20%20%23%20Front%20element%0A%20%20%20%20print%28%22Front%20element%3A%20front%20%3D%22%2C%20front%29%0A%20%20%20%20rear%20%3D%20deq%5B-1%5D%20%20%23%20Rear%20element%0A%20%20%20%20print%28%22Rear%20element%3A%20rear%20%3D%22%2C%20rear%29%0A%0A%20%20%20%20%23%20Dequeue%20elements%0A%20%20%20%20pop_front%20%3D%20deq.popleft%28%29%20%20%23%20Remove%20the%20front%20element%0A%20%20%20%20print%28%22Element%20removed%20from%20the%20front%3A%20pop_front%20%3D%22%2C%20pop_front%29%0A%20%20%20%20print%28%22After%20removing%20from%20the%20front%3A%20deque%20%3D%22%2C%20deq%29%0A%20%20%20%20pop_rear%20%3D%20deq.pop%28%29%20%20%23%20Remove%20the%20rear%20element%0A%20%20%20%20print%28%22Element%20removed%20from%20the%20rear%3A%20pop_rear%20%3D%22%2C%20pop_rear%29%0A%20%20%20%20print%28%22After%20removing%20from%20the%20rear%3A%20deque%20%3D%22%2C%20deq%29%0A%0A%20%20%20%20%23%20Get%20the%20deque%20size%0A%20%20%20%20size%20%3D%20len%28deq%29%0A%20%20%20%20print%28%22Deque%20size%3A%20size%20%3D%22%2C%20size%29%0A%0A%20%20%20%20%23%20Check%20whether%20the%20deque%20is%20empty%0A%20%20%20%20is_empty%20%3D%20len%28deq%29%20%3D%3D%200%0A%20%20%20%20print%28%22Is%20the%20deque%20empty%20%3D%22%2C%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20a%20deque%0A%20%20%20%20deq%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20Enqueue%20elements%0A%20%20%20%20deq.append%282%29%20%20%23%20Add%20at%20the%20rear%0A%20%20%20%20deq.append%285%29%0A%20%20%20%20deq.append%284%29%0A%20%20%20%20deq.appendleft%283%29%20%20%23%20Add%20at%20the%20front%0A%20%20%20%20deq.appendleft%281%29%0A%20%20%20%20print%28%22Deque%3A%20deque%20%3D%22%2C%20deq%29%0A%0A%20%20%20%20%23%20Access%20elements%0A%20%20%20%20front%20%3D%20deq%5B0%5D%20%20%23%20Front%20element%0A%20%20%20%20print%28%22Front%20element%3A%20front%20%3D%22%2C%20front%29%0A%20%20%20%20rear%20%3D%20deq%5B-1%5D%20%20%23%20Rear%20element%0A%20%20%20%20print%28%22Rear%20element%3A%20rear%20%3D%22%2C%20rear%29%0A%0A%20%20%20%20%23%20Dequeue%20elements%0A%20%20%20%20pop_front%20%3D%20deq.popleft%28%29%20%20%23%20Remove%20the%20front%20element%0A%20%20%20%20print%28%22Element%20removed%20from%20the%20front%3A%20pop_front%20%3D%22%2C%20pop_front%29%0A%20%20%20%20print%28%22After%20removing%20from%20the%20front%3A%20deque%20%3D%22%2C%20deq%29%0A%20%20%20%20pop_rear%20%3D%20deq.pop%28%29%20%20%23%20Remove%20the%20rear%20element%0A%20%20%20%20print%28%22Element%20removed%20from%20the%20rear%3A%20pop_rear%20%3D%22%2C%20pop_rear%29%0A%20%20%20%20print%28%22After%20removing%20from%20the%20rear%3A%20deque%20%3D%22%2C%20deq%29%0A%0A%20%20%20%20%23%20Get%20the%20deque%20size%0A%20%20%20%20size%20%3D%20len%28deq%29%0A%20%20%20%20print%28%22Deque%20size%3A%20size%20%3D%22%2C%20size%29%0A%0A%20%20%20%20%23%20Check%20whether%20the%20deque%20is%20empty%0A%20%20%20%20is_empty%20%3D%20len%28deq%29%20%3D%3D%200%0A%20%20%20%20print%28%22Is%20the%20deque%20empty%20%3D%22%2C%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20deque%0A%20%20%20%20deq%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20Add%20elements%20to%20the%20deque%0A%20%20%20%20deq.append%282%29%20%20%23%20Add%20to%20the%20rear%0A%20%20%20%20deq.append%285%29%0A%20%20%20%20deq.append%284%29%0A%20%20%20%20deq.appendleft%283%29%20%20%23%20Add%20to%20the%20front%0A%20%20%20%20deq.appendleft%281%29%0A%20%20%20%20print%28%22deque%20%3D%22,%20deq%29%0A%0A%20%20%20%20%23%20Access%20elements%0A%20%20%20%20front%20%3D%20deq%5B0%5D%20%20%23%20Front%20element%0A%20%20%20%20print%28%22Front%20element%20%28front%29%20%3D%22,%20front%29%0A%20%20%20%20rear%20%3D%20deq%5B-1%5D%20%20%23%20Rear%20element%0A%20%20%20%20print%28%22Rear%20element%20%28rear%29%20%3D%22,%20rear%29%0A%0A%20%20%20%20%23%20Remove%20elements%20from%20the%20deque%0A%20%20%20%20pop_front%20%3D%20deq.popleft%28%29%20%20%23%20Remove%20the%20front%20element%0A%20%20%20%20print%28%22Removed%20from%20front%20%28pop_front%29%20%3D%22,%20pop_front%29%0A%20%20%20%20print%28%22deque%20after%20front%20removal%20%3D%22,%20deq%29%0A%20%20%20%20pop_rear%20%3D%20deq.pop%28%29%20%20%23%20Remove%20the%20rear%20element%0A%20%20%20%20print%28%22Removed%20from%20rear%20%28pop_rear%29%20%3D%22,%20pop_rear%29%0A%20%20%20%20print%28%22deque%20after%20rear%20removal%20%3D%22,%20deq%29%0A%0A%20%20%20%20%23%20Get%20the%20length%20of%20the%20deque%0A%20%20%20%20size%20%3D%20len%28deq%29%0A%20%20%20%20print%28%22Deque%20length%20%28size%29%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20Check%20whether%20the%20deque%20is%20empty%0A%20%20%20%20is_empty%20%3D%20len%28deq%29%20%3D%3D%200%0A%20%20%20%20print%28%22Deque%20is%20empty%20%3D%22,%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20deque%0A%20%20%20%20deq%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20Add%20elements%20to%20the%20deque%0A%20%20%20%20deq.append%282%29%20%20%23%20Add%20to%20the%20rear%0A%20%20%20%20deq.append%285%29%0A%20%20%20%20deq.append%284%29%0A%20%20%20%20deq.appendleft%283%29%20%20%23%20Add%20to%20the%20front%0A%20%20%20%20deq.appendleft%281%29%0A%20%20%20%20print%28%22deque%20%3D%22,%20deq%29%0A%0A%20%20%20%20%23%20Access%20elements%0A%20%20%20%20front%20%3D%20deq%5B0%5D%20%20%23%20Front%20element%0A%20%20%20%20print%28%22Front%20element%20%28front%29%20%3D%22,%20front%29%0A%20%20%20%20rear%20%3D%20deq%5B-1%5D%20%20%23%20Rear%20element%0A%20%20%20%20print%28%22Rear%20element%20%28rear%29%20%3D%22,%20rear%29%0A%0A%20%20%20%20%23%20Remove%20elements%20from%20the%20deque%0A%20%20%20%20pop_front%20%3D%20deq.popleft%28%29%20%20%23%20Remove%20the%20front%20element%0A%20%20%20%20print%28%22Removed%20from%20front%20%28pop_front%29%20%3D%22,%20pop_front%29%0A%20%20%20%20print%28%22deque%20after%20front%20removal%20%3D%22,%20deq%29%0A%20%20%20%20pop_rear%20%3D%20deq.pop%28%29%20%20%23%20Remove%20the%20rear%20element%0A%20%20%20%20print%28%22Removed%20from%20rear%20%28pop_rear%29%20%3D%22,%20pop_rear%29%0A%20%20%20%20print%28%22deque%20after%20rear%20removal%20%3D%22,%20deq%29%0A%0A%20%20%20%20%23%20Get%20the%20length%20of%20the%20deque%0A%20%20%20%20size%20%3D%20len%28deq%29%0A%20%20%20%20print%28%22Deque%20length%20%28size%29%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20Check%20whether%20the%20deque%20is%20empty%0A%20%20%20%20is_empty%20%3D%20len%28deq%29%20%3D%3D%200%0A%20%20%20%20print%28%22Deque%20is%20empty%20%3D%22,%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
 ## 5.3.2 &nbsp; Implementing a deque *
 
-A deque is implemented much like a queue, using either a linked list or an array as the underlying structure.
+Like an ordinary queue, a deque can use either a linked list or an array as its underlying data structure.
 
-### 1. &nbsp; Implementation with a doubly linked list
+### 1. &nbsp; Doubly linked list implementation
 
-In the previous section, we used a singly linked list for a queue because it easily supports removing the head for dequeueing and adding after the tail for enqueueing.
+In the previous section, we used a singly linked list for a queue because it makes it easy to remove the head node when dequeueing and to add a new node after the tail when enqueueing.
 
-A deque supports both insertion and removal at both ends. It therefore needs the symmetric operations in the other direction as well. For this reason, we use a doubly linked list.
+A deque supports enqueueing and dequeueing at both ends, so it also needs the mirror image of each queue operation. To support these operations, we use a doubly linked list.
 
-As shown below, treat the list's head and tail as the deque's front and rear, and support adding and removing nodes at both ends.
+As shown below, the head and tail of the doubly linked list serve as the front and rear of the deque. We implement insertion and removal at both ends.
 
 === "<1>"
-    ![Insertion and removal in a linked-list deque](deque.assets/linkedlist_deque_step1.svg){ class="animation-figure" }
+    ![Enqueueing and dequeueing at either end of a linked list](deque.assets/linkedlist_deque_step1.svg){ class="animation-figure" }
 
 === "<2>"
     ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_step2_push_last.svg){ class="animation-figure" }
@@ -421,117 +421,117 @@ As shown below, treat the list's head and tail as the deque's front and rear, an
 === "<5>"
     ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_step5_pop_first.svg){ class="animation-figure" }
 
-<p align="center"> Figure 5-8 &nbsp; Insertion and removal in a linked-list deque </p>
+<p align="center"> Figure 5-8 &nbsp; Enqueueing and dequeueing at either end of a linked list </p>
 
-The implementation is as follows:
+The following code implements the deque:
 
 === "Python"
 
     ```python title="linkedlist_deque.py"
     class ListNode:
-        """Doubly linked list node"""
+        """Doubly linked list node."""
 
         def __init__(self, val: int):
-            """Constructor"""
+            """Initialize the node."""
             self.val: int = val
             self.next: ListNode | None = None  # Reference to the next node
             self.prev: ListNode | None = None  # Reference to the previous node
 
     class LinkedListDeque:
-        """Deque implemented with a doubly linked list"""
+        """Deque backed by a doubly linked list."""
 
         def __init__(self):
-            """Constructor"""
-            self._front: ListNode | None = None  # Head node front
-            self._rear: ListNode | None = None  # Tail node rear
+            """Initialize the deque."""
+            self._front: ListNode | None = None  # Head node (_front)
+            self._rear: ListNode | None = None  # Tail node (_rear)
             self._size: int = 0  # Deque size
 
         def size(self) -> int:
-            """Get the deque size"""
+            """Get the deque size."""
             return self._size
 
         def is_empty(self) -> bool:
-            """Check whether the deque is empty"""
+            """Check whether the deque is empty."""
             return self._size == 0
 
         def push(self, num: int, is_front: bool):
-            """Enqueue operation"""
+            """Add an element at either end."""
             node = ListNode(num)
-            # If the linked list is empty, make both front and rear point to node
+            # If the list is empty, point both _front and _rear at node
             if self.is_empty():
                 self._front = self._rear = node
-            # Enqueue at the front
+            # Add at the front
             elif is_front:
-                # Add node to the head of the linked list
+                # Link node at the head of the list
                 self._front.prev = node
                 node.next = self._front
-                self._front = node  # Update the head node
-            # Enqueue at the rear
+                self._front = node  # Update the head
+            # Add at the rear
             else:
-                # Add node to the tail of the linked list
+                # Link node at the tail of the list
                 self._rear.next = node
                 node.prev = self._rear
-                self._rear = node  # Update the tail node
+                self._rear = node  # Update the tail
             self._size += 1  # Update the deque size
 
         def push_first(self, num: int):
-            """Enqueue at the front"""
+            """Add an element at the front."""
             self.push(num, True)
 
         def push_last(self, num: int):
-            """Enqueue at the rear"""
+            """Add an element at the rear."""
             self.push(num, False)
 
         def pop(self, is_front: bool) -> int:
-            """Dequeue operation"""
+            """Remove an element from either end."""
             if self.is_empty():
                 raise IndexError("Deque is empty")
-            # When the deque size is 1, the head and tail point to the same node
+            # When the deque contains one element, the head and tail point to the same node
             if self._size == 1:
                 val: int = self._front.val
                 self._front = None
                 self._rear = None
-            # Dequeue from the front
+            # Remove from the front
             elif is_front:
-                val: int = self._front.val  # Save the head node value
+                val: int = self._front.val  # Save the head node's value
                 # Remove the head node
                 fnext: ListNode | None = self._front.next
                 fnext.prev = None
                 self._front.next = None
-                self._front = fnext  # Update the head node
-            # Dequeue from the rear
+                self._front = fnext  # Update the head
+            # Remove from the rear
             else:
-                val: int = self._rear.val  # Save the tail node value
+                val: int = self._rear.val  # Save the tail node's value
                 # Remove the tail node
                 rprev: ListNode | None = self._rear.prev
                 rprev.next = None
                 self._rear.prev = None
-                self._rear = rprev  # Update the tail node
+                self._rear = rprev  # Update the tail
             self._size -= 1  # Update the deque size
             return val
 
         def pop_first(self) -> int:
-            """Dequeue from the front"""
+            """Remove and return the front element."""
             return self.pop(True)
 
         def pop_last(self) -> int:
-            """Dequeue from the rear"""
+            """Remove and return the rear element."""
             return self.pop(False)
 
         def peek_first(self) -> int:
-            """Access the front element"""
+            """Peek at the front element."""
             if self.is_empty():
                 raise IndexError("Deque is empty")
             return self._front.val
 
         def peek_last(self) -> int:
-            """Access the rear element"""
+            """Peek at the rear element."""
             if self.is_empty():
                 raise IndexError("Deque is empty")
             return self._rear.val
 
         def to_array(self) -> list[int]:
-            """Return an array for printing"""
+            """Return a list for printing."""
             node = self._front
             res = [0] * self.size()
             for i in range(self.size()):
@@ -552,10 +552,10 @@ The implementation is as follows:
         }
     };
 
-    /* Deque implemented with a doubly linked list */
+    /* Deque backed by a doubly linked list */
     class LinkedListDeque {
       private:
-        DoublyListNode *front, *rear; // Head node front and tail node rear
+        DoublyListNode *front, *rear; // front points to the head node and rear to the tail node
         int queSize = 0;              // Deque size
 
       public:
@@ -565,7 +565,7 @@ The implementation is as follows:
 
         /* Destructor */
         ~LinkedListDeque() {
-            // Traverse the linked list and delete each node to free its memory
+            // Walk the list and delete each node to free its memory
             DoublyListNode *pre, *cur = front;
             while (cur != nullptr) {
                 pre = cur;
@@ -584,91 +584,91 @@ The implementation is as follows:
             return size() == 0;
         }
 
-        /* Enqueue operation */
+        /* Add an element at either end */
         void push(int num, bool isFront) {
             DoublyListNode *node = new DoublyListNode(num);
-            // If the linked list is empty, make both front and rear point to node
+            // If the list is empty, point both front and rear at node
             if (isEmpty())
                 front = rear = node;
-            // Enqueue at the front
+            // Add at the front
             else if (isFront) {
-                // Add node to the head of the linked list
+                // Link node at the head of the list
                 front->prev = node;
                 node->next = front;
-                front = node; // Update the head node
-            // Enqueue at the rear
+                front = node; // Update the head
+            // Add at the rear
             } else {
-                // Add node to the tail of the linked list
+                // Link node at the tail of the list
                 rear->next = node;
                 node->prev = rear;
-                rear = node; // Update the tail node
+                rear = node; // Update the tail
             }
             queSize++; // Update the deque size
         }
 
-        /* Enqueue at the front */
+        /* Add an element at the front */
         void pushFirst(int num) {
             push(num, true);
         }
 
-        /* Enqueue at the rear */
+        /* Add an element at the rear */
         void pushLast(int num) {
             push(num, false);
         }
 
-        /* Dequeue operation */
+        /* Remove an element from either end */
         int pop(bool isFront) {
             if (isEmpty())
-                throw out_of_range("Deque is empty");
+                throw out_of_range("Queue is empty");
             int val;
-            // When the deque size is 1, the head and tail point to the same node
+            // When the deque contains one element, the head and tail point to the same node
             if (queSize == 1) {
                 val = front->val;
                 delete front; // Both point to the same node, so free it only once
                 front = nullptr;
                 rear = nullptr;
             }
-            // Dequeue from the front
+            // Remove from the front
             else if (isFront) {
-                val = front->val; // Save the head node value
+                val = front->val; // Save the head node's value
                 // Remove the head node
                 DoublyListNode *fNext = front->next;
                 fNext->prev = nullptr;
                 front->next = nullptr;
                 delete front;
-                front = fNext; // Update the head node
-            // Dequeue from the rear
+                front = fNext; // Update the head
+            // Remove from the rear
             } else {
-                val = rear->val; // Save the tail node value
+                val = rear->val; // Save the tail node's value
                 // Remove the tail node
                 DoublyListNode *rPrev = rear->prev;
                 rPrev->next = nullptr;
                 rear->prev = nullptr;
                 delete rear;
-                rear = rPrev; // Update the tail node
+                rear = rPrev; // Update the tail
             }
             queSize--; // Update the deque size
             return val;
         }
 
-        /* Dequeue from the front */
+        /* Remove and return the front element */
         int popFirst() {
             return pop(true);
         }
 
-        /* Dequeue from the rear */
+        /* Remove and return the rear element */
         int popLast() {
             return pop(false);
         }
 
-        /* Access the front element */
+        /* Peek at the front element */
         int peekFirst() {
             if (isEmpty())
                 throw out_of_range("Deque is empty");
             return front->val;
         }
 
-        /* Access the rear element */
+        /* Peek at the rear element */
         int peekLast() {
             if (isEmpty())
                 throw out_of_range("Deque is empty");
@@ -703,9 +703,9 @@ The implementation is as follows:
         }
     }
 
-    /* Deque implemented with a doubly linked list */
+    /* Deque backed by a doubly linked list */
     class LinkedListDeque {
-        private ListNode front, rear; // Head node front and tail node rear
+        private ListNode front, rear; // front points to the head node and rear to the tail node
         private int queSize = 0; // Deque size
 
         public LinkedListDeque() {
@@ -722,88 +722,88 @@ The implementation is as follows:
             return size() == 0;
         }
 
-        /* Enqueue operation */
+        /* Add an element at either end */
         private void push(int num, boolean isFront) {
             ListNode node = new ListNode(num);
-            // If the linked list is empty, make both front and rear point to node
+            // If the list is empty, point both front and rear at node
             if (isEmpty())
                 front = rear = node;
-            // Enqueue at the front
+            // Add at the front
             else if (isFront) {
-                // Add node to the head of the linked list
+                // Link node at the head of the list
                 front.prev = node;
                 node.next = front;
-                front = node; // Update the head node
-            // Enqueue at the rear
+                front = node; // Update the head
+            // Add at the rear
             } else {
-                // Add node to the tail of the linked list
+                // Link node at the tail of the list
                 rear.next = node;
                 node.prev = rear;
-                rear = node; // Update the tail node
+                rear = node; // Update the tail
             }
-            queSize++; // Update the queue size
+            queSize++; // Update the deque size
         }
 
-        /* Enqueue at the front */
+        /* Add an element at the front */
         public void pushFirst(int num) {
             push(num, true);
         }
 
-        /* Enqueue at the rear */
+        /* Add an element at the rear */
         public void pushLast(int num) {
             push(num, false);
         }
 
-        /* Dequeue operation */
+        /* Remove an element from either end */
         private int pop(boolean isFront) {
             if (isEmpty())
                 throw new IndexOutOfBoundsException();
             int val;
-            // When the queue size is 1, the head and tail point to the same node
+            // When the deque contains one element, the head and tail point to the same node
             if (queSize == 1) {
                 val = front.val;
                 front = null;
                 rear = null;
             }
-            // Dequeue from the front
+            // Remove from the front
             else if (isFront) {
-                val = front.val; // Save the head node value
+                val = front.val; // Save the head node's value
                 // Remove the head node
                 ListNode fNext = front.next;
                 fNext.prev = null;
                 front.next = null;
-                front = fNext; // Update the head node
-            // Dequeue from the rear
+                front = fNext; // Update the head
+            // Remove from the rear
             } else {
-                val = rear.val; // Save the tail node value
+                val = rear.val; // Save the tail node's value
                 // Remove the tail node
                 ListNode rPrev = rear.prev;
                 rPrev.next = null;
                 rear.prev = null;
-                rear = rPrev; // Update the tail node
+                rear = rPrev; // Update the tail
             }
-            queSize--; // Update the queue size
+            queSize--; // Update the deque size
             return val;
         }
 
-        /* Dequeue from the front */
+        /* Remove and return the front element */
         public int popFirst() {
             return pop(true);
         }
 
-        /* Dequeue from the rear */
+        /* Remove and return the rear element */
         public int popLast() {
             return pop(false);
         }
 
-        /* Access the front element */
+        /* Peek at the front element */
         public int peekFirst() {
             if (isEmpty())
                 throw new IndexOutOfBoundsException();
             return front.val;
         }
 
-        /* Access the rear element */
+        /* Peek at the rear element */
         public int peekLast() {
             if (isEmpty())
                 throw new IndexOutOfBoundsException();
@@ -833,9 +833,9 @@ The implementation is as follows:
         public ListNode? prev = null; // Reference to the previous node
     }
 
-    /* Deque implemented with a doubly linked list */
+    /* Deque backed by a doubly linked list */
     class LinkedListDeque {
-        ListNode? front, rear; // Head node front and tail node rear
+        ListNode? front, rear; // front points to the head node and rear to the tail node
         int queSize = 0;      // Deque size
 
         public LinkedListDeque() {
@@ -853,94 +853,94 @@ The implementation is as follows:
             return Size() == 0;
         }
 
-        /* Enqueue operation */
+        /* Add an element at either end */
         void Push(int num, bool isFront) {
             ListNode node = new(num);
-            // If the linked list is empty, make both front and rear point to node
+            // If the list is empty, point both front and rear at node
             if (IsEmpty()) {
                 front = node;
                 rear = node;
             }
-            // Enqueue at the front
+            // Add at the front
             else if (isFront) {
-                // Add node to the head of the linked list
+                // Link node at the head of the list
                 front!.prev = node;
                 node.next = front;
-                front = node; // Update the head node                           
+                front = node; // Update the head                           
             }
-            // Enqueue at the rear
+            // Add at the rear
             else {
-                // Add node to the tail of the linked list
+                // Link node at the tail of the list
                 rear!.next = node;
                 node.prev = rear;
-                rear = node;  // Update the tail node
+                rear = node;  // Update the tail
             }
 
-            queSize++; // Update the queue size
+            queSize++; // Update the deque size
         }
 
-        /* Enqueue at the front */
+        /* Add an element at the front */
         public void PushFirst(int num) {
             Push(num, true);
         }
 
-        /* Enqueue at the rear */
+        /* Add an element at the rear */
         public void PushLast(int num) {
             Push(num, false);
         }
 
-        /* Dequeue operation */
+        /* Remove an element from either end */
         int? Pop(bool isFront) {
             if (IsEmpty())
                 throw new Exception();
             int? val;
-            // When the queue size is 1, the head and tail point to the same node
+            // When the deque contains one element, the head and tail point to the same node
             if (queSize == 1) {
                 val = front!.val;
                 front = null;
                 rear = null;
             }
-            // Dequeue from the front
+            // Remove from the front
             else if (isFront) {
-                val = front!.val; // Save the head node value
+                val = front!.val; // Save the head node's value
                 // Remove the head node
                 ListNode? fNext = front?.next;
                 fNext!.prev = null;
                 front.next = null;
-                front = fNext;   // Update the head node
+                front = fNext;   // Update the head
             }
-            // Dequeue from the rear
+            // Remove from the rear
             else {
-                val = rear!.val;  // Save the tail node value
+                val = rear!.val;  // Save the tail node's value
                 // Remove the tail node
                 ListNode? rPrev = rear?.prev;
                 rPrev!.next = null;
                 rear.prev = null;
-                rear = rPrev;    // Update the tail node
+                rear = rPrev;    // Update the tail
             }
 
-            queSize--; // Update the queue size
+            queSize--; // Update the deque size
             return val;
         }
 
-        /* Dequeue from the front */
+        /* Remove and return the front element */
         public int? PopFirst() {
             return Pop(true);
         }
 
-        /* Dequeue from the rear */
+        /* Remove and return the rear element */
         public int? PopLast() {
             return Pop(false);
         }
 
-        /* Access the front element */
+        /* Peek at the front element */
         public int? PeekFirst() {
             if (IsEmpty())
                 throw new Exception();
             return front?.val;
         }
 
-        /* Access the rear element */
+        /* Peek at the rear element */
         public int? PeekLast() {
             if (IsEmpty())
                 throw new Exception();
@@ -964,9 +964,9 @@ The implementation is as follows:
 === "Go"
 
     ```go title="linkedlist_deque.go"
-    /* Deque implemented with a doubly linked list */
+    /* Deque backed by a doubly linked list */
     type linkedListDeque struct {
-        // Use the standard library list package
+        // Use the standard list package
         data *list.List
     }
 
@@ -977,17 +977,17 @@ The implementation is as follows:
         }
     }
 
-    /* Enqueue an element at the front */
+    /* Add an element at the front */
     func (s *linkedListDeque) pushFirst(value any) {
         s.data.PushFront(value)
     }
 
-    /* Enqueue an element at the rear */
+    /* Add an element at the rear */
     func (s *linkedListDeque) pushLast(value any) {
         s.data.PushBack(value)
     }
 
-    /* Dequeue the front element */
+    /* Remove and return the front element */
     func (s *linkedListDeque) popFirst() any {
         if s.isEmpty() {
             return nil
@@ -997,7 +997,7 @@ The implementation is as follows:
         return e.Value
     }
 
-    /* Dequeue the rear element */
+    /* Remove and return the rear element */
     func (s *linkedListDeque) popLast() any {
         if s.isEmpty() {
             return nil
@@ -1007,7 +1007,7 @@ The implementation is as follows:
         return e.Value
     }
 
-    /* Access the front element */
+    /* Peek at the front element */
     func (s *linkedListDeque) peekFirst() any {
         if s.isEmpty() {
             return nil
@@ -1016,7 +1016,7 @@ The implementation is as follows:
         return e.Value
     }
 
-    /* Access the rear element */
+    /* Peek at the rear element */
     func (s *linkedListDeque) peekLast() any {
         if s.isEmpty() {
             return nil
@@ -1025,17 +1025,17 @@ The implementation is as follows:
         return e.Value
     }
 
-    /* Get the queue size */
+    /* Get the deque size */
     func (s *linkedListDeque) size() int {
         return s.data.Len()
     }
 
-    /* Check whether the queue is empty */
+    /* Check whether the deque is empty */
     func (s *linkedListDeque) isEmpty() bool {
         return s.data.Len() == 0
     }
 
-    /* Get the list for printing */
+    /* Return the list for printing */
     func (s *linkedListDeque) toList() *list.List {
         return s.data
     }
@@ -1055,10 +1055,10 @@ The implementation is as follows:
         }
     }
 
-    /* Deque implemented with a doubly linked list */
+    /* Deque backed by a doubly linked list */
     class LinkedListDeque {
-        private var front: ListNode? // Head node front
-        private var rear: ListNode? // Tail node rear
+        private var front: ListNode? // Head node (front)
+        private var rear: ListNode? // Tail node (rear)
         private var _size: Int // Deque size
 
         init() {
@@ -1075,86 +1075,86 @@ The implementation is as follows:
             size() == 0
         }
 
-        /* Enqueue operation */
+        /* Add an element at either end */
         private func push(num: Int, isFront: Bool) {
             let node = ListNode(val: num)
-            // If the linked list is empty, make both front and rear point to node
+            // If the list is empty, point both front and rear at node
             if isEmpty() {
                 front = node
                 rear = node
             }
-            // Enqueue at the front
+            // Add at the front
             else if isFront {
-                // Add node to the head of the linked list
+                // Link node at the head of the list
                 front?.prev = node
                 node.next = front
-                front = node // Update the head node
+                front = node // Update the head
             }
-            // Enqueue at the rear
+            // Add at the rear
             else {
-                // Add node to the tail of the linked list
+                // Link node at the tail of the list
                 rear?.next = node
                 node.prev = rear
-                rear = node // Update the tail node
+                rear = node // Update the tail
             }
             _size += 1 // Update the deque size
         }
 
-        /* Enqueue at the front */
+        /* Add an element at the front */
         func pushFirst(num: Int) {
             push(num: num, isFront: true)
         }
 
-        /* Enqueue at the rear */
+        /* Add an element at the rear */
         func pushLast(num: Int) {
             push(num: num, isFront: false)
         }
 
-        /* Dequeue operation */
+        /* Remove an element from either end */
         private func pop(isFront: Bool) -> Int {
             if isEmpty() {
                 fatalError("Deque is empty")
             }
             let val: Int
-            // When the deque size is 1, the head and tail point to the same node
+            // When the deque contains one element, the head and tail point to the same node
             if _size == 1 {
                 val = front!.val
                 front = nil
                 rear = nil
             }
-            // Dequeue from the front
+            // Remove from the front
             else if isFront {
-                val = front!.val // Save the head node value
+                val = front!.val // Save the head node's value
                 // Remove the head node
                 let fNext = front?.next
                 fNext?.prev = nil
                 front?.next = nil
-                front = fNext // Update the head node
+                front = fNext // Update the head
             }
-            // Dequeue from the rear
+            // Remove from the rear
             else {
-                val = rear!.val // Save the tail node value
+                val = rear!.val // Save the tail node's value
                 // Remove the tail node
                 let rPrev = rear?.prev
                 rPrev?.next = nil
                 rear?.prev = nil
-                rear = rPrev // Update the tail node
+                rear = rPrev // Update the tail
             }
             _size -= 1 // Update the deque size
             return val
         }
 
-        /* Dequeue from the front */
+        /* Remove and return the front element */
         func popFirst() -> Int {
             pop(isFront: true)
         }
 
-        /* Dequeue from the rear */
+        /* Remove and return the rear element */
         func popLast() -> Int {
             pop(isFront: false)
         }
 
-        /* Access the front element */
+        /* Peek at the front element */
         func peekFirst() -> Int {
             if isEmpty() {
                 fatalError("Deque is empty")
@@ -1162,7 +1162,7 @@ The implementation is as follows:
             return front!.val
         }
 
-        /* Access the rear element */
+        /* Peek at the rear element */
         func peekLast() -> Int {
             if isEmpty() {
                 fatalError("Deque is empty")
@@ -1188,8 +1188,8 @@ The implementation is as follows:
     ```javascript title="linkedlist_deque.js"
     /* Doubly linked list node */
     class ListNode {
-        prev; // Reference (pointer) to the previous node
-        next; // Reference (pointer) to the next node
+        prev; // Reference to the previous node
+        next; // Reference to the next node
         val; // Node value
 
         constructor(val) {
@@ -1199,10 +1199,10 @@ The implementation is as follows:
         }
     }
 
-    /* Deque implemented with a doubly linked list */
+    /* Deque backed by a doubly linked list */
     class LinkedListDeque {
-        #front; // Head node front
-        #rear; // Tail node rear
+        #front; // Head node (front)
+        #rear; // Tail node (rear)
         #queSize; // Deque size
 
         constructor() {
@@ -1211,45 +1211,45 @@ The implementation is as follows:
             this.#queSize = 0;
         }
 
-        /* Enqueue at the rear */
+        /* Add at the rear */
         pushLast(val) {
             const node = new ListNode(val);
-            // If the linked list is empty, make both front and rear point to node
+            // If the list is empty, point both #front and #rear at node
             if (this.#queSize === 0) {
                 this.#front = node;
                 this.#rear = node;
             } else {
-                // Add node to the tail of the linked list
+                // Link node at the tail of the list
                 this.#rear.next = node;
                 node.prev = this.#rear;
-                this.#rear = node; // Update the tail node
+                this.#rear = node; // Update the tail
             }
             this.#queSize++;
         }
 
-        /* Enqueue at the front */
+        /* Add at the front */
         pushFirst(val) {
             const node = new ListNode(val);
-            // If the linked list is empty, make both front and rear point to node
+            // If the list is empty, point both #front and #rear at node
             if (this.#queSize === 0) {
                 this.#front = node;
                 this.#rear = node;
             } else {
-                // Add node to the head of the linked list
+                // Link node at the head of the list
                 this.#front.prev = node;
                 node.next = this.#front;
-                this.#front = node; // Update the head node
+                this.#front = node; // Update the head
             }
             this.#queSize++;
         }
 
-        /* Dequeue from the rear */
+        /* Remove from the rear */
         popLast() {
             if (this.#queSize === 0) {
                 return null;
             }
-            const value = this.#rear.val; // Store the tail node value
-            // When the queue size is 1, the head and tail point to the same node
+            const value = this.#rear.val; // Save the tail node's value
+            // When the deque contains one element, the head and tail point to the same node
             if (this.#queSize === 1) {
                 this.#front = null;
                 this.#rear = null;
@@ -1259,19 +1259,19 @@ The implementation is as follows:
                 let temp = this.#rear.prev;
                 temp.next = null;
                 this.#rear.prev = null;
-                this.#rear = temp; // Update the tail node
+                this.#rear = temp; // Update the tail
             }
             this.#queSize--;
             return value;
         }
 
-        /* Dequeue from the front */
+        /* Remove from the front */
         popFirst() {
             if (this.#queSize === 0) {
                 return null;
             }
-            const value = this.#front.val; // Store the head node value
-            // When the queue size is 1, the head and tail point to the same node
+            const value = this.#front.val; // Save the head node's value
+            // When the deque contains one element, the head and tail point to the same node
             if (this.#queSize === 1) {
                 this.#front = null;
                 this.#rear = null;
@@ -1281,18 +1281,18 @@ The implementation is as follows:
                 let temp = this.#front.next;
                 temp.prev = null;
                 this.#front.next = null;
-                this.#front = temp; // Update the head node
+                this.#front = temp; // Update the head
             }
             this.#queSize--;
             return value;
         }
 
-        /* Access the rear element */
+        /* Peek at the rear element */
         peekLast() {
             return this.#queSize === 0 ? null : this.#rear.val;
         }
 
-        /* Access the front element */
+        /* Peek at the front element */
         peekFirst() {
             return this.#queSize === 0 ? null : this.#front.val;
         }
@@ -1325,8 +1325,8 @@ The implementation is as follows:
     ```typescript title="linkedlist_deque.ts"
     /* Doubly linked list node */
     class ListNode {
-        prev: ListNode | null; // Reference (pointer) to the previous node
-        next: ListNode | null; // Reference (pointer) to the next node
+        prev: ListNode | null; // Reference to the previous node
+        next: ListNode | null; // Reference to the next node
         val: number; // Node value
 
         constructor(val: number) {
@@ -1336,10 +1336,10 @@ The implementation is as follows:
         }
     }
 
-    /* Deque implemented with a doubly linked list */
+    /* Deque backed by a doubly linked list */
     class LinkedListDeque {
-        private front: ListNode; // Head node front
-        private rear: ListNode; // Tail node rear
+        private front: ListNode; // Head node (front)
+        private rear: ListNode; // Tail node (rear)
         private queSize: number; // Deque size
 
         constructor() {
@@ -1348,45 +1348,45 @@ The implementation is as follows:
             this.queSize = 0;
         }
 
-        /* Enqueue at the rear */
+        /* Add at the rear */
         pushLast(val: number): void {
             const node: ListNode = new ListNode(val);
-            // If the linked list is empty, make both front and rear point to node
+            // If the list is empty, point both front and rear at node
             if (this.queSize === 0) {
                 this.front = node;
                 this.rear = node;
             } else {
-                // Add node to the tail of the linked list
+                // Link node at the tail of the list
                 this.rear.next = node;
                 node.prev = this.rear;
-                this.rear = node; // Update the tail node
+                this.rear = node; // Update the tail
             }
             this.queSize++;
         }
 
-        /* Enqueue at the front */
+        /* Add at the front */
         pushFirst(val: number): void {
             const node: ListNode = new ListNode(val);
-            // If the linked list is empty, make both front and rear point to node
+            // If the list is empty, point both front and rear at node
             if (this.queSize === 0) {
                 this.front = node;
                 this.rear = node;
             } else {
-                // Add node to the head of the linked list
+                // Link node at the head of the list
                 this.front.prev = node;
                 node.next = this.front;
-                this.front = node; // Update the head node
+                this.front = node; // Update the head
             }
             this.queSize++;
         }
 
-        /* Dequeue from the rear */
+        /* Remove from the rear */
         popLast(): number {
             if (this.queSize === 0) {
                 return null;
             }
-            const value: number = this.rear!.val; // Store the tail node value
-            // When the queue size is 1, the head and tail point to the same node
+            const value: number = this.rear!.val; // Save the tail node's value
+            // When the deque contains one element, the head and tail point to the same node
             if (this.queSize === 1) {
                 this.front = null;
                 this.rear = null;
@@ -1396,19 +1396,19 @@ The implementation is as follows:
                 let temp: ListNode = this.rear!.prev;
                 temp!.next = null;
                 this.rear!.prev = null;
-                this.rear = temp; // Update the tail node
+                this.rear = temp; // Update the tail
             }
             this.queSize--;
             return value;
         }
 
-        /* Dequeue from the front */
+        /* Remove from the front */
         popFirst(): number {
             if (this.queSize === 0) {
                 return null;
             }
-            const value: number = this.front.val; // Store the head node value
-            // When the queue size is 1, the head and tail point to the same node
+            const value: number = this.front.val; // Save the head node's value
+            // When the deque contains one element, the head and tail point to the same node
             if (this.queSize === 1) {
                 this.front = null;
                 this.rear = null;
@@ -1418,18 +1418,18 @@ The implementation is as follows:
                 let temp: ListNode = this.front!.next;
                 temp!.prev = null;
                 this.front!.next = null;
-                this.front = temp; // Update the head node
+                this.front = temp; // Update the head
             }
             this.queSize--;
             return value;
         }
 
-        /* Access the rear element */
+        /* Peek at the rear element */
         peekLast(): number {
             return this.queSize === 0 ? null : this.rear.val;
         }
 
-        /* Access the front element */
+        /* Peek at the front element */
         peekFirst(): number {
             return this.queSize === 0 ? null : this.front.val;
         }
@@ -1469,10 +1469,10 @@ The implementation is as follows:
       ListNode(this.val, {this.next, this.prev});
     }
 
-    /* Deque implemented with a doubly linked list */
+    /* Deque backed by a doubly linked list */
     class LinkedListDeque {
-      late ListNode? _front; // Head node _front
-      late ListNode? _rear; // Tail node _rear
+      late ListNode? _front; // Head node (_front)
+      late ListNode? _rear; // Tail node (_rear)
       int _queSize = 0; // Deque size
 
       LinkedListDeque() {
@@ -1490,93 +1490,93 @@ The implementation is as follows:
         return size() == 0;
       }
 
-      /* Enqueue operation */
+      /* Add an element at either end */
       void push(int _num, bool isFront) {
         final ListNode node = ListNode(_num);
         if (isEmpty()) {
-          // If the linked list is empty, make both _front and _rear point to node
+          // If the list is empty, point both _front and _rear at node
           _front = _rear = node;
         } else if (isFront) {
-          // Enqueue at the front
-          // Add node to the head of the linked list
+          // Add at the front
+          // Link node at the head of the list
           _front!.prev = node;
           node.next = _front;
-          _front = node; // Update the head node
+          _front = node; // Update the head
         } else {
-          // Enqueue at the rear
-          // Add node to the tail of the linked list
+          // Add at the rear
+          // Link node at the tail of the list
           _rear!.next = node;
           node.prev = _rear;
-          _rear = node; // Update the tail node
+          _rear = node; // Update the tail
         }
-        _queSize++; // Update the queue size
+        _queSize++; // Update the deque size
       }
 
-      /* Enqueue at the front */
+      /* Add an element at the front */
       void pushFirst(int _num) {
         push(_num, true);
       }
 
-      /* Enqueue at the rear */
+      /* Add an element at the rear */
       void pushLast(int _num) {
         push(_num, false);
       }
 
-      /* Dequeue operation */
+      /* Remove an element from either end */
       int? pop(bool isFront) {
-        // If the queue is empty, return null immediately
+        // If the deque is empty, return null immediately
         if (isEmpty()) {
           return null;
         }
         final int val;
-        // When the queue size is 1, the head and tail point to the same node
+        // When the deque contains one element, the head and tail point to the same node
         if (_queSize == 1) {
           val = _front!.val;
           _front = null;
           _rear = null;
         }
-        // Dequeue from the front
+        // Remove from the front
         else if (isFront) {
-          val = _front!.val; // Save the head node value
+          val = _front!.val; // Save the head node's value
           // Remove the head node
           ListNode? fNext = _front!.next;
           fNext!.prev = null;
           _front!.next = null;
-          _front = fNext; // Update the head node
-        // Dequeue from the rear
+          _front = fNext; // Update the head
+        // Remove from the rear
         } else {
-          val = _rear!.val; // Save the tail node value
+          val = _rear!.val; // Save the tail node's value
           // Remove the tail node
           ListNode? rPrev = _rear!.prev;
           rPrev!.next = null;
           _rear!.prev = null;
-          _rear = rPrev; // Update the tail node
+          _rear = rPrev; // Update the tail
         }
-        _queSize--; // Update the queue size
+        _queSize--; // Update the deque size
         return val;
       }
 
-      /* Dequeue from the front */
+      /* Remove and return the front element */
       int? popFirst() {
         return pop(true);
       }
 
-      /* Dequeue from the rear */
+      /* Remove and return the rear element */
       int? popLast() {
         return pop(false);
       }
 
-      /* Access the front element */
+      /* Peek at the front element */
       int? peekFirst() {
         return _front?.val;
       }
 
-      /* Access the rear element */
+      /* Peek at the rear element */
       int? peekLast() {
         return _rear?.val;
       }
 
-      /* Return an array for printing */
+      /* Return a List for printing */
       List<int> toArray() {
         ListNode? node = _front;
         final List<int> res = [];
@@ -1595,8 +1595,8 @@ The implementation is as follows:
     /* Doubly linked list node */
     pub struct ListNode<T> {
         pub val: T,                                 // Node value
-        pub next: Option<Rc<RefCell<ListNode<T>>>>, // Pointer to the next node
-        pub prev: Option<Rc<RefCell<ListNode<T>>>>, // Pointer to the previous node
+        pub next: Option<Rc<RefCell<ListNode<T>>>>, // Shared pointer to the next node
+        pub prev: Option<Rc<RefCell<ListNode<T>>>>, // Shared pointer to the previous node
     }
 
     impl<T> ListNode<T> {
@@ -1609,11 +1609,11 @@ The implementation is as follows:
         }
     }
 
-    /* Deque implemented with a doubly linked list */
+    /* Deque backed by a doubly linked list */
     #[allow(dead_code)]
     pub struct LinkedListDeque<T> {
-        front: Option<Rc<RefCell<ListNode<T>>>>, // Head node front
-        rear: Option<Rc<RefCell<ListNode<T>>>>,  // Tail node rear
+        front: Option<Rc<RefCell<ListNode<T>>>>, // Head node (front)
+        rear: Option<Rc<RefCell<ListNode<T>>>>,  // Tail node (rear)
         que_size: usize,                         // Deque size
     }
 
@@ -1636,67 +1636,67 @@ The implementation is as follows:
             return self.que_size == 0;
         }
 
-        /* Enqueue operation */
+        /* Add an element at either end */
         fn push(&mut self, num: T, is_front: bool) {
             let node = ListNode::new(num);
-            // Enqueue at the front
+            // Add at the front
             if is_front {
                 match self.front.take() {
-                    // If the linked list is empty, make both front and rear point to node
+                    // If the list is empty, point both front and rear at node
                     None => {
                         self.rear = Some(node.clone());
                         self.front = Some(node);
                     }
-                    // Add node to the head of the linked list
+                    // Link node at the head of the list
                     Some(old_front) => {
                         old_front.borrow_mut().prev = Some(node.clone());
                         node.borrow_mut().next = Some(old_front);
-                        self.front = Some(node); // Update the head node
+                        self.front = Some(node); // Update the head
                     }
                 }
             }
-            // Enqueue at the rear
+            // Add at the rear
             else {
                 match self.rear.take() {
-                    // If the linked list is empty, make both front and rear point to node
+                    // If the list is empty, point both front and rear at node
                     None => {
                         self.front = Some(node.clone());
                         self.rear = Some(node);
                     }
-                    // Add node to the tail of the linked list
+                    // Link node at the tail of the list
                     Some(old_rear) => {
                         old_rear.borrow_mut().next = Some(node.clone());
                         node.borrow_mut().prev = Some(old_rear);
-                        self.rear = Some(node); // Update the tail node
+                        self.rear = Some(node); // Update the tail
                     }
                 }
             }
             self.que_size += 1; // Update the deque size
         }
 
-        /* Enqueue at the front */
+        /* Add an element at the front */
         pub fn push_first(&mut self, num: T) {
             self.push(num, true);
         }
 
-        /* Enqueue at the rear */
+        /* Add an element at the rear */
         pub fn push_last(&mut self, num: T) {
             self.push(num, false);
         }
 
-        /* Dequeue operation */
+        /* Remove an element from either end */
         fn pop(&mut self, is_front: bool) -> Option<T> {
             // If the deque is empty, return None immediately
             if self.is_empty() {
                 return None;
             };
-            // Dequeue from the front
+            // Remove from the front
             if is_front {
                 self.front.take().map(|old_front| {
                     match old_front.borrow_mut().next.take() {
                         Some(new_front) => {
                             new_front.borrow_mut().prev.take();
-                            self.front = Some(new_front); // Update the head node
+                            self.front = Some(new_front); // Update the head
                         }
                         None => {
                             self.rear.take();
@@ -1706,13 +1706,13 @@ The implementation is as follows:
                     old_front.borrow().val
                 })
             }
-            // Dequeue from the rear
+            // Remove from the rear
             else {
                 self.rear.take().map(|old_rear| {
                     match old_rear.borrow_mut().prev.take() {
                         Some(new_rear) => {
                             new_rear.borrow_mut().next.take();
-                            self.rear = Some(new_rear); // Update the tail node
+                            self.rear = Some(new_rear); // Update the tail
                         }
                         None => {
                             self.front.take();
@@ -1724,22 +1724,22 @@ The implementation is as follows:
             }
         }
 
-        /* Dequeue from the front */
+        /* Remove and return the front element */
         pub fn pop_first(&mut self) -> Option<T> {
             return self.pop(true);
         }
 
-        /* Dequeue from the rear */
+        /* Remove and return the rear element */
         pub fn pop_last(&mut self) -> Option<T> {
             return self.pop(false);
         }
 
-        /* Access the front element */
+        /* Get a reference to the front node */
         pub fn peek_first(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
             self.front.as_ref()
         }
 
-        /* Access the rear element */
+        /* Get a reference to the rear node */
         pub fn peek_last(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
             self.rear.as_ref()
         }
@@ -1784,9 +1784,9 @@ The implementation is as follows:
         free(node);
     }
 
-    /* Deque implemented with a doubly linked list */
+    /* Deque backed by a doubly linked list */
     typedef struct {
-        DoublyListNode *front, *rear; // Head node front and tail node rear
+        DoublyListNode *front, *rear; // front points to the head node and rear to the tail node
         int queSize;                  // Deque size
     } LinkedListDeque;
 
@@ -1801,7 +1801,7 @@ The implementation is as follows:
 
     /* Destructor */
     void delLinkedListdeque(LinkedListDeque *deque) {
-        // Free all nodes
+        // Free all the nodes
         for (int i = 0; i < deque->queSize && deque->front != NULL; i++) {
             DoublyListNode *tmp = deque->front;
             deque->front = deque->front->next;
@@ -1811,110 +1811,110 @@ The implementation is as follows:
         free(deque);
     }
 
-    /* Get the queue size */
+    /* Get the deque size */
     int size(LinkedListDeque *deque) {
         return deque->queSize;
     }
 
-    /* Check whether the queue is empty */
+    /* Check whether the deque is empty */
     bool empty(LinkedListDeque *deque) {
         return (size(deque) == 0);
     }
 
-    /* Enqueue */
+    /* Enqueue an element */
     void push(LinkedListDeque *deque, int num, bool isFront) {
         DoublyListNode *node = newDoublyListNode(num);
-        // If the list is empty, make both front and rear point to node
+        // If the list is empty, point both front and rear at node
         if (empty(deque)) {
             deque->front = deque->rear = node;
         }
-        // Enqueue at the front
+        // Add at the front
         else if (isFront) {
-            // Add node to the head of the linked list
+            // Link node at the head of the list
             deque->front->prev = node;
             node->next = deque->front;
-            deque->front = node; // Update the head node
+            deque->front = node; // Update the head
         }
-        // Enqueue at the rear
+        // Add at the rear
         else {
-            // Add node to the tail of the linked list
+            // Link node at the tail of the list
             deque->rear->next = node;
             node->prev = deque->rear;
             deque->rear = node;
         }
-        deque->queSize++; // Update the queue size
+        deque->queSize++; // Update the deque size
     }
 
-    /* Enqueue at the front */
+    /* Add an element at the front */
     void pushFirst(LinkedListDeque *deque, int num) {
         push(deque, num, true);
     }
 
-    /* Enqueue at the rear */
+    /* Add an element at the rear */
     void pushLast(LinkedListDeque *deque, int num) {
         push(deque, num, false);
     }
 
-    /* Access the front element */
+    /* Peek at the front element */
     int peekFirst(LinkedListDeque *deque) {
         assert(size(deque) && deque->front);
         return deque->front->val;
     }
 
-    /* Access the rear element */
+    /* Peek at the rear element */
     int peekLast(LinkedListDeque *deque) {
         assert(size(deque) && deque->rear);
         return deque->rear->val;
     }
 
-    /* Dequeue */
+    /* Remove and return an element from either end of the deque */
     int pop(LinkedListDeque *deque, bool isFront) {
         if (empty(deque))
             return -1;
         int val;
-        // When the queue size is 1, the head and tail point to the same node
+        // When the deque contains one element, the head and tail point to the same node
         if (deque->queSize == 1) {
             val = deque->front->val;
             delDoublyListNode(deque->front); // Both point to the same node, so free it only once
             deque->front = NULL;
             deque->rear = NULL;
         }
-        // Dequeue from the front
+        // Remove from the front
         else if (isFront) {
-            val = peekFirst(deque); // Save the head node value
+            val = peekFirst(deque); // Save the head node's value
             DoublyListNode *fNext = deque->front->next;
             fNext->prev = NULL;
             deque->front->next = NULL;
             delDoublyListNode(deque->front);
-            deque->front = fNext; // Update the head node
+            deque->front = fNext; // Update the head
         }
-        // Dequeue from the rear
+        // Remove from the rear
         else {
-            val = peekLast(deque); // Save the tail node value
+            val = peekLast(deque); // Save the tail node's value
             DoublyListNode *rPrev = deque->rear->prev;
             rPrev->next = NULL;
             deque->rear->prev = NULL;
             delDoublyListNode(deque->rear);
-            deque->rear = rPrev; // Update the tail node
+            deque->rear = rPrev; // Update the tail
         }
-        deque->queSize--; // Update the queue size
+        deque->queSize--; // Update the deque size
         return val;
     }
 
-    /* Dequeue from the front */
+    /* Remove and return the front element */
     int popFirst(LinkedListDeque *deque) {
         return pop(deque, true);
     }
 
-    /* Dequeue from the rear */
+    /* Remove and return the rear element */
     int popLast(LinkedListDeque *deque) {
         return pop(deque, false);
     }
 
-    /* Print the queue */
+    /* Print the deque */
     void printLinkedListDeque(LinkedListDeque *deque) {
         int *arr = malloc(sizeof(int) * deque->queSize);
-        // Copy the linked list data into an array
+        // Copy the values from the linked list into an array
         int i;
         DoublyListNode *node;
         for (i = 0, node = deque->front; i < deque->queSize; i++) {
@@ -1931,15 +1931,15 @@ The implementation is as follows:
     ```kotlin title="linkedlist_deque.kt"
     /* Doubly linked list node */
     class ListNode(var _val: Int) {
-        // The node value is stored in _val
+        // Node value
         var next: ListNode? = null // Reference to the next node
         var prev: ListNode? = null // Reference to the previous node
     }
 
-    /* Deque implemented with a doubly linked list */
+    /* Deque backed by a doubly linked list */
     class LinkedListDeque {
-        private var front: ListNode? = null // Head node front
-        private var rear: ListNode? = null // Tail node rear
+        private var front: ListNode? = null // Head node (front)
+        private var rear: ListNode? = null // Tail node (rear)
         private var queSize: Int = 0 // Deque size
 
         /* Get the deque size */
@@ -1952,88 +1952,88 @@ The implementation is as follows:
             return size() == 0
         }
 
-        /* Enqueue operation */
+        /* Add an element at either end */
         fun push(num: Int, isFront: Boolean) {
             val node = ListNode(num)
-            // If the linked list is empty, make both front and rear point to node
+            // If the list is empty, point both front and rear at node
             if (isEmpty()) {
                 rear = node
                 front = rear
-                // Enqueue at the front
+                // Add at the front
             } else if (isFront) {
-                // Add node to the head of the linked list
+                // Link node at the head of the list
                 front?.prev = node
                 node.next = front
-                front = node // Update the head node
-                // Enqueue at the rear
+                front = node // Update the head
+                // Add at the rear
             } else {
-                // Add node to the tail of the linked list
+                // Link node at the tail of the list
                 rear?.next = node
                 node.prev = rear
-                rear = node // Update the tail node
+                rear = node // Update the tail
             }
-            queSize++ // Update the queue size
+            queSize++ // Update the deque size
         }
 
-        /* Enqueue at the front */
+        /* Add an element at the front */
         fun pushFirst(num: Int) {
             push(num, true)
         }
 
-        /* Enqueue at the rear */
+        /* Add an element at the rear */
         fun pushLast(num: Int) {
             push(num, false)
         }
 
-        /* Dequeue operation */
+        /* Remove an element from either end */
         fun pop(isFront: Boolean): Int {
             if (isEmpty()) 
                 throw IndexOutOfBoundsException()
             val _val: Int
-            // When the queue size is 1, the head and tail point to the same node
+            // When the deque contains one element, the head and tail point to the same node
             if (queSize == 1) {
                 _val = front!!._val
                 front = null
                 rear = null
             }
-            // Dequeue from the front
+            // Remove from the front
             else if (isFront) {
-                _val = front!!._val // Save the head node value
+                _val = front!!._val // Save the head node's value
                 // Remove the head node
                 val fNext = front!!.next
                 fNext!!.prev = null
                 front!!.next = null
-                front = fNext // Update the head node
-                // Dequeue from the rear
+                front = fNext // Update the head
+                // Remove from the rear
             } else {
-                _val = rear!!._val // Save the tail node value
+                _val = rear!!._val // Save the tail node's value
                 // Remove the tail node
                 val rPrev = rear!!.prev
                 rPrev!!.next = null
                 rear!!.prev = null
-                rear = rPrev // Update the tail node
+                rear = rPrev // Update the tail
             }
-            queSize-- // Update the queue size
+            queSize-- // Update the deque size
             return _val
         }
 
-        /* Dequeue from the front */
+        /* Remove and return the front element */
         fun popFirst(): Int {
             return pop(true)
         }
 
-        /* Dequeue from the rear */
+        /* Remove and return the rear element */
         fun popLast(): Int {
             return pop(false)
         }
 
-        /* Access the front element */
+        /* Peek at the front element */
         fun peekFirst(): Int {
             if (isEmpty()) throw IndexOutOfBoundsException()
             return front!!._val
         }
 
-        /* Access the rear element */
+        /* Peek at the rear element */
         fun peekLast(): Int {
             if (isEmpty()) throw IndexOutOfBoundsException()
             return rear!!._val
@@ -2067,15 +2067,15 @@ The implementation is as follows:
       end
     end
 
-    ### Deque implemented with a doubly linked list ###
+    ### Deque backed by a doubly linked list ###
     class LinkedListDeque
       ### Get the deque size ###
       attr_reader :size
 
       ### Constructor ###
       def initialize
-        @front = nil  # Head node front
-        @rear = nil   # Tail node rear
+        @front = nil  # Head node (@front)
+        @rear = nil   # Tail node (@rear)
         @size = 0     # Deque size
       end
 
@@ -2084,87 +2084,87 @@ The implementation is as follows:
         size.zero?
       end
 
-      ### Enqueue operation ###
+      ### Add an element at either end ###
       def push(num, is_front)
         node = ListNode.new(num)
-        # If the list is empty, point both front and rear to node
+        # If the list is empty, point both @front and @rear at node
         if is_empty?
           @front = @rear = node
-        # Enqueue at the front
+        # Add at the front
         elsif is_front
-          # Add node to the head of the linked list
+          # Link node at the head of the list
           @front.prev = node
           node.next = @front
-          @front = node # Update the head node
-        # Enqueue at the rear
+          @front = node # Update the head
+        # Add at the rear
         else
-          # Add node to the tail of the linked list
+          # Link node at the tail of the list
           @rear.next = node
           node.prev = @rear
-          @rear = node # Update the tail node
+          @rear = node # Update the tail
         end
-        @size += 1 # Update the queue size
+        @size += 1 # Update the deque size
       end
 
-      ### Enqueue at the front ###
+      ### Add an element at the front ###
       def push_first(num)
         push(num, true)
       end
 
-      ### Enqueue at the rear ###
+      ### Add an element at the rear ###
       def push_last(num)
         push(num, false)
       end
 
-      ### Dequeue operation ###
+      ### Remove an element from either end ###
       def pop(is_front)
         raise IndexError, 'Deque is empty' if is_empty?
 
-        # When the queue size is 1, the head and tail point to the same node
+        # When the deque contains one element, the head and tail point to the same node
         if @size == 1
           val = @front.val
           @front = nil
           @rear = nil
-        # Dequeue from the front
+        # Remove from the front
         elsif is_front
-          val = @front.val # Save the head node value
+          val = @front.val # Save the head node's value
           # Remove the head node
           fnext = @front.next
           fnext.prev = nil
           @front.next = nil
-          @front = fnext # Update the head node
-        # Dequeue from the rear
+          @front = fnext # Update the head
+        # Remove from the rear
         else
-          val = @rear.val # Save the tail node value
+          val = @rear.val # Save the tail node's value
           # Remove the tail node
           rprev = @rear.prev
           rprev.next = nil
           @rear.prev = nil
-          @rear = rprev # Update the tail node
+          @rear = rprev # Update the tail
         end
-        @size -= 1 # Update the queue size
+        @size -= 1 # Update the deque size
 
         val
       end
 
-      ### Dequeue from the front ###
+      ### Remove and return the front element ###
       def pop_first
         pop(true)
       end
 
-      ### Dequeue from the rear ###
+      ### Remove and return the rear element ###
       def pop_last
         pop(false)
       end
 
-      ### Access the front element ###
+      ### Peek at the front element ###
       def peek_first
         raise IndexError, 'Deque is empty' if is_empty?
 
         @front.val
       end
 
-      ### Access the rear element ###
+      ### Peek at the rear element ###
       def peek_last
         raise IndexError, 'Deque is empty' if is_empty?
 
@@ -2184,12 +2184,12 @@ The implementation is as follows:
     end
     ```
 
-### 2. &nbsp; Implementation with an array
+### 2. &nbsp; Array implementation
 
 As with an array-based queue, we can use a circular array to implement a deque, as shown below.
 
 === "<1>"
-    ![Insertion and removal in an array-based deque](deque.assets/array_deque_step1.svg){ class="animation-figure" }
+    ![Enqueueing and dequeueing at either end of an array-based deque](deque.assets/array_deque_step1.svg){ class="animation-figure" }
 
 === "<2>"
     ![array_deque_push_last](deque.assets/array_deque_step2_push_last.svg){ class="animation-figure" }
@@ -2203,95 +2203,95 @@ As with an array-based queue, we can use a circular array to implement a deque, 
 === "<5>"
     ![array_deque_pop_first](deque.assets/array_deque_step5_pop_first.svg){ class="animation-figure" }
 
-<p align="center"> Figure 5-9 &nbsp; Insertion and removal in an array-based deque </p>
+<p align="center"> Figure 5-9 &nbsp; Enqueueing and dequeueing at either end of an array-based deque </p>
 
-Starting with the queue implementation, we need only add methods for insertion at the front and removal at the rear:
+Starting with the queue implementation, we need only add methods to enqueue at the front and dequeue from the rear:
 
 === "Python"
 
     ```python title="array_deque.py"
     class ArrayDeque:
-        """Deque implemented with a circular array"""
+        """Deque backed by a circular array."""
 
         def __init__(self, capacity: int):
-            """Constructor"""
+            """Initialize the deque."""
             self._nums: list[int] = [0] * capacity
             self._front: int = 0
             self._size: int = 0
 
         def capacity(self) -> int:
-            """Get the deque capacity"""
+            """Get the deque capacity."""
             return len(self._nums)
 
         def size(self) -> int:
-            """Get the deque size"""
+            """Get the deque size."""
             return self._size
 
         def is_empty(self) -> bool:
-            """Check whether the deque is empty"""
+            """Check whether the deque is empty."""
             return self._size == 0
 
         def index(self, i: int) -> int:
-            """Calculate an index in the circular array"""
-            # Use modulo to connect the end of the array to its beginning
-            # When i passes the end of the array, wrap around to the beginning
-            # When i passes the beginning of the array, wrap around to the end
+            """Compute the circular array index."""
+            # Use the remainder to wrap indices around the array
+            # When i goes past the end, wrap it back to the start
+            # When i goes before the start, wrap it around to the end
             return (i + self.capacity()) % self.capacity()
 
         def push_first(self, num: int):
-            """Enqueue at the front"""
+            """Add an element at the front."""
             if self._size == self.capacity():
                 print("Deque is full")
                 return
-            # Move the front pointer one position to the left
-            # Use modulo to wrap front to the end when it passes the beginning of the array
+            # Move the front index one slot to the left
+            # Use the remainder to wrap front to the end if it goes before the start
             self._front = self.index(self._front - 1)
-            # Add num to the front
+            # Add num at the front
             self._nums[self._front] = num
             self._size += 1
 
         def push_last(self, num: int):
-            """Enqueue at the rear"""
+            """Add an element at the rear."""
             if self._size == self.capacity():
                 print("Deque is full")
                 return
-            # Calculate the rear pointer, which points one position past the last element
+            # Compute the index one slot past the rear element
             rear = self.index(self._front + self._size)
-            # Add num to the rear
+            # Add num at the rear
             self._nums[rear] = num
             self._size += 1
 
         def pop_first(self) -> int:
-            """Dequeue from the front"""
+            """Remove and return the front element."""
             num = self.peek_first()
-            # Advance the front pointer by one position
+            # Advance the front index by one
             self._front = self.index(self._front + 1)
             self._size -= 1
             return num
 
         def pop_last(self) -> int:
-            """Dequeue from the rear"""
+            """Remove and return the rear element."""
             num = self.peek_last()
             self._size -= 1
             return num
 
         def peek_first(self) -> int:
-            """Access the front element"""
+            """Peek at the front element."""
             if self.is_empty():
                 raise IndexError("Deque is empty")
             return self._nums[self._front]
 
         def peek_last(self) -> int:
-            """Access the rear element"""
+            """Peek at the rear element."""
             if self.is_empty():
                 raise IndexError("Deque is empty")
-            # Calculate the index of the last element
+            # Compute the index of the rear element
             last = self.index(self._front + self._size - 1)
             return self._nums[last]
 
         def to_array(self) -> list[int]:
-            """Return an array for printing"""
-            # Convert only the list elements within the occupied range
+            """Return a list for printing."""
+            # Copy only the elements currently in the deque
             res = []
             for i in range(self._size):
                 res.append(self._nums[self.index(self._front + i)])
@@ -2301,11 +2301,11 @@ Starting with the queue implementation, we need only add methods for insertion a
 === "C++"
 
     ```cpp title="array_deque.cpp"
-    /* Deque implemented with a circular array */
+    /* Deque backed by a circular array */
     class ArrayDeque {
       private:
-        vector<int> nums; // Array for storing deque elements
-        int front;        // Front index, identifying the first element
+        vector<int> nums; // Array that stores the deque elements
+        int front;        // Index of the front element
         int queSize;      // Deque size
 
       public:
@@ -2330,76 +2330,76 @@ Starting with the queue implementation, we need only add methods for insertion a
             return queSize == 0;
         }
 
-        /* Calculate an index in the circular array */
+        /* Compute the circular array index */
         int index(int i) {
-            // Use modulo to connect the end of the array to its beginning
-            // When i passes the end of the array, wrap around to the beginning
-            // When i passes the beginning of the array, wrap around to the end
+            // Use the remainder to wrap indices around the array
+            // When i goes past the end, wrap it back to the start
+            // When i goes before the start, wrap it around to the end
             return (i + capacity()) % capacity();
         }
 
-        /* Enqueue at the front */
+        /* Add an element at the front */
         void pushFirst(int num) {
             if (queSize == capacity()) {
                 cout << "Deque is full" << endl;
                 return;
             }
-            // Move the front index one position to the left
-            // Use modulo to wrap front to the end when it passes the beginning of the array
+            // Move the front index one slot to the left
+            // Use the remainder to wrap front to the end if it goes before the start
             front = index(front - 1);
-            // Add num to the front
+            // Add num at the front
             nums[front] = num;
             queSize++;
         }
 
-        /* Enqueue at the rear */
+        /* Add an element at the rear */
         void pushLast(int num) {
             if (queSize == capacity()) {
                 cout << "Deque is full" << endl;
                 return;
             }
-            // Calculate the rear index, one position past the last element
+            // Compute the index one slot past the rear element
             int rear = index(front + queSize);
-            // Add num to the rear
+            // Add num at the rear
             nums[rear] = num;
             queSize++;
         }
 
-        /* Dequeue from the front */
+        /* Remove and return the front element */
         int popFirst() {
             int num = peekFirst();
-            // Advance the front index by one position
+            // Advance the front index by one
             front = index(front + 1);
             queSize--;
             return num;
         }
 
-        /* Dequeue from the rear */
+        /* Remove and return the rear element */
         int popLast() {
             int num = peekLast();
             queSize--;
             return num;
         }
 
-        /* Access the front element */
+        /* Peek at the front element */
         int peekFirst() {
             if (isEmpty())
                 throw out_of_range("Deque is empty");
             return nums[front];
         }
 
-        /* Access the rear element */
+        /* Peek at the rear element */
         int peekLast() {
             if (isEmpty())
                 throw out_of_range("Deque is empty");
-            // Calculate the index of the last element
+            // Compute the index of the rear element
             int last = index(front + queSize - 1);
             return nums[last];
         }
 
         /* Return a vector for printing */
         vector<int> toVector() {
-            // Copy only the elements in the occupied range
+            // Copy only the elements currently in the deque
             vector<int> res(queSize);
             for (int i = 0, j = front; i < queSize; i++, j++) {
                 res[i] = nums[index(j)];
@@ -2412,10 +2412,10 @@ Starting with the queue implementation, we need only add methods for insertion a
 === "Java"
 
     ```java title="array_deque.java"
-    /* Deque implemented with a circular array */
+    /* Deque backed by a circular array */
     class ArrayDeque {
         private int[] nums; // Array that stores the deque elements
-        private int front; // Front pointer, pointing to the first element
+        private int front; // Index of the front element
         private int queSize; // Deque size
 
         /* Constructor */
@@ -2439,76 +2439,76 @@ Starting with the queue implementation, we need only add methods for insertion a
             return queSize == 0;
         }
 
-        /* Calculate an index in the circular array */
+        /* Compute the circular array index */
         private int index(int i) {
-            // Use modulo to connect the end of the array to its beginning
-            // When i passes the end of the array, wrap around to the beginning
-            // When i passes the beginning of the array, wrap around to the end
+            // Use the remainder to wrap indices around the array
+            // When i goes past the end, wrap it back to the start
+            // When i goes before the start, wrap it around to the end
             return (i + capacity()) % capacity();
         }
 
-        /* Enqueue at the front */
+        /* Add an element at the front */
         public void pushFirst(int num) {
             if (queSize == capacity()) {
                 System.out.println("Deque is full");
                 return;
             }
-            // Move the front pointer one position to the left
-            // Use modulo to wrap front to the end when it passes the beginning of the array
+            // Move the front index one slot to the left
+            // Use the remainder to wrap front to the end if it goes before the start
             front = index(front - 1);
-            // Add num to the front
+            // Add num at the front
             nums[front] = num;
             queSize++;
         }
 
-        /* Enqueue at the rear */
+        /* Add an element at the rear */
         public void pushLast(int num) {
             if (queSize == capacity()) {
                 System.out.println("Deque is full");
                 return;
             }
-            // Calculate the rear pointer, which points one position past the last element
+            // Compute the index one slot past the rear element
             int rear = index(front + queSize);
-            // Add num to the rear
+            // Add num at the rear
             nums[rear] = num;
             queSize++;
         }
 
-        /* Dequeue from the front */
+        /* Remove and return the front element */
         public int popFirst() {
             int num = peekFirst();
-            // Advance the front pointer by one position
+            // Advance the front index by one
             front = index(front + 1);
             queSize--;
             return num;
         }
 
-        /* Dequeue from the rear */
+        /* Remove and return the rear element */
         public int popLast() {
             int num = peekLast();
             queSize--;
             return num;
         }
 
-        /* Access the front element */
+        /* Peek at the front element */
         public int peekFirst() {
             if (isEmpty())
                 throw new IndexOutOfBoundsException();
             return nums[front];
         }
 
-        /* Access the rear element */
+        /* Peek at the rear element */
         public int peekLast() {
             if (isEmpty())
                 throw new IndexOutOfBoundsException();
-            // Calculate the index of the last element
+            // Compute the index of the rear element
             int last = index(front + queSize - 1);
             return nums[last];
         }
 
         /* Return an array for printing */
         public int[] toArray() {
-            // Convert only the list elements within the occupied range
+            // Copy only the elements currently in the deque
             int[] res = new int[queSize];
             for (int i = 0, j = front; i < queSize; i++, j++) {
                 res[i] = nums[index(j)];
@@ -2521,10 +2521,10 @@ Starting with the queue implementation, we need only add methods for insertion a
 === "C#"
 
     ```csharp title="array_deque.cs"
-    /* Deque implemented with a circular array */
+    /* Deque backed by a circular array */
     class ArrayDeque {
         int[] nums;  // Array that stores the deque elements
-        int front;   // Front pointer, pointing to the first element
+        int front;   // Index of the front element
         int queSize; // Deque size
 
         /* Constructor */
@@ -2548,58 +2548,58 @@ Starting with the queue implementation, we need only add methods for insertion a
             return queSize == 0;
         }
 
-        /* Calculate an index in the circular array */
+        /* Compute the circular array index */
         int Index(int i) {
-            // Use modulo to connect the end of the array to its beginning
-            // When i passes the end of the array, wrap around to the beginning
-            // When i passes the beginning of the array, wrap around to the end
+            // Use the remainder to wrap indices around the array
+            // When i goes past the end, wrap it back to the start
+            // When i goes before the start, wrap it around to the end
             return (i + Capacity()) % Capacity();
         }
 
-        /* Enqueue at the front */
+        /* Add an element at the front */
         public void PushFirst(int num) {
             if (queSize == Capacity()) {
                 Console.WriteLine("Deque is full");
                 return;
             }
-            // Move the front pointer one position to the left
-            // Use modulo to wrap front to the end when it passes the beginning of the array
+            // Move the front index one slot to the left
+            // Use the remainder to wrap front to the end if it goes before the start
             front = Index(front - 1);
-            // Add num to the front
+            // Add num at the front
             nums[front] = num;
             queSize++;
         }
 
-        /* Enqueue at the rear */
+        /* Add an element at the rear */
         public void PushLast(int num) {
             if (queSize == Capacity()) {
                 Console.WriteLine("Deque is full");
                 return;
             }
-            // Calculate the rear pointer, which points one position past the last element
+            // Compute the index one slot past the rear element
             int rear = Index(front + queSize);
-            // Add num to the rear
+            // Add num at the rear
             nums[rear] = num;
             queSize++;
         }
 
-        /* Dequeue from the front */
+        /* Remove and return the front element */
         public int PopFirst() {
             int num = PeekFirst();
-            // Advance the front pointer by one position
+            // Advance the front index by one
             front = Index(front + 1);
             queSize--;
             return num;
         }
 
-        /* Dequeue from the rear */
+        /* Remove and return the rear element */
         public int PopLast() {
             int num = PeekLast();
             queSize--;
             return num;
         }
 
-        /* Access the front element */
+        /* Peek at the front element */
         public int PeekFirst() {
             if (IsEmpty()) {
                 throw new InvalidOperationException();
@@ -2607,19 +2607,19 @@ Starting with the queue implementation, we need only add methods for insertion a
             return nums[front];
         }
 
-        /* Access the rear element */
+        /* Peek at the rear element */
         public int PeekLast() {
             if (IsEmpty()) {
                 throw new InvalidOperationException();
             }
-            // Calculate the index of the last element
+            // Compute the index of the rear element
             int last = Index(front + queSize - 1);
             return nums[last];
         }
 
         /* Return an array for printing */
         public int[] ToArray() {
-            // Copy only the elements within the occupied range
+            // Copy only the elements currently in the deque
             int[] res = new int[queSize];
             for (int i = 0, j = front; i < queSize; i++, j++) {
                 res[i] = nums[Index(j)];
@@ -2632,15 +2632,15 @@ Starting with the queue implementation, we need only add methods for insertion a
 === "Go"
 
     ```go title="array_deque.go"
-    /* Deque implemented with a circular array */
+    /* Deque backed by a circular array */
     type arrayDeque struct {
         nums        []int // Array that stores the deque elements
-        front       int   // Front pointer, pointing to the first element
+        front       int   // Index of the front element
         queSize     int   // Deque size
-        queCapacity int   // Queue capacity (the maximum number of elements)
+        queCapacity int   // Deque capacity (the maximum number of elements it can hold)
     }
 
-    /* Initialize the queue */
+    /* Initialize the deque */
     func newArrayDeque(queCapacity int) *arrayDeque {
         return &arrayDeque{
             nums:        make([]int, queCapacity),
@@ -2660,54 +2660,54 @@ Starting with the queue implementation, we need only add methods for insertion a
         return q.queSize == 0
     }
 
-    /* Calculate an index in the circular array */
+    /* Compute the circular array index */
     func (q *arrayDeque) index(i int) int {
-        // Use modulo to connect the end of the array to its beginning
-        // When i passes the end of the array, wrap around to the beginning
-        // When i passes the beginning of the array, wrap around to the end
+        // Use the remainder to wrap indices around the array
+        // When i goes past the end, wrap it back to the start
+        // When i goes before the start, wrap it around to the end
         return (i + q.queCapacity) % q.queCapacity
     }
 
-    /* Enqueue at the front */
+    /* Add an element at the front */
     func (q *arrayDeque) pushFirst(num int) {
         if q.queSize == q.queCapacity {
             fmt.Println("Deque is full")
             return
         }
-        // Move the front pointer one position to the left
-        // Use modulo to wrap front to the end when it passes the beginning of the array
+        // Move the front index one slot to the left
+        // Use the remainder to wrap front to the end if it goes before the start
         q.front = q.index(q.front - 1)
-        // Add num to the front
+        // Add num at the front
         q.nums[q.front] = num
         q.queSize++
     }
 
-    /* Enqueue at the rear */
+    /* Add an element at the rear */
     func (q *arrayDeque) pushLast(num int) {
         if q.queSize == q.queCapacity {
             fmt.Println("Deque is full")
             return
         }
-        // Calculate the rear pointer, which points one position past the last element
+        // Compute the index one slot past the rear element
         rear := q.index(q.front + q.queSize)
-        // Add num to the rear
+        // Add num at the rear
         q.nums[rear] = num
         q.queSize++
     }
 
-    /* Dequeue from the front */
+    /* Remove and return the front element */
     func (q *arrayDeque) popFirst() any {
         num := q.peekFirst()
         if num == nil {
             return nil
         }
-        // Advance the front pointer by one position
+        // Advance the front index by one
         q.front = q.index(q.front + 1)
         q.queSize--
         return num
     }
 
-    /* Dequeue from the rear */
+    /* Remove and return the rear element */
     func (q *arrayDeque) popLast() any {
         num := q.peekLast()
         if num == nil {
@@ -2717,7 +2717,7 @@ Starting with the queue implementation, we need only add methods for insertion a
         return num
     }
 
-    /* Access the front element */
+    /* Peek at the front element */
     func (q *arrayDeque) peekFirst() any {
         if q.isEmpty() {
             return nil
@@ -2725,19 +2725,19 @@ Starting with the queue implementation, we need only add methods for insertion a
         return q.nums[q.front]
     }
 
-    /* Access the rear element */
+    /* Peek at the rear element */
     func (q *arrayDeque) peekLast() any {
         if q.isEmpty() {
             return nil
         }
-        // Calculate the index of the last element
+        // Compute the index of the rear element
         last := q.index(q.front + q.queSize - 1)
         return q.nums[last]
     }
 
-    /* Get a slice for printing */
+    /* Return a slice for printing */
     func (q *arrayDeque) toSlice() []int {
-        // Convert only the list elements within the occupied range
+        // Copy only the elements currently in the deque
         res := make([]int, q.queSize)
         for i, j := 0, q.front; i < q.queSize; i++ {
             res[i] = q.nums[q.index(j)]
@@ -2750,10 +2750,10 @@ Starting with the queue implementation, we need only add methods for insertion a
 === "Swift"
 
     ```swift title="array_deque.swift"
-    /* Deque implemented with a circular array */
+    /* Deque backed by a circular array */
     class ArrayDeque {
         private var nums: [Int] // Array that stores the deque elements
-        private var front: Int // Front index, identifying the first element
+        private var front: Int // Index of the front element
         private var _size: Int // Deque size
 
         /* Constructor */
@@ -2778,58 +2778,58 @@ Starting with the queue implementation, we need only add methods for insertion a
             size() == 0
         }
 
-        /* Calculate an index in the circular array */
+        /* Compute the circular array index */
         private func index(i: Int) -> Int {
-            // Use modulo to connect the end of the array to its beginning
-            // When i passes the end of the array, wrap around to the beginning
-            // When i passes the beginning of the array, wrap around to the end
+            // Use the remainder to wrap indices around the array
+            // When i goes past the end, wrap it back to the start
+            // When i goes before the start, wrap it around to the end
             (i + capacity()) % capacity()
         }
 
-        /* Enqueue at the front */
+        /* Add an element at the front */
         func pushFirst(num: Int) {
             if size() == capacity() {
                 print("Deque is full")
                 return
             }
-            // Move the front index one position to the left
-            // Use modulo to wrap front to the end when it passes the beginning of the array
+            // Move the front index one slot to the left
+            // Use the remainder to wrap front to the end if it goes before the start
             front = index(i: front - 1)
-            // Add num to the front
+            // Add num at the front
             nums[front] = num
             _size += 1
         }
 
-        /* Enqueue at the rear */
+        /* Add an element at the rear */
         func pushLast(num: Int) {
             if size() == capacity() {
                 print("Deque is full")
                 return
             }
-            // Calculate the rear index, one position past the last element
+            // Compute the index one slot past the rear element
             let rear = index(i: front + size())
-            // Add num to the rear
+            // Add num at the rear
             nums[rear] = num
             _size += 1
         }
 
-        /* Dequeue from the front */
+        /* Remove and return the front element */
         func popFirst() -> Int {
             let num = peekFirst()
-            // Advance the front index by one position
+            // Advance the front index by one
             front = index(i: front + 1)
             _size -= 1
             return num
         }
 
-        /* Dequeue from the rear */
+        /* Remove and return the rear element */
         func popLast() -> Int {
             let num = peekLast()
             _size -= 1
             return num
         }
 
-        /* Access the front element */
+        /* Peek at the front element */
         func peekFirst() -> Int {
             if isEmpty() {
                 fatalError("Deque is empty")
@@ -2837,19 +2837,19 @@ Starting with the queue implementation, we need only add methods for insertion a
             return nums[front]
         }
 
-        /* Access the rear element */
+        /* Peek at the rear element */
         func peekLast() -> Int {
             if isEmpty() {
                 fatalError("Deque is empty")
             }
-            // Calculate the index of the last element
+            // Compute the index of the rear element
             let last = index(i: front + size() - 1)
             return nums[last]
         }
 
         /* Return an array for printing */
         func toArray() -> [Int] {
-            // Include only the elements in the occupied range
+            // Copy only the elements currently in the deque
             (front ..< front + size()).map { nums[index(i: $0)] }
         }
     }
@@ -2858,10 +2858,10 @@ Starting with the queue implementation, we need only add methods for insertion a
 === "JS"
 
     ```javascript title="array_deque.js"
-    /* Deque implemented with a circular array */
+    /* Deque backed by a circular array */
     class ArrayDeque {
-        #nums; // Array for storing deque elements
-        #front; // Front pointer, pointing to the first element
+        #nums; // Array that stores the deque elements
+        #front; // Index of the front element
         #queSize; // Deque size
 
         /* Constructor */
@@ -2886,74 +2886,74 @@ Starting with the queue implementation, we need only add methods for insertion a
             return this.#queSize === 0;
         }
 
-        /* Calculate an index in the circular array */
+        /* Compute the circular array index */
         index(i) {
-            // Use modulo to connect the end of the array to its beginning
-            // When i passes the end of the array, wrap around to the beginning
-            // When i passes the beginning of the array, wrap around to the end
+            // Use the remainder to wrap indices around the array
+            // When i goes past the end, wrap it back to the start
+            // When i goes before the start, wrap it around to the end
             return (i + this.capacity()) % this.capacity();
         }
 
-        /* Enqueue at the front */
+        /* Add an element at the front */
         pushFirst(num) {
             if (this.#queSize === this.capacity()) {
                 console.log('Deque is full');
                 return;
             }
-            // Move the front pointer one position to the left
-            // Use modulo to wrap front to the end when it passes the beginning of the array
+            // Move the front index one slot to the left
+            // Use the remainder to wrap front to the end if it goes before the start
             this.#front = this.index(this.#front - 1);
-            // Add num to the front
+            // Add num at the front
             this.#nums[this.#front] = num;
             this.#queSize++;
         }
 
-        /* Enqueue at the rear */
+        /* Add an element at the rear */
         pushLast(num) {
             if (this.#queSize === this.capacity()) {
                 console.log('Deque is full');
                 return;
             }
-            // Calculate the rear pointer, which points one position past the last element
+            // Compute the index one slot past the rear element
             const rear = this.index(this.#front + this.#queSize);
-            // Add num to the rear
+            // Add num at the rear
             this.#nums[rear] = num;
             this.#queSize++;
         }
 
-        /* Dequeue from the front */
+        /* Remove and return the front element */
         popFirst() {
             const num = this.peekFirst();
-            // Advance the front pointer by one position
+            // Advance the front index by one
             this.#front = this.index(this.#front + 1);
             this.#queSize--;
             return num;
         }
 
-        /* Dequeue from the rear */
+        /* Remove and return the rear element */
         popLast() {
             const num = this.peekLast();
             this.#queSize--;
             return num;
         }
 
-        /* Access the front element */
+        /* Peek at the front element */
         peekFirst() {
-            if (this.isEmpty()) throw new Error('Deque is empty');
+            if (this.isEmpty()) throw new Error('The Deque Is Empty.');
             return this.#nums[this.#front];
         }
 
-        /* Access the rear element */
+        /* Peek at the rear element */
         peekLast() {
-            if (this.isEmpty()) throw new Error('Deque is empty');
-            // Calculate the index of the last element
+            if (this.isEmpty()) throw new Error('The Deque Is Empty.');
+            // Compute the index of the rear element
             const last = this.index(this.#front + this.#queSize - 1);
             return this.#nums[last];
         }
 
         /* Return an array for printing */
         toArray() {
-            // Convert only the list elements within the occupied range
+            // Copy only the elements currently in the deque
             const res = [];
             for (let i = 0, j = this.#front; i < this.#queSize; i++, j++) {
                 res[i] = this.#nums[this.index(j)];
@@ -2966,10 +2966,10 @@ Starting with the queue implementation, we need only add methods for insertion a
 === "TS"
 
     ```typescript title="array_deque.ts"
-    /* Deque implemented with a circular array */
+    /* Deque backed by a circular array */
     class ArrayDeque {
-        private nums: number[]; // Array for storing deque elements
-        private front: number; // Front pointer, pointing to the first element
+        private nums: number[]; // Array that stores the deque elements
+        private front: number; // Index of the front element
         private queSize: number; // Deque size
 
         /* Constructor */
@@ -2994,74 +2994,74 @@ Starting with the queue implementation, we need only add methods for insertion a
             return this.queSize === 0;
         }
 
-        /* Calculate an index in the circular array */
+        /* Compute the circular array index */
         index(i: number): number {
-            // Use modulo to connect the end of the array to its beginning
-            // When i passes the end of the array, wrap around to the beginning
-            // When i passes the beginning of the array, wrap around to the end
+            // Use the remainder to wrap indices around the array
+            // When i goes past the end, wrap it back to the start
+            // When i goes before the start, wrap it around to the end
             return (i + this.capacity()) % this.capacity();
         }
 
-        /* Enqueue at the front */
+        /* Add an element at the front */
         pushFirst(num: number): void {
             if (this.queSize === this.capacity()) {
                 console.log('Deque is full');
                 return;
             }
-            // Move the front pointer one position to the left
-            // Use modulo to wrap front to the end when it passes the beginning of the array
+            // Move the front index one slot to the left
+            // Use the remainder to wrap front to the end if it goes before the start
             this.front = this.index(this.front - 1);
-            // Add num to the front
+            // Add num at the front
             this.nums[this.front] = num;
             this.queSize++;
         }
 
-        /* Enqueue at the rear */
+        /* Add an element at the rear */
         pushLast(num: number): void {
             if (this.queSize === this.capacity()) {
                 console.log('Deque is full');
                 return;
             }
-            // Calculate the rear pointer, which points one position past the last element
+            // Compute the index one slot past the rear element
             const rear: number = this.index(this.front + this.queSize);
-            // Add num to the rear
+            // Add num at the rear
             this.nums[rear] = num;
             this.queSize++;
         }
 
-        /* Dequeue from the front */
+        /* Remove and return the front element */
         popFirst(): number {
             const num: number = this.peekFirst();
-            // Advance the front pointer by one position
+            // Advance the front index by one
             this.front = this.index(this.front + 1);
             this.queSize--;
             return num;
         }
 
-        /* Dequeue from the rear */
+        /* Remove and return the rear element */
         popLast(): number {
             const num: number = this.peekLast();
             this.queSize--;
             return num;
         }
 
-        /* Access the front element */
+        /* Peek at the front element */
         peekFirst(): number {
-            if (this.isEmpty()) throw new Error('Deque is empty');
+            if (this.isEmpty()) throw new Error('The Deque Is Empty.');
             return this.nums[this.front];
         }
 
-        /* Access the rear element */
+        /* Peek at the rear element */
         peekLast(): number {
-            if (this.isEmpty()) throw new Error('Deque is empty');
-            // Calculate the index of the last element
+            if (this.isEmpty()) throw new Error('The Deque Is Empty.');
+            // Compute the index of the rear element
             const last = this.index(this.front + this.queSize - 1);
             return this.nums[last];
         }
 
         /* Return an array for printing */
         toArray(): number[] {
-            // Convert only the list elements within the occupied range
+            // Copy only the elements currently in the deque
             const res: number[] = [];
             for (let i = 0, j = this.front; i < this.queSize; i++, j++) {
                 res[i] = this.nums[this.index(j)];
@@ -3074,10 +3074,10 @@ Starting with the queue implementation, we need only add methods for insertion a
 === "Dart"
 
     ```dart title="array_deque.dart"
-    /* Deque implemented with a circular array */
+    /* Deque backed by a circular array */
     class ArrayDeque {
-      late List<int> _nums; // Array for storing deque elements
-      late int _front; // Front pointer, pointing to the first element
+      late List<int> _nums; // Array that stores the deque elements
+      late int _front; // Index of the front element
       late int _queSize; // Deque size
 
       /* Constructor */
@@ -3101,56 +3101,56 @@ Starting with the queue implementation, we need only add methods for insertion a
         return _queSize == 0;
       }
 
-      /* Calculate an index in the circular array */
+      /* Compute the circular array index */
       int index(int i) {
-        // Use modulo to connect the end of the array to its beginning
-        // When i passes the end of the array, wrap around to the beginning
-        // When i passes the beginning of the array, wrap around to the end
+        // Use the remainder to wrap indices around the array
+        // When i goes past the end, wrap it back to the start
+        // When i goes before the start, wrap it around to the end
         return (i + capacity()) % capacity();
       }
 
-      /* Enqueue at the front */
+      /* Add an element at the front */
       void pushFirst(int _num) {
         if (_queSize == capacity()) {
           throw Exception("Deque is full");
         }
-        // Move the front pointer one position to the left
-        // Use modulo to wrap _front to the end when it passes the beginning of the array
+        // Move the front index one slot to the left
+        // Use the remainder to wrap _front to the end if it goes before the start
         _front = index(_front - 1);
-        // Add _num to the front
+        // Add _num at the front
         _nums[_front] = _num;
         _queSize++;
       }
 
-      /* Enqueue at the rear */
+      /* Add an element at the rear */
       void pushLast(int _num) {
         if (_queSize == capacity()) {
           throw Exception("Deque is full");
         }
-        // Calculate the rear pointer, which points one position past the last element
+        // Compute the index one slot past the rear element
         int rear = index(_front + _queSize);
-        // Add _num to the rear
+        // Add _num at the rear
         _nums[rear] = _num;
         _queSize++;
       }
 
-      /* Dequeue from the front */
+      /* Remove and return the front element */
       int popFirst() {
         int _num = peekFirst();
-        // Move the front pointer one position to the right
+        // Move the front index one slot to the right
         _front = index(_front + 1);
         _queSize--;
         return _num;
       }
 
-      /* Dequeue from the rear */
+      /* Remove and return the rear element */
       int popLast() {
         int _num = peekLast();
         _queSize--;
         return _num;
       }
 
-      /* Access the front element */
+      /* Peek at the front element */
       int peekFirst() {
         if (isEmpty()) {
           throw Exception("Deque is empty");
@@ -3158,19 +3158,19 @@ Starting with the queue implementation, we need only add methods for insertion a
         return _nums[_front];
       }
 
-      /* Access the rear element */
+      /* Peek at the rear element */
       int peekLast() {
         if (isEmpty()) {
           throw Exception("Deque is empty");
         }
-        // Calculate the index of the last element
+        // Compute the index of the rear element
         int last = index(_front + _queSize - 1);
         return _nums[last];
       }
 
-      /* Return an array for printing */
+      /* Return a List for printing */
       List<int> toArray() {
-        // Convert only the list elements within the occupied range
+        // Copy only the elements currently in the deque
         List<int> res = List.filled(_queSize, 0);
         for (int i = 0, j = _front; i < _queSize; i++, j++) {
           res[i] = _nums[index(j)];
@@ -3183,10 +3183,10 @@ Starting with the queue implementation, we need only add methods for insertion a
 === "Rust"
 
     ```rust title="array_deque.rs"
-    /* Deque implemented with a circular array */
+    /* Deque backed by a circular array */
     struct ArrayDeque<T> {
-        nums: Vec<T>,    // Array for storing deque elements
-        front: usize,    // Front index, identifying the first element
+        nums: Vec<T>,    // Array that stores the deque elements
+        front: usize,    // Index of the front element
         que_size: usize, // Deque size
     }
 
@@ -3215,58 +3215,58 @@ Starting with the queue implementation, we need only add methods for insertion a
             self.que_size == 0
         }
 
-        /* Calculate an index in the circular array */
+        /* Compute the circular array index */
         fn index(&self, i: i32) -> usize {
-            // Use modulo to connect the end of the array to its beginning
-            // When i passes the end of the array, wrap around to the beginning
-            // When i passes the beginning of the array, wrap around to the end
+            // Use the remainder to wrap indices around the array
+            // When i goes past the end, wrap it back to the start
+            // When i goes before the start, wrap it around to the end
             ((i + self.capacity() as i32) % self.capacity() as i32) as usize
         }
 
-        /* Enqueue at the front */
+        /* Add an element at the front */
         pub fn push_first(&mut self, num: T) {
             if self.que_size == self.capacity() {
                 println!("Deque is full");
                 return;
             }
-            // Move the front index one position to the left
-            // Use modulo to wrap front to the end when it passes the beginning of the array
+            // Move the front index one slot to the left
+            // Use the remainder to wrap front to the end if it goes before the start
             self.front = self.index(self.front as i32 - 1);
-            // Add num to the front
+            // Add num at the front
             self.nums[self.front] = num;
             self.que_size += 1;
         }
 
-        /* Enqueue at the rear */
+        /* Add an element at the rear */
         pub fn push_last(&mut self, num: T) {
             if self.que_size == self.capacity() {
                 println!("Deque is full");
                 return;
             }
-            // Calculate the rear index, one position past the last element
+            // Compute the index one slot past the rear element
             let rear = self.index(self.front as i32 + self.que_size as i32);
-            // Add num to the rear
+            // Add num at the rear
             self.nums[rear] = num;
             self.que_size += 1;
         }
 
-        /* Dequeue from the front */
+        /* Remove and return the front element */
         fn pop_first(&mut self) -> T {
             let num = self.peek_first();
-            // Advance the front index by one position
+            // Advance the front index by one
             self.front = self.index(self.front as i32 + 1);
             self.que_size -= 1;
             num
         }
 
-        /* Dequeue from the rear */
+        /* Remove and return the rear element */
         fn pop_last(&mut self) -> T {
             let num = self.peek_last();
             self.que_size -= 1;
             num
         }
 
-        /* Access the front element */
+        /* Peek at the front element */
         fn peek_first(&self) -> T {
             if self.is_empty() {
                 panic!("Deque is empty")
@@ -3274,19 +3274,19 @@ Starting with the queue implementation, we need only add methods for insertion a
             self.nums[self.front]
         }
 
-        /* Access the rear element */
+        /* Peek at the rear element */
         fn peek_last(&self) -> T {
             if self.is_empty() {
                 panic!("Deque is empty")
             };
-            // Calculate the index of the last element
+            // Compute the index of the rear element
             let last = self.index(self.front as i32 + self.que_size as i32 - 1);
             self.nums[last]
         }
 
         /* Return a vector for printing */
         fn to_array(&self) -> Vec<T> {
-            // Convert only the list elements within the occupied range
+            // Copy only the elements currently in the deque
             let mut res = vec![T::default(); self.que_size];
             let mut j = self.front;
             for i in 0..self.que_size {
@@ -3301,12 +3301,12 @@ Starting with the queue implementation, we need only add methods for insertion a
 === "C"
 
     ```c title="array_deque.c"
-    /* Deque implemented with a circular array */
+    /* Deque backed by a circular array */
     typedef struct {
-        int *nums;       // Array that stores the queue elements
-        int front;       // Front pointer, pointing to the first element
-        int queSize;     // Current number of elements in the deque
-        int queCapacity; // Queue capacity
+        int *nums;       // Array that stores the deque elements
+        int front;       // Index of the front element
+        int queSize;     // Number of elements in the deque
+        int queCapacity; // Deque capacity
     } ArrayDeque;
 
     /* Constructor */
@@ -3340,66 +3340,66 @@ Starting with the queue implementation, we need only add methods for insertion a
         return deque->queSize == 0;
     }
 
-    /* Calculate an index in the circular array */
+    /* Compute the circular array index */
     int dequeIndex(ArrayDeque *deque, int i) {
-        // Use modulo to connect the end of the array to its beginning
-        // When i passes the end of the array, wrap to the beginning
-        // When i passes the beginning of the array, wrap around to the end
+        // Use the remainder to wrap indices around the array
+        // When i goes past the end, wrap it back to the start
+        // When i goes before the start, wrap it around to the end
         return ((i + capacity(deque)) % capacity(deque));
     }
 
-    /* Enqueue at the front */
+    /* Add an element at the front */
     void pushFirst(ArrayDeque *deque, int num) {
         if (deque->queSize == capacity(deque)) {
             printf("Deque is full\r\n");
             return;
         }
-        // Move the front pointer one position to the left
-        // Use modulo to wrap front to the end when it passes the beginning
+        // Move the front index one slot to the left
+        // Use the remainder to wrap front to the end if it goes before the start
         deque->front = dequeIndex(deque, deque->front - 1);
-        // Add num to the front
+        // Add num at the front
         deque->nums[deque->front] = num;
         deque->queSize++;
     }
 
-    /* Enqueue at the rear */
+    /* Add an element at the rear */
     void pushLast(ArrayDeque *deque, int num) {
         if (deque->queSize == capacity(deque)) {
             printf("Deque is full\r\n");
             return;
         }
-        // Calculate the rear pointer, which points one position past the last element
+        // Compute the index one slot past the rear element
         int rear = dequeIndex(deque, deque->front + deque->queSize);
-        // Add num to the rear
+        // Add num at the rear
         deque->nums[rear] = num;
         deque->queSize++;
     }
 
-    /* Access the front element */
+    /* Peek at the front element */
     int peekFirst(ArrayDeque *deque) {
-        // Access error: the deque is empty
+        // Cannot access an element in an empty deque
         assert(empty(deque) == 0);
         return deque->nums[deque->front];
     }
 
-    /* Access the rear element */
+    /* Peek at the rear element */
     int peekLast(ArrayDeque *deque) {
-        // Access error: the deque is empty
+        // Cannot access an element in an empty deque
         assert(empty(deque) == 0);
         int last = dequeIndex(deque, deque->front + deque->queSize - 1);
         return deque->nums[last];
     }
 
-    /* Dequeue from the front */
+    /* Remove and return the front element */
     int popFirst(ArrayDeque *deque) {
         int num = peekFirst(deque);
-        // Advance the front pointer by one position
+        // Advance the front index by one
         deque->front = dequeIndex(deque, deque->front + 1);
         deque->queSize--;
         return num;
     }
 
-    /* Dequeue from the rear */
+    /* Remove and return the rear element */
     int popLast(ArrayDeque *deque) {
         int num = peekLast(deque);
         deque->queSize--;
@@ -3425,7 +3425,7 @@ Starting with the queue implementation, we need only add methods for insertion a
     /* Constructor */
     class ArrayDeque(capacity: Int) {
         private var nums: IntArray = IntArray(capacity) // Array that stores the deque elements
-        private var front: Int = 0 // Front pointer, pointing to the first element
+        private var front: Int = 0 // Index of the front element
         private var queSize: Int = 0 // Deque size
 
         /* Get the deque capacity */
@@ -3443,74 +3443,74 @@ Starting with the queue implementation, we need only add methods for insertion a
             return queSize == 0
         }
 
-        /* Calculate an index in the circular array */
+        /* Compute the circular array index */
         private fun index(i: Int): Int {
-            // Use modulo to connect the end of the array to its beginning
-            // When i passes the end of the array, wrap around to the beginning
-            // When i passes the beginning of the array, wrap around to the end
+            // Use the remainder to wrap indices around the array
+            // When i goes past the end, wrap it back to the start
+            // When i goes before the start, wrap it around to the end
             return (i + capacity()) % capacity()
         }
 
-        /* Enqueue at the front */
+        /* Add an element at the front */
         fun pushFirst(num: Int) {
             if (queSize == capacity()) {
                 println("Deque is full")
                 return
             }
-            // Move the front pointer one position to the left
-            // Use modulo to wrap front to the end when it passes the beginning of the array
+            // Move the front index one slot to the left
+            // Use the remainder to wrap front to the end if it goes before the start
             front = index(front - 1)
-            // Add num to the front
+            // Add num at the front
             nums[front] = num
             queSize++
         }
 
-        /* Enqueue at the rear */
+        /* Add an element at the rear */
         fun pushLast(num: Int) {
             if (queSize == capacity()) {
                 println("Deque is full")
                 return
             }
-            // Calculate the rear pointer, which points one position past the last element
+            // Compute the index one slot past the rear element
             val rear = index(front + queSize)
-            // Add num to the rear
+            // Add num at the rear
             nums[rear] = num
             queSize++
         }
 
-        /* Dequeue from the front */
+        /* Remove and return the front element */
         fun popFirst(): Int {
             val num = peekFirst()
-            // Advance the front pointer by one position
+            // Advance the front index by one
             front = index(front + 1)
             queSize--
             return num
         }
 
-        /* Dequeue from the rear */
+        /* Remove and return the rear element */
         fun popLast(): Int {
             val num = peekLast()
             queSize--
             return num
         }
 
-        /* Access the front element */
+        /* Peek at the front element */
         fun peekFirst(): Int {
             if (isEmpty()) throw IndexOutOfBoundsException()
             return nums[front]
         }
 
-        /* Access the rear element */
+        /* Peek at the rear element */
         fun peekLast(): Int {
             if (isEmpty()) throw IndexOutOfBoundsException()
-            // Calculate the index of the last element
+            // Compute the index of the rear element
             val last = index(front + queSize - 1)
             return nums[last]
         }
 
         /* Return an array for printing */
         fun toArray(): IntArray {
-            // Copy only the elements within the occupied range
+            // Copy only the elements currently in the deque
             val res = IntArray(queSize)
             var i = 0
             var j = front
@@ -3527,7 +3527,7 @@ Starting with the queue implementation, we need only add methods for insertion a
 === "Ruby"
 
     ```ruby title="array_deque.rb"
-    ### Deque implemented with a circular array ###
+    ### Deque backed by a circular array ###
     class ArrayDeque
       ### Get the deque size ###
       attr_reader :size
@@ -3549,70 +3549,70 @@ Starting with the queue implementation, we need only add methods for insertion a
         size.zero?
       end
 
-      ### Enqueue at the front ###
+      ### Add an element at the front ###
       def push_first(num)
         if size == capacity
           puts 'Deque is full'
           return
         end
 
-        # Move the front pointer one position to the left
-        # Use modulo to wrap front to the end when it passes the beginning of the array
+        # Move the front index one slot to the left
+        # Use the remainder to wrap front to the end if it goes before the start
         @front = index(@front - 1)
-        # Add num to the front
+        # Add num at the front
         @nums[@front] = num
         @size += 1
       end
 
-      ### Enqueue at the rear ###
+      ### Add an element at the rear ###
       def push_last(num)
         if size == capacity
           puts 'Deque is full'
           return
         end
 
-        # Calculate the rear pointer, which points one position past the last element
+        # Compute the index one slot past the rear element
         rear = index(@front + size)
-        # Add num to the rear
+        # Add num at the rear
         @nums[rear] = num
         @size += 1
       end
 
-      ### Dequeue from the front ###
+      ### Remove and return the front element ###
       def pop_first
         num = peek_first
-        # Advance the front pointer by one position
+        # Advance the front index by one
         @front = index(@front + 1)
         @size -= 1
         num
       end
 
-      ### Dequeue from the rear ###
+      ### Remove and return the rear element ###
       def pop_last
         num = peek_last
         @size -= 1
         num
       end
 
-      ### Access the front element ###
+      ### Peek at the front element ###
       def peek_first
         raise IndexError, 'Deque is empty' if is_empty?
 
         @nums[@front]
       end
 
-      ### Access the rear element ###
+      ### Peek at the rear element ###
       def peek_last
         raise IndexError, 'Deque is empty' if is_empty?
 
-        # Calculate the index of the last element
+        # Compute the index of the rear element
         last = index(@front + size - 1)
         @nums[last]
       end
 
       ### Return an array for printing ###
       def to_array
-        # Convert only the list elements within the occupied range
+        # Copy only the elements currently in the deque
         res = []
         for i in 0...size
           res << @nums[index(@front + i)]
@@ -3622,18 +3622,18 @@ Starting with the queue implementation, we need only add methods for insertion a
 
       private
 
-      ### Calculate an index in the circular array ###
+      ### Compute the circular array index ###
       def index(i)
-        # Use modulo to connect the end of the array to its beginning
-        # When i passes the end of the array, wrap around to the beginning
-        # When i passes the beginning of the array, wrap around to the end
+        # Use the remainder to wrap indices around the array
+        # When i goes past the end, wrap it back to the start
+        # When i goes before the start, wrap it around to the end
         (i + capacity) % capacity
       end
     end
     ```
 
-## 5.3.3 &nbsp; Applications
+## 5.3.3 &nbsp; Uses of deques
 
-A deque combines stack and queue behavior, **so it supports all their applications while offering greater flexibility**.
+A deque supports the behavior of both a stack and a queue, so **it can serve all the same purposes while offering more flexibility**.
 
-Software undo is usually implemented with a stack: the system uses `push` to record each change and `pop` to undo it. Because resources are limited, software often restricts the history to a fixed number of steps, such as $50$. When the stack grows beyond $50$, the oldest entry must be removed from the bottom, the front of the deque. **A stack cannot provide this operation, so a deque is needed instead**. The core undo behavior still follows last-in, first-out order; the deque simply provides flexibility for the additional logic.
+Software typically uses a stack for undo: the system uses `push` to add each change to the stack, then uses `pop` to undo it. Because system resources are limited, software often caps the number of undo steps it keeps, for example at $50$. When the stack grows beyond $50$ steps, the software needs to remove the oldest step from the bottom of the stack (the front of the queue). **A stack does not support this operation, so we need a deque in its place**. Undo still follows the last-in, first-out rule. The deque gives us the flexibility to handle the additional operation.

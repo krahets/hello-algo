@@ -4,18 +4,18 @@ comments: true
 
 # 2.3 &nbsp; 時間計算量
 
-実行時間は、アルゴリズムの効率を直感的かつ正確に表します。コードの実行時間を正確に見積もるには、どうすればよいでしょうか。
+実行時間は、アルゴリズムの効率を直感的かつ正確に表します。では、あるコードの実行時間を正確に見積もるには、どうすればよいでしょうか。
 
-1. **実行環境を決めます**。ハードウェア構成、プログラミング言語、システム環境などは、いずれも実行効率に影響します。
-2. **各計算操作にかかる時間を見積もります**。たとえば、加算 `+` は 1 ns、乗算 `*` は 10 ns、出力 `print()` は 5 ns などです。
-3. **コード内のすべての計算操作を数え**、その実行時間を合計して、全体の実行時間を求めます。
+1. **実行環境を決めます**。ハードウェア構成、プログラミング言語、システム環境などは、いずれもコードの実行効率に影響します。
+2. **各計算操作にかかる時間を見積もります**。例えば、加算 `+` は 1 ns、乗算 `*` は 10 ns、表示 `print()` は 5 ns といった具合です。
+3. **コードに含まれる計算操作をすべて数え**、それぞれにかかる時間を足し合わせて実行時間を求めます。
 
-たとえば、次のコードで入力の大きさを $n$ とします。
+例えば、次のコードの入力サイズは $n$ です。
 
 === "Python"
 
     ```python title=""
-    # ある実行環境において
+    # ある実行環境での例
     def algorithm(n: int):
         a = 2      # 1 ns
         a = a + 1  # 1 ns
@@ -28,7 +28,7 @@ comments: true
 === "C++"
 
     ```cpp title=""
-    // ある実行環境において
+    // ある実行環境での例
     void algorithm(int n) {
         int a = 2;  // 1 ns
         a = a + 1;  // 1 ns
@@ -43,7 +43,7 @@ comments: true
 === "Java"
 
     ```java title=""
-    // ある実行環境において
+    // ある実行環境での例
     void algorithm(int n) {
         int a = 2;  // 1 ns
         a = a + 1;  // 1 ns
@@ -58,7 +58,7 @@ comments: true
 === "C#"
 
     ```csharp title=""
-    // ある実行環境において
+    // ある実行環境での例
     void Algorithm(int n) {
         int a = 2;  // 1 ns
         a = a + 1;  // 1 ns
@@ -73,7 +73,7 @@ comments: true
 === "Go"
 
     ```go title=""
-    // ある実行環境において
+    // ある実行環境での例
     func algorithm(n int) {
         a := 2     // 1 ns
         a = a + 1  // 1 ns
@@ -88,7 +88,7 @@ comments: true
 === "Swift"
 
     ```swift title=""
-    // ある実行環境において
+    // ある実行環境での例
     func algorithm(n: Int) {
         var a = 2 // 1 ns
         a = a + 1 // 1 ns
@@ -103,7 +103,7 @@ comments: true
 === "JS"
 
     ```javascript title=""
-    // ある実行環境において
+    // ある実行環境での例
     function algorithm(n) {
         var a = 2; // 1 ns
         a = a + 1; // 1 ns
@@ -118,7 +118,7 @@ comments: true
 === "TS"
 
     ```typescript title=""
-    // ある実行環境において
+    // ある実行環境での例
     function algorithm(n: number): void {
         var a: number = 2; // 1 ns
         a = a + 1; // 1 ns
@@ -133,7 +133,7 @@ comments: true
 === "Dart"
 
     ```dart title=""
-    // ある実行環境において
+    // ある実行環境での例
     void algorithm(int n) {
       int a = 2; // 1 ns
       a = a + 1; // 1 ns
@@ -148,7 +148,7 @@ comments: true
 === "Rust"
 
     ```rust title=""
-    // ある実行環境において
+    // ある実行環境での例
     fn algorithm(n: i32) {
         let mut a = 2;      // 1 ns
         a = a + 1;          // 1 ns
@@ -163,7 +163,7 @@ comments: true
 === "C"
 
     ```c title=""
-    // ある実行環境において
+    // ある実行環境での例
     void algorithm(int n) {
         int a = 2;  // 1 ns
         a = a + 1;  // 1 ns
@@ -178,7 +178,7 @@ comments: true
 === "Kotlin"
 
     ```kotlin title=""
-    // ある実行環境において
+    // ある実行環境での例
     fun algorithm(n: Int) {
         var a = 2 // 1 ns
         a = a + 1 // 1 ns
@@ -193,7 +193,7 @@ comments: true
 === "Ruby"
 
     ```ruby title=""
-    # ある実行環境において
+    # ある実行環境での例
     def algorithm(n)
         a = 2       # 1 ns
         a = a + 1   # 1 ns
@@ -205,31 +205,31 @@ comments: true
     end
     ```
 
-この方法では、実行時間は $(6n + 12)$ ns になります。
+この方法で計算すると、アルゴリズムの実行時間は $(6n + 12)$ ns となります。
 
 $$
 1 + 1 + 10 + (1 + 5) \times n = 6n + 12
 $$
 
-しかし実際には、**このように実行時間を積み上げる方法は、適切でも現実的でもありません**。まず、アルゴリズムはさまざまな環境で動くため、見積もりを特定の環境に結び付けたくありません。また、各操作の実行時間を知るのは難しく、見積もり自体が非常に困難になります。
+しかし、実際には**このように実行時間を積み上げることは、適切でも現実的でもありません**。第一に、アルゴリズムはさまざまな環境で動くため、見積もりを特定の実行環境に結び付けたくありません。第二に、操作ごとの実行時間を知るのは難しく、見積もりに大きな手間がかかります。
 
-## 2.3.1 &nbsp; 時間の増え方を調べる
+## 2.3.1 &nbsp; 実行時間の増え方を調べる
 
-時間計算量の解析で調べるのは、実行時間そのものではなく、**データ量が増えるにつれて実行時間がどのように増えるかです**。
+時間計算量の分析で調べるのは実行時間そのものではなく、**データ量が大きくなると実行時間がどのように増えるかです**。
 
-「時間の増え方」は抽象的なので、例で理解しましょう。入力の大きさを $n$ とし、三つのアルゴリズム `A`、`B`、`C` を考えます。
+「実行時間の増え方」という言葉は少し抽象的なので、例で考えてみましょう。入力サイズを $n$ とし、3 つのアルゴリズム `A`、`B`、`C` を用意します。
 
 === "Python"
 
     ```python title=""
-    # アルゴリズム A の時間計算量：定数のオーダー
+    # アルゴリズム A の時間計算量：定数オーダー
     def algorithm_A(n: int):
         print(0)
-    # アルゴリズム B の時間計算量：線形のオーダー
+    # アルゴリズム B の時間計算量：線形オーダー
     def algorithm_B(n: int):
         for _ in range(n):
             print(0)
-    # アルゴリズム C の時間計算量：定数のオーダー
+    # アルゴリズム C の時間計算量：定数オーダー
     def algorithm_C(n: int):
         for _ in range(1000000):
             print(0)
@@ -238,17 +238,17 @@ $$
 === "C++"
 
     ```cpp title=""
-    // アルゴリズム A の時間計算量：定数のオーダー
+    // アルゴリズム A の時間計算量：定数オーダー
     void algorithm_A(int n) {
         cout << 0 << endl;
     }
-    // アルゴリズム B の時間計算量：線形のオーダー
+    // アルゴリズム B の時間計算量：線形オーダー
     void algorithm_B(int n) {
         for (int i = 0; i < n; i++) {
             cout << 0 << endl;
         }
     }
-    // アルゴリズム C の時間計算量：定数のオーダー
+    // アルゴリズム C の時間計算量：定数オーダー
     void algorithm_C(int n) {
         for (int i = 0; i < 1000000; i++) {
             cout << 0 << endl;
@@ -259,17 +259,17 @@ $$
 === "Java"
 
     ```java title=""
-    // アルゴリズム A の時間計算量：定数のオーダー
+    // アルゴリズム A の時間計算量：定数オーダー
     void algorithm_A(int n) {
         System.out.println(0);
     }
-    // アルゴリズム B の時間計算量：線形のオーダー
+    // アルゴリズム B の時間計算量：線形オーダー
     void algorithm_B(int n) {
         for (int i = 0; i < n; i++) {
             System.out.println(0);
         }
     }
-    // アルゴリズム C の時間計算量：定数のオーダー
+    // アルゴリズム C の時間計算量：定数オーダー
     void algorithm_C(int n) {
         for (int i = 0; i < 1000000; i++) {
             System.out.println(0);
@@ -280,17 +280,17 @@ $$
 === "C#"
 
     ```csharp title=""
-    // アルゴリズム A の時間計算量：定数のオーダー
+    // アルゴリズム A の時間計算量：定数オーダー
     void AlgorithmA(int n) {
         Console.WriteLine(0);
     }
-    // アルゴリズム B の時間計算量：線形のオーダー
+    // アルゴリズム B の時間計算量：線形オーダー
     void AlgorithmB(int n) {
         for (int i = 0; i < n; i++) {
             Console.WriteLine(0);
         }
     }
-    // アルゴリズム C の時間計算量：定数のオーダー
+    // アルゴリズム C の時間計算量：定数オーダー
     void AlgorithmC(int n) {
         for (int i = 0; i < 1000000; i++) {
             Console.WriteLine(0);
@@ -301,17 +301,17 @@ $$
 === "Go"
 
     ```go title=""
-    // アルゴリズム A の時間計算量：定数のオーダー
+    // アルゴリズム A の時間計算量：定数オーダー
     func algorithm_A(n int) {
         fmt.Println(0)
     }
-    // アルゴリズム B の時間計算量：線形のオーダー
+    // アルゴリズム B の時間計算量：線形オーダー
     func algorithm_B(n int) {
         for i := 0; i < n; i++ {
             fmt.Println(0)
         }
     }
-    // アルゴリズム C の時間計算量：定数のオーダー
+    // アルゴリズム C の時間計算量：定数オーダー
     func algorithm_C(n int) {
         for i := 0; i < 1000000; i++ {
             fmt.Println(0)
@@ -322,19 +322,19 @@ $$
 === "Swift"
 
     ```swift title=""
-    // アルゴリズム A の時間計算量：定数のオーダー
+    // アルゴリズム A の時間計算量：定数オーダー
     func algorithmA(n: Int) {
         print(0)
     }
 
-    // アルゴリズム B の時間計算量：線形のオーダー
+    // アルゴリズム B の時間計算量：線形オーダー
     func algorithmB(n: Int) {
         for _ in 0 ..< n {
             print(0)
         }
     }
 
-    // アルゴリズム C の時間計算量：定数のオーダー
+    // アルゴリズム C の時間計算量：定数オーダー
     func algorithmC(n: Int) {
         for _ in 0 ..< 1_000_000 {
             print(0)
@@ -345,17 +345,17 @@ $$
 === "JS"
 
     ```javascript title=""
-    // アルゴリズム A の時間計算量：定数のオーダー
+    // アルゴリズム A の時間計算量：定数オーダー
     function algorithm_A(n) {
         console.log(0);
     }
-    // アルゴリズム B の時間計算量：線形のオーダー
+    // アルゴリズム B の時間計算量：線形オーダー
     function algorithm_B(n) {
         for (let i = 0; i < n; i++) {
             console.log(0);
         }
     }
-    // アルゴリズム C の時間計算量：定数のオーダー
+    // アルゴリズム C の時間計算量：定数オーダー
     function algorithm_C(n) {
         for (let i = 0; i < 1000000; i++) {
             console.log(0);
@@ -367,17 +367,17 @@ $$
 === "TS"
 
     ```typescript title=""
-    // アルゴリズム A の時間計算量：定数のオーダー
+    // アルゴリズム A の時間計算量：定数オーダー
     function algorithm_A(n: number): void {
         console.log(0);
     }
-    // アルゴリズム B の時間計算量：線形のオーダー
+    // アルゴリズム B の時間計算量：線形オーダー
     function algorithm_B(n: number): void {
         for (let i = 0; i < n; i++) {
             console.log(0);
         }
     }
-    // アルゴリズム C の時間計算量：定数のオーダー
+    // アルゴリズム C の時間計算量：定数オーダー
     function algorithm_C(n: number): void {
         for (let i = 0; i < 1000000; i++) {
             console.log(0);
@@ -388,17 +388,17 @@ $$
 === "Dart"
 
     ```dart title=""
-    // アルゴリズム A の時間計算量：定数のオーダー
+    // アルゴリズム A の時間計算量：定数オーダー
     void algorithmA(int n) {
       print(0);
     }
-    // アルゴリズム B の時間計算量：線形のオーダー
+    // アルゴリズム B の時間計算量：線形オーダー
     void algorithmB(int n) {
       for (int i = 0; i < n; i++) {
         print(0);
       }
     }
-    // アルゴリズム C の時間計算量：定数のオーダー
+    // アルゴリズム C の時間計算量：定数オーダー
     void algorithmC(int n) {
       for (int i = 0; i < 1000000; i++) {
         print(0);
@@ -409,17 +409,17 @@ $$
 === "Rust"
 
     ```rust title=""
-    // アルゴリズム A の時間計算量：定数のオーダー
+    // アルゴリズム A の時間計算量：定数オーダー
     fn algorithm_A(n: i32) {
         println!("{}", 0);
     }
-    // アルゴリズム B の時間計算量：線形のオーダー
+    // アルゴリズム B の時間計算量：線形オーダー
     fn algorithm_B(n: i32) {
         for _ in 0..n {
             println!("{}", 0);
         }
     }
-    // アルゴリズム C の時間計算量：定数のオーダー
+    // アルゴリズム C の時間計算量：定数オーダー
     fn algorithm_C(n: i32) {
         for _ in 0..1000000 {
             println!("{}", 0);
@@ -430,17 +430,17 @@ $$
 === "C"
 
     ```c title=""
-    // アルゴリズム A の時間計算量：定数のオーダー
+    // アルゴリズム A の時間計算量：定数オーダー
     void algorithm_A(int n) {
         printf("%d", 0);
     }
-    // アルゴリズム B の時間計算量：線形のオーダー
+    // アルゴリズム B の時間計算量：線形オーダー
     void algorithm_B(int n) {
         for (int i = 0; i < n; i++) {
             printf("%d", 0);
         }
     }
-    // アルゴリズム C の時間計算量：定数のオーダー
+    // アルゴリズム C の時間計算量：定数オーダー
     void algorithm_C(int n) {
         for (int i = 0; i < 1000000; i++) {
             printf("%d", 0);
@@ -451,17 +451,17 @@ $$
 === "Kotlin"
 
     ```kotlin title=""
-    // アルゴリズム A の時間計算量：定数のオーダー
+    // アルゴリズム A の時間計算量：定数オーダー
     fun algorithm_A(n: Int) {
         println(0)
     }
-    // アルゴリズム B の時間計算量：線形のオーダー
+    // アルゴリズム B の時間計算量：線形オーダー
     fun algorithm_B(n: Int) {
         for (i in 0..<n){
             println(0)
         }
     }
-    // アルゴリズム C の時間計算量：定数のオーダー
+    // アルゴリズム C の時間計算量：定数オーダー
     fun algorithm_C(n: Int) {
         for (i in 0..<1000000) {
             println(0)
@@ -472,41 +472,41 @@ $$
 === "Ruby"
 
     ```ruby title=""
-    # アルゴリズム A の時間計算量：定数のオーダー
+    # アルゴリズム A の時間計算量：定数オーダー
     def algorithm_A(n)
         puts 0
     end
 
-    # アルゴリズム B の時間計算量：線形のオーダー
+    # アルゴリズム B の時間計算量：線形オーダー
     def algorithm_B(n)
         (0...n).each { puts 0 }
     end
 
-    # アルゴリズム C の時間計算量：定数のオーダー
+    # アルゴリズム C の時間計算量：定数オーダー
     def algorithm_C(n)
         (0...1_000_000).each { puts 0 }
     end
     ```
 
-図 2-7 に、この三つのアルゴリズムの時間計算量を示します。
+図 2-7 は、これら 3 つの関数の時間計算量を示しています。
 
-- `A` には出力操作が $1$ 回だけあり、$n$ が増えても実行時間は増えません。この時間計算量を「定数のオーダー」と呼びます。
-- `B` は出力を $n$ 回繰り返し、$n$ の増加に対して実行時間が線形に増えます。この時間計算量を「線形のオーダー」と呼びます。
-- `C` は出力を $1000000$ 回繰り返します。実行時間は長いものの、入力の大きさ $n$ とは無関係です。そのため、`C` の時間計算量は `A` と同じ「定数のオーダー」です。
+- アルゴリズム `A` は表示を $1$ 回しか行わず、$n$ が大きくなっても実行時間は増えません。この時間計算量を「定数オーダー」と呼びます。
+- アルゴリズム `B` は表示を $n$ 回繰り返すため、実行時間は $n$ とともに線形に増えます。この時間計算量を「線形オーダー」と呼びます。
+- アルゴリズム `C` は表示を $1000000$ 回繰り返します。実行時間は長くても、入力サイズ $n$ には依存しません。したがって `C` の時間計算量は `A` と同じ「定数オーダー」です。
 
 ![アルゴリズム A、B、C の実行時間の増え方](time_complexity.assets/time_complexity_simple_example.svg){ class="animation-figure" }
 
 <p align="center"> 図 2-7 &nbsp; アルゴリズム A、B、C の実行時間の増え方 </p>
 
-実行時間を直接数える方法と比べ、時間計算量の解析にはどのような特徴があるでしょうか。
+実行時間を直接求める場合と比べて、時間計算量の分析にはどのような特徴があるでしょうか。
 
-- **効率を有効に評価できます**。たとえば `B` は線形に時間が増え、$n > 1$ では `A` より、$n > 1000000$ では `C` より遅くなります。入力の大きさ $n$ が十分に大きければ、定数のオーダーのアルゴリズムは線形のオーダーより必ず有利になります。これが時間の増え方という意味です。
-- **見積もり方が簡単です**。実行環境や計算操作の種類は、実行時間の増え方には関係しません。そのため、各操作の時間を同じ「単位時間」とみなし、「操作にかかる時間の集計」を「操作回数の集計」に置き換えられ、見積もりが大幅に簡単になります。
-- **一定の限界もあります**。`A` と `C` は同じ時間計算量でも、実際の時間は大きく異なります。また、`B` は `C` より計算量が大きくても、入力の大きさ $n$ が小さければ、明らかに `C` より速くなります。このような場合、計算量だけでは効率を判断しにくくなります。それでも計算量の解析は、効率を評価する最も有効で一般的な方法です。
+- **時間計算量は、アルゴリズムの効率を評価するのに役立ちます**。例えば `B` の実行時間は線形に増え、$n > 1$ では `A` よりも遅く、$n > 1000000$ では `C` よりも遅くなります。入力サイズ $n$ が十分大きくなれば、定数オーダーのアルゴリズムは必ず線形オーダーのアルゴリズムより速くなります。これが実行時間の増え方に着目するということです。
+- **時間計算量はより簡単に見積もれます**。実行環境や計算操作の種類は、実行時間の増え方に関係しません。そのため時間計算量の分析では、どの計算操作にも同じ「単位時間」がかかるとみなせます。「各計算操作の実行時間を求める」作業が「計算操作の回数を数える」だけで済み、見積もりがずっと容易になります。
+- **時間計算量にも限界があります**。例えば `A` と `C` の時間計算量は同じでも、実行時間は大きく異なります。また `B` の時間計算量は `C` より大きくても、入力サイズ $n$ が小さいときは `B` のほうが `C` より明らかに速くなります。このような場合、時間計算量だけで効率の優劣を判断するのは困難です。それでも、計算量解析は効率を評価するうえで最も有効で広く使われている方法です。
 
-## 2.3.2 &nbsp; 関数の漸近上界
+## 2.3.2 &nbsp; 関数の漸近的上界
 
-入力の大きさが $n$ の関数を考えます。
+入力サイズが $n$ の次の関数を考えます。
 
 === "Python"
 
@@ -689,54 +689,54 @@ $$
     end
     ```
 
-操作回数を入力の大きさ $n$ の関数 $T(n)$ とすると、上の関数では次のようになります。
+操作回数を入力サイズ $n$ の関数と考え、$T(n)$ と書くことにします。上の関数の操作回数は次のようになります。
 
 $$
 T(n) = 3 + 2n
 $$
 
-$T(n)$ は一次関数なので、実行時間は線形に増え、時間計算量は線形のオーダーです。
+$T(n)$ は一次関数ですから、実行時間は線形に増え、時間計算量は線形オーダーです。
 
-線形の時間計算量を $O(n)$ と書きます。この数学記号を<u>ビッグ $O$ 記法（big-$O$ notation）</u>といい、関数 $T(n)$ の<u>漸近上界（asymptotic upper bound）</u>を表します。
+線形オーダーの時間計算量を $O(n)$ と書きます。この数学的な表記を<u>ビッグ $O$ 記法（big-$O$ notation）</u>といい、関数 $T(n)$ の<u>漸近的上界（asymptotic upper bound）</u>を表します。
 
-時間計算量の解析は、本質的には「操作回数 $T(n)$」の漸近上界を求めることで、明確な数学的定義があります。
+時間計算量の分析とは、本質的には「操作回数 $T(n)$」の漸近的上界を求めることです。これには明確な数学的定義があります。
 
-!!! note "関数の漸近上界"
+!!! note "関数の漸近的上界"
 
-    正の実数 $c$ と実数 $n_0$ が存在し、すべての $n > n_0$ に対して $T(n) \leq c \cdot f(n)$ が成り立つとき、$f(n)$ は $T(n)$ の漸近上界を与えるといい、$T(n) = O(f(n))$ と書きます。
+    正の実数 $c$ と実数 $n_0$ が存在して、すべての $n > n_0$ に対して $T(n) \leq c \cdot f(n)$ が成り立つとき、$f(n)$ は $T(n)$ の漸近的上界の一つを与えるといい、$T(n) = O(f(n))$ と書きます。
 
-図 2-8 のように、漸近上界を求めるとは、$n$ が無限大に近づくとき、$T(n)$ と $f(n)$ が同じ増加のオーダーとなり、定数係数 $c$ だけ異なるような関数 $f(n)$ を探すことです。
+図 2-8 のように、漸近的上界を求めるには関数 $f(n)$ を探します。$n$ が無限大に近づくとき、$T(n)$ と $f(n)$ の増加のオーダーが同じで、両者の違いは定数係数 $c$ だけとなるような関数です。
 
-![関数の漸近上界](time_complexity.assets/asymptotic_upper_bound.svg){ class="animation-figure" }
+![関数の漸近的上界](time_complexity.assets/asymptotic_upper_bound.svg){ class="animation-figure" }
 
-<p align="center"> 図 2-8 &nbsp; 関数の漸近上界 </p>
+<p align="center"> 図 2-8 &nbsp; 関数の漸近的上界 </p>
 
-## 2.3.3 &nbsp; 見積もり方
+## 2.3.3 &nbsp; 計算量の求め方
 
-漸近上界は数学的なので、完全に理解できなくても心配はいりません。まず見積もり方を身に付け、実践しながら数学的な意味を理解していきましょう。
+漸近的上界は少し数学的なので、今すぐ完全に理解できなくても心配はいりません。まずは求め方を覚え、練習を重ねるうちに、その数学的な意味も少しずつつかめるようになります。
 
-定義によれば、$f(n)$ が決まれば時間計算量 $O(f(n))$ が得られます。では、漸近上界 $f(n)$ はどう決めるのでしょうか。大きく二つの手順、操作回数の集計と漸近上界の判定で行います。
+定義から、$f(n)$ が決まれば時間計算量 $O(f(n))$ がわかります。では、漸近的上界 $f(n)$ はどう決めればよいでしょうか。まず操作回数を数え、次に漸近的上界を判定するという 2 つの手順を踏みます。
 
 ### 1. &nbsp; 手順 1：操作回数を数える
 
-コードを上から下へ、行ごとに数えれば求められます。ただし、$c \cdot f(n)$ の定数係数 $c$ は任意の大きさにできるため、**操作回数 $T(n)$ の係数や定数項は無視できます**。この原則から、数え方を簡単にする次の工夫が得られます。
+コードを上から 1 行ずつ調べて数えればよいのですが、先ほどの $c \cdot f(n)$ の定数係数 $c$ は任意の大きさに取れるので、**操作回数 $T(n)$ の係数や定数項は無視できます**。この原則を使うと、次のように数え方を簡略化できます。
 
-1. **$T(n)$ の定数を無視します**。定数は $n$ と無関係なので、時間計算量に影響しません。
-2. **すべての係数を省略します**。たとえば $2n$ 回や $5n + 1$ 回のループは、$n$ 回と簡略化できます。$n$ の前の係数は時間計算量に影響しないためです。
-3. **入れ子のループでは掛け算を使います**。総操作回数は、外側と内側の操作回数の積です。各ループには、それぞれ手順 `1.` と `2.` の工夫を適用できます。
+1. **$T(n)$ の定数項を無視します**。定数項は $n$ に依存せず、時間計算量に影響しないからです。
+2. **係数をすべて省きます**。例えば、ループの回数が $2n$ 回でも $5n + 1$ 回でも、$n$ 回と簡略化できます。$n$ の係数は時間計算量に影響しません。
+3. **入れ子のループでは掛け算を使います**。総操作回数は外側と内側のループの操作回数の積です。各ループには、`1.` と `2.` の方法をそれぞれ適用できます。
 
-これらの工夫を使って、次の関数の操作回数を数えます。
+次の関数に、これらの方法を適用して操作回数を数えてみましょう。
 
 === "Python"
 
     ```python title=""
     def algorithm(n: int):
-        a = 1      # +0（工夫 1）
-        a = a + n  # +0（工夫 1）
-        # +n（工夫 2）
+        a = 1      # +0（方法 1）
+        a = a + n  # +0（方法 1）
+        # +n（方法 2）
         for i in range(5 * n + 1):
             print(0)
-        # +n*n（工夫 3）
+        # +n*n（方法 3）
         for i in range(2 * n):
             for j in range(n + 1):
                 print(0)
@@ -746,13 +746,13 @@ $T(n)$ は一次関数なので、実行時間は線形に増え、時間計算�
 
     ```cpp title=""
     void algorithm(int n) {
-        int a = 1;  // +0（工夫 1）
-        a = a + n;  // +0（工夫 1）
-        // +n（工夫 2）
+        int a = 1;  // +0（方法 1）
+        a = a + n;  // +0（方法 1）
+        // +n（方法 2）
         for (int i = 0; i < 5 * n + 1; i++) {
             cout << 0 << endl;
         }
-        // +n*n（工夫 3）
+        // +n*n（方法 3）
         for (int i = 0; i < 2 * n; i++) {
             for (int j = 0; j < n + 1; j++) {
                 cout << 0 << endl;
@@ -765,13 +765,13 @@ $T(n)$ は一次関数なので、実行時間は線形に増え、時間計算�
 
     ```java title=""
     void algorithm(int n) {
-        int a = 1;  // +0（工夫 1）
-        a = a + n;  // +0（工夫 1）
-        // +n（工夫 2）
+        int a = 1;  // +0（方法 1）
+        a = a + n;  // +0（方法 1）
+        // +n（方法 2）
         for (int i = 0; i < 5 * n + 1; i++) {
             System.out.println(0);
         }
-        // +n*n（工夫 3）
+        // +n*n（方法 3）
         for (int i = 0; i < 2 * n; i++) {
             for (int j = 0; j < n + 1; j++) {
                 System.out.println(0);
@@ -784,13 +784,13 @@ $T(n)$ は一次関数なので、実行時間は線形に増え、時間計算�
 
     ```csharp title=""
     void Algorithm(int n) {
-        int a = 1;  // +0（工夫 1）
-        a = a + n;  // +0（工夫 1）
-        // +n（工夫 2）
+        int a = 1;  // +0（方法 1）
+        a = a + n;  // +0（方法 1）
+        // +n（方法 2）
         for (int i = 0; i < 5 * n + 1; i++) {
             Console.WriteLine(0);
         }
-        // +n*n（工夫 3）
+        // +n*n（方法 3）
         for (int i = 0; i < 2 * n; i++) {
             for (int j = 0; j < n + 1; j++) {
                 Console.WriteLine(0);
@@ -803,13 +803,13 @@ $T(n)$ は一次関数なので、実行時間は線形に増え、時間計算�
 
     ```go title=""
     func algorithm(n int) {
-        a := 1     // +0（工夫 1）
-        a = a + n  // +0（工夫 1）
-        // +n（工夫 2）
+        a := 1     // +0（方法 1）
+        a = a + n  // +0（方法 1）
+        // +n（方法 2）
         for i := 0; i < 5 * n + 1; i++ {
             fmt.Println(0)
         }
-        // +n*n（工夫 3）
+        // +n*n（方法 3）
         for i := 0; i < 2 * n; i++ {
             for j := 0; j < n + 1; j++ {
                 fmt.Println(0)
@@ -822,13 +822,13 @@ $T(n)$ は一次関数なので、実行時間は線形に増え、時間計算�
 
     ```swift title=""
     func algorithm(n: Int) {
-        var a = 1 // +0（工夫 1）
-        a = a + n // +0（工夫 1）
-        // +n（工夫 2）
+        var a = 1 // +0（方法 1）
+        a = a + n // +0（方法 1）
+        // +n（方法 2）
         for _ in 0 ..< (5 * n + 1) {
             print(0)
         }
-        // +n*n（工夫 3）
+        // +n*n（方法 3）
         for _ in 0 ..< (2 * n) {
             for _ in 0 ..< (n + 1) {
                 print(0)
@@ -841,13 +841,13 @@ $T(n)$ は一次関数なので、実行時間は線形に増え、時間計算�
 
     ```javascript title=""
     function algorithm(n) {
-        let a = 1;  // +0（工夫 1）
-        a = a + n;  // +0（工夫 1）
-        // +n（工夫 2）
+        let a = 1;  // +0（方法 1）
+        a = a + n;  // +0（方法 1）
+        // +n（方法 2）
         for (let i = 0; i < 5 * n + 1; i++) {
             console.log(0);
         }
-        // +n*n（工夫 3）
+        // +n*n（方法 3）
         for (let i = 0; i < 2 * n; i++) {
             for (let j = 0; j < n + 1; j++) {
                 console.log(0);
@@ -860,13 +860,13 @@ $T(n)$ は一次関数なので、実行時間は線形に増え、時間計算�
 
     ```typescript title=""
     function algorithm(n: number): void {
-        let a = 1;  // +0（工夫 1）
-        a = a + n;  // +0（工夫 1）
-        // +n（工夫 2）
+        let a = 1;  // +0（方法 1）
+        a = a + n;  // +0（方法 1）
+        // +n（方法 2）
         for (let i = 0; i < 5 * n + 1; i++) {
             console.log(0);
         }
-        // +n*n（工夫 3）
+        // +n*n（方法 3）
         for (let i = 0; i < 2 * n; i++) {
             for (let j = 0; j < n + 1; j++) {
                 console.log(0);
@@ -879,13 +879,13 @@ $T(n)$ は一次関数なので、実行時間は線形に増え、時間計算�
 
     ```dart title=""
     void algorithm(int n) {
-      int a = 1; // +0（工夫 1）
-      a = a + n; // +0（工夫 1）
-      // +n（工夫 2）
+      int a = 1; // +0（方法 1）
+      a = a + n; // +0（方法 1）
+      // +n（方法 2）
       for (int i = 0; i < 5 * n + 1; i++) {
         print(0);
       }
-      // +n*n（工夫 3）
+      // +n*n（方法 3）
       for (int i = 0; i < 2 * n; i++) {
         for (int j = 0; j < n + 1; j++) {
           print(0);
@@ -898,15 +898,15 @@ $T(n)$ は一次関数なので、実行時間は線形に増え、時間計算�
 
     ```rust title=""
     fn algorithm(n: i32) {
-        let mut a = 1;     // +0（工夫 1）
-        a = a + n;        // +0（工夫 1）
+        let mut a = 1;     // +0（方法 1）
+        a = a + n;        // +0（方法 1）
 
-        // +n（工夫 2）
+        // +n（方法 2）
         for i in 0..(5 * n + 1) {
             println!("{}", 0);
         }
 
-        // +n*n（工夫 3）
+        // +n*n（方法 3）
         for i in 0..(2 * n) {
             for j in 0..(n + 1) {
                 println!("{}", 0);
@@ -919,13 +919,13 @@ $T(n)$ は一次関数なので、実行時間は線形に増え、時間計算�
 
     ```c title=""
     void algorithm(int n) {
-        int a = 1;  // +0（工夫 1）
-        a = a + n;  // +0（工夫 1）
-        // +n（工夫 2）
+        int a = 1;  // +0（方法 1）
+        a = a + n;  // +0（方法 1）
+        // +n（方法 2）
         for (int i = 0; i < 5 * n + 1; i++) {
             printf("%d", 0);
         }
-        // +n*n（工夫 3）
+        // +n*n（方法 3）
         for (int i = 0; i < 2 * n; i++) {
             for (int j = 0; j < n + 1; j++) {
                 printf("%d", 0);
@@ -938,13 +938,13 @@ $T(n)$ は一次関数なので、実行時間は線形に増え、時間計算�
 
     ```kotlin title=""
     fun algorithm(n: Int) {
-        var a = 1   // +0（工夫 1）
-        a = a + n   // +0（工夫 1）
-        // +n（工夫 2）
+        var a = 1   // +0（方法 1）
+        a = a + n   // +0（方法 1）
+        // +n（方法 2）
         for (i in 0..<5 * n + 1) {
             println(0)
         }
-        // +n*n（工夫 3）
+        // +n*n（方法 3）
         for (i in 0..<2 * n) {
             for (j in 0..<n + 1) {
                 println(0)
@@ -957,34 +957,34 @@ $T(n)$ は一次関数なので、実行時間は線形に増え、時間計算�
 
     ```ruby title=""
     def algorithm(n)
-        a = 1       # +0（工夫 1）
-        a = a + n   # +0（工夫 1）
-        # +n（工夫 2）
+        a = 1       # +0（方法 1）
+        a = a + n   # +0（方法 1）
+        # +n（方法 2）
         (0...(5 * n + 1)).each { puts 0 }
-        # +n*n（工夫 3）
+        # +n*n（方法 3）
         (0...(2 * n)).each do
             (0...(n + 1)).each { puts 0 }
         end
     end
     ```
 
-次の式は、工夫を使う前と後の集計結果です。どちらからも、時間計算量 $O(n^2)$ が得られます。
+次の式は、簡略化の前と後の計算結果を示します。どちらから求めても時間計算量は $O(n^2)$ です。
 
 $$
 \begin{aligned}
-T(n) & = 2n(n + 1) + (5n + 1) + 2 & \text{すべて数える (-.-|||)} \newline
+T(n) & = 2n(n + 1) + (5n + 1) + 2 & \text{すべて数えた場合 (-.-|||)} \newline
 & = 2n^2 + 7n + 3 \newline
-T(n) & = n^2 + n & \text{手間を省いて数える (o.O)}
+T(n) & = n^2 + n & \text{手早く数えた場合 (o.O)}
 \end{aligned}
 $$
 
-### 2. &nbsp; 手順 2：漸近上界を求める
+### 2. &nbsp; 手順 2：漸近的上界を判定する
 
-**時間計算量は、$T(n)$ の最も高い次数の項で決まります**。$n$ が無限大に近づくと、その項が支配的になり、ほかの項の影響を無視できるためです。
+**時間計算量は $T(n)$ の最高次の項で決まります**。$n$ が無限大に近づくと、最高次の項が支配的になり、ほかの項の影響は無視できるからです。
 
-表 2-2 にいくつかの例を示します。一部の大きな値は、「係数はオーダーを変えられない」ことを強調するためです。$n$ が無限大に近づくと、これらの定数は重要でなくなります。
+表 2-2 にいくつか例を示します。極端に大きな値をあえて使っているのは、「係数はオーダーを変えない」ことを強調するためです。$n$ が無限大に近づけば、これらの定数の影響は小さくなります。
 
-<p align="center"> 表 2-2 &nbsp; 操作回数と時間計算量の対応 </p>
+<p align="center"> 表 2-2 &nbsp; 操作回数とそれに対応する時間計算量 </p>
 
 <div class="center-table" markdown>
 
@@ -998,14 +998,14 @@ $$
 
 </div>
 
-## 2.3.4 &nbsp; 代表的な種類
+## 2.3.4 &nbsp; 代表的な計算量
 
-入力の大きさを $n$ とすると、代表的な時間計算量は図 2-9 のとおりです。小さい順に並べています。
+入力サイズを $n$ とします。代表的な時間計算量を小さい順に並べると、図 2-9 のようになります。
 
 $$
 \begin{aligned}
 & O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(2^n) < O(n!) \newline
-& \text{定数} < \text{対数} < \text{線形} < \text{線形対数} < \text{二乗} < \text{指数} < \text{階乗}
+& \text{定数オーダー} < \text{対数オーダー} < \text{線形オーダー} < \text{線形対数オーダー} < \text{二次オーダー} < \text{指数オーダー} < \text{階乗オーダー}
 \end{aligned}
 $$
 
@@ -1013,11 +1013,11 @@ $$
 
 <p align="center"> 図 2-9 &nbsp; 代表的な時間計算量 </p>
 
-### 1. &nbsp; 定数のオーダー $O(1)$ {data-toc-label="1. &nbsp; 定数のオーダー"}
+### 1. &nbsp; 定数オーダー $O(1)$ {data-toc-label="1. &nbsp; 定数オーダー"}
 
-定数のオーダーでは、操作回数は入力の大きさ $n$ に依存せず、$n$ が変わっても変化しません。
+定数オーダーの操作回数は入力サイズ $n$ に依存せず、$n$ が変わっても一定です。
 
-次の関数では、操作回数 `size` が大きくても、入力の大きさ $n$ と無関係なので、時間計算量は $O(1)$ です。
+次の関数で操作回数 `size` がどれほど大きくても、入力サイズ $n$ に依存しないため、時間計算量は $O(1)$ のままです。
 
 === "Python"
 
@@ -1192,14 +1192,14 @@ $$
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20constant%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AE%9A%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20size%20%3D%2010%0A%20%20%20%20for%20_%20in%20range%28size%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20constant%28n%29%0A%20%20%20%20print%28%22%E5%AE%9A%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20constant%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AE%9A%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20size%20%3D%2010%0A%20%20%20%20for%20_%20in%20range%28size%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20constant%28n%29%0A%20%20%20%20print%28%22%E5%AE%9A%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=def%20constant%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AE%9A%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20size%20%3D%2010%0A%20%20%20%20for%20_%20in%20range%28size%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20constant%28n%29%0A%20%20%20%20print%28%22%E5%AE%9A%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20constant%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AE%9A%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20size%20%3D%2010%0A%20%20%20%20for%20_%20in%20range%28size%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20constant%28n%29%0A%20%20%20%20print%28%22%E5%AE%9A%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-### 2. &nbsp; 線形のオーダー $O(n)$ {data-toc-label="2. &nbsp; 線形のオーダー"}
+### 2. &nbsp; 線形オーダー $O(n)$ {data-toc-label="2. &nbsp; 線形オーダー"}
 
-線形のオーダーでは、操作回数は入力の大きさ $n$ に対して線形に増えます。通常、1 重のループで現れます。
+線形オーダーの操作回数は、入力サイズ $n$ に対して線形に増えます。一重ループでよく見られます。
 
 === "Python"
 
@@ -1358,12 +1358,12 @@ $$
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 441px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20linear%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20linear%28n%29%0A%20%20%20%20print%28%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20linear%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20linear%28n%29%0A%20%20%20%20print%28%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 441px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=def%20linear%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20linear%28n%29%0A%20%20%20%20print%28%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20linear%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20linear%28n%29%0A%20%20%20%20print%28%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-配列や連結リストの走査も、時間計算量は $O(n)$ です。ここで $n$ は配列や連結リストの長さです。
+配列や連結リストの走査はいずれも時間計算量が $O(n)$ です。ここで $n$ は配列または連結リストの長さです。
 
 === "Python"
 
@@ -1371,7 +1371,7 @@ $$
     def array_traversal(nums: list[int]) -> int:
         """線形オーダー（配列の走査）"""
         count = 0
-        # ループの回数は配列の長さに比例する
+        # 反復回数は配列の長さに比例
         for num in nums:
             count += 1
         return count
@@ -1383,7 +1383,7 @@ $$
     /* 線形オーダー（配列の走査） */
     int arrayTraversal(vector<int> &nums) {
         int count = 0;
-        // ループの回数は配列の長さに比例する
+        // 反復回数は配列の長さに比例
         for (int num : nums) {
             count++;
         }
@@ -1397,7 +1397,7 @@ $$
     /* 線形オーダー（配列の走査） */
     int arrayTraversal(int[] nums) {
         int count = 0;
-        // ループの回数は配列の長さに比例する
+        // 反復回数は配列の長さに比例
         for (int num : nums) {
             count++;
         }
@@ -1411,7 +1411,7 @@ $$
     /* 線形オーダー（配列の走査） */
     int ArrayTraversal(int[] nums) {
         int count = 0;
-        // ループの回数は配列の長さに比例する
+        // 反復回数は配列の長さに比例
         foreach (int num in nums) {
             count++;
         }
@@ -1425,7 +1425,7 @@ $$
     /* 線形オーダー（配列の走査） */
     func arrayTraversal(nums []int) int {
         count := 0
-        // ループの回数は配列の長さに比例する
+        // 反復回数は配列の長さに比例
         for range nums {
             count++
         }
@@ -1439,7 +1439,7 @@ $$
     /* 線形オーダー（配列の走査） */
     func arrayTraversal(nums: [Int]) -> Int {
         var count = 0
-        // ループの回数は配列の長さに比例する
+        // 反復回数は配列の長さに比例
         for _ in nums {
             count += 1
         }
@@ -1453,7 +1453,7 @@ $$
     /* 線形オーダー（配列の走査） */
     function arrayTraversal(nums) {
         let count = 0;
-        // ループの回数は配列の長さに比例する
+        // 反復回数は配列の長さに比例
         for (let i = 0; i < nums.length; i++) {
             count++;
         }
@@ -1467,7 +1467,7 @@ $$
     /* 線形オーダー（配列の走査） */
     function arrayTraversal(nums: number[]): number {
         let count = 0;
-        // ループの回数は配列の長さに比例する
+        // 反復回数は配列の長さに比例
         for (let i = 0; i < nums.length; i++) {
             count++;
         }
@@ -1481,7 +1481,7 @@ $$
     /* 線形オーダー（配列の走査） */
     int arrayTraversal(List<int> nums) {
       int count = 0;
-      // ループの回数は配列の長さに比例する
+      // 反復回数は配列の長さに比例
       for (var _num in nums) {
         count++;
       }
@@ -1495,7 +1495,7 @@ $$
     /* 線形オーダー（配列の走査） */
     fn array_traversal(nums: &[i32]) -> i32 {
         let mut count = 0;
-        // ループの回数は配列の長さに比例する
+        // 反復回数は配列の長さに比例
         for _ in nums {
             count += 1;
         }
@@ -1509,7 +1509,7 @@ $$
     /* 線形オーダー（配列の走査） */
     int arrayTraversal(int *nums, int n) {
         int count = 0;
-        // ループの回数は配列の長さに比例する
+        // 反復回数は配列の長さに比例
         for (int i = 0; i < n; i++) {
             count++;
         }
@@ -1523,7 +1523,7 @@ $$
     /* 線形オーダー（配列の走査） */
     fun arrayTraversal(nums: IntArray): Int {
         var count = 0
-        // ループの回数は配列の長さに比例する
+        // 反復回数は配列の長さに比例
         for (num in nums) {
             count++
         }
@@ -1538,7 +1538,7 @@ $$
     def array_traversal(nums)
       count = 0
 
-      # ループの回数は配列の長さに比例する
+      # 反復回数は配列の長さに比例
       for num in nums
         count += 1
       end
@@ -1547,16 +1547,16 @@ $$
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20array_traversal%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E9%85%8D%E5%88%97%E3%81%AE%E8%B5%B0%E6%9F%BB%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AE%E5%9B%9E%E6%95%B0%E3%81%AF%E9%85%8D%E5%88%97%E3%81%AE%E9%95%B7%E3%81%95%E3%81%AB%E6%AF%94%E4%BE%8B%E3%81%99%E3%82%8B%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20array_traversal%28%5B0%5D%20%2A%20n%29%0A%20%20%20%20print%28%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E9%85%8D%E5%88%97%E3%81%AE%E8%B5%B0%E6%9F%BB%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20array_traversal%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E9%85%8D%E5%88%97%E3%81%AE%E8%B5%B0%E6%9F%BB%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AE%E5%9B%9E%E6%95%B0%E3%81%AF%E9%85%8D%E5%88%97%E3%81%AE%E9%95%B7%E3%81%95%E3%81%AB%E6%AF%94%E4%BE%8B%E3%81%99%E3%82%8B%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20array_traversal%28%5B0%5D%20%2A%20n%29%0A%20%20%20%20print%28%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E9%85%8D%E5%88%97%E3%81%AE%E8%B5%B0%E6%9F%BB%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=def%20array_traversal%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E9%85%8D%E5%88%97%E3%81%AE%E8%B5%B0%E6%9F%BB%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%E5%8F%8D%E5%BE%A9%E5%9B%9E%E6%95%B0%E3%81%AF%E9%85%8D%E5%88%97%E3%81%AE%E9%95%B7%E3%81%95%E3%81%AB%E6%AF%94%E4%BE%8B%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20array_traversal%28%5B0%5D%20%2A%20n%29%0A%20%20%20%20print%28%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E9%85%8D%E5%88%97%E3%81%AE%E8%B5%B0%E6%9F%BB%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20array_traversal%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E9%85%8D%E5%88%97%E3%81%AE%E8%B5%B0%E6%9F%BB%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%E5%8F%8D%E5%BE%A9%E5%9B%9E%E6%95%B0%E3%81%AF%E9%85%8D%E5%88%97%E3%81%AE%E9%95%B7%E3%81%95%E3%81%AB%E6%AF%94%E4%BE%8B%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20array_traversal%28%5B0%5D%20%2A%20n%29%0A%20%20%20%20print%28%22%E7%B7%9A%E5%BD%A2%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E9%85%8D%E5%88%97%E3%81%AE%E8%B5%B0%E6%9F%BB%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-**入力の大きさ $n$ が何を表すかは、入力の種類に応じて決める必要があります**。最初の例では変数 $n$ 自体が入力の大きさで、2 番目の例では配列の長さ $n$ が入力の大きさです。
+**何を入力サイズ $n$ とするかは、入力データの型に合わせて決めます**。最初の例では変数 $n$ の値が入力サイズで、2 番目の例では配列の長さ $n$ が入力サイズです。
 
-### 3. &nbsp; 二乗のオーダー $O(n^2)$ {data-toc-label="3. &nbsp; 二乗のオーダー"}
+### 3. &nbsp; 二次オーダー $O(n^2)$ {data-toc-label="3. &nbsp; 二次オーダー"}
 
-二乗のオーダーでは、操作回数は入力の大きさ $n$ の二乗に比例して増えます。入れ子のループでよく現れ、外側と内側がそれぞれ $O(n)$ なら、全体は $O(n^2)$ です。
+二次オーダーの操作回数は入力サイズ $n$ の二乗に比例して増えます。入れ子のループでよく見られ、外側と内側のループの時間計算量がそれぞれ $O(n)$ なら、全体の時間計算量は $O(n^2)$ です。
 
 === "Python"
 
@@ -1564,7 +1564,7 @@ $$
     def quadratic(n: int) -> int:
         """二次オーダー"""
         count = 0
-        # ループの回数はデータの大きさ n の二乗に比例する
+        # 反復回数はデータサイズ n の二乗に比例
         for i in range(n):
             for j in range(n):
                 count += 1
@@ -1577,7 +1577,7 @@ $$
     /* 二次オーダー */
     int quadratic(int n) {
         int count = 0;
-        // ループの回数はデータの大きさ n の二乗に比例する
+        // 反復回数はデータサイズ n の二乗に比例
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 count++;
@@ -1593,7 +1593,7 @@ $$
     /* 二次オーダー */
     int quadratic(int n) {
         int count = 0;
-        // ループの回数はデータの大きさ n の二乗に比例する
+        // 反復回数はデータサイズ n の二乗に比例
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 count++;
@@ -1609,7 +1609,7 @@ $$
     /* 二次オーダー */
     int Quadratic(int n) {
         int count = 0;
-        // ループの回数はデータの大きさ n の二乗に比例する
+        // 反復回数はデータサイズ n の二乗に比例
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 count++;
@@ -1625,7 +1625,7 @@ $$
     /* 二次オーダー */
     func quadratic(n int) int {
         count := 0
-        // ループの回数はデータの大きさ n の二乗に比例する
+        // 反復回数はデータサイズ n の二乗に比例
         for i := 0; i < n; i++ {
             for j := 0; j < n; j++ {
                 count++
@@ -1641,7 +1641,7 @@ $$
     /* 二次オーダー */
     func quadratic(n: Int) -> Int {
         var count = 0
-        // ループの回数はデータの大きさ n の二乗に比例する
+        // 反復回数はデータサイズ n の二乗に比例
         for _ in 0 ..< n {
             for _ in 0 ..< n {
                 count += 1
@@ -1657,7 +1657,7 @@ $$
     /* 二次オーダー */
     function quadratic(n) {
         let count = 0;
-        // ループの回数はデータの大きさ n の二乗に比例する
+        // 反復回数はデータサイズ n の二乗に比例
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < n; j++) {
                 count++;
@@ -1673,7 +1673,7 @@ $$
     /* 二次オーダー */
     function quadratic(n: number): number {
         let count = 0;
-        // ループの回数はデータの大きさ n の二乗に比例する
+        // 反復回数はデータサイズ n の二乗に比例
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < n; j++) {
                 count++;
@@ -1689,7 +1689,7 @@ $$
     /* 二次オーダー */
     int quadratic(int n) {
       int count = 0;
-      // ループの回数はデータの大きさ n の二乗に比例する
+      // 反復回数はデータサイズ n の二乗に比例
       for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
           count++;
@@ -1705,7 +1705,7 @@ $$
     /* 二次オーダー */
     fn quadratic(n: i32) -> i32 {
         let mut count = 0;
-        // ループの回数はデータの大きさ n の二乗に比例する
+        // 反復回数はデータサイズ n の二乗に比例
         for _ in 0..n {
             for _ in 0..n {
                 count += 1;
@@ -1721,7 +1721,7 @@ $$
     /* 二次オーダー */
     int quadratic(int n) {
         int count = 0;
-        // ループの回数はデータの大きさ n の二乗に比例する
+        // 反復回数はデータサイズ n の二乗に比例
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 count++;
@@ -1737,7 +1737,7 @@ $$
     /* 二次オーダー */
     fun quadratic(n: Int): Int {
         var count = 0
-        // ループの回数はデータの大きさ n の二乗に比例する
+        // 反復回数はデータサイズ n の二乗に比例
         for (i in 0..<n) {
             for (j in 0..<n) {
                 count++
@@ -1754,7 +1754,7 @@ $$
     def quadratic(n)
       count = 0
 
-      # ループの回数はデータの大きさ n の二乗に比例する
+      # 反復回数はデータサイズ n の二乗に比例
       for i in 0...n
         for j in 0...n
           count += 1
@@ -1765,18 +1765,18 @@ $$
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20quadratic%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AE%E5%9B%9E%E6%95%B0%E3%81%AF%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%E3%81%AE%E4%BA%8C%E4%B9%97%E3%81%AB%E6%AF%94%E4%BE%8B%E3%81%99%E3%82%8B%0A%20%20%20%20for%20i%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20quadratic%28n%29%0A%20%20%20%20print%28%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20quadratic%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AE%E5%9B%9E%E6%95%B0%E3%81%AF%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%E3%81%AE%E4%BA%8C%E4%B9%97%E3%81%AB%E6%AF%94%E4%BE%8B%E3%81%99%E3%82%8B%0A%20%20%20%20for%20i%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20quadratic%28n%29%0A%20%20%20%20print%28%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=def%20quadratic%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%E5%8F%8D%E5%BE%A9%E5%9B%9E%E6%95%B0%E3%81%AF%E3%83%87%E3%83%BC%E3%82%BF%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%E3%81%AE%E4%BA%8C%E4%B9%97%E3%81%AB%E6%AF%94%E4%BE%8B%0A%20%20%20%20for%20i%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20quadratic%28n%29%0A%20%20%20%20print%28%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20quadratic%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%E5%8F%8D%E5%BE%A9%E5%9B%9E%E6%95%B0%E3%81%AF%E3%83%87%E3%83%BC%E3%82%BF%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%E3%81%AE%E4%BA%8C%E4%B9%97%E3%81%AB%E6%AF%94%E4%BE%8B%0A%20%20%20%20for%20i%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20quadratic%28n%29%0A%20%20%20%20print%28%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-図 2-10 で、定数、線形、二乗の三つの時間計算量を比較します。
+図 2-10 では、定数、線形、二次の 3 種類の時間計算量を比較しています。
 
-![定数、線形、二乗の時間計算量](time_complexity.assets/time_complexity_constant_linear_quadratic.svg){ class="animation-figure" }
+![定数、線形、二次の時間計算量](time_complexity.assets/time_complexity_constant_linear_quadratic.svg){ class="animation-figure" }
 
-<p align="center"> 図 2-10 &nbsp; 定数、線形、二乗の時間計算量 </p>
+<p align="center"> 図 2-10 &nbsp; 定数、線形、二次の時間計算量 </p>
 
-バブルソートでは、外側のループが $n - 1$ 回、内側が $n-1$、$n-2$、$\dots$、$2$、$1$ 回、平均 $n / 2$ 回実行されます。したがって、時間計算量は $O((n - 1) n / 2) = O(n^2)$ です。
+バブルソートを例に取ると、外側のループは $n - 1$ 回、内側のループは順に $n-1$、$n-2$、$\dots$、$2$、$1$ 回実行されます。内側の平均は $n / 2$ 回なので、時間計算量は $O((n - 1) n / 2) = O(n^2)$ です。
 
 === "Python"
 
@@ -1784,16 +1784,16 @@ $$
     def bubble_sort(nums: list[int]) -> int:
         """二次オーダー（バブルソート）"""
         count = 0  # カウンタ
-        # 外側のループ：未ソート区間は [0, i]
+        # 外側のループ：未整列区間は [0, i]
         for i in range(len(nums) - 1, 0, -1):
-            # 内側のループ：未ソート区間 [0, i] の最大要素を区間の右端に移す
+            # 内側のループ：未整列区間 [0, i] の最大要素を、交換しながら区間の右端へ移す
             for j in range(i):
                 if nums[j] > nums[j + 1]:
-                    # nums[j] と nums[j + 1] を交換する
+                    # nums[j] と nums[j + 1] を交換
                     tmp: int = nums[j]
                     nums[j] = nums[j + 1]
                     nums[j + 1] = tmp
-                    count += 3  # 要素の交換は 3 回の単位操作からなる
+                    count += 3  # 要素の交換は 3 回の基本操作からなる
         return count
     ```
 
@@ -1803,16 +1803,16 @@ $$
     /* 二次オーダー（バブルソート） */
     int bubbleSort(vector<int> &nums) {
         int count = 0; // カウンタ
-        // 外側のループ：未ソート区間は [0, i]
+        // 外側のループ：未整列区間は [0, i]
         for (int i = nums.size() - 1; i > 0; i--) {
-            // 内側のループ：未ソート区間 [0, i] の最大要素を区間の右端に移す
+            // 内側のループ：未整列区間 [0, i] の最大要素を、交換しながら区間の右端へ移す
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
-                    // nums[j] と nums[j + 1] を交換する
+                    // nums[j] と nums[j + 1] を交換
                     int tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    count += 3; // 要素の交換は 3 回の単位操作からなる
+                    count += 3; // 要素の交換は 3 回の基本操作からなる
                 }
             }
         }
@@ -1826,16 +1826,16 @@ $$
     /* 二次オーダー（バブルソート） */
     int bubbleSort(int[] nums) {
         int count = 0; // カウンタ
-        // 外側のループ：未ソート区間は [0, i]
+        // 外側のループ：未整列区間は [0, i]
         for (int i = nums.length - 1; i > 0; i--) {
-            // 内側のループ：未ソート区間 [0, i] の最大要素を区間の右端に移す
+            // 内側のループ：未整列区間 [0, i] の最大要素を、交換しながら区間の右端へ移す
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
-                    // nums[j] と nums[j + 1] を交換する
+                    // nums[j] と nums[j + 1] を交換
                     int tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    count += 3; // 要素の交換は 3 回の単位操作からなる
+                    count += 3; // 要素の交換は 3 回の基本操作からなる
                 }
             }
         }
@@ -1849,14 +1849,14 @@ $$
     /* 二次オーダー（バブルソート） */
     int BubbleSort(int[] nums) {
         int count = 0;  // カウンタ
-        // 外側のループ：未ソート区間は [0, i]
+        // 外側のループ：未整列区間は [0, i]
         for (int i = nums.Length - 1; i > 0; i--) {
-            // 内側のループ：未ソート区間 [0, i] の最大要素を区間の右端に移す
+            // 内側のループ：未整列区間 [0, i] の最大要素を、交換しながら区間の右端へ移す
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
-                    // nums[j] と nums[j + 1] を交換する
+                    // nums[j] と nums[j + 1] を交換
                     (nums[j + 1], nums[j]) = (nums[j], nums[j + 1]);
-                    count += 3;  // 要素の交換は 3 回の単位操作からなる
+                    count += 3;  // 要素の交換は 3 回の基本操作からなる
                 }
             }
         }
@@ -1870,16 +1870,16 @@ $$
     /* 二次オーダー（バブルソート） */
     func bubbleSort(nums []int) int {
         count := 0 // カウンタ
-        // 外側のループ：未ソート区間は [0, i]
+        // 外側のループ：未整列区間は [0, i]
         for i := len(nums) - 1; i > 0; i-- {
-            // 内側のループ：未ソート区間 [0, i] の最大要素を区間の右端に移す
+            // 内側のループ：未整列区間 [0, i] の最大要素を、交換しながら区間の右端へ移す
             for j := 0; j < i; j++ {
                 if nums[j] > nums[j+1] {
-                    // nums[j] と nums[j + 1] を交換する
+                    // nums[j] と nums[j + 1] を交換
                     tmp := nums[j]
                     nums[j] = nums[j+1]
                     nums[j+1] = tmp
-                    count += 3 // 要素の交換は 3 回の単位操作からなる
+                    count += 3 // 要素の交換は 3 回の基本操作からなる
                 }
             }
         }
@@ -1893,16 +1893,16 @@ $$
     /* 二次オーダー（バブルソート） */
     func bubbleSort(nums: inout [Int]) -> Int {
         var count = 0 // カウンタ
-        // 外側のループ：未ソート区間は [0, i]
+        // 外側のループ：未整列区間は [0, i]
         for i in nums.indices.dropFirst().reversed() {
-            // 内側のループ：未ソート区間 [0, i] の最大要素を区間の右端に移す
+            // 内側のループ：未整列区間 [0, i] の最大要素を、交換しながら区間の右端へ移す
             for j in 0 ..< i {
                 if nums[j] > nums[j + 1] {
-                    // nums[j] と nums[j + 1] を交換する
+                    // nums[j] と nums[j + 1] を交換
                     let tmp = nums[j]
                     nums[j] = nums[j + 1]
                     nums[j + 1] = tmp
-                    count += 3 // 要素の交換は 3 回の単位操作からなる
+                    count += 3 // 要素の交換は 3 回の基本操作からなる
                 }
             }
         }
@@ -1916,16 +1916,16 @@ $$
     /* 二次オーダー（バブルソート） */
     function bubbleSort(nums) {
         let count = 0; // カウンタ
-        // 外側のループ：未ソート区間は [0, i]
+        // 外側のループ：未整列区間は [0, i]
         for (let i = nums.length - 1; i > 0; i--) {
-            // 内側のループ：未ソート区間 [0, i] の最大要素を区間の右端に移す
+            // 内側のループ：未整列区間 [0, i] の最大要素を、交換しながら区間の右端へ移す
             for (let j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
-                    // nums[j] と nums[j + 1] を交換する
+                    // nums[j] と nums[j + 1] を交換
                     let tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    count += 3; // 要素の交換は 3 回の単位操作からなる
+                    count += 3; // 要素の交換は 3 回の基本操作からなる
                 }
             }
         }
@@ -1939,16 +1939,16 @@ $$
     /* 二次オーダー（バブルソート） */
     function bubbleSort(nums: number[]): number {
         let count = 0; // カウンタ
-        // 外側のループ：未ソート区間は [0, i]
+        // 外側のループ：未整列区間は [0, i]
         for (let i = nums.length - 1; i > 0; i--) {
-            // 内側のループ：未ソート区間 [0, i] の最大要素を区間の右端に移す
+            // 内側のループ：未整列区間 [0, i] の最大要素を、交換しながら区間の右端へ移す
             for (let j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
-                    // nums[j] と nums[j + 1] を交換する
+                    // nums[j] と nums[j + 1] を交換
                     let tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    count += 3; // 要素の交換は 3 回の単位操作からなる
+                    count += 3; // 要素の交換は 3 回の基本操作からなる
                 }
             }
         }
@@ -1962,16 +1962,16 @@ $$
     /* 二次オーダー（バブルソート） */
     int bubbleSort(List<int> nums) {
       int count = 0; // カウンタ
-      // 外側のループ：未ソート区間は [0, i]
+      // 外側のループ：未整列区間は [0, i]
       for (var i = nums.length - 1; i > 0; i--) {
-        // 内側のループ：未ソート区間 [0, i] の最大要素を区間の右端に移す
+        // 内側のループ：未整列区間 [0, i] の最大要素を、交換しながら区間の右端へ移す
         for (var j = 0; j < i; j++) {
           if (nums[j] > nums[j + 1]) {
-            // nums[j] と nums[j + 1] を交換する
+            // nums[j] と nums[j + 1] を交換
             int tmp = nums[j];
             nums[j] = nums[j + 1];
             nums[j + 1] = tmp;
-            count += 3; // 要素の交換は 3 回の単位操作からなる
+            count += 3; // 要素の交換は 3 回の基本操作からなる
           }
         }
       }
@@ -1986,16 +1986,16 @@ $$
     fn bubble_sort(nums: &mut [i32]) -> i32 {
         let mut count = 0; // カウンタ
 
-        // 外側のループ：未ソート区間は [0, i]
+        // 外側のループ：未整列区間は [0, i]
         for i in (1..nums.len()).rev() {
-            // 内側のループ：未ソート区間 [0, i] の最大要素を区間の右端に移す
+            // 内側のループ：未整列区間 [0, i] の最大要素を、交換しながら区間の右端へ移す
             for j in 0..i {
                 if nums[j] > nums[j + 1] {
-                    // nums[j] と nums[j + 1] を交換する
+                    // nums[j] と nums[j + 1] を交換
                     let tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    count += 3; // 要素の交換は 3 回の単位操作からなる
+                    count += 3; // 要素の交換は 3 回の基本操作からなる
                 }
             }
         }
@@ -2009,16 +2009,16 @@ $$
     /* 二次オーダー（バブルソート） */
     int bubbleSort(int *nums, int n) {
         int count = 0; // カウンタ
-        // 外側のループ：未ソート区間は [0, i]
+        // 外側のループ：未整列区間は [0, i]
         for (int i = n - 1; i > 0; i--) {
-            // 内側のループ：未ソート区間 [0, i] の最大要素を区間の右端に移す
+            // 内側のループ：未整列区間 [0, i] の最大要素を、交換しながら区間の右端へ移す
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
-                    // nums[j] と nums[j + 1] を交換する
+                    // nums[j] と nums[j + 1] を交換
                     int tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    count += 3; // 要素の交換は 3 回の単位操作からなる
+                    count += 3; // 要素の交換は 3 回の基本操作からなる
                 }
             }
         }
@@ -2032,16 +2032,16 @@ $$
     /* 二次オーダー（バブルソート） */
     fun bubbleSort(nums: IntArray): Int {
         var count = 0 // カウンタ
-        // 外側のループ：未ソート区間は [0, i]
+        // 外側のループ：未整列区間は [0, i]
         for (i in nums.size - 1 downTo 1) {
-            // 内側のループ：未ソート区間 [0, i] の最大要素を区間の右端に移す
+            // 内側のループ：未整列区間 [0, i] の最大要素を、交換しながら区間の右端へ移す
             for (j in 0..<i) {
                 if (nums[j] > nums[j + 1]) {
-                    // nums[j] と nums[j + 1] を交換する
+                    // nums[j] と nums[j + 1] を交換
                     val temp = nums[j]
                     nums[j] = nums[j + 1]
                     nums[j + 1] = temp
-                    count += 3 // 要素の交換は 3 回の単位操作からなる
+                    count += 3 // 要素の交換は 3 回の基本操作からなる
                 }
             }
         }
@@ -2056,16 +2056,16 @@ $$
     def bubble_sort(nums)
       count = 0  # カウンタ
 
-      # 外側のループ：未ソート区間は [0, i]
+      # 外側のループ：未整列区間は [0, i]
       for i in (nums.length - 1).downto(0)
-        # 内側のループ：未ソート区間 [0, i] の最大要素を区間の右端に移す
+        # 内側のループ：未整列区間 [0, i] の最大要素を、交換しながら区間の右端へ移す
         for j in 0...i
           if nums[j] > nums[j + 1]
-            # nums[j] と nums[j + 1] を交換する
+            # nums[j] と nums[j + 1] を交換
             tmp = nums[j]
             nums[j] = nums[j + 1]
             nums[j + 1] = tmp
-            count += 3 # 要素の交換は 3 回の単位操作からなる
+            count += 3 # 要素の交換は 3 回の基本操作からなる
           end
         end
       end
@@ -2074,16 +2074,16 @@ $$
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20bubble_sort%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%90%E3%83%96%E3%83%AB%E3%82%BD%E3%83%BC%E3%83%88%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%20%20%23%20%E3%82%AB%E3%82%A6%E3%83%B3%E3%82%BF%0A%20%20%20%20%23%20%E5%A4%96%E5%81%B4%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%97%EF%BC%9A%E6%9C%AA%E3%82%BD%E3%83%BC%E3%83%88%E5%8C%BA%E9%96%93%E3%81%AF%20%5B0,%20i%5D%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E5%86%85%E5%81%B4%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%97%EF%BC%9A%E6%9C%AA%E3%82%BD%E3%83%BC%E3%83%88%E5%8C%BA%E9%96%93%20%5B0,%20i%5D%20%E3%81%AE%E6%9C%80%E5%A4%A7%E8%A6%81%E7%B4%A0%E3%82%92%E5%8C%BA%E9%96%93%E3%81%AE%E5%8F%B3%E7%AB%AF%E3%81%AB%E7%A7%BB%E3%81%99%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bj%5D%20%3E%20nums%5Bj%20%2B%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20nums%5Bj%5D%20%E3%81%A8%20nums%5Bj%20%2B%201%5D%20%E3%82%92%E4%BA%A4%E6%8F%9B%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tmp%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%5D%20%3D%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%20%2B%201%5D%20%3D%20tmp%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%203%20%20%23%20%E8%A6%81%E7%B4%A0%E3%81%AE%E4%BA%A4%E6%8F%9B%E3%81%AF%203%20%E5%9B%9E%E3%81%AE%E5%8D%98%E4%BD%8D%E6%93%8D%E4%BD%9C%E3%81%8B%E3%82%89%E3%81%AA%E3%82%8B%0A%20%20%20%20return%20count%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20nums%20%3D%20%5Bi%20for%20i%20in%20range%28n,%200,%20-1%29%5D%20%20%23%20%5Bn,%20n-1,%20...,%202,%201%5D%0A%20%20%20%20count%20%3D%20bubble_sort%28nums%29%0A%20%20%20%20print%28%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%90%E3%83%96%E3%83%AB%E3%82%BD%E3%83%BC%E3%83%88%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20bubble_sort%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%90%E3%83%96%E3%83%AB%E3%82%BD%E3%83%BC%E3%83%88%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%20%20%23%20%E3%82%AB%E3%82%A6%E3%83%B3%E3%82%BF%0A%20%20%20%20%23%20%E5%A4%96%E5%81%B4%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%97%EF%BC%9A%E6%9C%AA%E3%82%BD%E3%83%BC%E3%83%88%E5%8C%BA%E9%96%93%E3%81%AF%20%5B0,%20i%5D%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E5%86%85%E5%81%B4%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%97%EF%BC%9A%E6%9C%AA%E3%82%BD%E3%83%BC%E3%83%88%E5%8C%BA%E9%96%93%20%5B0,%20i%5D%20%E3%81%AE%E6%9C%80%E5%A4%A7%E8%A6%81%E7%B4%A0%E3%82%92%E5%8C%BA%E9%96%93%E3%81%AE%E5%8F%B3%E7%AB%AF%E3%81%AB%E7%A7%BB%E3%81%99%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bj%5D%20%3E%20nums%5Bj%20%2B%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20nums%5Bj%5D%20%E3%81%A8%20nums%5Bj%20%2B%201%5D%20%E3%82%92%E4%BA%A4%E6%8F%9B%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tmp%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%5D%20%3D%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%20%2B%201%5D%20%3D%20tmp%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%203%20%20%23%20%E8%A6%81%E7%B4%A0%E3%81%AE%E4%BA%A4%E6%8F%9B%E3%81%AF%203%20%E5%9B%9E%E3%81%AE%E5%8D%98%E4%BD%8D%E6%93%8D%E4%BD%9C%E3%81%8B%E3%82%89%E3%81%AA%E3%82%8B%0A%20%20%20%20return%20count%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20nums%20%3D%20%5Bi%20for%20i%20in%20range%28n,%200,%20-1%29%5D%20%20%23%20%5Bn,%20n-1,%20...,%202,%201%5D%0A%20%20%20%20count%20%3D%20bubble_sort%28nums%29%0A%20%20%20%20print%28%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%90%E3%83%96%E3%83%AB%E3%82%BD%E3%83%BC%E3%83%88%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=def%20bubble_sort%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%90%E3%83%96%E3%83%AB%E3%82%BD%E3%83%BC%E3%83%88%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%20%20%23%20%E3%82%AB%E3%82%A6%E3%83%B3%E3%82%BF%0A%20%20%20%20%23%20%E5%A4%96%E5%81%B4%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%97%EF%BC%9A%E6%9C%AA%E6%95%B4%E5%88%97%E5%8C%BA%E9%96%93%E3%81%AF%20%5B0,%20i%5D%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E5%86%85%E5%81%B4%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%97%EF%BC%9A%E6%9C%AA%E6%95%B4%E5%88%97%E5%8C%BA%E9%96%93%20%5B0,%20i%5D%20%E3%81%AE%E6%9C%80%E5%A4%A7%E8%A6%81%E7%B4%A0%E3%82%92%E3%80%81%E4%BA%A4%E6%8F%9B%E3%81%97%E3%81%AA%E3%81%8C%E3%82%89%E5%8C%BA%E9%96%93%E3%81%AE%E5%8F%B3%E7%AB%AF%E3%81%B8%E7%A7%BB%E3%81%99%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bj%5D%20%3E%20nums%5Bj%20%2B%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20nums%5Bj%5D%20%E3%81%A8%20nums%5Bj%20%2B%201%5D%20%E3%82%92%E4%BA%A4%E6%8F%9B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tmp%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%5D%20%3D%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%20%2B%201%5D%20%3D%20tmp%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%203%20%20%23%20%E8%A6%81%E7%B4%A0%E3%81%AE%E4%BA%A4%E6%8F%9B%E3%81%AF%203%20%E5%9B%9E%E3%81%AE%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E3%81%8B%E3%82%89%E3%81%AA%E3%82%8B%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20nums%20%3D%20%5Bi%20for%20i%20in%20range%28n,%200,%20-1%29%5D%20%20%23%20%5Bn,%20n-1,%20...,%202,%201%5D%0A%20%20%20%20count%20%3D%20bubble_sort%28nums%29%0A%20%20%20%20print%28%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%90%E3%83%96%E3%83%AB%E3%82%BD%E3%83%BC%E3%83%88%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20bubble_sort%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%90%E3%83%96%E3%83%AB%E3%82%BD%E3%83%BC%E3%83%88%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%20%20%23%20%E3%82%AB%E3%82%A6%E3%83%B3%E3%82%BF%0A%20%20%20%20%23%20%E5%A4%96%E5%81%B4%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%97%EF%BC%9A%E6%9C%AA%E6%95%B4%E5%88%97%E5%8C%BA%E9%96%93%E3%81%AF%20%5B0,%20i%5D%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201,%200,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E5%86%85%E5%81%B4%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%97%EF%BC%9A%E6%9C%AA%E6%95%B4%E5%88%97%E5%8C%BA%E9%96%93%20%5B0,%20i%5D%20%E3%81%AE%E6%9C%80%E5%A4%A7%E8%A6%81%E7%B4%A0%E3%82%92%E3%80%81%E4%BA%A4%E6%8F%9B%E3%81%97%E3%81%AA%E3%81%8C%E3%82%89%E5%8C%BA%E9%96%93%E3%81%AE%E5%8F%B3%E7%AB%AF%E3%81%B8%E7%A7%BB%E3%81%99%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bj%5D%20%3E%20nums%5Bj%20%2B%201%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20nums%5Bj%5D%20%E3%81%A8%20nums%5Bj%20%2B%201%5D%20%E3%82%92%E4%BA%A4%E6%8F%9B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tmp%20%3D%20nums%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%5D%20%3D%20nums%5Bj%20%2B%201%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nums%5Bj%20%2B%201%5D%20%3D%20tmp%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%203%20%20%23%20%E8%A6%81%E7%B4%A0%E3%81%AE%E4%BA%A4%E6%8F%9B%E3%81%AF%203%20%E5%9B%9E%E3%81%AE%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E3%81%8B%E3%82%89%E3%81%AA%E3%82%8B%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20nums%20%3D%20%5Bi%20for%20i%20in%20range%28n,%200,%20-1%29%5D%20%20%23%20%5Bn,%20n-1,%20...,%202,%201%5D%0A%20%20%20%20count%20%3D%20bubble_sort%28nums%29%0A%20%20%20%20print%28%22%E4%BA%8C%E6%AC%A1%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%90%E3%83%96%E3%83%AB%E3%82%BD%E3%83%BC%E3%83%88%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-### 4. &nbsp; 指数のオーダー $O(2^n)$ {data-toc-label="4. &nbsp; 指数のオーダー"}
+### 4. &nbsp; 指数オーダー $O(2^n)$ {data-toc-label="4. &nbsp; 指数オーダー"}
 
-生物の「細胞分裂」は、指数的な増加の典型例です。最初に $1$ 個の細胞があり、1 回分裂すると $2$ 個、2 回では $4$ 個となり、$n$ 回後には $2^n$ 個になります。
+生物の「細胞分裂」は指数的な増加の典型例です。初めは $1$ 個の細胞が、分裂を 1 回繰り返すと $2$ 個、2 回で $4$ 個となり、同じように $n$ 回繰り返した後には $2^n$ 個になります。
 
-図 2-11 と次のコードは細胞分裂を模擬しており、時間計算量は $O(2^n)$ です。入力 $n$ は分裂するラウンド数、戻り値 `count` は分裂の総回数を表します。
+図 2-11 とコードは細胞分裂の過程を模擬したもので、時間計算量は $O(2^n)$ です。入力 $n$ は分裂を何回繰り返すかを表し、戻り値 `count` は個々の分裂を合計した回数を表します。
 
 === "Python"
 
@@ -2092,7 +2092,7 @@ $$
         """指数オーダー（ループによる実装）"""
         count = 0
         base = 1
-        # 各回で細胞が 2 つに分裂し、数列 1, 2, 4, 8, ..., 2^(n-1) を形成する
+        # 各回で細胞が二分し、分裂する細胞の数は 1, 2, 4, 8, ..., 2^(n-1) となる
         for _ in range(n):
             for _ in range(base):
                 count += 1
@@ -2107,7 +2107,7 @@ $$
     /* 指数オーダー（ループによる実装） */
     int exponential(int n) {
         int count = 0, base = 1;
-        // 各回で細胞が 2 つに分裂し、数列 1, 2, 4, 8, ..., 2^(n-1) を形成する
+        // 各回で細胞が二分し、分裂する細胞の数は 1, 2, 4, 8, ..., 2^(n-1) となる
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < base; j++) {
                 count++;
@@ -2125,7 +2125,7 @@ $$
     /* 指数オーダー（ループによる実装） */
     int exponential(int n) {
         int count = 0, base = 1;
-        // 各回で細胞が 2 つに分裂し、数列 1, 2, 4, 8, ..., 2^(n-1) を形成する
+        // 各回で細胞が二分し、分裂する細胞の数は 1, 2, 4, 8, ..., 2^(n-1) となる
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < base; j++) {
                 count++;
@@ -2143,7 +2143,7 @@ $$
     /* 指数オーダー（ループによる実装） */
     int Exponential(int n) {
         int count = 0, bas = 1;
-        // 各回で細胞が 2 つに分裂し、数列 1, 2, 4, 8, ..., 2^(n-1) を形成する
+        // 各回で細胞が二分し、分裂する細胞の数は 1, 2, 4, 8, ..., 2^(n-1) となる
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < bas; j++) {
                 count++;
@@ -2161,7 +2161,7 @@ $$
     /* 指数オーダー（ループによる実装）*/
     func exponential(n int) int {
         count, base := 0, 1
-        // 各回で細胞が 2 つに分裂し、数列 1, 2, 4, 8, ..., 2^(n-1) を形成する
+        // 各回で細胞が二分し、分裂する細胞の数は 1, 2, 4, 8, ..., 2^(n-1) となる
         for i := 0; i < n; i++ {
             for j := 0; j < base; j++ {
                 count++
@@ -2180,7 +2180,7 @@ $$
     func exponential(n: Int) -> Int {
         var count = 0
         var base = 1
-        // 各回で細胞が 2 つに分裂し、数列 1, 2, 4, 8, ..., 2^(n-1) を形成する
+        // 各回で細胞が二分し、分裂する細胞の数は 1, 2, 4, 8, ..., 2^(n-1) となる
         for _ in 0 ..< n {
             for _ in 0 ..< base {
                 count += 1
@@ -2199,7 +2199,7 @@ $$
     function exponential(n) {
         let count = 0,
             base = 1;
-        // 各回で細胞が 2 つに分裂し、数列 1, 2, 4, 8, ..., 2^(n-1) を形成する
+        // 各回で細胞が二分し、分裂する細胞の数は 1, 2, 4, 8, ..., 2^(n-1) となる
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < base; j++) {
                 count++;
@@ -2218,7 +2218,7 @@ $$
     function exponential(n: number): number {
         let count = 0,
             base = 1;
-        // 各回で細胞が 2 つに分裂し、数列 1, 2, 4, 8, ..., 2^(n-1) を形成する
+        // 各回で細胞が二分し、分裂する細胞の数は 1, 2, 4, 8, ..., 2^(n-1) となる
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < base; j++) {
                 count++;
@@ -2236,7 +2236,7 @@ $$
     /* 指数オーダー（ループによる実装） */
     int exponential(int n) {
       int count = 0, base = 1;
-      // 各回で細胞が 2 つに分裂し、数列 1, 2, 4, 8, ..., 2^(n-1) を形成する
+      // 各回で細胞が二分し、分裂する細胞の数は 1, 2, 4, 8, ..., 2^(n-1) となる
       for (var i = 0; i < n; i++) {
         for (var j = 0; j < base; j++) {
           count++;
@@ -2255,7 +2255,7 @@ $$
     fn exponential(n: i32) -> i32 {
         let mut count = 0;
         let mut base = 1;
-        // 各回で細胞が 2 つに分裂し、数列 1, 2, 4, 8, ..., 2^(n-1) を形成する
+        // 各回で細胞が二分し、分裂する細胞の数は 1, 2, 4, 8, ..., 2^(n-1) となる
         for _ in 0..n {
             for _ in 0..base {
                 count += 1
@@ -2274,7 +2274,7 @@ $$
     int exponential(int n) {
         int count = 0;
         int bas = 1;
-        // 各回で細胞が 2 つに分裂し、数列 1, 2, 4, 8, ..., 2^(n-1) を形成する
+        // 各回で細胞が二分し、分裂する細胞の数は 1, 2, 4, 8, ..., 2^(n-1) となる
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < bas; j++) {
                 count++;
@@ -2293,7 +2293,7 @@ $$
     fun exponential(n: Int): Int {
         var count = 0
         var base = 1
-        // 各回で細胞が 2 つに分裂し、数列 1, 2, 4, 8, ..., 2^(n-1) を形成する
+        // 各回で細胞が二分し、分裂する細胞の数は 1, 2, 4, 8, ..., 2^(n-1) となる
         for (i in 0..<n) {
             for (j in 0..<base) {
                 count++
@@ -2312,7 +2312,7 @@ $$
     def exponential(n)
       count, base = 0, 1
 
-      # 各回で細胞が 2 つに分裂し、数列 1, 2, 4, 8, ..., 2^(n-1) を形成する
+      # 各回で細胞が二分し、分裂する細胞の数は 1, 2, 4, 8, ..., 2^(n-1) となる
       (0...n).each do
         (0...base).each { count += 1 }
         base *= 2
@@ -2323,16 +2323,16 @@ $$
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 531px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20exponential%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20base%20%3D%201%0A%20%20%20%20%23%20%E5%90%84%E5%9B%9E%E3%81%A7%E7%B4%B0%E8%83%9E%E3%81%8C%202%20%E3%81%A4%E3%81%AB%E5%88%86%E8%A3%82%E3%81%97%E3%80%81%E6%95%B0%E5%88%97%201,%202,%204,%208,%20...,%202%5E%28n-1%29%20%E3%82%92%E5%BD%A2%E6%88%90%E3%81%99%E3%82%8B%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20_%20in%20range%28base%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%20%20%20%20base%20%2A%3D%202%0A%20%20%20%20%23%20count%20%3D%201%20%2B%202%20%2B%204%20%2B%208%20%2B%20..%20%2B%202%5E%28n-1%29%20%3D%202%5En%20-%201%0A%20%20%20%20return%20count%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20exponential%28n%29%0A%20%20%20%20print%28%22%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20exponential%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20base%20%3D%201%0A%20%20%20%20%23%20%E5%90%84%E5%9B%9E%E3%81%A7%E7%B4%B0%E8%83%9E%E3%81%8C%202%20%E3%81%A4%E3%81%AB%E5%88%86%E8%A3%82%E3%81%97%E3%80%81%E6%95%B0%E5%88%97%201,%202,%204,%208,%20...,%202%5E%28n-1%29%20%E3%82%92%E5%BD%A2%E6%88%90%E3%81%99%E3%82%8B%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20_%20in%20range%28base%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%20%20%20%20base%20%2A%3D%202%0A%20%20%20%20%23%20count%20%3D%201%20%2B%202%20%2B%204%20%2B%208%20%2B%20..%20%2B%202%5E%28n-1%29%20%3D%202%5En%20-%201%0A%20%20%20%20return%20count%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20exponential%28n%29%0A%20%20%20%20print%28%22%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 531px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=def%20exponential%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20base%20%3D%201%0A%20%20%20%20%23%20%E5%90%84%E5%9B%9E%E3%81%A7%E7%B4%B0%E8%83%9E%E3%81%8C%E4%BA%8C%E5%88%86%E3%81%97%E3%80%81%E5%88%86%E8%A3%82%E3%81%99%E3%82%8B%E7%B4%B0%E8%83%9E%E3%81%AE%E6%95%B0%E3%81%AF%201,%202,%204,%208,%20...,%202%5E%28n-1%29%20%E3%81%A8%E3%81%AA%E3%82%8B%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20_%20in%20range%28base%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%20%20%20%20base%20%2A%3D%202%0A%20%20%20%20%23%20count%20%3D%201%20%2B%202%20%2B%204%20%2B%208%20%2B%20..%20%2B%202%5E%28n-1%29%20%3D%202%5En%20-%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20exponential%28n%29%0A%20%20%20%20print%28%22%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20exponential%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20base%20%3D%201%0A%20%20%20%20%23%20%E5%90%84%E5%9B%9E%E3%81%A7%E7%B4%B0%E8%83%9E%E3%81%8C%E4%BA%8C%E5%88%86%E3%81%97%E3%80%81%E5%88%86%E8%A3%82%E3%81%99%E3%82%8B%E7%B4%B0%E8%83%9E%E3%81%AE%E6%95%B0%E3%81%AF%201,%202,%204,%208,%20...,%202%5E%28n-1%29%20%E3%81%A8%E3%81%AA%E3%82%8B%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20for%20_%20in%20range%28base%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%20%20%20%20base%20%2A%3D%202%0A%20%20%20%20%23%20count%20%3D%201%20%2B%202%20%2B%204%20%2B%208%20%2B%20..%20%2B%202%5E%28n-1%29%20%3D%202%5En%20-%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20exponential%28n%29%0A%20%20%20%20print%28%22%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-![指数の時間計算量](time_complexity.assets/time_complexity_exponential.svg){ class="animation-figure" }
+![指数オーダーの時間計算量](time_complexity.assets/time_complexity_exponential.svg){ class="animation-figure" }
 
-<p align="center"> 図 2-11 &nbsp; 指数の時間計算量 </p>
+<p align="center"> 図 2-11 &nbsp; 指数オーダーの時間計算量 </p>
 
-実際のアルゴリズムでは、指数のオーダーは再帰関数によく現れます。次のコードは、再帰的に二つに分かれ、$n$ 回分岐したら止まります。
+実際のアルゴリズムでは、指数オーダーは再帰関数によく現れます。例えば次のコードは再帰的に二分岐し、$n$ 回分かれると止まります。
 
 === "Python"
 
@@ -2475,18 +2475,18 @@ $$
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 423px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20exp_recur%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20return%20exp_recur%28n%20-%201%29%20%2B%20exp_recur%28n%20-%201%29%20%2B%201%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%207%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20exp_recur%28n%29%0A%20%20%20%20print%28%22%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20exp_recur%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20return%20exp_recur%28n%20-%201%29%20%2B%20exp_recur%28n%20-%201%29%20%2B%201%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%207%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20exp_recur%28n%29%0A%20%20%20%20print%28%22%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 423px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=def%20exp_recur%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20return%20exp_recur%28n%20-%201%29%20%2B%20exp_recur%28n%20-%201%29%20%2B%201%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%207%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20exp_recur%28n%29%0A%20%20%20%20print%28%22%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20exp_recur%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20return%20exp_recur%28n%20-%201%29%20%2B%20exp_recur%28n%20-%201%29%20%2B%201%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%207%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20exp_recur%28n%29%0A%20%20%20%20print%28%22%E6%8C%87%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-指数のオーダーは非常に速く増え、全探索やバックトラッキングなどの総当たり法によく現れます。大規模な問題では許容できないため、通常は動的計画法や貪欲法などを使う必要があります。
+指数オーダーは非常に速く増えます。全探索（総当たり探索やバックトラッキングなど）でよく見られますが、データサイズが大きい問題には適さず、通常は動的計画法や貪欲法などで解く必要があります。
 
-### 5. &nbsp; 対数のオーダー $O(\log n)$ {data-toc-label="5. &nbsp; 対数のオーダー"}
+### 5. &nbsp; 対数オーダー $O(\log n)$ {data-toc-label="5. &nbsp; 対数オーダー"}
 
-指数とは逆に、対数のオーダーは「毎回半分に縮む」場合を表します。入力の大きさを $n$ とすると、毎回半分になるため、ループ回数は $\log_2 n$、すなわち $2^n$ の逆関数になります。
+指数オーダーとは逆に、対数オーダーは「毎回半分に減る」場合に現れます。入力サイズが $n$ で毎回半分になると、反復回数は $\log_2 n$ です。これは $2^n$ の逆関数に当たります。
 
-図 2-12 と次のコードは「毎回半分にする」過程を模擬しています。時間計算量は $O(\log_2 n)$、略して $O(\log n)$ です。
+図 2-12 とコードは毎回半分に減らす過程を模擬しています。時間計算量は $O(\log_2 n)$ で、略して $O(\log n)$ と書きます。
 
 === "Python"
 
@@ -2672,16 +2672,16 @@ $$
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20logarithmic%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20while%20n%20%3E%201%3A%0A%20%20%20%20%20%20%20%20n%20%3D%20n%20/%202%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20logarithmic%28n%29%0A%20%20%20%20print%28%22%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20logarithmic%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20while%20n%20%3E%201%3A%0A%20%20%20%20%20%20%20%20n%20%3D%20n%20/%202%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20logarithmic%28n%29%0A%20%20%20%20print%28%22%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 459px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=def%20logarithmic%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20while%20n%20%3E%201%3A%0A%20%20%20%20%20%20%20%20n%20%3D%20n%20/%202%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20logarithmic%28n%29%0A%20%20%20%20print%28%22%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20logarithmic%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20while%20n%20%3E%201%3A%0A%20%20%20%20%20%20%20%20n%20%3D%20n%20/%202%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20logarithmic%28n%29%0A%20%20%20%20print%28%22%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-![対数の時間計算量](time_complexity.assets/time_complexity_logarithmic.svg){ class="animation-figure" }
+![対数オーダーの時間計算量](time_complexity.assets/time_complexity_logarithmic.svg){ class="animation-figure" }
 
-<p align="center"> 図 2-12 &nbsp; 対数の時間計算量 </p>
+<p align="center"> 図 2-12 &nbsp; 対数オーダーの時間計算量 </p>
 
-指数と同様、対数のオーダーも再帰関数によく現れます。次のコードは、高さ $\log_2 n$ の再帰木を作ります。
+指数オーダーと同じように、対数オーダーも再帰関数によく現れます。次のコードが作る再帰木の高さは $\log_2 n$ です。
 
 === "Python"
 
@@ -2823,26 +2823,26 @@ $$
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 423px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20log_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20return%20log_recur%28n%20/%202%29%20%2B%201%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20log_recur%28n%29%0A%20%20%20%20print%28%22%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20log_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20return%20log_recur%28n%20/%202%29%20%2B%201%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20log_recur%28n%29%0A%20%20%20%20print%28%22%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 423px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=def%20log_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20return%20log_recur%28n%20/%202%29%20%2B%201%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20log_recur%28n%29%0A%20%20%20%20print%28%22%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20log_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20return%20log_recur%28n%20/%202%29%20%2B%201%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20log_recur%28n%29%0A%20%20%20%20print%28%22%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-対数のオーダーは、分割統治のアルゴリズムによく現れ、「一つを複数に分ける」「複雑なものを単純にする」という考え方を表します。増加が遅く、定数のオーダーに次いで理想的な時間計算量です。
+対数オーダーは分割統治に基づくアルゴリズムによく現れ、一つの問題を複数に分けて複雑な問題を単純にするという考え方を表しています。増え方が緩やかで、定数オーダーに次いで望ましい時間計算量です。
 
-!!! tip "$O(\log n)$ の底は何ですか？"
+!!! tip "$O(\log n)$ の対数の底はいくつか"
 
-    厳密には、「$m$ 分の 1 にする」場合の時間計算量は $O(\log_m n)$ です。底の変換公式を使えば、異なる底でも同じ時間計算量になることがわかります。
+    正確には、「$m$ 等分する」場合の時間計算量は $O(\log_m n)$ です。対数の底の変換公式を使うと、底が異なっても時間計算量が等しいことがわかります。
 
     $$
     O(\log_m n) = O(\log_k n / \log_k m) = O(\log_k n)
     $$
 
-    つまり、底 $m$ は計算量を変えずに変換できます。そのため通常は底 $m$ を省き、対数のオーダーを $O(\log n)$ と書きます。
+    つまり、底 $m$ を変えても計算量には影響しません。そのため通常は底 $m$ を省略し、対数オーダーを単に $O(\log n)$ と書きます。
 
-### 6. &nbsp; 線形対数のオーダー $O(n \log n)$ {data-toc-label="6. &nbsp; 線形対数のオーダー"}
+### 6. &nbsp; 線形対数オーダー $O(n \log n)$ {data-toc-label="6. &nbsp; 線形対数オーダー"}
 
-線形対数のオーダーは、二つのループの時間計算量がそれぞれ $O(\log n)$ と $O(n)$ の入れ子の処理によく現れます。関連するコードを次に示します。
+線形対数オーダーは、2 段のループの時間計算量がそれぞれ $O(\log n)$ と $O(n)$ である入れ子のループによく現れます。対応するコードを示します。
 
 === "Python"
 
@@ -2851,9 +2851,9 @@ $$
         """線形対数オーダー"""
         if n <= 1:
             return 1
-        # 2 つに分割し、部分問題の大きさを半分にする
+        # 二分すると部分問題のサイズは半分になる
         count = linear_log_recur(n // 2) + linear_log_recur(n // 2)
-        # 現在の部分問題には n 回の操作が含まれる
+        # 現在の部分問題には n 回の操作がある
         for _ in range(n):
             count += 1
         return count
@@ -3039,28 +3039,28 @@ $$
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20linear_log_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%B7%9A%E5%BD%A2%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%20//%202%29%20%2B%20linear_log_recur%28n%20//%202%29%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%29%0A%20%20%20%20print%28%22%E7%B7%9A%E5%BD%A2%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20linear_log_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%B7%9A%E5%BD%A2%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%20//%202%29%20%2B%20linear_log_recur%28n%20//%202%29%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%29%0A%20%20%20%20print%28%22%E7%B7%9A%E5%BD%A2%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=def%20linear_log_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%B7%9A%E5%BD%A2%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%20//%202%29%20%2B%20linear_log_recur%28n%20//%202%29%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%29%0A%20%20%20%20print%28%22%E7%B7%9A%E5%BD%A2%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20linear_log_recur%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E7%B7%9A%E5%BD%A2%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%22%22%22%0A%20%20%20%20if%20n%20%3C%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%20//%202%29%20%2B%20linear_log_recur%28n%20//%202%29%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%208%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20linear_log_recur%28n%29%0A%20%20%20%20print%28%22%E7%B7%9A%E5%BD%A2%E5%AF%BE%E6%95%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-図 2-13 に、線形対数のオーダーが生じる仕組みを示します。二分木の各層の総操作回数は $n$ で、層数は $\log_2 n + 1$ なので、時間計算量は $O(n \log n)$ です。
+図 2-13 は線形対数オーダーが生じる仕組みを示しています。二分木の各段の操作回数は合計 $n$ で、木は全部で $\log_2 n + 1$ 段あるので、時間計算量は $O(n \log n)$ です。
 
-![線形対数の時間計算量](time_complexity.assets/time_complexity_logarithmic_linear.svg){ class="animation-figure" }
+![線形対数オーダーの時間計算量](time_complexity.assets/time_complexity_logarithmic_linear.svg){ class="animation-figure" }
 
-<p align="center"> 図 2-13 &nbsp; 線形対数の時間計算量 </p>
+<p align="center"> 図 2-13 &nbsp; 線形対数オーダーの時間計算量 </p>
 
-クイックソート、マージソート、ヒープソートなど、主要なソートの時間計算量は通常 $O(n \log n)$ です。
+クイックソート、マージソート、ヒープソートなど、代表的なソートアルゴリズムの時間計算量は通常 $O(n \log n)$ です。
 
-### 7. &nbsp; 階乗のオーダー $O(n!)$ {data-toc-label="7. &nbsp; 階乗のオーダー"}
+### 7. &nbsp; 階乗オーダー $O(n!)$ {data-toc-label="7. &nbsp; 階乗オーダー"}
 
-階乗のオーダーは、数学の「順列列挙」問題に対応します。互いに異なる $n$ 個の要素のすべての並べ方を求めると、その数は次のようになります。
+階乗オーダーは数学の「順列」に対応します。互いに異なる $n$ 個の要素の並べ方をすべて求めるとき、その総数は次のようになります。
 
 $$
 n! = n \times (n - 1) \times (n - 2) \times \dots \times 2 \times 1
 $$
 
-階乗のオーダーの処理は、通常、再帰で実装します。図 2-14 と次のコードでは、最初の層で $n$ 個、次の層で $n - 1$ 個に分岐し、これを第 $n$ 層まで続けます。
+階乗は通常、再帰で実装します。図 2-14 とコードのように、第 1 段では $n$ 個、第 2 段では各枝から $n - 1$ 個に分かれ、同様に進んで第 $n$ 段で分岐が止まります。
 
 === "Python"
 
@@ -3070,7 +3070,7 @@ $$
         if n == 0:
             return 1
         count = 0
-        # 1 個から n 個に分裂する
+        # 1 個から n 個に分かれる
         for _ in range(n):
             count += factorial_recur(n - 1)
         return count
@@ -3084,7 +3084,7 @@ $$
         if (n == 0)
             return 1;
         int count = 0;
-        // 1 個から n 個に分裂する
+        // 1 個から n 個に分かれる
         for (int i = 0; i < n; i++) {
             count += factorialRecur(n - 1);
         }
@@ -3100,7 +3100,7 @@ $$
         if (n == 0)
             return 1;
         int count = 0;
-        // 1 個から n 個に分裂する
+        // 1 個から n 個に分かれる
         for (int i = 0; i < n; i++) {
             count += factorialRecur(n - 1);
         }
@@ -3115,7 +3115,7 @@ $$
     int FactorialRecur(int n) {
         if (n == 0) return 1;
         int count = 0;
-        // 1 個から n 個に分裂する
+        // 1 個から n 個に分かれる
         for (int i = 0; i < n; i++) {
             count += FactorialRecur(n - 1);
         }
@@ -3132,7 +3132,7 @@ $$
             return 1
         }
         count := 0
-        // 1 個から n 個に分裂する
+        // 1 個から n 個に分かれる
         for i := 0; i < n; i++ {
             count += factorialRecur(n - 1)
         }
@@ -3149,7 +3149,7 @@ $$
             return 1
         }
         var count = 0
-        // 1 個から n 個に分裂する
+        // 1 個から n 個に分かれる
         for _ in 0 ..< n {
             count += factorialRecur(n: n - 1)
         }
@@ -3164,7 +3164,7 @@ $$
     function factorialRecur(n) {
         if (n === 0) return 1;
         let count = 0;
-        // 1 個から n 個に分裂する
+        // 1 個から n 個に分かれる
         for (let i = 0; i < n; i++) {
             count += factorialRecur(n - 1);
         }
@@ -3179,7 +3179,7 @@ $$
     function factorialRecur(n: number): number {
         if (n === 0) return 1;
         let count = 0;
-        // 1 個から n 個に分裂する
+        // 1 個から n 個に分かれる
         for (let i = 0; i < n; i++) {
             count += factorialRecur(n - 1);
         }
@@ -3194,7 +3194,7 @@ $$
     int factorialRecur(int n) {
       if (n == 0) return 1;
       int count = 0;
-      // 1 個から n 個に分裂する
+      // 1 個から n 個に分かれる
       for (var i = 0; i < n; i++) {
         count += factorialRecur(n - 1);
       }
@@ -3211,7 +3211,7 @@ $$
             return 1;
         }
         let mut count = 0;
-        // 1 個から n 個に分裂する
+        // 1 個から n 個に分かれる
         for _ in 0..n {
             count += factorial_recur(n - 1);
         }
@@ -3242,7 +3242,7 @@ $$
         if (n == 0)
             return 1
         var count = 0
-        // 1 個から n 個に分裂する
+        // 1 個から n 個に分かれる
         for (i in 0..<n) {
             count += factorialRecur(n - 1)
         }
@@ -3258,49 +3258,49 @@ $$
       return 1 if n == 0
 
       count = 0
-      # 1 個から n 個に分裂する
+      # 1 個から n 個に分かれる
       (0...n).each { count += factorial_recur(n - 1) }
 
       count
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 495px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=def%20factorial_recur%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%9A%8E%E4%B9%97%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%201%20%E5%80%8B%E3%81%8B%E3%82%89%20n%20%E5%80%8B%E3%81%AB%E5%88%86%E8%A3%82%E3%81%99%E3%82%8B%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20factorial_recur%28n%20-%201%29%0A%20%20%20%20return%20count%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%204%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20factorial_recur%28n%29%0A%20%20%20%20print%28%22%E9%9A%8E%E4%B9%97%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20factorial_recur%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%9A%8E%E4%B9%97%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%201%20%E5%80%8B%E3%81%8B%E3%82%89%20n%20%E5%80%8B%E3%81%AB%E5%88%86%E8%A3%82%E3%81%99%E3%82%8B%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20factorial_recur%28n%20-%201%29%0A%20%20%20%20return%20count%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%204%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20factorial_recur%28n%29%0A%20%20%20%20print%28%22%E9%9A%8E%E4%B9%97%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 495px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=def%20factorial_recur%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%9A%8E%E4%B9%97%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%201%20%E5%80%8B%E3%81%8B%E3%82%89%20n%20%E5%80%8B%E3%81%AB%E5%88%86%E3%81%8B%E3%82%8C%E3%82%8B%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20factorial_recur%28n%20-%201%29%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%204%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20factorial_recur%28n%29%0A%20%20%20%20print%28%22%E9%9A%8E%E4%B9%97%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20factorial_recur%28n%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%9A%8E%E4%B9%97%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%22%22%22%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%201%20%E5%80%8B%E3%81%8B%E3%82%89%20n%20%E5%80%8B%E3%81%AB%E5%88%86%E3%81%8B%E3%82%8C%E3%82%8B%0A%20%20%20%20for%20_%20in%20range%28n%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20factorial_recur%28n%20-%201%29%0A%20%20%20%20return%20count%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%204%0A%20%20%20%20print%28%22%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%20n%20%3D%22,%20n%29%0A%0A%20%20%20%20count%20%3D%20factorial_recur%28n%29%0A%20%20%20%20print%28%22%E9%9A%8E%E4%B9%97%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%EF%BC%88%E5%86%8D%E5%B8%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%A3%85%EF%BC%89%E3%81%AE%E6%93%8D%E4%BD%9C%E5%9B%9E%E6%95%B0%20%3D%22,%20count%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-![階乗の時間計算量](time_complexity.assets/time_complexity_factorial.svg){ class="animation-figure" }
+![階乗オーダーの時間計算量](time_complexity.assets/time_complexity_factorial.svg){ class="animation-figure" }
 
-<p align="center"> 図 2-14 &nbsp; 階乗の時間計算量 </p>
+<p align="center"> 図 2-14 &nbsp; 階乗オーダーの時間計算量 </p>
 
-$n \geq 4$ なら常に $n! > 2^n$ なので、階乗は指数より速く増えます。したがって、$n$ が大きい場合には、これも許容できません。
+$n \geq 4$ なら常に $n! > 2^n$ です。階乗オーダーは指数オーダーよりも速く増えるため、$n$ が大きいときにはやはり実用になりません。
 
-## 2.3.5 &nbsp; 最悪・最良・平均時間計算量
+## 2.3.5 &nbsp; 最悪、最良、平均時間計算量
 
-**アルゴリズムの時間効率は一定とは限らず、入力データの分布によって変わります**。長さ $n$ の配列 `nums` に、$1$ から $n$ の数が一つずつ、ランダムな順に入っているとします。要素 $1$ のインデックスを返す問題を考えると、次のことがわかります。
+**アルゴリズムの時間効率は一定とは限らず、入力データの分布に左右されることがよくあります**。長さ $n$ の配列 `nums` を考えましょう。`nums` には $1$ から $n$ までの数が 1 回ずつ入り、順番はランダムに並べ替えられています。目的は要素 $1$ のインデックスを返すことです。次のことがわかります。
 
-- `nums = [?, ?, ..., 1]`、つまり末尾が $1$ なら、配列全体を走査するため、**最悪時間計算量 $O(n)$ になります**。
-- `nums = [1, ?, ?, ...]`、つまり先頭が $1$ なら、配列がどれほど長くても、それ以上走査する必要がなく、**最良時間計算量 $\Omega(1)$ になります**。
+- `nums = [?, ?, ..., 1]`、つまり末尾の要素が $1$ の場合、配列全体を走査する必要があり、**最悪時間計算量 $O(n)$ となります**。
+- `nums = [1, ?, ?, ...]`、つまり先頭の要素が $1$ の場合、配列の長さにかかわらず、そこで走査を終えられるので、**最良時間計算量 $\Omega(1)$ となります**。
 
-「最悪時間計算量」は関数の漸近上界に対応し、ビッグ $O$ 記法で表します。対応する「最良時間計算量」は漸近下界で、$\Omega$ 記法を使います。
+「最悪時間計算量」は関数の漸近的上界に対応し、ビッグ $O$ 記法で表します。これに対応して、「最良時間計算量」は関数の漸近的下界に当たり、$\Omega$ 記法で表します。
 
 === "Python"
 
     ```python title="worst_best_time_complexity.py"
     def random_numbers(n: int) -> list[int]:
-        """要素が 1, 2, ..., n で、順序をシャッフルした配列を生成する"""
-        # 配列 nums =: 1, 2, 3, ..., n を生成する
+        """1, 2, ..., n をランダムに並べた配列を生成"""
+        # 1, 2, 3, ..., n を順に格納した配列 nums を生成
         nums = [i for i in range(1, n + 1)]
-        # 配列の要素をランダムに並べ替える
+        # 配列の要素をシャッフル
         random.shuffle(nums)
         return nums
 
     def find_one(nums: list[int]) -> int:
-        """配列 nums 内で数値 1 のインデックスを探索する"""
+        """配列 nums で数値 1 のインデックスを探す"""
         for i in range(len(nums)):
-            # 要素 1 が配列の先頭にある場合、最良時間計算量 O(1) となる
-            # 要素 1 が配列の末尾にある場合、最悪時間計算量 O(n) となる
+            # 1 が配列の先頭にあるとき、最良時間計算量 O(1) となる
+            # 1 が配列の末尾にあるとき、最悪時間計算量 O(n) となる
             if nums[i] == 1:
                 return i
         return -1
@@ -3309,25 +3309,25 @@ $n \geq 4$ なら常に $n! > 2^n$ なので、階乗は指数より速く増え
 === "C++"
 
     ```cpp title="worst_best_time_complexity.cpp"
-    /* 要素が { 1, 2, ..., n } で、順序をシャッフルした配列を生成する */
+    /* { 1, 2, ..., n } の要素をランダムに並べた配列を生成 */
     vector<int> randomNumbers(int n) {
         vector<int> nums(n);
-        // 配列 nums = { 1, 2, 3, ..., n } を生成する
+        // 配列 nums = { 1, 2, 3, ..., n } を生成
         for (int i = 0; i < n; i++) {
             nums[i] = i + 1;
         }
-        // システム時刻を使って乱数のシードを生成する
+        // システム時刻から乱数のシードを生成
         unsigned seed = chrono::system_clock::now().time_since_epoch().count();
-        // 配列の要素をランダムに並べ替える
+        // 配列の要素をシャッフル
         shuffle(nums.begin(), nums.end(), default_random_engine(seed));
         return nums;
     }
 
-    /* 配列 nums 内で数値 1 のインデックスを探索する */
+    /* 配列 nums で数値 1 のインデックスを探す */
     int findOne(vector<int> &nums) {
         for (int i = 0; i < nums.size(); i++) {
-            // 要素 1 が配列の先頭にある場合、最良時間計算量 O(1) となる
-            // 要素 1 が配列の末尾にある場合、最悪時間計算量 O(n) となる
+            // 1 が配列の先頭にあるとき、最良時間計算量 O(1) となる
+            // 1 が配列の末尾にあるとき、最悪時間計算量 O(n) となる
             if (nums[i] == 1)
                 return i;
         }
@@ -3338,14 +3338,14 @@ $n \geq 4$ なら常に $n! > 2^n$ なので、階乗は指数より速く増え
 === "Java"
 
     ```java title="worst_best_time_complexity.java"
-    /* 要素が { 1, 2, ..., n } で、順序をシャッフルした配列を生成する */
+    /* { 1, 2, ..., n } の要素をランダムに並べた配列を生成 */
     int[] randomNumbers(int n) {
         Integer[] nums = new Integer[n];
-        // 配列 nums = { 1, 2, 3, ..., n } を生成する
+        // 配列 nums = { 1, 2, 3, ..., n } を生成
         for (int i = 0; i < n; i++) {
             nums[i] = i + 1;
         }
-        // 配列の要素をランダムに並べ替える
+        // 配列の要素をシャッフル
         Collections.shuffle(Arrays.asList(nums));
         // Integer[] -> int[]
         int[] res = new int[n];
@@ -3355,11 +3355,11 @@ $n \geq 4$ なら常に $n! > 2^n$ なので、階乗は指数より速く増え
         return res;
     }
 
-    /* 配列 nums 内で数値 1 のインデックスを探索する */
+    /* 配列 nums で数値 1 のインデックスを探す */
     int findOne(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
-            // 要素 1 が配列の先頭にある場合、最良時間計算量 O(1) となる
-            // 要素 1 が配列の末尾にある場合、最悪時間計算量 O(n) となる
+            // 1 が配列の先頭にあるとき、最良時間計算量 O(1) となる
+            // 1 が配列の末尾にあるとき、最悪時間計算量 O(n) となる
             if (nums[i] == 1)
                 return i;
         }
@@ -3370,15 +3370,15 @@ $n \geq 4$ なら常に $n! > 2^n$ なので、階乗は指数より速く増え
 === "C#"
 
     ```csharp title="worst_best_time_complexity.cs"
-    /* 要素が { 1, 2, ..., n } で、順序をシャッフルした配列を生成する */
+    /* { 1, 2, ..., n } の要素をランダムに並べた配列を生成 */
     int[] RandomNumbers(int n) {
         int[] nums = new int[n];
-        // 配列 nums = { 1, 2, 3, ..., n } を生成する
+        // 配列 nums = { 1, 2, 3, ..., n } を生成
         for (int i = 0; i < n; i++) {
             nums[i] = i + 1;
         }
 
-        // 配列の要素をランダムに並べ替える
+        // 配列の要素をシャッフル
         for (int i = 0; i < nums.Length; i++) {
             int index = new Random().Next(i, nums.Length);
             (nums[i], nums[index]) = (nums[index], nums[i]);
@@ -3386,11 +3386,11 @@ $n \geq 4$ なら常に $n! > 2^n$ なので、階乗は指数より速く増え
         return nums;
     }
 
-    /* 配列 nums 内で数値 1 のインデックスを探索する */
+    /* 配列 nums で数値 1 のインデックスを探す */
     int FindOne(int[] nums) {
         for (int i = 0; i < nums.Length; i++) {
-            // 要素 1 が配列の先頭にある場合、最良時間計算量 O(1) となる
-            // 要素 1 が配列の末尾にある場合、最悪時間計算量 O(n) となる
+            // 1 が配列の先頭にあるとき、最良時間計算量 O(1) となる
+            // 1 が配列の末尾にあるとき、最悪時間計算量 O(n) となる
             if (nums[i] == 1)
                 return i;
         }
@@ -3401,25 +3401,25 @@ $n \geq 4$ なら常に $n! > 2^n$ なので、階乗は指数より速く増え
 === "Go"
 
     ```go title="worst_best_time_complexity.go"
-    /* 要素が { 1, 2, ..., n } で、順序をシャッフルした配列を生成する */
+    /* { 1, 2, ..., n } の要素をランダムに並べた配列を生成 */
     func randomNumbers(n int) []int {
         nums := make([]int, n)
-        // 配列 nums = { 1, 2, 3, ..., n } を生成する
+        // 配列 nums = { 1, 2, 3, ..., n } を生成
         for i := 0; i < n; i++ {
             nums[i] = i + 1
         }
-        // 配列の要素をランダムに並べ替える
+        // 配列の要素をシャッフル
         rand.Shuffle(len(nums), func(i, j int) {
             nums[i], nums[j] = nums[j], nums[i]
         })
         return nums
     }
 
-    /* 配列 nums 内で数値 1 のインデックスを探索する */
+    /* 配列 nums で数値 1 のインデックスを探す */
     func findOne(nums []int) int {
         for i := 0; i < len(nums); i++ {
-            // 要素 1 が配列の先頭にある場合、最良時間計算量 O(1) となる
-            // 要素 1 が配列の末尾にある場合、最悪時間計算量 O(n) となる
+            // 1 が配列の先頭にあるとき、最良時間計算量 O(1) となる
+            // 1 が配列の末尾にあるとき、最悪時間計算量 O(n) となる
             if nums[i] == 1 {
                 return i
             }
@@ -3431,20 +3431,20 @@ $n \geq 4$ なら常に $n! > 2^n$ なので、階乗は指数より速く増え
 === "Swift"
 
     ```swift title="worst_best_time_complexity.swift"
-    /* 要素が { 1, 2, ..., n } で、順序をシャッフルした配列を生成する */
+    /* { 1, 2, ..., n } の要素をランダムに並べた配列を生成 */
     func randomNumbers(n: Int) -> [Int] {
-        // 配列 nums = { 1, 2, 3, ..., n } を生成する
+        // 配列 nums = { 1, 2, 3, ..., n } を生成
         var nums = Array(1 ... n)
-        // 配列の要素をランダムに並べ替える
+        // 配列の要素をシャッフル
         nums.shuffle()
         return nums
     }
 
-    /* 配列 nums 内で数値 1 のインデックスを探索する */
+    /* 配列 nums で数値 1 のインデックスを探す */
     func findOne(nums: [Int]) -> Int {
         for i in nums.indices {
-            // 要素 1 が配列の先頭にある場合、最良時間計算量 O(1) となる
-            // 要素 1 が配列の末尾にある場合、最悪時間計算量 O(n) となる
+            // 1 が配列の先頭にあるとき、最良時間計算量 O(1) となる
+            // 1 が配列の末尾にあるとき、最悪時間計算量 O(n) となる
             if nums[i] == 1 {
                 return i
             }
@@ -3456,14 +3456,14 @@ $n \geq 4$ なら常に $n! > 2^n$ なので、階乗は指数より速く増え
 === "JS"
 
     ```javascript title="worst_best_time_complexity.js"
-    /* 要素が { 1, 2, ..., n } で、順序をシャッフルした配列を生成する */
+    /* { 1, 2, ..., n } の要素をランダムに並べた配列を生成 */
     function randomNumbers(n) {
         const nums = Array(n);
-        // 配列 nums = { 1, 2, 3, ..., n } を生成する
+        // 配列 nums = { 1, 2, 3, ..., n } を生成
         for (let i = 0; i < n; i++) {
             nums[i] = i + 1;
         }
-        // 配列の要素をランダムに並べ替える
+        // 配列の要素をシャッフル
         for (let i = 0; i < n; i++) {
             const r = Math.floor(Math.random() * (i + 1));
             const temp = nums[i];
@@ -3473,11 +3473,11 @@ $n \geq 4$ なら常に $n! > 2^n$ なので、階乗は指数より速く増え
         return nums;
     }
 
-    /* 配列 nums 内で数値 1 のインデックスを探索する */
+    /* 配列 nums で数値 1 のインデックスを探す */
     function findOne(nums) {
         for (let i = 0; i < nums.length; i++) {
-            // 要素 1 が配列の先頭にある場合、最良時間計算量 O(1) となる
-            // 要素 1 が配列の末尾にある場合、最悪時間計算量 O(n) となる
+            // 1 が配列の先頭にあるとき、最良時間計算量 O(1) となる
+            // 1 が配列の末尾にあるとき、最悪時間計算量 O(n) となる
             if (nums[i] === 1) {
                 return i;
             }
@@ -3489,14 +3489,14 @@ $n \geq 4$ なら常に $n! > 2^n$ なので、階乗は指数より速く増え
 === "TS"
 
     ```typescript title="worst_best_time_complexity.ts"
-    /* 要素が { 1, 2, ..., n } で、順序をシャッフルした配列を生成する */
+    /* { 1, 2, ..., n } の要素をランダムに並べた配列を生成 */
     function randomNumbers(n: number): number[] {
         const nums = Array(n);
-        // 配列 nums = { 1, 2, 3, ..., n } を生成する
+        // 配列 nums = { 1, 2, 3, ..., n } を生成
         for (let i = 0; i < n; i++) {
             nums[i] = i + 1;
         }
-        // 配列の要素をランダムに並べ替える
+        // 配列の要素をシャッフル
         for (let i = 0; i < n; i++) {
             const r = Math.floor(Math.random() * (i + 1));
             const temp = nums[i];
@@ -3506,11 +3506,11 @@ $n \geq 4$ なら常に $n! > 2^n$ なので、階乗は指数より速く増え
         return nums;
     }
 
-    /* 配列 nums 内で数値 1 のインデックスを探索する */
+    /* 配列 nums で数値 1 のインデックスを探す */
     function findOne(nums: number[]): number {
         for (let i = 0; i < nums.length; i++) {
-            // 要素 1 が配列の先頭にある場合、最良時間計算量 O(1) となる
-            // 要素 1 が配列の末尾にある場合、最悪時間計算量 O(n) となる
+            // 1 が配列の先頭にあるとき、最良時間計算量 O(1) となる
+            // 1 が配列の末尾にあるとき、最悪時間計算量 O(n) となる
             if (nums[i] === 1) {
                 return i;
             }
@@ -3522,24 +3522,24 @@ $n \geq 4$ なら常に $n! > 2^n$ なので、階乗は指数より速く増え
 === "Dart"
 
     ```dart title="worst_best_time_complexity.dart"
-    /* 要素が { 1, 2, ..., n } で、順序をシャッフルした配列を生成する */
+    /* { 1, 2, ..., n } の要素をランダムに並べた配列を生成 */
     List<int> randomNumbers(int n) {
       final nums = List.filled(n, 0);
-      // 配列 nums = { 1, 2, 3, ..., n } を生成する
+      // 配列 nums = { 1, 2, 3, ..., n } を生成
       for (var i = 0; i < n; i++) {
         nums[i] = i + 1;
       }
-      // 配列の要素をランダムに並べ替える
+      // 配列の要素をシャッフル
       nums.shuffle();
 
       return nums;
     }
 
-    /* 配列 nums 内で数値 1 のインデックスを探索する */
+    /* 配列 nums で数値 1 のインデックスを探す */
     int findOne(List<int> nums) {
       for (var i = 0; i < nums.length; i++) {
-        // 要素 1 が配列の先頭にある場合、最良時間計算量 O(1) となる
-        // 要素 1 が配列の末尾にある場合、最悪時間計算量 O(n) となる
+        // 1 が配列の先頭にあるとき、最良時間計算量 O(1) となる
+        // 1 が配列の末尾にあるとき、最悪時間計算量 O(n) となる
         if (nums[i] == 1) return i;
       }
 
@@ -3550,20 +3550,20 @@ $n \geq 4$ なら常に $n! > 2^n$ なので、階乗は指数より速く増え
 === "Rust"
 
     ```rust title="worst_best_time_complexity.rs"
-    /* 要素が { 1, 2, ..., n } で、順序をシャッフルした配列を生成する */
+    /* { 1, 2, ..., n } の要素をランダムに並べた配列を生成 */
     fn random_numbers(n: i32) -> Vec<i32> {
-        // 配列 nums = { 1, 2, 3, ..., n } を生成する
+        // 配列 nums = { 1, 2, 3, ..., n } を生成
         let mut nums = (1..=n).collect::<Vec<i32>>();
-        // 配列の要素をランダムに並べ替える
+        // 配列の要素をシャッフル
         nums.shuffle(&mut thread_rng());
         nums
     }
 
-    /* 配列 nums 内で数値 1 のインデックスを探索する */
+    /* 配列 nums で数値 1 のインデックスを探す */
     fn find_one(nums: &[i32]) -> Option<usize> {
         for i in 0..nums.len() {
-            // 要素 1 が配列の先頭にある場合、最良時間計算量 O(1) となる
-            // 要素 1 が配列の末尾にある場合、最悪時間計算量 O(n) となる
+            // 1 が配列の先頭にあるとき、最良時間計算量 O(1) となる
+            // 1 が配列の末尾にあるとき、最悪時間計算量 O(n) となる
             if nums[i] == 1 {
                 return Some(i);
             }
@@ -3575,15 +3575,15 @@ $n \geq 4$ なら常に $n! > 2^n$ なので、階乗は指数より速く増え
 === "C"
 
     ```c title="worst_best_time_complexity.c"
-    /* 要素が { 1, 2, ..., n } で、順序をシャッフルした配列を生成する */
+    /* { 1, 2, ..., n } の要素をランダムに並べた配列を生成 */
     int *randomNumbers(int n) {
-        // ヒープ領域を確保する（要素数 n 、要素型 int の一次元可変長配列を作成する）
+        // ヒープにメモリを確保（int 型の要素 n 個からなる可変長の一次元配列を作成）
         int *nums = (int *)malloc(n * sizeof(int));
-        // 配列 nums = { 1, 2, 3, ..., n } を生成する
+        // 配列 nums = { 1, 2, 3, ..., n } を生成
         for (int i = 0; i < n; i++) {
             nums[i] = i + 1;
         }
-        // 配列の要素をランダムに並べ替える
+        // 配列の要素をシャッフル
         for (int i = n - 1; i > 0; i--) {
             int j = rand() % (i + 1);
             int temp = nums[i];
@@ -3593,11 +3593,11 @@ $n \geq 4$ なら常に $n! > 2^n$ なので、階乗は指数より速く増え
         return nums;
     }
 
-    /* 配列 nums 内で数値 1 のインデックスを探索する */
+    /* 配列 nums で数値 1 のインデックスを探す */
     int findOne(int *nums, int n) {
         for (int i = 0; i < n; i++) {
-            // 要素 1 が配列の先頭にある場合、最良時間計算量 O(1) となる
-            // 要素 1 が配列の末尾にある場合、最悪時間計算量 O(n) となる
+            // 1 が配列の先頭にあるとき、最良時間計算量 O(1) となる
+            // 1 が配列の末尾にあるとき、最悪時間計算量 O(n) となる
             if (nums[i] == 1)
                 return i;
         }
@@ -3608,14 +3608,14 @@ $n \geq 4$ なら常に $n! > 2^n$ なので、階乗は指数より速く増え
 === "Kotlin"
 
     ```kotlin title="worst_best_time_complexity.kt"
-    /* 要素が { 1, 2, ..., n } で、順序をシャッフルした配列を生成する */
+    /* { 1, 2, ..., n } の要素をランダムに並べた配列を生成 */
     fun randomNumbers(n: Int): Array<Int?> {
         val nums = IntArray(n)
-        // 配列 nums = { 1, 2, 3, ..., n } を生成する
+        // 配列 nums = { 1, 2, 3, ..., n } を生成
         for (i in 0..<n) {
             nums[i] = i + 1
         }
-        // 配列の要素をランダムに並べ替える
+        // 配列の要素をシャッフル
         nums.shuffle()
         val res = arrayOfNulls<Int>(n)
         for (i in 0..<n) {
@@ -3624,11 +3624,11 @@ $n \geq 4$ なら常に $n! > 2^n$ なので、階乗は指数より速く増え
         return res
     }
 
-    /* 配列 nums 内で数値 1 のインデックスを探索する */
+    /* 配列 nums で数値 1 のインデックスを探す */
     fun findOne(nums: Array<Int?>): Int {
         for (i in nums.indices) {
-            // 要素 1 が配列の先頭にある場合、最良時間計算量 O(1) となる
-            // 要素 1 が配列の末尾にある場合、最悪時間計算量 O(n) となる
+            // 1 が配列の先頭にあるとき、最良時間計算量 O(1) となる
+            // 1 が配列の末尾にあるとき、最悪時間計算量 O(n) となる
             if (nums[i] == 1)
                 return i
         }
@@ -3639,19 +3639,19 @@ $n \geq 4$ なら常に $n! > 2^n$ なので、階乗は指数より速く増え
 === "Ruby"
 
     ```ruby title="worst_best_time_complexity.rb"
-    ### 要素が 1, 2, ..., n で、順序をシャッフルした配列を生成する ###
+    ### 1, 2, ..., n をランダムに並べた配列を生成 ###
     def random_numbers(n)
-      # 配列 nums =: 1, 2, 3, ..., n を生成する
+      # 1, 2, 3, ..., n を順に格納した配列 nums を生成
       nums = Array.new(n) { |i| i + 1 }
-      # 配列の要素をランダムに並べ替える
+      # 配列の要素をシャッフル
       nums.shuffle!
     end
 
-    ### 配列 nums 内で数値 1 のインデックスを探索する ###
+    ### 配列 nums で数値 1 のインデックスを探す ###
     def find_one(nums)
       for i in 0...nums.length
-        # 要素 1 が配列の先頭にある場合、最良時間計算量 O(1) となる
-        # 要素 1 が配列の末尾にある場合、最悪時間計算量 O(n) となる
+        # 1 が配列の先頭にあるとき、最良時間計算量 O(1) となる
+        # 1 が配列の末尾にあるとき、最悪時間計算量 O(n) となる
         return i if nums[i] == 1
       end
 
@@ -3659,19 +3659,19 @@ $n \geq 4$ なら常に $n! > 2^n$ なので、階乗は指数より速く増え
     end
     ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=import%20random%0A%0Adef%20random_numbers%28n%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%E8%A6%81%E7%B4%A0%E3%81%8C%201,%202,%20...,%20n%20%E3%81%A7%E3%80%81%E9%A0%86%E5%BA%8F%E3%82%92%E3%82%B7%E3%83%A3%E3%83%83%E3%83%95%E3%83%AB%E3%81%97%E3%81%9F%E9%85%8D%E5%88%97%E3%82%92%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%23%20%E9%85%8D%E5%88%97%20nums%20%3D%3A%201,%202,%203,%20...,%20n%20%E3%82%92%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B%0A%20%20%20%20nums%20%3D%20%5Bi%20for%20i%20in%20range%281,%20n%20%2B%201%29%5D%0A%20%20%20%20%23%20%E9%85%8D%E5%88%97%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E3%81%AB%E4%B8%A6%E3%81%B9%E6%9B%BF%E3%81%88%E3%82%8B%0A%20%20%20%20random.shuffle%28nums%29%0A%20%20%20%20return%20nums%0A%0Adef%20find_one%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%85%8D%E5%88%97%20nums%20%E5%86%85%E3%81%A7%E6%95%B0%E5%80%A4%201%20%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E6%8E%A2%E7%B4%A2%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%201%20%E3%81%8C%E9%85%8D%E5%88%97%E3%81%AE%E5%85%88%E9%A0%AD%E3%81%AB%E3%81%82%E3%82%8B%E5%A0%B4%E5%90%88%E3%80%81%E6%9C%80%E8%89%AF%E6%99%82%E9%96%93%E8%A8%88%E7%AE%97%E9%87%8F%20O%281%29%20%E3%81%A8%E3%81%AA%E3%82%8B%0A%20%20%20%20%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%201%20%E3%81%8C%E9%85%8D%E5%88%97%E3%81%AE%E6%9C%AB%E5%B0%BE%E3%81%AB%E3%81%82%E3%82%8B%E5%A0%B4%E5%90%88%E3%80%81%E6%9C%80%E6%82%AA%E6%99%82%E9%96%93%E8%A8%88%E7%AE%97%E9%87%8F%20O%28n%29%20%E3%81%A8%E3%81%AA%E3%82%8B%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20i%0A%20%20%20%20return%20-1%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2010%0A%20%20%20%20nums%20%3D%20random_numbers%28n%29%0A%20%20%20%20index%20%3D%20find_one%28nums%29%0A%20%20%20%20print%28%22%5Cn%E9%85%8D%E5%88%97%20%5B%201,%202,%20...,%20n%20%5D%20%E3%82%92%E3%82%B7%E3%83%A3%E3%83%83%E3%83%95%E3%83%AB%E3%81%97%E3%81%9F%E7%B5%90%E6%9E%9C%20%3D%22,%20nums%29%0A%20%20%20%20print%28%22%E6%95%B0%E5%80%A4%201%20%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%AF%22,%20index%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=25&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=import%20random%0A%0Adef%20random_numbers%28n%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%E8%A6%81%E7%B4%A0%E3%81%8C%201,%202,%20...,%20n%20%E3%81%A7%E3%80%81%E9%A0%86%E5%BA%8F%E3%82%92%E3%82%B7%E3%83%A3%E3%83%83%E3%83%95%E3%83%AB%E3%81%97%E3%81%9F%E9%85%8D%E5%88%97%E3%82%92%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%23%20%E9%85%8D%E5%88%97%20nums%20%3D%3A%201,%202,%203,%20...,%20n%20%E3%82%92%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B%0A%20%20%20%20nums%20%3D%20%5Bi%20for%20i%20in%20range%281,%20n%20%2B%201%29%5D%0A%20%20%20%20%23%20%E9%85%8D%E5%88%97%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E3%81%AB%E4%B8%A6%E3%81%B9%E6%9B%BF%E3%81%88%E3%82%8B%0A%20%20%20%20random.shuffle%28nums%29%0A%20%20%20%20return%20nums%0A%0Adef%20find_one%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%85%8D%E5%88%97%20nums%20%E5%86%85%E3%81%A7%E6%95%B0%E5%80%A4%201%20%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E6%8E%A2%E7%B4%A2%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%201%20%E3%81%8C%E9%85%8D%E5%88%97%E3%81%AE%E5%85%88%E9%A0%AD%E3%81%AB%E3%81%82%E3%82%8B%E5%A0%B4%E5%90%88%E3%80%81%E6%9C%80%E8%89%AF%E6%99%82%E9%96%93%E8%A8%88%E7%AE%97%E9%87%8F%20O%281%29%20%E3%81%A8%E3%81%AA%E3%82%8B%0A%20%20%20%20%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%201%20%E3%81%8C%E9%85%8D%E5%88%97%E3%81%AE%E6%9C%AB%E5%B0%BE%E3%81%AB%E3%81%82%E3%82%8B%E5%A0%B4%E5%90%88%E3%80%81%E6%9C%80%E6%82%AA%E6%99%82%E9%96%93%E8%A8%88%E7%AE%97%E9%87%8F%20O%28n%29%20%E3%81%A8%E3%81%AA%E3%82%8B%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20i%0A%20%20%20%20return%20-1%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2010%0A%20%20%20%20nums%20%3D%20random_numbers%28n%29%0A%20%20%20%20index%20%3D%20find_one%28nums%29%0A%20%20%20%20print%28%22%5Cn%E9%85%8D%E5%88%97%20%5B%201,%202,%20...,%20n%20%5D%20%E3%82%92%E3%82%B7%E3%83%A3%E3%83%83%E3%83%95%E3%83%AB%E3%81%97%E3%81%9F%E7%B5%90%E6%9E%9C%20%3D%22,%20nums%29%0A%20%20%20%20print%28%22%E6%95%B0%E5%80%A4%201%20%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%AF%22,%20index%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=25&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の様子を見る" src="https://pythontutor.com/iframe-embed.html#code=import%20random%0A%0Adef%20random_numbers%28n%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%221,%202,%20...,%20n%20%E3%82%92%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E3%81%AB%E4%B8%A6%E3%81%B9%E3%81%9F%E9%85%8D%E5%88%97%E3%82%92%E7%94%9F%E6%88%90%22%22%22%0A%20%20%20%20%23%201,%202,%203,%20...,%20n%20%E3%82%92%E9%A0%86%E3%81%AB%E6%A0%BC%E7%B4%8D%E3%81%97%E3%81%9F%E9%85%8D%E5%88%97%20nums%20%E3%82%92%E7%94%9F%E6%88%90%0A%20%20%20%20nums%20%3D%20%5Bi%20for%20i%20in%20range%281,%20n%20%2B%201%29%5D%0A%20%20%20%20%23%20%E9%85%8D%E5%88%97%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E3%82%B7%E3%83%A3%E3%83%83%E3%83%95%E3%83%AB%0A%20%20%20%20random.shuffle%28nums%29%0A%20%20%20%20return%20nums%0A%0Adef%20find_one%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%85%8D%E5%88%97%20nums%20%E3%81%A7%E6%95%B0%E5%80%A4%201%20%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E6%8E%A2%E3%81%99%22%22%22%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%23%201%20%E3%81%8C%E9%85%8D%E5%88%97%E3%81%AE%E5%85%88%E9%A0%AD%E3%81%AB%E3%81%82%E3%82%8B%E3%81%A8%E3%81%8D%E3%80%81%E6%9C%80%E8%89%AF%E6%99%82%E9%96%93%E8%A8%88%E7%AE%97%E9%87%8F%20O%281%29%20%E3%81%A8%E3%81%AA%E3%82%8B%0A%20%20%20%20%20%20%20%20%23%201%20%E3%81%8C%E9%85%8D%E5%88%97%E3%81%AE%E6%9C%AB%E5%B0%BE%E3%81%AB%E3%81%82%E3%82%8B%E3%81%A8%E3%81%8D%E3%80%81%E6%9C%80%E6%82%AA%E6%99%82%E9%96%93%E8%A8%88%E7%AE%97%E9%87%8F%20O%28n%29%20%E3%81%A8%E3%81%AA%E3%82%8B%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20i%0A%20%20%20%20return%20-1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2010%0A%20%20%20%20nums%20%3D%20random_numbers%28n%29%0A%20%20%20%20index%20%3D%20find_one%28nums%29%0A%20%20%20%20print%28%22%5Cn%E9%85%8D%E5%88%97%20%5B%201,%202,%20...,%20n%20%5D%20%E3%81%AE%E3%82%B7%E3%83%A3%E3%83%83%E3%83%95%E3%83%AB%E7%B5%90%E6%9E%9C%20%3D%22,%20nums%29%0A%20%20%20%20print%28%22%E6%95%B0%E5%80%A4%201%20%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%AF%22,%20index%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=25&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=import%20random%0A%0Adef%20random_numbers%28n%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%221,%202,%20...,%20n%20%E3%82%92%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E3%81%AB%E4%B8%A6%E3%81%B9%E3%81%9F%E9%85%8D%E5%88%97%E3%82%92%E7%94%9F%E6%88%90%22%22%22%0A%20%20%20%20%23%201,%202,%203,%20...,%20n%20%E3%82%92%E9%A0%86%E3%81%AB%E6%A0%BC%E7%B4%8D%E3%81%97%E3%81%9F%E9%85%8D%E5%88%97%20nums%20%E3%82%92%E7%94%9F%E6%88%90%0A%20%20%20%20nums%20%3D%20%5Bi%20for%20i%20in%20range%281,%20n%20%2B%201%29%5D%0A%20%20%20%20%23%20%E9%85%8D%E5%88%97%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E3%82%B7%E3%83%A3%E3%83%83%E3%83%95%E3%83%AB%0A%20%20%20%20random.shuffle%28nums%29%0A%20%20%20%20return%20nums%0A%0Adef%20find_one%28nums%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E9%85%8D%E5%88%97%20nums%20%E3%81%A7%E6%95%B0%E5%80%A4%201%20%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E6%8E%A2%E3%81%99%22%22%22%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%23%201%20%E3%81%8C%E9%85%8D%E5%88%97%E3%81%AE%E5%85%88%E9%A0%AD%E3%81%AB%E3%81%82%E3%82%8B%E3%81%A8%E3%81%8D%E3%80%81%E6%9C%80%E8%89%AF%E6%99%82%E9%96%93%E8%A8%88%E7%AE%97%E9%87%8F%20O%281%29%20%E3%81%A8%E3%81%AA%E3%82%8B%0A%20%20%20%20%20%20%20%20%23%201%20%E3%81%8C%E9%85%8D%E5%88%97%E3%81%AE%E6%9C%AB%E5%B0%BE%E3%81%AB%E3%81%82%E3%82%8B%E3%81%A8%E3%81%8D%E3%80%81%E6%9C%80%E6%82%AA%E6%99%82%E9%96%93%E8%A8%88%E7%AE%97%E9%87%8F%20O%28n%29%20%E3%81%A8%E3%81%AA%E3%82%8B%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20i%0A%20%20%20%20return%20-1%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2010%0A%20%20%20%20nums%20%3D%20random_numbers%28n%29%0A%20%20%20%20index%20%3D%20find_one%28nums%29%0A%20%20%20%20print%28%22%5Cn%E9%85%8D%E5%88%97%20%5B%201,%202,%20...,%20n%20%5D%20%E3%81%AE%E3%82%B7%E3%83%A3%E3%83%83%E3%83%95%E3%83%AB%E7%B5%90%E6%9E%9C%20%3D%22,%20nums%29%0A%20%20%20%20print%28%22%E6%95%B0%E5%80%A4%201%20%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%AF%22,%20index%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=25&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
-実際には、最良時間計算量はあまり使いません。通常、ごく低い確率でしか起こらず、誤解を招くことがあるためです。**最悪時間計算量の方が実用的であり、効率の安全な目安を与えてくれる**ので、安心してアルゴリズムを使えます。
+実際には最良の場合が起こる確率はたいていごく小さく、誤解を招くおそれがあるため、最良時間計算量を使うことはほとんどありません。**最悪時間計算量のほうが、効率について安全側の目安を与えるため実用的です**。これを知れば安心してアルゴリズムを使えます。
 
-上の例から、最悪と最良は「特殊なデータ分布」でしか現れず、その確率が低い場合は実際の効率を十分に反映しないとわかります。一方、**平均時間計算量は、ランダムな入力での実行効率を表し**、$\Theta$ 記法を使います。
+上の例のように、最悪と最良の時間計算量が現れるのは特定のデータの並びだけです。その確率は低いかもしれず、実際の効率を十分に反映できません。一方、**平均時間計算量は、ランダムな入力に対する実行効率を表し**、$\Theta$ 記法で表記します。
 
-一部のアルゴリズムでは、ランダムな分布での平均を簡単に求められます。上の例では配列がランダムに並んでおり、$1$ がどの位置にある確率も等しいので、平均ループ回数は配列の長さの半分 $n / 2$ です。平均時間計算量は $\Theta(n / 2) = \Theta(n)$ になります。
+アルゴリズムによっては、データがランダムに分布するときの平均を簡単に求められます。上の例では配列がシャッフルされているため、要素 $1$ がどのインデックスに現れる確率も等しくなります。したがって平均反復回数は配列長の半分 $n / 2$ で、平均時間計算量は $\Theta(n / 2) = \Theta(n)$ です。
 
-複雑なアルゴリズムでは、データの分布全体での期待値を求めにくく、平均時間計算量の計算は難しくなります。その場合は通常、最悪時間計算量を効率の基準にします。
+複雑なアルゴリズムでは、データの分布を踏まえた全体の期待値を求めにくいため、平均時間計算量の計算が難しくなります。その場合は通常、最悪時間計算量を効率の評価基準にします。
 
-!!! question "$\Theta$ 記号をあまり見かけないのはなぜですか？"
+!!! question "$\Theta$ 記号をあまり見かけないのはなぜか"
 
-    $O$ 記号が広く親しまれているためか、平均時間計算量にもよく使われます。ただし、厳密にはこの使い方は正式なものではありません。本書やほかの資料で「平均時間計算量 $O(n)$」という表現を見たら、$\Theta(n)$ と読み替えてください。
+    $O$ 記号のほうが言いやすいからか、平均時間計算量を表すときにもよく使われます。ただし、厳密にはこの使い方は標準的ではありません。本書やほかの資料で「平均時間計算量 $O(n)$」のような表現を見かけたら、$\Theta(n)$ の意味だと読んでください。

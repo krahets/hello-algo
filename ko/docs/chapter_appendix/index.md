@@ -9,6 +9,6 @@ icon: material/help-circle-outline
 
 ## 이 장의 내용
 
-- [16.1 &nbsp; 프로그래밍 환경 설치](installation.md)
-- [16.2 &nbsp; 함께 만드는 책](contribution.md)
+- [16.1 &nbsp; 프로그래밍 환경 설정](installation.md)
+- [16.2 &nbsp; 책 집필에 참여하기](contribution.md)
 - [16.3 &nbsp; 용어집](terminology.md)

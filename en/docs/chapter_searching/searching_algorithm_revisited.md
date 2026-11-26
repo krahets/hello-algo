@@ -4,53 +4,53 @@ comments: true
 
 # 10.5 &nbsp; Search algorithms revisited
 
-A <u>search algorithm</u> finds one or more elements that satisfy specified conditions in a data structure, such as an array, linked list, tree, or graph.
+A <u>search algorithm</u> finds one or more elements that meet a given condition in a data structure such as an array, linked list, tree, or graph.
 
-Search algorithms fall into two categories according to their approach.
+We can group search algorithms into two categories based on how they work.
 
-- **Locate the target by traversing the data structure**, as in traversals of arrays, linked lists, trees, and graphs.
-- **Find elements efficiently by using the organization of the data or prior information about it**, as in binary search, hash lookup, and binary search tree lookup.
+- **Traverse the data structure to locate the target element**. Examples include array, linked list, tree, and graph traversals.
+- **Use the organization of the data or prior knowledge about it to find elements efficiently**. Examples include binary search, hash lookup, and binary search tree lookup.
 
-These ideas have all appeared in earlier chapters, so search algorithms are already familiar to us. In this section, we revisit them from a more systematic perspective.
+We have already encountered these ideas in earlier chapters. Let’s bring them together and take a more systematic look at search algorithms.
 
 ## 10.5.1 &nbsp; Brute-force search
 
 Brute-force search locates a target by visiting the elements of a data structure one by one.
 
-- “Linear search” applies to linear data structures such as arrays and linked lists. Starting at one end, it visits elements in sequence until it finds the target or reaches the other end without finding it.
-- “Breadth-first search” and “depth-first search” are two strategies for traversing graphs and trees. Breadth-first search starts at an initial node and searches level by level, visiting nearby nodes before more distant ones. Depth-first search follows a path as far as possible, then backtracks and tries other paths until the whole structure has been traversed.
+- Linear search works on linear data structures such as arrays and linked lists. Start at one end and visit each element in turn until you find the target or reach the other end without a match.
+- Breadth-first search and depth-first search are two ways to traverse graphs and trees. Breadth-first search starts at an initial node and visits nodes layer by layer, from nearest to farthest. Depth-first search starts at an initial node, follows one path as far as it can, then backtracks to explore other paths until it has traversed the entire structure.
 
-Brute-force search is simple and broadly applicable. **It requires neither preprocessing the data nor building an additional data structure**.
+Brute-force search is simple and widely applicable. **It requires no preprocessing of the data or additional data structure**.
 
-However, **these algorithms take $O(n)$ time**, where $n$ is the number of elements, so they perform poorly on large datasets.
+However, **these algorithms take $O(n)$ time**, where $n$ is the number of elements. This makes them slow on large inputs.
 
 ## 10.5.2 &nbsp; Adaptive search
 
-Adaptive search uses properties of the data, such as its ordering, to optimize the search process and locate the target more efficiently.
+Adaptive search exploits a property of the data, such as its sorted order, to locate the target more efficiently.
 
-- “Binary search” uses sorted data to search efficiently and applies only to arrays.
-- “Hash lookup” uses a hash table to map lookup keys to target data as key-value pairs.
-- “Tree search” uses comparisons of node values in a particular tree structure, such as a binary search tree, to rule out nodes quickly and locate the target.
+- Binary search uses the sorted order of the data for efficient lookup and applies only to arrays.
+- Hash lookup uses a hash table to map search keys to the associated data, so a query can retrieve a value by its key.
+- Tree search compares node values in a structure such as a binary search tree, quickly ruling out nodes to locate the target.
 
-These algorithms are efficient, **achieving time complexities of $O(\log n)$ or even $O(1)$**.
+These algorithms are efficient: **their time complexity can be as low as $O(\log n)$ or even $O(1)$**.
 
-However, **they often require preprocessing the data**. Binary search requires sorting the array in advance; hash lookup and tree search require additional data structures, whose maintenance also costs time and space.
+However, **these algorithms often require preprocessing**. For example, binary search needs a sorted array. Hash lookup and tree search require extra data structures, which take additional time and space to maintain.
 
 !!! tip
 
-    Adaptive search algorithms are often called lookup algorithms. **Their main purpose is to retrieve target elements quickly from specific data structures**.
+    Adaptive search algorithms are often called lookup algorithms. **Their main purpose is to retrieve a target element quickly from a particular data structure**.
 
 ## 10.5.3 &nbsp; Choosing a search method
 
-Given a dataset of size $n$, we can find a target using linear search, binary search, tree search, hash lookup, and other methods. Figure 10-11 illustrates how these methods work.
+To find a target in a dataset of size $n$, we can use linear search, binary search, tree search, or hash lookup. Figure 10-11 illustrates how each method works.
 
-![Different search strategies](searching_algorithm_revisited.assets/searching_algorithms.svg){ class="animation-figure" }
+![Search strategies](searching_algorithm_revisited.assets/searching_algorithms.svg){ class="animation-figure" }
 
-<p align="center"> Figure 10-11 &nbsp; Different search strategies </p>
+<p align="center"> Figure 10-11 &nbsp; Search strategies </p>
 
-Table 10-1 compares their efficiency and properties.
+Table 10-1 compares the cost of common operations and the properties of each method.
 
-<p align="center"> Table 10-1 &nbsp; Efficiency of lookup algorithms </p>
+<p align="center"> Table 10-1 &nbsp; Comparing the efficiency of search algorithms </p>
 
 <div class="center-table" markdown>
 
@@ -60,35 +60,35 @@ Table 10-1 compares their efficiency and properties.
 | Insert an element     | $O(1)$   | $O(n)$             | $O(\log n)$        | $O(1)$          |
 | Delete an element     | $O(n)$   | $O(n)$             | $O(\log n)$        | $O(1)$          |
 | Extra space     | $O(1)$   | $O(1)$             | $O(n)$             | $O(n)$          |
-| Preprocessing   | /        | Sort $O(n \log n)$ | Build a tree $O(n \log n)$ | Build a hash table $O(n)$ |
-| Data ordering | Unsorted     | Sorted               | Sorted               | Unsorted            |
+| Data preprocessing   | /        | Sort $O(n \log n)$ | Build the tree $O(n \log n)$ | Build the hash table $O(n)$ |
+| Data order | Unsorted     | Sorted               | Sorted               | Unsorted            |
 
 </div>
 
-The choice also depends on dataset size, required search performance, and how frequently the data is queried and updated.
+The choice also depends on the size of the dataset, the required search performance, and how often you query or update the data.
 
 **Linear search**
 
-- It is broadly applicable and requires no preprocessing. If we need only one lookup, preprocessing for the other three methods takes longer than a linear search itself.
-- It suits small datasets, where time complexity has less influence on actual performance.
-- It suits frequently updated data because no additional data structure needs to be maintained.
+- It works in many settings and needs no preprocessing. For a single query, the other three methods take longer to preprocess the data than a linear search takes to scan it.
+- It suits small datasets, where time complexity has less impact on performance.
+- It also suits frequently updated data because it requires no extra maintenance.
 
 **Binary search**
 
-- It suits large datasets, with predictable performance and a worst-case time complexity of $O(\log n)$.
-- The dataset cannot be excessively large, because an array requires contiguous memory.
-- It is unsuitable for frequent insertions and deletions, since maintaining a sorted array is expensive.
+- It performs consistently on large datasets, with a worst-case search time of $O(\log n)$.
+- The dataset must still fit in a contiguous block of memory because it is stored in an array.
+- It is a poor fit for frequent insertions and deletions because maintaining a sorted array is expensive.
 
 **Hash lookup**
 
-- It suits situations demanding very fast queries, with an average time complexity of $O(1)$.
-- It is unsuitable when sorted data or range queries are needed, because a hash table does not preserve order.
-- It depends heavily on the hash function and collision-resolution strategy, creating a greater risk of performance degradation.
-- It is unsuitable for excessively large datasets, because a hash table needs extra space to minimize collisions and maintain good query performance.
+- With an average lookup time of $O(1)$, it suits applications that need very fast queries.
+- It is a poor fit for ordered data or range queries because hash tables do not maintain the data in sorted order.
+- Performance depends heavily on the hash function and the collision resolution strategy, so it can degrade substantially.
+- It is a poor fit for very large datasets because the hash table needs extra space to minimize collisions and keep lookups fast.
 
 **Tree search**
 
-- It suits very large datasets, because tree nodes are stored at separate locations in memory.
-- It suits situations requiring sorted data or range queries.
-- Repeated insertions and deletions can make a binary search tree skewed, degrading its time complexity to $O(n)$.
-- An AVL tree or red-black tree keeps operations at $O(\log n)$, but maintaining balance adds overhead.
+- It can handle very large datasets because tree nodes can occupy scattered locations in memory.
+- It suits applications that need to keep data sorted or support range queries.
+- Repeated insertions and deletions can skew a binary search tree, degrading its time complexity to $O(n)$.
+- An AVL tree or a red-black tree keeps operations at $O(\log n)$ time, though maintaining balance adds overhead.

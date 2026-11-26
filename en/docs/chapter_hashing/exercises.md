@@ -6,20 +6,20 @@ comments: true
 
 ## 6.5.1 &nbsp; Check your understanding
 
-### 1. &nbsp; Searching after a hash collision
+### 1. &nbsp; Looking up an element after a hash collision
 
-A hash table has five buckets and uses the hash function $h(x)=x \bmod 5$. When elements collide, they are added in order to the list in that bucket.
-Insert `[1, 6, 11, 7]` in sequence:
+A hash table has 5 buckets and uses the hash function $h(x)=x \bmod 5$. When elements collide, append them to the list in that bucket in insertion order.
+Insert the elements of `[1, 6, 11, 7]` in order.
 
 <!-- numbered-subquestions -->
 
-1. Write out the contents of buckets 0 through 4.
-2. When searching for 6, which bucket is visited first, and which elements are checked in order?
-3. Based on the bucket contents from question 1, did later elements overwrite earlier ones? Explain using this collision-handling method.
+1. Write down the contents of buckets 0 through 4.
+2. When looking up 6, which bucket do you visit first, and which elements do you check, in what order?
+3. Look at the buckets you wrote down in part 1. Did any later insertion overwrite an earlier element? Explain how this collision resolution method accounts for your answer.
 
-??? success "Reference answer"
+??? success "Sample answer"
 
-    1. Since $1\bmod5=6\bmod5=11\bmod5=1$ and $7\bmod5=2$, the buckets contain:
+    1. Since $1\bmod5=6\bmod5=11\bmod5=1$ and $7\bmod5=2$, the buckets contain the following elements:
 
         ```text
         0: []
@@ -29,77 +29,77 @@ Insert `[1, 6, 11, 7]` in sequence:
         4: []
         ```
 
-    2. Searching for 6 first visits bucket 1 and compares against 1 and then 6, finding the target on the second comparison.
+    2. To find 6, go to bucket 1 and compare the target with 1, then 6. The second comparison finds a match.
 
-    3. Equal hash values mean only that the elements land in the same bucket, not that the elements themselves are equal. Separate chaining keeps all colliding elements in the bucket
-        and compares them one by one during a search, so 1, 6, and 11 do not overwrite one another.
+    3. Equal hash values tell us only that the elements land in the same bucket. The elements themselves can differ. Chaining keeps all the colliding elements in the bucket
+        and compares them one at a time during lookup, so 1, 6, and 11 do not overwrite one another.
 
 ### 2. &nbsp; Where do elements go when a hash table grows?
 
-A hash table using separate chaining initially has five buckets and the hash function $h(x)=x\bmod5$.
+A hash table that uses chaining starts with 5 buckets and the hash function $h(x)=x\bmod5$.
 The keys `[1, 6, 11]` are all in bucket 1.
 
-The table is now expanded to seven buckets, and the hash function becomes $h(x)=x\bmod7$:
+Now expand the table to 7 buckets and change the hash function accordingly to $h(x)=x\bmod7$.
 
 <!-- numbered-subquestions -->
 
-1. Calculate the new bucket number for each of 1, 6, and 11.
-2. Which buckets contain elements after the expansion?
-3. Can the list in the old bucket 1 simply be copied unchanged into the new bucket 1? Explain using your results from questions 1 and 2.
+1. Calculate the new bucket numbers for 1, 6, and 11.
+2. Which buckets contain elements after the table grows?
+3. Can you copy the original list in bucket 1 directly into the new bucket 1? Use your results from parts 1 and 2 to explain.
 
-??? success "Reference answer"
+??? success "Sample answer"
 
-    1. The new bucket numbers are:
+    1. The new bucket numbers are as follows:
 
-        - $1\bmod7=1$;
-        - $6\bmod7=6$;
+        - $1\bmod7=1$,
+        - $6\bmod7=6$,
         - $11\bmod7=4$.
 
-    2. Bucket 1 holds 1, bucket 4 holds 11, and bucket 6 holds 6. The three keys no longer share one bucket.
+    2. Bucket 1 holds 1, bucket 4 holds 11, and bucket 6 holds 6. The three keys no longer share a bucket.
 
-    3. The list cannot simply be copied unchanged. A bucket number is the remainder of the key divided by the number of buckets. When that number changes from 5 to 7, a key's bucket may change,
-        so every key's position must be recalculated. If we copied the old bucket 1 unchanged, subsequent searches for 6 and 11 using the new formula
-        would visit buckets 6 and 4, respectively, and fail to find them.
+    3. No. The bucket number is the remainder when the key is divided by the number of buckets. Increasing the number of buckets from 5 to 7 can change the bucket number for a given key,
+        so you must recalculate each key’s position. If you copied the old bucket 1 as is, later lookups for 6 and 11 would use the new formula
+        and go to buckets 6 and 4, respectively, where neither key would be found.
 
-### 3. &nbsp; Can we still find 11 after deleting 6?
+### 3. &nbsp; Can you still find 11 after deleting 6?
 
-A hash table has five positions with indices `0-4` and uses the hash function $h(x)=x\bmod5$.
-When a collision occurs, it starts at the computed index and searches to the right for the first empty position.
+A hash table has 5 slots indexed `0–4` and uses the hash function $h(x)=x\bmod5$.
+When a collision occurs, start at the index given by the hash function and move right until you find an empty slot.
 
-Insert `[1, 6, 11]` in order:
+Insert the elements of `[1, 6, 11]` in order.
 
 <!-- numbered-subquestions -->
 
-1. At which index is each number ultimately stored?
-2. Which indices are checked, in order, when searching for 11?
-3. Suppose deleting 6 marks its position as an empty slot that has never been used, and a search stops on reaching an empty slot.
-    What happens when we search for 11 again? Is the result correct? If not, how can we avoid the problem?
+1. At which index does each of the three numbers end up?
+2. Which indices do you check, in order, when looking up 11?
+3. Suppose that deleting 6 marks its slot as empty and never used, and that a lookup stops at an empty slot.
+    What happens when you look up 11 again? Is the result correct? If there is a problem, how can you avoid it?
 
-??? success "Reference answer"
+??? success "Sample answer"
 
-    1. The number 1 is stored at index 1. The number 6 also maps to index 1, so after the collision it is stored at index 2.
-        The number 11 likewise starts at index 1, skips occupied indices 1 and 2, and is finally stored at index 3.
+    1. Place 1 at index 1. The number 6 also maps to index 1, so the collision sends it to index 2.
+        The number 11 also starts at index 1. It skips occupied indices 1 and 2 in turn and ends up at index 3.
 
-    2. Searching for 11 checks indices `1, 2, 3` in order and finds it at index 3.
+    2. To look up 11, check the indices in the order `1, 2, 3`. You find it at index 3.
 
-    3. If index 2 is marked as an empty slot that has never been used, a search for 11 checks index 1 and then stops at index 2,
-        incorrectly concluding that 11 is absent. Deletion should leave a deleted marker instead:
-        a search continues to the next index when it encounters this marker, wrapping from index 4 to index 0. Later insertions can still reuse the position.
+    3. If you mark index 2 as empty and never used, a lookup for 11 checks index 1 and stops at index 2,
+        incorrectly concluding that 11 is absent. Leave a “deleted” marker when removing an element:
+        a lookup that encounters the marker continues to the next index (wrapping from index 4 to index 0), and a later insertion can reuse the slot.
 
 ## 6.5.2 &nbsp; Programming exercises
 
-### 1. &nbsp; Comparing the characters in two strings
+### 1. &nbsp; Comparing the letters in two strings
 
-Given two strings `s` and `t` containing only lowercase English letters,
-you may rearrange the characters in `s` freely, but may not add, delete, or replace any characters.
+You are given two strings, `s` and `t`, that contain only lowercase English letters.
+You may rearrange the characters in `s` in any order, but you cannot add, remove, or replace characters.
 
-Determine whether the rearrangement can produce `t`. Return `true` if it can, or `false` otherwise.
-Use a hash table to record the frequency of each letter; do not sort the characters in either string.
+Can you obtain `t` this way? Return `true` if you can and `false` otherwise.
+Use a hash table to count the occurrences of each letter without sorting the characters in either string.
 
 ??? tip "Hints"
 
-    1. Strings of different lengths cannot contain the same characters with the same frequencies.
-    2. Use a hash table to record each letter's count; increment the appropriate count by 1 while scanning s.
-    3. Decrement the appropriate count by 1 while scanning t. The character frequencies match only if all counts end at 0.
+    1. If the strings have different lengths, their letter counts cannot all match.
+    2. Use a hash table to count each letter. As you scan s, add 1 to the count for each letter you encounter.
+    3. As you scan t, subtract 1 from the corresponding count. The strings contain the same letters with the same frequencies only if all counts end at 0.
 
 [LeetCode](https://leetcode.com/problems/valid-anagram/){ .rounded-button .exercise-button target="_blank" rel="noopener noreferrer" }

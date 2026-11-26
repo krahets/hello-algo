@@ -4,65 +4,65 @@ comments: true
 
 # 10.2 &nbsp; Finding an insertion point with binary search
 
-Binary search can do more than find a target element. It also solves many variations of the problem, such as finding where to insert a target.
+Binary search can solve many variations of the basic search problem. One is finding where to insert a target element.
 
-## 10.2.1 &nbsp; When there are no duplicates
+## 10.2.1 &nbsp; Arrays without duplicates
 
 !!! question
 
-    Given a sorted array `nums` of length $n$ with no duplicate elements and a value `target`, insert `target` into `nums` while preserving its order. If `target` is already present, insert the new value to its left. Return the index of the newly inserted `target`, as illustrated below.
+    Given a sorted array `nums` of length $n$ with distinct elements and a value `target`, insert `target` into `nums` while keeping the array sorted. If `target` already occurs in the array, insert the new element to its left. Return the index the new `target` will occupy, as in the example below.
 
-![Example data for finding an insertion point](binary_search_insertion.assets/binary_search_insertion_example.svg){ class="animation-figure" }
+![Sample data for finding an insertion point with binary search](binary_search_insertion.assets/binary_search_insertion_example.svg){ class="animation-figure" }
 
-<p align="center"> Figure 10-4 &nbsp; Example data for finding an insertion point </p>
+<p align="center"> Figure 10-4 &nbsp; Sample data for finding an insertion point with binary search </p>
 
 To reuse the binary search code from the previous section, we need to answer two questions.
 
-**Question 1**: If the array contains `target`, is the insertion index the index of that element?
+**Question 1**: If the array contains `target`, is its index the insertion index?
 
-The problem asks us to insert `target` to the left of the equal element, so the new `target` takes the original one's position. Thus, **if the array contains `target`, the insertion index is the index of that `target`**.
+The problem asks us to insert `target` to the left of an equal element, so the newly inserted `target` takes the position originally occupied by `target`. Thus, **when the array contains `target`, the insertion index is the index of the existing `target`**.
 
 **Question 2**: If the array does not contain `target`, which index is the insertion point?
 
-Consider the search process more closely. Pointer $i$ moves when `nums[m] < target`, so $i$ approaches elements greater than or equal to `target`. Similarly, pointer $j$ keeps approaching elements less than or equal to `target`.
+Consider how binary search moves its pointers. When `nums[m] < target`, the pointer $i$ moves right. This means $i$ approaches elements greater than or equal to `target`. Similarly, $j$ keeps moving toward elements less than or equal to `target`.
 
-When the search ends, $i$ points to the first element greater than `target`, and $j$ points to the rightmost element smaller than `target`. **Thus, when `target` is absent, the insertion index is $i$**. The code is as follows:
+When the search ends, $i$ marks the first element greater than `target`, and $j$ marks the rightmost element less than `target`. Thus, **when the array does not contain `target`, its insertion index is $i$**. The following code implements this logic:
 
 === "Python"
 
     ```python title="binary_search_insertion.py"
     def binary_search_insertion_simple(nums: list[int], target: int) -> int:
-        """Find an insertion point using binary search (no duplicates)"""
+        """Binary search for an insertion point (no duplicates)"""
         i, j = 0, len(nums) - 1  # Initialize the closed interval [0, n-1]
         while i <= j:
-            m = (i + j) // 2  # Calculate the midpoint index m
+            m = (i + j) // 2  # Compute the midpoint index m
             if nums[m] < target:
-                i = m + 1  # Target must be in [m+1, j] if it exists
+                i = m + 1  # Any match must lie in [m+1, j]
             elif nums[m] > target:
-                j = m - 1  # Target must be in [i, m-1] if it exists
+                j = m - 1  # Any match must lie in [i, m-1]
             else:
-                return m  # Target was found; return insertion point m
-        # Target was not found; return insertion point i
+                return m  # Found target. Return insertion point m
+        # Target not found. Return insertion point i
         return i
     ```
 
 === "C++"
 
     ```cpp title="binary_search_insertion.cpp"
-    /* Find an insertion point using binary search (no duplicates) */
+    /* Binary search for an insertion point (no duplicates) */
     int binarySearchInsertionSimple(vector<int> &nums, int target) {
         int i = 0, j = nums.size() - 1; // Initialize the closed interval [0, n-1]
         while (i <= j) {
-            int m = i + (j - i) / 2; // Calculate the midpoint index m
+            int m = i + (j - i) / 2; // Compute the midpoint index m
             if (nums[m] < target) {
-                i = m + 1; // Target must be in [m+1, j] if it exists
+                i = m + 1; // Any match must lie in [m+1, j]
             } else if (nums[m] > target) {
-                j = m - 1; // Target must be in [i, m-1] if it exists
+                j = m - 1; // Any match must lie in [i, m-1]
             } else {
-                return m; // Target was found; return insertion point m
+                return m; // Found target. Return insertion point m
             }
         }
-        // Target was not found; return insertion point i
+        // Target not found. Return insertion point i
         return i;
     }
     ```
@@ -70,20 +70,20 @@ When the search ends, $i$ points to the first element greater than `target`, and
 === "Java"
 
     ```java title="binary_search_insertion.java"
-    /* Find an insertion point using binary search (no duplicates) */
+    /* Binary search for an insertion point (no duplicates) */
     int binarySearchInsertionSimple(int[] nums, int target) {
         int i = 0, j = nums.length - 1; // Initialize the closed interval [0, n-1]
         while (i <= j) {
-            int m = i + (j - i) / 2; // Calculate the midpoint index m
+            int m = i + (j - i) / 2; // Compute the midpoint index m
             if (nums[m] < target) {
-                i = m + 1; // Target must be in [m+1, j] if it exists
+                i = m + 1; // Any match must lie in [m+1, j]
             } else if (nums[m] > target) {
-                j = m - 1; // Target must be in [i, m-1] if it exists
+                j = m - 1; // Any match must lie in [i, m-1]
             } else {
-                return m; // Target was found; return insertion point m
+                return m; // Found target. Return insertion point m
             }
         }
-        // Target was not found; return insertion point i
+        // Target not found. Return insertion point i
         return i;
     }
     ```
@@ -91,20 +91,20 @@ When the search ends, $i$ points to the first element greater than `target`, and
 === "C#"
 
     ```csharp title="binary_search_insertion.cs"
-    /* Find an insertion point using binary search (no duplicates) */
+    /* Binary search for an insertion point (no duplicates) */
     int BinarySearchInsertionSimple(int[] nums, int target) {
         int i = 0, j = nums.Length - 1; // Initialize the closed interval [0, n-1]
         while (i <= j) {
-            int m = i + (j - i) / 2; // Calculate the midpoint index m
+            int m = i + (j - i) / 2; // Compute the midpoint index m
             if (nums[m] < target) {
-                i = m + 1; // Target must be in [m+1, j] if it exists
+                i = m + 1; // Any match must lie in [m+1, j]
             } else if (nums[m] > target) {
-                j = m - 1; // Target must be in [i, m-1] if it exists
+                j = m - 1; // Any match must lie in [i, m-1]
             } else {
-                return m; // Target was found; return insertion point m
+                return m; // Found target. Return insertion point m
             }
         }
-        // Target was not found; return insertion point i
+        // Target not found. Return insertion point i
         return i;
     }
     ```
@@ -112,25 +112,25 @@ When the search ends, $i$ points to the first element greater than `target`, and
 === "Go"
 
     ```go title="binary_search_insertion.go"
-    /* Find an insertion point using binary search (no duplicates) */
+    /* Binary search for an insertion point (no duplicates) */
     func binarySearchInsertionSimple(nums []int, target int) int {
         // Initialize the closed interval [0, n-1]
         i, j := 0, len(nums)-1
         for i <= j {
-            // Calculate the midpoint index m
+            // Compute the midpoint index m
             m := i + (j-i)/2
             if nums[m] < target {
-                // Target must be in [m+1, j] if it exists
+                // Any match must lie in [m+1, j]
                 i = m + 1
             } else if nums[m] > target {
-                // Target must be in [i, m-1] if it exists
+                // Any match must lie in [i, m-1]
                 j = m - 1
             } else {
-                // Target was found; return insertion point m
+                // Found target. Return insertion point m
                 return m
             }
         }
-        // Target was not found; return insertion point i
+        // Target not found. Return insertion point i
         return i
     }
     ```
@@ -138,22 +138,22 @@ When the search ends, $i$ points to the first element greater than `target`, and
 === "Swift"
 
     ```swift title="binary_search_insertion.swift"
-    /* Find an insertion point using binary search (no duplicates) */
+    /* Binary search for an insertion point (no duplicates) */
     func binarySearchInsertionSimple(nums: [Int], target: Int) -> Int {
         // Initialize the closed interval [0, n-1]
         var i = nums.startIndex
         var j = nums.endIndex - 1
         while i <= j {
-            let m = i + (j - i) / 2 // Calculate the midpoint index m
+            let m = i + (j - i) / 2 // Compute the midpoint index m
             if nums[m] < target {
-                i = m + 1 // Target must be in [m+1, j] if it exists
+                i = m + 1 // Any match must lie in [m+1, j]
             } else if nums[m] > target {
-                j = m - 1 // Target must be in [i, m-1] if it exists
+                j = m - 1 // Any match must lie in [i, m-1]
             } else {
-                return m // Target was found; return insertion point m
+                return m // Found target. Return insertion point m
             }
         }
-        // Target was not found; return insertion point i
+        // Target not found. Return insertion point i
         return i
     }
     ```
@@ -161,21 +161,21 @@ When the search ends, $i$ points to the first element greater than `target`, and
 === "JS"
 
     ```javascript title="binary_search_insertion.js"
-    /* Find an insertion point using binary search (no duplicates) */
+    /* Binary search for an insertion point (no duplicates) */
     function binarySearchInsertionSimple(nums, target) {
         let i = 0,
             j = nums.length - 1; // Initialize the closed interval [0, n-1]
         while (i <= j) {
-            const m = Math.floor(i + (j - i) / 2); // Calculate midpoint index m, using Math.floor() to round down
+            const m = Math.floor(i + (j - i) / 2); // Compute the midpoint index m, rounding down with Math.floor()
             if (nums[m] < target) {
-                i = m + 1; // Target must be in [m+1, j] if it exists
+                i = m + 1; // Any match must lie in [m+1, j]
             } else if (nums[m] > target) {
-                j = m - 1; // Target must be in [i, m-1] if it exists
+                j = m - 1; // Any match must lie in [i, m-1]
             } else {
-                return m; // Target was found; return insertion point m
+                return m; // Found target. Return insertion point m
             }
         }
-        // Target was not found; return insertion point i
+        // Target not found. Return insertion point i
         return i;
     }
     ```
@@ -183,7 +183,7 @@ When the search ends, $i$ points to the first element greater than `target`, and
 === "TS"
 
     ```typescript title="binary_search_insertion.ts"
-    /* Find an insertion point using binary search (no duplicates) */
+    /* Binary search for an insertion point (no duplicates) */
     function binarySearchInsertionSimple(
         nums: Array<number>,
         target: number
@@ -191,16 +191,16 @@ When the search ends, $i$ points to the first element greater than `target`, and
         let i = 0,
             j = nums.length - 1; // Initialize the closed interval [0, n-1]
         while (i <= j) {
-            const m = Math.floor(i + (j - i) / 2); // Calculate midpoint index m, using Math.floor() to round down
+            const m = Math.floor(i + (j - i) / 2); // Compute the midpoint index m, rounding down with Math.floor()
             if (nums[m] < target) {
-                i = m + 1; // Target must be in [m+1, j] if it exists
+                i = m + 1; // Any match must lie in [m+1, j]
             } else if (nums[m] > target) {
-                j = m - 1; // Target must be in [i, m-1] if it exists
+                j = m - 1; // Any match must lie in [i, m-1]
             } else {
-                return m; // Target was found; return insertion point m
+                return m; // Found target. Return insertion point m
             }
         }
-        // Target was not found; return insertion point i
+        // Target not found. Return insertion point i
         return i;
     }
     ```
@@ -208,20 +208,20 @@ When the search ends, $i$ points to the first element greater than `target`, and
 === "Dart"
 
     ```dart title="binary_search_insertion.dart"
-    /* Find an insertion point using binary search (no duplicates) */
+    /* Binary search for an insertion point (no duplicates) */
     int binarySearchInsertionSimple(List<int> nums, int target) {
       int i = 0, j = nums.length - 1; // Initialize the closed interval [0, n-1]
       while (i <= j) {
-        int m = i + (j - i) ~/ 2; // Calculate the midpoint index m
+        int m = i + (j - i) ~/ 2; // Compute the midpoint index m
         if (nums[m] < target) {
-          i = m + 1; // Target must be in [m+1, j] if it exists
+          i = m + 1; // Any match must lie in [m+1, j]
         } else if (nums[m] > target) {
-          j = m - 1; // Target must be in [i, m-1] if it exists
+          j = m - 1; // Any match must lie in [i, m-1]
         } else {
-          return m; // Target was found; return insertion point m
+          return m; // Found target. Return insertion point m
         }
       }
-      // Target was not found; return insertion point i
+      // Target not found. Return insertion point i
       return i;
     }
     ```
@@ -229,20 +229,20 @@ When the search ends, $i$ points to the first element greater than `target`, and
 === "Rust"
 
     ```rust title="binary_search_insertion.rs"
-    /* Find an insertion point using binary search (no duplicates) */
+    /* Binary search for an insertion point (no duplicates) */
     fn binary_search_insertion_simple(nums: &[i32], target: i32) -> i32 {
         let (mut i, mut j) = (0, nums.len() as i32 - 1); // Initialize the closed interval [0, n-1]
         while i <= j {
-            let m = i + (j - i) / 2; // Calculate the midpoint index m
+            let m = i + (j - i) / 2; // Compute the midpoint index m
             if nums[m as usize] < target {
-                i = m + 1; // Target must be in [m+1, j] if it exists
+                i = m + 1; // Any match must lie in [m+1, j]
             } else if nums[m as usize] > target {
-                j = m - 1; // Target must be in [i, m-1] if it exists
+                j = m - 1; // Any match must lie in [i, m-1]
             } else {
                 return m;
             }
         }
-        // Target was not found; return insertion point i
+        // Target not found. Return insertion point i
         i
     }
     ```
@@ -250,20 +250,20 @@ When the search ends, $i$ points to the first element greater than `target`, and
 === "C"
 
     ```c title="binary_search_insertion.c"
-    /* Find an insertion point using binary search (no duplicates) */
+    /* Binary search for an insertion point (no duplicates) */
     int binarySearchInsertionSimple(int *nums, int numSize, int target) {
         int i = 0, j = numSize - 1; // Initialize the closed interval [0, n-1]
         while (i <= j) {
-            int m = i + (j - i) / 2; // Calculate the midpoint index m
+            int m = i + (j - i) / 2; // Compute the midpoint index m
             if (nums[m] < target) {
-                i = m + 1; // Target must be in [m+1, j] if it exists
+                i = m + 1; // Any match must lie in [m+1, j]
             } else if (nums[m] > target) {
-                j = m - 1; // Target must be in [i, m-1] if it exists
+                j = m - 1; // Any match must lie in [i, m-1]
             } else {
-                return m; // Target was found; return insertion point m
+                return m; // Found target. Return insertion point m
             }
         }
-        // Target was not found; return insertion point i
+        // Target not found. Return insertion point i
         return i;
     }
     ```
@@ -271,21 +271,21 @@ When the search ends, $i$ points to the first element greater than `target`, and
 === "Kotlin"
 
     ```kotlin title="binary_search_insertion.kt"
-    /* Find an insertion point using binary search (no duplicates) */
+    /* Binary search for an insertion point (no duplicates) */
     fun binarySearchInsertionSimple(nums: IntArray, target: Int): Int {
         var i = 0
         var j = nums.size - 1 // Initialize the closed interval [0, n-1]
         while (i <= j) {
-            val m = i + (j - i) / 2 // Calculate the midpoint index m
+            val m = i + (j - i) / 2 // Compute the midpoint index m
             if (nums[m] < target) {
-                i = m + 1 // Target must be in [m+1, j] if it exists
+                i = m + 1 // Any match must lie in [m+1, j]
             } else if (nums[m] > target) {
-                j = m - 1 // Target must be in [i, m-1] if it exists
+                j = m - 1 // Any match must lie in [i, m-1]
             } else {
-                return m // Target was found; return insertion point m
+                return m // Found target. Return insertion point m
             }
         }
-        // Target was not found; return insertion point i
+        // Target not found. Return insertion point i
         return i
     }
     ```
@@ -293,61 +293,61 @@ When the search ends, $i$ points to the first element greater than `target`, and
 === "Ruby"
 
     ```ruby title="binary_search_insertion.rb"
-    ### Find an insertion point using binary search (no duplicates) ###
+    ### Binary search for an insertion point (no duplicates) ###
     def binary_search_insertion_simple(nums, target)
       # Initialize the closed interval [0, n-1]
       i, j = 0, nums.length - 1
 
       while i <= j
-        # Calculate the midpoint index m
+        # Compute the midpoint index m
         m = (i + j) / 2
 
         if nums[m] < target
-          i = m + 1 # Target must be in [m+1, j] if it exists
+          i = m + 1 # Any match must lie in [m+1, j]
         elsif nums[m] > target
-          j = m - 1 # Target must be in [i, m-1] if it exists
+          j = m - 1 # Any match must lie in [i, m-1]
         else
-          return m  # Target was found; return insertion point m
+          return m  # Found target. Return insertion point m
         end
       end
 
-      i # Target was not found; return insertion point i
+      i # Target not found. Return insertion point i
     end
     ```
 
 ??? pythontutor "Visualize execution"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion_simple%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Find%20an%20insertion%20point%20using%20binary%20search%20%28no%20duplicates%29%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20Initialize%20the%20closed%20interval%20%5B0,%20n-1%5D%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20Calculate%20the%20midpoint%20index%20m%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20Target%20must%20be%20in%20%5Bm%2B1,%20j%5D%20if%20it%20exists%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Target%20must%20be%20in%20%5Bi,%20m-1%5D%20if%20it%20exists%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20m%20%20%23%20Target%20was%20found%3B%20return%20insertion%20point%20m%0A%20%20%20%20%23%20Target%20was%20not%20found%3B%20return%20insertion%20point%20i%0A%20%20%20%20return%20i%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Array%20with%20no%20duplicate%20elements%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%208,%2012,%2015,%2023,%2026,%2031,%2035%5D%0A%20%20%20%20%23%20Find%20an%20insertion%20point%20using%20binary%20search%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_insertion_simple%28nums,%20target%29%0A%20%20%20%20print%28f%22Insertion%20index%20for%20element%20%7Btarget%7D%3A%20%7Bindex%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion_simple%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Find%20an%20insertion%20point%20using%20binary%20search%20%28no%20duplicates%29%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20Initialize%20the%20closed%20interval%20%5B0,%20n-1%5D%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20Calculate%20the%20midpoint%20index%20m%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20Target%20must%20be%20in%20%5Bm%2B1,%20j%5D%20if%20it%20exists%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Target%20must%20be%20in%20%5Bi,%20m-1%5D%20if%20it%20exists%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20m%20%20%23%20Target%20was%20found%3B%20return%20insertion%20point%20m%0A%20%20%20%20%23%20Target%20was%20not%20found%3B%20return%20insertion%20point%20i%0A%20%20%20%20return%20i%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Array%20with%20no%20duplicate%20elements%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%208,%2012,%2015,%2023,%2026,%2031,%2035%5D%0A%20%20%20%20%23%20Find%20an%20insertion%20point%20using%20binary%20search%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_insertion_simple%28nums,%20target%29%0A%20%20%20%20print%28f%22Insertion%20index%20for%20element%20%7Btarget%7D%3A%20%7Bindex%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion_simple%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Binary%20search%20for%20an%20insertion%20point%20%28no%20duplicates%29%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20Initialize%20the%20closed%20interval%20%5B0,%20n-1%5D%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20Compute%20the%20midpoint%20index%20m%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20Any%20match%20must%20lie%20in%20%5Bm%2B1,%20j%5D%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Any%20match%20must%20lie%20in%20%5Bi,%20m-1%5D%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20m%20%20%23%20Found%20target.%20Return%20insertion%20point%20m%0A%20%20%20%20%23%20Target%20not%20found.%20Return%20insertion%20point%20i%0A%20%20%20%20return%20i%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Array%20without%20duplicates%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%208,%2012,%2015,%2023,%2026,%2031,%2035%5D%0A%20%20%20%20%23%20Find%20the%20insertion%20point%20using%20binary%20search%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_insertion_simple%28nums,%20target%29%0A%20%20%20%20print%28f%22Insertion%20index%20for%20%7Btarget%7D%20%3D%20%7Bindex%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion_simple%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Binary%20search%20for%20an%20insertion%20point%20%28no%20duplicates%29%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20Initialize%20the%20closed%20interval%20%5B0,%20n-1%5D%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20Compute%20the%20midpoint%20index%20m%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20Any%20match%20must%20lie%20in%20%5Bm%2B1,%20j%5D%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Any%20match%20must%20lie%20in%20%5Bi,%20m-1%5D%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20m%20%20%23%20Found%20target.%20Return%20insertion%20point%20m%0A%20%20%20%20%23%20Target%20not%20found.%20Return%20insertion%20point%20i%0A%20%20%20%20return%20i%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Array%20without%20duplicates%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%208,%2012,%2015,%2023,%2026,%2031,%2035%5D%0A%20%20%20%20%23%20Find%20the%20insertion%20point%20using%20binary%20search%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_insertion_simple%28nums,%20target%29%0A%20%20%20%20print%28f%22Insertion%20index%20for%20%7Btarget%7D%20%3D%20%7Bindex%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
-## 10.2.2 &nbsp; When duplicates are present
+## 10.2.2 &nbsp; Arrays with duplicates
 
 !!! question
 
-    Modify the previous problem to allow duplicate elements in the array. All other requirements remain the same.
+    Now suppose the array in the previous problem may contain duplicates. All other requirements stay the same.
 
-If the array contains multiple occurrences of `target`, ordinary binary search can return the index of one occurrence, **but cannot determine how many more occurrences lie to its left or right**.
+If the array contains several occurrences of `target`, ordinary binary search returns the index of just one `target`. **It cannot tell us how many more occurrences of `target` lie on either side**.
 
-The target must be inserted as far left as possible, **so we need the index of the leftmost `target`**. One initial approach follows the steps below.
+The problem asks us to insert the target before all equal elements, **so we need the index of the leftmost `target` in the array**. Figure 10-5 shows an initial approach.
 
-1. Run binary search to find the index of any `target`, denoted by $k$.
-2. Starting at index $k$, scan leftward and return when the leftmost `target` is reached.
+1. Use binary search to find any occurrence of `target`. Call its index $k$.
+2. Starting at index $k$, scan to the left and return the index of the leftmost `target`.
 
-![Finding the insertion point among duplicates with a linear scan](binary_search_insertion.assets/binary_search_insertion_naive.svg){ class="animation-figure" }
+![Finding the insertion point among duplicates by linear search](binary_search_insertion.assets/binary_search_insertion_naive.svg){ class="animation-figure" }
 
-<p align="center"> Figure 10-5 &nbsp; Finding the insertion point among duplicates with a linear scan </p>
+<p align="center"> Figure 10-5 &nbsp; Finding the insertion point among duplicates by linear search </p>
 
-Although this works, it includes a linear search and therefore takes $O(n)$ time. It is inefficient when the array contains many occurrences of `target`.
+This approach works, but the linear scan gives it $O(n)$ time complexity. It is inefficient when the array contains many occurrences of `target`.
 
-Now consider extending binary search itself. As shown below, the overall process remains the same: each round calculates midpoint index $m$ and compares `target` with `nums[m]`. The cases are as follows.
+We can instead adapt binary search. As Figure 10-6 shows, the overall procedure stays the same. In each iteration, first compute the midpoint index $m$, then compare `target` with `nums[m]`. The comparisons fall into the following cases.
 
-- If `nums[m] < target` or `nums[m] > target`, we have not found `target`. Narrow the interval as in ordinary binary search, **bringing pointers $i$ and $j$ closer to `target`**.
-- If `nums[m] == target`, elements smaller than `target` lie in $[i, m - 1]$. Narrow the interval by setting $j = m - 1$, **bringing pointer $j$ closer to elements smaller than `target`**.
+- If `nums[m] < target` or `nums[m] > target`, we have yet to find `target`. Narrow the interval just as in ordinary binary search, **bringing the pointers $i$ and $j$ closer to `target`**.
+- If `nums[m] == target`, any remaining elements less than `target` lie in $[i, m - 1]$. Narrow the interval by setting $j = m - 1$, **bringing $j$ closer to elements less than `target`**.
 
-When the loop finishes, $i$ points to the leftmost `target`, and $j$ points to the rightmost element smaller than `target`. **Index $i$ is therefore the insertion point**.
+When the loop ends, $i$ points to the leftmost `target`, and $j$ points to the rightmost element less than `target`. **Index $i$ is therefore the insertion point**.
 
 === "<1>"
-    ![Steps for finding an insertion point among duplicates](binary_search_insertion.assets/binary_search_insertion_step1.svg){ class="animation-figure" }
+    ![Steps for finding the insertion point among duplicates by binary search](binary_search_insertion.assets/binary_search_insertion_step1.svg){ class="animation-figure" }
 
 === "<2>"
     ![binary_search_insertion_step2](binary_search_insertion.assets/binary_search_insertion_step2.svg){ class="animation-figure" }
@@ -370,26 +370,26 @@ When the loop finishes, $i$ points to the leftmost `target`, and $j$ points to t
 === "<8>"
     ![binary_search_insertion_step8](binary_search_insertion.assets/binary_search_insertion_step8.svg){ class="animation-figure" }
 
-<p align="center"> Figure 10-6 &nbsp; Steps for finding an insertion point among duplicates </p>
+<p align="center"> Figure 10-6 &nbsp; Steps for finding the insertion point among duplicates by binary search </p>
 
-In the code below, the branches for `nums[m] > target` and `nums[m] == target` perform the same operation, so they can be combined.
+In the following code, the `nums[m] > target` and `nums[m] == target` branches do the same thing, so we can combine them.
 
-Even so, we can leave them separate to make the logic clearer and easier to read.
+We can also keep the conditions separate to make the logic clearer and easier to read.
 
 === "Python"
 
     ```python title="binary_search_insertion.py"
     def binary_search_insertion(nums: list[int], target: int) -> int:
-        """Find an insertion point using binary search (with duplicates)"""
+        """Binary search for an insertion point (duplicates allowed)"""
         i, j = 0, len(nums) - 1  # Initialize the closed interval [0, n-1]
         while i <= j:
-            m = (i + j) // 2  # Calculate the midpoint index m
+            m = (i + j) // 2  # Compute the midpoint index m
             if nums[m] < target:
-                i = m + 1  # Target must be in [m+1, j] if it exists
+                i = m + 1  # Any match must lie in [m+1, j]
             elif nums[m] > target:
-                j = m - 1  # Target must be in [i, m-1] if it exists
+                j = m - 1  # Any match must lie in [i, m-1]
             else:
-                j = m - 1  # Continue in [i, m-1] to find the rightmost element smaller than target
+                j = m - 1  # Look in [i, m-1] for the rightmost element less than target
         # Return insertion point i
         return i
     ```
@@ -397,17 +397,17 @@ Even so, we can leave them separate to make the logic clearer and easier to read
 === "C++"
 
     ```cpp title="binary_search_insertion.cpp"
-    /* Find an insertion point using binary search (with duplicates) */
+    /* Binary search for an insertion point (duplicates allowed) */
     int binarySearchInsertion(vector<int> &nums, int target) {
         int i = 0, j = nums.size() - 1; // Initialize the closed interval [0, n-1]
         while (i <= j) {
-            int m = i + (j - i) / 2; // Calculate the midpoint index m
+            int m = i + (j - i) / 2; // Compute the midpoint index m
             if (nums[m] < target) {
-                i = m + 1; // Target must be in [m+1, j] if it exists
+                i = m + 1; // Any match must lie in [m+1, j]
             } else if (nums[m] > target) {
-                j = m - 1; // Target must be in [i, m-1] if it exists
+                j = m - 1; // Any match must lie in [i, m-1]
             } else {
-                j = m - 1; // Continue searching [i, m-1] for the insertion point before any equal elements
+                j = m - 1; // Look in [i, m-1] for the rightmost element less than target
             }
         }
         // Return insertion point i
@@ -418,17 +418,17 @@ Even so, we can leave them separate to make the logic clearer and easier to read
 === "Java"
 
     ```java title="binary_search_insertion.java"
-    /* Find an insertion point using binary search (with duplicates) */
+    /* Binary search for an insertion point (duplicates allowed) */
     int binarySearchInsertion(int[] nums, int target) {
         int i = 0, j = nums.length - 1; // Initialize the closed interval [0, n-1]
         while (i <= j) {
-            int m = i + (j - i) / 2; // Calculate the midpoint index m
+            int m = i + (j - i) / 2; // Compute the midpoint index m
             if (nums[m] < target) {
-                i = m + 1; // Target must be in [m+1, j] if it exists
+                i = m + 1; // Any match must lie in [m+1, j]
             } else if (nums[m] > target) {
-                j = m - 1; // Target must be in [i, m-1] if it exists
+                j = m - 1; // Any match must lie in [i, m-1]
             } else {
-                j = m - 1; // Continue in [i, m-1] to find the rightmost element smaller than target
+                j = m - 1; // Look in [i, m-1] for the rightmost element less than target
             }
         }
         // Return insertion point i
@@ -439,17 +439,17 @@ Even so, we can leave them separate to make the logic clearer and easier to read
 === "C#"
 
     ```csharp title="binary_search_insertion.cs"
-    /* Find an insertion point using binary search (with duplicates) */
+    /* Binary search for an insertion point (duplicates allowed) */
     int BinarySearchInsertion(int[] nums, int target) {
         int i = 0, j = nums.Length - 1; // Initialize the closed interval [0, n-1]
         while (i <= j) {
-            int m = i + (j - i) / 2; // Calculate the midpoint index m
+            int m = i + (j - i) / 2; // Compute the midpoint index m
             if (nums[m] < target) {
-                i = m + 1; // Target must be in [m+1, j] if it exists
+                i = m + 1; // Any match must lie in [m+1, j]
             } else if (nums[m] > target) {
-                j = m - 1; // Target must be in [i, m-1] if it exists
+                j = m - 1; // Any match must lie in [i, m-1]
             } else {
-                j = m - 1; // Continue in [i, m-1] to find the rightmost element smaller than target
+                j = m - 1; // Look in [i, m-1] for the rightmost element less than target
             }
         }
         // Return insertion point i
@@ -460,21 +460,21 @@ Even so, we can leave them separate to make the logic clearer and easier to read
 === "Go"
 
     ```go title="binary_search_insertion.go"
-    /* Find an insertion point using binary search (with duplicates) */
+    /* Binary search for an insertion point (duplicates allowed) */
     func binarySearchInsertion(nums []int, target int) int {
         // Initialize the closed interval [0, n-1]
         i, j := 0, len(nums)-1
         for i <= j {
-            // Calculate the midpoint index m
+            // Compute the midpoint index m
             m := i + (j-i)/2
             if nums[m] < target {
-                // Target must be in [m+1, j] if it exists
+                // Any match must lie in [m+1, j]
                 i = m + 1
             } else if nums[m] > target {
-                // Target must be in [i, m-1] if it exists
+                // Any match must lie in [i, m-1]
                 j = m - 1
             } else {
-                // Continue in [i, m-1] to find the rightmost element smaller than target
+                // Look in [i, m-1] for the rightmost element less than target
                 j = m - 1
             }
         }
@@ -486,19 +486,19 @@ Even so, we can leave them separate to make the logic clearer and easier to read
 === "Swift"
 
     ```swift title="binary_search_insertion.swift"
-    /* Find an insertion point using binary search (with duplicates) */
+    /* Binary search for an insertion point (duplicates allowed) */
     func binarySearchInsertion(nums: [Int], target: Int) -> Int {
         // Initialize the closed interval [0, n-1]
         var i = nums.startIndex
         var j = nums.endIndex - 1
         while i <= j {
-            let m = i + (j - i) / 2 // Calculate the midpoint index m
+            let m = i + (j - i) / 2 // Compute the midpoint index m
             if nums[m] < target {
-                i = m + 1 // Target must be in [m+1, j] if it exists
+                i = m + 1 // Any match must lie in [m+1, j]
             } else if nums[m] > target {
-                j = m - 1 // Target must be in [i, m-1] if it exists
+                j = m - 1 // Any match must lie in [i, m-1]
             } else {
-                j = m - 1 // Continue in [i, m-1] to find the rightmost element smaller than target
+                j = m - 1 // Look in [i, m-1] for the rightmost element less than target
             }
         }
         // Return insertion point i
@@ -509,18 +509,18 @@ Even so, we can leave them separate to make the logic clearer and easier to read
 === "JS"
 
     ```javascript title="binary_search_insertion.js"
-    /* Find an insertion point using binary search (with duplicates) */
+    /* Binary search for an insertion point (duplicates allowed) */
     function binarySearchInsertion(nums, target) {
         let i = 0,
             j = nums.length - 1; // Initialize the closed interval [0, n-1]
         while (i <= j) {
-            const m = Math.floor(i + (j - i) / 2); // Calculate midpoint index m, using Math.floor() to round down
+            const m = Math.floor(i + (j - i) / 2); // Compute the midpoint index m, rounding down with Math.floor()
             if (nums[m] < target) {
-                i = m + 1; // Target must be in [m+1, j] if it exists
+                i = m + 1; // Any match must lie in [m+1, j]
             } else if (nums[m] > target) {
-                j = m - 1; // Target must be in [i, m-1] if it exists
+                j = m - 1; // Any match must lie in [i, m-1]
             } else {
-                j = m - 1; // Continue in [i, m-1] to find the rightmost element smaller than target
+                j = m - 1; // Look in [i, m-1] for the rightmost element less than target
             }
         }
         // Return insertion point i
@@ -531,18 +531,18 @@ Even so, we can leave them separate to make the logic clearer and easier to read
 === "TS"
 
     ```typescript title="binary_search_insertion.ts"
-    /* Find an insertion point using binary search (with duplicates) */
+    /* Binary search for an insertion point (duplicates allowed) */
     function binarySearchInsertion(nums: Array<number>, target: number): number {
         let i = 0,
             j = nums.length - 1; // Initialize the closed interval [0, n-1]
         while (i <= j) {
-            const m = Math.floor(i + (j - i) / 2); // Calculate midpoint index m, using Math.floor() to round down
+            const m = Math.floor(i + (j - i) / 2); // Compute the midpoint index m, rounding down with Math.floor()
             if (nums[m] < target) {
-                i = m + 1; // Target must be in [m+1, j] if it exists
+                i = m + 1; // Any match must lie in [m+1, j]
             } else if (nums[m] > target) {
-                j = m - 1; // Target must be in [i, m-1] if it exists
+                j = m - 1; // Any match must lie in [i, m-1]
             } else {
-                j = m - 1; // Continue in [i, m-1] to find the rightmost element smaller than target
+                j = m - 1; // Look in [i, m-1] for the rightmost element less than target
             }
         }
         // Return insertion point i
@@ -553,17 +553,17 @@ Even so, we can leave them separate to make the logic clearer and easier to read
 === "Dart"
 
     ```dart title="binary_search_insertion.dart"
-    /* Find an insertion point using binary search (with duplicates) */
+    /* Binary search for an insertion point (duplicates allowed) */
     int binarySearchInsertion(List<int> nums, int target) {
       int i = 0, j = nums.length - 1; // Initialize the closed interval [0, n-1]
       while (i <= j) {
-        int m = i + (j - i) ~/ 2; // Calculate the midpoint index m
+        int m = i + (j - i) ~/ 2; // Compute the midpoint index m
         if (nums[m] < target) {
-          i = m + 1; // Target must be in [m+1, j] if it exists
+          i = m + 1; // Any match must lie in [m+1, j]
         } else if (nums[m] > target) {
-          j = m - 1; // Target must be in [i, m-1] if it exists
+          j = m - 1; // Any match must lie in [i, m-1]
         } else {
-          j = m - 1; // Continue in [i, m-1] to find the rightmost element smaller than target
+          j = m - 1; // Look in [i, m-1] for the rightmost element less than target
         }
       }
       // Return insertion point i
@@ -574,17 +574,17 @@ Even so, we can leave them separate to make the logic clearer and easier to read
 === "Rust"
 
     ```rust title="binary_search_insertion.rs"
-    /* Find an insertion point using binary search (with duplicates) */
+    /* Binary search for an insertion point (duplicates allowed) */
     pub fn binary_search_insertion(nums: &[i32], target: i32) -> i32 {
         let (mut i, mut j) = (0, nums.len() as i32 - 1); // Initialize the closed interval [0, n-1]
         while i <= j {
-            let m = i + (j - i) / 2; // Calculate the midpoint index m
+            let m = i + (j - i) / 2; // Compute the midpoint index m
             if nums[m as usize] < target {
-                i = m + 1; // Target must be in [m+1, j] if it exists
+                i = m + 1; // Any match must lie in [m+1, j]
             } else if nums[m as usize] > target {
-                j = m - 1; // Target must be in [i, m-1] if it exists
+                j = m - 1; // Any match must lie in [i, m-1]
             } else {
-                j = m - 1; // Continue searching [i, m-1] for the insertion point before any equal elements
+                j = m - 1; // Look in [i, m-1] for the rightmost element less than target
             }
         }
         // Return insertion point i
@@ -595,17 +595,17 @@ Even so, we can leave them separate to make the logic clearer and easier to read
 === "C"
 
     ```c title="binary_search_insertion.c"
-    /* Find an insertion point using binary search (with duplicates) */
+    /* Binary search for an insertion point (duplicates allowed) */
     int binarySearchInsertion(int *nums, int numSize, int target) {
         int i = 0, j = numSize - 1; // Initialize the closed interval [0, n-1]
         while (i <= j) {
-            int m = i + (j - i) / 2; // Calculate the midpoint index m
+            int m = i + (j - i) / 2; // Compute the midpoint index m
             if (nums[m] < target) {
-                i = m + 1; // Target must be in [m+1, j] if it exists
+                i = m + 1; // Any match must lie in [m+1, j]
             } else if (nums[m] > target) {
-                j = m - 1; // Target must be in [i, m-1] if it exists
+                j = m - 1; // Any match must lie in [i, m-1]
             } else {
-                j = m - 1; // Continue in [i, m-1] to find the rightmost element smaller than target
+                j = m - 1; // Look in [i, m-1] for the rightmost element less than target
             }
         }
         // Return insertion point i
@@ -616,18 +616,18 @@ Even so, we can leave them separate to make the logic clearer and easier to read
 === "Kotlin"
 
     ```kotlin title="binary_search_insertion.kt"
-    /* Find an insertion point using binary search (with duplicates) */
+    /* Binary search for an insertion point (duplicates allowed) */
     fun binarySearchInsertion(nums: IntArray, target: Int): Int {
         var i = 0
         var j = nums.size - 1 // Initialize the closed interval [0, n-1]
         while (i <= j) {
-            val m = i + (j - i) / 2 // Calculate the midpoint index m
+            val m = i + (j - i) / 2 // Compute the midpoint index m
             if (nums[m] < target) {
-                i = m + 1 // Target must be in [m+1, j] if it exists
+                i = m + 1 // Any match must lie in [m+1, j]
             } else if (nums[m] > target) {
-                j = m - 1 // Target must be in [i, m-1] if it exists
+                j = m - 1 // Any match must lie in [i, m-1]
             } else {
-                j = m - 1 // Continue in [i, m-1] to find the rightmost element smaller than target
+                j = m - 1 // Look in [i, m-1] for the rightmost element less than target
             }
         }
         // Return insertion point i
@@ -638,21 +638,21 @@ Even so, we can leave them separate to make the logic clearer and easier to read
 === "Ruby"
 
     ```ruby title="binary_search_insertion.rb"
-    ### Find an insertion point using binary search (with duplicates) ###
+    ### Binary search for an insertion point (duplicates allowed) ###
     def binary_search_insertion(nums, target)
       # Initialize the closed interval [0, n-1]
       i, j = 0, nums.length - 1
 
       while i <= j
-        # Calculate the midpoint index m
+        # Compute the midpoint index m
         m = (i + j) / 2
 
         if nums[m] < target
-          i = m + 1 # Target must be in [m+1, j] if it exists
+          i = m + 1 # Any match must lie in [m+1, j]
         elsif nums[m] > target
-          j = m - 1 # Target must be in [i, m-1] if it exists
+          j = m - 1 # Any match must lie in [i, m-1]
         else
-          j = m - 1 # Continue in [i, m-1] to find the rightmost element smaller than target
+          j = m - 1 # Look in [i, m-1] for the rightmost element less than target
         end
       end
 
@@ -662,13 +662,13 @@ Even so, we can leave them separate to make the logic clearer and easier to read
 
 ??? pythontutor "Visualize execution"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Find%20an%20insertion%20point%20using%20binary%20search%20%28with%20duplicates%29%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20Initialize%20the%20closed%20interval%20%5B0,%20n-1%5D%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20Calculate%20the%20midpoint%20index%20m%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20Target%20must%20be%20in%20%5Bm%2B1,%20j%5D%20if%20it%20exists%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Target%20must%20be%20in%20%5Bi,%20m-1%5D%20if%20it%20exists%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Search%20%5Bi,%20m-1%5D%20for%20the%20insertion%20point%20before%20equal%20elements%0A%20%20%20%20%23%20Return%20insertion%20point%20i%0A%20%20%20%20return%20i%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Array%20containing%20duplicate%20elements%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%206,%206,%206,%206,%2010,%2012,%2015%5D%0A%20%20%20%20%23%20Find%20an%20insertion%20point%20using%20binary%20search%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_insertion%28nums,%20target%29%0A%20%20%20%20print%28f%22Insertion%20index%20for%20element%20%7Btarget%7D%3A%20%7Bindex%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Find%20an%20insertion%20point%20using%20binary%20search%20%28with%20duplicates%29%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20Initialize%20the%20closed%20interval%20%5B0,%20n-1%5D%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20Calculate%20the%20midpoint%20index%20m%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20Target%20must%20be%20in%20%5Bm%2B1,%20j%5D%20if%20it%20exists%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Target%20must%20be%20in%20%5Bi,%20m-1%5D%20if%20it%20exists%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Search%20%5Bi,%20m-1%5D%20for%20the%20insertion%20point%20before%20equal%20elements%0A%20%20%20%20%23%20Return%20insertion%20point%20i%0A%20%20%20%20return%20i%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Array%20containing%20duplicate%20elements%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%206,%206,%206,%206,%2010,%2012,%2015%5D%0A%20%20%20%20%23%20Find%20an%20insertion%20point%20using%20binary%20search%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_insertion%28nums,%20target%29%0A%20%20%20%20print%28f%22Insertion%20index%20for%20element%20%7Btarget%7D%3A%20%7Bindex%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Binary%20search%20for%20an%20insertion%20point%20%28duplicates%20allowed%29%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20Initialize%20the%20closed%20interval%20%5B0,%20n-1%5D%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20Compute%20the%20midpoint%20index%20m%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20Any%20match%20must%20lie%20in%20%5Bm%2B1,%20j%5D%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Any%20match%20must%20lie%20in%20%5Bi,%20m-1%5D%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Look%20in%20%5Bi,%20m-1%5D%20for%20the%20first%20element%20less%20than%20target%0A%20%20%20%20%23%20Return%20insertion%20point%20i%0A%20%20%20%20return%20i%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Array%20with%20duplicates%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%206,%206,%206,%206,%2010,%2012,%2015%5D%0A%20%20%20%20%23%20Find%20the%20insertion%20point%20using%20binary%20search%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_insertion%28nums,%20target%29%0A%20%20%20%20print%28f%22Insertion%20index%20for%20%7Btarget%7D%20%3D%20%7Bindex%7D%22%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Binary%20search%20for%20an%20insertion%20point%20%28duplicates%20allowed%29%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20Initialize%20the%20closed%20interval%20%5B0,%20n-1%5D%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20Compute%20the%20midpoint%20index%20m%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20Any%20match%20must%20lie%20in%20%5Bm%2B1,%20j%5D%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Any%20match%20must%20lie%20in%20%5Bi,%20m-1%5D%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20Look%20in%20%5Bi,%20m-1%5D%20for%20the%20first%20element%20less%20than%20target%0A%20%20%20%20%23%20Return%20insertion%20point%20i%0A%20%20%20%20return%20i%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Array%20with%20duplicates%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%206,%206,%206,%206,%2010,%2012,%2015%5D%0A%20%20%20%20%23%20Find%20the%20insertion%20point%20using%20binary%20search%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_insertion%28nums,%20target%29%0A%20%20%20%20print%28f%22Insertion%20index%20for%20%7Btarget%7D%20%3D%20%7Bindex%7D%22%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
 !!! tip
 
-    All the code in this section uses closed intervals. Interested readers can implement versions using left-closed, right-open intervals.
+    The code in this section uses closed intervals throughout. Try implementing a version with a left-closed, right-open interval.
 
-Viewed more broadly, binary search simply assigns a search goal to each of pointers $i$ and $j$. The goal may be a particular element, such as `target`, or a range of elements, such as those smaller than `target`.
+One way to think about binary search is to give each pointer, $i$ and $j$, a goal. The goal may be a specific element such as `target`, or an element in a particular range, such as one with a value below `target`.
 
-As the interval is repeatedly halved, pointers $i$ and $j$ approach their assigned goals. Eventually they either find the answer or stop after crossing a boundary.
+As the loop repeatedly halves the interval, $i$ and $j$ approach their respective goals. They eventually find the answer or cross a boundary and stop.

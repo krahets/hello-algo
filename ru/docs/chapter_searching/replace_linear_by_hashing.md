@@ -2,29 +2,29 @@
 comments: true
 ---
 
-# 10.4 &nbsp; Стратегии оптимизации с помощью хеширования
+# 10.4 &nbsp; Оптимизация поиска с помощью хеш-таблицы
 
-В алгоритмических задачах **мы часто заменяем линейный поиск на хеш-поиск, чтобы уменьшить временную сложность алгоритма**. Разберем одну задачу, чтобы лучше понять этот прием.
+При решении алгоритмических задач **часто удаётся уменьшить временную сложность, заменив линейный поиск поиском по хеш-таблице**. Разберём это на примере.
 
 !!! question
 
-    Дан массив целых чисел `nums` и целевой элемент `target` . Найдите в массиве два элемента, сумма которых равна `target` , и верните их индексы. Подойдет любой корректный ответ.
+    Даны целочисленный массив `nums` и целевое значение `target`. Найдите в массиве два элемента с суммой `target` и верните их индексы. Подойдёт любое решение.
 
-## 10.4.1 &nbsp; Линейный поиск: обмен времени на пространство
+## 10.4.1 &nbsp; Линейный поиск: экономим память за счёт времени
 
-Рассмотрим прямой перебор всех возможных комбинаций. Как показано на рисунке 10-9, мы запускаем два вложенных цикла и на каждом шаге проверяем, равна ли сумма двух целых чисел `target`. Если да, то возвращаем их индексы.
+Переберём все возможные пары. Как показано ниже, используем два вложенных цикла. Для каждой пары проверяем, равна ли сумма чисел `target`. Если равна, возвращаем их индексы.
 
-![Линейный поиск для нахождения двух чисел, сумма которых равна заданному значению](replace_linear_by_hashing.assets/two_sum_brute_force.svg){ class="animation-figure" }
+![Решение задачи о сумме двух чисел линейным поиском](replace_linear_by_hashing.assets/two_sum_brute_force.svg){ class="animation-figure" }
 
-<p align="center"> Рисунок 10-9 &nbsp; Линейный поиск для нахождения двух чисел, сумма которых равна заданному значению </p>
+<p align="center"> Рисунок 10-9 &nbsp; Решение задачи о сумме двух чисел линейным поиском </p>
 
-Код приведен ниже:
+Запишем это в коде:
 
 === "Python"
 
     ```python title="two_sum.py"
     def two_sum_brute_force(nums: list[int], target: int) -> list[int]:
-        """Метод 1: полный перебор"""
+        """Способ 1: полный перебор"""
         # Два вложенных цикла, временная сложность O(n^2)
         for i in range(len(nums) - 1):
             for j in range(i + 1, len(nums)):
@@ -36,7 +36,7 @@ comments: true
 === "C++"
 
     ```cpp title="two_sum.cpp"
-    /* Метод 1: полный перебор */
+    /* Способ 1: полный перебор */
     vector<int> twoSumBruteForce(vector<int> &nums, int target) {
         int size = nums.size();
         // Два вложенных цикла, временная сложность O(n^2)
@@ -53,7 +53,7 @@ comments: true
 === "Java"
 
     ```java title="two_sum.java"
-    /* Метод 1: полный перебор */
+    /* Способ 1: полный перебор */
     int[] twoSumBruteForce(int[] nums, int target) {
         int size = nums.length;
         // Два вложенных цикла, временная сложность O(n^2)
@@ -70,7 +70,7 @@ comments: true
 === "C#"
 
     ```csharp title="two_sum.cs"
-    /* Метод 1: полный перебор */
+    /* Способ 1: полный перебор */
     int[] TwoSumBruteForce(int[] nums, int target) {
         int size = nums.Length;
         // Два вложенных цикла, временная сложность O(n^2)
@@ -87,7 +87,7 @@ comments: true
 === "Go"
 
     ```go title="two_sum.go"
-    /* Метод 1: полный перебор */
+    /* Способ 1: полный перебор */
     func twoSumBruteForce(nums []int, target int) []int {
         size := len(nums)
         // Два вложенных цикла, временная сложность O(n^2)
@@ -105,7 +105,7 @@ comments: true
 === "Swift"
 
     ```swift title="two_sum.swift"
-    /* Метод 1: полный перебор */
+    /* Способ 1: полный перебор */
     func twoSumBruteForce(nums: [Int], target: Int) -> [Int] {
         // Два вложенных цикла, временная сложность O(n^2)
         for i in nums.indices.dropLast() {
@@ -122,7 +122,7 @@ comments: true
 === "JS"
 
     ```javascript title="two_sum.js"
-    /* Метод 1: полный перебор */
+    /* Способ 1: полный перебор */
     function twoSumBruteForce(nums, target) {
         const n = nums.length;
         // Два вложенных цикла, временная сложность O(n^2)
@@ -140,7 +140,7 @@ comments: true
 === "TS"
 
     ```typescript title="two_sum.ts"
-    /* Метод 1: полный перебор */
+    /* Способ 1: полный перебор */
     function twoSumBruteForce(nums: number[], target: number): number[] {
         const n = nums.length;
         // Два вложенных цикла, временная сложность O(n^2)
@@ -174,7 +174,7 @@ comments: true
 === "Rust"
 
     ```rust title="two_sum.rs"
-    /* Метод 1: полный перебор */
+    /* Способ 1: полный перебор */
     pub fn two_sum_brute_force(nums: &Vec<i32>, target: i32) -> Option<Vec<i32>> {
         let size = nums.len();
         // Два вложенных цикла, временная сложность O(n^2)
@@ -192,7 +192,7 @@ comments: true
 === "C"
 
     ```c title="two_sum.c"
-    /* Метод 1: полный перебор */
+    /* Способ 1: полный перебор */
     int *twoSumBruteForce(int *nums, int numsSize, int target, int *returnSize) {
         for (int i = 0; i < numsSize; ++i) {
             for (int j = i + 1; j < numsSize; ++j) {
@@ -212,7 +212,7 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="two_sum.kt"
-    /* Метод 1: полный перебор */
+    /* Способ 1: полный перебор */
     fun twoSumBruteForce(nums: IntArray, target: Int): IntArray {
         val size = nums.size
         // Два вложенных цикла, временная сложность O(n^2)
@@ -228,7 +228,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="two_sum.rb"
-    ### Метод 1: полный перебор ###
+    ### Способ 1: полный перебор ###
     def two_sum_brute_force(nums, target)
       # Два вложенных цикла, временная сложность O(n^2)
       for i in 0...(nums.length - 1)
@@ -241,22 +241,22 @@ comments: true
     end
     ```
 
-??? pythontutor "Визуализация кода"
+??? pythontutor "Визуализация выполнения"
 
-    <div style="height: 441px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация кода" src="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_brute_force%28nums%3A%20list%5Bint%5D%2C%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%201%3A%20%D0%BF%D0%BE%D0%BB%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B1%D0%BE%D1%80%22%22%22%0A%20%20%20%20%23%20%D0%94%D0%B2%D0%B0%20%D0%B2%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%BD%D1%8B%D1%85%20%D1%86%D0%B8%D0%BA%D0%BB%D0%B0%2C%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%5E2%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%20%2B%201%2C%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%2B%20nums%5Bj%5D%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bi%2C%20j%5D%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2%2C%207%2C%2011%2C%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_brute_force%28nums%2C%20target%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_brute_force%28nums%3A%20list%5Bint%5D%2C%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%201%3A%20%D0%BF%D0%BE%D0%BB%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B1%D0%BE%D1%80%22%22%22%0A%20%20%20%20%23%20%D0%94%D0%B2%D0%B0%20%D0%B2%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%BD%D1%8B%D1%85%20%D1%86%D0%B8%D0%BA%D0%BB%D0%B0%2C%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%5E2%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%20%2B%201%2C%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%2B%20nums%5Bj%5D%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bi%2C%20j%5D%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2%2C%207%2C%2011%2C%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_brute_force%28nums%2C%20target%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
+    <div style="height: 441px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация выполнения" src="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_brute_force%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%D0%A1%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%201%3A%20%D0%BF%D0%BE%D0%BB%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B1%D0%BE%D1%80%22%22%22%0A%20%20%20%20%23%20%D0%94%D0%B2%D0%B0%20%D0%B2%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%BD%D1%8B%D1%85%20%D1%86%D0%B8%D0%BA%D0%BB%D0%B0,%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%5E2%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%20%2B%201,%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%2B%20nums%5Bj%5D%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bi,%20j%5D%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2,%207,%2011,%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_brute_force%28nums,%20target%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_brute_force%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%D0%A1%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%201%3A%20%D0%BF%D0%BE%D0%BB%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B1%D0%BE%D1%80%22%22%22%0A%20%20%20%20%23%20%D0%94%D0%B2%D0%B0%20%D0%B2%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%BD%D1%8B%D1%85%20%D1%86%D0%B8%D0%BA%D0%BB%D0%B0,%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%5E2%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%20%2B%201,%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%2B%20nums%5Bj%5D%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bi,%20j%5D%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2,%207,%2011,%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_brute_force%28nums,%20target%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
 
-Временная сложность этого метода равна $O(n^2)$ , а пространственная сложность равна $O(1)$ , поэтому на больших объемах данных он очень медленный.
+Временная сложность этого способа равна $O(n^2)$, а пространственная — $O(1)$. На больших объёмах данных перебор занимает много времени.
 
-## 10.4.2 &nbsp; Хеш-поиск: обмен пространства на время
+## 10.4.2 &nbsp; Поиск по хеш-таблице: экономим время за счёт памяти
 
-Рассмотрим вариант с использованием хеш-таблицы, где ключами и значениями будут элементы массива и их индексы. При циклическом обходе массива на каждом шаге выполняются действия, показанные на рисунке 10-10.
+Возьмём хеш-таблицу, в которой ключом служит элемент массива, а значением — его индекс. Обойдём массив в цикле, на каждой итерации выполняя шаги с рисунка.
 
-1. Проверить, находится ли число `target - nums[i]` в хеш-таблице. Если да, то сразу вернуть индексы этих двух элементов.
-2. Добавить в хеш-таблицу пару из ключа `nums[i]` и индекса `i` .
+1. Проверим, есть ли число `target - nums[i]` в хеш-таблице. Если есть, сразу вернём индексы обоих элементов.
+2. Добавим в хеш-таблицу запись с ключом `nums[i]` и значением — индексом `i`.
 
 === "<1>"
-    ![Использование вспомогательной хеш-таблицы для нахождения двух чисел, сумма которых равна заданному значению](replace_linear_by_hashing.assets/two_sum_hashtable_step1.svg){ class="animation-figure" }
+    ![Решение задачи о сумме двух чисел с помощью вспомогательной хеш-таблицы](replace_linear_by_hashing.assets/two_sum_hashtable_step1.svg){ class="animation-figure" }
 
 === "<2>"
     ![two_sum_hashtable_step2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg){ class="animation-figure" }
@@ -264,15 +264,15 @@ comments: true
 === "<3>"
     ![two_sum_hashtable_step3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg){ class="animation-figure" }
 
-<p align="center"> Рисунок 10-10 &nbsp; Использование вспомогательной хеш-таблицы для нахождения двух чисел, сумма которых равна заданному значению </p>
+<p align="center"> Рисунок 10-10 &nbsp; Решение задачи о сумме двух чисел с помощью вспомогательной хеш-таблицы </p>
 
-Код реализации показан ниже, и для него достаточно одного цикла:
+Для реализации достаточно одного цикла:
 
 === "Python"
 
     ```python title="two_sum.py"
     def two_sum_hash_table(nums: list[int], target: int) -> list[int]:
-        """Метод 2: вспомогательная хеш-таблица"""
+        """Способ 2: вспомогательная хеш-таблица"""
         # Вспомогательная хеш-таблица, пространственная сложность O(n)
         dic = {}
         # Один цикл, временная сложность O(n)
@@ -286,7 +286,7 @@ comments: true
 === "C++"
 
     ```cpp title="two_sum.cpp"
-    /* Метод 2: вспомогательная хеш-таблица */
+    /* Способ 2: вспомогательная хеш-таблица */
     vector<int> twoSumHashTable(vector<int> &nums, int target) {
         int size = nums.size();
         // Вспомогательная хеш-таблица, пространственная сложность O(n)
@@ -305,7 +305,7 @@ comments: true
 === "Java"
 
     ```java title="two_sum.java"
-    /* Метод 2: вспомогательная хеш-таблица */
+    /* Способ 2: вспомогательная хеш-таблица */
     int[] twoSumHashTable(int[] nums, int target) {
         int size = nums.length;
         // Вспомогательная хеш-таблица, пространственная сложность O(n)
@@ -324,7 +324,7 @@ comments: true
 === "C#"
 
     ```csharp title="two_sum.cs"
-    /* Метод 2: вспомогательная хеш-таблица */
+    /* Способ 2: вспомогательная хеш-таблица */
     int[] TwoSumHashTable(int[] nums, int target) {
         int size = nums.Length;
         // Вспомогательная хеш-таблица, пространственная сложность O(n)
@@ -343,7 +343,7 @@ comments: true
 === "Go"
 
     ```go title="two_sum.go"
-    /* Метод 2: вспомогательная хеш-таблица */
+    /* Способ 2: вспомогательная хеш-таблица */
     func twoSumHashTable(nums []int, target int) []int {
         // Вспомогательная хеш-таблица, пространственная сложность O(n)
         hashTable := map[int]int{}
@@ -361,7 +361,7 @@ comments: true
 === "Swift"
 
     ```swift title="two_sum.swift"
-    /* Метод 2: вспомогательная хеш-таблица */
+    /* Способ 2: вспомогательная хеш-таблица */
     func twoSumHashTable(nums: [Int], target: Int) -> [Int] {
         // Вспомогательная хеш-таблица, пространственная сложность O(n)
         var dic: [Int: Int] = [:]
@@ -379,7 +379,7 @@ comments: true
 === "JS"
 
     ```javascript title="two_sum.js"
-    /* Метод 2: вспомогательная хеш-таблица */
+    /* Способ 2: вспомогательная хеш-таблица */
     function twoSumHashTable(nums, target) {
         // Вспомогательная хеш-таблица, пространственная сложность O(n)
         let m = {};
@@ -398,7 +398,7 @@ comments: true
 === "TS"
 
     ```typescript title="two_sum.ts"
-    /* Метод 2: вспомогательная хеш-таблица */
+    /* Способ 2: вспомогательная хеш-таблица */
     function twoSumHashTable(nums: number[], target: number): number[] {
         // Вспомогательная хеш-таблица, пространственная сложность O(n)
         let m: Map<number, number> = new Map();
@@ -437,7 +437,7 @@ comments: true
 === "Rust"
 
     ```rust title="two_sum.rs"
-    /* Метод 2: вспомогательная хеш-таблица */
+    /* Способ 2: вспомогательная хеш-таблица */
     pub fn two_sum_hash_table(nums: &Vec<i32>, target: i32) -> Option<Vec<i32>> {
         // Вспомогательная хеш-таблица, пространственная сложность O(n)
         let mut dic = HashMap::new();
@@ -459,7 +459,7 @@ comments: true
     typedef struct {
         int key;
         int val;
-        UT_hash_handle hh; // Реализовано на основе uthash.h
+        UT_hash_handle hh; // Реализация на основе uthash.h
     } HashTable;
 
     /* Поиск в хеш-таблице */
@@ -481,7 +481,7 @@ comments: true
         }
     }
 
-    /* Метод 2: вспомогательная хеш-таблица */
+    /* Способ 2: вспомогательная хеш-таблица */
     int *twoSumHashTable(int *nums, int numsSize, int target, int *returnSize) {
         HashTable *hashtable = NULL;
         for (int i = 0; i < numsSize; i++) {
@@ -502,7 +502,7 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="two_sum.kt"
-    /* Метод 2: вспомогательная хеш-таблица */
+    /* Способ 2: вспомогательная хеш-таблица */
     fun twoSumHashTable(nums: IntArray, target: Int): IntArray {
         val size = nums.size
         // Вспомогательная хеш-таблица, пространственная сложность O(n)
@@ -521,7 +521,7 @@ comments: true
 === "Ruby"
 
     ```ruby title="two_sum.rb"
-    ### Метод 2: вспомогательная хеш-таблица ###
+    ### Способ 2: вспомогательная хеш-таблица ###
     def two_sum_hash_table(nums, target)
       # Вспомогательная хеш-таблица, пространственная сложность O(n)
       dic = {}
@@ -536,11 +536,11 @@ comments: true
     end
     ```
 
-??? pythontutor "Визуализация кода"
+??? pythontutor "Визуализация выполнения"
 
-    <div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация кода" src="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_hash_table%28nums%3A%20list%5Bint%5D%2C%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%202%3A%20%D0%B2%D1%81%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D1%85%D0%B5%D1%88-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0%22%22%22%0A%20%20%20%20%23%20%D0%92%D1%81%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D1%85%D0%B5%D1%88-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0%2C%20%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%80%D0%B0%D0%BD%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%29%0A%20%20%20%20dic%20%3D%20%7B%7D%0A%20%20%20%20%23%20%D0%9E%D0%B4%D0%B8%D0%BD%20%D1%86%D0%B8%D0%BA%D0%BB%2C%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20if%20target%20-%20nums%5Bi%5D%20in%20dic%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bdic%5Btarget%20-%20nums%5Bi%5D%5D%2C%20i%5D%0A%20%20%20%20%20%20%20%20dic%5Bnums%5Bi%5D%5D%20%3D%20i%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2%2C%207%2C%2011%2C%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_hash_table%28nums%2C%20target%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_hash_table%28nums%3A%20list%5Bint%5D%2C%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%202%3A%20%D0%B2%D1%81%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D1%85%D0%B5%D1%88-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0%22%22%22%0A%20%20%20%20%23%20%D0%92%D1%81%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D1%85%D0%B5%D1%88-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0%2C%20%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%80%D0%B0%D0%BD%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%29%0A%20%20%20%20dic%20%3D%20%7B%7D%0A%20%20%20%20%23%20%D0%9E%D0%B4%D0%B8%D0%BD%20%D1%86%D0%B8%D0%BA%D0%BB%2C%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20if%20target%20-%20nums%5Bi%5D%20in%20dic%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bdic%5Btarget%20-%20nums%5Bi%5D%5D%2C%20i%5D%0A%20%20%20%20%20%20%20%20dic%5Bnums%5Bi%5D%5D%20%3D%20i%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2%2C%207%2C%2011%2C%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_hash_table%28nums%2C%20target%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
+    <div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" title="Визуализация выполнения" src="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_hash_table%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%D0%A1%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%202%3A%20%D0%B2%D1%81%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D1%85%D0%B5%D1%88-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0%22%22%22%0A%20%20%20%20%23%20%D0%92%D1%81%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D1%85%D0%B5%D1%88-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0,%20%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%80%D0%B0%D0%BD%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%29%0A%20%20%20%20dic%20%3D%20%7B%7D%0A%20%20%20%20%23%20%D0%9E%D0%B4%D0%B8%D0%BD%20%D1%86%D0%B8%D0%BA%D0%BB,%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20if%20target%20-%20nums%5Bi%5D%20in%20dic%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bdic%5Btarget%20-%20nums%5Bi%5D%5D,%20i%5D%0A%20%20%20%20%20%20%20%20dic%5Bnums%5Bi%5D%5D%20%3D%20i%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2,%207,%2011,%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_hash_table%28nums,%20target%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_hash_table%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%D0%A1%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%202%3A%20%D0%B2%D1%81%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D1%85%D0%B5%D1%88-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0%22%22%22%0A%20%20%20%20%23%20%D0%92%D1%81%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D1%85%D0%B5%D1%88-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0,%20%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%80%D0%B0%D0%BD%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%29%0A%20%20%20%20dic%20%3D%20%7B%7D%0A%20%20%20%20%23%20%D0%9E%D0%B4%D0%B8%D0%BD%20%D1%86%D0%B8%D0%BA%D0%BB,%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20if%20target%20-%20nums%5Bi%5D%20in%20dic%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bdic%5Btarget%20-%20nums%5Bi%5D%5D,%20i%5D%0A%20%20%20%20%20%20%20%20dic%5Bnums%5Bi%5D%5D%20%3D%20i%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2,%207,%2011,%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_hash_table%28nums,%20target%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Во весь экран ></a></div>
 
-Благодаря хеш-поиску этот метод снижает временную сложность с $O(n^2)$ до $O(n)$ , существенно повышая эффективность работы.
+Поиск по хеш-таблице снижает временную сложность с $O(n^2)$ до $O(n)$ и тем самым значительно ускоряет алгоритм.
 
-Поскольку требуется поддерживать дополнительную хеш-таблицу, пространственная сложность составляет $O(n)$ . **Несмотря на это, в целом данный метод лучше сбалансирован по времени и памяти, поэтому именно он является оптимальным решением этой задачи**.
+Для вспомогательной хеш-таблицы нужна память, поэтому пространственная сложность равна $O(n)$. **Тем не менее этот способ даёт лучшее соотношение затрат времени и памяти и является оптимальным решением задачи**.

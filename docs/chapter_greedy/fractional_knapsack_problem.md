@@ -461,7 +461,7 @@ comments: true
     ```kotlin title="fractional_knapsack.kt"
     /* 物品 */
     class Item(
-        val w: Int, // 物品
+        val w: Int, // 物品重量
         val v: Int  // 物品价值
     )
 

@@ -9,11 +9,11 @@ icon: material/stack-overflow
 
 !!! abstract
 
-    A stack is like cats piled on top of one another; a queue is like cats standing in line.
+    Picture cats piled on top of one another for a stack, and cats standing in line for a queue.
     
-    They represent last-in, first-out and first-in, first-out order, respectively.
+    A stack follows the last-in, first-out rule, and a queue follows the first-in, first-out rule.
 
-## Chapter contents
+## In this chapter
 
 - [5.1 &nbsp; Stacks](stack.md)
 - [5.2 &nbsp; Queues](queue.md)
