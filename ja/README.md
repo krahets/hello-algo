@@ -1,10 +1,10 @@
 <p align="center">
   <a href="https://www.hello-algo.com/ja/">
-    <img src="/en/docs/index.assets/hello_algo_header.png" width="450" alt="Hello Algo"></a>
+    <img src="/en/docs/index.assets/hello_algo_header.png" width="450" alt="Hello アルゴリズム"></a>
 </p>
 
 <p align="center">
-  <img style="height: 60px;" src="https://readme-typing-svg.demolab.com?font=Noto+Sans+JP&weight=400&duration=3500&pause=2000&color=21C8B8&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+Algo+!" alt="Hello Algo" />
+  <img style="height: 60px;" src="https://readme-typing-svg.demolab.com?font=Noto+Sans+JP&weight=400&duration=3500&pause=2000&color=21C8B8&center=true&vCenter=true&random=false&width=330&lines=Hello%2C+%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0%EF%BC%81" alt="Hello アルゴリズム" />
   </br>
   アニメーションによる図解とワンクリックで実行できるコードで学ぶ、データ構造とアルゴリズムの入門書
 </p>
@@ -69,7 +69,7 @@
 >
 > **—— 邓俊辉、清華大学コンピュータ科学系教授**
 
-> 「私がデータ構造とアルゴリズムを学んでいた頃に『Hello Algo』があれば、学ぶのが 10 倍楽になっていたでしょう！」
+> 「私がデータ構造とアルゴリズムを学んでいた頃に『Hello アルゴリズム』があれば、学ぶのが 10 倍楽になっていたでしょう！」
 >
 > **—— 李沐、Amazon シニア・プリンシパル・サイエンティスト**
 
