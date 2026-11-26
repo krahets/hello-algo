@@ -2,7 +2,7 @@
 INHERIT: ../mkdocs.yml
 
 # Project information
-site_name: Привет, алгоритмы!
+site_name: Hello, алгоритмы!
 site_url: https://www.hello-algo.com/ru/
 site_description: Учебник по структурам данных и алгоритмам с анимированными схемами и примерами кода, которые можно запустить одним щелчком.
 # Repository

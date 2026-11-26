@@ -34,7 +34,7 @@
   },
   "typing": {
     "style": "height: min(9vh, 12vw);",
-    "src": "https://readme-typing-svg.demolab.com/?font=Roboto&weight=400&duration=3500&pause=2000&color=FFF&center=true&vCenter=true&random=false&width=260&lines=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%2C+%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%8B!",
+    "src": "https://readme-typing-svg.demolab.com/?font=Roboto&weight=400&duration=3500&pause=2000&color=FFF&center=true&vCenter=true&random=false&width=260&lines=Hello%2C+%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%8B!",
     "alt": ""
   },
   "tagline": "Учебник по структурам данных и алгоритмам с анимациями и примерами кода, которые можно запустить одним нажатием",
@@ -69,7 +69,7 @@
       "— Дэн Цзюньхуэй, профессор кафедры информатики Университета Цинхуа"
     ],
     [
-      "«Если бы у меня была книга „Hello Algo“, когда я изучал структуры данных и алгоритмы, учиться, наверное, было бы в 10 раз проще!»",
+      "«Если бы у меня была книга „Hello, алгоритмы!“, когда я изучал структуры данных и алгоритмы, учиться, наверное, было бы в 10 раз проще!»",
       "— Ли Му, старший главный научный сотрудник Amazon"
     ]
   ],

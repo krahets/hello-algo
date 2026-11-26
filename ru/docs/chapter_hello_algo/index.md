@@ -15,7 +15,7 @@ icon: material/rocket-launch-outline
 
 Я хорошо знаю, как ограничены мои знания. Хотя я немало работал над текстом, в нём наверняка остались ошибки. Буду признателен и преподавателям, и учащимся за замечания и поправки.
 
-![Hello Algo](../assets/covers/chapter_hello_algo.jpg){ class="cover-image" }
+![Hello, алгоритмы!](../assets/covers/chapter_hello_algo.jpg){ class="cover-image" }
 
 <div style="text-align: center;">
     <h2 style="margin-top: 0.8em; margin-bottom: 0.8em;">Здравствуй, алгоритм!</h2>
