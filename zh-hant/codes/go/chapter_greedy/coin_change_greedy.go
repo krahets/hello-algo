@@ -11,7 +11,7 @@ func coinChangeGreedy(coins []int, amt int) int {
 	count := 0
 	// 反覆依貪婪策略選取硬幣，直到剩餘金額為零
 	for amt > 0 {
-		// 找出面額小於且最接近剩餘金額的硬幣
+		// 找出不超過剩餘金額的最大面額
 		for i > 0 && coins[i] > amt {
 			i--
 		}

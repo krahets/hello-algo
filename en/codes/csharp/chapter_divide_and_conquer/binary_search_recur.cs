@@ -41,6 +41,6 @@ public class binary_search_recur {
 
         // Binary search (closed interval)
         int index = BinarySearch(nums, target);
-        Console.WriteLine("Index of target 6 =  " + index);
+        Console.WriteLine("Index of target 6 = " + index);
     }
 }

@@ -12,7 +12,7 @@ def coin_change_greedy(coins: list[int], amt: int) -> int:
     count = 0
     # 循环进行贪心选择，直到无剩余金额
     while amt > 0:
-        # 找到小于且最接近剩余金额的硬币
+        # 找到不超过剩余金额的最大面额
         while i > 0 and coins[i] > amt:
             i -= 1
         # 选择 coins[i]

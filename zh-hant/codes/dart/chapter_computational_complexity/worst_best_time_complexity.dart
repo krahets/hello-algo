@@ -35,6 +35,6 @@ void main() {
     final nums = randomNumbers(n);
     int index = findOne(nums);
     print('\n陣列 [ 1, 2, ..., n ] 打亂順序後 = $nums');
-    print('數字 1 的索引為 + $index');
+    print('數字 1 的索引為 $index');
   }
 }

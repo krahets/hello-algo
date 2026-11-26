@@ -81,7 +81,7 @@ int peek(MaxHeap *maxHeap) {
 void push(MaxHeap *maxHeap, int val) {
     // 通常、これほど多くのノードを追加することは想定していない
     if (maxHeap->size == MAX_SIZE) {
-        printf("heap is full!");
+        printf("ヒープが満杯です！");
         return;
     }
     // ノードを追加する
@@ -96,7 +96,7 @@ void push(MaxHeap *maxHeap, int val) {
 int pop(MaxHeap *maxHeap) {
     // 空の場合の処理
     if (isEmpty(maxHeap)) {
-        printf("heap is empty!");
+        printf("ヒープが空です！");
         return INT_MAX;
     }
     // 根と最も右の葉（先頭要素と末尾要素）を交換する

@@ -26,7 +26,7 @@ Here is the code:
 
 You may have noticed that **step `3.` breaks down if the input consists of objects**. Suppose the objects represent products and we want to sort them by price, a member variable of the class. The algorithm above can return only the sorted prices.
 
-How can we get the original objects in sorted order? First, compute the prefix sums of `counter`. At index `i`, the prefix sum `prefix[i]` is the sum of the first `i` elements of the array:
+How can we get the original objects in sorted order? First, compute the prefix sums of `counter`. At index `i`, the prefix sum `prefix[i]` is the sum of the first `i + 1` elements of the array:
 
 $$
 \text{prefix}[i] = \sum_{j=0}^i \text{counter[j]}

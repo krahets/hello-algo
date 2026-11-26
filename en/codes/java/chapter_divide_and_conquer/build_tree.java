@@ -41,8 +41,8 @@ public class build_tree {
     public static void main(String[] args) {
         int[] preorder = { 3, 9, 2, 1, 7 };
         int[] inorder = { 9, 3, 1, 2, 7 };
-        System.out.println("Preorder traversal =  " + Arrays.toString(preorder));
-        System.out.println("Inorder traversal =  " + Arrays.toString(inorder));
+        System.out.println("Preorder traversal = " + Arrays.toString(preorder));
+        System.out.println("Inorder traversal = " + Arrays.toString(inorder));
 
         TreeNode root = buildTree(preorder, inorder);
         System.out.println("Reconstructed binary tree:");

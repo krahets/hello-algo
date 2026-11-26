@@ -35,6 +35,6 @@ void main() {
     final nums = randomNumbers(n);
     int index = findOne(nums);
     print('\n配列 [ 1, 2, ..., n ] のシャッフル結果 = $nums');
-    print('数値 1 のインデックスは + $index');
+    print('数値 1 のインデックスは $index');
   }
 }

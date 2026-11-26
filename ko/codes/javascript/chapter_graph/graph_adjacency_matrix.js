@@ -49,7 +49,7 @@ class GraphAdjMat {
     /* 정점 삭제 */
     removeVertex(index) {
         if (index >= this.size()) {
-            throw new RangeError('Index Out Of Bounds Exception');
+            throw new RangeError('인덱스가 범위를 벗어났다');
         }
         // 정점 리스트에서 인덱스가 index인 정점 삭제
         this.vertices.splice(index, 1);
@@ -67,7 +67,7 @@ class GraphAdjMat {
     addEdge(i, j) {
         // 인덱스가 범위를 벗어나거나 서로 같은 경우 처리
         if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
-            throw new RangeError('Index Out Of Bounds Exception');
+            throw new RangeError('인덱스가 범위를 벗어났다');
         }
         // 무방향 그래프의 인접 행렬은 주대각선을 기준으로 대칭이므로 (i, j) === (j, i)
         this.adjMat[i][j] = 1;
@@ -79,7 +79,7 @@ class GraphAdjMat {
     removeEdge(i, j) {
         // 인덱스가 범위를 벗어나거나 서로 같은 경우 처리
         if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
-            throw new RangeError('Index Out Of Bounds Exception');
+            throw new RangeError('인덱스가 범위를 벗어났다');
         }
         this.adjMat[i][j] = 0;
         this.adjMat[j][i] = 0;

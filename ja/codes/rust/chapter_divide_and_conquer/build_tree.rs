@@ -47,8 +47,8 @@ fn build_tree(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>
 fn main() {
     let preorder = [3, 9, 2, 1, 7];
     let inorder = [9, 3, 1, 2, 7];
-    println!("通りがけ順 = {:?}", preorder);
-    println!("行きがけ順 = {:?}", inorder);
+    println!("行きがけ順 = {:?}", preorder);
+    println!("通りがけ順 = {:?}", inorder);
 
     let root = build_tree(&preorder, &inorder);
     println!("構築した二分木：");

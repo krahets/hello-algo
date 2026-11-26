@@ -47,8 +47,8 @@ fn build_tree(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>
 fn main() {
     let preorder = [3, 9, 2, 1, 7];
     let inorder = [9, 3, 1, 2, 7];
-    println!("중위 순회 = {:?}", preorder);
-    println!("전위 순회 = {:?}", inorder);
+    println!("전위 순회 = {:?}", preorder);
+    println!("중위 순회 = {:?}", inorder);
 
     let root = build_tree(&preorder, &inorder);
     println!("구성한 이진 트리:");

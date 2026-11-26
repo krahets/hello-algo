@@ -34,6 +34,6 @@ public class max_product_cutting {
 
         // Greedy algorithm
         int res = MaxProductCutting(n);
-        Console.WriteLine("The maximum product after cutting is" + res);
+        Console.WriteLine("The maximum product after cutting is " + res);
     }
 }

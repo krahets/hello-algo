@@ -33,7 +33,7 @@
           "0",
           "0000 0000",
           "NUL",
-          "Null character"
+          "Null"
         ],
         [
           "1",
@@ -69,7 +69,7 @@
           "6",
           "0000 0110",
           "ACK",
-          "Acknowledgment"
+          "Acknowledge"
         ],
         [
           "7",

@@ -81,7 +81,7 @@ class MaxHeap {
     /* 根の要素をヒープから取り出す */
     public pop(): number {
         // 空の場合の処理
-        if (this.isEmpty()) throw new RangeError('Heap is empty.');
+        if (this.isEmpty()) throw new RangeError('ヒープが空です。');
         // 根と最も右の葉（先頭要素と末尾要素）を交換する
         this.swap(0, this.size() - 1);
         // ノードを削除する

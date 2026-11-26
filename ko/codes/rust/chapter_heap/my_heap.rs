@@ -91,7 +91,7 @@ impl MaxHeap {
     fn pop(&mut self) -> i32 {
         // 빈 힙 처리
         if self.is_empty() {
-            panic!("index out of bounds");
+            panic!("인덱스가 범위를 벗어났다");
         }
         // 루트와 맨 오른쪽 리프 교환(첫 원소와 마지막 원소 교환)
         self.swap(0, self.size() - 1);

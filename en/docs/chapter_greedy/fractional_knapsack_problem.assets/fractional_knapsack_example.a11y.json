@@ -3,7 +3,7 @@
     "There are 5 items, and the knapsack capacity is cap = 50. The table gives the item data. You may take up to the full weight of each item or divide it and take any fraction. You receive the same fraction of its original value."
   ],
   "description": [
-    "On the left, the rows list item number i, weight wgt[i-1], and value val[i-1], with a fruit icon identifying each item. The banana in row 2 and the pineapple in row 4 are highlighted in pale orange. Arrows labeled “Take weight 20” and “Take weight 30” point from them to the knapsack on the right, labeled “Knapsack capacity cap = 50.” The bottom shows the optimal selection and the calculation of its value.",
+    "The table on the left lists item number i, weight wgt[i-1], and value val[i-1], with a fruit icon for each item. The banana in row 2 is highlighted in pale pink and the pineapple in row 4 in pale orange. The “Weight taken” column shows 20 and 30 respectively. An unlabeled arrow leads from each row to the knapsack on the right, whose capacity is 50. The bottom shows the optimal selection and its value.",
     "The first three columns reproduce the diagram's data, with fruit names taken from the icons. The additional unit value column divides value by weight. For example, the apple's unit value is 50 ÷ 10 = 5."
   ],
   "frames": [

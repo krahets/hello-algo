@@ -8,7 +8,7 @@ package chapter_greedy
 
 /* Предмет */
 class Item(
-    val w: Int, // Предмет
+    val w: Int, // Вес предмета
     val v: Int  // Стоимость предмета
 )
 

@@ -23,7 +23,7 @@
 | recursion tree                 | 再帰木         |
 | big-$O$ notation               | ビッグ $O$ 記法    |
 | asymptotic upper bound         | 漸近的上界       |
-| sign-magnitude                 | 符号と絶対値による表現           |
+| sign-magnitude                 | 符号絶対値表現           |
 | 1’s complement                 | 1 の補数           |
 | 2’s complement                 | 2 の補数           |
 | array                          | 配列           |
@@ -46,15 +46,15 @@
 | double-ended queue             | 両端キュー       |
 | front of the queue             | キューの先頭           |
 | rear of the queue              | キューの末尾           |
-| hash table                     | ハッシュテーブル         |
-| hash set                       | ハッシュセット       |
+| hash table                     | ハッシュ表（ハッシュテーブル）         |
+| hash set                       | ハッシュ集合（ハッシュセット）       |
 | bucket                         | バケット             |
 | hash function                  | ハッシュ関数       |
-| hash collision                 | ハッシュの衝突       |
+| hash collision                 | ハッシュ衝突       |
 | load factor                    | 負荷率       |
 | separate chaining              | チェイン法       |
 | open addressing                | オープンアドレス法       |
-| linear probing                 | 線形プロービング       |
+| linear probing                 | 線形探索法（線形プロービング）       |
 | lazy deletion                  | 遅延削除         |
 | binary tree                    | 二分木         |
 | tree node                      | 木のノード         |
@@ -70,7 +70,7 @@
 | degree                         | 次数             |
 | height                         | 高さ           |
 | depth                          | 深さ           |
-| perfect binary tree            | 完全に埋まった二分木（パーフェクト二分木）     |
+| perfect binary tree            | 完璧二分木（パーフェクト二分木）     |
 | complete binary tree           | 完全二分木     |
 | full binary tree               | 正二分木     |
 | balanced binary tree           | 平衡二分木     |
@@ -116,7 +116,7 @@
 | merge sort                     | マージソート       |
 | heap sort                      | ヒープソート         |
 | bucket sort                    | バケットソート         |
-| counting sort                  | 計数ソート       |
+| counting sort                  | カウントソート（計数ソート）       |
 | radix sort                     | 基数ソート       |
 | divide and conquer             | 分割統治法           |
 | hanota problem                 | ハノイの塔の問題     |

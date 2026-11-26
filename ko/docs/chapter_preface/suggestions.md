@@ -53,7 +53,7 @@ git clone https://github.com/krahets/hello-algo.git
 
 ![코드 블록과 대응하는 소스 파일](suggestions.assets/code_md_to_repo.svg)
 
-로컬에서 코드를 실행하는 방법 외에 **웹판은 파이썬 코드의 실행 과정 시각화도 지원한다**([pythontutor](https://pythontutor.com/) 기반). 아래 그림처럼 코드 블록 아래의 ‘실행 과정 보기’를 누르면 화면이 펼쳐져 알고리즘의 실행 과정을 관찰할 수 있다. ‘전체 화면으로 보기’를 누르면 더 편하게 살펴볼 수 있다.
+로컬에서 코드를 실행하는 방법 외에 **웹판은 파이썬 코드의 실행 과정 시각화도 지원한다**([pythontutor](https://pythontutor.com/) 기반). 아래 그림처럼 코드 블록 아래의 ‘실행 과정 시각화’를 누르면 화면이 펼쳐져 알고리즘의 실행 과정을 관찰할 수 있다. ‘전체 화면으로 보기’를 누르면 더 편하게 살펴볼 수 있다.
 
 ![파이썬 코드의 실행 과정 시각화](suggestions.assets/pythontutor_example.png)
 

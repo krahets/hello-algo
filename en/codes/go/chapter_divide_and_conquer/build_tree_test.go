@@ -14,9 +14,9 @@ import (
 func TestBuildTree(t *testing.T) {
 	preorder := []int{3, 9, 2, 1, 7}
 	inorder := []int{9, 3, 1, 2, 7}
-	fmt.Print("Preorder traversal =  ")
+	fmt.Print("Preorder traversal = ")
 	PrintSlice(preorder)
-	fmt.Print("Inorder traversal =  ")
+	fmt.Print("Inorder traversal = ")
 	PrintSlice(inorder)
 
 	root := buildTree(preorder, inorder)

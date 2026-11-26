@@ -66,7 +66,7 @@ int main() {
 
     subsetSumI(nums, numsSize, target);
 
-    printf("Input array nums =  ");
+    printf("Input array nums = ");
     printArray(nums, numsSize);
     printf("target = %d\n", target);
     printf("Subsets that sum to %d: res = \n", target);

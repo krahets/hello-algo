@@ -10,7 +10,7 @@
 typedef struct {
     int *nums;       // Array that stores the deque elements
     int front;       // Index of the front element
-    int queSize;     // Rear index, one slot past the rear element
+    int queSize;     // Number of elements in the deque
     int queCapacity; // Deque capacity
 } ArrayDeque;
 

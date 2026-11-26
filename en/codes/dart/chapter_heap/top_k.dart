@@ -134,7 +134,7 @@ class MinHeap {
       int mi = i;
       if (l < size() && _minHeap[l] < _minHeap[mi]) mi = l;
       if (r < size() && _minHeap[r] < _minHeap[mi]) mi = r;
-      // Stop if i is already largest or both child indices l and r are out of bounds
+      // Stop if neither child has a smaller value than the parent
       if (mi == i) break;
       // Swap the two nodes
       _swap(i, mi);

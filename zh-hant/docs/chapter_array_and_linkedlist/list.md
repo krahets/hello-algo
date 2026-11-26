@@ -21,7 +21,7 @@
 init_list
 ```
 
-??? pythontutor "執行並觀看動畫"
+??? pythontutor "執行視覺化示範"
 
     @tutor init_list_tutor
 
@@ -33,7 +33,7 @@ init_list
 access_element
 ```
 
-??? pythontutor "執行並觀看動畫"
+??? pythontutor "執行視覺化示範"
 
     @tutor access_element_tutor
 
@@ -45,7 +45,7 @@ access_element
 insert_remove_element
 ```
 
-??? pythontutor "執行並觀看動畫"
+??? pythontutor "執行視覺化示範"
 
     @tutor insert_remove_element_tutor
 
@@ -57,7 +57,7 @@ insert_remove_element
 iterate_list
 ```
 
-??? pythontutor "執行並觀看動畫"
+??? pythontutor "執行視覺化示範"
 
     @tutor iterate_list_tutor
 
@@ -69,7 +69,7 @@ iterate_list
 concat_list
 ```
 
-??? pythontutor "執行並觀看動畫"
+??? pythontutor "執行視覺化示範"
 
     @tutor concat_list_tutor
 
@@ -81,7 +81,7 @@ concat_list
 sort_list
 ```
 
-??? pythontutor "執行並觀看動畫"
+??? pythontutor "執行視覺化示範"
 
     @tutor sort_list_tutor
 

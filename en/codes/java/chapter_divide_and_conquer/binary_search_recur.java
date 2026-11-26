@@ -40,6 +40,6 @@ public class binary_search_recur {
 
         // Binary search (closed interval)
         int index = binarySearch(nums, target);
-        System.out.println("Index of target 6 =  " + index);
+        System.out.println("Index of target 6 = " + index);
     }
 }

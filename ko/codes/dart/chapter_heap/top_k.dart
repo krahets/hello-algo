@@ -134,7 +134,7 @@ class MinHeap {
       int mi = i;
       if (l < size() && _minHeap[l] < _minHeap[mi]) mi = l;
       if (r < size() && _minHeap[r] < _minHeap[mi]) mi = r;
-      // 노드 i가 가장 크거나 인덱스 l, r이 범위를 벗어나면 더 복구할 필요가 없으므로 반복 종료
+      // 부모보다 값이 작은 자식이 없으면 종료한다
       if (mi == i) break;
       // 두 노드 교환
       _swap(i, mi);

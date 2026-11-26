@@ -35,6 +35,6 @@ void main() {
     final nums = randomNumbers(n);
     int index = findOne(nums);
     print('\nМассив [ 1, 2, ..., n ] после перемешивания = $nums');
-    print('Индекс числа 1: + $index');
+    print('Индекс числа 1: $index');
   }
 }

@@ -30,7 +30,7 @@
 hash_map_operations
 ```
 
-??? pythontutor "以視覺化方式執行"
+??? pythontutor "執行視覺化示範"
 
     @tutor hash_map_operations_tutor
 
@@ -40,7 +40,7 @@ hash_map_operations
 hash_map_traversal
 ```
 
-??? pythontutor "以視覺化方式執行"
+??? pythontutor "執行視覺化示範"
 
     @tutor hash_map_traversal_tutor
 

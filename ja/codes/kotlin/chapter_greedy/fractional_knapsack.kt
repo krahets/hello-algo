@@ -8,7 +8,7 @@ package chapter_greedy
 
 /* 品物 */
 class Item(
-    val w: Int, // 品物
+    val w: Int, // 品物の重さ
     val v: Int  // 品物の価値
 )
 

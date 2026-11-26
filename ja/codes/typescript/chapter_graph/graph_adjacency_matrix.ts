@@ -49,7 +49,7 @@ class GraphAdjMat {
     /* 頂点を削除する */
     removeVertex(index: number): void {
         if (index >= this.size()) {
-            throw new RangeError('Index Out Of Bounds Exception');
+            throw new RangeError('インデックス範囲外の例外');
         }
         // 頂点リストからインデックス index の頂点を削除する
         this.vertices.splice(index, 1);
@@ -67,7 +67,7 @@ class GraphAdjMat {
     addEdge(i: number, j: number): void {
         // インデックスが範囲外または同じ値の場合の処理
         if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
-            throw new RangeError('Index Out Of Bounds Exception');
+            throw new RangeError('インデックス範囲外の例外');
         }
         // 無向グラフの隣接行列は主対角線に関して対称で、(i, j) === (j, i) を満たす
         this.adjMat[i][j] = 1;
@@ -79,7 +79,7 @@ class GraphAdjMat {
     removeEdge(i: number, j: number): void {
         // インデックスが範囲外または同じ値の場合の処理
         if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
-            throw new RangeError('Index Out Of Bounds Exception');
+            throw new RangeError('インデックス範囲外の例外');
         }
         this.adjMat[i][j] = 0;
         this.adjMat[j][i] = 0;

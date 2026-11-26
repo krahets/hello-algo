@@ -41,7 +41,7 @@ tree_node_class
 init_binary_tree
 ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
     @tutor init_binary_tree_tutor
 
@@ -55,7 +55,7 @@ init_binary_tree
 insert_remove_node
 ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
     @tutor insert_remove_node_tutor
 

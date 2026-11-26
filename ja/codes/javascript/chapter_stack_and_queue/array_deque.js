@@ -85,13 +85,13 @@ class ArrayDeque {
 
     /* 両端キューの先頭要素を参照する */
     peekFirst() {
-        if (this.isEmpty()) throw new Error('The Deque Is Empty.');
+        if (this.isEmpty()) throw new Error('両端キューが空です。');
         return this.#nums[this.#front];
     }
 
     /* 両端キューの末尾要素を参照する */
     peekLast() {
-        if (this.isEmpty()) throw new Error('The Deque Is Empty.');
+        if (this.isEmpty()) throw new Error('両端キューが空です。');
         // 末尾要素のインデックスを求める
         const last = this.index(this.#front + this.#queSize - 1);
         return this.#nums[last];

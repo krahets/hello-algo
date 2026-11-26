@@ -138,7 +138,7 @@ Each state depends only on the previous row, so we can alternate between two arr
 
 Can we go further and use just one array? Each state comes from a cell directly above or above and to the left. With one array, when we start row $i$, the array still holds the states from row $i-1$.
 
-- In forward order, by the time we reach $dp[i, j]$, the upper-left values from $dp[i-1, 1]$ through $dp[i-1, j-1]$ may already have been overwritten. The transition can then give the wrong result.
+- When capacities are processed in increasing order, the previous-row value $dp[i-1, c-wgt[i-1]]$ needed for $dp[i, c]$ may already have been overwritten. This can count the same item more than once.
 - Reverse order preserves the old values until they are needed, so the transition works correctly.
 
 The figure shows one array changing from row $i = 1$ to row $i = 2$. Consider how forward and reverse traversal differ.

@@ -33,7 +33,7 @@ int main() {
 
     // Greedy algorithm
     int res = maxProductCutting(n);
-    cout << "The maximum product after cutting is" << res << endl;
+    cout << "The maximum product after cutting is " << res << endl;
 
     return 0;
 }

@@ -34,7 +34,7 @@ func (q *arrayQueue) isEmpty() bool {
 
 /* Enqueue an element */
 func (q *arrayQueue) push(num int) {
-	// The queue is full when rear == queCapacity
+	// The queue is full when queSize == queCapacity
 	if q.queSize == q.queCapacity {
 		return
 	}

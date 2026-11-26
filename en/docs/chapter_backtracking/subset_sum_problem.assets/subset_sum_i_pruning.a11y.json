@@ -1,6 +1,6 @@
 {
   "context": [
-    "The candidate array is choices = [3, 4, 5] at indices 0, 1, and 2. Each element may be reused, and subset order does not matter. The figure expands only the first two rounds to show how selection order produces duplicates. It omits the third round and tests against the target sum."
+    "The candidate array is choices = [3, 4, 5] at indices 0, 1, and 2. Each element may be reused, and subset order does not matter. The figure expands only the first two rounds to show how selection order produces duplicates. The diagram shows neither the third round nor any checks against the target sum."
   ],
   "description": [
     "A combination does not distinguish order. Choosing a larger index and then a smaller one duplicates the path that chooses the smaller index first. After choosing 4, skip 3. After choosing 5, skip 3 and 4.",

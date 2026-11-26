@@ -10,7 +10,7 @@
 typedef struct {
     int *nums;       // 存放雙端佇列元素的陣列
     int front;       // 隊首索引，記錄隊首元素在陣列中的位置
-    int queSize;     // 隊尾索引，指向隊尾元素的下一格
+    int queSize;     // 雙向佇列中的元素個數
     int queCapacity; // 雙端佇列容量
 } ArrayDeque;
 

@@ -44,8 +44,8 @@ public class permutations_i {
 
         List<List<int>> res = PermutationsI(nums);
 
-        Console.WriteLine("Input array nums =  " + string.Join(", ", nums));
-        Console.WriteLine("All permutations res =  ");
+        Console.WriteLine("Input array nums = " + string.Join(", ", nums));
+        Console.WriteLine("All permutations res = ");
         foreach (List<int> permutation in res) {
             PrintUtil.PrintList(permutation);
         }

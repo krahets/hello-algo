@@ -8,13 +8,13 @@ namespace hello_algo.chapter_computational_complexity;
 
 public class time_complexity {
     void Algorithm(int n) {
-        int a = 1;  // +0 (rule 1)
-        a += n;  // +0 (rule 1)
-        // +n (rule 2)
+        int a = 1;  // +0 (shortcut 1)
+        a += n;  // +0 (shortcut 1)
+        // +n (shortcut 2)
         for (int i = 0; i < 5 * n + 1; i++) {
             Console.WriteLine(0);
         }
-        // +n*n (rule 3)
+        // +n*n (shortcut 3)
         for (int i = 0; i < 2 * n; i++) {
             for (int j = 0; j < n + 1; j++) {
                 Console.WriteLine(0);

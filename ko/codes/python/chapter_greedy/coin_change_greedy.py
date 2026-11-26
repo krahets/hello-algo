@@ -12,7 +12,7 @@ def coin_change_greedy(coins: list[int], amt: int) -> int:
     count = 0
     # 남은 금액이 없어질 때까지 탐욕 선택을 반복한다
     while amt > 0:
-        # 남은 금액보다 작으면서 그 금액에 가장 가까운 동전을 찾는다
+        # 남은 금액을 넘지 않는 가장 큰 액면가의 동전을 찾는다
         while i > 0 and coins[i] > amt:
             i -= 1
         # coins[i] 선택

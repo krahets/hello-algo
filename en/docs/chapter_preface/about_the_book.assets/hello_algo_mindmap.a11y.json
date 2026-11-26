@@ -89,7 +89,7 @@
         ],
         [
           "Sorting",
-          "Criteria include whether a sort is in-place, stable, adaptive, or comparison-based. The original map groups the algorithms, in order, under “Traversal” (selection, bubble, and insertion sort), “Divide and conquer” (quicksort, merge sort, and heapsort), and “Non-comparison” (bucket, counting, and radix sort)."
+          "Criteria include whether a sort is in-place, stable, adaptive, or comparison-based. The map groups the algorithms, in order, under “Repeated passes” (selection, bubble, and insertion sort), “Divide and conquer” (quicksort, merge sort, and heapsort), and “Non-comparison” (bucket, counting, and radix sort)."
         ],
         [
           "Divide and conquer",

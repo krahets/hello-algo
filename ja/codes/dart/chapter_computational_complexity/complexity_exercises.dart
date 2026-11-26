@@ -58,6 +58,6 @@ void main() {
       quadraticLoop(4) != 20 ||
       logarithmicLoop(4) != 1 ||
       logarithmicLoop(5) != 1) {
-    throw StateError('complexity exercise check failed');
+    throw StateError('計算量の練習問題の検証に失敗しました');
   }
 }

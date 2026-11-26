@@ -47,10 +47,10 @@ int main() {
 
     vector<vector<int>> res = subsetSumI(nums, target);
 
-    cout << "Input array nums =  ";
+    cout << "Input array nums = ";
     printVector(nums);
     cout << "target = " << target << endl;
-    cout << "Subsets that sum to  " << target << " : res =  " << endl;
+    cout << "Subsets that sum to  " << target << " : res = " << endl;
     printVectorMatrix(res);
 
     return 0;

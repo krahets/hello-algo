@@ -23,7 +23,7 @@ fun maxProductCutting(n: Int): Int {
     }
     if (b == 2) {
         // 若餘數為 2，無須調整
-        return 3.0.pow(a).toInt() * 2 * 2
+        return 3.0.pow(a).toInt() * 2
     }
     // 若餘數為 0，無須調整
     return 3.0.pow(a).toInt()

@@ -569,12 +569,12 @@ end
 <!-- [snippet]{count_operations} -->
 ```python title=""
 def algorithm(n: int):
-    a = 1      # +0 (rule 1)
-    a = a + n  # +0 (rule 1)
-    # +n (rule 2)
+    a = 1      # +0 (shortcut 1)
+    a = a + n  # +0 (shortcut 1)
+    # +n (shortcut 2)
     for i in range(5 * n + 1):
         print(0)
-    # +n*n (rule 3)
+    # +n*n (shortcut 3)
     for i in range(2 * n):
         for j in range(n + 1):
             print(0)
@@ -582,13 +582,13 @@ def algorithm(n: int):
 
 ```cpp title=""
 void algorithm(int n) {
-    int a = 1;  // +0 (rule 1)
-    a = a + n;  // +0 (rule 1)
-    // +n (rule 2)
+    int a = 1;  // +0 (shortcut 1)
+    a = a + n;  // +0 (shortcut 1)
+    // +n (shortcut 2)
     for (int i = 0; i < 5 * n + 1; i++) {
         cout << 0 << endl;
     }
-    // +n*n (rule 3)
+    // +n*n (shortcut 3)
     for (int i = 0; i < 2 * n; i++) {
         for (int j = 0; j < n + 1; j++) {
             cout << 0 << endl;
@@ -599,13 +599,13 @@ void algorithm(int n) {
 
 ```java title=""
 void algorithm(int n) {
-    int a = 1;  // +0 (rule 1)
-    a = a + n;  // +0 (rule 1)
-    // +n (rule 2)
+    int a = 1;  // +0 (shortcut 1)
+    a = a + n;  // +0 (shortcut 1)
+    // +n (shortcut 2)
     for (int i = 0; i < 5 * n + 1; i++) {
         System.out.println(0);
     }
-    // +n*n (rule 3)
+    // +n*n (shortcut 3)
     for (int i = 0; i < 2 * n; i++) {
         for (int j = 0; j < n + 1; j++) {
             System.out.println(0);
@@ -616,13 +616,13 @@ void algorithm(int n) {
 
 ```csharp title=""
 void Algorithm(int n) {
-    int a = 1;  // +0 (rule 1)
-    a = a + n;  // +0 (rule 1)
-    // +n (rule 2)
+    int a = 1;  // +0 (shortcut 1)
+    a = a + n;  // +0 (shortcut 1)
+    // +n (shortcut 2)
     for (int i = 0; i < 5 * n + 1; i++) {
         Console.WriteLine(0);
     }
-    // +n*n (rule 3)
+    // +n*n (shortcut 3)
     for (int i = 0; i < 2 * n; i++) {
         for (int j = 0; j < n + 1; j++) {
             Console.WriteLine(0);
@@ -633,13 +633,13 @@ void Algorithm(int n) {
 
 ```go title=""
 func algorithm(n int) {
-    a := 1     // +0 (rule 1)
-    a = a + n  // +0 (rule 1)
-    // +n (rule 2)
+    a := 1     // +0 (shortcut 1)
+    a = a + n  // +0 (shortcut 1)
+    // +n (shortcut 2)
     for i := 0; i < 5 * n + 1; i++ {
         fmt.Println(0)
     }
-    // +n*n (rule 3)
+    // +n*n (shortcut 3)
     for i := 0; i < 2 * n; i++ {
         for j := 0; j < n + 1; j++ {
             fmt.Println(0)
@@ -650,13 +650,13 @@ func algorithm(n int) {
 
 ```swift title=""
 func algorithm(n: Int) {
-    var a = 1 // +0 (rule 1)
-    a = a + n // +0 (rule 1)
-    // +n (rule 2)
+    var a = 1 // +0 (shortcut 1)
+    a = a + n // +0 (shortcut 1)
+    // +n (shortcut 2)
     for _ in 0 ..< (5 * n + 1) {
         print(0)
     }
-    // +n*n (rule 3)
+    // +n*n (shortcut 3)
     for _ in 0 ..< (2 * n) {
         for _ in 0 ..< (n + 1) {
             print(0)
@@ -667,13 +667,13 @@ func algorithm(n: Int) {
 
 ```javascript title=""
 function algorithm(n) {
-    let a = 1;  // +0 (rule 1)
-    a = a + n;  // +0 (rule 1)
-    // +n (rule 2)
+    let a = 1;  // +0 (shortcut 1)
+    a = a + n;  // +0 (shortcut 1)
+    // +n (shortcut 2)
     for (let i = 0; i < 5 * n + 1; i++) {
         console.log(0);
     }
-    // +n*n (rule 3)
+    // +n*n (shortcut 3)
     for (let i = 0; i < 2 * n; i++) {
         for (let j = 0; j < n + 1; j++) {
             console.log(0);
@@ -684,13 +684,13 @@ function algorithm(n) {
 
 ```typescript title=""
 function algorithm(n: number): void {
-    let a = 1;  // +0 (rule 1)
-    a = a + n;  // +0 (rule 1)
-    // +n (rule 2)
+    let a = 1;  // +0 (shortcut 1)
+    a = a + n;  // +0 (shortcut 1)
+    // +n (shortcut 2)
     for (let i = 0; i < 5 * n + 1; i++) {
         console.log(0);
     }
-    // +n*n (rule 3)
+    // +n*n (shortcut 3)
     for (let i = 0; i < 2 * n; i++) {
         for (let j = 0; j < n + 1; j++) {
             console.log(0);
@@ -701,13 +701,13 @@ function algorithm(n: number): void {
 
 ```dart title=""
 void algorithm(int n) {
-  int a = 1; // +0 (rule 1)
-  a = a + n; // +0 (rule 1)
-  // +n (rule 2)
+  int a = 1; // +0 (shortcut 1)
+  a = a + n; // +0 (shortcut 1)
+  // +n (shortcut 2)
   for (int i = 0; i < 5 * n + 1; i++) {
     print(0);
   }
-  // +n*n (rule 3)
+  // +n*n (shortcut 3)
   for (int i = 0; i < 2 * n; i++) {
     for (int j = 0; j < n + 1; j++) {
       print(0);
@@ -718,15 +718,15 @@ void algorithm(int n) {
 
 ```rust title=""
 fn algorithm(n: i32) {
-    let mut a = 1;     // +0 (rule 1)
-    a = a + n;        // +0 (rule 1)
+    let mut a = 1;     // +0 (shortcut 1)
+    a = a + n;        // +0 (shortcut 1)
 
-    // +n (rule 2)
+    // +n (shortcut 2)
     for i in 0..(5 * n + 1) {
         println!("{}", 0);
     }
 
-    // +n*n (rule 3)
+    // +n*n (shortcut 3)
     for i in 0..(2 * n) {
         for j in 0..(n + 1) {
             println!("{}", 0);
@@ -737,13 +737,13 @@ fn algorithm(n: i32) {
 
 ```c title=""
 void algorithm(int n) {
-    int a = 1;  // +0 (rule 1)
-    a = a + n;  // +0 (rule 1)
-    // +n (rule 2)
+    int a = 1;  // +0 (shortcut 1)
+    a = a + n;  // +0 (shortcut 1)
+    // +n (shortcut 2)
     for (int i = 0; i < 5 * n + 1; i++) {
         printf("%d", 0);
     }
-    // +n*n (rule 3)
+    // +n*n (shortcut 3)
     for (int i = 0; i < 2 * n; i++) {
         for (int j = 0; j < n + 1; j++) {
             printf("%d", 0);
@@ -754,13 +754,13 @@ void algorithm(int n) {
 
 ```kotlin title=""
 fun algorithm(n: Int) {
-    var a = 1   // +0 (rule 1)
-    a = a + n   // +0 (rule 1)
-    // +n (rule 2)
+    var a = 1   // +0 (shortcut 1)
+    a = a + n   // +0 (shortcut 1)
+    // +n (shortcut 2)
     for (i in 0..<5 * n + 1) {
         println(0)
     }
-    // +n*n (rule 3)
+    // +n*n (shortcut 3)
     for (i in 0..<2 * n) {
         for (j in 0..<n + 1) {
             println(0)
@@ -771,11 +771,11 @@ fun algorithm(n: Int) {
 
 ```ruby title=""
 def algorithm(n)
-    a = 1       # +0 (rule 1)
-    a = a + n   # +0 (rule 1)
-    # +n (rule 2)
+    a = 1       # +0 (shortcut 1)
+    a = a + n   # +0 (shortcut 1)
+    # +n (shortcut 2)
     (0...(5 * n + 1)).each { puts 0 }
-    # +n*n (rule 3)
+    # +n*n (shortcut 3)
     (0...(2 * n)).each do
         (0...(n + 1)).each { puts 0 }
     end

@@ -81,7 +81,7 @@ int peek(MaxHeap *maxHeap) {
 void push(MaxHeap *maxHeap, int val) {
     // 기본 설정에서는 이렇게 많은 노드를 추가하면 안 됨
     if (maxHeap->size == MAX_SIZE) {
-        printf("heap is full!");
+        printf("힙이 가득 찼다!");
         return;
     }
     // 노드 추가
@@ -96,7 +96,7 @@ void push(MaxHeap *maxHeap, int val) {
 int pop(MaxHeap *maxHeap) {
     // 빈 힙 처리
     if (isEmpty(maxHeap)) {
-        printf("heap is empty!");
+        printf("힙이 비어 있다!");
         return INT_MAX;
     }
     // 루트와 맨 오른쪽 리프 교환(첫 원소와 마지막 원소 교환)

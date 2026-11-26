@@ -41,7 +41,7 @@ tree_node_class
 init_binary_tree
 ```
 
-??? pythontutor "실행 시각화"
+??? pythontutor "실행 과정 시각화"
 
     @tutor init_binary_tree_tutor
 
@@ -55,7 +55,7 @@ init_binary_tree
 insert_remove_node
 ```
 
-??? pythontutor "실행 시각화"
+??? pythontutor "실행 과정 시각화"
 
     @tutor insert_remove_node_tutor
 

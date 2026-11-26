@@ -53,10 +53,10 @@ if __FILE__ == $0
   # Inorder traversal
   $res.clear
   in_order(root)
-  puts "\nnNodes in inorder = #{$res}"
+  puts "\nNodes in inorder = #{$res}"
 
   # Postorder traversal
   $res.clear
   post_order(root)
-  puts "\nnNodes in postorder = #{$res}"
+  puts "\nNodes in postorder = #{$res}"
 end

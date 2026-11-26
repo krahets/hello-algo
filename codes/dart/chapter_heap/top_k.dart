@@ -134,7 +134,7 @@ class MinHeap {
       int mi = i;
       if (l < size() && _minHeap[l] < _minHeap[mi]) mi = l;
       if (r < size() && _minHeap[r] < _minHeap[mi]) mi = r;
-      // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+      // 若没有子节点的值小于父节点的值，则停止下沉
       if (mi == i) break;
       // 交换两节点
       _swap(i, mi);

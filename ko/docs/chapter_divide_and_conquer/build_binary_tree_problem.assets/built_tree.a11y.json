@@ -77,14 +77,14 @@
       "title": "루트 노드 3 생성"
     },
     {
-      "announcement": "왼쪽 부분 문제에 재귀 진입해 잎 노드 9를 만들고 상위 호출로 반환할 준비를 한다.",
+      "announcement": "왼쪽 부분 문제에 재귀 진입해 리프 노드 9를 만들고 상위 호출로 반환할 준비를 한다.",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step2.png",
       "explanation": "i = 1, 중위 구간 [0, 0]인 왼쪽 부분 문제에 들어가 노드 9를 만든다. 양쪽 중위 부분 구간이 모두 비어 해당 서브트리 호출이 None을 반환하므로 9는 잎이다. 9를 만든 호출이 아직 루트 3으로 반환하지 않았으므로 두 노드 사이에 간선은 없다.",
       "id": "source-318",
-      "key_state": "잎 노드 9를 생성했지만 아직 루트 3에 연결하지 않았다.",
+      "key_state": "리프 노드 9를 생성했지만 아직 루트 3에 연결하지 않았다.",
       "state_tables": [
         {
-          "caption": "트리 구성 2단계: 잎 노드 9를 만든 뒤의 노드와 참조",
+          "caption": "트리 구성 2단계: 리프 노드 9를 만든 뒤의 노드와 참조",
           "headers": [
             "노드",
             "왼쪽 자식",
@@ -105,10 +105,10 @@
           ]
         }
       ],
-      "title": "잎 노드 9 생성"
+      "title": "리프 노드 9 생성"
     },
     {
-      "announcement": "반환된 잎 노드 9를 루트 3의 왼쪽에 연결한다.",
+      "announcement": "반환된 리프 노드 9를 루트 3의 왼쪽에 연결한다.",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step3.png",
       "explanation": "9를 만든 호출이 9를 루트 3으로 반환하고 부모 호출이 3.left = 9를 실행해 첫 간선을 연결한다. 루트 3의 오른쪽 서브트리가 남아 있으므로 오른쪽 부분 문제로 넘어간다.",
       "id": "source-319",
@@ -175,14 +175,14 @@
       "title": "오른쪽 서브트리 루트 2 생성"
     },
     {
-      "announcement": "잎 노드 1을 만들고 부모 노드 2로 반환할 준비를 한다.",
+      "announcement": "리프 노드 1을 만들고 부모 노드 2로 반환할 준비를 한다.",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step5.png",
-      "explanation": "i = 3, 중위 구간 [2, 2]인 노드 2의 왼쪽 부분 문제에 들어가 잎 노드 1을 만든다. 양쪽 중위 부분 구간은 비어 있지만 1을 만든 호출이 아직 2에 반환하지 않았다. 현재 노드를 네 개 만들었고 3.left = 9만 연결했다. 1은 아직 2에, 2는 아직 3에 연결되지 않았다.",
+      "explanation": "i = 3, 중위 구간 [2, 2]인 노드 2의 왼쪽 부분 문제에 들어가 리프 노드 1을 만든다. 양쪽 중위 부분 구간은 비어 있지만 1을 만든 호출이 아직 2에 반환하지 않았다. 현재 노드를 네 개 만들었고 3.left = 9만 연결했다. 1은 아직 2에, 2는 아직 3에 연결되지 않았다.",
       "id": "source-321",
-      "key_state": "잎 노드 1을 생성했다. 현재 3.left = 9만 연결되었고 1은 아직 2에, 2는 아직 3에 연결되지 않았다.",
+      "key_state": "리프 노드 1을 생성했다. 현재 3.left = 9만 연결되었고 1은 아직 2에, 2는 아직 3에 연결되지 않았다.",
       "state_tables": [
         {
-          "caption": "트리 구성 5단계: 잎 노드 1을 만든 뒤의 노드와 참조",
+          "caption": "트리 구성 5단계: 리프 노드 1을 만든 뒤의 노드와 참조",
           "headers": [
             "노드",
             "왼쪽 자식",
@@ -213,10 +213,10 @@
           ]
         }
       ],
-      "title": "잎 노드 1 생성"
+      "title": "리프 노드 1 생성"
     },
     {
-      "announcement": "반환된 잎 노드 1을 노드 2의 왼쪽에 연결한다.",
+      "announcement": "반환된 리프 노드 1을 노드 2의 왼쪽에 연결한다.",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step6.png",
       "explanation": "1을 만든 호출이 노드 2로 반환하고 부모 호출이 2.left = 1을 실행한다. 현재 3.left = 9와 2.left = 1이 연결되었다. 2의 오른쪽 부분 문제 [7]은 아직 구성 전이고 2도 아직 3으로 반환되어 연결되지 않았다.",
       "id": "source-322",
@@ -257,14 +257,14 @@
       "title": "노드 2의 왼쪽 서브트리 연결"
     },
     {
-      "announcement": "잎 노드 7을 만들고 부모 노드 2로 반환할 준비를 한다.",
+      "announcement": "리프 노드 7을 만들고 부모 노드 2로 반환할 준비를 한다.",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step7.png",
-      "explanation": "i = 4, 중위 구간 [4, 4]인 2의 오른쪽 부분 문제에 들어가 마지막 잎 노드 7을 만든다. 다섯 노드를 모두 만들었다. 3.left = 9와 2.left = 1은 연결되었고 2.right와 3.right는 아직 연결 전이다. 이제 7을 만든 호출이 7을 노드 2로 반환한다.",
+      "explanation": "i = 4, 중위 구간 [4, 4]인 2의 오른쪽 부분 문제에 들어가 마지막 리프 노드 7을 만든다. 다섯 노드를 모두 만들었다. 3.left = 9와 2.left = 1은 연결되었고 2.right와 3.right는 아직 연결 전이다. 이제 7을 만든 호출이 7을 노드 2로 반환한다.",
       "id": "source-323",
       "key_state": "다섯 노드를 모두 만들었다. 현재 3.left = 9와 2.left = 1이 연결되었고 2.right와 3.right는 아직 연결 전이다.",
       "state_tables": [
         {
-          "caption": "트리 구성 7단계: 잎 노드 7을 만든 뒤의 노드와 참조",
+          "caption": "트리 구성 7단계: 리프 노드 7을 만든 뒤의 노드와 참조",
           "headers": [
             "노드",
             "왼쪽 자식",
@@ -300,14 +300,14 @@
           ]
         }
       ],
-      "title": "잎 노드 7 생성"
+      "title": "리프 노드 7 생성"
     },
     {
-      "announcement": "잎 노드 7을 노드 2의 오른쪽에 연결해 루트가 2인 서브트리를 완성한다.",
+      "announcement": "리프 노드 7을 노드 2의 오른쪽에 연결해 루트가 2인 서브트리를 완성한다.",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step8.png",
       "explanation": "7을 만든 호출이 2로 반환하고 부모 호출이 2.right = 7을 실행한다. 현재 세 간선은 3.left = 9, 2.left = 1, 2.right = 7이다. 루트가 2인 서브트리가 완성되어 루트 3으로 반환할 준비가 되었다. 3과 2 사이에는 아직 간선이 없다.",
       "id": "source-324",
-      "key_state": "현재 3.left = 9가 연결되었다. 루트 2의 서브트리(왼쪽 1, 오른쪽 7)는 완성되었지만 2는 아직 3에 연결되지 않았다.",
+      "key_state": "현재 3.left = 9가 연결되었다. 루트 2의 서브트리(왼쪽 1, 오른쪽 7)은 완성되었지만 2는 아직 3에 연결되지 않았다.",
       "state_tables": [
         {
           "caption": "트리 구성 8단계: 노드 2의 오른쪽 서브트리를 연결한 뒤의 노드와 참조",
@@ -351,7 +351,7 @@
     {
       "announcement": "루트가 2인 완성된 오른쪽 서브트리를 루트 3의 오른쪽에 연결하고 루트 3을 반환해 구성을 마친다.",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step9.png",
-      "explanation": "루트가 2인 오른쪽 서브트리가 최상위 호출로 반환되면 3.right = 2를 실행해 마지막 간선을 연결한다. 3의 왼쪽은 9, 오른쪽은 2이고 2의 왼쪽은 1, 오른쪽은 7이다. 9, 1, 7은 잎 노드이다. 부모·자식 간선 네 개가 모두 연결되면 최상위 함수가 루트 3을 반환해 구성을 마친다.",
+      "explanation": "루트가 2인 오른쪽 서브트리가 최상위 호출로 반환되면 3.right = 2를 실행해 마지막 간선을 연결한다. 3의 왼쪽은 9, 오른쪽은 2이고 2의 왼쪽은 1, 오른쪽은 7이다. 9, 1, 7은 리프 노드이다. 부모·자식 간선 네 개가 모두 연결되면 최상위 함수가 루트 3을 반환해 구성을 마친다.",
       "id": "source-325",
       "key_state": "전체 트리가 완성되었다. 3의 왼쪽은 9, 오른쪽은 2이고 2의 왼쪽은 1, 오른쪽은 7이다.",
       "state_tables": [

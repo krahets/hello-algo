@@ -117,7 +117,7 @@ $$
 builtin_hash
 ```
 
-??? pythontutor "実行を可視化"
+??? pythontutor "実行の様子を見る"
 
     @tutor builtin_hash_tutor
 

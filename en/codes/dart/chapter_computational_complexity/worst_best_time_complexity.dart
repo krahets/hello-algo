@@ -35,6 +35,6 @@ void main() {
     final nums = randomNumbers(n);
     int index = findOne(nums);
     print('\nShuffled array [ 1, 2, ..., n ] = $nums');
-    print('Index of 1: + $index');
+    print('Index of 1: $index');
   }
 }

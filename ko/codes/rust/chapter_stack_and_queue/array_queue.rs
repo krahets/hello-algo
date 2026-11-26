@@ -64,7 +64,7 @@ impl<T: Copy + Default> ArrayQueue<T> {
     /* 맨 앞 원소 조회 */
     fn peek(&self) -> T {
         if self.is_empty() {
-            panic!("index out of bounds");
+            panic!("인덱스가 범위를 벗어났다");
         }
         self.nums[self.front as usize]
     }

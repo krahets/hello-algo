@@ -166,7 +166,7 @@
       "title": "첫 행과 첫 열의 경곗값 계산"
     },
     {
-      "announcement": "위쪽 누적값 4과 왼쪽 누적값 3 중 작은 값에 현재 칸의 비용 2을 더하면 dp[1,1] = 5이다.",
+      "announcement": "위쪽 누적값 4와 왼쪽 누적값 3 중 작은 값에 현재 칸의 비용 2를 더하면 dp[1,1] = 5이다.",
       "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step3.png",
       "explanation": "내부 1행 1열에서 위쪽 dp[0,1]=4와 왼쪽 dp[1,0]=3 중 작은 3에 현재 비용 grid[1,1]=2를 더해 dp[1,1] = min(4, 3) + 2 = 5를 얻는다. 나머지 내부 여덟 칸([1,2], [1,3]과 2~3행의 1~3열)은 계산 전 초깃값 0이다.",
       "id": "source-384",
@@ -268,7 +268,7 @@
       "title": "dp[1,2] 계산"
     },
     {
-      "announcement": "위쪽 누적값 10과 왼쪽 누적값 9 중 작은 값에 현재 칸의 비용 2을 더하면 dp[1,3] = 11이다.",
+      "announcement": "위쪽 누적값 10과 왼쪽 누적값 9 중 작은 값에 현재 칸의 비용 2를 더하면 dp[1,3] = 11이다.",
       "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step5.png",
       "explanation": "1행의 마지막 칸 [1,3]에서 위쪽 dp[0,3]=10과 왼쪽 dp[1,2]=9 중 작은 9에 현재 비용 grid[1,3]=2를 더하면 dp[1,3] = min(10, 9) + 2 = 11이다. 이제 1행 전체가 유효하고 2~3행의 1~3열 내부 여섯 칸은 계산 전 초깃값 0이다.",
       "id": "source-386",
@@ -319,7 +319,7 @@
       "title": "dp[1,3] 계산"
     },
     {
-      "announcement": "위쪽 누적값 5과 왼쪽 누적값 8 중 작은 값에 현재 칸의 비용 3을 더하면 dp[2,1] = 8이다.",
+      "announcement": "위쪽 누적값 5와 왼쪽 누적값 8 중 작은 값에 현재 칸의 비용 3을 더하면 dp[2,1] = 8이다.",
       "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step6.png",
       "explanation": "2행의 첫 내부 칸 [2,1]에서 위쪽 dp[1,1]=5와 왼쪽 dp[2,0]=8 중 작은 5에 현재 비용 grid[2,1]=3을 더하면 dp[2,1] = min(5, 8) + 3 = 8이다. 남은 내부 다섯 칸([2,2], [2,3]과 3행의 1~3열)은 계산 전 초깃값 0이다.",
       "id": "source-387",
@@ -370,11 +370,11 @@
       "title": "dp[2,1] 계산"
     },
     {
-      "announcement": "위쪽 누적값 9과 왼쪽 누적값 8 중 작은 값에 현재 칸의 비용 2을 더하면 dp[2,2] = 10이다.",
+      "announcement": "위쪽 누적값 9와 왼쪽 누적값 8 중 작은 값에 현재 칸의 비용 2를 더하면 dp[2,2] = 10이다.",
       "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step7.png",
       "explanation": "[2,2]에서 위쪽 dp[1,2]=9와 왼쪽 dp[2,1]=8 중 작은 8에 현재 비용 grid[2,2]=2를 더하면 dp[2,2] = min(9, 8) + 2 = 10이다. 남은 내부 네 칸([2,3], [3,1], [3,2], [3,3])은 계산 전 초깃값 0이다.",
       "id": "source-388",
-      "key_state": "dp[2,2] = min(9, 8) + 2 = 10로 계산이 끝났다. 나머지 내부 4칸은 아직 계산 전 초깃값 0이다.",
+      "key_state": "dp[2,2] = min(9, 8) + 2 = 10으로 계산이 끝났다. 나머지 내부 4칸은 아직 계산 전 초깃값 0이다.",
       "state_tables": [
         {
           "caption": "최소 경로 합 7단계: dp[2,2] 계산 후의 dp 상태",
@@ -523,7 +523,7 @@
       "title": "dp[3,1] 계산"
     },
     {
-      "announcement": "위쪽 누적값 10과 왼쪽 누적값 11 중 작은 값에 현재 칸의 비용 5을 더하면 dp[3,2] = 15이다.",
+      "announcement": "위쪽 누적값 10과 왼쪽 누적값 11 중 작은 값에 현재 칸의 비용 5를 더하면 dp[3,2] = 15이다.",
       "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step10.png",
       "explanation": "[3,2]에서 위쪽 dp[2,2]=10과 왼쪽 dp[3,1]=11 중 작은 10에 현재 비용 grid[3,2]=5를 더하면 dp[3,2] = min(10, 11) + 5 = 15이다. 15칸의 값이 유효하고 도착점 dp[3,3]만 0(계산 전 초깃값)이다.",
       "id": "source-391",

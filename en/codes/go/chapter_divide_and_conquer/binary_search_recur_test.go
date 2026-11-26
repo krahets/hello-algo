@@ -14,7 +14,7 @@ func TestBinarySearch(t *testing.T) {
 	target := 6
 	noTarget := 99
 	targetIndex := binarySearch(nums, target)
-	fmt.Println("Index of target 6 =  ", targetIndex)
+	fmt.Println("Index of target 6 = ", targetIndex)
 	noTargetIndex := binarySearch(nums, noTarget)
-	fmt.Println("Index of the missing target =  ", noTargetIndex)
+	fmt.Println("Index of the missing target = ", noTargetIndex)
 }

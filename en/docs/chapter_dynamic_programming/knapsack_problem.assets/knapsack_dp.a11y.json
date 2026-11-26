@@ -178,7 +178,7 @@
     {
       "announcement": "All states are complete. Return the maximum value at capacity 4, dp[3, 4] = 20.",
       "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step14.png",
-      "explanation": "Read dp[3, 4] = 20 at the bottom right. Taking the apple and watermelon gives weight 1 + 3 = 4 and value 5 + 15 = 20. The last frame's “maximum value of 20 for packing all items” means the best subset after considering all three. Taking all three would weigh 6, exceeding capacity 4.",
+      "explanation": "Read dp[3, 4] = 20 at the bottom right. Taking the apple and watermelon gives weight 1 + 3 = 4 and value 5 + 15 = 20. After considering all three items, the algorithm returns the maximum value, 20. Taking all three would weigh 6, exceeding capacity 4.",
       "id": "source-410",
       "key_state": "The table is complete. Return dp[3, 4] = 20 from the bottom right (apple and watermelon).",
       "title": "Return the maximum value of 20 at capacity 4"

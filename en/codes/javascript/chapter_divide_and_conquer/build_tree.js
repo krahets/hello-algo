@@ -37,8 +37,8 @@ function buildTree(preorder, inorder) {
 /* Driver code */
 const preorder = [3, 9, 2, 1, 7];
 const inorder = [9, 3, 1, 2, 7];
-console.log('Preorder traversal =  ' + JSON.stringify(preorder));
-console.log('Inorder traversal =  ' + JSON.stringify(inorder));
+console.log('Preorder traversal = ' + JSON.stringify(preorder));
+console.log('Inorder traversal = ' + JSON.stringify(inorder));
 const root = buildTree(preorder, inorder);
 console.log('Reconstructed binary tree:');
 printTree(root);

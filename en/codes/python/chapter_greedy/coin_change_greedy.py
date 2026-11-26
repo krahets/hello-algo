@@ -12,7 +12,7 @@ def coin_change_greedy(coins: list[int], amt: int) -> int:
     count = 0
     # Make greedy choices until no amount remains
     while amt > 0:
-        # Find the closest denomination below the remaining amount
+        # Find the largest denomination that does not exceed the remaining amount
         while i > 0 and coins[i] > amt:
             i -= 1
         # Choose coins[i]

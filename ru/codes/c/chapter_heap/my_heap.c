@@ -124,7 +124,7 @@ void siftDown(MaxHeap *maxHeap, int i) {
         if (r < size(maxHeap) && maxHeap->data[r] > maxHeap->data[max]) {
             max = r;
         }
-        // Если i уже наибольший или оба индекса l и r вне диапазона, завершить просеивание
+        // Если ни у одного потомка значение не больше, чем у родителя, завершить просеивание
         if (max == i) {
             break;
         }

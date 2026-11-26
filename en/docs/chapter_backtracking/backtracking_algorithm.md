@@ -71,7 +71,7 @@ In the figure below, **trying a choice is a step forward and backtracking undoes
 === "<11>"
     ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.svg)
 
-## Prune
+## Pruning
 
 More complex backtracking problems typically have one or more constraints. **These constraints often let us prune the search**.
 

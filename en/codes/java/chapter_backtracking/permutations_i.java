@@ -45,7 +45,7 @@ public class permutations_i {
 
         List<List<Integer>> res = permutationsI(nums);
 
-        System.out.println("Input array nums =  " + Arrays.toString(nums));
-        System.out.println("All permutations res =  " + res);
+        System.out.println("Input array nums = " + Arrays.toString(nums));
+        System.out.println("All permutations res = " + res);
     }
 }

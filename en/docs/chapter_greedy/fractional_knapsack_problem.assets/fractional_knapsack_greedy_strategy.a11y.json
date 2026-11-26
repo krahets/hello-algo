@@ -3,7 +3,7 @@
     "To maximize total value for a given capacity, use each unit of capacity for the highest unit value available. The greedy strategy for fractional knapsack therefore starts by sorting all candidates in descending order of unit value."
   ],
   "description": [
-    "The center table lists items in descending order of unit value. The diagram gives the numbers in all four columns: item number, weight, value, and unit value. Fruit names come from the icons. Two labels read “Sort by decreasing unit value” and “Greedy strategy: choose items with higher unit values first.” A gray arrow on the right points upward toward higher unit values. Selection proceeds from the top row down.",
+    "The table on the left lists items in descending order of unit value. The diagram gives the numbers in all four columns: item number, weight, value, and unit value. Fruit names come from the icons. Two labels read “Sort by unit value from highest to lowest” and “Greedy strategy: take items with higher unit values first.” A gray arrow on the right points upward toward higher unit values. Selection proceeds from the top row down.",
     "The table follows the order in the diagram. The apple and grapes both have a unit value of 5. The apple appears first, but items with equal unit values can go in either order."
   ],
   "frames": [

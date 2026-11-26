@@ -14,7 +14,7 @@ fun coinChangeGreedy(coins: IntArray, amt: Int): Int {
     var count = 0
     // 反覆依貪婪策略選取硬幣，直到剩餘金額為零
     while (am > 0) {
-        // 找出面額小於且最接近剩餘金額的硬幣
+        // 找出不超過剩餘金額的最大面額
         while (i > 0 && coins[i] > am) {
             i--
         }

@@ -41,7 +41,7 @@ tree_node_class
 init_binary_tree
 ```
 
-??? pythontutor "以動畫執行程式"
+??? pythontutor "執行視覺化示範"
 
     @tutor init_binary_tree_tutor
 
@@ -55,7 +55,7 @@ init_binary_tree
 insert_remove_node
 ```
 
-??? pythontutor "以動畫執行程式"
+??? pythontutor "執行視覺化示範"
 
     @tutor insert_remove_node_tutor
 
@@ -83,7 +83,7 @@ insert_remove_node
 
 ### 完滿二元樹
 
-如下圖所示，<u>完滿二元樹（full binary tree）</u>中除了葉節點，其餘每個節點都有兩個子節點。
+如下圖所示，<u>完滿二元樹（full binary tree，又稱嚴格二元樹）</u>中除了葉節點，其餘每個節點都有兩個子節點。
 
 ![完滿二元樹](binary_tree.assets/full_binary_tree.svg)
 

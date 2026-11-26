@@ -47,9 +47,9 @@ def logarithmic_loop(n)
 end
 
 if __FILE__ == $0
-  raise 'sum check failed' unless sum_iter(1) == 1 && sum_recur(1) == 1
-  raise 'sum check failed' unless sum_iter(4) == 10 && sum_recur(4) == 10
-  raise 'linear check failed' unless linear_loop(4) == 6
-  raise 'quadratic check failed' unless quadratic_loop(4) == 20
-  raise 'logarithmic check failed' unless logarithmic_loop(4) == 1 && logarithmic_loop(5) == 1
+  raise '総和の検証に失敗しました' unless sum_iter(1) == 1 && sum_recur(1) == 1
+  raise '総和の検証に失敗しました' unless sum_iter(4) == 10 && sum_recur(4) == 10
+  raise '線形オーダーの検証に失敗しました' unless linear_loop(4) == 6
+  raise '二次オーダーの検証に失敗しました' unless quadratic_loop(4) == 20
+  raise '対数オーダーの検証に失敗しました' unless logarithmic_loop(4) == 1 && logarithmic_loop(5) == 1
 end

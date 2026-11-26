@@ -36,7 +36,7 @@ class MaxHeap(nums: MutableList<Int>?) {
 
     /* 親のインデックスを取得する */
     private fun parent(i: Int): Int {
-        return (i - 1) / 2 // 商を負の無限大方向に切り捨てる
+        return (i - 1) / 2 // 商を 0 方向に丸める
     }
 
     /* 要素を交換する */

@@ -85,13 +85,13 @@ class ArrayDeque {
 
     /* 맨 앞 원소 조회 */
     peekFirst() {
-        if (this.isEmpty()) throw new Error('The Deque Is Empty.');
+        if (this.isEmpty()) throw new Error('덱이 비어 있다.');
         return this.#nums[this.#front];
     }
 
     /* 맨 뒤 원소 조회 */
     peekLast() {
-        if (this.isEmpty()) throw new Error('The Deque Is Empty.');
+        if (this.isEmpty()) throw new Error('덱이 비어 있다.');
         // 맨 뒤 원소의 인덱스 계산
         const last = this.index(this.#front + this.#queSize - 1);
         return this.#nums[last];

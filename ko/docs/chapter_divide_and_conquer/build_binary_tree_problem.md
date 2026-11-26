@@ -2,7 +2,7 @@
 
 !!! question
 
-    이진 트리의 전위 순회 `preorder`와 중위 순회 `inorder`이 주어질 때 이진 트리를 구성하고 루트 노드를 반환하라. 트리에서 값이 같은 노드는 없다고 가정한다(아래 그림 참조).
+    이진 트리의 전위 순회 `preorder`와 중위 순회 `inorder`가 주어질 때 이진 트리를 구성하고 루트 노드를 반환하라. 트리에서 값이 같은 노드는 없다고 가정한다(아래 그림 참조).
 
 ![이진 트리 구성에 사용할 예제 데이터](build_binary_tree_problem.assets/build_tree_example.svg)
 

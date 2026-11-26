@@ -34,7 +34,7 @@ func (q *arrayQueue) isEmpty() bool {
 
 /* エンキューする */
 func (q *arrayQueue) push(num int) {
-	// rear == queCapacity のとき、キューは満杯である
+	// queSize == queCapacity のとき、キューは満杯である
 	if q.queSize == q.queCapacity {
 		return
 	}

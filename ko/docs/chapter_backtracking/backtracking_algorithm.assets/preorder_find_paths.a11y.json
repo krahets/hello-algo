@@ -76,27 +76,27 @@
       "title": "왼쪽 7을 찾아 경로 저장"
     },
     {
-      "announcement": "왼쪽 잎 노드 4에 들어가 path가 [1, 7, 4]가 된다.",
+      "announcement": "왼쪽 리프 노드 4에 들어가 path가 [1, 7, 4]가 된다.",
       "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step3.png",
-      "explanation": "왼쪽 7의 왼쪽 잎 노드 4에 들어가 path에 4를 추가한다. 목표값 7과 다르다. 현재 path = [1, 7, 4], res = [[1, 7]]. 노드 5와 루트의 오른쪽 서브트리가 남았다.",
+      "explanation": "왼쪽 7의 왼쪽 리프 노드 4에 들어가 path에 4를 추가한다. 목표값 7과 다르다. 현재 path = [1, 7, 4], res = [[1, 7]]. 노드 5와 루트의 오른쪽 서브트리가 남았다.",
       "id": "source-344",
-      "key_state": "잎 노드 4에 진입했다. path = [1, 7, 4], res = [[1, 7]].",
+      "key_state": "리프 노드 4에 진입했다. path = [1, 7, 4], res = [[1, 7]].",
       "title": "노드 4에 진입"
     },
     {
-      "announcement": "잎 노드 4에서 돌아와 4를 꺼내면 path는 [1, 7]로 복원된다.",
+      "announcement": "리프 노드 4에서 돌아와 4를 꺼내면 path는 [1, 7]로 복원된다.",
       "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step4.png",
-      "explanation": "잎 노드 4의 비어 있는 양쪽 서브트리에서 모두 반환했다. path에서 4를 꺼내 부모인 왼쪽 7로 돌아간다. 현재 path = [1, 7], res = [[1, 7]]. 4를 마쳤으므로 다음은 오른쪽 자식 5이다.",
+      "explanation": "리프 노드 4의 비어 있는 양쪽 서브트리에서 모두 반환했다. path에서 4를 꺼내 부모인 왼쪽 7로 돌아간다. 현재 path = [1, 7], res = [[1, 7]]. 4를 마쳤으므로 다음은 오른쪽 자식 5이다.",
       "id": "source-345",
       "key_state": "4를 꺼내 왼쪽 7로 돌아갔다. path는 [1, 7]로 복원되고 res = [[1, 7]]이다.",
       "title": "4에서 나와 왼쪽 7로 복귀"
     },
     {
-      "announcement": "오른쪽 잎 노드 5에 들어가 path가 [1, 7, 5]가 된다.",
+      "announcement": "오른쪽 리프 노드 5에 들어가 path가 [1, 7, 5]가 된다.",
       "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step5.png",
-      "explanation": "왼쪽 7의 오른쪽 잎 노드 5에 들어가 path에 5를 추가한다. 먼저 꺼낸 형제 노드 4는 남아 있지 않다. 현재 path = [1, 7, 5], res = [[1, 7]]. 왼쪽 서브트리의 모든 노드를 방문했고 루트의 오른쪽 서브트리가 남았다.",
+      "explanation": "왼쪽 7의 오른쪽 리프 노드 5에 들어가 path에 5를 추가한다. 먼저 꺼낸 형제 노드 4는 남아 있지 않다. 현재 path = [1, 7, 5], res = [[1, 7]]. 왼쪽 서브트리의 모든 노드를 방문했고 루트의 오른쪽 서브트리가 남았다.",
       "id": "source-346",
-      "key_state": "잎 노드 5에 진입했다. path = [1, 7, 5], res = [[1, 7]].",
+      "key_state": "리프 노드 5에 진입했다. path = [1, 7, 5], res = [[1, 7]].",
       "title": "노드 5에 진입"
     },
     {
@@ -116,17 +116,17 @@
       "title": "노드 3에 진입"
     },
     {
-      "announcement": "왼쪽 잎 노드 6에 들어가 path가 [1, 3, 6]이 된다.",
+      "announcement": "왼쪽 리프 노드 6에 들어가 path가 [1, 3, 6]이 된다.",
       "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step8.png",
       "explanation": "3의 왼쪽 잎 6에 들어가 path에 6을 추가한다. 목표값 7과 다르다. 현재 path = [1, 3, 6], res = [[1, 7]]. 트리 전체에서 아직 방문하지 않은 노드는 3의 오른쪽 자식 7뿐이다.",
       "id": "source-349",
-      "key_state": "잎 노드 6에 진입했다. path = [1, 3, 6], res = [[1, 7]].",
+      "key_state": "리프 노드 6에 진입했다. path = [1, 3, 6], res = [[1, 7]].",
       "title": "노드 6에 진입"
     },
     {
-      "announcement": "잎 노드 6에서 돌아와 6을 꺼내면 path는 [1, 3]으로 복원된다.",
+      "announcement": "리프 노드 6에서 돌아와 6을 꺼내면 path는 [1, 3]으로 복원된다.",
       "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step9.png",
-      "explanation": "잎 노드 6의 방문을 마치고 path에서 6을 꺼내 부모 3으로 돌아간다. 현재 path = [1, 3], res = [[1, 7]]. 6을 마쳤으므로 다음은 오른쪽 7이다.",
+      "explanation": "리프 노드 6의 방문을 마치고 path에서 6을 꺼내 부모 3으로 돌아간다. 현재 path = [1, 3], res = [[1, 7]]. 6을 마쳤으므로 다음은 오른쪽 7이다.",
       "id": "source-350",
       "key_state": "6을 꺼내 3으로 돌아갔다. path는 [1, 3]으로 복원되고 res = [[1, 7]]이다.",
       "title": "6에서 나와 3으로 복귀"

@@ -10,7 +10,7 @@
 typedef struct {
     int *nums;       // 両端キューの要素を格納する配列
     int front;       // 両端キューの先頭要素を指すインデックス
-    int queSize;     // 末尾要素の 1 つ先を指すインデックス
+    int queSize;     // 両端キューの要素数
     int queCapacity; // 両端キューの容量
 } ArrayDeque;
 

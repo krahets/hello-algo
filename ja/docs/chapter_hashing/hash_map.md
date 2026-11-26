@@ -30,7 +30,7 @@
 hash_map_operations
 ```
 
-??? pythontutor "実行を可視化"
+??? pythontutor "実行の様子を見る"
 
     @tutor hash_map_operations_tutor
 
@@ -40,7 +40,7 @@ hash_map_operations
 hash_map_traversal
 ```
 
-??? pythontutor "実行を可視化"
+??? pythontutor "実行の様子を見る"
 
     @tutor hash_map_traversal_tutor
 

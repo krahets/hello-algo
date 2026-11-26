@@ -59,5 +59,5 @@ if (
     logarithmicLoop(4) !== 1 ||
     logarithmicLoop(5) !== 1
 ) {
-    throw new Error('complexity exercise check failed');
+    throw new Error('計算量の練習問題の検証に失敗しました');
 }

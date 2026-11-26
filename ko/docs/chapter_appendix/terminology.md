@@ -52,7 +52,7 @@
 | hash function                  | 해시 함수       |
 | hash collision                 | 해시 충돌       |
 | load factor                    | 적재율       |
-| separate chaining              | 분리 연결법       |
+| separate chaining              | 체이닝 (분리 연결법)       |
 | open addressing                | 개방 주소법       |
 | linear probing                 | 선형 탐사       |
 | lazy deletion                  | 지연 삭제         |
@@ -125,12 +125,12 @@
 | solution                       | 해             |
 | state                          | 상태           |
 | pruning                        | 가지치기           |
-| permutations problem           | 모든 순열 구하기 문제     |
-| subset-sum problem             | 부분집합 합 문제     |
+| permutations problem           | 순열 문제     |
+| subset-sum problem             | 부분집합의 합 문제     |
 | $n$-queens problem             | $n$-퀸 문제   |
 | dynamic programming            | 동적 계획법       |
 | initial state                  | 초기 상태       |
 | state-transition equation      | 상태 전이식   |
 | knapsack problem               | 배낭 문제       |
 | edit distance problem          | 편집 거리 문제   |
-| greedy algorithm               | 그리디 알고리즘       |
+| greedy algorithm               | 탐욕 알고리즘 (그리디 알고리즘)       |

@@ -39,8 +39,8 @@ public class build_tree {
     public void Test() {
         int[] preorder = [3, 9, 2, 1, 7];
         int[] inorder = [9, 3, 1, 2, 7];
-        Console.WriteLine("Preorder traversal =  " + string.Join(", ", preorder));
-        Console.WriteLine("Inorder traversal =  " + string.Join(", ", inorder));
+        Console.WriteLine("Preorder traversal = " + string.Join(", ", preorder));
+        Console.WriteLine("Inorder traversal = " + string.Join(", ", inorder));
 
         TreeNode? root = BuildTree(preorder, inorder);
         Console.WriteLine("Reconstructed binary tree:");

@@ -111,7 +111,7 @@ class MaxHeap(nums: MutableList<Int>?) {
             var ma = i
             if (l < size() && maxHeap[l] > maxHeap[ma]) ma = l
             if (r < size() && maxHeap[r] > maxHeap[ma]) ma = r
-            // Если i уже наибольший или оба индекса l и r вне диапазона, завершить просеивание
+            // Если ни у одного потомка значение не больше, чем у родителя, завершить просеивание
             if (ma == i) break
             // Поменять два узла местами
             swap(i, ma)

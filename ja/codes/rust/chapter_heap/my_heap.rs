@@ -36,7 +36,7 @@ impl MaxHeap {
 
     /* 親のインデックスを取得する */
     fn parent(i: usize) -> usize {
-        (i - 1) / 2 // 商を負の無限大方向に切り捨てる
+        (i - 1) / 2 // 商を 0 方向に丸める
     }
 
     /* 要素を交換する */
@@ -91,7 +91,7 @@ impl MaxHeap {
     fn pop(&mut self) -> i32 {
         // 空の場合の処理
         if self.is_empty() {
-            panic!("index out of bounds");
+            panic!("インデックスが範囲外です");
         }
         // 根と最も右の葉（先頭要素と末尾要素）を交換する
         self.swap(0, self.size() - 1);

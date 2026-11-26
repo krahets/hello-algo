@@ -251,11 +251,11 @@
       "title": "빈도 누적 및 결과 배열 준비"
     },
     {
-      "announcement": "오른쪽부터 읽어 원래 인덱스 9의 4를 결과 인덱스 9에 쓰고 prefix[4]을 1 줄인다.",
+      "announcement": "오른쪽부터 읽어 원래 인덱스 9의 4를 결과 인덱스 9에 쓰고 prefix[4]를 1 줄인다.",
       "book_path": "chapter_sorting/counting_sort.assets/counting_sort_step3.png",
       "explanation": "포인터 num은 원래 배열의 맨 오른쪽 인덱스 9를 가리키며 값은 4이다. 감소 전의 prefix[4] = 10에서 목표 인덱스 10 - 1 = 9를 구해 res[9]에 4를 쓴다. 그런 다음 prefix[4]를 1 줄여 9로 만든다. 그림의 prefix는 이미 감소한 상태다. 원래 인덱스 9만 처리했으므로 나머지 아홉 칸은 아직 비어 있다.",
       "id": "source-302",
-      "key_state": "원래 인덱스 9의 4를 써서 res[9] = 4가 되었고 prefix[4]은 9로 줄었다. 나머지 아홉 칸은 아직 비어 있다.",
+      "key_state": "원래 인덱스 9의 4를 써서 res[9] = 4가 되었고 prefix[4]는 9로 줄었다. 나머지 아홉 칸은 아직 비어 있다.",
       "state_tables": [
         {
           "caption": "계수 정렬 3단계: nums와 res",
@@ -363,11 +363,11 @@
       "title": "맨 끝의 4를 인덱스 9에 쓰기"
     },
     {
-      "announcement": "원래 인덱스 8의 2를 읽어 결과 인덱스 7에 쓰고 prefix[2]을 1 줄인다.",
+      "announcement": "원래 인덱스 8의 2를 읽어 결과 인덱스 7에 쓰고 prefix[2]를 1 줄인다.",
       "book_path": "chapter_sorting/counting_sort.assets/counting_sort_step4.png",
       "explanation": "포인터 num이 왼쪽의 원래 인덱스 8로 이동하며 값은 2이다. 감소 전의 prefix[2] = 8에서 목표 인덱스 8 - 1 = 7을 구해 res[7]에 2를 쓴다. 그런 다음 prefix[2]를 1 줄여 7로 만든다. 그림의 prefix는 이미 감소한 상태다. 원래 인덱스 9부터 8까지 처리했다.",
       "id": "source-303",
-      "key_state": "원래 인덱스 8의 2를 써서 res[7] = 2가 되었고 prefix[2]은 7로 줄었다. 원래 인덱스 9부터 8까지 처리했다.",
+      "key_state": "원래 인덱스 8의 2를 써서 res[7] = 2가 되었고 prefix[2]는 7로 줄었다. 원래 인덱스 9부터 8까지 처리했다.",
       "state_tables": [
         {
           "caption": "계수 정렬 4단계: nums와 res",
@@ -475,11 +475,11 @@
       "title": "원래 인덱스 8의 2를 인덱스 7에 쓰기"
     },
     {
-      "announcement": "원래 인덱스 7의 2를 읽어 결과 인덱스 6에 쓰고 prefix[2]을 1 줄인다.",
+      "announcement": "원래 인덱스 7의 2를 읽어 결과 인덱스 6에 쓰고 prefix[2]를 1 줄인다.",
       "book_path": "chapter_sorting/counting_sort.assets/counting_sort_step5.png",
       "explanation": "포인터 num이 왼쪽의 원래 인덱스 7로 이동하면서 값이 2인 원소를 두 번째로 만난다. 직전 회전에서 감소한 prefix[2] = 7로 목표 인덱스 7 - 1 = 6을 구해 이 2를 res[6]에 쓴다. 방금 쓴 2의 왼쪽이므로 원래 상대적 순서를 유지한다. 이어서 prefix[2]를 1 줄여 6으로 만든다. 원래 인덱스 9부터 7까지 처리했다.",
       "id": "source-304",
-      "key_state": "원래 인덱스 7의 2를 써서 res[6] = 2가 되었고 prefix[2]은 6으로 줄었다. 원래 인덱스 9부터 7까지 처리했다.",
+      "key_state": "원래 인덱스 7의 2를 써서 res[6] = 2가 되었고 prefix[2]는 6으로 줄었다. 원래 인덱스 9부터 7까지 처리했다.",
       "state_tables": [
         {
           "caption": "계수 정렬 5단계: nums와 res",
@@ -589,7 +589,7 @@
     {
       "announcement": "원래 인덱스 6의 0을 읽어 결과 인덱스 2에 쓰고 prefix[0]을 1 줄인다.",
       "book_path": "chapter_sorting/counting_sort.assets/counting_sort_step6.png",
-      "explanation": "포인터 num이 왼쪽의 원래 인덱스 6으로 이동하며 값은 0이다. 감소 전의 prefix[0] = 3에서 목표 인덱스 3 - 1 = 2를 구해 res[2]에 0을 쓴다. 그런 다음 prefix[0]를 1 줄여 2로 만든다. 그림의 prefix는 이미 감소한 상태다. 원래 인덱스 9부터 6까지 처리했다. res[2]은 실제로 기록한 0이며 표의 ‘기록 전’은 아직 원소를 놓지 않았다는 뜻이다.",
+      "explanation": "포인터 num이 왼쪽의 원래 인덱스 6으로 이동하며 값은 0이다. 감소 전의 prefix[0] = 3에서 목표 인덱스 3 - 1 = 2를 구해 res[2]에 0을 쓴다. 그런 다음 prefix[0]을 1 줄여 2로 만든다. 그림의 prefix는 이미 감소한 상태다. 원래 인덱스 9부터 6까지 처리했다. res[2]는 실제로 기록한 0이며 표의 ‘기록 전’은 아직 원소를 놓지 않았다는 뜻이다.",
       "id": "source-305",
       "key_state": "원래 인덱스 6의 0을 써서 res[2] = 0이 되었고 prefix[0]은 2로 줄었다. 원래 인덱스 9부터 6까지 처리했다.",
       "state_tables": [
@@ -701,7 +701,7 @@
     {
       "announcement": "남은 여섯 원소를 역순으로 써서 결과 배열 res 전체가 정렬되었다.",
       "book_path": "chapter_sorting/counting_sort.assets/counting_sort_step7.png",
-      "explanation": "원래 배열의 인덱스 5부터 0까지 남은 여섯 원소(차례로 4, 0, 2, 1, 0, 1)를 역순으로 처리하여 res의 인덱스 8, 1, 5, 4, 0, 3에 각각 쓴다. 그림은 이 여섯 중간 장면을 생략하고 순회 완료 상태로 넘어간다. res는 정렬된 수열로 가득 찼고 위쪽의 원래 배열 nums는 아직 덮어쓰기 전이다.",
+      "explanation": "원래 배열의 인덱스 5부터 0까지 남은 여섯 원소(차례로 4, 0, 2, 1, 0, 1)을 역순으로 처리하여 res의 인덱스 8, 1, 5, 4, 0, 3에 각각 쓴다. 그림은 이 여섯 중간 장면을 생략하고 순회 완료 상태로 넘어간다. res는 정렬된 수열로 가득 찼고 위쪽의 원래 배열 nums는 아직 덮어쓰기 전이다.",
       "id": "source-306",
       "key_state": "res는 오름차순 수열로 모두 채워졌고 nums는 여전히 원래 순서다.",
       "state_tables": [

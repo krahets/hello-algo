@@ -34,7 +34,7 @@ func (q *arrayQueue) isEmpty() bool {
 
 /* 큐에 삽입 */
 func (q *arrayQueue) push(num int) {
-	// rear == queCapacity 조건이 참이면 큐가 가득 찼다는 뜻이다
+	// queSize == queCapacity 조건이 참이면 큐가 가득 찼다는 뜻이다
 	if q.queSize == q.queCapacity {
 		return
 	}

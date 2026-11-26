@@ -117,7 +117,7 @@ $$
 builtin_hash
 ```
 
-??? pythontutor "以視覺化方式執行"
+??? pythontutor "執行視覺化示範"
 
     @tutor builtin_hash_tutor
 

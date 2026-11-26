@@ -37,4 +37,4 @@ if __name__ == "__main__":
 
     # Binary search (closed interval)
     index = binary_search(nums, target)
-    print("Index of target 6 =  ", index)
+    print("Index of target 6 = ", index)

@@ -49,7 +49,7 @@ public class subset_sum_i {
 
         List<List<Integer>> res = subsetSumI(nums, target);
 
-        System.out.println("Input array nums =  " + Arrays.toString(nums) + ", target = " + target);
-        System.out.println("Subsets that sum to  " + target + " : res =  " + res);
+        System.out.println("Input array nums = " + Arrays.toString(nums) + ", target = " + target);
+        System.out.println("Subsets that sum to  " + target + " : res = " + res);
     }
 }

@@ -64,7 +64,7 @@ impl<T: Copy + Default> ArrayQueue<T> {
     /* キューの先頭要素を参照する */
     fn peek(&self) -> T {
         if self.is_empty() {
-            panic!("index out of bounds");
+            panic!("インデックスが範囲外です");
         }
         self.nums[self.front as usize]
     }

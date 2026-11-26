@@ -74,7 +74,7 @@ func (g *graphAdjMat) removeVertex(index int) {
 func (g *graphAdjMat) addEdge(i, j int) {
 	// 인덱스가 범위를 벗어나거나 서로 같은 경우 처리
 	if i < 0 || j < 0 || i >= g.size() || j >= g.size() || i == j {
-		fmt.Errorf("%s", "Index Out Of Bounds Exception")
+		fmt.Errorf("%s", "인덱스가 범위를 벗어났다")
 	}
 	// 무방향 그래프의 인접 행렬은 주대각선을 기준으로 대칭이므로 (i, j) == (j, i)
 	g.adjMat[i][j] = 1
@@ -86,7 +86,7 @@ func (g *graphAdjMat) addEdge(i, j int) {
 func (g *graphAdjMat) removeEdge(i, j int) {
 	// 인덱스가 범위를 벗어나거나 서로 같은 경우 처리
 	if i < 0 || j < 0 || i >= g.size() || j >= g.size() || i == j {
-		fmt.Errorf("%s", "Index Out Of Bounds Exception")
+		fmt.Errorf("%s", "인덱스가 범위를 벗어났다")
 	}
 	g.adjMat[i][j] = 0
 	g.adjMat[j][i] = 0

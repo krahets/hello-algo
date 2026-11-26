@@ -12,7 +12,7 @@ func coinChangeGreedy(coins: [Int], amt: Int) -> Int {
     var amt = amt
     // 残額がなくなるまで貪欲選択を繰り返す
     while amt > 0 {
-        // 残額より小さく、最も近い額面の硬貨を探す
+        // 残額以下で額面が最大の硬貨を探す
         while i > 0 && coins[i] > amt {
             i -= 1
         }

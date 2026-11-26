@@ -48,6 +48,6 @@
 basic_type_arrays
 ```
 
-??? pythontutor "執行並觀看動畫"
+??? pythontutor "執行視覺化示範"
 
     @tutor basic_type_arrays_tutor

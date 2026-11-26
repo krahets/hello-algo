@@ -46,8 +46,8 @@ public class subset_sum_i {
         int[] nums = [3, 4, 5];
         int target = 9;
         List<List<int>> res = SubsetSumI(nums, target);
-        Console.WriteLine("Input array nums =  " + string.Join(", ", nums) + ", target = " + target);
-        Console.WriteLine("Subsets that sum to  " + target + " : res =  ");
+        Console.WriteLine("Input array nums = " + string.Join(", ", nums) + ", target = " + target);
+        Console.WriteLine("Subsets that sum to  " + target + " : res = ");
         foreach (var subset in res) {
             PrintUtil.PrintList(subset);
         }

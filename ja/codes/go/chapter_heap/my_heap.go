@@ -45,7 +45,7 @@ func (h *maxHeap) right(i int) int {
 
 /* 親のインデックスを取得する */
 func (h *maxHeap) parent(i int) int {
-	// 商を負の無限大方向に切り捨てる
+	// 商を 0 方向に丸める
 	return (i - 1) / 2
 }
 

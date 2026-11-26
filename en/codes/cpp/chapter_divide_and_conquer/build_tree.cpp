@@ -38,9 +38,9 @@ TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
 int main() {
     vector<int> preorder = {3, 9, 2, 1, 7};
     vector<int> inorder = {9, 3, 1, 2, 7};
-    cout << "Preorder traversal =  ";
+    cout << "Preorder traversal = ";
     printVector(preorder);
-    cout << "Inorder traversal =  ";
+    cout << "Inorder traversal = ";
     printVector(inorder);
 
     TreeNode *root = buildTree(preorder, inorder);

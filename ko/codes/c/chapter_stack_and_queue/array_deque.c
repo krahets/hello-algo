@@ -10,7 +10,7 @@
 typedef struct {
     int *nums;       // 덱의 원소를 저장하는 배열
     int front;       // 맨 앞 원소를 가리키는 앞쪽 포인터
-    int queSize;     // 맨 뒤 인덱스 + 1을 가리키는 뒤쪽 포인터
+    int queSize;     // 덱에 저장된 원소 수
     int queCapacity; // 덱의 용량
 } ArrayDeque;
 

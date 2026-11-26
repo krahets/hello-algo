@@ -34,7 +34,7 @@ func (q *arrayQueue) isEmpty() bool {
 
 /* Добавить элемент в очередь */
 func (q *arrayQueue) push(num int) {
-	// Равенство rear == queCapacity означает, что очередь заполнена
+	// Равенство queSize == queCapacity означает, что очередь заполнена
 	if q.queSize == q.queCapacity {
 		return
 	}

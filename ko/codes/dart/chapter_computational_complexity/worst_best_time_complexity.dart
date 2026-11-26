@@ -35,6 +35,6 @@ void main() {
     final nums = randomNumbers(n);
     int index = findOne(nums);
     print('\n배열 [ 1, 2, ..., n ]을 섞은 결과 = $nums');
-    print('숫자 1의 인덱스 = + $index');
+    print('숫자 1의 인덱스 = $index');
   }
 }

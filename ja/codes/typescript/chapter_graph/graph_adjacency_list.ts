@@ -34,7 +34,7 @@ class GraphAdjList {
             !this.adjList.has(vet2) ||
             vet1 === vet2
         ) {
-            throw new Error('Illegal Argument Exception');
+            throw new Error('不正な引数の例外');
         }
         // 辺 vet1 - vet2 を追加する
         this.adjList.get(vet1).push(vet2);
@@ -49,7 +49,7 @@ class GraphAdjList {
             vet1 === vet2 ||
             this.adjList.get(vet1).indexOf(vet2) === -1
         ) {
-            throw new Error('Illegal Argument Exception');
+            throw new Error('不正な引数の例外');
         }
         // 辺 vet1 - vet2 を削除する
         this.adjList.get(vet1).splice(this.adjList.get(vet1).indexOf(vet2), 1);
@@ -66,7 +66,7 @@ class GraphAdjList {
     /* 頂点を削除する */
     removeVertex(vet: Vertex): void {
         if (!this.adjList.has(vet)) {
-            throw new Error('Illegal Argument Exception');
+            throw new Error('不正な引数の例外');
         }
         // 隣接リストから頂点 vet の連結リストを削除する
         this.adjList.delete(vet);

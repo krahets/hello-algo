@@ -58,6 +58,6 @@ void main() {
       quadraticLoop(4) != 20 ||
       logarithmicLoop(4) != 1 ||
       logarithmicLoop(5) != 1) {
-    throw StateError('complexity exercise check failed');
+    throw StateError('복잡도 연습 문제 검증에 실패했다');
   }
 }

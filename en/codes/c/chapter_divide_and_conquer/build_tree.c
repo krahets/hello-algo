@@ -47,9 +47,9 @@ int main() {
     int inorder[] = {9, 3, 1, 2, 7};
     int preorderSize = sizeof(preorder) / sizeof(preorder[0]);
     int inorderSize = sizeof(inorder) / sizeof(inorder[0]);
-    printf("Preorder traversal =  ");
+    printf("Preorder traversal = ");
     printArray(preorder, preorderSize);
-    printf("Inorder traversal =  ");
+    printf("Inorder traversal = ");
     printArray(inorder, inorderSize);
 
     TreeNode *root = buildTree(preorder, preorderSize, inorder, inorderSize);

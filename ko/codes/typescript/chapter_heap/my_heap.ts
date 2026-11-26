@@ -81,7 +81,7 @@ class MaxHeap {
     /* 힙에서 원소 꺼내기 */
     public pop(): number {
         // 빈 힙 처리
-        if (this.isEmpty()) throw new RangeError('Heap is empty.');
+        if (this.isEmpty()) throw new RangeError('힙이 비어 있다.');
         // 루트와 맨 오른쪽 리프 교환(첫 원소와 마지막 원소 교환)
         this.swap(0, this.size() - 1);
         // 노드 삭제

@@ -40,7 +40,7 @@ int main() {
 
     // Binary search (closed interval)
     int index = binarySearch(nums, target);
-    cout << "Index of target 6 =  " << index << endl;
+    cout << "Index of target 6 = " << index << endl;
 
     return 0;
 }

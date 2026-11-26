@@ -62,7 +62,7 @@ int main() {
 
     int **res = permutationsI(nums, numsSize, &returnSize);
 
-    printf("Input array nums =  ");
+    printf("Input array nums = ");
     printArray(nums, numsSize);
     printf("\nAll permutations res = \n");
     for (int i = 0; i < returnSize; i++) {

@@ -62,7 +62,7 @@ class MinHeap {
 
   /* 親のインデックスを取得する */
   int _parent(int i) {
-    return (i - 1) ~/ 2; // 商を負の無限大方向に切り捨てる
+    return (i - 1) ~/ 2; // 商を 0 方向に丸める
   }
 
   /* 要素を交換する */
@@ -134,7 +134,7 @@ class MinHeap {
       int mi = i;
       if (l < size() && _minHeap[l] < _minHeap[mi]) mi = l;
       if (r < size() && _minHeap[r] < _minHeap[mi]) mi = r;
-      // ノード i が最大か、インデックス l と r がともに範囲外なら、ヒープ化を終えてループを抜ける
+      // 親より値の小さい子がなければ終了する
       if (mi == i) break;
       // 2 つのノードを交換する
       _swap(i, mi);

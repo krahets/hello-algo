@@ -102,8 +102,8 @@
 | path                           | 路徑           |
 | in-degree                      | 入度           |
 | out-degree                     | 出度           |
-| adjacency matrix               | 相鄰矩陣       |
-| adjacency list                 | 相鄰串列         |
+| adjacency matrix               | 鄰接矩陣       |
+| adjacency list                 | 鄰接串列         |
 | breadth-first search           | 廣度優先搜尋   |
 | depth-first search             | 深度優先搜尋   |
 | binary search                  | 二分搜尋法       |

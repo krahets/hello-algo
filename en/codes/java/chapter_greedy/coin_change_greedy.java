@@ -16,7 +16,7 @@ public class coin_change_greedy {
         int count = 0;
         // Make greedy choices until no amount remains
         while (amt > 0) {
-            // Find the closest denomination below the remaining amount
+            // Find the largest denomination that does not exceed the remaining amount
             while (i > 0 && coins[i] > amt) {
                 i--;
             }

@@ -34,7 +34,7 @@ func (q *arrayQueue) isEmpty() bool {
 
 /* 入隊 */
 func (q *arrayQueue) push(num int) {
-	// rear == queCapacity 時表示佇列已滿
+	// queSize == queCapacity 時表示佇列已滿
 	if q.queSize == q.queCapacity {
 		return
 	}

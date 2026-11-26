@@ -47,9 +47,9 @@ int main() {
 
     vector<vector<int>> res = permutationsII(nums);
 
-    cout << "Input array nums =  ";
+    cout << "Input array nums = ";
     printVector(nums);
-    cout << "All permutations res =  ";
+    cout << "All permutations res = ";
     printVectorMatrix(res);
 
     return 0;

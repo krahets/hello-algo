@@ -74,7 +74,7 @@ func (g *graphAdjMat) removeVertex(index int) {
 func (g *graphAdjMat) addEdge(i, j int) {
 	// インデックスが範囲外または同じ値の場合の処理
 	if i < 0 || j < 0 || i >= g.size() || j >= g.size() || i == j {
-		fmt.Errorf("%s", "Index Out Of Bounds Exception")
+		fmt.Errorf("%s", "インデックス範囲外の例外")
 	}
 	// 無向グラフの隣接行列は主対角線に関して対称で、(i, j) == (j, i) を満たす
 	g.adjMat[i][j] = 1
@@ -86,7 +86,7 @@ func (g *graphAdjMat) addEdge(i, j int) {
 func (g *graphAdjMat) removeEdge(i, j int) {
 	// インデックスが範囲外または同じ値の場合の処理
 	if i < 0 || j < 0 || i >= g.size() || j >= g.size() || i == j {
-		fmt.Errorf("%s", "Index Out Of Bounds Exception")
+		fmt.Errorf("%s", "インデックス範囲外の例外")
 	}
 	g.adjMat[i][j] = 0
 	g.adjMat[j][i] = 0

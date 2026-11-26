@@ -34,7 +34,7 @@ class GraphAdjList {
             !this.adjList.has(vet2) ||
             vet1 === vet2
         ) {
-            throw new Error('Illegal Argument Exception');
+            throw new Error('잘못된 인수');
         }
         // 간선 vet1 - vet2 추가
         this.adjList.get(vet1).push(vet2);
@@ -49,7 +49,7 @@ class GraphAdjList {
             vet1 === vet2 ||
             this.adjList.get(vet1).indexOf(vet2) === -1
         ) {
-            throw new Error('Illegal Argument Exception');
+            throw new Error('잘못된 인수');
         }
         // 간선 vet1 - vet2 삭제
         this.adjList.get(vet1).splice(this.adjList.get(vet1).indexOf(vet2), 1);
@@ -66,7 +66,7 @@ class GraphAdjList {
     /* 정점 삭제 */
     removeVertex(vet) {
         if (!this.adjList.has(vet)) {
-            throw new Error('Illegal Argument Exception');
+            throw new Error('잘못된 인수');
         }
         // 인접 리스트에서 정점 vet에 해당하는 연결 리스트 삭제
         this.adjList.delete(vet);

@@ -141,7 +141,7 @@ nav:
     - chapter_data_structure/index.md
     - 3.1 &nbsp; Classifying data structures: chapter_data_structure/classification_of_data_structure.md
     - 3.2 &nbsp; Basic data types: chapter_data_structure/basic_data_types.md
-    - 3.3 &nbsp; Number encoding *: chapter_data_structure/number_encoding.md
+    - 3.3 &nbsp; Number representations *: chapter_data_structure/number_encoding.md
     - 3.4 &nbsp; Character encoding *: chapter_data_structure/character_encoding.md
     - 3.5 &nbsp; Summary: chapter_data_structure/summary.md
     - 3.6 &nbsp; Exercises: chapter_data_structure/exercises.md
@@ -159,31 +159,31 @@ nav:
     - chapter_stack_and_queue/index.md
     - 5.1 &nbsp; Stacks: chapter_stack_and_queue/stack.md
     - 5.2 &nbsp; Queues: chapter_stack_and_queue/queue.md
-    - 5.3 &nbsp; Double-ended queues: chapter_stack_and_queue/deque.md
+    - 5.3 &nbsp; Deques: chapter_stack_and_queue/deque.md
     - 5.4 &nbsp; Summary: chapter_stack_and_queue/summary.md
     - 5.5 &nbsp; Exercises: chapter_stack_and_queue/exercises.md
   - Chapter 6. &nbsp; Hash tables:
     # [icon: material/table-search]
     - chapter_hashing/index.md
-    - 6.1 &nbsp; Hash tables: chapter_hashing/hash_map.md
+    - 6.1 &nbsp; Hash table: chapter_hashing/hash_map.md
     - 6.2 &nbsp; Hash collisions: chapter_hashing/hash_collision.md
-    - 6.3 &nbsp; Hashing algorithms: chapter_hashing/hash_algorithm.md
+    - 6.3 &nbsp; Hash algorithms: chapter_hashing/hash_algorithm.md
     - 6.4 &nbsp; Summary: chapter_hashing/summary.md
     - 6.5 &nbsp; Exercises: chapter_hashing/exercises.md
   - Chapter 7. &nbsp; Trees:
     # [icon: material/graph-outline]
     - chapter_tree/index.md
-    - 7.1 &nbsp; Binary trees: chapter_tree/binary_tree.md
+    - 7.1 &nbsp; Binary tree: chapter_tree/binary_tree.md
     - 7.2 &nbsp; Binary tree traversal: chapter_tree/binary_tree_traversal.md
     - 7.3 &nbsp; Representing binary trees with arrays: chapter_tree/array_representation_of_tree.md
-    - 7.4 &nbsp; Binary search trees: chapter_tree/binary_search_tree.md
+    - 7.4 &nbsp; Binary search tree: chapter_tree/binary_search_tree.md
     - 7.5 &nbsp; AVL trees *: chapter_tree/avl_tree.md
     - 7.6 &nbsp; Summary: chapter_tree/summary.md
     - 7.7 &nbsp; Exercises: chapter_tree/exercises.md
   - Chapter 8. &nbsp; Heaps:
     # [icon: material/family-tree]
     - chapter_heap/index.md
-    - 8.1 &nbsp; Heaps: chapter_heap/heap.md
+    - 8.1 &nbsp; Heap: chapter_heap/heap.md
     - 8.2 &nbsp; Building a heap: chapter_heap/build_heap.md
     - 8.3 &nbsp; The top-k problem: chapter_heap/top_k.md
     - 8.4 &nbsp; Summary: chapter_heap/summary.md
@@ -191,7 +191,7 @@ nav:
   - Chapter 9. &nbsp; Graphs:
     # [icon: material/graphql]
     - chapter_graph/index.md
-    - 9.1 &nbsp; Graphs: chapter_graph/graph.md
+    - 9.1 &nbsp; Graph: chapter_graph/graph.md
     - 9.2 &nbsp; Basic graph operations: chapter_graph/graph_operations.md
     - 9.3 &nbsp; Graph traversal: chapter_graph/graph_traversal.md
     - 9.4 &nbsp; Summary: chapter_graph/summary.md
@@ -202,7 +202,7 @@ nav:
     - 10.1 &nbsp; Binary search: chapter_searching/binary_search.md
     - 10.2 &nbsp; Finding an insertion point with binary search: chapter_searching/binary_search_insertion.md
     - 10.3 &nbsp; Finding boundaries with binary search: chapter_searching/binary_search_edge.md
-    - 10.4 &nbsp; Using hashing to speed up searches: chapter_searching/replace_linear_by_hashing.md
+    - 10.4 &nbsp; Using hashing to speed up a search: chapter_searching/replace_linear_by_hashing.md
     - 10.5 &nbsp; Search algorithms revisited: chapter_searching/searching_algorithm_revisited.md
     - 10.6 &nbsp; Summary: chapter_searching/summary.md
     - 10.7 &nbsp; Exercises: chapter_searching/exercises.md
@@ -215,7 +215,7 @@ nav:
     - 11.4 &nbsp; Insertion sort: chapter_sorting/insertion_sort.md
     - 11.5 &nbsp; Quicksort: chapter_sorting/quick_sort.md
     - 11.6 &nbsp; Merge sort: chapter_sorting/merge_sort.md
-    - 11.7 &nbsp; Heapsort: chapter_sorting/heap_sort.md
+    - 11.7 &nbsp; Heap sort: chapter_sorting/heap_sort.md
     - 11.8 &nbsp; Bucket sort: chapter_sorting/bucket_sort.md
     - 11.9 &nbsp; Counting sort: chapter_sorting/counting_sort.md
     - 11.10 &nbsp; Radix sort: chapter_sorting/radix_sort.md
@@ -226,15 +226,15 @@ nav:
     - chapter_divide_and_conquer/index.md
     - 12.1 &nbsp; Divide-and-conquer algorithms: chapter_divide_and_conquer/divide_and_conquer.md
     - 12.2 &nbsp; Divide-and-conquer search: chapter_divide_and_conquer/binary_search_recur.md
-    - 12.3 &nbsp; The binary tree construction problem: chapter_divide_and_conquer/build_binary_tree_problem.md
+    - 12.3 &nbsp; Reconstructing a binary tree: chapter_divide_and_conquer/build_binary_tree_problem.md
     - 12.4 &nbsp; The Tower of Hanoi: chapter_divide_and_conquer/hanota_problem.md
     - 12.5 &nbsp; Summary: chapter_divide_and_conquer/summary.md
     - 12.6 &nbsp; Exercises: chapter_divide_and_conquer/exercises.md
   - Chapter 13. &nbsp; Backtracking:
     # [icon: material/map-marker-path]
     - chapter_backtracking/index.md
-    - 13.1 &nbsp; Backtracking algorithms: chapter_backtracking/backtracking_algorithm.md
-    - 13.2 &nbsp; Generating all permutations: chapter_backtracking/permutations_problem.md
+    - 13.1 &nbsp; Backtracking: chapter_backtracking/backtracking_algorithm.md
+    - 13.2 &nbsp; The permutations problem: chapter_backtracking/permutations_problem.md
     - 13.3 &nbsp; The subset sum problem: chapter_backtracking/subset_sum_problem.md
     - 13.4 &nbsp; The N-queens problem: chapter_backtracking/n_queens_problem.md
     - 13.5 &nbsp; Summary: chapter_backtracking/summary.md
@@ -242,9 +242,9 @@ nav:
   - Chapter 14. &nbsp; Dynamic programming:
     # [icon: material/table-pivot]
     - chapter_dynamic_programming/index.md
-    - 14.1 &nbsp; A first look at dynamic programming: chapter_dynamic_programming/intro_to_dynamic_programming.md
-    - 14.2 &nbsp; Characteristics of dynamic programming problems: chapter_dynamic_programming/dp_problem_features.md
-    - 14.3 &nbsp; How to solve dynamic programming problems: chapter_dynamic_programming/dp_solution_pipeline.md
+    - 14.1 &nbsp; Introduction to dynamic programming: chapter_dynamic_programming/intro_to_dynamic_programming.md
+    - 14.2 &nbsp; Properties of dynamic programming problems: chapter_dynamic_programming/dp_problem_features.md
+    - 14.3 &nbsp; Solving problems with dynamic programming: chapter_dynamic_programming/dp_solution_pipeline.md
     - 14.4 &nbsp; The 0-1 knapsack problem: chapter_dynamic_programming/knapsack_problem.md
     - 14.5 &nbsp; The unbounded knapsack problem: chapter_dynamic_programming/unbounded_knapsack_problem.md
     - 14.6 &nbsp; The edit distance problem: chapter_dynamic_programming/edit_distance_problem.md
@@ -254,16 +254,16 @@ nav:
     # [icon: material/head-heart-outline]
     - chapter_greedy/index.md
     - 15.1 &nbsp; Greedy algorithms: chapter_greedy/greedy_algorithm.md
-    - 15.2 &nbsp; The fractional knapsack problem: chapter_greedy/fractional_knapsack_problem.md
-    - 15.3 &nbsp; The maximum capacity problem: chapter_greedy/max_capacity_problem.md
-    - 15.4 &nbsp; Cutting to maximize the product: chapter_greedy/max_product_cutting_problem.md
+    - 15.2 &nbsp; Fractional knapsack problem: chapter_greedy/fractional_knapsack_problem.md
+    - 15.3 &nbsp; Maximum capacity problem: chapter_greedy/max_capacity_problem.md
+    - 15.4 &nbsp; Maximum product after cutting: chapter_greedy/max_product_cutting_problem.md
     - 15.5 &nbsp; Summary: chapter_greedy/summary.md
     - 15.6 &nbsp; Exercises: chapter_greedy/exercises.md
   - Chapter 16. &nbsp; Appendix:
     # [icon: material/help-circle-outline]
     - chapter_appendix/index.md
     - 16.1 &nbsp; Setting up a programming environment: chapter_appendix/installation.md
-    - 16.2 &nbsp; Contributing to this book: chapter_appendix/contribution.md
+    - 16.2 &nbsp; Contributing to the book: chapter_appendix/contribution.md
     - 16.3 &nbsp; Glossary: chapter_appendix/terminology.md
   - References:
     - chapter_reference/index.md

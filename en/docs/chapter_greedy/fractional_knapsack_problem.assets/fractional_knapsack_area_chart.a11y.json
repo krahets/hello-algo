@@ -3,7 +3,7 @@
     "In fractional knapsack, you can take part of an item and receive the corresponding fraction of its value. The knapsack has capacity 50. Since value equals weight times value per unit of weight, a rectangle whose width is the item's weight and whose height is its unit value has an area equal to the item's value."
   ],
   "description": [
-    "Five rectangles sit side by side, their heights decreasing from left to right. The table lists each fruit icon's name, original item number, width, and height. A double-headed arrow below the horizontal axis marks the capacity of 50. It spans the full width of the leftmost rectangle (banana) and extends partway across the second (pineapple).",
+    "Five rectangles sit side by side, their heights arranged in nonincreasing order from left to right. The table lists each fruit icon's name, original item number, width, and height. A double-headed arrow below the horizontal axis marks the capacity of 50. It spans the full width of the leftmost rectangle (banana) and extends partway across the second (pineapple).",
     "The diagram labels the widths, heights, and capacity of 50. The table uses those labels to calculate each whole item's value and the weight and value taken. Item numbers match the earlier table. The diagram does not label the total value of 277.5 separately."
   ],
   "frames": [

@@ -39,7 +39,7 @@
 heap_operations
 ```
 
-??? pythontutor "視覺化執行"
+??? pythontutor "執行視覺化示範"
 
     @tutor heap_operations_tutor
 
