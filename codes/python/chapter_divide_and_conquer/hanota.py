@@ -15,6 +15,9 @@ def move(src: list[int], tar: list[int]):
 
 def dfs(i: int, src: list[int], buf: list[int], tar: list[int]):
     """求解汉诺塔问题 f(i)"""
+    # 若没有圆盘需要移动，则直接返回
+    if i <= 0:
+        return
     # 若 src 只剩下一个圆盘，则直接将其移到 tar
     if i == 1:
         move(src, tar)

@@ -19,6 +19,10 @@ public class hanota {
 
     /* 求解汉诺塔问题 f(i) */
     static void dfs(int i, List<Integer> src, List<Integer> buf, List<Integer> tar) {
+        // 若没有圆盘需要移动，则直接返回
+        if (i <= 0) {
+            return;
+        }
         // 若 src 只剩下一个圆盘，则直接将其移到 tar
         if (i == 1) {
             move(src, tar);

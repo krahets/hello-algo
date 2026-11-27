@@ -16,6 +16,10 @@ fn move_pan(src: &mut Vec<i32>, tar: &mut Vec<i32>) {
 
 /* 求解汉诺塔问题 f(i) */
 fn dfs(i: i32, src: &mut Vec<i32>, buf: &mut Vec<i32>, tar: &mut Vec<i32>) {
+    // 若没有圆盘需要移动，则直接返回
+    if i <= 0 {
+        return;
+    }
     // 若 src 只剩下一个圆盘，则直接将其移到 tar
     if i == 1 {
         move_pan(src, tar);
