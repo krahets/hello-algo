@@ -1,10 +1,10 @@
 <p align="center">
   <a href="https://www.hello-algo.com/ru/">
-    <img src="/docs/index.assets/hello_algo_header.png" width="450"></a>
+    <img src="/docs/index.assets/hello_algo_header.png" width="450" alt="Hello, алгоритмы!"></a>
 </p>
 
 <p align="center">
-  <img style="height: 60px;" src="https://readme-typing-svg.demolab.com?font=Roboto&weight=400&duration=3500&pause=2000&color=21C8B8&center=true&vCenter=true&random=false&width=260&lines=Hello%2C+%D0%90%D0%BB%D0%B3%D0%BE!" alt="hello-algo-typing-svg" />
+  <img style="height: 60px;" src="https://readme-typing-svg.demolab.com?font=Roboto&weight=400&duration=3500&pause=2000&color=21C8B8&center=true&vCenter=true&random=false&width=260&lines=Hello%2C+%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%8B!" alt="Hello, алгоритмы!" />
   </br>
   Учебник по структурам данных и алгоритмам с анимированными схемами и кодом, готовым к запуску в один клик
 </p>
@@ -66,7 +66,7 @@
 >
 > **—— Junhui Deng, профессор факультета компьютерных наук Университета Цинхуа**
 
-> «Если бы у меня была “Hello Algo”, когда я изучал структуры данных и алгоритмы, учиться было бы в десять раз проще!»
+> «Если бы у меня была „Hello, алгоритмы!“, когда я изучал структуры данных и алгоритмы, учиться было бы в десять раз проще!»
 >
 > **—— Mu Li, Senior Principal Scientist, Amazon**
 

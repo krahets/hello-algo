@@ -113,7 +113,7 @@ fn buildMainExeModule(
         run_cmd.addArgs(args);
     }
 
-    const run_step = b.step("run", "Run all hello algo zig");
+    const run_step = b.step("run", "Запустить все примеры из книги «Hello, алгоритмы!» на Zig");
     run_step.dependOn(&run_cmd.step);
 }
 
